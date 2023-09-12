@@ -1,0 +1,1 @@
+# subscan-OpenAPI
