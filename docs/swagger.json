@@ -13,9 +13,75 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Common"
+                    "common"
                 ],
-                "summary": "Get current timestamp",
+                "summary": "current timestamp",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/account/contributions": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "account crowdloan contributions",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountCrowdloanContributionsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/account/referendum": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "account referendum list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountReferendumParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -61,13 +127,16 @@
         },
         "/api/scan/account/tokens": {
             "post": {
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "Account"
+                    "account"
                 ],
-                "summary": "Get account token list",
+                "summary": "account token list",
                 "parameters": [
                     {
                         "description": "params",
@@ -91,13 +160,16 @@
         },
         "/api/scan/accounts/statistics": {
             "post": {
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "Account"
+                    "account"
                 ],
-                "summary": "Get accounts statistics",
+                "summary": "account statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -131,7 +203,7 @@
                 "tags": [
                     "block"
                 ],
-                "summary": "Get block detail",
+                "summary": "block detail",
                 "parameters": [
                     {
                         "description": "params",
@@ -187,9 +259,8 @@
                 }
             }
         },
-        "/api/scan/blocks": {
+        "/api/scan/bounties/proposal": {
             "post": {
-                "description": "Get block list",
                 "consumes": [
                     "application/json"
                 ],
@@ -197,9 +268,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "block"
+                    "governance"
                 ],
-                "summary": "Get block list",
+                "summary": "bounty info",
                 "parameters": [
                     {
                         "description": "params",
@@ -207,7 +278,40 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.BlocksParams"
+                            "$ref": "#/definitions/internal_server_http.bountyParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/bounties/proposals": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "bounty list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.bountiesParams"
                         }
                     }
                 ],
@@ -230,7 +334,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
                 "summary": "Contract Events",
                 "parameters": [
@@ -263,9 +367,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
-                "summary": "Contract Meta",
+                "summary": "contract meta",
                 "parameters": [
                     {
                         "description": "param",
@@ -296,9 +400,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
-                "summary": "Contract List",
+                "summary": "contract List",
                 "parameters": [
                     {
                         "description": "param",
@@ -329,9 +433,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
-                "summary": "Contract Meta",
+                "summary": "contract meta",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -351,7 +455,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
                 "summary": "Contract Timeline",
                 "parameters": [
@@ -384,9 +488,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
-                "summary": "Contract Transactions",
+                "summary": "contract transactions",
                 "parameters": [
                     {
                         "description": "param",
@@ -417,9 +521,75 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Contracts"
+                    "contracts"
                 ],
-                "summary": "compiler Versions",
+                "summary": "compiler versions",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/council/proposal": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "council proposal",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.councilProposalParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/council/proposals": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "council proposals",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.councilProposalsParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -496,16 +666,213 @@
                 }
             }
         },
+        "/api/scan/democracy/proposal": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "democracy details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.democracyParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/democracy/proposals": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "democracies list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.democraciesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/democracy/referendum": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referendum list(legacy)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/democracy/referendums": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referendums",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/democracy/seconded": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "democracy seconded list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.democracySecondedParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/democracy/votes": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referendum votes list(legacy)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumVotesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/download/progress": {
             "get": {
-                "description": "Get download progress",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "api"
                 ],
-                "summary": "Get download progress",
+                "summary": "download progress",
                 "parameters": [
                     {
                         "type": "string",
@@ -597,39 +964,6 @@
                 }
             }
         },
-        "/api/scan/events": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "event"
-                ],
-                "summary": "Get events",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.EventsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/extrinsic": {
             "post": {
                 "produces": [
@@ -660,9 +994,8 @@
                 }
             }
         },
-        "/api/scan/extrinsics": {
+        "/api/scan/fellowship/referendum": {
             "post": {
-                "description": "Get extrinsics list",
                 "consumes": [
                     "application/json"
                 ],
@@ -670,9 +1003,9 @@
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "governance"
                 ],
-                "summary": "Get extrinsics list",
+                "summary": "fellowship referenda details",
                 "parameters": [
                     {
                         "description": "params",
@@ -680,7 +1013,117 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.ExtrinsicsParams"
+                            "$ref": "#/definitions/internal_server_http.fellowshipReferendumParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/fellowship/referendums": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "fellowship referenda list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.fellowshipReferendumsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/fellowship/statistics": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "fellowship referendum statistics",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/fellowship/tracks": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "fellowship referendum tracks",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/fellowship/votes": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "fellowship referendum votes",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.fellowshipReferendumVotesParams"
                         }
                     }
                 ],
@@ -762,14 +1205,178 @@
         },
         "/api/scan/metadata": {
             "post": {
-                "description": "Get current network metadata",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "api"
                 ],
-                "summary": "Get current network metadata",
+                "summary": "current network metadata",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiChain/account": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "multichain account",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiChainAccountParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiChain/balance_value_history": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "account balance value history",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountBalanceValueHistoryParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiChain/balance_value_stat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "account balance value stat",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountBalanceValueStatParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiChain/identities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "multichain identities",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.identitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiChain/price": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "multichain price",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.identitiesParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -879,6 +1486,534 @@
                 }
             }
         },
+        "/api/scan/open/currencies": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "currency"
+                ],
+                "summary": "supported currencies",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/open/price": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "currency"
+                ],
+                "summary": "currency price",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.currencyPriceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/open/price_converter": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "currency"
+                ],
+                "summary": "currency price converter",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.currencyConverterParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/auctionCompetitors": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "auction competitors",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.auctionCompetitorsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/auction_funds_stat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "auction funds stat",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.auctionFundsStatParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/auction_leading_blocks": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "auction leading blocks",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.auctionLeadingBlocksParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/auctions": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "plo auctions list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainAuctionsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/bestBid": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "best bid",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.bestBidParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/bids": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "plo slot bids list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainSlotBidsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/contributes": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "crowdloan fund contributes list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainFundContributesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/fundStat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "crowdloan fund stat",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainFundContributesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/funds": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "crowdloan funds list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.crowdloanFundsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/info": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "parachain info",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainInfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "parachain list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.paraChainListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/meta": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "parachain meta",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/predict": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "winner predict",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.winnerPredictParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/parachain/registerinfo": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "parachain register info",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/pendingExtrinsics": {
             "post": {
                 "consumes": [
@@ -891,6 +2026,72 @@
                     "extrinsic"
                 ],
                 "summary": "get pending extrinsic",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/preimage/details": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "preimage details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.preimageDetailsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/preimage/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "preimage list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.preimageListParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -954,6 +2155,149 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/internal_server_http.proxyExtrinsicsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/referendum": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referenda details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumV2Params"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/referendums": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referenda list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumsV2Params"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/statistics": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referendum statistics",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/tracks": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referendum tracks",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/votes": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "referenda votes list(v2)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendaVotesV2Params"
                         }
                     }
                 ],
@@ -1308,6 +2652,72 @@
                 }
             }
         },
+        "/api/scan/techcomm/proposal": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "techcomm proposal",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.techcommProposalParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/techcomm/proposals": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "techcomm proposals",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.techcommProposalsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/token": {
             "get": {
                 "consumes": [
@@ -1332,13 +2742,16 @@
         },
         "/api/scan/token/holders": {
             "post": {
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "Account"
+                    "account"
                 ],
-                "summary": "Get token holders list",
+                "summary": "token holders list",
                 "parameters": [
                     {
                         "description": "params",
@@ -1382,39 +2795,6 @@
                 }
             }
         },
-        "/api/scan/transfers": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "transfer"
-                ],
-                "summary": "Get transfers",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.transfersParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/treasury/proposal": {
             "post": {
                 "consumes": [
@@ -1426,7 +2806,7 @@
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury Proposal",
+                "summary": "treasury proposal",
                 "parameters": [
                     {
                         "description": "params",
@@ -1459,7 +2839,7 @@
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury Proposals",
+                "summary": "treasury proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -1492,7 +2872,7 @@
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury tip",
+                "summary": "treasury tip",
                 "parameters": [
                     {
                         "description": "params",
@@ -1525,7 +2905,7 @@
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury tippers",
+                "summary": "treasury tippers",
                 "parameters": [
                     {
                         "description": "params",
@@ -1558,7 +2938,7 @@
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury tips",
+                "summary": "treasury tips",
                 "parameters": [
                     {
                         "description": "params",
@@ -1567,6 +2947,40 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/internal_server_http.treasuryTipsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/vesting_release": {
+            "post": {
+                "description": "Vesting Release",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "vesting"
+                ],
+                "summary": "vesting release list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.vestingReleaseParams"
                         }
                     }
                 ],
@@ -1615,13 +3029,16 @@
         },
         "/api/v2/scan/accounts": {
             "post": {
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "Account"
+                    "account"
                 ],
-                "summary": "Get accounts list",
+                "summary": "accounts list",
                 "parameters": [
                     {
                         "description": "params",
@@ -1709,22 +3126,6 @@
                 }
             }
         },
-        "internal_server_http.BlocksParams": {
-            "type": "object",
-            "properties": {
-                "page": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 100
-                }
-            }
-        },
         "internal_server_http.EventParams": {
             "type": "object",
             "required": [
@@ -1747,59 +3148,6 @@
                     "items": {
                         "type": "string"
                     }
-                }
-            }
-        },
-        "internal_server_http.EventsParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "call": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "from": {
-                    "type": "integer"
-                },
-                "from_block": {
-                    "type": "integer"
-                },
-                "module": {
-                    "type": "string"
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "phase": {
-                    "type": "integer",
-                    "enum": [
-                        0,
-                        1,
-                        2
-                    ]
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                },
-                "to": {
-                    "type": "integer"
                 }
             }
         },
@@ -1835,54 +3183,6 @@
                     "items": {
                         "type": "string"
                     }
-                }
-            }
-        },
-        "internal_server_http.ExtrinsicsParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "call": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": "integer"
-                },
-                "module": {
-                    "type": "string"
-                },
-                "no_params": {
-                    "type": "boolean"
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                },
-                "signed": {
-                    "type": "string"
-                },
-                "success": {
-                    "type": "boolean"
-                },
-                "timeout": {
-                    "type": "integer"
-                },
-                "to": {
-                    "type": "integer"
                 }
             }
         },
@@ -1938,6 +3238,86 @@
                 },
                 "type": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_server_http.accountBalanceValueHistoryParams": {
+            "type": "object",
+            "required": [
+                "address",
+                "end",
+                "start"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                },
+                "start": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.accountBalanceValueStatParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.accountCrowdloanContributionsParams": {
+            "type": "object",
+            "required": [
+                "who"
+            ],
+            "properties": {
+                "include_total": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "who": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.accountReferendumParams": {
+            "type": "object",
+            "required": [
+                "account"
+            ],
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string",
+                    "enum": [
+                        "democracy",
+                        "referendum"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -2030,6 +3410,61 @@
                 }
             }
         },
+        "internal_server_http.auctionCompetitorsParams": {
+            "type": "object",
+            "properties": {
+                "auction_index": {
+                    "type": "integer"
+                },
+                "includingFund": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_server_http.auctionFundsStatParams": {
+            "type": "object",
+            "properties": {
+                "auction_id": {
+                    "type": "integer"
+                },
+                "end": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string",
+                    "enum": [
+                        "day",
+                        "hour",
+                        "6hour"
+                    ]
+                },
+                "start": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.auctionLeadingBlocksParams": {
+            "type": "object",
+            "required": [
+                "auction_id"
+            ],
+            "properties": {
+                "auction_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_server_http.bestBidParams": {
+            "type": "object",
+            "required": [
+                "bid_id"
+            ],
+            "properties": {
+                "bid_id": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.bondStatParams": {
             "type": "object",
             "required": [
@@ -2038,6 +3473,36 @@
             "properties": {
                 "stash": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_server_http.bountiesParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "historical",
+                        "active"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.bountyParams": {
+            "type": "object",
+            "properties": {
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
                 }
             }
         },
@@ -2142,6 +3607,134 @@
                 }
             }
         },
+        "internal_server_http.councilProposalParams": {
+            "type": "object",
+            "properties": {
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.councilProposalsParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.crowdloanFundsParams": {
+            "type": "object",
+            "properties": {
+                "auction_index": {
+                    "type": "integer"
+                },
+                "bid_id": {
+                    "type": "string"
+                },
+                "first_period": {
+                    "type": "integer"
+                },
+                "from_block": {
+                    "type": "integer"
+                },
+                "from_history": {
+                    "type": "boolean"
+                },
+                "fund_id": {
+                    "type": "string"
+                },
+                "last_period": {
+                    "type": "integer"
+                },
+                "order": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "para_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "progress": {
+                    "type": "boolean"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "statuses": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "to_block": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_server_http.currencyConverterParams": {
+            "type": "object",
+            "required": [
+                "from",
+                "quote",
+                "value"
+            ],
+            "properties": {
+                "from": {
+                    "type": "string"
+                },
+                "quote": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "integer"
+                },
+                "value": {
+                    "type": "number"
+                }
+            }
+        },
+        "internal_server_http.currencyPriceParams": {
+            "type": "object",
+            "properties": {
+                "base": {
+                    "type": "string"
+                },
+                "quote": {
+                    "type": "string",
+                    "enum": [
+                        "USD"
+                    ]
+                },
+                "time": {
+                    "type": "integer",
+                    "minimum": 1
+                }
+            }
+        },
         "internal_server_http.dailyStatParams": {
             "type": "object",
             "required": [
@@ -2192,6 +3785,61 @@
                 }
             }
         },
+        "internal_server_http.democraciesParams": {
+            "type": "object",
+            "properties": {
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "seconded_count",
+                        "proposal_id"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "historical",
+                        "active"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.democracyParams": {
+            "type": "object",
+            "properties": {
+                "democracy_id": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.democracySecondedParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_server_http.eraStatParams": {
             "type": "object",
             "required": [
@@ -2209,6 +3857,79 @@
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.fellowshipReferendumParams": {
+            "type": "object",
+            "properties": {
+                "referendum_index": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.fellowshipReferendumVotesParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "referendum_index": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.fellowshipReferendumsParams": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "completed",
+                        "active"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.identitiesParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.multiChainAccountParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
                 }
             }
         },
@@ -2300,6 +4021,209 @@
                 }
             }
         },
+        "internal_server_http.paraChainListParams": {
+            "type": "object",
+            "properties": {
+                "filter_anonymous": {
+                    "type": "boolean"
+                },
+                "order": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "internal_server_http.parachainAuctionsParams": {
+            "type": "object",
+            "properties": {
+                "auction_index": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_server_http.parachainFundContributesParams": {
+            "type": "object",
+            "properties": {
+                "from_history": {
+                    "type": "boolean"
+                },
+                "fund_id": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "who": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.parachainInfoParams": {
+            "type": "object",
+            "properties": {
+                "filter_anonymous": {
+                    "type": "boolean"
+                },
+                "order": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "internal_server_http.parachainSlotBidsParams": {
+            "type": "object",
+            "properties": {
+                "auction_index": {
+                    "type": "integer"
+                },
+                "bid_id": {
+                    "type": "string"
+                },
+                "bidder": {
+                    "type": "string"
+                },
+                "first_period": {
+                    "type": "integer"
+                },
+                "from_block": {
+                    "type": "integer"
+                },
+                "from_history": {
+                    "type": "boolean"
+                },
+                "fund_id": {
+                    "type": "string"
+                },
+                "last_period": {
+                    "type": "integer"
+                },
+                "latest": {
+                    "type": "boolean"
+                },
+                "order": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "source": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "to_block": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_server_http.preimageDetailsParams": {
+            "type": "object",
+            "required": [
+                "hash"
+            ],
+            "properties": {
+                "hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.preimageListParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "source": {
+                    "type": "string",
+                    "enum": [
+                        "inline",
+                        "preimage"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "cleared",
+                        "unrequested",
+                        "requested"
+                    ]
+                }
+            }
+        },
         "internal_server_http.priceHistoryParams": {
             "type": "object",
             "required": [
@@ -2354,6 +4278,170 @@
                 }
             }
         },
+        "internal_server_http.referendaVotesV2Params": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "referendum_index": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "sort": {
+                    "type": "string",
+                    "enum": [
+                        "conviction",
+                        "amount",
+                        "votes"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Ayes",
+                        "Nays",
+                        "Abstains"
+                    ]
+                },
+                "valid": {
+                    "type": "string",
+                    "enum": [
+                        "valid",
+                        "invalid"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.referendumParams": {
+            "type": "object",
+            "properties": {
+                "referendum_index": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.referendumV2Params": {
+            "type": "object",
+            "properties": {
+                "referendum_index": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.referendumVotesParams": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "referendum_index": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "sort": {
+                    "type": "string",
+                    "enum": [
+                        "conviction",
+                        "amount",
+                        "votes"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Ayes",
+                        "Nays"
+                    ]
+                },
+                "valid": {
+                    "type": "string",
+                    "enum": [
+                        "valid",
+                        "invalid"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.referendumsParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "completed",
+                        "active"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.referendumsV2Params": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "completed",
+                        "active"
+                    ]
+                }
+            }
+        },
         "internal_server_http.rewardSlashParams": {
             "type": "object",
             "required": [
@@ -2398,6 +4486,29 @@
                 }
             }
         },
+        "internal_server_http.techcommProposalParams": {
+            "type": "object",
+            "properties": {
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.techcommProposalsParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_server_http.tokenHoldersParams": {
             "type": "object",
             "properties": {
@@ -2429,59 +4540,6 @@
                 },
                 "unique_id": {
                     "type": "string"
-                }
-            }
-        },
-        "internal_server_http.transfersParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "asset_symbol": {
-                    "type": "string"
-                },
-                "asset_unique_id": {
-                    "type": "string"
-                },
-                "direction": {
-                    "type": "string",
-                    "enum": [
-                        "all",
-                        "sent",
-                        "received"
-                    ]
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "from_block": {
-                    "type": "integer"
-                },
-                "include_total": {
-                    "type": "boolean"
-                },
-                "order": {
-                    "type": "string",
-                    "enum": [
-                        "asc",
-                        "desc"
-                    ]
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                },
-                "timeout": {
-                    "type": "integer"
-                },
-                "to_block": {
-                    "type": "integer"
                 }
             }
         },
@@ -2592,6 +4650,21 @@
                 }
             }
         },
+        "internal_server_http.vestingReleaseParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "type": "string"
+                },
+                "start": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.votedParams": {
             "type": "object",
             "required": [
@@ -2621,6 +4694,14 @@
                         "count_nominators",
                         "validator_prefs_value"
                     ]
+                }
+            }
+        },
+        "internal_server_http.winnerPredictParams": {
+            "type": "object",
+            "properties": {
+                "auction_index": {
+                    "type": "integer"
                 }
             }
         }

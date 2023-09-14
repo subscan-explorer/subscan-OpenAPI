@@ -20,18 +20,6 @@ definitions:
       only_head:
         type: boolean
     type: object
-  internal_server_http.BlocksParams:
-    properties:
-      page:
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        example: 100
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
   internal_server_http.EventParams:
     properties:
       event_index:
@@ -47,43 +35,6 @@ definitions:
         type: array
     required:
     - event_index
-    type: object
-  internal_server_http.EventsParams:
-    properties:
-      address:
-        type: string
-      block_num:
-        minimum: 0
-        type: integer
-      block_range:
-        type: string
-      call:
-        type: string
-      extrinsic_index:
-        type: string
-      finalized:
-        type: boolean
-      from:
-        type: integer
-      from_block:
-        type: integer
-      module:
-        type: string
-      page:
-        minimum: 0
-        type: integer
-      phase:
-        enum:
-        - 0
-        - 1
-        - 2
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-      to:
-        type: integer
     type: object
   internal_server_http.ExtrinsicDetailParams:
     properties:
@@ -107,39 +58,6 @@ definitions:
         type: array
     required:
     - extrinsic_index
-    type: object
-  internal_server_http.ExtrinsicsParams:
-    properties:
-      address:
-        type: string
-      block_num:
-        minimum: 0
-        type: integer
-      block_range:
-        type: string
-      call:
-        type: string
-      from:
-        type: integer
-      module:
-        type: string
-      no_params:
-        type: boolean
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-      signed:
-        type: string
-      success:
-        type: boolean
-      timeout:
-        type: integer
-      to:
-        type: integer
     type: object
   internal_server_http.GetRawTxParams:
     properties:
@@ -177,6 +95,61 @@ definitions:
         type: integer
       type:
         type: string
+    type: object
+  internal_server_http.accountBalanceValueHistoryParams:
+    properties:
+      address:
+        type: string
+      end:
+        type: string
+      start:
+        type: string
+    required:
+    - address
+    - end
+    - start
+    type: object
+  internal_server_http.accountBalanceValueStatParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_server_http.accountCrowdloanContributionsParams:
+    properties:
+      include_total:
+        type: boolean
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      who:
+        type: string
+    required:
+    - who
+    type: object
+  internal_server_http.accountReferendumParams:
+    properties:
+      account:
+        type: string
+      module:
+        enum:
+        - democracy
+        - referendum
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - account
     type: object
   internal_server_http.accountTokenParams:
     properties:
@@ -244,12 +217,69 @@ definitions:
         - role
         type: string
     type: object
+  internal_server_http.auctionCompetitorsParams:
+    properties:
+      auction_index:
+        type: integer
+      includingFund:
+        type: boolean
+    type: object
+  internal_server_http.auctionFundsStatParams:
+    properties:
+      auction_id:
+        type: integer
+      end:
+        type: string
+      format:
+        enum:
+        - day
+        - hour
+        - 6hour
+        type: string
+      start:
+        type: string
+    type: object
+  internal_server_http.auctionLeadingBlocksParams:
+    properties:
+      auction_id:
+        type: integer
+    required:
+    - auction_id
+    type: object
+  internal_server_http.bestBidParams:
+    properties:
+      bid_id:
+        type: string
+    required:
+    - bid_id
+    type: object
   internal_server_http.bondStatParams:
     properties:
       stash:
         type: string
     required:
     - stash
+    type: object
+  internal_server_http.bountiesParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - historical
+        - active
+        type: string
+    type: object
+  internal_server_http.bountyParams:
+    properties:
+      proposal_id:
+        minimum: 0
+        type: integer
     type: object
   internal_server_http.checkHashParam:
     properties:
@@ -320,6 +350,93 @@ definitions:
       verified:
         type: boolean
     type: object
+  internal_server_http.councilProposalParams:
+    properties:
+      proposal_id:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.councilProposalsParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_server_http.crowdloanFundsParams:
+    properties:
+      auction_index:
+        type: integer
+      bid_id:
+        type: string
+      first_period:
+        type: integer
+      from_block:
+        type: integer
+      from_history:
+        type: boolean
+      fund_id:
+        type: string
+      last_period:
+        type: integer
+      order:
+        type: string
+      owner:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      para_id:
+        type: integer
+      para_ids:
+        items:
+          type: integer
+        type: array
+      progress:
+        type: boolean
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        type: integer
+      statuses:
+        items:
+          type: integer
+        type: array
+      to_block:
+        type: integer
+    type: object
+  internal_server_http.currencyConverterParams:
+    properties:
+      from:
+        type: string
+      quote:
+        type: string
+      time:
+        type: integer
+      value:
+        type: number
+    required:
+    - from
+    - quote
+    - value
+    type: object
+  internal_server_http.currencyPriceParams:
+    properties:
+      base:
+        type: string
+      quote:
+        enum:
+        - USD
+        type: string
+      time:
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.dailyStatParams:
     properties:
       category:
@@ -354,6 +471,45 @@ definitions:
     - end
     - start
     type: object
+  internal_server_http.democraciesParams:
+    properties:
+      order_field:
+        enum:
+        - seconded_count
+        - proposal_id
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - historical
+        - active
+        type: string
+    type: object
+  internal_server_http.democracyParams:
+    properties:
+      democracy_id:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.democracySecondedParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      proposal_id:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.eraStatParams:
     properties:
       address:
@@ -365,6 +521,56 @@ definitions:
         maximum: 100
         minimum: 1
         type: integer
+    required:
+    - address
+    type: object
+  internal_server_http.fellowshipReferendumParams:
+    properties:
+      referendum_index:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.fellowshipReferendumVotesParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      referendum_index:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_server_http.fellowshipReferendumsParams:
+    properties:
+      origin:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - completed
+        - active
+        type: string
+    type: object
+  internal_server_http.identitiesParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_server_http.multiChainAccountParams:
+    properties:
+      address:
+        type: string
     required:
     - address
     type: object
@@ -429,6 +635,146 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.paraChainListParams:
+    properties:
+      filter_anonymous:
+        type: boolean
+      order:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      para_id:
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        items:
+          type: string
+        type: array
+    type: object
+  internal_server_http.parachainAuctionsParams:
+    properties:
+      auction_index:
+        type: integer
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        type: integer
+    type: object
+  internal_server_http.parachainFundContributesParams:
+    properties:
+      from_history:
+        type: boolean
+      fund_id:
+        type: string
+      order:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      para_id:
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      who:
+        type: string
+    type: object
+  internal_server_http.parachainInfoParams:
+    properties:
+      filter_anonymous:
+        type: boolean
+      order:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      para_id:
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        items:
+          type: string
+        type: array
+    type: object
+  internal_server_http.parachainSlotBidsParams:
+    properties:
+      auction_index:
+        type: integer
+      bid_id:
+        type: string
+      bidder:
+        type: string
+      first_period:
+        type: integer
+      from_block:
+        type: integer
+      from_history:
+        type: boolean
+      fund_id:
+        type: string
+      last_period:
+        type: integer
+      latest:
+        type: boolean
+      order:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      para_id:
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      source:
+        type: integer
+      status:
+        type: integer
+      to_block:
+        type: integer
+    type: object
+  internal_server_http.preimageDetailsParams:
+    properties:
+      hash:
+        type: string
+    required:
+    - hash
+    type: object
+  internal_server_http.preimageListParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      source:
+        enum:
+        - inline
+        - preimage
+        type: string
+      status:
+        enum:
+        - cleared
+        - unrequested
+        - requested
+        type: string
+    type: object
   internal_server_http.priceHistoryParams:
     properties:
       currency:
@@ -467,6 +813,123 @@ definitions:
     required:
     - account
     type: object
+  internal_server_http.referendaVotesV2Params:
+    properties:
+      account:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      referendum_index:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      sort:
+        enum:
+        - conviction
+        - amount
+        - votes
+        type: string
+      status:
+        enum:
+        - Ayes
+        - Nays
+        - Abstains
+        type: string
+      valid:
+        enum:
+        - valid
+        - invalid
+        type: string
+    type: object
+  internal_server_http.referendumParams:
+    properties:
+      referendum_index:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.referendumV2Params:
+    properties:
+      referendum_index:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.referendumVotesParams:
+    properties:
+      account:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      referendum_index:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      sort:
+        enum:
+        - conviction
+        - amount
+        - votes
+        type: string
+      status:
+        enum:
+        - Ayes
+        - Nays
+        type: string
+      valid:
+        enum:
+        - valid
+        - invalid
+        type: string
+    type: object
+  internal_server_http.referendumsParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - completed
+        - active
+        type: string
+    type: object
+  internal_server_http.referendumsV2Params:
+    properties:
+      origin:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - completed
+        - active
+        type: string
+    type: object
   internal_server_http.rewardSlashParams:
     properties:
       address:
@@ -497,6 +960,22 @@ definitions:
       spec:
         type: integer
     type: object
+  internal_server_http.techcommProposalParams:
+    properties:
+      proposal_id:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.techcommProposalsParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.tokenHoldersParams:
     properties:
       order:
@@ -520,43 +999,6 @@ definitions:
         type: string
       unique_id:
         type: string
-    type: object
-  internal_server_http.transfersParams:
-    properties:
-      address:
-        type: string
-      asset_symbol:
-        type: string
-      asset_unique_id:
-        type: string
-      direction:
-        enum:
-        - all
-        - sent
-        - received
-        type: string
-      extrinsic_index:
-        type: string
-      from_block:
-        type: integer
-      include_total:
-        type: boolean
-      order:
-        enum:
-        - asc
-        - desc
-        type: string
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-      timeout:
-        type: integer
-      to_block:
-        type: integer
     type: object
   internal_server_http.treasuryProposalParams:
     properties:
@@ -632,6 +1074,16 @@ definitions:
         minimum: 0
         type: integer
     type: object
+  internal_server_http.vestingReleaseParams:
+    properties:
+      end:
+        type: string
+      start:
+        type: string
+    required:
+    - end
+    - start
+    type: object
   internal_server_http.votedParams:
     properties:
       address:
@@ -654,6 +1106,11 @@ definitions:
         - validator_prefs_value
         type: string
     type: object
+  internal_server_http.winnerPredictParams:
+    properties:
+      auction_index:
+        type: integer
+    type: object
 info:
   contact: {}
 paths:
@@ -668,9 +1125,51 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get current timestamp
+      summary: current timestamp
       tags:
-      - Common
+      - common
+  /api/scan/account/contributions:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountCrowdloanContributionsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: account crowdloan contributions
+      tags:
+      - parachain
+  /api/scan/account/referendum:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountReferendumParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: account referendum list
+      tags:
+      - governance
   /api/scan/account/reward_slash:
     post:
       consumes:
@@ -694,6 +1193,8 @@ paths:
       - staking
   /api/scan/account/tokens:
     post:
+      consumes:
+      - application/json
       parameters:
       - description: params
         in: body
@@ -708,11 +1209,13 @@ paths:
           description: success
           schema:
             type: object
-      summary: Get account token list
+      summary: account token list
       tags:
-      - Account
+      - account
   /api/scan/accounts/statistics:
     post:
+      consumes:
+      - application/json
       parameters:
       - description: params
         in: body
@@ -727,9 +1230,9 @@ paths:
           description: success
           schema:
             type: object
-      summary: Get accounts statistics
+      summary: account statistics
       tags:
-      - Account
+      - account
   /api/scan/block:
     post:
       consumes:
@@ -749,7 +1252,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get block detail
+      summary: block detail
       tags:
       - block
   /api/scan/block/header:
@@ -774,18 +1277,17 @@ paths:
       summary: Get block header
       tags:
       - block
-  /api/scan/blocks:
+  /api/scan/bounties/proposal:
     post:
       consumes:
       - application/json
-      description: Get block list
       parameters:
       - description: params
         in: body
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.BlocksParams'
+          $ref: '#/definitions/internal_server_http.bountyParams'
       produces:
       - application/json
       responses:
@@ -793,9 +1295,30 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get block list
+      summary: bounty info
       tags:
-      - block
+      - governance
+  /api/scan/bounties/proposals:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.bountiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: bounty list
+      tags:
+      - governance
   /api/scan/contracts/events:
     post:
       consumes:
@@ -816,7 +1339,7 @@ paths:
             type: object
       summary: Contract Events
       tags:
-      - Contracts
+      - contracts
   /api/scan/contracts/info:
     post:
       consumes:
@@ -835,9 +1358,9 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Contract Meta
+      summary: contract meta
       tags:
-      - Contracts
+      - contracts
   /api/scan/contracts/list:
     post:
       consumes:
@@ -856,9 +1379,9 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Contract List
+      summary: contract List
       tags:
-      - Contracts
+      - contracts
   /api/scan/contracts/meta:
     post:
       consumes:
@@ -870,9 +1393,9 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Contract Meta
+      summary: contract meta
       tags:
-      - Contracts
+      - contracts
   /api/scan/contracts/timeline:
     post:
       consumes:
@@ -893,7 +1416,7 @@ paths:
             type: object
       summary: Contract Timeline
       tags:
-      - Contracts
+      - contracts
   /api/scan/contracts/transactions:
     post:
       consumes:
@@ -912,9 +1435,9 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Contract Transactions
+      summary: contract transactions
       tags:
-      - Contracts
+      - contracts
   /api/scan/contracts/verify/compiler_version:
     get:
       consumes:
@@ -926,9 +1449,51 @@ paths:
           description: OK
           schema:
             type: object
-      summary: compiler Versions
+      summary: compiler versions
       tags:
-      - Contracts
+      - contracts
+  /api/scan/council/proposal:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.councilProposalParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: council proposal
+      tags:
+      - governance
+  /api/scan/council/proposals:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.councilProposalsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: council proposals
+      tags:
+      - governance
   /api/scan/daily:
     post:
       consumes:
@@ -971,9 +1536,134 @@ paths:
       summary: Get daily token stat
       tags:
       - stat
+  /api/scan/democracy/proposal:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.democracyParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: democracy details
+      tags:
+      - governance
+  /api/scan/democracy/proposals:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.democraciesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: democracies list
+      tags:
+      - governance
+  /api/scan/democracy/referendum:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referendum list(legacy)
+      tags:
+      - governance
+  /api/scan/democracy/referendums:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referendums
+      tags:
+      - governance
+  /api/scan/democracy/seconded:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.democracySecondedParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: democracy seconded list
+      tags:
+      - governance
+  /api/scan/democracy/votes:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumVotesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referendum votes list(legacy)
+      tags:
+      - governance
   /api/scan/download/progress:
     get:
-      description: Get download progress
       parameters:
       - description: download key
         in: query
@@ -991,7 +1681,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get download progress
+      summary: download progress
       tags:
       - api
   /api/scan/event:
@@ -1036,27 +1726,6 @@ paths:
       summary: Get event params by index
       tags:
       - event
-  /api/scan/events:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.EventsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: object
-      summary: Get events
-      tags:
-      - event
   /api/scan/extrinsic:
     post:
       parameters:
@@ -1076,18 +1745,17 @@ paths:
       summary: Get extrinsic detail
       tags:
       - extrinsic
-  /api/scan/extrinsics:
+  /api/scan/fellowship/referendum:
     post:
       consumes:
       - application/json
-      description: Get extrinsics list
       parameters:
       - description: params
         in: body
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.ExtrinsicsParams'
+          $ref: '#/definitions/internal_server_http.fellowshipReferendumParams'
       produces:
       - application/json
       responses:
@@ -1095,9 +1763,79 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get extrinsics list
+      summary: fellowship referenda details
       tags:
-      - extrinsic
+      - governance
+  /api/scan/fellowship/referendums:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.fellowshipReferendumsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: fellowship referenda list
+      tags:
+      - governance
+  /api/scan/fellowship/statistics:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: fellowship referendum statistics
+      tags:
+      - governance
+  /api/scan/fellowship/tracks:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: fellowship referendum tracks
+      tags:
+      - governance
+  /api/scan/fellowship/votes:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.fellowshipReferendumVotesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: fellowship referendum votes
+      tags:
+      - governance
   /api/scan/log:
     post:
       consumes:
@@ -1142,7 +1880,6 @@ paths:
       - log
   /api/scan/metadata:
     post:
-      description: Get current network metadata
       produces:
       - application/json
       responses:
@@ -1150,9 +1887,114 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get current network metadata
+      summary: current network metadata
       tags:
       - api
+  /api/scan/multiChain/account:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiChainAccountParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: multichain account
+      tags:
+      - multiChain
+  /api/scan/multiChain/balance_value_history:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountBalanceValueHistoryParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: account balance value history
+      tags:
+      - multiChain
+  /api/scan/multiChain/balance_value_stat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountBalanceValueStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: account balance value stat
+      tags:
+      - multiChain
+  /api/scan/multiChain/identities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.identitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: multichain identities
+      tags:
+      - multiChain
+  /api/scan/multiChain/price:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.identitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: multichain price
+      tags:
+      - multiChain
   /api/scan/multisig:
     post:
       consumes:
@@ -1216,6 +2058,342 @@ paths:
       summary: get multisig extrinsic details list
       tags:
       - multisig
+  /api/scan/open/currencies:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: supported currencies
+      tags:
+      - currency
+  /api/scan/open/price:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.currencyPriceParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: currency price
+      tags:
+      - currency
+  /api/scan/open/price_converter:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.currencyConverterParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: currency price converter
+      tags:
+      - currency
+  /api/scan/parachain/auction_funds_stat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.auctionFundsStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: auction funds stat
+      tags:
+      - parachain
+  /api/scan/parachain/auction_leading_blocks:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.auctionLeadingBlocksParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: auction leading blocks
+      tags:
+      - parachain
+  /api/scan/parachain/auctionCompetitors:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.auctionCompetitorsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: auction competitors
+      tags:
+      - parachain
+  /api/scan/parachain/auctions:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainAuctionsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: plo auctions list
+      tags:
+      - parachain
+  /api/scan/parachain/bestBid:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.bestBidParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: best bid
+      tags:
+      - parachain
+  /api/scan/parachain/bids:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainSlotBidsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: plo slot bids list
+      tags:
+      - parachain
+  /api/scan/parachain/contributes:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainFundContributesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: crowdloan fund contributes list
+      tags:
+      - parachain
+  /api/scan/parachain/fundStat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainFundContributesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: crowdloan fund stat
+      tags:
+      - parachain
+  /api/scan/parachain/funds:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.crowdloanFundsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: crowdloan funds list
+      tags:
+      - parachain
+  /api/scan/parachain/info:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: parachain info
+      tags:
+      - parachain
+  /api/scan/parachain/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.paraChainListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: parachain list
+      tags:
+      - parachain
+  /api/scan/parachain/meta:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: parachain meta
+      tags:
+      - parachain
+  /api/scan/parachain/predict:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.winnerPredictParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: winner predict
+      tags:
+      - parachain
+  /api/scan/parachain/registerinfo:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: object
+      summary: parachain register info
+      tags:
+      - parachain
   /api/scan/pendingExtrinsics:
     post:
       consumes:
@@ -1230,6 +2408,48 @@ paths:
       summary: get pending extrinsic
       tags:
       - extrinsic
+  /api/scan/preimage/details:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.preimageDetailsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: preimage details
+      tags:
+      - governance
+  /api/scan/preimage/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.preimageListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: preimage list
+      tags:
+      - governance
   /api/scan/price/history:
     post:
       consumes:
@@ -1272,6 +2492,97 @@ paths:
       summary: get proxy extrinsics
       tags:
       - proxy
+  /api/scan/referenda/referendum:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumV2Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referenda details
+      tags:
+      - governance
+  /api/scan/referenda/referendums:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumsV2Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referenda list
+      tags:
+      - governance
+  /api/scan/referenda/statistics:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referendum statistics
+      tags:
+      - governance
+  /api/scan/referenda/tracks:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referendum tracks
+      tags:
+      - governance
+  /api/scan/referenda/votes:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendaVotesV2Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: referenda votes list(v2)
+      tags:
+      - governance
   /api/scan/runtime/list:
     post:
       consumes:
@@ -1489,6 +2800,48 @@ paths:
       summary: staking reward sum
       tags:
       - staking
+  /api/scan/techcomm/proposal:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.techcommProposalParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: techcomm proposal
+      tags:
+      - governance
+  /api/scan/techcomm/proposals:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.techcommProposalsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: techcomm proposals
+      tags:
+      - governance
   /api/scan/token:
     get:
       consumes:
@@ -1505,6 +2858,8 @@ paths:
       - token
   /api/scan/token/holders:
     post:
+      consumes:
+      - application/json
       parameters:
       - description: params
         in: body
@@ -1519,9 +2874,9 @@ paths:
           description: success
           schema:
             type: object
-      summary: Get token holders list
+      summary: token holders list
       tags:
-      - Account
+      - account
   /api/scan/token/unique_id:
     get:
       consumes:
@@ -1536,27 +2891,6 @@ paths:
       summary: token list(token unique_id)
       tags:
       - token
-  /api/scan/transfers:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.transfersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: object
-      summary: Get transfers
-      tags:
-      - transfer
   /api/scan/treasury/proposal:
     post:
       consumes:
@@ -1575,7 +2909,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Treasury Proposal
+      summary: treasury proposal
       tags:
       - governance
   /api/scan/treasury/proposals:
@@ -1596,7 +2930,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Treasury Proposals
+      summary: treasury proposals
       tags:
       - governance
   /api/scan/treasury/tip:
@@ -1617,7 +2951,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Treasury tip
+      summary: treasury tip
       tags:
       - governance
   /api/scan/treasury/tippers:
@@ -1638,7 +2972,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Treasury tippers
+      summary: treasury tippers
       tags:
       - governance
   /api/scan/treasury/tips:
@@ -1659,9 +2993,31 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Treasury tips
+      summary: treasury tips
       tags:
       - governance
+  /api/scan/vesting_release:
+    post:
+      consumes:
+      - application/json
+      description: Vesting Release
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.vestingReleaseParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: vesting release list
+      tags:
+      - vesting
   /api/search/check_hash:
     post:
       consumes:
@@ -1685,6 +3041,8 @@ paths:
       - Search
   /api/v2/scan/accounts:
     post:
+      consumes:
+      - application/json
       parameters:
       - description: params
         in: body
@@ -1699,9 +3057,9 @@ paths:
           description: success
           schema:
             type: object
-      summary: Get accounts list
+      summary: accounts list
       tags:
-      - Account
+      - account
   /healthz:
     get:
       description: Health check
