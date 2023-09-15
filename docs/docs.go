@@ -15,6 +15,39 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/check_hash": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "search"
+                ],
+                "summary": "check hash",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.checkHashParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/now": {
             "get": {
                 "consumes": [
@@ -347,7 +380,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract Events",
+                "summary": "contract Events",
                 "parameters": [
                     {
                         "description": "param",
@@ -468,7 +501,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract Timeline",
+                "summary": "contract Timeline",
                 "parameters": [
                     {
                         "description": "param",
@@ -962,6 +995,454 @@ const docTemplate = `{
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/internal_server_http.EventParamsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/abi": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "get abi by method id or event topic",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmAbiSearchParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/account/tokens": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM account tokens",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EVMAccountTokensParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/block": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "Evm block by block number",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EVMBlockParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/contract": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM contract detail",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmContractParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/contract/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM contract list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmContractListParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/contract/solcs": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM contract solc versions",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmContractSolcVersionsParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/erc721/collectible": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc721 collectible detail",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc721CollectibleParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/erc721/collectibles": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc721 collectibles",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc721CollectiblesParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/meta": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "Evm meta",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/token/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM token holders",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmTokenHoldersParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/token/transfer": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM token transfer",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmTokenTransferParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/tokens": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc20/erc721 tokens",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmTokensParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/transaction": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM transaction info",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EVMTransactionParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/v2/transactions": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "Evm transactions",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmTransactionsParam"
                         }
                     }
                 ],
@@ -3005,7 +3486,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/search/check_hash": {
+        "/api/v2/scan/account/reward_slash": {
             "post": {
                 "consumes": [
                     "application/json"
@@ -3014,17 +3495,17 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Search"
+                    "staking"
                 ],
-                "summary": "Check Hash",
+                "summary": "account reward and slash list",
                 "parameters": [
                     {
-                        "description": "param",
-                        "name": "param",
+                        "description": "params",
+                        "name": "params",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.checkHashParam"
+                            "$ref": "#/definitions/internal_server_http.rewardSlashV2Params"
                         }
                     }
                 ],
@@ -3071,6 +3552,297 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v2/scan/blocks": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "block"
+                ],
+                "summary": "blocks list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.blocksParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/daily": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "stat"
+                ],
+                "summary": "daily stat(v2)",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.dailyStatV2Param"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/extrinsics": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "extrinsic"
+                ],
+                "summary": "extrinsics list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.extrinsicsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/logs": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "log"
+                ],
+                "summary": "logs list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.logsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/token/native": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tokens"
+                ],
+                "summary": "native token list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.tokenNativeParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/token/providers": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tokens"
+                ],
+                "summary": "tokens providers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/token/search": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tokens"
+                ],
+                "summary": "tokens search",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.tokensSearchParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/tokens": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tokens"
+                ],
+                "summary": "tokens(v2)",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.tokensV2Param"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/transfers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "transfers list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.transfersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/healthz": {
             "get": {
                 "description": "Health check",
@@ -3107,6 +3879,280 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "internal_plugin_evm_http.EVMAccountTokensParam": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EVMBlockParam": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.EVMTransactionParam": {
+            "type": "object",
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmAbiSearchParams": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmContractListParam": {
+            "type": "object",
+            "properties": {
+                "contracts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "balances",
+                        "verify_time",
+                        "transaction_count"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "search": {
+                    "type": "string",
+                    "maxLength": 256,
+                    "minLength": 1
+                },
+                "verified": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmContractParam": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmContractSolcVersionsParam": {
+            "type": "object",
+            "properties": {
+                "releases": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmErc721CollectibleParam": {
+            "type": "object",
+            "required": [
+                "token_id"
+            ],
+            "properties": {
+                "contract": {
+                    "type": "string"
+                },
+                "token_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmErc721CollectiblesParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmTokenHoldersParam": {
+            "type": "object",
+            "properties": {
+                "contract": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmTokenTransferParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string",
+                    "enum": [
+                        "erc20",
+                        "erc721"
+                    ]
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmTokensParam": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "enum": [
+                        "erc20",
+                        "erc721"
+                    ]
+                },
+                "contracts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "holders",
+                        "transfer_count",
+                        "symbol"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "search": {
+                    "type": "string",
+                    "maxLength": 256,
+                    "minLength": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmTransactionsParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "type": "integer"
+                },
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
         "internal_server_http.BlockHeaderParams": {
             "type": "object",
             "properties": {
@@ -3476,6 +4522,20 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.blocksParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_server_http.bondStatParams": {
             "type": "object",
             "required": [
@@ -3772,6 +4832,32 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.dailyStatV2Param": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "category": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string",
+                    "enum": [
+                        "day",
+                        "hour",
+                        "6hour"
+                    ]
+                },
+                "start": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.dailyTokenStatParams": {
             "type": "object",
             "required": [
@@ -3871,6 +4957,55 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.extrinsicsParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "type": "integer"
+                },
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "call": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "signed": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "timeout": {
+                    "type": "integer"
+                }
+            }
+        },
         "internal_server_http.fellowshipReferendumParams": {
             "type": "object",
             "properties": {
@@ -3929,6 +5064,36 @@ const docTemplate = `{
             ],
             "properties": {
                 "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.logsParams": {
+            "type": "object",
+            "properties": {
+                "after_id": {
+                    "type": "integer"
+                },
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "engine": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "type": {
                     "type": "string"
                 }
             }
@@ -4489,6 +5654,49 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.rewardSlashV2Params": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string",
+                    "enum": [
+                        "Reward",
+                        "Slash"
+                    ]
+                },
+                "claimed_filter": {
+                    "type": "string",
+                    "enum": [
+                        "unclaimed",
+                        "claimed"
+                    ]
+                },
+                "is_stash": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "timeout": {
+                    "type": "integer"
+                }
+            }
+        },
         "internal_server_http.runtimeMetadataParams": {
             "type": "object",
             "properties": {
@@ -4551,6 +5759,123 @@ const docTemplate = `{
                 },
                 "unique_id": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_server_http.tokenNativeParam": {
+            "type": "object",
+            "properties": {
+                "include_extends": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_server_http.tokensSearchParam": {
+            "type": "object",
+            "properties": {
+                "include_extends": {
+                    "type": "boolean"
+                },
+                "unique_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "internal_server_http.tokensV2Param": {
+            "type": "object",
+            "properties": {
+                "include_extends": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "provider": {
+                    "type": "string"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.transfersParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string",
+                    "enum": [
+                        "token",
+                        "usd"
+                    ]
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "sent",
+                        "received"
+                    ]
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "include_total": {
+                    "type": "boolean"
+                },
+                "item_id": {
+                    "type": "integer"
+                },
+                "max_amount": {
+                    "type": "string"
+                },
+                "min_amount": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "timeout": {
+                    "type": "integer"
                 }
             }
         },

@@ -1,4 +1,193 @@
 definitions:
+  internal_plugin_evm_http.EVMAccountTokensParam:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_plugin_evm_http.EVMBlockParam:
+    properties:
+      block_num:
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.EVMTransactionParam:
+    properties:
+      extrinsic_index:
+        type: string
+      hash:
+        type: string
+    type: object
+  internal_plugin_evm_http.EvmAbiSearchParams:
+    properties:
+      id:
+        items:
+          type: string
+        type: array
+    required:
+    - id
+    type: object
+  internal_plugin_evm_http.EvmContractListParam:
+    properties:
+      contracts:
+        items:
+          type: string
+        type: array
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        enum:
+        - balances
+        - verify_time
+        - transaction_count
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      search:
+        maxLength: 256
+        minLength: 1
+        type: string
+      verified:
+        type: boolean
+    type: object
+  internal_plugin_evm_http.EvmContractParam:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_plugin_evm_http.EvmContractSolcVersionsParam:
+    properties:
+      releases:
+        type: boolean
+    type: object
+  internal_plugin_evm_http.EvmErc721CollectibleParam:
+    properties:
+      contract:
+        type: string
+      token_id:
+        type: string
+    required:
+    - token_id
+    type: object
+  internal_plugin_evm_http.EvmErc721CollectiblesParam:
+    properties:
+      address:
+        type: string
+      contract:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_id:
+        type: string
+    type: object
+  internal_plugin_evm_http.EvmTokenHoldersParam:
+    properties:
+      contract:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.EvmTokenTransferParam:
+    properties:
+      address:
+        type: string
+      category:
+        enum:
+        - erc20
+        - erc721
+        type: string
+      contract:
+        type: string
+      hash:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_id:
+        type: string
+    type: object
+  internal_plugin_evm_http.EvmTokensParam:
+    properties:
+      category:
+        enum:
+        - erc20
+        - erc721
+        type: string
+      contracts:
+        items:
+          type: string
+        type: array
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        enum:
+        - holders
+        - transfer_count
+        - symbol
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      search:
+        maxLength: 256
+        minLength: 1
+        type: string
+    type: object
+  internal_plugin_evm_http.EvmTransactionsParam:
+    properties:
+      address:
+        type: string
+      after_id:
+        type: integer
+      block_num:
+        minimum: 1
+        type: integer
+      block_range:
+        type: string
+      contract:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      success:
+        type: boolean
+    type: object
   internal_server_http.BlockHeaderParams:
     properties:
       block_num:
@@ -253,6 +442,16 @@ definitions:
     required:
     - bid_id
     type: object
+  internal_server_http.blocksParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.bondStatParams:
     properties:
       stash:
@@ -455,6 +654,24 @@ definitions:
     - end
     - start
     type: object
+  internal_server_http.dailyStatV2Param:
+    properties:
+      category:
+        type: string
+      end:
+        type: string
+      format:
+        enum:
+        - day
+        - hour
+        - 6hour
+        type: string
+      start:
+        type: string
+    required:
+    - end
+    - start
+    type: object
   internal_server_http.dailyTokenStatParams:
     properties:
       end:
@@ -524,6 +741,40 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.extrinsicsParams:
+    properties:
+      address:
+        type: string
+      after_id:
+        type: integer
+      block_num:
+        minimum: 0
+        type: integer
+      block_range:
+        type: string
+      call:
+        type: string
+      module:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      signed:
+        type: string
+      success:
+        type: boolean
+      timeout:
+        type: integer
+    type: object
   internal_server_http.fellowshipReferendumParams:
     properties:
       referendum_index:
@@ -566,6 +817,27 @@ definitions:
         type: string
     required:
     - address
+    type: object
+  internal_server_http.logsParams:
+    properties:
+      after_id:
+        type: integer
+      block_num:
+        minimum: 0
+        type: integer
+      block_range:
+        type: string
+      engine:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      type:
+        type: string
     type: object
   internal_server_http.multiChainAccountParams:
     properties:
@@ -955,6 +1227,36 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.rewardSlashV2Params:
+    properties:
+      address:
+        type: string
+      block_range:
+        type: string
+      category:
+        enum:
+        - Reward
+        - Slash
+        type: string
+      claimed_filter:
+        enum:
+        - unclaimed
+        - claimed
+        type: string
+      is_stash:
+        type: boolean
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      timeout:
+        type: integer
+    required:
+    - address
+    type: object
   internal_server_http.runtimeMetadataParams:
     properties:
       spec:
@@ -999,6 +1301,86 @@ definitions:
         type: string
       unique_id:
         type: string
+    type: object
+  internal_server_http.tokenNativeParam:
+    properties:
+      include_extends:
+        type: boolean
+    type: object
+  internal_server_http.tokensSearchParam:
+    properties:
+      include_extends:
+        type: boolean
+      unique_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  internal_server_http.tokensV2Param:
+    properties:
+      include_extends:
+        type: boolean
+      page:
+        minimum: 0
+        type: integer
+      provider:
+        type: string
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_server_http.transfersParams:
+    properties:
+      address:
+        type: string
+      after_id:
+        items:
+          type: integer
+        type: array
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      block_range:
+        type: string
+      currency:
+        enum:
+        - token
+        - usd
+        type: string
+      direction:
+        enum:
+        - all
+        - sent
+        - received
+        type: string
+      extrinsic_index:
+        type: string
+      include_total:
+        type: boolean
+      item_id:
+        type: integer
+      max_amount:
+        type: string
+      min_amount:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      success:
+        type: boolean
+      timeout:
+        type: integer
     type: object
   internal_server_http.treasuryProposalParams:
     properties:
@@ -1114,6 +1496,27 @@ definitions:
 info:
   contact: {}
 paths:
+  /api/check_hash:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.checkHashParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: check hash
+      tags:
+      - search
   /api/now:
     get:
       consumes:
@@ -1337,7 +1740,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Contract Events
+      summary: contract Events
       tags:
       - contracts
   /api/scan/contracts/info:
@@ -1414,7 +1817,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Contract Timeline
+      summary: contract Timeline
       tags:
       - contracts
   /api/scan/contracts/transactions:
@@ -1726,6 +2129,291 @@ paths:
       summary: Get event params by index
       tags:
       - event
+  /api/scan/evm/abi:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmAbiSearchParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: get abi by method id or event topic
+      tags:
+      - EVM
+  /api/scan/evm/account/tokens:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EVMAccountTokensParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM account tokens
+      tags:
+      - EVM
+  /api/scan/evm/block:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EVMBlockParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Evm block by block number
+      tags:
+      - EVM
+  /api/scan/evm/contract:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmContractParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM contract detail
+      tags:
+      - EVM
+  /api/scan/evm/contract/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmContractListParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM contract list
+      tags:
+      - EVM
+  /api/scan/evm/contract/solcs:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmContractSolcVersionsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM contract solc versions
+      tags:
+      - EVM
+  /api/scan/evm/erc721/collectible:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmErc721CollectibleParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM erc721 collectible detail
+      tags:
+      - EVM
+  /api/scan/evm/erc721/collectibles:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmErc721CollectiblesParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM erc721 collectibles
+      tags:
+      - EVM
+  /api/scan/evm/meta:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Evm meta
+      tags:
+      - EVM
+  /api/scan/evm/token/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmTokenHoldersParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM token holders
+      tags:
+      - EVM
+  /api/scan/evm/token/transfer:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmTokenTransferParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM token transfer
+      tags:
+      - EVM
+  /api/scan/evm/tokens:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmTokensParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM erc20/erc721 tokens
+      tags:
+      - EVM
+  /api/scan/evm/transaction:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EVMTransactionParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM transaction info
+      tags:
+      - EVM
+  /api/scan/evm/v2/transactions:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmTransactionsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Evm transactions
+      tags:
+      - EVM
   /api/scan/extrinsic:
     post:
       parameters:
@@ -3018,17 +3706,17 @@ paths:
       summary: vesting release list
       tags:
       - vesting
-  /api/search/check_hash:
+  /api/v2/scan/account/reward_slash:
     post:
       consumes:
       - application/json
       parameters:
-      - description: param
+      - description: params
         in: body
-        name: param
+        name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.checkHashParam'
+          $ref: '#/definitions/internal_server_http.rewardSlashV2Params'
       produces:
       - application/json
       responses:
@@ -3036,9 +3724,9 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Check Hash
+      summary: account reward and slash list
       tags:
-      - Search
+      - staking
   /api/v2/scan/accounts:
     post:
       consumes:
@@ -3058,6 +3746,193 @@ paths:
           schema:
             type: object
       summary: accounts list
+      tags:
+      - account
+  /api/v2/scan/blocks:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.blocksParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: blocks list
+      tags:
+      - block
+  /api/v2/scan/daily:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.dailyStatV2Param'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: daily stat(v2)
+      tags:
+      - stat
+  /api/v2/scan/extrinsics:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.extrinsicsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: extrinsics list
+      tags:
+      - extrinsic
+  /api/v2/scan/logs:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.logsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: logs list
+      tags:
+      - log
+  /api/v2/scan/token/native:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.tokenNativeParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: native token list
+      tags:
+      - tokens
+  /api/v2/scan/token/providers:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: tokens providers
+      tags:
+      - tokens
+  /api/v2/scan/token/search:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.tokensSearchParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: tokens search
+      tags:
+      - tokens
+  /api/v2/scan/tokens:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.tokensV2Param'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: tokens(v2)
+      tags:
+      - tokens
+  /api/v2/scan/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.transfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: transfers list
       tags:
       - account
   /healthz:
