@@ -4560,7 +4560,7 @@ paths:
             type: object
       summary: Uniques holders item balances
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/activities:
     post:
       consumes:
@@ -4582,7 +4582,7 @@ paths:
             type: object
       summary: Uniques activities
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/all:
     get:
       consumes:
@@ -4597,7 +4597,7 @@ paths:
             type: object
       summary: Uniques list all
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/unique:
     post:
       consumes:
@@ -4619,7 +4619,7 @@ paths:
             type: object
       summary: Uniques info
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/unique/holders:
     post:
       consumes:
@@ -4641,7 +4641,7 @@ paths:
             type: object
       summary: Uniques holders
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/unique/item:
     post:
       consumes:
@@ -4663,7 +4663,7 @@ paths:
             type: object
       summary: Uniques item info
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/unique/items:
     post:
       consumes:
@@ -4685,7 +4685,7 @@ paths:
             type: object
       summary: Uniques items
       tags:
-      - Uniques
+      - uniques
   /api/scan/uniques/uniques:
     post:
       consumes:
@@ -4707,7 +4707,7 @@ paths:
             type: object
       summary: Uniques list
       tags:
-      - Uniques
+      - uniques
   /api/scan/vesting_release:
     post:
       consumes:

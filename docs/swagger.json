@@ -4200,7 +4200,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques holders item balances",
                 "parameters": [
@@ -4234,7 +4234,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques activities",
                 "parameters": [
@@ -4268,7 +4268,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques list all",
                 "responses": {
@@ -4291,7 +4291,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques info",
                 "parameters": [
@@ -4325,7 +4325,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques holders",
                 "parameters": [
@@ -4359,7 +4359,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques item info",
                 "parameters": [
@@ -4393,7 +4393,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques items",
                 "parameters": [
@@ -4427,7 +4427,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques list",
                 "parameters": [

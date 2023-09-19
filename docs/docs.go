@@ -4211,7 +4211,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques holders item balances",
                 "parameters": [
@@ -4245,7 +4245,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques activities",
                 "parameters": [
@@ -4279,7 +4279,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques list all",
                 "responses": {
@@ -4302,7 +4302,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques info",
                 "parameters": [
@@ -4336,7 +4336,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques holders",
                 "parameters": [
@@ -4370,7 +4370,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques item info",
                 "parameters": [
@@ -4404,7 +4404,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques items",
                 "parameters": [
@@ -4438,7 +4438,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Uniques"
+                    "uniques"
                 ],
                 "summary": "Uniques list",
                 "parameters": [
