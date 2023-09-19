@@ -1,4 +1,218 @@
 definitions:
+  internal_plugin_assets_http.assetActivitiesParams:
+    properties:
+      asset_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_assets_http.assetBalancesParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_plugin_assets_http.assetHolderParams:
+    properties:
+      asset_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_assets_http.assetParam:
+    properties:
+      asset_id:
+        type: number
+    type: object
+  internal_plugin_assets_http.assetTransfersParams:
+    properties:
+      address:
+        type: string
+      after_id:
+        items:
+          type: integer
+        type: array
+      asset_id:
+        type: string
+      block_range:
+        type: string
+      direction:
+        enum:
+        - all
+        - sent
+        - received
+        type: string
+      extrinsic_index:
+        type: string
+      include_total:
+        type: boolean
+      max_amount:
+        type: string
+      min_amount:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      success:
+        type: boolean
+    required:
+    - asset_id
+    type: object
+  internal_plugin_assets_http.assetsParam:
+    properties:
+      asset_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      search:
+        description: assets symbol or name
+        maxLength: 256
+        minLength: 1
+        type: string
+    type: object
+  internal_plugin_crust_swork_http.CrustFilesParams:
+    properties:
+      address:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - address
+    type: object
+  internal_plugin_crust_swork_http.CrustGroupParams:
+    properties:
+      group_owner:
+        type: string
+    required:
+    - group_owner
+    type: object
+  internal_plugin_crust_swork_http.CrustGroupsParams:
+    properties:
+      group_owner:
+        type: string
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        enum:
+        - power
+        - total_stake
+        - members
+        - cap
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 1000
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_crust_swork_http.CrustMemberOrdersParams:
+    properties:
+      address:
+        type: string
+      all_orders:
+        type: boolean
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - address
+    type: object
+  internal_plugin_crust_swork_http.CrustMemberParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_plugin_crust_swork_http.CrustMembersParams:
+    properties:
+      group_owner:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 1000
+        minimum: 1
+        type: integer
+    required:
+    - group_owner
+    type: object
+  internal_plugin_crust_swork_http.CrustOrdersParams:
+    properties:
+      address:
+        items:
+          type: string
+        type: array
+      expired_status:
+        enum:
+        - 1
+        - 2
+        - 3
+        type: integer
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_crust_swork_http.CrustStorageDailyStatParams:
+    properties:
+      category:
+        enum:
+        - nodes
+        - storage
+        - files
+        type: string
+      end:
+        type: string
+      start:
+        type: string
+    required:
+    - end
+    - start
+    type: object
   internal_plugin_evm_http.EVMAccountTokensParam:
     properties:
       address:
@@ -187,6 +401,128 @@ definitions:
         type: integer
       success:
         type: boolean
+    type: object
+  internal_plugin_uniques_http.UniquesActivitiesParams:
+    properties:
+      collection_id:
+        type: number
+      item_id:
+        type: integer
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_uniques_http.UniquesBalancesParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_plugin_uniques_http.UniquesHoldersParams:
+    properties:
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_uniques_http.uniqueItemParams:
+    properties:
+      collection_id:
+        type: number
+      item_id:
+        type: integer
+    type: object
+  internal_plugin_uniques_http.uniqueItemsParams:
+    properties:
+      collection_id:
+        type: number
+      owner:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_uniques_http.uniqueParam:
+    properties:
+      collection_id:
+        type: number
+    type: object
+  internal_plugin_uniques_http.uniquesListParam:
+    properties:
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      search:
+        description: uniques name
+        maxLength: 256
+        minLength: 1
+        type: string
+    type: object
+  internal_pluginv2_pallets_collator.Status:
+    enum:
+    - 1
+    - 2
+    type: integer
+    x-enum-varnames:
+    - Invulnerable
+    - Candidate
+  internal_pluginv2_pallets_collator.collatorInfoParams:
+    properties:
+      account:
+        type: string
+    required:
+    - account
+    type: object
+  internal_pluginv2_pallets_collator.collatorListParams:
+    properties:
+      account:
+        type: string
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        enum:
+        - account
+        - bond
+        - last_change_block
+        - last_authored_block
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        allOf:
+        - $ref: '#/definitions/internal_pluginv2_pallets_collator.Status'
+        enum:
+        - 0
+        - 1
+        - 2
     type: object
   internal_server_http.BlockHeaderParams:
     properties:
@@ -1636,6 +1972,153 @@ paths:
       summary: account statistics
       tags:
       - account
+  /api/scan/assets/account/balances:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_assets_http.assetBalancesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: asset account balances
+      tags:
+      - assets
+  /api/scan/assets/activities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_assets_http.assetActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: asset activities
+      tags:
+      - assets
+  /api/scan/assets/all:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: assets list all
+      tags:
+      - assets
+  /api/scan/assets/asset:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_assets_http.assetParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: asset info
+      tags:
+      - assets
+  /api/scan/assets/asset/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_assets_http.assetHolderParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: asset holders
+      tags:
+      - assets
+  /api/scan/assets/assets:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_assets_http.assetsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: assets list
+      tags:
+      - assets
+  /api/scan/assets/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_assets_http.assetTransfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: asset transfers
+      tags:
+      - assets
   /api/scan/block:
     post:
       consumes:
@@ -1722,6 +2205,62 @@ paths:
       summary: bounty list
       tags:
       - governance
+  /api/scan/collator/info:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_collator.collatorInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: object
+      summary: Collator Info
+      tags:
+      - collator
+  /api/scan/collator/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_collator.collatorListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: object
+      summary: Collator List
+      tags:
+      - collator
+  /api/scan/collator/meta:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: object
+      summary: Collator Meta
+      tags:
+      - collator
   /api/scan/contracts/events:
     post:
       consumes:
@@ -3488,6 +4027,166 @@ paths:
       summary: staking reward sum
       tags:
       - staking
+  /api/scan/swork/daily:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustStorageDailyStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage daily stat
+  /api/scan/swork/group:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustGroupParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage group detail
+  /api/scan/swork/group/members:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustMembersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage group members
+  /api/scan/swork/groups:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustGroupsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage groups
+  /api/scan/swork/member:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustMemberParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage group member detail
+  /api/scan/swork/member/files:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustFilesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage group member files
+  /api/scan/swork/member/orders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustMemberOrdersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage group member orders
+  /api/scan/swork/orders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustOrdersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Crust storage orders
   /api/scan/techcomm/proposal:
     post:
       consumes:
@@ -3684,6 +4383,175 @@ paths:
       summary: treasury tips
       tags:
       - governance
+  /api/scan/uniques/account/balances:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.UniquesBalancesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques holders item balances
+      tags:
+      - Uniques
+  /api/scan/uniques/activities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.UniquesActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques activities
+      tags:
+      - Uniques
+  /api/scan/uniques/all:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques list all
+      tags:
+      - Uniques
+  /api/scan/uniques/unique:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.uniqueParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques info
+      tags:
+      - Uniques
+  /api/scan/uniques/unique/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.UniquesHoldersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques holders
+      tags:
+      - Uniques
+  /api/scan/uniques/unique/item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.uniqueItemParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques item info
+      tags:
+      - Uniques
+  /api/scan/uniques/unique/items:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.uniqueItemsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques items
+      tags:
+      - Uniques
+  /api/scan/uniques/uniques:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_uniques_http.uniquesListParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Uniques list
+      tags:
+      - Uniques
   /api/scan/vesting_release:
     post:
       consumes:
