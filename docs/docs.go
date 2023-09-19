@@ -26,7 +26,7 @@ const docTemplate = `{
                 "tags": [
                     "search"
                 ],
-                "summary": "check hash",
+                "summary": "Check hash",
                 "parameters": [
                     {
                         "description": "param",
@@ -81,7 +81,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "account crowdloan contributions",
+                "summary": "Account crowdloan contributions",
                 "parameters": [
                     {
                         "description": "params",
@@ -114,7 +114,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "account referendum list",
+                "summary": "Account referendum list",
                 "parameters": [
                     {
                         "description": "params",
@@ -147,7 +147,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get reward or slash list",
+                "summary": "Reward or slash list",
                 "parameters": [
                     {
                         "description": "params",
@@ -180,7 +180,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "account token list",
+                "summary": "Account token list",
                 "parameters": [
                     {
                         "description": "params",
@@ -213,7 +213,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "account statistics",
+                "summary": "Account statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -246,7 +246,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "asset account balances",
+                "summary": "Asset account balances",
                 "parameters": [
                     {
                         "description": "param",
@@ -280,7 +280,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "asset activities",
+                "summary": "Asset activities",
                 "parameters": [
                     {
                         "description": "param",
@@ -314,7 +314,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "assets list all",
+                "summary": "Assets list all",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -337,7 +337,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "asset info",
+                "summary": "Asset info",
                 "parameters": [
                     {
                         "description": "param",
@@ -371,7 +371,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "asset holders",
+                "summary": "Asset holders",
                 "parameters": [
                     {
                         "description": "param",
@@ -405,7 +405,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "assets list",
+                "summary": "Assets list",
                 "parameters": [
                     {
                         "description": "param",
@@ -439,7 +439,7 @@ const docTemplate = `{
                 "tags": [
                     "assets"
                 ],
-                "summary": "asset transfers",
+                "summary": "Asset transfers",
                 "parameters": [
                     {
                         "description": "param",
@@ -464,7 +464,6 @@ const docTemplate = `{
         },
         "/api/scan/block": {
             "post": {
-                "description": "Get block detail",
                 "consumes": [
                     "application/json"
                 ],
@@ -474,7 +473,7 @@ const docTemplate = `{
                 "tags": [
                     "block"
                 ],
-                "summary": "block detail",
+                "summary": "Block detail",
                 "parameters": [
                     {
                         "description": "params",
@@ -482,7 +481,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.BlockParams"
+                            "$ref": "#/definitions/internal_server_http.blockParams"
                         }
                     }
                 ],
@@ -498,7 +497,6 @@ const docTemplate = `{
         },
         "/api/scan/block/header": {
             "post": {
-                "description": "Get block header",
                 "consumes": [
                     "application/json"
                 ],
@@ -508,7 +506,7 @@ const docTemplate = `{
                 "tags": [
                     "block"
                 ],
-                "summary": "Get block header",
+                "summary": "Block header",
                 "parameters": [
                     {
                         "description": "params",
@@ -516,7 +514,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.BlockHeaderParams"
+                            "$ref": "#/definitions/internal_server_http.blockHeaderParams"
                         }
                     }
                 ],
@@ -541,7 +539,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "bounty info",
+                "summary": "Bounty info",
                 "parameters": [
                     {
                         "description": "params",
@@ -574,7 +572,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "bounty list",
+                "summary": "Bounty list",
                 "parameters": [
                     {
                         "description": "params",
@@ -695,7 +693,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "contract Events",
+                "summary": "Contract Events",
                 "parameters": [
                     {
                         "description": "param",
@@ -728,7 +726,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "contract meta",
+                "summary": "Contract meta",
                 "parameters": [
                     {
                         "description": "param",
@@ -761,7 +759,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "contract List",
+                "summary": "Contract List",
                 "parameters": [
                     {
                         "description": "param",
@@ -794,7 +792,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "contract meta",
+                "summary": "Contract meta",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -816,7 +814,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "contract Timeline",
+                "summary": "Contract Timeline",
                 "parameters": [
                     {
                         "description": "param",
@@ -849,7 +847,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "contract transactions",
+                "summary": "Contract transactions",
                 "parameters": [
                     {
                         "description": "param",
@@ -882,7 +880,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "compiler versions",
+                "summary": "Compiler versions",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -904,7 +902,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "council proposal",
+                "summary": "Council proposal",
                 "parameters": [
                     {
                         "description": "params",
@@ -937,7 +935,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "council proposals",
+                "summary": "Council proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -970,7 +968,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Get daily stat",
+                "summary": "Daily stat",
                 "parameters": [
                     {
                         "description": "params",
@@ -1003,7 +1001,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Get daily token stat",
+                "summary": "Daily token stat",
                 "parameters": [
                     {
                         "description": "params",
@@ -1036,7 +1034,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "democracy details",
+                "summary": "Democracy details",
                 "parameters": [
                     {
                         "description": "params",
@@ -1069,7 +1067,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "democracies list",
+                "summary": "Democracies list",
                 "parameters": [
                     {
                         "description": "params",
@@ -1102,7 +1100,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referendum list(legacy)",
+                "summary": "Referendum list(legacy)",
                 "parameters": [
                     {
                         "description": "params",
@@ -1135,7 +1133,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referendums",
+                "summary": "Referendums",
                 "parameters": [
                     {
                         "description": "params",
@@ -1168,7 +1166,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "democracy seconded list",
+                "summary": "Democracy seconded list",
                 "parameters": [
                     {
                         "description": "params",
@@ -1201,7 +1199,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referendum votes list(legacy)",
+                "summary": "Referendum votes list(legacy)",
                 "parameters": [
                     {
                         "description": "params",
@@ -1231,7 +1229,7 @@ const docTemplate = `{
                 "tags": [
                     "api"
                 ],
-                "summary": "download progress",
+                "summary": "Download progress",
                 "parameters": [
                     {
                         "type": "string",
@@ -1268,7 +1266,7 @@ const docTemplate = `{
                 "tags": [
                     "event"
                 ],
-                "summary": "Get event by index",
+                "summary": "Event by index",
                 "parameters": [
                     {
                         "description": "params",
@@ -1276,7 +1274,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.EventParams"
+                            "$ref": "#/definitions/internal_server_http.eventInfoParams"
                         }
                     }
                 ],
@@ -1301,7 +1299,7 @@ const docTemplate = `{
                 "tags": [
                     "event"
                 ],
-                "summary": "Get event params by index",
+                "summary": "Event params by index",
                 "parameters": [
                     {
                         "description": "params",
@@ -1309,7 +1307,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.EventParamsParams"
+                            "$ref": "#/definitions/internal_server_http.eventParamsParams"
                         }
                     }
                 ],
@@ -1334,7 +1332,7 @@ const docTemplate = `{
                 "tags": [
                     "EVM"
                 ],
-                "summary": "get abi by method id or event topic",
+                "summary": "ABI by method id or event topic",
                 "parameters": [
                     {
                         "description": "params",
@@ -1779,7 +1777,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Get extrinsic detail",
+                "summary": "Extrinsic detail",
                 "parameters": [
                     {
                         "description": "params",
@@ -1812,7 +1810,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "fellowship referenda details",
+                "summary": "Fellowship referenda details",
                 "parameters": [
                     {
                         "description": "params",
@@ -1845,7 +1843,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "fellowship referenda list",
+                "summary": "Fellowship referenda list",
                 "parameters": [
                     {
                         "description": "params",
@@ -1878,7 +1876,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "fellowship referendum statistics",
+                "summary": "Fellowship referendum statistics",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1900,7 +1898,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "fellowship referendum tracks",
+                "summary": "Fellowship referendum tracks",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1922,7 +1920,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "fellowship referendum votes",
+                "summary": "Fellowship referendum votes",
                 "parameters": [
                     {
                         "description": "params",
@@ -1955,7 +1953,7 @@ const docTemplate = `{
                 "tags": [
                     "log"
                 ],
-                "summary": "Get log by index",
+                "summary": "Block log by index",
                 "parameters": [
                     {
                         "description": "params",
@@ -1963,40 +1961,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.LogInfoParam"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/logs": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "log"
-                ],
-                "summary": "Get logs",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.LogParams"
+                            "$ref": "#/definitions/internal_server_http.logInfoParam"
                         }
                     }
                 ],
@@ -2018,7 +1983,7 @@ const docTemplate = `{
                 "tags": [
                     "api"
                 ],
-                "summary": "current network metadata",
+                "summary": "Current network metadata",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2040,7 +2005,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "multichain account",
+                "summary": "MultiChain account",
                 "parameters": [
                     {
                         "description": "params",
@@ -2073,7 +2038,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "account balance value history",
+                "summary": "Account balance value history",
                 "parameters": [
                     {
                         "description": "params",
@@ -2106,7 +2071,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "account balance value stat",
+                "summary": "Account balance value stat",
                 "parameters": [
                     {
                         "description": "params",
@@ -2139,7 +2104,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "multichain identities",
+                "summary": "MultiChain identities",
                 "parameters": [
                     {
                         "description": "params",
@@ -2172,7 +2137,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "multichain price",
+                "summary": "MultiChain price",
                 "parameters": [
                     {
                         "description": "params",
@@ -2205,7 +2170,7 @@ const docTemplate = `{
                 "tags": [
                     "multisig"
                 ],
-                "summary": "get multisig extrinsic",
+                "summary": "Multisig extrinsic",
                 "parameters": [
                     {
                         "description": "params",
@@ -2238,7 +2203,7 @@ const docTemplate = `{
                 "tags": [
                     "multisig"
                 ],
-                "summary": "get multisig extrinsic list",
+                "summary": "Multisig extrinsic list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2271,7 +2236,7 @@ const docTemplate = `{
                 "tags": [
                     "multisig"
                 ],
-                "summary": "get multisig extrinsic details list",
+                "summary": "Multisig extrinsic details list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2280,6 +2245,204 @@ const docTemplate = `{
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/internal_server_http.multisigsDetailsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nomination_pool/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "nominationPools"
+                ],
+                "summary": "Nomination Pools Activities",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nomination_pool/pool": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "nominationPools"
+                ],
+                "summary": "Nomination Pools Info",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsInfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nomination_pool/pool/member/vote": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "nominationPools"
+                ],
+                "summary": "Nomination Pools Member Vote",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsMemberVoteParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nomination_pool/pool/members": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "nominationPools"
+                ],
+                "summary": "Nomination Pools Members",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsMembersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nomination_pool/pools": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "nominationPools"
+                ],
+                "summary": "Nomination Pools List",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nomination_pool/rewards": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "nominationPools"
+                ],
+                "summary": "Nomination Pools Rewards",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsRewardsParams"
                         }
                     }
                 ],
@@ -2392,7 +2555,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "auction competitors",
+                "summary": "Auction competitors",
                 "parameters": [
                     {
                         "description": "params",
@@ -2425,7 +2588,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "auction funds stat",
+                "summary": "Auction funds stat",
                 "parameters": [
                     {
                         "description": "params",
@@ -2458,7 +2621,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "auction leading blocks",
+                "summary": "Auction leading blocks",
                 "parameters": [
                     {
                         "description": "params",
@@ -2491,7 +2654,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "plo auctions list",
+                "summary": "PLO auctions list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2524,7 +2687,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "best bid",
+                "summary": "Best bid",
                 "parameters": [
                     {
                         "description": "params",
@@ -2557,7 +2720,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "plo slot bids list",
+                "summary": "PLO slot bids list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2590,7 +2753,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "crowdloan fund contributes list",
+                "summary": "Crowdloan fund contributes list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2623,7 +2786,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "crowdloan fund stat",
+                "summary": "Crowdloan fund stat",
                 "parameters": [
                     {
                         "description": "params",
@@ -2656,7 +2819,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "crowdloan funds list",
+                "summary": "Crowdloan funds list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2689,7 +2852,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "parachain info",
+                "summary": "Parachain info",
                 "parameters": [
                     {
                         "description": "params",
@@ -2722,7 +2885,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "parachain list",
+                "summary": "Parachain list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2755,7 +2918,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "parachain meta",
+                "summary": "Parachain meta",
                 "responses": {
                     "200": {
                         "description": "success",
@@ -2777,7 +2940,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "winner predict",
+                "summary": "Winner predict",
                 "parameters": [
                     {
                         "description": "params",
@@ -2810,7 +2973,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "parachain register info",
+                "summary": "Parachain register info",
                 "responses": {
                     "200": {
                         "description": "success",
@@ -2832,7 +2995,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "get pending extrinsic",
+                "summary": "Pending extrinsic",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2854,7 +3017,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "preimage details",
+                "summary": "Preimage details",
                 "parameters": [
                     {
                         "description": "params",
@@ -2887,7 +3050,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "preimage list",
+                "summary": "Preimage list",
                 "parameters": [
                     {
                         "description": "params",
@@ -2920,7 +3083,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Get price history",
+                "summary": "Price history",
                 "parameters": [
                     {
                         "description": "params",
@@ -2953,7 +3116,7 @@ const docTemplate = `{
                 "tags": [
                     "proxy"
                 ],
-                "summary": "get proxy extrinsics",
+                "summary": "Proxy extrinsics",
                 "parameters": [
                     {
                         "description": "params",
@@ -2986,7 +3149,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referenda details",
+                "summary": "Referenda details",
                 "parameters": [
                     {
                         "description": "params",
@@ -3019,7 +3182,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referenda list",
+                "summary": "Referenda list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3052,7 +3215,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referendum statistics",
+                "summary": "Referendum statistics",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3074,7 +3237,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referendum tracks",
+                "summary": "Referendum tracks",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3096,7 +3259,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "referenda votes list(v2)",
+                "summary": "Referenda votes list(v2)",
                 "parameters": [
                     {
                         "description": "params",
@@ -3129,7 +3292,7 @@ const docTemplate = `{
                 "tags": [
                     "runtime"
                 ],
-                "summary": "get runtime list",
+                "summary": "Runtime list",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3151,7 +3314,7 @@ const docTemplate = `{
                 "tags": [
                     "runtime"
                 ],
-                "summary": "get runtime metadata",
+                "summary": "Runtime metadata",
                 "parameters": [
                     {
                         "description": "params",
@@ -3184,7 +3347,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get era stat list",
+                "summary": "Era stat list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3217,7 +3380,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get nominator info",
+                "summary": "Nominator info",
                 "parameters": [
                     {
                         "description": "params",
@@ -3250,7 +3413,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get nominators list",
+                "summary": "Nominators list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3283,7 +3446,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get unbonding list",
+                "summary": "Unbonding list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3316,7 +3479,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get validator info",
+                "summary": "Validator info",
                 "parameters": [
                     {
                         "description": "params",
@@ -3349,7 +3512,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get validators list",
+                "summary": "Validators list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3382,7 +3545,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get voted validators list",
+                "summary": "Voted validators list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3415,7 +3578,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "get waiting validators list",
+                "summary": "Waiting validators list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3448,7 +3611,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "staking reward sum",
+                "summary": "Staking reward sum",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3466,6 +3629,9 @@ const docTemplate = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "crustStorage"
                 ],
                 "summary": "Crust storage daily stat",
                 "parameters": [
@@ -3498,6 +3664,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "crustStorage"
+                ],
                 "summary": "Crust storage group detail",
                 "parameters": [
                     {
@@ -3528,6 +3697,9 @@ const docTemplate = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "crustStorage"
                 ],
                 "summary": "Crust storage group members",
                 "parameters": [
@@ -3560,6 +3732,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "crustStorage"
+                ],
                 "summary": "Crust storage groups",
                 "parameters": [
                     {
@@ -3590,6 +3765,9 @@ const docTemplate = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "crustStorage"
                 ],
                 "summary": "Crust storage group member detail",
                 "parameters": [
@@ -3622,6 +3800,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "crustStorage"
+                ],
                 "summary": "Crust storage group member files",
                 "parameters": [
                     {
@@ -3653,6 +3834,9 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "crustStorage"
+                ],
                 "summary": "Crust storage group member orders",
                 "parameters": [
                     {
@@ -3683,6 +3867,9 @@ const docTemplate = `{
                 ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "crustStorage"
                 ],
                 "summary": "Crust storage orders",
                 "parameters": [
@@ -3718,7 +3905,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "techcomm proposal",
+                "summary": "Techcomm proposal",
                 "parameters": [
                     {
                         "description": "params",
@@ -3751,7 +3938,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "techcomm proposals",
+                "summary": "Techcomm proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -3784,7 +3971,7 @@ const docTemplate = `{
                 "tags": [
                     "token"
                 ],
-                "summary": "token list(token symbol)",
+                "summary": "Token list(token symbol)",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3806,7 +3993,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "token holders list",
+                "summary": "Token holders list",
                 "parameters": [
                     {
                         "description": "params",
@@ -3839,7 +4026,7 @@ const docTemplate = `{
                 "tags": [
                     "token"
                 ],
-                "summary": "token list(token unique_id)",
+                "summary": "Token list(token unique_id)",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3861,7 +4048,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury proposal",
+                "summary": "Treasury proposal",
                 "parameters": [
                     {
                         "description": "params",
@@ -3894,7 +4081,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury proposals",
+                "summary": "Treasury proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -3927,7 +4114,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury tip",
+                "summary": "Treasury tip",
                 "parameters": [
                     {
                         "description": "params",
@@ -3960,7 +4147,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury tippers",
+                "summary": "Treasury tippers",
                 "parameters": [
                     {
                         "description": "params",
@@ -3993,7 +4180,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury tips",
+                "summary": "Treasury tips",
                 "parameters": [
                     {
                         "description": "params",
@@ -4278,7 +4465,6 @@ const docTemplate = `{
         },
         "/api/scan/vesting_release": {
             "post": {
-                "description": "Vesting Release",
                 "consumes": [
                     "application/json"
                 ],
@@ -4288,7 +4474,7 @@ const docTemplate = `{
                 "tags": [
                     "vesting"
                 ],
-                "summary": "vesting release list",
+                "summary": "Vesting release list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4321,7 +4507,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "account reward and slash list",
+                "summary": "Account reward and slash list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4354,7 +4540,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "accounts list",
+                "summary": "Accounts list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4387,7 +4573,7 @@ const docTemplate = `{
                 "tags": [
                     "block"
                 ],
-                "summary": "blocks list",
+                "summary": "Blocks list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4420,7 +4606,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "daily stat(v2)",
+                "summary": "Daily stat(v2)",
                 "parameters": [
                     {
                         "description": "param",
@@ -4454,7 +4640,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "extrinsics list",
+                "summary": "Extrinsics list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4487,7 +4673,7 @@ const docTemplate = `{
                 "tags": [
                     "log"
                 ],
-                "summary": "logs list",
+                "summary": "Logs list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4520,7 +4706,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "native token list",
+                "summary": "Native token list",
                 "parameters": [
                     {
                         "description": "param",
@@ -4554,7 +4740,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "tokens providers",
+                "summary": "Tokens providers",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -4577,7 +4763,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "tokens search",
+                "summary": "Tokens search",
                 "parameters": [
                     {
                         "description": "param",
@@ -4611,7 +4797,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "tokens(v2)",
+                "summary": "Tokens(v2)",
                 "parameters": [
                     {
                         "description": "param",
@@ -4645,7 +4831,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "transfers list",
+                "summary": "Transfers list",
                 "parameters": [
                     {
                         "description": "params",
@@ -4669,7 +4855,6 @@ const docTemplate = `{
         },
         "/healthz": {
             "get": {
-                "description": "Health check",
                 "tags": [
                     "health"
                 ],
@@ -4686,11 +4871,10 @@ const docTemplate = `{
         },
         "/readiness": {
             "get": {
-                "description": "readiness Probe",
                 "tags": [
                     "health"
                 ],
-                "summary": "readiness Probe",
+                "summary": "Readiness Probe",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -5461,58 +5645,90 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.BlockHeaderParams": {
+        "internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams": {
             "type": "object",
             "properties": {
-                "block_num": {
+                "page": {
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 10000
-                }
-            }
-        },
-        "internal_server_http.BlockParams": {
-            "type": "object",
-            "properties": {
-                "block_hash": {
-                    "type": "string",
-                    "example": "0xa8cba357ea4a7d160eb98d37979dffd7213b1dad592a551b391f96c51b19020b"
+                    "minimum": 0
                 },
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 10000
-                },
-                "block_timestamp": {
+                "pool_id": {
                     "type": "integer"
                 },
-                "only_head": {
-                    "type": "boolean"
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
-        "internal_server_http.EventParams": {
+        "internal_pluginv2_pallets_nominationPool.nominationPoolsInfoParams": {
+            "type": "object",
+            "properties": {
+                "pool_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_nominationPool.nominationPoolsListParams": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "type": "string",
+                    "enum": [
+                        "Destroying",
+                        "Open",
+                        "Blocked",
+                        "Destroyed"
+                    ]
+                }
+            }
+        },
+        "internal_pluginv2_pallets_nominationPool.nominationPoolsMemberVoteParams": {
             "type": "object",
             "required": [
-                "event_index"
+                "address"
             ],
             "properties": {
-                "event_index": {
+                "address": {
                     "type": "string"
                 }
             }
         },
-        "internal_server_http.EventParamsParams": {
+        "internal_pluginv2_pallets_nominationPool.nominationPoolsMembersParams": {
             "type": "object",
-            "required": [
-                "event_index"
-            ],
             "properties": {
-                "event_index": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "pool_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_pluginv2_pallets_nominationPool.nominationPoolsRewardsParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "pool_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -5534,75 +5750,6 @@ const docTemplate = `{
                 },
                 "only_extrinsic_event": {
                     "type": "boolean"
-                }
-            }
-        },
-        "internal_server_http.ExtrinsicParamsParams": {
-            "type": "object",
-            "required": [
-                "extrinsic_index"
-            ],
-            "properties": {
-                "extrinsic_index": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "internal_server_http.GetRawTxParams": {
-            "type": "object",
-            "properties": {
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "hash": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_server_http.LogInfoParam": {
-            "type": "object",
-            "required": [
-                "log_index"
-            ],
-            "properties": {
-                "log_index": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_server_http.LogParams": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "engine": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": "integer"
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                },
-                "to": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
                 }
             }
         },
@@ -5827,6 +5974,36 @@ const docTemplate = `{
             "properties": {
                 "bid_id": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_server_http.blockHeaderParams": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10000
+                }
+            }
+        },
+        "internal_server_http.blockParams": {
+            "type": "object",
+            "properties": {
+                "block_hash": {
+                    "type": "string",
+                    "example": "0xa8cba357ea4a7d160eb98d37979dffd7213b1dad592a551b391f96c51b19020b"
+                },
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10000
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "only_head": {
+                    "type": "boolean"
                 }
             }
         },
@@ -6265,6 +6442,45 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.eventInfoParams": {
+            "type": "object",
+            "required": [
+                "event_index"
+            ],
+            "properties": {
+                "event_index": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.eventParamsParams": {
+            "type": "object",
+            "required": [
+                "event_index"
+            ],
+            "properties": {
+                "event_index": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "internal_server_http.extrinsicParamsParams": {
+            "type": "object",
+            "required": [
+                "extrinsic_index"
+            ],
+            "properties": {
+                "extrinsic_index": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "internal_server_http.extrinsicsParams": {
             "type": "object",
             "properties": {
@@ -6372,6 +6588,17 @@ const docTemplate = `{
             ],
             "properties": {
                 "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.logInfoParam": {
+            "type": "object",
+            "required": [
+                "log_index"
+            ],
+            "properties": {
+                "log_index": {
                     "type": "string"
                 }
             }
@@ -6759,6 +6986,17 @@ const docTemplate = `{
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.rawTxParams": {
+            "type": "object",
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
                 }
             }
         },

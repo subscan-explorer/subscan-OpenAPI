@@ -524,42 +524,65 @@ definitions:
         - 1
         - 2
     type: object
-  internal_server_http.BlockHeaderParams:
+  internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
-      block_num:
-        example: 10000
+      page:
         minimum: 0
         type: integer
+      pool_id:
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
     type: object
-  internal_server_http.BlockParams:
+  internal_pluginv2_pallets_nominationPool.nominationPoolsInfoParams:
     properties:
-      block_hash:
-        example: 0xa8cba357ea4a7d160eb98d37979dffd7213b1dad592a551b391f96c51b19020b
+      pool_id:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_nominationPool.nominationPoolsListParams:
+    properties:
+      state:
+        enum:
+        - Destroying
+        - Open
+        - Blocked
+        - Destroyed
         type: string
-      block_num:
-        example: 10000
+    type: object
+  internal_pluginv2_pallets_nominationPool.nominationPoolsMemberVoteParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_pluginv2_pallets_nominationPool.nominationPoolsMembersParams:
+    properties:
+      page:
         minimum: 0
         type: integer
-      block_timestamp:
+      pool_id:
         type: integer
-      only_head:
-        type: boolean
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
     type: object
-  internal_server_http.EventParams:
+  internal_pluginv2_pallets_nominationPool.nominationPoolsRewardsParams:
     properties:
-      event_index:
+      address:
         type: string
-    required:
-    - event_index
-    type: object
-  internal_server_http.EventParamsParams:
-    properties:
-      event_index:
-        items:
-          type: string
-        type: array
-    required:
-    - event_index
+      page:
+        minimum: 0
+        type: integer
+      pool_id:
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
     type: object
   internal_server_http.ExtrinsicDetailParams:
     properties:
@@ -574,52 +597,6 @@ definitions:
         type: string
       only_extrinsic_event:
         type: boolean
-    type: object
-  internal_server_http.ExtrinsicParamsParams:
-    properties:
-      extrinsic_index:
-        items:
-          type: string
-        type: array
-    required:
-    - extrinsic_index
-    type: object
-  internal_server_http.GetRawTxParams:
-    properties:
-      extrinsic_index:
-        type: string
-      hash:
-        type: string
-    type: object
-  internal_server_http.LogInfoParam:
-    properties:
-      log_index:
-        type: string
-    required:
-    - log_index
-    type: object
-  internal_server_http.LogParams:
-    properties:
-      block_num:
-        minimum: 0
-        type: integer
-      block_range:
-        type: string
-      engine:
-        type: string
-      from:
-        type: integer
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-      to:
-        type: integer
-      type:
-        type: string
     type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
@@ -777,6 +754,27 @@ definitions:
         type: string
     required:
     - bid_id
+    type: object
+  internal_server_http.blockHeaderParams:
+    properties:
+      block_num:
+        example: 10000
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.blockParams:
+    properties:
+      block_hash:
+        example: 0xa8cba357ea4a7d160eb98d37979dffd7213b1dad592a551b391f96c51b19020b
+        type: string
+      block_num:
+        example: 10000
+        minimum: 0
+        type: integer
+      block_timestamp:
+        type: integer
+      only_head:
+        type: boolean
     type: object
   internal_server_http.blocksParams:
     properties:
@@ -1077,6 +1075,31 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.eventInfoParams:
+    properties:
+      event_index:
+        type: string
+    required:
+    - event_index
+    type: object
+  internal_server_http.eventParamsParams:
+    properties:
+      event_index:
+        items:
+          type: string
+        type: array
+    required:
+    - event_index
+    type: object
+  internal_server_http.extrinsicParamsParams:
+    properties:
+      extrinsic_index:
+        items:
+          type: string
+        type: array
+    required:
+    - extrinsic_index
+    type: object
   internal_server_http.extrinsicsParams:
     properties:
       address:
@@ -1153,6 +1176,13 @@ definitions:
         type: string
     required:
     - address
+    type: object
+  internal_server_http.logInfoParam:
+    properties:
+      log_index:
+        type: string
+    required:
+    - log_index
     type: object
   internal_server_http.logsParams:
     properties:
@@ -1420,6 +1450,13 @@ definitions:
         type: integer
     required:
     - account
+    type: object
+  internal_server_http.rawTxParams:
+    properties:
+      extrinsic_index:
+        type: string
+      hash:
+        type: string
     type: object
   internal_server_http.referendaVotesV2Params:
     properties:
@@ -1850,7 +1887,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: check hash
+      summary: Check hash
       tags:
       - search
   /api/now:
@@ -1885,7 +1922,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: account crowdloan contributions
+      summary: Account crowdloan contributions
       tags:
       - parachain
   /api/scan/account/referendum:
@@ -1906,7 +1943,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: account referendum list
+      summary: Account referendum list
       tags:
       - governance
   /api/scan/account/reward_slash:
@@ -1927,7 +1964,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get reward or slash list
+      summary: Reward or slash list
       tags:
       - staking
   /api/scan/account/tokens:
@@ -1948,7 +1985,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: account token list
+      summary: Account token list
       tags:
       - account
   /api/scan/accounts/statistics:
@@ -1969,7 +2006,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: account statistics
+      summary: Account statistics
       tags:
       - account
   /api/scan/assets/account/balances:
@@ -1991,7 +2028,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: asset account balances
+      summary: Asset account balances
       tags:
       - assets
   /api/scan/assets/activities:
@@ -2013,7 +2050,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: asset activities
+      summary: Asset activities
       tags:
       - assets
   /api/scan/assets/all:
@@ -2028,7 +2065,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: assets list all
+      summary: Assets list all
       tags:
       - assets
   /api/scan/assets/asset:
@@ -2050,7 +2087,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: asset info
+      summary: Asset info
       tags:
       - assets
   /api/scan/assets/asset/holders:
@@ -2072,7 +2109,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: asset holders
+      summary: Asset holders
       tags:
       - assets
   /api/scan/assets/assets:
@@ -2094,7 +2131,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: assets list
+      summary: Assets list
       tags:
       - assets
   /api/scan/assets/transfers:
@@ -2116,21 +2153,20 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: asset transfers
+      summary: Asset transfers
       tags:
       - assets
   /api/scan/block:
     post:
       consumes:
       - application/json
-      description: Get block detail
       parameters:
       - description: params
         in: body
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.BlockParams'
+          $ref: '#/definitions/internal_server_http.blockParams'
       produces:
       - application/json
       responses:
@@ -2138,21 +2174,20 @@ paths:
           description: OK
           schema:
             type: object
-      summary: block detail
+      summary: Block detail
       tags:
       - block
   /api/scan/block/header:
     post:
       consumes:
       - application/json
-      description: Get block header
       parameters:
       - description: params
         in: body
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.BlockHeaderParams'
+          $ref: '#/definitions/internal_server_http.blockHeaderParams'
       produces:
       - application/json
       responses:
@@ -2160,7 +2195,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get block header
+      summary: Block header
       tags:
       - block
   /api/scan/bounties/proposal:
@@ -2181,7 +2216,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: bounty info
+      summary: Bounty info
       tags:
       - governance
   /api/scan/bounties/proposals:
@@ -2202,7 +2237,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: bounty list
+      summary: Bounty list
       tags:
       - governance
   /api/scan/collator/info:
@@ -2279,7 +2314,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: contract Events
+      summary: Contract Events
       tags:
       - contracts
   /api/scan/contracts/info:
@@ -2300,7 +2335,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: contract meta
+      summary: Contract meta
       tags:
       - contracts
   /api/scan/contracts/list:
@@ -2321,7 +2356,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: contract List
+      summary: Contract List
       tags:
       - contracts
   /api/scan/contracts/meta:
@@ -2335,7 +2370,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: contract meta
+      summary: Contract meta
       tags:
       - contracts
   /api/scan/contracts/timeline:
@@ -2356,7 +2391,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: contract Timeline
+      summary: Contract Timeline
       tags:
       - contracts
   /api/scan/contracts/transactions:
@@ -2377,7 +2412,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: contract transactions
+      summary: Contract transactions
       tags:
       - contracts
   /api/scan/contracts/verify/compiler_version:
@@ -2391,7 +2426,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: compiler versions
+      summary: Compiler versions
       tags:
       - contracts
   /api/scan/council/proposal:
@@ -2412,7 +2447,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: council proposal
+      summary: Council proposal
       tags:
       - governance
   /api/scan/council/proposals:
@@ -2433,7 +2468,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: council proposals
+      summary: Council proposals
       tags:
       - governance
   /api/scan/daily:
@@ -2454,7 +2489,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get daily stat
+      summary: Daily stat
       tags:
       - stat
   /api/scan/daily_token:
@@ -2475,7 +2510,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get daily token stat
+      summary: Daily token stat
       tags:
       - stat
   /api/scan/democracy/proposal:
@@ -2496,7 +2531,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: democracy details
+      summary: Democracy details
       tags:
       - governance
   /api/scan/democracy/proposals:
@@ -2517,7 +2552,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: democracies list
+      summary: Democracies list
       tags:
       - governance
   /api/scan/democracy/referendum:
@@ -2538,7 +2573,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referendum list(legacy)
+      summary: Referendum list(legacy)
       tags:
       - governance
   /api/scan/democracy/referendums:
@@ -2559,7 +2594,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referendums
+      summary: Referendums
       tags:
       - governance
   /api/scan/democracy/seconded:
@@ -2580,7 +2615,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: democracy seconded list
+      summary: Democracy seconded list
       tags:
       - governance
   /api/scan/democracy/votes:
@@ -2601,7 +2636,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referendum votes list(legacy)
+      summary: Referendum votes list(legacy)
       tags:
       - governance
   /api/scan/download/progress:
@@ -2623,7 +2658,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: download progress
+      summary: Download progress
       tags:
       - api
   /api/scan/event:
@@ -2636,7 +2671,7 @@ paths:
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.EventParams'
+          $ref: '#/definitions/internal_server_http.eventInfoParams'
       produces:
       - application/json
       responses:
@@ -2644,7 +2679,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get event by index
+      summary: Event by index
       tags:
       - event
   /api/scan/event/params:
@@ -2657,7 +2692,7 @@ paths:
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.EventParamsParams'
+          $ref: '#/definitions/internal_server_http.eventParamsParams'
       produces:
       - application/json
       responses:
@@ -2665,7 +2700,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get event params by index
+      summary: Event params by index
       tags:
       - event
   /api/scan/evm/abi:
@@ -2686,7 +2721,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get abi by method id or event topic
+      summary: ABI by method id or event topic
       tags:
       - EVM
   /api/scan/evm/account/tokens:
@@ -2969,7 +3004,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get extrinsic detail
+      summary: Extrinsic detail
       tags:
       - extrinsic
   /api/scan/fellowship/referendum:
@@ -2990,7 +3025,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: fellowship referenda details
+      summary: Fellowship referenda details
       tags:
       - governance
   /api/scan/fellowship/referendums:
@@ -3011,7 +3046,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: fellowship referenda list
+      summary: Fellowship referenda list
       tags:
       - governance
   /api/scan/fellowship/statistics:
@@ -3025,7 +3060,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: fellowship referendum statistics
+      summary: Fellowship referendum statistics
       tags:
       - governance
   /api/scan/fellowship/tracks:
@@ -3039,7 +3074,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: fellowship referendum tracks
+      summary: Fellowship referendum tracks
       tags:
       - governance
   /api/scan/fellowship/votes:
@@ -3060,7 +3095,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: fellowship referendum votes
+      summary: Fellowship referendum votes
       tags:
       - governance
   /api/scan/log:
@@ -3073,7 +3108,7 @@ paths:
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.LogInfoParam'
+          $ref: '#/definitions/internal_server_http.logInfoParam'
       produces:
       - application/json
       responses:
@@ -3081,28 +3116,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get log by index
-      tags:
-      - log
-  /api/scan/logs:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.LogParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: object
-      summary: Get logs
+      summary: Block log by index
       tags:
       - log
   /api/scan/metadata:
@@ -3114,7 +3128,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: current network metadata
+      summary: Current network metadata
       tags:
       - api
   /api/scan/multiChain/account:
@@ -3135,7 +3149,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: multichain account
+      summary: MultiChain account
       tags:
       - multiChain
   /api/scan/multiChain/balance_value_history:
@@ -3156,7 +3170,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: account balance value history
+      summary: Account balance value history
       tags:
       - multiChain
   /api/scan/multiChain/balance_value_stat:
@@ -3177,7 +3191,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: account balance value stat
+      summary: Account balance value stat
       tags:
       - multiChain
   /api/scan/multiChain/identities:
@@ -3198,7 +3212,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: multichain identities
+      summary: MultiChain identities
       tags:
       - multiChain
   /api/scan/multiChain/price:
@@ -3219,7 +3233,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: multichain price
+      summary: MultiChain price
       tags:
       - multiChain
   /api/scan/multisig:
@@ -3240,7 +3254,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get multisig extrinsic
+      summary: Multisig extrinsic
       tags:
       - multisig
   /api/scan/multisigs:
@@ -3261,7 +3275,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get multisig extrinsic list
+      summary: Multisig extrinsic list
       tags:
       - multisig
   /api/scan/multisigs/details:
@@ -3282,9 +3296,135 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get multisig extrinsic details list
+      summary: Multisig extrinsic details list
       tags:
       - multisig
+  /api/scan/nomination_pool/activities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Nomination Pools Activities
+      tags:
+      - nominationPools
+  /api/scan/nomination_pool/pool:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Nomination Pools Info
+      tags:
+      - nominationPools
+  /api/scan/nomination_pool/pool/member/vote:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsMemberVoteParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Nomination Pools Member Vote
+      tags:
+      - nominationPools
+  /api/scan/nomination_pool/pool/members:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsMembersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Nomination Pools Members
+      tags:
+      - nominationPools
+  /api/scan/nomination_pool/pools:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Nomination Pools List
+      tags:
+      - nominationPools
+  /api/scan/nomination_pool/rewards:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_nominationPool.nominationPoolsRewardsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Nomination Pools Rewards
+      tags:
+      - nominationPools
   /api/scan/open/currencies:
     post:
       consumes:
@@ -3359,7 +3499,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: auction funds stat
+      summary: Auction funds stat
       tags:
       - parachain
   /api/scan/parachain/auction_leading_blocks:
@@ -3380,7 +3520,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: auction leading blocks
+      summary: Auction leading blocks
       tags:
       - parachain
   /api/scan/parachain/auctionCompetitors:
@@ -3401,7 +3541,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: auction competitors
+      summary: Auction competitors
       tags:
       - parachain
   /api/scan/parachain/auctions:
@@ -3422,7 +3562,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: plo auctions list
+      summary: PLO auctions list
       tags:
       - parachain
   /api/scan/parachain/bestBid:
@@ -3443,7 +3583,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: best bid
+      summary: Best bid
       tags:
       - parachain
   /api/scan/parachain/bids:
@@ -3464,7 +3604,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: plo slot bids list
+      summary: PLO slot bids list
       tags:
       - parachain
   /api/scan/parachain/contributes:
@@ -3485,7 +3625,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: crowdloan fund contributes list
+      summary: Crowdloan fund contributes list
       tags:
       - parachain
   /api/scan/parachain/fundStat:
@@ -3506,7 +3646,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: crowdloan fund stat
+      summary: Crowdloan fund stat
       tags:
       - parachain
   /api/scan/parachain/funds:
@@ -3527,7 +3667,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: crowdloan funds list
+      summary: Crowdloan funds list
       tags:
       - parachain
   /api/scan/parachain/info:
@@ -3548,7 +3688,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: parachain info
+      summary: Parachain info
       tags:
       - parachain
   /api/scan/parachain/list:
@@ -3569,7 +3709,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: parachain list
+      summary: Parachain list
       tags:
       - parachain
   /api/scan/parachain/meta:
@@ -3583,7 +3723,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: parachain meta
+      summary: Parachain meta
       tags:
       - parachain
   /api/scan/parachain/predict:
@@ -3604,7 +3744,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: winner predict
+      summary: Winner predict
       tags:
       - parachain
   /api/scan/parachain/registerinfo:
@@ -3618,7 +3758,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: parachain register info
+      summary: Parachain register info
       tags:
       - parachain
   /api/scan/pendingExtrinsics:
@@ -3632,7 +3772,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get pending extrinsic
+      summary: Pending extrinsic
       tags:
       - extrinsic
   /api/scan/preimage/details:
@@ -3653,7 +3793,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: preimage details
+      summary: Preimage details
       tags:
       - governance
   /api/scan/preimage/list:
@@ -3674,7 +3814,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: preimage list
+      summary: Preimage list
       tags:
       - governance
   /api/scan/price/history:
@@ -3695,7 +3835,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Get price history
+      summary: Price history
       tags:
       - stat
   /api/scan/proxy/extrinsics:
@@ -3716,7 +3856,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get proxy extrinsics
+      summary: Proxy extrinsics
       tags:
       - proxy
   /api/scan/referenda/referendum:
@@ -3737,7 +3877,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referenda details
+      summary: Referenda details
       tags:
       - governance
   /api/scan/referenda/referendums:
@@ -3758,7 +3898,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referenda list
+      summary: Referenda list
       tags:
       - governance
   /api/scan/referenda/statistics:
@@ -3772,7 +3912,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referendum statistics
+      summary: Referendum statistics
       tags:
       - governance
   /api/scan/referenda/tracks:
@@ -3786,7 +3926,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referendum tracks
+      summary: Referendum tracks
       tags:
       - governance
   /api/scan/referenda/votes:
@@ -3807,7 +3947,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: referenda votes list(v2)
+      summary: Referenda votes list(v2)
       tags:
       - governance
   /api/scan/runtime/list:
@@ -3821,7 +3961,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get runtime list
+      summary: Runtime list
       tags:
       - runtime
   /api/scan/runtime/metadata:
@@ -3842,7 +3982,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get runtime metadata
+      summary: Runtime metadata
       tags:
       - runtime
   /api/scan/staking/era_stat:
@@ -3863,7 +4003,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get era stat list
+      summary: Era stat list
       tags:
       - staking
   /api/scan/staking/nominator:
@@ -3884,7 +4024,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get nominator info
+      summary: Nominator info
       tags:
       - staking
   /api/scan/staking/nominators:
@@ -3905,7 +4045,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get nominators list
+      summary: Nominators list
       tags:
       - staking
   /api/scan/staking/unbonding:
@@ -3926,7 +4066,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get unbonding list
+      summary: Unbonding list
       tags:
       - staking
   /api/scan/staking/validator:
@@ -3947,7 +4087,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get validator info
+      summary: Validator info
       tags:
       - staking
   /api/scan/staking/validators:
@@ -3968,7 +4108,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get validators list
+      summary: Validators list
       tags:
       - staking
   /api/scan/staking/voted:
@@ -3989,7 +4129,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get voted validators list
+      summary: Voted validators list
       tags:
       - staking
   /api/scan/staking/waiting:
@@ -4010,7 +4150,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: get waiting validators list
+      summary: Waiting validators list
       tags:
       - staking
   /api/scan/staking_history:
@@ -4024,7 +4164,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: staking reward sum
+      summary: Staking reward sum
       tags:
       - staking
   /api/scan/swork/daily:
@@ -4047,6 +4187,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage daily stat
+      tags:
+      - crustStorage
   /api/scan/swork/group:
     post:
       consumes:
@@ -4067,6 +4209,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage group detail
+      tags:
+      - crustStorage
   /api/scan/swork/group/members:
     post:
       consumes:
@@ -4087,6 +4231,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage group members
+      tags:
+      - crustStorage
   /api/scan/swork/groups:
     post:
       consumes:
@@ -4107,6 +4253,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage groups
+      tags:
+      - crustStorage
   /api/scan/swork/member:
     post:
       consumes:
@@ -4127,6 +4275,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage group member detail
+      tags:
+      - crustStorage
   /api/scan/swork/member/files:
     post:
       consumes:
@@ -4147,6 +4297,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage group member files
+      tags:
+      - crustStorage
   /api/scan/swork/member/orders:
     post:
       consumes:
@@ -4167,6 +4319,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage group member orders
+      tags:
+      - crustStorage
   /api/scan/swork/orders:
     post:
       consumes:
@@ -4187,6 +4341,8 @@ paths:
             additionalProperties: true
             type: object
       summary: Crust storage orders
+      tags:
+      - crustStorage
   /api/scan/techcomm/proposal:
     post:
       consumes:
@@ -4205,7 +4361,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: techcomm proposal
+      summary: Techcomm proposal
       tags:
       - governance
   /api/scan/techcomm/proposals:
@@ -4226,7 +4382,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: techcomm proposals
+      summary: Techcomm proposals
       tags:
       - governance
   /api/scan/token:
@@ -4240,7 +4396,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: token list(token symbol)
+      summary: Token list(token symbol)
       tags:
       - token
   /api/scan/token/holders:
@@ -4261,7 +4417,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: token holders list
+      summary: Token holders list
       tags:
       - account
   /api/scan/token/unique_id:
@@ -4275,7 +4431,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: token list(token unique_id)
+      summary: Token list(token unique_id)
       tags:
       - token
   /api/scan/treasury/proposal:
@@ -4296,7 +4452,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: treasury proposal
+      summary: Treasury proposal
       tags:
       - governance
   /api/scan/treasury/proposals:
@@ -4317,7 +4473,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: treasury proposals
+      summary: Treasury proposals
       tags:
       - governance
   /api/scan/treasury/tip:
@@ -4338,7 +4494,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: treasury tip
+      summary: Treasury tip
       tags:
       - governance
   /api/scan/treasury/tippers:
@@ -4359,7 +4515,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: treasury tippers
+      summary: Treasury tippers
       tags:
       - governance
   /api/scan/treasury/tips:
@@ -4380,7 +4536,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: treasury tips
+      summary: Treasury tips
       tags:
       - governance
   /api/scan/uniques/account/balances:
@@ -4556,7 +4712,6 @@ paths:
     post:
       consumes:
       - application/json
-      description: Vesting Release
       parameters:
       - description: params
         in: body
@@ -4571,7 +4726,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: vesting release list
+      summary: Vesting release list
       tags:
       - vesting
   /api/v2/scan/account/reward_slash:
@@ -4592,7 +4747,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: account reward and slash list
+      summary: Account reward and slash list
       tags:
       - staking
   /api/v2/scan/accounts:
@@ -4613,7 +4768,7 @@ paths:
           description: success
           schema:
             type: object
-      summary: accounts list
+      summary: Accounts list
       tags:
       - account
   /api/v2/scan/blocks:
@@ -4634,7 +4789,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: blocks list
+      summary: Blocks list
       tags:
       - block
   /api/v2/scan/daily:
@@ -4656,7 +4811,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: daily stat(v2)
+      summary: Daily stat(v2)
       tags:
       - stat
   /api/v2/scan/extrinsics:
@@ -4677,7 +4832,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: extrinsics list
+      summary: Extrinsics list
       tags:
       - extrinsic
   /api/v2/scan/logs:
@@ -4698,7 +4853,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: logs list
+      summary: Logs list
       tags:
       - log
   /api/v2/scan/token/native:
@@ -4720,7 +4875,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: native token list
+      summary: Native token list
       tags:
       - tokens
   /api/v2/scan/token/providers:
@@ -4735,7 +4890,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: tokens providers
+      summary: Tokens providers
       tags:
       - tokens
   /api/v2/scan/token/search:
@@ -4757,7 +4912,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: tokens search
+      summary: Tokens search
       tags:
       - tokens
   /api/v2/scan/tokens:
@@ -4779,7 +4934,7 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: tokens(v2)
+      summary: Tokens(v2)
       tags:
       - tokens
   /api/v2/scan/transfers:
@@ -4800,12 +4955,11 @@ paths:
           description: OK
           schema:
             type: object
-      summary: transfers list
+      summary: Transfers list
       tags:
       - account
   /healthz:
     get:
-      description: Health check
       responses:
         "200":
           description: OK
@@ -4816,13 +4970,12 @@ paths:
       - health
   /readiness:
     get:
-      description: readiness Probe
       responses:
         "200":
           description: OK
           schema:
             type: string
-      summary: readiness Probe
+      summary: Readiness Probe
       tags:
       - health
 swagger: "2.0"
