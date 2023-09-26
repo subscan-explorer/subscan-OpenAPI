@@ -3281,6 +3281,39 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/resource_count": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "Resource count",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.ResourceCountParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/runtime/list": {
             "post": {
                 "consumes": [
@@ -5753,6 +5786,24 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.ResourceCountParams": {
+            "type": "object",
+            "required": [
+                "resource"
+            ],
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "extra": {},
+                "resource": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "internal_server_http.accountBalanceValueHistoryParams": {
             "type": "object",
             "required": [
@@ -7277,6 +7328,15 @@ const docTemplate = `{
         "internal_server_http.tokenHoldersParams": {
             "type": "object",
             "properties": {
+                "included_zero_balance": {
+                    "type": "boolean"
+                },
+                "max_balance": {
+                    "type": "number"
+                },
+                "min_balance": {
+                    "type": "number"
+                },
                 "order": {
                     "type": "string",
                     "enum": [

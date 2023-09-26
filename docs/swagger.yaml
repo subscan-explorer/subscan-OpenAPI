@@ -598,6 +598,18 @@ definitions:
       only_extrinsic_event:
         type: boolean
     type: object
+  internal_server_http.ResourceCountParams:
+    properties:
+      account:
+        type: string
+      extra: {}
+      resource:
+        items:
+          type: string
+        type: array
+    required:
+    - resource
+    type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
       address:
@@ -1653,6 +1665,12 @@ definitions:
     type: object
   internal_server_http.tokenHoldersParams:
     properties:
+      included_zero_balance:
+        type: boolean
+      max_balance:
+        type: number
+      min_balance:
+        type: number
       order:
         enum:
         - desc
@@ -3950,6 +3968,27 @@ paths:
       summary: Referenda votes list(v2)
       tags:
       - governance
+  /api/scan/resource_count:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.ResourceCountParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Resource count
+      tags:
+      - accounts
   /api/scan/runtime/list:
     post:
       consumes:
