@@ -1420,6 +1420,39 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/evm/blocks": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM Blocks",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmBlocksParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/evm/contract": {
             "post": {
                 "consumes": [
@@ -1585,6 +1618,40 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/evm/logs": {
+            "post": {
+                "description": "EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM event Logs",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmEventLogsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/evm/meta": {
             "post": {
                 "produces": [
@@ -1730,7 +1797,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
                 }
@@ -5251,10 +5318,14 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "extrinsic_index": {
-                    "type": "string"
+                    "description": "Optional, ExtrinsicIndex, such as 4780334-2",
+                    "type": "string",
+                    "example": "4780334-2"
                 },
                 "hash": {
-                    "type": "string"
+                    "description": "Optional, Also known as Transaction ID (TxID).",
+                    "type": "string",
+                    "example": "0x09bc77f61a670ea22b66e1e440d2c2163fb43e11974e3563109630571fae42ac"
                 }
             }
         },
@@ -5269,6 +5340,20 @@ const docTemplate = `{
                     "items": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmBlocksParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -5368,6 +5453,31 @@ const docTemplate = `{
                 },
                 "token_id": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmEventLogsParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "example": "0x4d73adb72bc3dd368966edd0f0b2148401a178e2"
+                },
+                "block_range": {
+                    "type": "string",
+                    "example": "400000-400001"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -5795,7 +5905,10 @@ const docTemplate = `{
                 "account": {
                     "type": "string"
                 },
-                "extra": {},
+                "extra": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
                 "resource": {
                     "type": "array",
                     "items": {
@@ -5923,7 +6036,11 @@ const docTemplate = `{
                         "multisig",
                         "multisigMember",
                         "fellowship",
-                        "onChainIdentity"
+                        "onChainIdentity",
+                        "convictionDelegate",
+                        "convictionDelegated",
+                        "democracyDelegate",
+                        "democracyDelegated"
                     ]
                 },
                 "max_balance": {
@@ -7644,6 +7761,21 @@ const docTemplate = `{
             "properties": {
                 "auction_index": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_plugin_share.J": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "generated_at": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
                 }
             }
         }
