@@ -2226,6 +2226,259 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/multiTokens/account/balances": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken holder balance",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHolderBalanceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken activities",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenActivitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/all": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken list all",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken holders",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHoldersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/info": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken list all",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokeInfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/info/item": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken item detail",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/items": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken item all",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/multiTokens/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "enjin"
+                ],
+                "summary": "Enjin multiToken list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/multisig": {
             "post": {
                 "consumes": [
@@ -5291,6 +5544,164 @@ const docTemplate = `{
                 },
                 "start": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokeInfoParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "description": "multiToken collection id",
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokenActivitiesParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "description": "multiToken collection id",
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_id": {
+                    "description": "Optional. filter by token id",
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHolderBalanceParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHoldersParams": {
+            "type": "object",
+            "required": [
+                "collection_id"
+            ],
+            "properties": {
+                "collection_id": {
+                    "description": "multiToken collection id",
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_id": {
+                    "description": "optional. filter by token id",
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "token_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemsParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "description": "Optional. multiToken collection id",
+                    "type": "number"
+                },
+                "order": {
+                    "description": "Optional, order sort, default desc",
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "description": "Optional, order field",
+                    "type": "string",
+                    "enum": [
+                        "holders",
+                        "item_id"
+                    ]
+                },
+                "owner": {
+                    "description": "Optional. multiToken owner address. Only support ss58 address",
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_enjin_multiTokens_http.EnjinMultiTokenParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "description": "Optional, multiToken collection id",
+                    "type": "number"
+                },
+                "order": {
+                    "description": "Optional, order sort, default desc",
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "description": "Optional, order field",
+                    "type": "string",
+                    "enum": [
+                        "items",
+                        "holders",
+                        "collection_id",
+                        "transfer_count"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "search": {
+                    "description": "Optional, multiToken collection name",
+                    "type": "string",
+                    "maxLength": 256,
+                    "minLength": 1
                 }
             }
         },
