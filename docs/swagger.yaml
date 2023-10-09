@@ -3514,7 +3514,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: Enjin multiToken list all
+      summary: Enjin multiToken collection all
       tags:
       - enjin
   /api/scan/multiTokens/holders:
@@ -3556,7 +3556,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: Enjin multiToken list all
+      summary: Enjin multiToken info
       tags:
       - enjin
   /api/scan/multiTokens/info/item:

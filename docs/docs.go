@@ -2303,7 +2303,7 @@ const docTemplate = `{
                 "tags": [
                     "enjin"
                 ],
-                "summary": "Enjin multiToken list all",
+                "summary": "Enjin multiToken collection all",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2358,7 +2358,7 @@ const docTemplate = `{
                 "tags": [
                     "enjin"
                 ],
-                "summary": "Enjin multiToken list all",
+                "summary": "Enjin multiToken info",
                 "parameters": [
                     {
                         "description": "params",
