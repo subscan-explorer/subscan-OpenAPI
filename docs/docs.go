@@ -2292,28 +2292,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/multiTokens/all": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "enjin"
-                ],
-                "summary": "Enjin multiToken collection all",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/multiTokens/holders": {
             "post": {
                 "consumes": [
