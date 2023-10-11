@@ -5626,15 +5626,12 @@ const docTemplate = `{
                         "item_id"
                     ]
                 },
-                "owner": {
-                    "description": "Optional. multiToken owner address. Only support ss58 address",
-                    "type": "string"
-                },
-                "page": {
+               "page": {
                     "type": "integer",
                     "minimum": 0
                 },
                 "row": {
+                    "description": "Owner        string           ` + "`" + `json:\"owner\" binding:\"omitempty,addr\"` + "`" + `           // Optional. multiToken owner address. Only support ss58 address",
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
