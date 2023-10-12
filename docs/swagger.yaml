@@ -239,6 +239,15 @@ definitions:
     properties:
       address:
         type: string
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
     required:
     - address
     type: object

@@ -5564,6 +5564,18 @@ const docTemplate = `{
             "properties": {
                 "address": {
                     "type": "string"
+                },
+                "collection_id": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -5626,7 +5638,7 @@ const docTemplate = `{
                         "item_id"
                     ]
                 },
-               "page": {
+                "page": {
                     "type": "integer",
                     "minimum": 0
                 },
