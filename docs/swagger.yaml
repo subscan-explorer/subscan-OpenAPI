@@ -233,7 +233,7 @@ definitions:
         type: integer
       token_id:
         description: Optional. filter by token id
-        type: integer
+        type: number
     type: object
   internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHolderBalanceParams:
     properties:

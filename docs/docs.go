@@ -5552,7 +5552,7 @@ const docTemplate = `{
                 },
                 "token_id": {
                     "description": "Optional. filter by token id",
-                    "type": "integer"
+                    "type": "number"
                 }
             }
         },
