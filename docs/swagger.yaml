@@ -213,6 +213,128 @@ definitions:
     - end
     - start
     type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokeInfoParams:
+    properties:
+      collection_id:
+        description: multiToken collection id
+        type: number
+    type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokenActivitiesParams:
+    properties:
+      collection_id:
+        description: multiToken collection id
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_id:
+        description: Optional. filter by token id
+        type: number
+    type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHolderBalanceParams:
+    properties:
+      address:
+        type: string
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - address
+    type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHoldersParams:
+    properties:
+      collection_id:
+        description: multiToken collection id
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_id:
+        description: optional. filter by token id
+        type: number
+    required:
+    - collection_id
+    type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemParams:
+    properties:
+      collection_id:
+        type: number
+      token_id:
+        type: number
+    type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemsParams:
+    properties:
+      collection_id:
+        description: Optional. multiToken collection id
+        type: number
+      order:
+        description: Optional, order sort, default desc
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        description: Optional, order field
+        enum:
+        - holders
+        - item_id
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        description: Owner        string           `json:"owner" binding:"omitempty,addr"`           //
+          Optional. multiToken owner address. Only support ss58 address
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_enjin_multiTokens_http.EnjinMultiTokenParams:
+    properties:
+      collection_id:
+        description: Optional, multiToken collection id
+        type: number
+      order:
+        description: Optional, order sort, default desc
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        description: Optional, order field
+        enum:
+        - items
+        - holders
+        - collection_id
+        - transfer_count
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      search:
+        description: Optional, multiToken collection name
+        maxLength: 256
+        minLength: 1
+        type: string
+    type: object
   internal_plugin_evm_http.EVMAccountTokensParam:
     properties:
       address:
@@ -643,22 +765,6 @@ definitions:
         type: array
     required:
     - resource
-    type: object
-  internal_server_http.accountBalanceParams:
-    properties:
-      address:
-        type: string
-      block_range:
-        type: string
-      end:
-        type: string
-      recent_block:
-        maximum: 10000
-        type: integer
-      start:
-        type: string
-    required:
-    - address
     type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
@@ -1802,6 +1908,9 @@ definitions:
         type: string
       extrinsic_index:
         type: string
+      filter_nft:
+        description: filter nft transfer, support uniques module and enjin multi-token
+        type: boolean
       include_total:
         type: boolean
       item_id:
@@ -2068,27 +2177,6 @@ paths:
           schema:
             type: object
       summary: Account token list
-      tags:
-      - account
-  /api/scan/accounts/balance_history:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.accountBalanceParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: success
-          schema:
-            type: object
-      summary: Account Balance History
       tags:
       - account
   /api/scan/accounts/statistics:
@@ -3384,6 +3472,153 @@ paths:
       summary: MultiChain price
       tags:
       - multiChain
+  /api/scan/multiTokens/account/balances:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHolderBalanceParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken holder balance
+      tags:
+      - enjin
+  /api/scan/multiTokens/activities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken activities
+      tags:
+      - enjin
+  /api/scan/multiTokens/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHoldersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken holders
+      tags:
+      - enjin
+  /api/scan/multiTokens/info:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokeInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken info
+      tags:
+      - enjin
+  /api/scan/multiTokens/info/item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken item detail
+      tags:
+      - enjin
+  /api/scan/multiTokens/items:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken item all
+      tags:
+      - enjin
+  /api/scan/multiTokens/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_enjin_multiTokens_http.EnjinMultiTokenParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Enjin multiToken list
+      tags:
+      - enjin
   /api/scan/multisig:
     post:
       consumes:
