@@ -202,6 +202,39 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/accounts/balance_history": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Account Balance History",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountBalanceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/accounts/statistics": {
             "post": {
                 "consumes": [
@@ -6312,6 +6345,30 @@ const docTemplate = `{
                     "items": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "internal_server_http.accountBalanceParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                },
+                "recent_block": {
+                    "type": "integer",
+                    "maximum": 10000
+                },
+                "start": {
+                    "type": "string"
                 }
             }
         },
