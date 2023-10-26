@@ -766,22 +766,6 @@ definitions:
     required:
     - resource
     type: object
-  internal_server_http.accountBalanceParams:
-    properties:
-      address:
-        type: string
-      block_range:
-        type: string
-      end:
-        type: string
-      recent_block:
-        maximum: 10000
-        type: integer
-      start:
-        type: string
-    required:
-    - address
-    type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
       address:
@@ -1951,6 +1935,10 @@ definitions:
         type: boolean
       timeout:
         type: integer
+      token_category:
+        items:
+          type: string
+        type: array
     type: object
   internal_server_http.treasuryProposalParams:
     properties:
@@ -2193,27 +2181,6 @@ paths:
           schema:
             type: object
       summary: Account token list
-      tags:
-      - account
-  /api/scan/accounts/balance_history:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.accountBalanceParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: success
-          schema:
-            type: object
-      summary: Account Balance History
       tags:
       - account
   /api/scan/accounts/statistics:
