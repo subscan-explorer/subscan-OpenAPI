@@ -556,6 +556,86 @@ definitions:
       success:
         type: boolean
     type: object
+  internal_plugin_nfts_http.NftAccountBalancesParams:
+    properties:
+      address:
+        type: string
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - address
+    type: object
+  internal_plugin_nfts_http.NftActivitiesParams:
+    properties:
+      collection_id:
+        type: number
+      item_id:
+        type: integer
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_nfts_http.NftHoldersParams:
+    properties:
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_nfts_http.NftItemParams:
+    properties:
+      collection_id:
+        type: number
+      item_id:
+        type: number
+    type: object
+  internal_plugin_nfts_http.NftItemsParams:
+    properties:
+      collection_id:
+        type: number
+      owner:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_nfts_http.NftParams:
+    properties:
+      collection_id:
+        type: number
+    type: object
+  internal_plugin_nfts_http.NftsParams:
+    properties:
+      collection_id:
+        type: number
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_plugin_uniques_http.UniquesActivitiesParams:
     properties:
       collection_id:
@@ -3686,6 +3766,153 @@ paths:
       summary: Multisig extrinsic details list
       tags:
       - multisig
+  /api/scan/nfts/account/balances:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftAccountBalancesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFT account balances
+      tags:
+      - NFTs
+  /api/scan/nfts/activities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFT activities
+      tags:
+      - NFTs
+  /api/scan/nfts/info:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFT info
+      tags:
+      - NFTs
+  /api/scan/nfts/info/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftHoldersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFT holders
+      tags:
+      - NFTs
+  /api/scan/nfts/info/item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftItemParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFT item
+      tags:
+      - NFTs
+  /api/scan/nfts/info/items:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftItemsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFT items
+      tags:
+      - NFTs
+  /api/scan/nfts/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_nfts_http.NftsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: NFTs list
+      tags:
+      - NFTs
   /api/scan/nomination_pool/activities:
     post:
       consumes:

@@ -2545,6 +2545,237 @@
                 }
             }
         },
+        "/api/scan/nfts/account/balances": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT account balances",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftAccountBalancesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT activities",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftActivitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT info",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT holders",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftHoldersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info/item": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT item",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftItemParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info/items": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT items",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftItemsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFTs list",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/nomination_pool/activities": {
             "post": {
                 "consumes": [
@@ -5995,6 +6226,122 @@
                 },
                 "success": {
                     "type": "boolean"
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftAccountBalancesParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "collection_id": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftActivitiesParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "item_id": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftHoldersParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftItemParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "item_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftItemsParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftsParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },

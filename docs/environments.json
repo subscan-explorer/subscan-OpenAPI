@@ -289,24 +289,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://equilibrium.api.subscan.io",
-      "baseUrls": {
-        "default": "https://equilibrium.api.subscan.io"
-      },
-      "name": "Equilibrium",
-      "ordering": 32,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://genshiro.api.subscan.io",
-      "baseUrls": {
-        "default": "https://genshiro.api.subscan.io"
-      },
-      "name": "Genshiro",
-      "ordering": 33,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://humanode.api.subscan.io",
       "baseUrls": {
         "default": "https://humanode.api.subscan.io"
