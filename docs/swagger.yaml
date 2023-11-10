@@ -556,86 +556,6 @@ definitions:
       success:
         type: boolean
     type: object
-  internal_plugin_nfts_http.NftAccountBalancesParams:
-    properties:
-      address:
-        type: string
-      collection_id:
-        type: number
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    required:
-    - address
-    type: object
-  internal_plugin_nfts_http.NftActivitiesParams:
-    properties:
-      collection_id:
-        type: number
-      item_id:
-        type: integer
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
-  internal_plugin_nfts_http.NftHoldersParams:
-    properties:
-      collection_id:
-        type: number
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
-  internal_plugin_nfts_http.NftItemParams:
-    properties:
-      collection_id:
-        type: number
-      item_id:
-        type: number
-    type: object
-  internal_plugin_nfts_http.NftItemsParams:
-    properties:
-      collection_id:
-        type: number
-      owner:
-        type: string
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
-  internal_plugin_nfts_http.NftParams:
-    properties:
-      collection_id:
-        type: number
-    type: object
-  internal_plugin_nfts_http.NftsParams:
-    properties:
-      collection_id:
-        type: number
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
   internal_plugin_uniques_http.UniquesActivitiesParams:
     properties:
       collection_id:
@@ -831,6 +751,19 @@ definitions:
         type: string
       only_extrinsic_event:
         type: boolean
+    type: object
+  internal_server_http.J:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data: {}
+      generated_at:
+        example: 1699600641
+        type: integer
+      message:
+        example: Success
+        type: string
     type: object
   internal_server_http.ResourceCountParams:
     properties:
@@ -1687,16 +1620,23 @@ definitions:
   internal_server_http.proxyExtrinsicsParams:
     properties:
       account:
+        description: Current network account
+        example: 14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ
         type: string
       order:
         enum:
         - asc
         - desc
+        example: desc
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -2130,6 +2070,127 @@ definitions:
     properties:
       auction_index:
         type: integer
+    type: object
+  subscan_internal_model.AccountDisplay:
+    properties:
+      account_index:
+        type: string
+      address:
+        description: Current network account
+        type: string
+      display:
+        type: string
+      evm_contract:
+        $ref: '#/definitions/subscan_internal_model.EvmAccountDisplay'
+      identity:
+        type: boolean
+      judgements:
+        items:
+          $ref: '#/definitions/subscan_internal_model.RegistrationJudgementJson'
+        type: array
+      merkle:
+        $ref: '#/definitions/subscan_internal_model.MerkleTag'
+      parent:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountParentJson'
+        description: Parent account
+    type: object
+  subscan_internal_model.AccountParentJson:
+    properties:
+      address:
+        type: string
+      display:
+        type: string
+      identity:
+        type: boolean
+      sub_symbol:
+        type: string
+    type: object
+  subscan_internal_model.EvmAccountDisplay:
+    properties:
+      contract_name:
+        type: string
+    type: object
+  subscan_internal_model.ExtrinsicParam:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      type_name:
+        type: string
+      value: {}
+    type: object
+  subscan_internal_model.MerkleTag:
+    properties:
+      address_type:
+        type: string
+      tag_name:
+        type: string
+      tag_subtype:
+        type: string
+      tag_type:
+        type: string
+    type: object
+  subscan_internal_model.ProxyChainExtrinsicJson:
+    properties:
+      account_display:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        description: Execution account
+      block_num:
+        example: 12413008
+        type: integer
+      block_timestamp:
+        example: 1681965624
+        type: integer
+      call_module:
+        example: proxy
+        type: string
+      call_module_function:
+        example: proxy
+        type: string
+      extrinsic_hash:
+        example: 0xb3c16a3872a2d986cabd6ccfbcb387e922c0e16d3e3d5ed128fc7b6660e219d1
+        type: string
+      extrinsic_index:
+        example: 12413008-1
+        type: string
+      fee:
+        description: Estimated handling fee
+        example: 10000
+        type: number
+      fee_used:
+        description: Actual handling fee
+        example: 10000
+        type: number
+      finalized:
+        example: true
+        type: boolean
+      nonce:
+        example: 1
+        type: integer
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      real_account_display:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        description: Entrusted account
+      signature:
+        example: b80d3b8a51ff541b17239ce50c6048c23824a0c7ef8c7e0a7957e68785bc9e4dd521e8ec604c184f26b0dd2ddaa0722bf39bdb7ed4cab5f1906ebfbbd76b5681
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  subscan_internal_model.RegistrationJudgementJson:
+    properties:
+      index:
+        type: integer
+      judgement:
+        type: string
     type: object
   subscan_internal_plugin_share.J:
     properties:
@@ -3766,153 +3827,6 @@ paths:
       summary: Multisig extrinsic details list
       tags:
       - multisig
-  /api/scan/nfts/account/balances:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftAccountBalancesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFT account balances
-      tags:
-      - NFTs
-  /api/scan/nfts/activities:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftActivitiesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFT activities
-      tags:
-      - NFTs
-  /api/scan/nfts/info:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFT info
-      tags:
-      - NFTs
-  /api/scan/nfts/info/holders:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftHoldersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFT holders
-      tags:
-      - NFTs
-  /api/scan/nfts/info/item:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftItemParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFT item
-      tags:
-      - NFTs
-  /api/scan/nfts/info/items:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftItemsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFT items
-      tags:
-      - NFTs
-  /api/scan/nfts/list:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_nfts_http.NftsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/subscan_internal_plugin_share.J'
-      summary: NFTs list
-      tags:
-      - NFTs
   /api/scan/nomination_pool/activities:
     post:
       consumes:
@@ -4469,8 +4383,18 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
-      summary: Proxy extrinsics
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    extrinsics:
+                      $ref: '#/definitions/subscan_internal_model.ProxyChainExtrinsicJson'
+                  type: object
+              type: object
+      summary: Proxy extrinsics list
       tags:
       - proxy
   /api/scan/referenda/referendum:
