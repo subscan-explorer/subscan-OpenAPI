@@ -64,19 +64,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "integer"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -107,32 +95,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountContributedJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -165,30 +130,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountReferendumJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -221,30 +163,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountEventJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -275,21 +194,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_service_scan.AccountTokenJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -320,24 +227,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.AccountRoleCountJson"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -597,19 +489,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ChainBlockJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -642,19 +522,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.BlockHeader"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -687,19 +555,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.BountyJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -732,30 +588,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.BountySampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -876,30 +709,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ContractEventJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -932,19 +742,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -977,30 +775,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ContractAccountListJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1022,30 +797,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "contract_count": {
-                                                    "type": "integer"
-                                                },
-                                                "contract_verified_count": {
-                                                    "type": "integer"
-                                                },
-                                                "transaction_count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1078,27 +830,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ContractTimeline"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1131,30 +863,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ContractTransactionListJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1176,22 +885,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1224,24 +918,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.CouncilProposalJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1274,30 +951,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TechcommProposalSample"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1330,27 +984,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DailyStaticJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1383,27 +1017,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DailyTokenStatusJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1436,24 +1050,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.DemocracyJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1486,30 +1083,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DemocracySampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1542,24 +1116,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.ReferendumJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1592,30 +1149,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DemocracyReferendumSampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1648,30 +1182,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DemocracyProposalSeconded"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1704,30 +1215,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DemocracyVoteJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1761,19 +1249,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.DProgress"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1806,19 +1282,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ChainEvent"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -1851,22 +1315,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.ChainEventParams"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2411,67 +1860,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ExtrinsicDetail"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/extrinsic/params": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "extrinsic"
-                ],
-                "summary": "Extrinsic params",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.extrinsicParamsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.ChainExtrinsicParams"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2504,19 +1893,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ReferendumV2Json"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2549,30 +1926,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ReferendumV2SampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2594,19 +1948,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.FellowshipReferendumStatisticsJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2628,22 +1970,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "$ref": "#/definitions/subscan_libs_substrate_storage.ReferendumTracksInfo"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2676,30 +2003,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ConvictionVoteJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2732,75 +2036,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/logs": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "log"
-                ],
-                "summary": "Block log list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.logParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "logs": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2819,22 +2055,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2867,22 +2088,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.AssetsJson"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2915,22 +2121,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_dao.AccountBalanceValueHistory"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -2963,30 +2154,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "max": {
-                                                    "type": "number"
-                                                },
-                                                "min": {
-                                                    "type": "number"
-                                                },
-                                                "prev24H": {
-                                                    "type": "number"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3019,22 +2187,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.IdentityJson"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3067,20 +2220,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": true
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3344,19 +2484,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.MultisigExtrinsicJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3389,30 +2517,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "multisig": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.MultisigExtrinsicJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3445,30 +2550,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "multisig": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.MultisigExtrinsicDetailsJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3688,27 +2770,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "currencies": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3741,19 +2803,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_service_scan.CurrencyPrice"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3786,19 +2836,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/internal_server_http.CurrencyConverter"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3829,27 +2867,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3880,27 +2900,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "#/definitions/subscan_internal_model.ParachainFundHistoryStatJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3931,24 +2933,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_service_scan.uniqueBid"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -3979,32 +2966,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "auctions": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainAuction"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4035,21 +2999,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4080,32 +3032,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "bids": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4136,32 +3065,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "contributes": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainFundContribution"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4192,29 +3098,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainFundHistoryStatJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4245,32 +3131,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "funds": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainFund"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4301,32 +3164,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "chains": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainInfoJson"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4357,32 +3197,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "chains": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParaChainSample"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4402,21 +3219,9 @@ const docTemplate = `{
                 "summary": "Parachain meta",
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ParaChainMetaJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4447,24 +3252,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4484,32 +3274,9 @@ const docTemplate = `{
                 "summary": "Parachain register info",
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "paraID": {
-                                                    "type": "object",
-                                                    "additionalProperties": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "relay_chain": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4531,27 +3298,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "extrinsics": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ChainExtrinsicJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4584,19 +3331,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.PreimageJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4629,30 +3364,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.PreimageSampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4685,33 +3397,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "ema30_average": {
-                                                    "type": "number"
-                                                },
-                                                "ema7_average": {
-                                                    "type": "number"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_service_scan.Price"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4728,7 +3414,7 @@ const docTemplate = `{
                 "tags": [
                     "proxy"
                 ],
-                "summary": "Proxy extrinsics list",
+                "summary": "Proxy extrinsics",
                 "parameters": [
                     {
                         "description": "params",
@@ -4744,30 +3430,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "extrinsics": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ProxyChainExtrinsicJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4800,19 +3463,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ReferendumV2Json"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4845,30 +3496,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ReferendumV2SampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4890,19 +3518,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ReferendumStatisticsJson"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4924,22 +3540,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "$ref": "#/definitions/subscan_libs_substrate_storage.ReferendumTracksInfo"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -4972,30 +3573,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ConvictionVoteJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5028,27 +3606,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountResourceCountJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5070,27 +3628,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.RuntimeVersion"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5123,32 +3661,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "metadata": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "$ref": "#/definitions/types.MetadataModules"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5181,30 +3694,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ValidatorStatJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5237,19 +3727,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.NominatorDetail"
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5282,30 +3760,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.NominatorJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5338,25 +3793,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "#/definitions/subscan_libs_substrate_derive.Unbonding"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5389,77 +3826,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.ValidatorJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/staking/validator/bond_stat": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "staking"
-                ],
-                "summary": "Validator bond stat",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.bondStatParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.EraBondStat"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5492,30 +3859,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ValidatorJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5548,27 +3892,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountNominateList"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5601,30 +3925,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ValidatorWaiting"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5646,24 +3947,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "sum": {
-                                                    "type": "number"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -5968,24 +4252,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.TechcommProposalJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6018,30 +4285,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TechcommProposalSample"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6063,33 +4307,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "detail": {
-                                                    "type": "object",
-                                                    "additionalProperties": {
-                                                        "$ref": "#/definitions/subscan_internal_service_scan_token.Token"
-                                                    }
-                                                },
-                                                "token": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6120,32 +4338,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountSampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6167,39 +4362,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "detail": {
-                                                    "type": "object",
-                                                    "additionalProperties": {
-                                                        "$ref": "#/definitions/subscan_internal_service_scan_token.Token"
-                                                    }
-                                                },
-                                                "token": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "unique_id": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6232,24 +4395,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.TreasuryProposalDetailJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6282,30 +4428,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TreasuryProposalJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6338,24 +4461,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "info": {
-                                                    "$ref": "#/definitions/subscan_internal_model.TreasuryTipJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6388,27 +4494,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TreasuryTipperJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6441,30 +4527,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TreasuryTip"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6758,27 +4821,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.VestingRelease"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6811,30 +4854,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.StakingAccountEvent"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6865,32 +4885,9 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "success",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountSampleJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6923,30 +4920,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "blocks": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.SampleBlockV2Json"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6979,83 +4953,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DailyStaticJsonV2"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v2/scan/events": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "event"
-                ],
-                "summary": "Events list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.eventsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "events": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ChainEventV2Json"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -7088,30 +4987,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "extrinsics": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ChainExtrinsicV2Json"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -7144,30 +5020,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "logs": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -7200,27 +5053,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "provider": {
-                                                    "type": "string"
-                                                },
-                                                "token": {
-                                                    "$ref": "#/definitions/internal_server_http.tokenJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -7242,27 +5076,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "providers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/internal_server_http.providerActiveJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -7295,25 +5110,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "#/definitions/internal_server_http.tokenJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -7346,33 +5144,8 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "provider": {
-                                                    "type": "string"
-                                                },
-                                                "tokens": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/internal_server_http.tokenJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
@@ -7405,33 +5178,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "total": {
-                                                    "$ref": "#/definitions/subscan_internal_model.TransferHistoryTokensTotal"
-                                                },
-                                                "transfers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TransferHistory"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -8155,6 +5902,9 @@ const docTemplate = `{
                 "address": {
                     "type": "string"
                 },
+                "after_id": {
+                    "type": "integer"
+                },
                 "category": {
                     "type": "string",
                     "enum": [
@@ -8526,17 +6276,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.CurrencyConverter": {
-            "type": "object",
-            "properties": {
-                "output": {
-                    "type": "number"
-                },
-                "price": {
-                    "$ref": "#/definitions/subscan_internal_service_scan.CurrencyPrice"
-                }
-            }
-        },
         "internal_server_http.ExtrinsicDetailParams": {
             "type": "object",
             "properties": {
@@ -8555,24 +6294,6 @@ const docTemplate = `{
                 },
                 "only_extrinsic_event": {
                     "type": "boolean"
-                }
-            }
-        },
-        "internal_server_http.J": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "example": 0
-                },
-                "data": {},
-                "generated_at": {
-                    "type": "integer",
-                    "example": 1699600641
-                },
-                "message": {
-                    "type": "string",
-                    "example": "Success"
                 }
             }
         },
@@ -8637,17 +6358,13 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "who": {
                     "type": "string"
@@ -8671,17 +6388,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -8753,17 +6466,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -8871,17 +6580,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -8900,17 +6605,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "string",
@@ -8967,20 +6668,16 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "result": {
                     "type": "boolean"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -8994,17 +6691,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -9026,17 +6719,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "verified": {
                     "type": "boolean"
@@ -9056,17 +6745,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -9101,10 +6786,8 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "para_id": {
                     "type": "integer"
@@ -9119,11 +6802,9 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "integer"
@@ -9190,8 +6871,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "end": {
-                    "type": "string",
-                    "example": "2023-06-01"
+                    "type": "string"
                 },
                 "format": {
                     "type": "string",
@@ -9202,8 +6882,7 @@ const docTemplate = `{
                     ]
                 },
                 "start": {
-                    "type": "string",
-                    "example": "2023-05-01"
+                    "type": "string"
                 }
             }
         },
@@ -9218,8 +6897,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "end": {
-                    "type": "string",
-                    "example": "2023-06-01"
+                    "type": "string"
                 },
                 "format": {
                     "type": "string",
@@ -9230,8 +6908,7 @@ const docTemplate = `{
                     ]
                 },
                 "start": {
-                    "type": "string",
-                    "example": "2023-05-01"
+                    "type": "string"
                 }
             }
         },
@@ -9243,8 +6920,7 @@ const docTemplate = `{
             ],
             "properties": {
                 "end": {
-                    "type": "string",
-                    "example": "2023-06-01"
+                    "type": "string"
                 },
                 "format": {
                     "type": "string",
@@ -9253,8 +6929,7 @@ const docTemplate = `{
                     ]
                 },
                 "start": {
-                    "type": "string",
-                    "example": "2023-05-01"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
@@ -9272,17 +6947,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "string",
@@ -9306,21 +6977,17 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "proposal_id": {
                     "type": "integer",
                     "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -9334,17 +7001,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -9370,67 +7033,6 @@ const docTemplate = `{
                     "items": {
                         "type": "string"
                     }
-                }
-            }
-        },
-        "internal_server_http.eventsParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "after_id": {
-                    "type": "integer"
-                },
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "focus": {
-                    "type": "string"
-                },
-                "module": {
-                    "type": "string"
-                },
-                "order": {
-                    "type": "string",
-                    "enum": [
-                        "asc",
-                        "desc"
-                    ]
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "phase": {
-                    "type": "integer",
-                    "enum": [
-                        0,
-                        1,
-                        2
-                    ]
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
                 }
             }
         },
@@ -9478,17 +7080,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "signed": {
                     "type": "string"
@@ -9514,21 +7112,17 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "referendum_index": {
                     "type": "integer",
                     "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -9539,17 +7133,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "string",
@@ -9582,43 +7172,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.logParams": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "engine": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": "integer"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "to": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                }
-            }
-        },
         "internal_server_http.logsParams": {
             "type": "object",
             "properties": {
@@ -9636,17 +7189,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "type": {
                     "type": "string"
@@ -9671,12 +7220,10 @@ const docTemplate = `{
             ],
             "properties": {
                 "call_hash": {
-                    "type": "string",
-                    "example": "0xd43816694f042d9e199687ccdc60f7ef4a353ff38fe069a8fe1575323bcd5ce3"
+                    "type": "string"
                 },
                 "multi_id": {
-                    "type": "string",
-                    "example": "14661803-2"
+                    "type": "string"
                 }
             }
         },
@@ -9687,21 +7234,16 @@ const docTemplate = `{
             ],
             "properties": {
                 "account": {
-                    "type": "string",
-                    "example": "14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ"
+                    "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "string",
@@ -9749,17 +7291,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -9773,20 +7311,16 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "para_id": {
                     "type": "integer"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "array",
@@ -9803,17 +7337,13 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "integer"
@@ -9833,20 +7363,16 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "para_id": {
                     "type": "integer"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "who": {
                     "type": "string"
@@ -9863,20 +7389,16 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "para_id": {
                     "type": "integer"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "array",
@@ -9920,20 +7442,16 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "para_id": {
                     "type": "integer"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "source": {
                     "type": "integer"
@@ -9961,17 +7479,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "source": {
                     "type": "string",
@@ -10001,8 +7515,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "end": {
-                    "type": "string",
-                    "example": "2023-06-01"
+                    "type": "string"
                 },
                 "format": {
                     "type": "string",
@@ -10014,24 +7527,6 @@ const docTemplate = `{
                     ]
                 },
                 "start": {
-                    "type": "string",
-                    "example": "2023-05-01"
-                }
-            }
-        },
-        "internal_server_http.providerActiveJson": {
-            "type": "object",
-            "properties": {
-                "can_legacy": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "is_primary": {
-                    "type": "boolean"
-                },
-                "name": {
                     "type": "string"
                 }
             }
@@ -10043,30 +7538,34 @@ const docTemplate = `{
             ],
             "properties": {
                 "account": {
-                    "description": "Current network account",
-                    "type": "string",
-                    "example": "14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ"
+                    "type": "string"
                 },
                 "order": {
                     "type": "string",
                     "enum": [
                         "asc",
                         "desc"
-                    ],
-                    "example": "desc"
+                    ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.rawTxParams": {
+            "type": "object",
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
                 }
             }
         },
@@ -10084,21 +7583,17 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "referendum_index": {
                     "type": "integer",
                     "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "sort": {
                     "type": "string",
@@ -10157,21 +7652,17 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "referendum_index": {
                     "type": "integer",
                     "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "sort": {
                     "type": "string",
@@ -10201,17 +7692,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "string",
@@ -10229,17 +7716,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "status": {
                     "type": "string",
@@ -10273,17 +7756,13 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "timeout": {
                     "type": "integer"
@@ -10320,17 +7799,13 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "timeout": {
                     "type": "integer"
@@ -10341,9 +7816,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "spec": {
-                    "description": "Runtime version",
-                    "type": "integer",
-                    "example": 9430
+                    "type": "integer"
                 }
             }
         },
@@ -10360,25 +7833,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                }
-            }
-        },
-        "internal_server_http.tokenExtendsJson": {
-            "type": "object",
-            "properties": {
-                "holders": {
-                    "type": "integer"
+                    "minimum": 1
                 }
             }
         },
@@ -10409,49 +7870,15 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "token": {
-                    "type": "string"
-                },
-                "unique_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_server_http.tokenJson": {
-            "type": "object",
-            "properties": {
-                "category": {
-                    "type": "string"
-                },
-                "currency_id": {
-                    "type": "string"
-                },
-                "decimals": {
-                    "type": "integer"
-                },
-                "extends": {
-                    "$ref": "#/definitions/internal_server_http.tokenExtendsJson"
-                },
-                "is_native": {
-                    "type": "boolean"
-                },
-                "metadata": {},
-                "name": {
-                    "type": "string"
-                },
-                "symbol": {
                     "type": "string"
                 },
                 "unique_id": {
@@ -10488,20 +7915,16 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "provider": {
                     "type": "string"
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -10568,17 +7991,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 },
                 "success": {
                     "type": "boolean"
@@ -10607,17 +8026,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -10641,17 +8056,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -10699,17 +8110,13 @@ const docTemplate = `{
                     ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 0
                 }
             }
         },
@@ -10721,12 +8128,10 @@ const docTemplate = `{
             ],
             "properties": {
                 "end": {
-                    "type": "string",
-                    "example": "2023-06-01"
+                    "type": "string"
                 },
                 "start": {
-                    "type": "string",
-                    "example": "2023-05-01"
+                    "type": "string"
                 }
             }
         },
@@ -10770,3475 +8175,6 @@ const docTemplate = `{
                 }
             }
         },
-        "subscan_internal_dao.AccountBalanceValueHistory": {
-            "type": "object",
-            "properties": {
-                "date": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.AccountAssetsCountJson": {
-            "type": "object",
-            "properties": {
-                "account_count": {
-                    "type": "integer"
-                },
-                "max_balance": {
-                    "type": "number"
-                },
-                "min_balance": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.AccountBalanceDetailJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "balance": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.AccountContributedJson": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "contributed": {
-                    "type": "number"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fund_auction_status": {
-                    "type": "integer"
-                },
-                "fund_event_index": {
-                    "type": "string"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "fund_status": {
-                    "type": "integer"
-                },
-                "memo": {
-                    "type": "string"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "unlocking_block": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.AccountDerive": {
-            "type": "object",
-            "properties": {
-                "balance": {
-                    "type": "number"
-                },
-                "bonded": {
-                    "type": "number"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "locked": {
-                    "type": "number"
-                },
-                "reserved": {
-                    "type": "number"
-                },
-                "token": {
-                    "type": "string"
-                },
-                "unbonding": {
-                    "type": "number"
-                },
-                "unique_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.AccountDisplay": {
-            "type": "object",
-            "properties": {
-                "account_index": {
-                    "type": "string"
-                },
-                "address": {
-                    "description": "Current network account",
-                    "type": "string"
-                },
-                "display": {
-                    "type": "string"
-                },
-                "evm_contract": {
-                    "$ref": "#/definitions/subscan_internal_model.EvmAccountDisplay"
-                },
-                "identity": {
-                    "type": "boolean"
-                },
-                "judgements": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
-                    }
-                },
-                "merkle": {
-                    "$ref": "#/definitions/subscan_internal_model.MerkleTag"
-                },
-                "parent": {
-                    "description": "Parent account",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
-                        }
-                    ]
-                }
-            }
-        },
-        "subscan_internal_model.AccountEventJson": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "event_idx": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "event_method": {
-                    "type": "string"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_idx": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "module_id": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "stash": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.AccountNominateList": {
-            "type": "object",
-            "properties": {
-                "bonded": {
-                    "type": "number"
-                },
-                "bonded_nominators": {
-                    "type": "number"
-                },
-                "bonded_owner": {
-                    "type": "number"
-                },
-                "bonded_total": {
-                    "type": "number"
-                },
-                "controller_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "count_nominators": {
-                    "type": "integer"
-                },
-                "grandpa_vote": {
-                    "type": "integer"
-                },
-                "latest_mining": {
-                    "type": "integer"
-                },
-                "rank_validator": {
-                    "type": "integer"
-                },
-                "reward_point": {
-                    "type": "integer"
-                },
-                "session_key": {
-                    "$ref": "#/definitions/subscan_internal_model.SessionKeys"
-                },
-                "staking_rewards_tag": {
-                    "$ref": "#/definitions/subscan_libs_stakingrewards.Provider"
-                },
-                "stash_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "validator_prefs_value": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.AccountParentJson": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "display": {
-                    "type": "string"
-                },
-                "identity": {
-                    "type": "boolean"
-                },
-                "sub_symbol": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.AccountReferendumJson": {
-            "type": "object",
-            "properties": {
-                "conviction": {
-                    "type": "number"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "value": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.AccountResourceCountJson": {
-            "type": "object",
-            "properties": {
-                "count": {
-                    "type": "integer"
-                },
-                "resource": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.AccountRoleCountJson": {
-            "type": "object",
-            "properties": {
-                "count": {
-                    "type": "integer"
-                },
-                "role": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.AccountSampleJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "address": {
-                    "type": "string"
-                },
-                "balance": {
-                    "type": "number"
-                },
-                "balance_lock": {
-                    "type": "number"
-                },
-                "count_extrinsic": {
-                    "type": "integer"
-                },
-                "derive_token": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "#/definitions/subscan_internal_model.AccountDerive"
-                    }
-                },
-                "evm_account": {
-                    "type": "string"
-                },
-                "fellowship_rank": {
-                    "type": "integer"
-                },
-                "is_evm_contract": {
-                    "type": "boolean"
-                },
-                "registrar_info": {
-                    "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
-                },
-                "ring_lock": {
-                    "type": "number"
-                },
-                "substrate_account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_model.AssetsJson": {
-            "type": "object",
-            "properties": {
-                "asset_id": {
-                    "type": "number"
-                },
-                "balance": {
-                    "type": "number"
-                },
-                "bonded": {
-                    "type": "number"
-                },
-                "category": {
-                    "type": "string"
-                },
-                "contract": {
-                    "type": "string"
-                },
-                "conviction_lock": {
-                    "type": "number"
-                },
-                "currency_id": {
-                    "type": "string"
-                },
-                "decimal": {
-                    "type": "integer"
-                },
-                "democracy_lock": {
-                    "type": "number"
-                },
-                "election_lock": {
-                    "type": "number"
-                },
-                "locked": {
-                    "type": "number"
-                },
-                "network": {
-                    "type": "string"
-                },
-                "nomination_bonded": {
-                    "type": "number"
-                },
-                "price": {
-                    "type": "number"
-                },
-                "reserved": {
-                    "type": "number"
-                },
-                "symbol": {
-                    "type": "string"
-                },
-                "token_unique_id": {
-                    "type": "string"
-                },
-                "unbonding": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.BlockHeader": {
-            "type": "object",
-            "properties": {
-                "block_number": {
-                    "type": "integer"
-                },
-                "digest": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "extrinsics_root": {
-                    "type": "string"
-                },
-                "parent_hash": {
-                    "type": "string"
-                },
-                "state_root": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.BountyJson": {
-            "type": "object",
-            "properties": {
-                "beneficiary": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "bond": {
-                    "type": "number"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "curator": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "curator_deposit": {
-                    "type": "number"
-                },
-                "curator_fee": {
-                    "type": "number"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "expire_block": {
-                    "type": "integer"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                },
-                "value": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.BountySampleJson": {
-            "type": "object",
-            "properties": {
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.ChainBlockJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_count": {
-                    "type": "integer"
-                },
-                "events": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ChainEventJson"
-                    }
-                },
-                "extrinsics": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ChainExtrinsicJson"
-                    }
-                },
-                "extrinsics_count": {
-                    "type": "integer"
-                },
-                "extrinsics_root": {
-                    "type": "string"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "logs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
-                    }
-                },
-                "parent_hash": {
-                    "type": "string"
-                },
-                "spec_version": {
-                    "type": "integer"
-                },
-                "state_root": {
-                    "type": "string"
-                },
-                "validator": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ChainEvent": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "es_params": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "event_idx": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_idx": {
-                    "type": "integer"
-                },
-                "extrinsic_module": {
-                    "type": "string"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "module_id": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.EventParam"
-                    }
-                },
-                "phase": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ChainEventJson": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "event_idx": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_idx": {
-                    "type": "integer"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "module_id": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "phase": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ChainEventParams": {
-            "type": "object",
-            "properties": {
-                "event_index": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.EventParam"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.ChainEventV2Json": {
-            "type": "object",
-            "properties": {
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "module_id": {
-                    "type": "string"
-                },
-                "phase": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ChainExtrinsicJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "account_id": {
-                    "type": "string"
-                },
-                "account_index": {
-                    "type": "string"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fee": {
-                    "type": "number"
-                },
-                "fee_used": {
-                    "type": "number"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "from_hex": {
-                    "type": "string"
-                },
-                "nonce": {
-                    "type": "integer"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "signature": {
-                    "type": "string"
-                },
-                "success": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "subscan_internal_model.ChainExtrinsicParams": {
-            "type": "object",
-            "properties": {
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.ChainExtrinsicV2Json": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fee": {
-                    "type": "number"
-                },
-                "fee_used": {
-                    "type": "number"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "nonce": {
-                    "type": "integer"
-                },
-                "success": {
-                    "type": "boolean"
-                },
-                "tip": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.ChainLogJson": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "data": {
-                    "type": "string"
-                },
-                "engine": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "log_index": {
-                    "type": "string"
-                },
-                "log_type": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ContractAccountListJson": {
-            "type": "object",
-            "properties": {
-                "balance": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "contract_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "owner_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "transaction_count": {
-                    "type": "integer"
-                },
-                "verify_time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ContractAction": {
-            "type": "string",
-            "enum": [
-                "Instantiated",
-                "Terminated",
-                "ContractCodeUpdated"
-            ],
-            "x-enum-varnames": [
-                "ContractInstantiated",
-                "ContractTerminated",
-                "ContractCodeUpdated"
-            ]
-        },
-        "subscan_internal_model.ContractEventJson": {
-            "type": "object",
-            "properties": {
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "data": {
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ContractTimeline": {
-            "type": "object",
-            "properties": {
-                "action": {
-                    "$ref": "#/definitions/subscan_internal_model.ContractAction"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ContractTransactionListJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "contract_address": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "success": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "subscan_internal_model.ConvictionVoteJson": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "conviction": {
-                    "type": "number"
-                },
-                "delegate_account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "unlock_block": {
-                    "type": "integer"
-                },
-                "valid": {
-                    "type": "boolean"
-                },
-                "votes": {
-                    "type": "number"
-                },
-                "voting_time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.CouncilJson": {
-            "type": "object",
-            "properties": {
-                "aye_votes": {
-                    "type": "integer"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "member_count": {
-                    "type": "integer"
-                },
-                "nay_votes": {
-                    "type": "integer"
-                },
-                "proposal_hash": {
-                    "type": "string"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_block": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.CouncilProposalJson": {
-            "type": "object",
-            "properties": {
-                "aye_votes": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "executed_success": {
-                    "type": "boolean"
-                },
-                "member_count": {
-                    "type": "integer"
-                },
-                "nay_votes": {
-                    "type": "integer"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "pre_image": {
-                    "$ref": "#/definitions/subscan_internal_model.PreImageJson"
-                },
-                "proposal_hash": {
-                    "type": "string"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                },
-                "updated_block": {
-                    "type": "integer"
-                },
-                "value": {
-                    "type": "number"
-                },
-                "votes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.CouncilVoteJson"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.CouncilVoteJson": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "passed": {
-                    "type": "boolean"
-                },
-                "voting_time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.DProgress": {
-            "type": "object",
-            "properties": {
-                "download": {
-                    "type": "string"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "progress": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.DailyStaticJson": {
-            "type": "object",
-            "properties": {
-                "balance_amount_total": {
-                    "type": "number"
-                },
-                "time_hour_utc": {
-                    "type": "string"
-                },
-                "time_six_hour_utc": {
-                    "type": "string"
-                },
-                "time_utc": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "integer"
-                },
-                "transfer_amount_total": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.DailyStaticJsonV2": {
-            "type": "object",
-            "properties": {
-                "time_utc": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "number"
-                },
-                "transfer_amount": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.DailyTokenStatusJson": {
-            "type": "object",
-            "properties": {
-                "available": {
-                    "type": "number"
-                },
-                "other": {
-                    "type": "number"
-                },
-                "other_details": {
-                    "$ref": "#/definitions/subscan_internal_model.OtherDetail"
-                },
-                "staking": {
-                    "type": "number"
-                },
-                "system_accounts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.AccountBalanceDetailJson"
-                    }
-                },
-                "time_utc": {
-                    "type": "string"
-                },
-                "total_issuance": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.DemocracyJson": {
-            "type": "object",
-            "properties": {
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "pre_image": {
-                    "$ref": "#/definitions/subscan_internal_model.PreImageJson"
-                },
-                "proposal_hash": {
-                    "type": "string"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "seconded_count": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                },
-                "updated_block": {
-                    "type": "integer"
-                },
-                "value": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.DemocracyProposalSeconded": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "type": "string"
-                },
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.DemocracyReferendumSampleJson": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "end": {
-                    "type": "integer"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "vote_threshold": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.DemocracySampleJson": {
-            "type": "object",
-            "properties": {
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "seconded_count": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.DemocracyVoteJson": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "conviction": {
-                    "type": "number"
-                },
-                "delegate_account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "passed": {
-                    "type": "boolean"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "unlock_block": {
-                    "type": "integer"
-                },
-                "valid": {
-                    "type": "boolean"
-                },
-                "votes": {
-                    "type": "number"
-                },
-                "voting_time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.EraBondStat": {
-            "type": "object",
-            "properties": {
-                "avg": {
-                    "type": "number"
-                },
-                "era": {
-                    "type": "integer"
-                },
-                "owner": {
-                    "type": "number"
-                },
-                "total_avg": {
-                    "type": "number"
-                },
-                "total_bond": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.EventParam": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "type_name": {
-                    "type": "string"
-                },
-                "value": {}
-            }
-        },
-        "subscan_internal_model.EvmAccountDisplay": {
-            "type": "object",
-            "properties": {
-                "contract_name": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ExtrinsicDetail": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "account_id": {
-                    "type": "string"
-                },
-                "block_hash": {
-                    "type": "string"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "error": {
-                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicError"
-                },
-                "event": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ChainEventJson"
-                    }
-                },
-                "event_count": {
-                    "type": "integer"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fee": {
-                    "type": "number"
-                },
-                "fee_used": {
-                    "type": "number"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "lifetime": {
-                    "$ref": "#/definitions/subscan_internal_model.Lifetime"
-                },
-                "multisig": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MultisigJson"
-                    }
-                },
-                "nonce": {
-                    "type": "integer"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "pending": {
-                    "type": "boolean"
-                },
-                "proxy": {
-                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicProxyDetail"
-                },
-                "signature": {
-                    "type": "string"
-                },
-                "success": {
-                    "type": "boolean"
-                },
-                "tip": {
-                    "type": "number"
-                },
-                "transfer": {
-                    "$ref": "#/definitions/subscan_internal_model.TransferJson"
-                }
-            }
-        },
-        "subscan_internal_model.ExtrinsicError": {
-            "type": "object",
-            "properties": {
-                "batch_index": {
-                    "type": "integer"
-                },
-                "doc": {
-                    "type": "string"
-                },
-                "module": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ExtrinsicParam": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "type_name": {
-                    "type": "string"
-                },
-                "value": {}
-            }
-        },
-        "subscan_internal_model.ExtrinsicProxyDetail": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "success": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "subscan_internal_model.FellowshipReferendumStatisticsJson": {
-            "type": "object",
-            "properties": {
-                "active_fellowship_members": {
-                    "type": "integer"
-                },
-                "confirm_total": {
-                    "type": "integer"
-                },
-                "fellowship_members": {
-                    "type": "integer"
-                },
-                "origins": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson"
-                    }
-                },
-                "originsCount": {
-                    "type": "integer"
-                },
-                "voting_total": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.IdentityJson": {
-            "type": "object",
-            "properties": {
-                "display": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "identity": {
-                    "type": "boolean"
-                },
-                "judgements": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
-                    }
-                },
-                "legal": {
-                    "type": "string"
-                },
-                "network": {
-                    "type": "string"
-                },
-                "parent": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
-                },
-                "riot": {
-                    "type": "string"
-                },
-                "twitter": {
-                    "type": "string"
-                },
-                "web": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ItemDetail": {
-            "type": "object",
-            "properties": {
-                "fallback_image": {
-                    "type": "string"
-                },
-                "image": {
-                    "type": "string"
-                },
-                "media": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
-                    }
-                },
-                "symbol": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.Lifetime": {
-            "type": "object",
-            "properties": {
-                "birth": {
-                    "type": "integer"
-                },
-                "death": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.LinearVestingSchedule": {
-            "type": "object",
-            "properties": {
-                "balance": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "cliff": {
-                    "type": "integer"
-                },
-                "vesting": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.MerkleTag": {
-            "type": "object",
-            "properties": {
-                "address_type": {
-                    "type": "string"
-                },
-                "tag_name": {
-                    "type": "string"
-                },
-                "tag_subtype": {
-                    "type": "string"
-                },
-                "tag_type": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.MetadataMedia": {
-            "type": "object",
-            "properties": {
-                "types": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.MultiAction": {
-            "type": "string",
-            "enum": [
-                "Approval",
-                "Executed",
-                "Cancelled",
-                "Failed"
-            ],
-            "x-enum-varnames": [
-                "MultiActionApproval",
-                "MultiActionExecuted",
-                "MultiActionCancelled",
-                "MultiActionExecuteFailed"
-            ]
-        },
-        "subscan_internal_model.MultisigExtrinsicDetailsJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "approve_record": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MultisigProcessJson"
-                    }
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_data": {
-                    "type": "string"
-                },
-                "call_hash": {
-                    "type": "string"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "cancel_extrinsic_idx": {
-                    "type": "string"
-                },
-                "cancel_record": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MultisigProcessJson"
-                    }
-                },
-                "confirm_extrinsic_idx": {
-                    "type": "string"
-                },
-                "multi_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "multi_id": {
-                    "description": "extrinsicIndex",
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "process": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MultisigProcessJson"
-                    }
-                },
-                "status": {
-                    "$ref": "#/definitions/subscan_internal_model.MultiAction"
-                },
-                "threshold": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.MultisigExtrinsicJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_data": {
-                    "type": "string"
-                },
-                "call_hash": {
-                    "type": "string"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "multi_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "multi_id": {
-                    "description": "extrinsicIndex",
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "process": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MultisigProcessJson"
-                    }
-                },
-                "status": {
-                    "$ref": "#/definitions/subscan_internal_model.MultiAction"
-                },
-                "threshold": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.MultisigJson": {
-            "type": "object",
-            "properties": {
-                "call_hash": {
-                    "type": "string"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "multi_id": {
-                    "type": "string"
-                },
-                "multisig_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "multisig_status": {
-                    "$ref": "#/definitions/subscan_internal_model.MultiAction"
-                },
-                "processing": {
-                    "type": "integer"
-                },
-                "threshold": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.MultisigProcessJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "approve_type": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "status": {
-                    "$ref": "#/definitions/subscan_internal_model.MultiAction"
-                },
-                "timestamp": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.NominatorDetail": {
-            "type": "object",
-            "properties": {
-                "bonded": {
-                    "type": "number"
-                },
-                "nominator_stash": {
-                    "type": "string"
-                },
-                "staking_info": {
-                    "$ref": "#/definitions/subscan_internal_model.StakingAccount"
-                },
-                "stash_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.NominatorJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "bonded": {
-                    "type": "number"
-                },
-                "nominator_stash": {
-                    "type": "string"
-                },
-                "rank_nominator": {
-                    "type": "integer"
-                },
-                "validator_stash": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.OrmlVestingSchedule": {
-            "type": "object",
-            "properties": {
-                "per_period": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "period": {
-                    "type": "integer"
-                },
-                "period_count": {
-                    "type": "integer"
-                },
-                "start": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.OtherDetail": {
-            "type": "object",
-            "properties": {
-                "democracy_locked_balance": {
-                    "type": "number"
-                },
-                "election_locked_balance": {
-                    "type": "number"
-                },
-                "nominator_bonded": {
-                    "type": "number"
-                },
-                "reserved_balance": {
-                    "type": "number"
-                },
-                "unbonded_locked_balance": {
-                    "type": "number"
-                },
-                "validator_bonded": {
-                    "type": "number"
-                },
-                "vesting_balance": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.PalletVestingSchedule": {
-            "type": "object",
-            "properties": {
-                "locked": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "per_block": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "starting_block": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParaChainMetaJson": {
-            "type": "object",
-            "properties": {
-                "auction_active": {
-                    "type": "boolean"
-                },
-                "auction_count": {
-                    "type": "integer"
-                },
-                "ending_period": {
-                    "type": "integer"
-                },
-                "lease_offset": {
-                    "type": "integer"
-                },
-                "lease_period": {
-                    "type": "integer"
-                },
-                "lease_periods_per_slot": {
-                    "type": "integer"
-                },
-                "online_count": {
-                    "type": "integer"
-                },
-                "retirement_period": {
-                    "type": "integer"
-                },
-                "total_slot_num": {
-                    "type": "integer"
-                },
-                "upcoming_count": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParaChainSample": {
-            "type": "object",
-            "properties": {
-                "begin_period": {
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "manager_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "open_channel_count": {
-                    "type": "integer"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "reserved_extrinsic_index": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "xcm_receive_message_count": {
-                    "type": "integer"
-                },
-                "xcm_receive_transfer_count": {
-                    "type": "integer"
-                },
-                "xcm_send_message_count": {
-                    "type": "integer"
-                },
-                "xcm_send_transfer_count": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainAuction": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "early_end_block": {
-                    "type": "integer"
-                },
-                "end_block": {
-                    "type": "integer"
-                },
-                "extinguish_block": {
-                    "type": "integer"
-                },
-                "lease_index": {
-                    "type": "integer"
-                },
-                "start_block": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "winners": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.ParachainFund": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "balance": {
-                    "type": "number"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "cap": {
-                    "type": "number"
-                },
-                "contributors": {
-                    "type": "integer"
-                },
-                "end_block": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_auction_status": {
-                    "type": "integer"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "in_auctions": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "last_change_block": {
-                    "type": "integer"
-                },
-                "last_change_event_idx": {
-                    "type": "integer"
-                },
-                "last_change_timestamp": {
-                    "type": "integer"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "owner": {
-                    "type": "string"
-                },
-                "owner_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "raised": {
-                    "type": "number"
-                },
-                "start_block": {
-                    "type": "integer"
-                },
-                "start_block_at": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainFundContribution": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "contributed": {
-                    "description": "total amount",
-                    "type": "number"
-                },
-                "contributing": {
-                    "description": "last contributed amount",
-                    "type": "number"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "memo": {
-                    "type": "string"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "who": {
-                    "type": "string"
-                },
-                "who_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainFundHistoryStatJson": {
-            "type": "object",
-            "properties": {
-                "time_hour_utc": {
-                    "type": "string"
-                },
-                "time_six_hour_utc": {
-                    "type": "string"
-                },
-                "time_utc": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainInfoJson": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "begin_period": {
-                    "description": "周期开始时间(begin-first-end)",
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "deposit": {
-                    "type": "number"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_account": {
-                    "type": "string"
-                },
-                "fund_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "genesis_head": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "manager": {
-                    "type": "string"
-                },
-                "manager_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "open_channel_count": {
-                    "type": "integer"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "reserved_extrinsic_index": {
-                    "type": "string"
-                },
-                "source": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "validation_code_url": {
-                    "type": "string"
-                },
-                "validators": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "validators_display": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                    }
-                },
-                "xcm_receive_message_count": {
-                    "type": "integer"
-                },
-                "xcm_receive_transfer_count": {
-                    "type": "integer"
-                },
-                "xcm_send_message_count": {
-                    "type": "integer"
-                },
-                "xcm_send_transfer_count": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainSlotWinner": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "auction_index": {
-                    "type": "integer"
-                },
-                "bid_count": {
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "bidder_account": {
-                    "type": "string"
-                },
-                "bidder_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "source": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.PreImageJson": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "author": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_block": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.PreimageJson": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "author": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "create_timestamp": {
-                    "type": "integer"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "len": {
-                    "type": "integer"
-                },
-                "link": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.PreimageLinkJson"
-                    }
-                },
-                "params": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_block": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.PreimageLinkJson": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "module": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.PreimageSampleJson": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "created_timestamp": {
-                    "type": "integer"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "link": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.PreimageLinkJson"
-                    }
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ProxyChainExtrinsicJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "description": "Execution account",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                        }
-                    ]
-                },
-                "block_num": {
-                    "type": "integer",
-                    "example": 12413008
-                },
-                "block_timestamp": {
-                    "type": "integer",
-                    "example": 1681965624
-                },
-                "call_module": {
-                    "type": "string",
-                    "example": "proxy"
-                },
-                "call_module_function": {
-                    "type": "string",
-                    "example": "proxy"
-                },
-                "extrinsic_hash": {
-                    "type": "string",
-                    "example": "0xb3c16a3872a2d986cabd6ccfbcb387e922c0e16d3e3d5ed128fc7b6660e219d1"
-                },
-                "extrinsic_index": {
-                    "type": "string",
-                    "example": "12413008-1"
-                },
-                "fee": {
-                    "description": "Estimated handling fee",
-                    "type": "number",
-                    "example": 10000
-                },
-                "fee_used": {
-                    "description": "Actual handling fee",
-                    "type": "number",
-                    "example": 10000
-                },
-                "finalized": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "nonce": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "real_account_display": {
-                    "description": "Entrusted account",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                        }
-                    ]
-                },
-                "signature": {
-                    "type": "string",
-                    "example": "b80d3b8a51ff541b17239ce50c6048c23824a0c7ef8c7e0a7957e68785bc9e4dd521e8ec604c184f26b0dd2ddaa0722bf39bdb7ed4cab5f1906ebfbbd76b5681"
-                },
-                "success": {
-                    "type": "boolean",
-                    "example": true
-                }
-            }
-        },
-        "subscan_internal_model.ReferendumJson": {
-            "type": "object",
-            "properties": {
-                "aye_amount": {
-                    "type": "number"
-                },
-                "aye_without_conviction": {
-                    "type": "number"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "delay": {
-                    "type": "integer"
-                },
-                "end": {
-                    "type": "integer"
-                },
-                "executed_success": {
-                    "type": "boolean"
-                },
-                "nay_amount": {
-                    "type": "number"
-                },
-                "nay_without_conviction": {
-                    "type": "number"
-                },
-                "pre_image": {
-                    "$ref": "#/definitions/subscan_internal_model.PreImageJson"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                },
-                "turnout": {
-                    "type": "number"
-                },
-                "updated_block": {
-                    "type": "integer"
-                },
-                "value": {
-                    "type": "number"
-                },
-                "vote_threshold": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ReferendumStatisticsJson": {
-            "type": "object",
-            "properties": {
-                "confirm_total": {
-                    "type": "integer"
-                },
-                "origins": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson"
-                    }
-                },
-                "originsCount": {
-                    "type": "integer"
-                },
-                "referendum_locked": {
-                    "type": "number"
-                },
-                "referendum_participate": {
-                    "type": "number"
-                },
-                "voting_total": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ReferendumStatisticsOriginsJson": {
-            "type": "object",
-            "properties": {
-                "count": {
-                    "type": "integer"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "origins": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ReferendumV2Json": {
-            "type": "object",
-            "properties": {
-                "abstains_count": {
-                    "type": "integer"
-                },
-                "account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "ayes_amount": {
-                    "type": "number"
-                },
-                "ayes_count": {
-                    "type": "integer"
-                },
-                "bare_ayes": {
-                    "type": "number"
-                },
-                "beneficiary": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "beneficiary_amount": {
-                    "type": "number"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "created_block_timestamp": {
-                    "type": "integer"
-                },
-                "decision_deposit_account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "decision_deposit_balance": {
-                    "type": "number"
-                },
-                "deposit_balance": {
-                    "type": "number"
-                },
-                "latest_block_num": {
-                    "type": "integer"
-                },
-                "latest_block_timestamp": {
-                    "type": "integer"
-                },
-                "nays_amount": {
-                    "type": "number"
-                },
-                "nays_count": {
-                    "type": "integer"
-                },
-                "origins": {
-                    "type": "string"
-                },
-                "origins_id": {
-                    "type": "integer"
-                },
-                "pre_image": {
-                    "$ref": "#/definitions/subscan_internal_model.PreImageJson"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "support_amount": {
-                    "type": "number"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.ReferendumV2SampleJson": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "created_block_timestamp": {
-                    "type": "integer"
-                },
-                "latest_block_num": {
-                    "type": "integer"
-                },
-                "latest_block_timestamp": {
-                    "type": "integer"
-                },
-                "origins": {
-                    "type": "string"
-                },
-                "origins_id": {
-                    "type": "integer"
-                },
-                "referendum_index": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.RegistrationJudgementJson": {
-            "type": "object",
-            "properties": {
-                "index": {
-                    "type": "integer"
-                },
-                "judgement": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.RoleRegistrarJson": {
-            "type": "object",
-            "properties": {
-                "registrar_fee": {
-                    "type": "number"
-                },
-                "registrar_index": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.RuntimeVersion": {
-            "type": "object",
-            "properties": {
-                "modules": {
-                    "type": "string"
-                },
-                "spec_version": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.SampleBlockV2Json": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_count": {
-                    "type": "integer"
-                },
-                "extrinsics_count": {
-                    "type": "integer"
-                },
-                "finalized": {
-                    "type": "boolean"
-                },
-                "hash": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.SessionKeys": {
-            "type": "object",
-            "properties": {
-                "authority_discovery": {
-                    "type": "string"
-                },
-                "babe": {
-                    "type": "string"
-                },
-                "grandpa": {
-                    "type": "string"
-                },
-                "im_online": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.StakingAccount": {
-            "type": "object",
-            "properties": {
-                "controller": {
-                    "type": "string"
-                },
-                "controller_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "reward_account": {
-                    "type": "string"
-                },
-                "reward_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_model.StakingAccountEvent": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "era": {
-                    "type": "integer"
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "invalid_era": {
-                    "type": "boolean"
-                },
-                "module_id": {
-                    "type": "string"
-                },
-                "stash": {
-                    "type": "string"
-                },
-                "validator_stash": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.TechcommProposalJson": {
-            "type": "object",
-            "properties": {
-                "aye_votes": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "executed_success": {
-                    "type": "boolean"
-                },
-                "member_count": {
-                    "type": "integer"
-                },
-                "nay_votes": {
-                    "type": "integer"
-                },
-                "params": {
-                    "type": "string"
-                },
-                "pre_image": {
-                    "$ref": "#/definitions/subscan_internal_model.PreImageJson"
-                },
-                "proposal_hash": {
-                    "type": "string"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                },
-                "updated_block": {
-                    "type": "integer"
-                },
-                "value": {
-                    "type": "number"
-                },
-                "votes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TechcommVoteJson"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.TechcommProposalSample": {
-            "type": "object",
-            "properties": {
-                "aye_votes": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_name": {
-                    "type": "string"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "member_count": {
-                    "type": "integer"
-                },
-                "nay_votes": {
-                    "type": "integer"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.TechcommVoteJson": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "extrinsic_hash": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "passed": {
-                    "type": "boolean"
-                },
-                "voting_time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.TimelineJson": {
-            "type": "object",
-            "properties": {
-                "block": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "index": {
-                    "type": "integer"
-                },
-                "params": {},
-                "prophecy": {
-                    "type": "boolean"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.TokenJson": {
-            "type": "object",
-            "properties": {
-                "alias_name": {
-                    "type": "string"
-                },
-                "asset_id": {
-                    "type": "number"
-                },
-                "balance": {
-                    "type": "number"
-                },
-                "bonded": {
-                    "type": "number"
-                },
-                "contract": {
-                    "type": "string"
-                },
-                "conviction_lock": {
-                    "type": "number"
-                },
-                "currency_id": {
-                    "type": "string"
-                },
-                "decimals": {
-                    "type": "integer"
-                },
-                "democracy_lock": {
-                    "type": "number"
-                },
-                "election_lock": {
-                    "type": "number"
-                },
-                "lock": {
-                    "type": "number"
-                },
-                "media": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
-                    }
-                },
-                "reserved": {
-                    "type": "number"
-                },
-                "symbol": {
-                    "type": "string"
-                },
-                "token_image": {
-                    "description": "TokenId        *decimal.Decimal ` + "`" + `json:\"token_id,omitempty\"` + "`" + `",
-                    "type": "string"
-                },
-                "unbonding": {
-                    "type": "number"
-                },
-                "unique_id": {
-                    "type": "string"
-                },
-                "vesting": {
-                    "$ref": "#/definitions/subscan_internal_model.VestingJson"
-                }
-            }
-        },
-        "subscan_internal_model.TransferHistory": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "amount_v2": {
-                    "type": "number"
-                },
-                "asset_symbol": {
-                    "type": "string"
-                },
-                "asset_type": {
-                    "description": "AssetType asset type,default empty.",
-                    "type": "string"
-                },
-                "asset_unique_id": {
-                    "type": "string"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_idx": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fee": {
-                    "type": "number"
-                },
-                "from": {
-                    "type": "string"
-                },
-                "from_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "item_detail": {
-                    "$ref": "#/definitions/subscan_internal_model.ItemDetail"
-                },
-                "item_id": {
-                    "type": "number"
-                },
-                "module": {
-                    "type": "string"
-                },
-                "nonce": {
-                    "type": "integer"
-                },
-                "success": {
-                    "type": "boolean"
-                },
-                "to": {
-                    "type": "string"
-                },
-                "to_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "usd_amount": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.TransferHistoryTokensTotal": {
-            "type": "object",
-            "additionalProperties": {
-                "$ref": "#/definitions/subscan_internal_model.TransferHistoryTotal"
-            }
-        },
-        "subscan_internal_model.TransferHistoryTotal": {
-            "type": "object",
-            "properties": {
-                "received": {
-                    "type": "number"
-                },
-                "sent": {
-                    "type": "number"
-                },
-                "total": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.TransferJson": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "asset_symbol": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": "string"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "module": {
-                    "type": "string"
-                },
-                "success": {
-                    "type": "boolean"
-                },
-                "to": {
-                    "type": "string"
-                },
-                "to_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_model.TreasuryProposalDetailJson": {
-            "type": "object",
-            "properties": {
-                "beneficiary": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "council": {
-                    "$ref": "#/definitions/subscan_internal_model.CouncilJson"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "reward": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.TreasuryProposalJson": {
-            "type": "object",
-            "properties": {
-                "beneficiary": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "created_block": {
-                    "type": "integer"
-                },
-                "proposal_id": {
-                    "type": "integer"
-                },
-                "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "reward": {
-                    "type": "number"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.TreasuryTip": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "beneficiary": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "close_block_num": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "finder": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "reason": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "tipper_num": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.TreasuryTipJson": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "beneficiary": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "close_block_num": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "finder": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "hash": {
-                    "type": "string"
-                },
-                "reason": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "timeline": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
-                    }
-                },
-                "tipper_num": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.TreasuryTipperJson": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "rewarder": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_model.ValidatorJson": {
-            "type": "object",
-            "properties": {
-                "bonded_nominators": {
-                    "type": "number"
-                },
-                "bonded_owner": {
-                    "type": "number"
-                },
-                "bonded_total": {
-                    "type": "number"
-                },
-                "controller_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "count_nominators": {
-                    "type": "integer"
-                },
-                "grandpa_vote": {
-                    "type": "integer"
-                },
-                "latest_mining": {
-                    "type": "integer"
-                },
-                "rank_validator": {
-                    "type": "integer"
-                },
-                "reward_point": {
-                    "type": "integer"
-                },
-                "session_key": {
-                    "$ref": "#/definitions/subscan_internal_model.SessionKeys"
-                },
-                "staking_rewards_tag": {
-                    "$ref": "#/definitions/subscan_libs_stakingrewards.Provider"
-                },
-                "stash_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "validator_prefs_value": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ValidatorStatJson": {
-            "type": "object",
-            "properties": {
-                "block_produced": {
-                    "type": "string"
-                },
-                "end_block_num": {
-                    "type": "integer"
-                },
-                "era": {
-                    "type": "integer"
-                },
-                "reward": {
-                    "type": "number"
-                },
-                "reward_point": {
-                    "type": "integer"
-                },
-                "slash": {
-                    "type": "number"
-                },
-                "start_block_num": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ValidatorWaiting": {
-            "type": "object",
-            "properties": {
-                "bonded_nominators": {
-                    "type": "number"
-                },
-                "bonded_owner": {
-                    "type": "number"
-                },
-                "count_nominators": {
-                    "type": "integer"
-                },
-                "node_name": {
-                    "type": "string"
-                },
-                "reward_account": {
-                    "type": "string"
-                },
-                "reward_pot_balance": {
-                    "type": "number"
-                },
-                "stash_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "validator_prefs_value": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.VestingJson": {
-            "type": "object",
-            "properties": {
-                "linear_schedules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.LinearVestingSchedule"
-                    }
-                },
-                "orml_schedules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.OrmlVestingSchedule"
-                    }
-                },
-                "pallet_schedules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.PalletVestingSchedule"
-                    }
-                },
-                "total_locked": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "type": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.VestingRelease": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "day": {
-                    "type": "string"
-                }
-            }
-        },
         "subscan_internal_plugin_share.J": {
             "type": "object",
             "properties": {
@@ -14250,618 +8186,6 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "message": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_service_scan.AccountTokenJson": {
-            "type": "object",
-            "properties": {
-                "ERC20": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TokenJson"
-                    }
-                },
-                "ERC721": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TokenJson"
-                    }
-                },
-                "assets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TokenJson"
-                    }
-                },
-                "builtin": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TokenJson"
-                    }
-                },
-                "native": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.TokenJson"
-                    }
-                }
-            }
-        },
-        "subscan_internal_service_scan.CurrencyPrice": {
-            "type": "object",
-            "properties": {
-                "height": {
-                    "type": "integer"
-                },
-                "price": {
-                    "type": "number"
-                },
-                "records": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_service_scan.PriceRecord"
-                    }
-                },
-                "time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_service_scan.Price": {
-            "type": "object",
-            "properties": {
-                "feed_at": {
-                    "type": "integer"
-                },
-                "price": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_service_scan.PriceRecord": {
-            "type": "object",
-            "properties": {
-                "height": {
-                    "type": "integer"
-                },
-                "price": {
-                    "type": "number"
-                },
-                "time": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_service_scan.uniqueBid": {
-            "type": "object",
-            "properties": {
-                "bid_id": {
-                    "type": "string"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "leading_blocks": {
-                    "type": "integer"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "unique_key": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_service_scan_token.AssetType": {
-            "type": "string",
-            "enum": [
-                "native",
-                "builtin"
-            ],
-            "x-enum-varnames": [
-                "TypeNative",
-                "TypeBuiltin"
-            ]
-        },
-        "subscan_internal_service_scan_token.ExternalDataSource": {
-            "type": "object",
-            "properties": {
-                "authorization_source": {
-                    "type": "string"
-                },
-                "circulating_supply": {
-                    "type": "number"
-                },
-                "source": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_service_scan_token.Token": {
-            "type": "object",
-            "properties": {
-                "asset_type": {
-                    "$ref": "#/definitions/subscan_internal_service_scan_token.AssetType"
-                },
-                "available_balance": {
-                    "type": "number"
-                },
-                "bonded_locked_balance": {
-                    "type": "number"
-                },
-                "democracy_locked_balance": {
-                    "type": "number"
-                },
-                "display_name": {
-                    "type": "string"
-                },
-                "election_locked_balance": {
-                    "type": "number"
-                },
-                "external_data": {
-                    "$ref": "#/definitions/subscan_internal_service_scan_token.ExternalDataSource"
-                },
-                "free_balance": {
-                    "type": "number"
-                },
-                "inflation": {
-                    "type": "number"
-                },
-                "locked_balance": {
-                    "type": "number"
-                },
-                "nominator_bonded": {
-                    "type": "number"
-                },
-                "price": {
-                    "type": "number"
-                },
-                "price_change": {
-                    "type": "number"
-                },
-                "reserved_balance": {
-                    "type": "number"
-                },
-                "symbol": {
-                    "type": "string"
-                },
-                "token_decimals": {
-                    "type": "integer"
-                },
-                "total_issuance": {
-                    "type": "number"
-                },
-                "unbonded_locked_balance": {
-                    "type": "number"
-                },
-                "unique_id": {
-                    "type": "string"
-                },
-                "validator_bonded": {
-                    "type": "number"
-                },
-                "vesting_balance": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_internal_types.Balance": {
-            "type": "object",
-            "properties": {
-                "types.Balance": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_libs_stakingrewards.Provider": {
-            "type": "object",
-            "properties": {
-                "isVerified": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "slug": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_libs_substrate_derive.Unbonding": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "until": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_libs_substrate_storage.LinearDecreasing": {
-            "type": "object",
-            "properties": {
-                "ceil": {
-                    "type": "integer"
-                },
-                "floor": {
-                    "type": "integer"
-                },
-                "length": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_libs_substrate_storage.Reciprocal": {
-            "type": "object",
-            "properties": {
-                "factor": {
-                    "type": "number"
-                },
-                "x_offset": {
-                    "type": "number"
-                },
-                "y_offset": {
-                    "type": "number"
-                }
-            }
-        },
-        "subscan_libs_substrate_storage.ReferendaCurve": {
-            "type": "object",
-            "properties": {
-                "LinearDecreasing": {
-                    "$ref": "#/definitions/subscan_libs_substrate_storage.LinearDecreasing"
-                },
-                "Reciprocal": {
-                    "$ref": "#/definitions/subscan_libs_substrate_storage.Reciprocal"
-                },
-                "SteppedDecreasing": {
-                    "$ref": "#/definitions/subscan_libs_substrate_storage.SteppedDecreasing"
-                }
-            }
-        },
-        "subscan_libs_substrate_storage.ReferendumTracksInfo": {
-            "type": "object",
-            "properties": {
-                "confirm_period": {
-                    "type": "integer"
-                },
-                "current_deciding": {
-                    "description": "custom field",
-                    "type": "integer"
-                },
-                "decision_deposit": {
-                    "type": "number"
-                },
-                "decision_period": {
-                    "type": "integer"
-                },
-                "max_deciding": {
-                    "type": "integer"
-                },
-                "min_approval": {
-                    "$ref": "#/definitions/subscan_libs_substrate_storage.ReferendaCurve"
-                },
-                "min_enactment_period": {
-                    "type": "integer"
-                },
-                "min_support": {
-                    "$ref": "#/definitions/subscan_libs_substrate_storage.ReferendaCurve"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "prepare_period": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_libs_substrate_storage.SteppedDecreasing": {
-            "type": "object",
-            "properties": {
-                "begin": {
-                    "type": "integer"
-                },
-                "end": {
-                    "type": "integer"
-                },
-                "period": {
-                    "type": "integer"
-                },
-                "step": {
-                    "type": "integer"
-                }
-            }
-        },
-        "types.MapType": {
-            "type": "object",
-            "properties": {
-                "hasher": {
-                    "type": "string"
-                },
-                "isLinked": {
-                    "type": "boolean"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "key2": {
-                    "type": "string"
-                },
-                "key2Hasher": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "types.MetadataCalls": {
-            "type": "object",
-            "properties": {
-                "args": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.MetadataModuleCallArgument"
-                    }
-                },
-                "docs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "lookup": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "types.MetadataConstants": {
-            "type": "object",
-            "properties": {
-                "constants_value": {
-                    "type": "string"
-                },
-                "docs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "type_value": {
-                    "type": "integer"
-                }
-            }
-        },
-        "types.MetadataEvents": {
-            "type": "object",
-            "properties": {
-                "args": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "args_name": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "args_type_name": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "docs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "lookup": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "types.MetadataModuleCallArgument": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "type_name": {
-                    "type": "string"
-                }
-            }
-        },
-        "types.MetadataModuleError": {
-            "type": "object",
-            "properties": {
-                "doc": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.ModuleErrorField"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "types.MetadataModules": {
-            "type": "object",
-            "properties": {
-                "calls": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.MetadataCalls"
-                    }
-                },
-                "calls_value": {
-                    "$ref": "#/definitions/types.PalletLookUp"
-                },
-                "constants": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.MetadataConstants"
-                    }
-                },
-                "errors": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.MetadataModuleError"
-                    }
-                },
-                "errors_value": {
-                    "$ref": "#/definitions/types.PalletLookUp"
-                },
-                "events": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.MetadataEvents"
-                    }
-                },
-                "events_value": {
-                    "$ref": "#/definitions/types.PalletLookUp"
-                },
-                "index": {
-                    "type": "integer"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "prefix": {
-                    "type": "string"
-                },
-                "storage": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/types.MetadataStorage"
-                    }
-                }
-            }
-        },
-        "types.MetadataStorage": {
-            "type": "object",
-            "properties": {
-                "docs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "fallback": {
-                    "type": "string"
-                },
-                "hasher": {
-                    "type": "string"
-                },
-                "modifier": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "$ref": "#/definitions/types.StorageType"
-                }
-            }
-        },
-        "types.ModuleErrorField": {
-            "type": "object",
-            "properties": {
-                "doc": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "type": {
-                    "type": "string"
-                },
-                "type_name": {
-                    "type": "string"
-                }
-            }
-        },
-        "types.NMapType": {
-            "type": "object",
-            "properties": {
-                "hashers": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "key_vec": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "keys_id": {
-                    "type": "integer"
-                },
-                "value": {
-                    "type": "string"
-                },
-                "value_id": {
-                    "type": "integer"
-                }
-            }
-        },
-        "types.PalletLookUp": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "integer"
-                }
-            }
-        },
-        "types.StorageType": {
-            "type": "object",
-            "properties": {
-                "PlainTypeValue": {
-                    "type": "integer"
-                },
-                "double_map_type": {
-                    "$ref": "#/definitions/types.MapType"
-                },
-                "map_type": {
-                    "$ref": "#/definitions/types.MapType"
-                },
-                "n_map_type": {
-                    "$ref": "#/definitions/types.NMapType"
-                },
-                "origin": {
-                    "type": "string"
-                },
-                "plain_type": {
                     "type": "string"
                 }
             }
