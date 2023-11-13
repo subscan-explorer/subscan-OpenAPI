@@ -2545,6 +2545,237 @@
                 }
             }
         },
+        "/api/scan/nfts/account/balances": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT account balances",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftAccountBalancesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT activities",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftActivitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT info",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT holders",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftHoldersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info/item": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT item",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftItemParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/info/items": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFT items",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftItemsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/nfts/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NFTs"
+                ],
+                "summary": "NFTs list",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_nfts_http.NftsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/nomination_pool/activities": {
             "post": {
                 "consumes": [
@@ -3403,7 +3634,7 @@
                 "tags": [
                     "proxy"
                 ],
-                "summary": "Proxy extrinsics list",
+                "summary": "Proxy extrinsics",
                 "parameters": [
                     {
                         "description": "params",
@@ -3419,27 +3650,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "extrinsics": {
-                                                    "$ref": "#/definitions/subscan_internal_model.ProxyChainExtrinsicJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
+                            "type": "object"
                         }
                     }
                 }
@@ -6018,6 +6229,155 @@
                 }
             }
         },
+        "internal_plugin_nfts_http.NftAccountBalancesParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "collection_id": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftActivitiesParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "item_id": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftHoldersParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftItemParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "item_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftItemsParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "order": {
+                    "description": "Optional, order sort, default desc",
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "description": "Optional, order field",
+                    "type": "string",
+                    "enum": [
+                        "item_id"
+                    ]
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "internal_plugin_nfts_http.NftsParams": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "order": {
+                    "description": "Optional, order sort, default desc",
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "description": "Optional, order field",
+                    "type": "string",
+                    "enum": [
+                        "items",
+                        "holders",
+                        "collection_id",
+                        "transfer_count"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_plugin_uniques_http.UniquesActivitiesParams": {
             "type": "object",
             "properties": {
@@ -6300,24 +6660,6 @@
                 },
                 "only_extrinsic_event": {
                     "type": "boolean"
-                }
-            }
-        },
-        "internal_server_http.J": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "example": 0
-                },
-                "data": {},
-                "generated_at": {
-                    "type": "integer",
-                    "example": 1699600641
-                },
-                "message": {
-                    "type": "string",
-                    "example": "Success"
                 }
             }
         },
@@ -7562,30 +7904,23 @@
             ],
             "properties": {
                 "account": {
-                    "description": "Current network account",
-                    "type": "string",
-                    "example": "14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ"
+                    "type": "string"
                 },
                 "order": {
                     "type": "string",
                     "enum": [
                         "asc",
                         "desc"
-                    ],
-                    "example": "desc"
+                    ]
                 },
                 "page": {
-                    "description": "Page number, starting from 0",
                     "type": "integer",
-                    "minimum": 0,
-                    "example": 0
+                    "minimum": 0
                 },
                 "row": {
-                    "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
+                    "minimum": 1
                 }
             }
         },
@@ -8203,189 +8538,6 @@
             "properties": {
                 "auction_index": {
                     "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.AccountDisplay": {
-            "type": "object",
-            "properties": {
-                "account_index": {
-                    "type": "string"
-                },
-                "address": {
-                    "description": "Current network account",
-                    "type": "string"
-                },
-                "display": {
-                    "type": "string"
-                },
-                "evm_contract": {
-                    "$ref": "#/definitions/subscan_internal_model.EvmAccountDisplay"
-                },
-                "identity": {
-                    "type": "boolean"
-                },
-                "judgements": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
-                    }
-                },
-                "merkle": {
-                    "$ref": "#/definitions/subscan_internal_model.MerkleTag"
-                },
-                "parent": {
-                    "description": "Parent account",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
-                        }
-                    ]
-                }
-            }
-        },
-        "subscan_internal_model.AccountParentJson": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "display": {
-                    "type": "string"
-                },
-                "identity": {
-                    "type": "boolean"
-                },
-                "sub_symbol": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.EvmAccountDisplay": {
-            "type": "object",
-            "properties": {
-                "contract_name": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ExtrinsicParam": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "type_name": {
-                    "type": "string"
-                },
-                "value": {}
-            }
-        },
-        "subscan_internal_model.MerkleTag": {
-            "type": "object",
-            "properties": {
-                "address_type": {
-                    "type": "string"
-                },
-                "tag_name": {
-                    "type": "string"
-                },
-                "tag_subtype": {
-                    "type": "string"
-                },
-                "tag_type": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.ProxyChainExtrinsicJson": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "description": "Execution account",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                        }
-                    ]
-                },
-                "block_num": {
-                    "type": "integer",
-                    "example": 12413008
-                },
-                "block_timestamp": {
-                    "type": "integer",
-                    "example": 1681965624
-                },
-                "call_module": {
-                    "type": "string",
-                    "example": "proxy"
-                },
-                "call_module_function": {
-                    "type": "string",
-                    "example": "proxy"
-                },
-                "extrinsic_hash": {
-                    "type": "string",
-                    "example": "0xb3c16a3872a2d986cabd6ccfbcb387e922c0e16d3e3d5ed128fc7b6660e219d1"
-                },
-                "extrinsic_index": {
-                    "type": "string",
-                    "example": "12413008-1"
-                },
-                "fee": {
-                    "description": "Estimated handling fee",
-                    "type": "number",
-                    "example": 10000
-                },
-                "fee_used": {
-                    "description": "Actual handling fee",
-                    "type": "number",
-                    "example": 10000
-                },
-                "finalized": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "nonce": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "real_account_display": {
-                    "description": "Entrusted account",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                        }
-                    ]
-                },
-                "signature": {
-                    "type": "string",
-                    "example": "b80d3b8a51ff541b17239ce50c6048c23824a0c7ef8c7e0a7957e68785bc9e4dd521e8ec604c184f26b0dd2ddaa0722bf39bdb7ed4cab5f1906ebfbbd76b5681"
-                },
-                "success": {
-                    "type": "boolean",
-                    "example": true
-                }
-            }
-        },
-        "subscan_internal_model.RegistrationJudgementJson": {
-            "type": "object",
-            "properties": {
-                "index": {
-                    "type": "integer"
-                },
-                "judgement": {
-                    "type": "string"
                 }
             }
         },
