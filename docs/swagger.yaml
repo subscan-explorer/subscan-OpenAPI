@@ -480,8 +480,6 @@ definitions:
     properties:
       address:
         type: string
-      after_id:
-        type: integer
       category:
         enum:
         - erc20
@@ -740,6 +738,13 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_server_http.CurrencyConverter:
+    properties:
+      output:
+        type: number
+      price:
+        $ref: '#/definitions/subscan_internal_service_scan.CurrencyPrice'
+    type: object
   internal_server_http.ExtrinsicDetailParams:
     properties:
       events_limit:
@@ -753,6 +758,19 @@ definitions:
         type: string
       only_extrinsic_event:
         type: boolean
+    type: object
+  internal_server_http.J:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data: {}
+      generated_at:
+        example: 1699600641
+        type: integer
+      message:
+        example: Success
+        type: string
     type: object
   internal_server_http.ResourceCountParams:
     properties:
@@ -793,9 +811,13 @@ definitions:
       include_total:
         type: boolean
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -814,9 +836,13 @@ definitions:
         - referendum
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -876,9 +902,13 @@ definitions:
         - ring_lock
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -953,9 +983,13 @@ definitions:
   internal_server_http.blocksParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -970,9 +1004,13 @@ definitions:
   internal_server_http.bountiesParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1012,11 +1050,15 @@ definitions:
       contract:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       result:
         type: boolean
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1028,9 +1070,13 @@ definitions:
       extrinsic_index:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1048,9 +1094,13 @@ definitions:
         - transaction_count
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1066,9 +1116,13 @@ definitions:
   internal_server_http.councilProposalsParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1094,6 +1148,8 @@ definitions:
       owner:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       para_id:
@@ -1105,6 +1161,8 @@ definitions:
       progress:
         type: boolean
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1149,6 +1207,7 @@ definitions:
       category:
         type: string
       end:
+        example: "2023-06-01"
         type: string
       format:
         enum:
@@ -1157,6 +1216,7 @@ definitions:
         - 6hour
         type: string
       start:
+        example: "2023-05-01"
         type: string
     required:
     - end
@@ -1167,6 +1227,7 @@ definitions:
       category:
         type: string
       end:
+        example: "2023-06-01"
         type: string
       format:
         enum:
@@ -1175,6 +1236,7 @@ definitions:
         - 6hour
         type: string
       start:
+        example: "2023-05-01"
         type: string
     required:
     - end
@@ -1183,12 +1245,14 @@ definitions:
   internal_server_http.dailyTokenStatParams:
     properties:
       end:
+        example: "2023-06-01"
         type: string
       format:
         enum:
         - day
         type: string
       start:
+        example: "2023-05-01"
         type: string
       symbol:
         type: string
@@ -1204,9 +1268,13 @@ definitions:
         - proposal_id
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1225,12 +1293,16 @@ definitions:
   internal_server_http.democracySecondedParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       proposal_id:
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1240,9 +1312,13 @@ definitions:
       address:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1264,6 +1340,50 @@ definitions:
         type: array
     required:
     - event_index
+    type: object
+  internal_server_http.eventsParams:
+    properties:
+      address:
+        type: string
+      after_id:
+        type: integer
+      block_num:
+        minimum: 0
+        type: integer
+      block_range:
+        type: string
+      event_id:
+        type: string
+      extrinsic_index:
+        type: string
+      finalized:
+        type: boolean
+      focus:
+        type: string
+      module:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      phase:
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
     type: object
   internal_server_http.extrinsicParamsParams:
     properties:
@@ -1295,9 +1415,13 @@ definitions:
         - desc
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1317,12 +1441,16 @@ definitions:
   internal_server_http.fellowshipReferendumVotesParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       referendum_index:
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1332,9 +1460,13 @@ definitions:
       origin:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1358,6 +1490,33 @@ definitions:
     required:
     - log_index
     type: object
+  internal_server_http.logParams:
+    properties:
+      block_num:
+        minimum: 0
+        type: integer
+      block_range:
+        type: string
+      engine:
+        type: string
+      from:
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      to:
+        type: integer
+      type:
+        type: string
+    type: object
   internal_server_http.logsParams:
     properties:
       after_id:
@@ -1370,9 +1529,13 @@ definitions:
       engine:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1389,8 +1552,10 @@ definitions:
   internal_server_http.multisigParams:
     properties:
       call_hash:
+        example: 0xd43816694f042d9e199687ccdc60f7ef4a353ff38fe069a8fe1575323bcd5ce3
         type: string
       multi_id:
+        example: 14661803-2
         type: string
     required:
     - multi_id
@@ -1398,11 +1563,16 @@ definitions:
   internal_server_http.multisigsDetailsParams:
     properties:
       account:
+        example: 14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1438,9 +1608,13 @@ definitions:
         - bonded
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1454,11 +1628,15 @@ definitions:
       order:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       para_id:
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1472,9 +1650,13 @@ definitions:
       auction_index:
         type: integer
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1490,11 +1672,15 @@ definitions:
       order:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       para_id:
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1508,11 +1694,15 @@ definitions:
       order:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       para_id:
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1544,11 +1734,15 @@ definitions:
       order:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       para_id:
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1569,9 +1763,13 @@ definitions:
   internal_server_http.preimageListParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1592,6 +1790,7 @@ definitions:
       currency:
         type: string
       end:
+        example: "2023-06-01"
         type: string
       format:
         enum:
@@ -1601,36 +1800,48 @@ definitions:
         - 12hour
         type: string
       start:
+        example: "2023-05-01"
         type: string
     required:
     - end
     - start
     type: object
+  internal_server_http.providerActiveJson:
+    properties:
+      can_legacy:
+        type: boolean
+      id:
+        type: string
+      is_primary:
+        type: boolean
+      name:
+        type: string
+    type: object
   internal_server_http.proxyExtrinsicsParams:
     properties:
       account:
+        description: Current network account
+        example: 14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ
         type: string
       order:
         enum:
         - asc
         - desc
+        example: desc
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
     required:
     - account
-    type: object
-  internal_server_http.rawTxParams:
-    properties:
-      extrinsic_index:
-        type: string
-      hash:
-        type: string
     type: object
   internal_server_http.referendaVotesV2Params:
     properties:
@@ -1642,12 +1853,16 @@ definitions:
         - desc
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       referendum_index:
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1691,12 +1906,16 @@ definitions:
         - desc
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       referendum_index:
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1720,9 +1939,13 @@ definitions:
   internal_server_http.referendumsParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1737,9 +1960,13 @@ definitions:
       origin:
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1763,9 +1990,13 @@ definitions:
       is_stash:
         type: boolean
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1793,9 +2024,13 @@ definitions:
       is_stash:
         type: boolean
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1807,6 +2042,8 @@ definitions:
   internal_server_http.runtimeMetadataParams:
     properties:
       spec:
+        description: Runtime version
+        example: 9430
         type: integer
     type: object
   internal_server_http.techcommProposalParams:
@@ -1818,11 +2055,20 @@ definitions:
   internal_server_http.techcommProposalsParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
+        type: integer
+    type: object
+  internal_server_http.tokenExtendsJson:
+    properties:
+      holders:
         type: integer
     type: object
   internal_server_http.tokenHoldersParams:
@@ -1844,13 +2090,37 @@ definitions:
         - locked
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
       token:
+        type: string
+      unique_id:
+        type: string
+    type: object
+  internal_server_http.tokenJson:
+    properties:
+      category:
+        type: string
+      currency_id:
+        type: string
+      decimals:
+        type: integer
+      extends:
+        $ref: '#/definitions/internal_server_http.tokenExtendsJson'
+      is_native:
+        type: boolean
+      metadata: {}
+      name:
+        type: string
+      symbol:
         type: string
       unique_id:
         type: string
@@ -1874,11 +2144,15 @@ definitions:
       include_extends:
         type: boolean
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       provider:
         type: string
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1927,9 +2201,13 @@ definitions:
         - desc
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1951,9 +2229,13 @@ definitions:
   internal_server_http.treasuryProposalsParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -1971,9 +2253,13 @@ definitions:
   internal_server_http.treasuryTipsParams:
     properties:
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
         minimum: 1
         type: integer
@@ -2009,18 +2295,24 @@ definitions:
         - bonded_total
         type: string
       page:
+        description: Page number, starting from 0
+        example: 0
         minimum: 0
         type: integer
       row:
+        description: Data size per page
+        example: 10
         maximum: 100
-        minimum: 0
+        minimum: 1
         type: integer
     type: object
   internal_server_http.vestingReleaseParams:
     properties:
       end:
+        example: "2023-06-01"
         type: string
       start:
+        example: "2023-05-01"
         type: string
     required:
     - end
@@ -2053,6 +2345,2290 @@ definitions:
       auction_index:
         type: integer
     type: object
+  subscan_internal_dao.AccountBalanceValueHistory:
+    properties:
+      date:
+        type: string
+      value:
+        type: number
+    type: object
+  subscan_internal_model.AccountAssetsCountJson:
+    properties:
+      account_count:
+        type: integer
+      max_balance:
+        type: number
+      min_balance:
+        type: number
+      name:
+        type: string
+      total:
+        type: number
+    type: object
+  subscan_internal_model.AccountBalanceDetailJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      address:
+        type: string
+      balance:
+        type: number
+    type: object
+  subscan_internal_model.AccountContributedJson:
+    properties:
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      contributed:
+        type: number
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      fund_auction_status:
+        type: integer
+      fund_event_index:
+        type: string
+      fund_id:
+        type: string
+      fund_status:
+        type: integer
+      memo:
+        type: string
+      para_id:
+        type: integer
+      status:
+        type: integer
+      unlocking_block:
+        type: integer
+    type: object
+  subscan_internal_model.AccountDerive:
+    properties:
+      balance:
+        type: number
+      bonded:
+        type: number
+      id:
+        type: integer
+      locked:
+        type: number
+      reserved:
+        type: number
+      token:
+        type: string
+      unbonding:
+        type: number
+      unique_id:
+        type: string
+    type: object
+  subscan_internal_model.AccountDisplay:
+    properties:
+      account_index:
+        type: string
+      address:
+        description: Current network account
+        type: string
+      display:
+        type: string
+      evm_contract:
+        $ref: '#/definitions/subscan_internal_model.EvmAccountDisplay'
+      identity:
+        type: boolean
+      judgements:
+        items:
+          $ref: '#/definitions/subscan_internal_model.RegistrationJudgementJson'
+        type: array
+      merkle:
+        $ref: '#/definitions/subscan_internal_model.MerkleTag'
+      parent:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountParentJson'
+        description: Parent account
+    type: object
+  subscan_internal_model.AccountEventJson:
+    properties:
+      account:
+        type: string
+      amount:
+        type: number
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_idx:
+        type: integer
+      event_index:
+        type: string
+      event_method:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_idx:
+        type: integer
+      extrinsic_index:
+        type: string
+      module_id:
+        type: string
+      params:
+        type: string
+      stash:
+        type: string
+    type: object
+  subscan_internal_model.AccountNominateList:
+    properties:
+      bonded:
+        type: number
+      bonded_nominators:
+        type: number
+      bonded_owner:
+        type: number
+      bonded_total:
+        type: number
+      controller_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      count_nominators:
+        type: integer
+      grandpa_vote:
+        type: integer
+      latest_mining:
+        type: integer
+      rank_validator:
+        type: integer
+      reward_point:
+        type: integer
+      session_key:
+        $ref: '#/definitions/subscan_internal_model.SessionKeys'
+      staking_rewards_tag:
+        $ref: '#/definitions/subscan_libs_stakingrewards.Provider'
+      stash_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      validator_prefs_value:
+        type: integer
+    type: object
+  subscan_internal_model.AccountParentJson:
+    properties:
+      address:
+        type: string
+      display:
+        type: string
+      identity:
+        type: boolean
+      sub_symbol:
+        type: string
+    type: object
+  subscan_internal_model.AccountReferendumJson:
+    properties:
+      conviction:
+        type: number
+      referendum_index:
+        type: integer
+      value:
+        type: number
+    type: object
+  subscan_internal_model.AccountResourceCountJson:
+    properties:
+      count:
+        type: integer
+      resource:
+        type: string
+    type: object
+  subscan_internal_model.AccountRoleCountJson:
+    properties:
+      count:
+        type: integer
+      role:
+        type: string
+    type: object
+  subscan_internal_model.AccountSampleJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      address:
+        type: string
+      balance:
+        type: number
+      balance_lock:
+        type: number
+      count_extrinsic:
+        type: integer
+      derive_token:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.AccountDerive'
+        type: object
+      evm_account:
+        type: string
+      fellowship_rank:
+        type: integer
+      is_evm_contract:
+        type: boolean
+      registrar_info:
+        $ref: '#/definitions/subscan_internal_model.RoleRegistrarJson'
+      ring_lock:
+        type: number
+      substrate_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+    type: object
+  subscan_internal_model.AssetsJson:
+    properties:
+      asset_id:
+        type: number
+      balance:
+        type: number
+      bonded:
+        type: number
+      category:
+        type: string
+      contract:
+        type: string
+      conviction_lock:
+        type: number
+      currency_id:
+        type: string
+      decimal:
+        type: integer
+      democracy_lock:
+        type: number
+      election_lock:
+        type: number
+      locked:
+        type: number
+      network:
+        type: string
+      nomination_bonded:
+        type: number
+      price:
+        type: number
+      reserved:
+        type: number
+      symbol:
+        type: string
+      token_unique_id:
+        type: string
+      unbonding:
+        type: number
+    type: object
+  subscan_internal_model.BlockHeader:
+    properties:
+      block_number:
+        type: integer
+      digest:
+        items:
+          type: string
+        type: array
+      extrinsics_root:
+        type: string
+      parent_hash:
+        type: string
+      state_root:
+        type: string
+    type: object
+  subscan_internal_model.BountyJson:
+    properties:
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      bond:
+        type: number
+      created_block:
+        type: integer
+      curator:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      curator_deposit:
+        type: number
+      curator_fee:
+        type: number
+      description:
+        type: string
+      expire_block:
+        type: integer
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      value:
+        type: number
+    type: object
+  subscan_internal_model.BountySampleJson:
+    properties:
+      block_timestamp:
+        type: integer
+      description:
+        type: string
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      value:
+        type: number
+    type: object
+  subscan_internal_model.ChainBlockJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_count:
+        type: integer
+      events:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ChainEventJson'
+        type: array
+      extrinsics:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ChainExtrinsicJson'
+        type: array
+      extrinsics_count:
+        type: integer
+      extrinsics_root:
+        type: string
+      finalized:
+        type: boolean
+      hash:
+        type: string
+      logs:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ChainLogJson'
+        type: array
+      parent_hash:
+        type: string
+      spec_version:
+        type: integer
+      state_root:
+        type: string
+      validator:
+        type: string
+    type: object
+  subscan_internal_model.ChainEvent:
+    properties:
+      block_num:
+        type: integer
+      es_params:
+        items:
+          type: string
+        type: array
+      event_id:
+        type: string
+      event_idx:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_idx:
+        type: integer
+      extrinsic_module:
+        type: string
+      finalized:
+        type: boolean
+      id:
+        type: integer
+      module_id:
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.EventParam'
+        type: array
+      phase:
+        type: integer
+    type: object
+  subscan_internal_model.ChainEventJson:
+    properties:
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_idx:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_idx:
+        type: integer
+      finalized:
+        type: boolean
+      module_id:
+        type: string
+      params:
+        type: string
+      phase:
+        type: integer
+    type: object
+  subscan_internal_model.ChainEventParams:
+    properties:
+      event_index:
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.EventParam'
+        type: array
+    type: object
+  subscan_internal_model.ChainEventV2Json:
+    properties:
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      finalized:
+        type: boolean
+      id:
+        type: integer
+      module_id:
+        type: string
+      phase:
+        type: integer
+    type: object
+  subscan_internal_model.ChainExtrinsicJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      account_id:
+        type: string
+      account_index:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      fee:
+        type: number
+      fee_used:
+        type: number
+      finalized:
+        type: boolean
+      from_hex:
+        type: string
+      nonce:
+        type: integer
+      params:
+        type: string
+      signature:
+        type: string
+      success:
+        type: boolean
+    type: object
+  subscan_internal_model.ChainExtrinsicParams:
+    properties:
+      extrinsic_index:
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+    type: object
+  subscan_internal_model.ChainExtrinsicV2Json:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      fee:
+        type: number
+      fee_used:
+        type: number
+      finalized:
+        type: boolean
+      id:
+        type: integer
+      nonce:
+        type: integer
+      success:
+        type: boolean
+      tip:
+        type: number
+    type: object
+  subscan_internal_model.ChainLogJson:
+    properties:
+      block_num:
+        type: integer
+      data:
+        type: string
+      engine:
+        type: string
+      id:
+        type: integer
+      log_index:
+        type: string
+      log_type:
+        type: string
+    type: object
+  subscan_internal_model.ContractAccountListJson:
+    properties:
+      balance:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      contract_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      owner_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      transaction_count:
+        type: integer
+      verify_time:
+        type: integer
+    type: object
+  subscan_internal_model.ContractAction:
+    enum:
+    - Instantiated
+    - Terminated
+    - ContractCodeUpdated
+    type: string
+    x-enum-varnames:
+    - ContractInstantiated
+    - ContractTerminated
+    - ContractCodeUpdated
+  subscan_internal_model.ContractEventJson:
+    properties:
+      block_timestamp:
+        type: integer
+      data:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+    type: object
+  subscan_internal_model.ContractTimeline:
+    properties:
+      action:
+        $ref: '#/definitions/subscan_internal_model.ContractAction'
+      block_timestamp:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+    type: object
+  subscan_internal_model.ContractTransactionListJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      contract_address:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_index:
+        type: string
+      success:
+        type: boolean
+    type: object
+  subscan_internal_model.ConvictionVoteJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: number
+      conviction:
+        type: number
+      delegate_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_index:
+        type: string
+      referendum_index:
+        type: integer
+      status:
+        type: string
+      unlock_block:
+        type: integer
+      valid:
+        type: boolean
+      votes:
+        type: number
+      voting_time:
+        type: integer
+    type: object
+  subscan_internal_model.CouncilJson:
+    properties:
+      aye_votes:
+        type: integer
+      created_block:
+        type: integer
+      member_count:
+        type: integer
+      nay_votes:
+        type: integer
+      proposal_hash:
+        type: string
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      updated_block:
+        type: integer
+    type: object
+  subscan_internal_model.CouncilProposalJson:
+    properties:
+      aye_votes:
+        type: integer
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      executed_success:
+        type: boolean
+      member_count:
+        type: integer
+      nay_votes:
+        type: integer
+      params:
+        type: string
+      pre_image:
+        $ref: '#/definitions/subscan_internal_model.PreImageJson'
+      proposal_hash:
+        type: string
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      updated_block:
+        type: integer
+      value:
+        type: number
+      votes:
+        items:
+          $ref: '#/definitions/subscan_internal_model.CouncilVoteJson'
+        type: array
+    type: object
+  subscan_internal_model.CouncilVoteJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      passed:
+        type: boolean
+      voting_time:
+        type: integer
+    type: object
+  subscan_internal_model.DProgress:
+    properties:
+      download:
+        type: string
+      key:
+        type: string
+      progress:
+        type: integer
+      status:
+        type: string
+    type: object
+  subscan_internal_model.DailyStaticJson:
+    properties:
+      balance_amount_total:
+        type: number
+      time_hour_utc:
+        type: string
+      time_six_hour_utc:
+        type: string
+      time_utc:
+        type: string
+      total:
+        type: integer
+      transfer_amount_total:
+        type: number
+    type: object
+  subscan_internal_model.DailyStaticJsonV2:
+    properties:
+      time_utc:
+        type: string
+      total:
+        type: number
+      transfer_amount:
+        type: number
+    type: object
+  subscan_internal_model.DailyTokenStatusJson:
+    properties:
+      available:
+        type: number
+      other:
+        type: number
+      other_details:
+        $ref: '#/definitions/subscan_internal_model.OtherDetail'
+      staking:
+        type: number
+      system_accounts:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountBalanceDetailJson'
+        type: array
+      time_utc:
+        type: string
+      total_issuance:
+        type: number
+    type: object
+  subscan_internal_model.DemocracyJson:
+    properties:
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      params:
+        type: string
+      pre_image:
+        $ref: '#/definitions/subscan_internal_model.PreImageJson'
+      proposal_hash:
+        type: string
+      proposal_id:
+        type: integer
+      seconded_count:
+        type: integer
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      updated_block:
+        type: integer
+      value:
+        type: number
+    type: object
+  subscan_internal_model.DemocracyProposalSeconded:
+    properties:
+      account:
+        type: string
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      proposal_id:
+        type: integer
+    type: object
+  subscan_internal_model.DemocracyReferendumSampleJson:
+    properties:
+      author:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      end:
+        type: integer
+      referendum_index:
+        type: integer
+      status:
+        type: string
+      vote_threshold:
+        type: string
+    type: object
+  subscan_internal_model.DemocracySampleJson:
+    properties:
+      block_timestamp:
+        type: integer
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      proposal_id:
+        type: integer
+      seconded_count:
+        type: integer
+      status:
+        type: string
+    type: object
+  subscan_internal_model.DemocracyVoteJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: number
+      conviction:
+        type: number
+      delegate_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_index:
+        type: string
+      passed:
+        type: boolean
+      referendum_index:
+        type: integer
+      unlock_block:
+        type: integer
+      valid:
+        type: boolean
+      votes:
+        type: number
+      voting_time:
+        type: integer
+    type: object
+  subscan_internal_model.EraBondStat:
+    properties:
+      avg:
+        type: number
+      era:
+        type: integer
+      owner:
+        type: number
+      total_avg:
+        type: number
+      total_bond:
+        type: number
+    type: object
+  subscan_internal_model.EventParam:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      type_name:
+        type: string
+      value: {}
+    type: object
+  subscan_internal_model.EvmAccountDisplay:
+    properties:
+      contract_name:
+        type: string
+    type: object
+  subscan_internal_model.ExtrinsicDetail:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      account_id:
+        type: string
+      block_hash:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      error:
+        $ref: '#/definitions/subscan_internal_model.ExtrinsicError'
+      event:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ChainEventJson'
+        type: array
+      event_count:
+        type: integer
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      fee:
+        type: number
+      fee_used:
+        type: number
+      finalized:
+        type: boolean
+      lifetime:
+        $ref: '#/definitions/subscan_internal_model.Lifetime'
+      multisig:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MultisigJson'
+        type: array
+      nonce:
+        type: integer
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      pending:
+        type: boolean
+      proxy:
+        $ref: '#/definitions/subscan_internal_model.ExtrinsicProxyDetail'
+      signature:
+        type: string
+      success:
+        type: boolean
+      tip:
+        type: number
+      transfer:
+        $ref: '#/definitions/subscan_internal_model.TransferJson'
+    type: object
+  subscan_internal_model.ExtrinsicError:
+    properties:
+      batch_index:
+        type: integer
+      doc:
+        type: string
+      module:
+        type: string
+      name:
+        type: string
+      value:
+        type: string
+    type: object
+  subscan_internal_model.ExtrinsicParam:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      type_name:
+        type: string
+      value: {}
+    type: object
+  subscan_internal_model.ExtrinsicProxyDetail:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      success:
+        type: boolean
+    type: object
+  subscan_internal_model.FellowshipReferendumStatisticsJson:
+    properties:
+      active_fellowship_members:
+        type: integer
+      confirm_total:
+        type: integer
+      fellowship_members:
+        type: integer
+      origins:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
+        type: array
+      originsCount:
+        type: integer
+      voting_total:
+        type: integer
+    type: object
+  subscan_internal_model.IdentityJson:
+    properties:
+      display:
+        type: string
+      email:
+        type: string
+      identity:
+        type: boolean
+      judgements:
+        items:
+          $ref: '#/definitions/subscan_internal_model.RegistrationJudgementJson'
+        type: array
+      legal:
+        type: string
+      network:
+        type: string
+      parent:
+        $ref: '#/definitions/subscan_internal_model.AccountParentJson'
+      riot:
+        type: string
+      twitter:
+        type: string
+      web:
+        type: string
+    type: object
+  subscan_internal_model.ItemDetail:
+    properties:
+      fallback_image:
+        type: string
+      image:
+        type: string
+      media:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MetadataMedia'
+        type: array
+      symbol:
+        type: string
+    type: object
+  subscan_internal_model.Lifetime:
+    properties:
+      birth:
+        type: integer
+      death:
+        type: integer
+    type: object
+  subscan_internal_model.LinearVestingSchedule:
+    properties:
+      balance:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      cliff:
+        type: integer
+      vesting:
+        type: integer
+    type: object
+  subscan_internal_model.MerkleTag:
+    properties:
+      address_type:
+        type: string
+      tag_name:
+        type: string
+      tag_subtype:
+        type: string
+      tag_type:
+        type: string
+    type: object
+  subscan_internal_model.MetadataMedia:
+    properties:
+      types:
+        type: string
+      url:
+        type: string
+    type: object
+  subscan_internal_model.MultiAction:
+    enum:
+    - Approval
+    - Executed
+    - Cancelled
+    - Failed
+    type: string
+    x-enum-varnames:
+    - MultiActionApproval
+    - MultiActionExecuted
+    - MultiActionCancelled
+    - MultiActionExecuteFailed
+  subscan_internal_model.MultisigExtrinsicDetailsJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      approve_record:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MultisigProcessJson'
+        type: array
+      block_timestamp:
+        type: integer
+      call_data:
+        type: string
+      call_hash:
+        type: string
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      cancel_extrinsic_idx:
+        type: string
+      cancel_record:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MultisigProcessJson'
+        type: array
+      confirm_extrinsic_idx:
+        type: string
+      multi_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      multi_id:
+        description: extrinsicIndex
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      process:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MultisigProcessJson'
+        type: array
+      status:
+        $ref: '#/definitions/subscan_internal_model.MultiAction'
+      threshold:
+        type: integer
+    type: object
+  subscan_internal_model.MultisigExtrinsicJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      call_data:
+        type: string
+      call_hash:
+        type: string
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      multi_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      multi_id:
+        description: extrinsicIndex
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      process:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MultisigProcessJson'
+        type: array
+      status:
+        $ref: '#/definitions/subscan_internal_model.MultiAction'
+      threshold:
+        type: integer
+    type: object
+  subscan_internal_model.MultisigJson:
+    properties:
+      call_hash:
+        type: string
+      call_module:
+        type: string
+      call_module_function:
+        type: string
+      multi_id:
+        type: string
+      multisig_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      multisig_status:
+        $ref: '#/definitions/subscan_internal_model.MultiAction'
+      processing:
+        type: integer
+      threshold:
+        type: integer
+    type: object
+  subscan_internal_model.MultisigProcessJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      approve_type:
+        type: string
+      extrinsic_index:
+        type: string
+      status:
+        $ref: '#/definitions/subscan_internal_model.MultiAction'
+      timestamp:
+        type: integer
+    type: object
+  subscan_internal_model.NominatorDetail:
+    properties:
+      bonded:
+        type: number
+      nominator_stash:
+        type: string
+      staking_info:
+        $ref: '#/definitions/subscan_internal_model.StakingAccount'
+      stash_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+    type: object
+  subscan_internal_model.NominatorJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      bonded:
+        type: number
+      nominator_stash:
+        type: string
+      rank_nominator:
+        type: integer
+      validator_stash:
+        type: string
+    type: object
+  subscan_internal_model.OrmlVestingSchedule:
+    properties:
+      per_period:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      period:
+        type: integer
+      period_count:
+        type: integer
+      start:
+        type: integer
+    type: object
+  subscan_internal_model.OtherDetail:
+    properties:
+      democracy_locked_balance:
+        type: number
+      election_locked_balance:
+        type: number
+      nominator_bonded:
+        type: number
+      reserved_balance:
+        type: number
+      unbonded_locked_balance:
+        type: number
+      validator_bonded:
+        type: number
+      vesting_balance:
+        type: number
+    type: object
+  subscan_internal_model.PalletVestingSchedule:
+    properties:
+      locked:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      per_block:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      starting_block:
+        type: integer
+    type: object
+  subscan_internal_model.ParaChainMetaJson:
+    properties:
+      auction_active:
+        type: boolean
+      auction_count:
+        type: integer
+      ending_period:
+        type: integer
+      lease_offset:
+        type: integer
+      lease_period:
+        type: integer
+      lease_periods_per_slot:
+        type: integer
+      online_count:
+        type: integer
+      retirement_period:
+        type: integer
+      total_slot_num:
+        type: integer
+      upcoming_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParaChainSample:
+    properties:
+      begin_period:
+        type: integer
+      bid_id:
+        type: string
+      first_period:
+        type: integer
+      fund_id:
+        type: string
+      last_period:
+        type: integer
+      manager_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      open_channel_count:
+        type: integer
+      para_id:
+        type: integer
+      reserved_extrinsic_index:
+        type: string
+      status:
+        type: string
+      xcm_receive_message_count:
+        type: integer
+      xcm_receive_transfer_count:
+        type: integer
+      xcm_send_message_count:
+        type: integer
+      xcm_send_transfer_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParachainAuction:
+    properties:
+      auction_index:
+        type: integer
+      early_end_block:
+        type: integer
+      end_block:
+        type: integer
+      extinguish_block:
+        type: integer
+      lease_index:
+        type: integer
+      start_block:
+        type: integer
+      status:
+        type: integer
+      winners:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
+        type: array
+    type: object
+  subscan_internal_model.ParachainFund:
+    properties:
+      auction_index:
+        type: integer
+      balance:
+        type: number
+      bid_id:
+        type: string
+      cap:
+        type: number
+      contributors:
+        type: integer
+      end_block:
+        type: integer
+      extrinsic_index:
+        type: string
+      first_period:
+        type: integer
+      fund_auction_status:
+        type: integer
+      fund_id:
+        type: string
+      in_auctions:
+        items:
+          type: integer
+        type: array
+      last_change_block:
+        type: integer
+      last_change_event_idx:
+        type: integer
+      last_change_timestamp:
+        type: integer
+      last_period:
+        type: integer
+      owner:
+        type: string
+      owner_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      para_id:
+        type: integer
+      raised:
+        type: number
+      start_block:
+        type: integer
+      start_block_at:
+        type: integer
+      status:
+        type: integer
+    type: object
+  subscan_internal_model.ParachainFundContribution:
+    properties:
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      contributed:
+        description: total amount
+        type: number
+      contributing:
+        description: last contributed amount
+        type: number
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      fund_id:
+        type: string
+      memo:
+        type: string
+      para_id:
+        type: integer
+      status:
+        type: integer
+      who:
+        type: string
+      who_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+    type: object
+  subscan_internal_model.ParachainFundHistoryStatJson:
+    properties:
+      time_hour_utc:
+        type: string
+      time_six_hour_utc:
+        type: string
+      time_utc:
+        type: string
+      total:
+        type: number
+    type: object
+  subscan_internal_model.ParachainInfoJson:
+    properties:
+      auction_index:
+        type: integer
+      begin_period:
+        description: 周期开始时间(begin-first-end)
+        type: integer
+      bid_id:
+        type: string
+      deposit:
+        type: number
+      first_period:
+        type: integer
+      fund_account:
+        type: string
+      fund_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      fund_id:
+        type: string
+      genesis_head:
+        type: string
+      last_period:
+        type: integer
+      manager:
+        type: string
+      manager_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      open_channel_count:
+        type: integer
+      para_id:
+        type: integer
+      reserved_extrinsic_index:
+        type: string
+      source:
+        type: integer
+      status:
+        type: string
+      validation_code_url:
+        type: string
+      validators:
+        items:
+          type: string
+        type: array
+      validators_display:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        type: array
+      xcm_receive_message_count:
+        type: integer
+      xcm_receive_transfer_count:
+        type: integer
+      xcm_send_message_count:
+        type: integer
+      xcm_send_transfer_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParachainSlotWinner:
+    properties:
+      amount:
+        type: number
+      auction_index:
+        type: integer
+      bid_count:
+        type: integer
+      bid_id:
+        type: string
+      bidder_account:
+        type: string
+      bidder_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      first_period:
+        type: integer
+      fund_id:
+        type: string
+      last_period:
+        type: integer
+      para_id:
+        type: integer
+      source:
+        type: integer
+      status:
+        type: integer
+    type: object
+  subscan_internal_model.PreImageJson:
+    properties:
+      amount:
+        type: number
+      author:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      hash:
+        type: string
+      params:
+        type: string
+      status:
+        type: string
+      updated_block:
+        type: integer
+    type: object
+  subscan_internal_model.PreimageJson:
+    properties:
+      amount:
+        type: number
+      author:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      call_module:
+        type: string
+      call_name:
+        type: string
+      create_timestamp:
+        type: integer
+      created_block:
+        type: integer
+      hash:
+        type: string
+      len:
+        type: integer
+      link:
+        items:
+          $ref: '#/definitions/subscan_internal_model.PreimageLinkJson'
+        type: array
+      params:
+        type: string
+      status:
+        type: string
+      updated_block:
+        type: integer
+    type: object
+  subscan_internal_model.PreimageLinkJson:
+    properties:
+      id:
+        items:
+          type: integer
+        type: array
+      module:
+        type: string
+    type: object
+  subscan_internal_model.PreimageSampleJson:
+    properties:
+      author:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      created_timestamp:
+        type: integer
+      hash:
+        type: string
+      link:
+        items:
+          $ref: '#/definitions/subscan_internal_model.PreimageLinkJson'
+        type: array
+      status:
+        type: string
+    type: object
+  subscan_internal_model.ProxyChainExtrinsicJson:
+    properties:
+      account_display:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        description: Execution account
+      block_num:
+        example: 12413008
+        type: integer
+      block_timestamp:
+        example: 1681965624
+        type: integer
+      call_module:
+        example: proxy
+        type: string
+      call_module_function:
+        example: proxy
+        type: string
+      extrinsic_hash:
+        example: 0xb3c16a3872a2d986cabd6ccfbcb387e922c0e16d3e3d5ed128fc7b6660e219d1
+        type: string
+      extrinsic_index:
+        example: 12413008-1
+        type: string
+      fee:
+        description: Estimated handling fee
+        example: 10000
+        type: number
+      fee_used:
+        description: Actual handling fee
+        example: 10000
+        type: number
+      finalized:
+        example: true
+        type: boolean
+      nonce:
+        example: 1
+        type: integer
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      real_account_display:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        description: Entrusted account
+      signature:
+        example: b80d3b8a51ff541b17239ce50c6048c23824a0c7ef8c7e0a7957e68785bc9e4dd521e8ec604c184f26b0dd2ddaa0722bf39bdb7ed4cab5f1906ebfbbd76b5681
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  subscan_internal_model.ReferendumJson:
+    properties:
+      aye_amount:
+        type: number
+      aye_without_conviction:
+        type: number
+      created_block:
+        type: integer
+      delay:
+        type: integer
+      end:
+        type: integer
+      executed_success:
+        type: boolean
+      nay_amount:
+        type: number
+      nay_without_conviction:
+        type: number
+      pre_image:
+        $ref: '#/definitions/subscan_internal_model.PreImageJson'
+      referendum_index:
+        type: integer
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      turnout:
+        type: number
+      updated_block:
+        type: integer
+      value:
+        type: number
+      vote_threshold:
+        type: string
+    type: object
+  subscan_internal_model.ReferendumStatisticsJson:
+    properties:
+      confirm_total:
+        type: integer
+      origins:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
+        type: array
+      originsCount:
+        type: integer
+      referendum_locked:
+        type: number
+      referendum_participate:
+        type: number
+      voting_total:
+        type: integer
+    type: object
+  subscan_internal_model.ReferendumStatisticsOriginsJson:
+    properties:
+      count:
+        type: integer
+      id:
+        type: integer
+      origins:
+        type: string
+    type: object
+  subscan_internal_model.ReferendumV2Json:
+    properties:
+      abstains_count:
+        type: integer
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      ayes_amount:
+        type: number
+      ayes_count:
+        type: integer
+      bare_ayes:
+        type: number
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      beneficiary_amount:
+        type: number
+      created_block:
+        type: integer
+      created_block_timestamp:
+        type: integer
+      decision_deposit_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      decision_deposit_balance:
+        type: number
+      deposit_balance:
+        type: number
+      latest_block_num:
+        type: integer
+      latest_block_timestamp:
+        type: integer
+      nays_amount:
+        type: number
+      nays_count:
+        type: integer
+      origins:
+        type: string
+      origins_id:
+        type: integer
+      pre_image:
+        $ref: '#/definitions/subscan_internal_model.PreImageJson'
+      referendum_index:
+        type: integer
+      status:
+        type: string
+      support_amount:
+        type: number
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+    type: object
+  subscan_internal_model.ReferendumV2SampleJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      created_block_timestamp:
+        type: integer
+      latest_block_num:
+        type: integer
+      latest_block_timestamp:
+        type: integer
+      origins:
+        type: string
+      origins_id:
+        type: integer
+      referendum_index:
+        type: integer
+      status:
+        type: string
+    type: object
+  subscan_internal_model.RegistrationJudgementJson:
+    properties:
+      index:
+        type: integer
+      judgement:
+        type: string
+    type: object
+  subscan_internal_model.RoleRegistrarJson:
+    properties:
+      registrar_fee:
+        type: number
+      registrar_index:
+        type: integer
+    type: object
+  subscan_internal_model.RuntimeVersion:
+    properties:
+      modules:
+        type: string
+      spec_version:
+        type: integer
+    type: object
+  subscan_internal_model.SampleBlockV2Json:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_count:
+        type: integer
+      extrinsics_count:
+        type: integer
+      finalized:
+        type: boolean
+      hash:
+        type: string
+    type: object
+  subscan_internal_model.SessionKeys:
+    properties:
+      authority_discovery:
+        type: string
+      babe:
+        type: string
+      grandpa:
+        type: string
+      im_online:
+        type: string
+    type: object
+  subscan_internal_model.StakingAccount:
+    properties:
+      controller:
+        type: string
+      controller_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      reward_account:
+        type: string
+      reward_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+    type: object
+  subscan_internal_model.StakingAccountEvent:
+    properties:
+      account:
+        type: string
+      amount:
+        type: number
+      block_timestamp:
+        type: integer
+      era:
+        type: integer
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      invalid_era:
+        type: boolean
+      module_id:
+        type: string
+      stash:
+        type: string
+      validator_stash:
+        type: string
+    type: object
+  subscan_internal_model.TechcommProposalJson:
+    properties:
+      aye_votes:
+        type: integer
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      executed_success:
+        type: boolean
+      member_count:
+        type: integer
+      nay_votes:
+        type: integer
+      params:
+        type: string
+      pre_image:
+        $ref: '#/definitions/subscan_internal_model.PreImageJson'
+      proposal_hash:
+        type: string
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      updated_block:
+        type: integer
+      value:
+        type: number
+      votes:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TechcommVoteJson'
+        type: array
+    type: object
+  subscan_internal_model.TechcommProposalSample:
+    properties:
+      aye_votes:
+        type: integer
+      block_timestamp:
+        type: integer
+      call_module:
+        type: string
+      call_name:
+        type: string
+      created_block:
+        type: integer
+      member_count:
+        type: integer
+      nay_votes:
+        type: integer
+      proposal_id:
+        type: integer
+      status:
+        type: string
+    type: object
+  subscan_internal_model.TechcommVoteJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      passed:
+        type: boolean
+      voting_time:
+        type: integer
+    type: object
+  subscan_internal_model.TimelineJson:
+    properties:
+      block:
+        type: integer
+      extrinsic_index:
+        type: string
+      index:
+        type: integer
+      params: {}
+      prophecy:
+        type: boolean
+      status:
+        type: string
+      time:
+        type: integer
+    type: object
+  subscan_internal_model.TokenJson:
+    properties:
+      alias_name:
+        type: string
+      asset_id:
+        type: number
+      balance:
+        type: number
+      bonded:
+        type: number
+      contract:
+        type: string
+      conviction_lock:
+        type: number
+      currency_id:
+        type: string
+      decimals:
+        type: integer
+      democracy_lock:
+        type: number
+      election_lock:
+        type: number
+      lock:
+        type: number
+      media:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MetadataMedia'
+        type: array
+      reserved:
+        type: number
+      symbol:
+        type: string
+      token_image:
+        description: TokenId        *decimal.Decimal `json:"token_id,omitempty"`
+        type: string
+      unbonding:
+        type: number
+      unique_id:
+        type: string
+      vesting:
+        $ref: '#/definitions/subscan_internal_model.VestingJson'
+    type: object
+  subscan_internal_model.TransferHistory:
+    properties:
+      amount:
+        type: number
+      amount_v2:
+        type: number
+      asset_symbol:
+        type: string
+      asset_type:
+        description: AssetType asset type,default empty.
+        type: string
+      asset_unique_id:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_idx:
+        type: integer
+      extrinsic_index:
+        type: string
+      fee:
+        type: number
+      from:
+        type: string
+      from_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      hash:
+        type: string
+      item_detail:
+        $ref: '#/definitions/subscan_internal_model.ItemDetail'
+      item_id:
+        type: number
+      module:
+        type: string
+      nonce:
+        type: integer
+      success:
+        type: boolean
+      to:
+        type: string
+      to_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      usd_amount:
+        type: number
+    type: object
+  subscan_internal_model.TransferHistoryTokensTotal:
+    additionalProperties:
+      $ref: '#/definitions/subscan_internal_model.TransferHistoryTotal'
+    type: object
+  subscan_internal_model.TransferHistoryTotal:
+    properties:
+      received:
+        type: number
+      sent:
+        type: number
+      total:
+        type: number
+    type: object
+  subscan_internal_model.TransferJson:
+    properties:
+      amount:
+        type: number
+      asset_symbol:
+        type: string
+      from:
+        type: string
+      hash:
+        type: string
+      module:
+        type: string
+      success:
+        type: boolean
+      to:
+        type: string
+      to_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+    type: object
+  subscan_internal_model.TreasuryProposalDetailJson:
+    properties:
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      council:
+        $ref: '#/definitions/subscan_internal_model.CouncilJson'
+      created_block:
+        type: integer
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      reward:
+        type: number
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+    type: object
+  subscan_internal_model.TreasuryProposalJson:
+    properties:
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      created_block:
+        type: integer
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      reward:
+        type: number
+      status:
+        type: string
+    type: object
+  subscan_internal_model.TreasuryTip:
+    properties:
+      amount:
+        type: number
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      close_block_num:
+        type: integer
+      extrinsic_index:
+        type: string
+      finder:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      hash:
+        type: string
+      reason:
+        type: string
+      status:
+        type: string
+      tipper_num:
+        type: integer
+    type: object
+  subscan_internal_model.TreasuryTipJson:
+    properties:
+      amount:
+        type: number
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      close_block_num:
+        type: integer
+      extrinsic_index:
+        type: string
+      finder:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      hash:
+        type: string
+      reason:
+        type: string
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      tipper_num:
+        type: integer
+    type: object
+  subscan_internal_model.TreasuryTipperJson:
+    properties:
+      amount:
+        type: number
+      extrinsic_index:
+        type: string
+      rewarder:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+    type: object
+  subscan_internal_model.ValidatorJson:
+    properties:
+      bonded_nominators:
+        type: number
+      bonded_owner:
+        type: number
+      bonded_total:
+        type: number
+      controller_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      count_nominators:
+        type: integer
+      grandpa_vote:
+        type: integer
+      latest_mining:
+        type: integer
+      rank_validator:
+        type: integer
+      reward_point:
+        type: integer
+      session_key:
+        $ref: '#/definitions/subscan_internal_model.SessionKeys'
+      staking_rewards_tag:
+        $ref: '#/definitions/subscan_libs_stakingrewards.Provider'
+      stash_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      validator_prefs_value:
+        type: integer
+    type: object
+  subscan_internal_model.ValidatorStatJson:
+    properties:
+      block_produced:
+        type: string
+      end_block_num:
+        type: integer
+      era:
+        type: integer
+      reward:
+        type: number
+      reward_point:
+        type: integer
+      slash:
+        type: number
+      start_block_num:
+        type: integer
+    type: object
+  subscan_internal_model.ValidatorWaiting:
+    properties:
+      bonded_nominators:
+        type: number
+      bonded_owner:
+        type: number
+      count_nominators:
+        type: integer
+      node_name:
+        type: string
+      reward_account:
+        type: string
+      reward_pot_balance:
+        type: number
+      stash_account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      validator_prefs_value:
+        type: integer
+    type: object
+  subscan_internal_model.VestingJson:
+    properties:
+      linear_schedules:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LinearVestingSchedule'
+        type: array
+      orml_schedules:
+        items:
+          $ref: '#/definitions/subscan_internal_model.OrmlVestingSchedule'
+        type: array
+      pallet_schedules:
+        items:
+          $ref: '#/definitions/subscan_internal_model.PalletVestingSchedule'
+        type: array
+      total_locked:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      type:
+        type: string
+    type: object
+  subscan_internal_model.VestingRelease:
+    properties:
+      amount:
+        type: number
+      block_num:
+        type: integer
+      day:
+        type: string
+    type: object
   subscan_internal_plugin_share.J:
     properties:
       code:
@@ -2061,6 +4637,406 @@ definitions:
       generated_at:
         type: integer
       message:
+        type: string
+    type: object
+  subscan_internal_service_scan.AccountTokenJson:
+    properties:
+      ERC20:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TokenJson'
+        type: array
+      ERC721:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TokenJson'
+        type: array
+      assets:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TokenJson'
+        type: array
+      builtin:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TokenJson'
+        type: array
+      native:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TokenJson'
+        type: array
+    type: object
+  subscan_internal_service_scan.CurrencyPrice:
+    properties:
+      height:
+        type: integer
+      price:
+        type: number
+      records:
+        items:
+          $ref: '#/definitions/subscan_internal_service_scan.PriceRecord'
+        type: array
+      time:
+        type: integer
+    type: object
+  subscan_internal_service_scan.Price:
+    properties:
+      feed_at:
+        type: integer
+      price:
+        type: number
+    type: object
+  subscan_internal_service_scan.PriceRecord:
+    properties:
+      height:
+        type: integer
+      price:
+        type: number
+      time:
+        type: integer
+    type: object
+  subscan_internal_service_scan.uniqueBid:
+    properties:
+      bid_id:
+        type: string
+      fund_id:
+        type: string
+      leading_blocks:
+        type: integer
+      para_id:
+        type: integer
+      unique_key:
+        type: string
+    type: object
+  subscan_internal_service_scan_token.AssetType:
+    enum:
+    - native
+    - builtin
+    type: string
+    x-enum-varnames:
+    - TypeNative
+    - TypeBuiltin
+  subscan_internal_service_scan_token.ExternalDataSource:
+    properties:
+      authorization_source:
+        type: string
+      circulating_supply:
+        type: number
+      source:
+        type: string
+    type: object
+  subscan_internal_service_scan_token.Token:
+    properties:
+      asset_type:
+        $ref: '#/definitions/subscan_internal_service_scan_token.AssetType'
+      available_balance:
+        type: number
+      bonded_locked_balance:
+        type: number
+      democracy_locked_balance:
+        type: number
+      display_name:
+        type: string
+      election_locked_balance:
+        type: number
+      external_data:
+        $ref: '#/definitions/subscan_internal_service_scan_token.ExternalDataSource'
+      free_balance:
+        type: number
+      inflation:
+        type: number
+      locked_balance:
+        type: number
+      nominator_bonded:
+        type: number
+      price:
+        type: number
+      price_change:
+        type: number
+      reserved_balance:
+        type: number
+      symbol:
+        type: string
+      token_decimals:
+        type: integer
+      total_issuance:
+        type: number
+      unbonded_locked_balance:
+        type: number
+      unique_id:
+        type: string
+      validator_bonded:
+        type: number
+      vesting_balance:
+        type: number
+    type: object
+  subscan_internal_types.Balance:
+    properties:
+      types.Balance:
+        type: number
+    type: object
+  subscan_libs_stakingrewards.Provider:
+    properties:
+      isVerified:
+        type: boolean
+      name:
+        type: string
+      slug:
+        type: string
+    type: object
+  subscan_libs_substrate_derive.Unbonding:
+    properties:
+      amount:
+        type: number
+      until:
+        type: integer
+    type: object
+  subscan_libs_substrate_storage.LinearDecreasing:
+    properties:
+      ceil:
+        type: integer
+      floor:
+        type: integer
+      length:
+        type: integer
+    type: object
+  subscan_libs_substrate_storage.Reciprocal:
+    properties:
+      factor:
+        type: number
+      x_offset:
+        type: number
+      y_offset:
+        type: number
+    type: object
+  subscan_libs_substrate_storage.ReferendaCurve:
+    properties:
+      LinearDecreasing:
+        $ref: '#/definitions/subscan_libs_substrate_storage.LinearDecreasing'
+      Reciprocal:
+        $ref: '#/definitions/subscan_libs_substrate_storage.Reciprocal'
+      SteppedDecreasing:
+        $ref: '#/definitions/subscan_libs_substrate_storage.SteppedDecreasing'
+    type: object
+  subscan_libs_substrate_storage.ReferendumTracksInfo:
+    properties:
+      confirm_period:
+        type: integer
+      current_deciding:
+        description: custom field
+        type: integer
+      decision_deposit:
+        type: number
+      decision_period:
+        type: integer
+      max_deciding:
+        type: integer
+      min_approval:
+        $ref: '#/definitions/subscan_libs_substrate_storage.ReferendaCurve'
+      min_enactment_period:
+        type: integer
+      min_support:
+        $ref: '#/definitions/subscan_libs_substrate_storage.ReferendaCurve'
+      name:
+        type: string
+      prepare_period:
+        type: integer
+    type: object
+  subscan_libs_substrate_storage.SteppedDecreasing:
+    properties:
+      begin:
+        type: integer
+      end:
+        type: integer
+      period:
+        type: integer
+      step:
+        type: integer
+    type: object
+  types.MapType:
+    properties:
+      hasher:
+        type: string
+      isLinked:
+        type: boolean
+      key:
+        type: string
+      key2:
+        type: string
+      key2Hasher:
+        type: string
+      value:
+        type: string
+    type: object
+  types.MetadataCalls:
+    properties:
+      args:
+        items:
+          $ref: '#/definitions/types.MetadataModuleCallArgument'
+        type: array
+      docs:
+        items:
+          type: string
+        type: array
+      lookup:
+        type: string
+      name:
+        type: string
+    type: object
+  types.MetadataConstants:
+    properties:
+      constants_value:
+        type: string
+      docs:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      type:
+        type: string
+      type_value:
+        type: integer
+    type: object
+  types.MetadataEvents:
+    properties:
+      args:
+        items:
+          type: string
+        type: array
+      args_name:
+        items:
+          type: string
+        type: array
+      args_type_name:
+        items:
+          type: string
+        type: array
+      docs:
+        items:
+          type: string
+        type: array
+      lookup:
+        type: string
+      name:
+        type: string
+    type: object
+  types.MetadataModuleCallArgument:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      type_name:
+        type: string
+    type: object
+  types.MetadataModuleError:
+    properties:
+      doc:
+        items:
+          type: string
+        type: array
+      fields:
+        items:
+          $ref: '#/definitions/types.ModuleErrorField'
+        type: array
+      name:
+        type: string
+    type: object
+  types.MetadataModules:
+    properties:
+      calls:
+        items:
+          $ref: '#/definitions/types.MetadataCalls'
+        type: array
+      calls_value:
+        $ref: '#/definitions/types.PalletLookUp'
+      constants:
+        items:
+          $ref: '#/definitions/types.MetadataConstants'
+        type: array
+      errors:
+        items:
+          $ref: '#/definitions/types.MetadataModuleError'
+        type: array
+      errors_value:
+        $ref: '#/definitions/types.PalletLookUp'
+      events:
+        items:
+          $ref: '#/definitions/types.MetadataEvents'
+        type: array
+      events_value:
+        $ref: '#/definitions/types.PalletLookUp'
+      index:
+        type: integer
+      name:
+        type: string
+      prefix:
+        type: string
+      storage:
+        items:
+          $ref: '#/definitions/types.MetadataStorage'
+        type: array
+    type: object
+  types.MetadataStorage:
+    properties:
+      docs:
+        items:
+          type: string
+        type: array
+      fallback:
+        type: string
+      hasher:
+        type: string
+      modifier:
+        type: string
+      name:
+        type: string
+      type:
+        $ref: '#/definitions/types.StorageType'
+    type: object
+  types.ModuleErrorField:
+    properties:
+      doc:
+        items:
+          type: string
+        type: array
+      type:
+        type: string
+      type_name:
+        type: string
+    type: object
+  types.NMapType:
+    properties:
+      hashers:
+        items:
+          type: string
+        type: array
+      key_vec:
+        items:
+          type: string
+        type: array
+      keys_id:
+        type: integer
+      value:
+        type: string
+      value_id:
+        type: integer
+    type: object
+  types.PalletLookUp:
+    properties:
+      type:
+        type: integer
+    type: object
+  types.StorageType:
+    properties:
+      PlainTypeValue:
+        type: integer
+      double_map_type:
+        $ref: '#/definitions/types.MapType'
+      map_type:
+        $ref: '#/definitions/types.MapType'
+      n_map_type:
+        $ref: '#/definitions/types.NMapType'
+      origin:
+        type: string
+      plain_type:
         type: string
     type: object
 info:
@@ -2097,7 +5073,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  type: integer
+              type: object
       summary: current timestamp
       tags:
       - common
@@ -2116,9 +5097,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountContributedJson'
+                      type: array
+                  type: object
+              type: object
       summary: Account crowdloan contributions
       tags:
       - parachain
@@ -2139,7 +5132,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountReferendumJson'
+                      type: array
+                  type: object
+              type: object
       summary: Account referendum list
       tags:
       - governance
@@ -2160,7 +5165,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountEventJson'
+                      type: array
+                  type: object
+              type: object
       summary: Reward or slash list
       tags:
       - staking
@@ -2179,9 +5196,14 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_service_scan.AccountTokenJson'
+              type: object
       summary: Account token list
       tags:
       - account
@@ -2200,9 +5222,16 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.AccountRoleCountJson'
+                  type: array
+              type: object
       summary: Account statistics
       tags:
       - account
@@ -2370,7 +5399,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ChainBlockJson'
+              type: object
       summary: Block detail
       tags:
       - block
@@ -2391,7 +5425,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.BlockHeader'
+              type: object
       summary: Block header
       tags:
       - block
@@ -2412,7 +5451,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.BountyJson'
+              type: object
       summary: Bounty info
       tags:
       - governance
@@ -2433,7 +5477,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.BountySampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Bounty list
       tags:
       - governance
@@ -2510,7 +5566,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ContractEventJson'
+                      type: array
+                  type: object
+              type: object
       summary: Contract Events
       tags:
       - contracts
@@ -2531,7 +5599,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  type: object
+              type: object
       summary: Contract meta
       tags:
       - contracts
@@ -2552,7 +5625,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ContractAccountListJson'
+                      type: array
+                  type: object
+              type: object
       summary: Contract List
       tags:
       - contracts
@@ -2566,7 +5651,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    contract_count:
+                      type: integer
+                    contract_verified_count:
+                      type: integer
+                    transaction_count:
+                      type: integer
+                  type: object
+              type: object
       summary: Contract meta
       tags:
       - contracts
@@ -2587,7 +5684,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ContractTimeline'
+                      type: array
+                  type: object
+              type: object
       summary: Contract Timeline
       tags:
       - contracts
@@ -2608,7 +5715,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ContractTransactionListJson'
+                      type: array
+                  type: object
+              type: object
       summary: Contract transactions
       tags:
       - contracts
@@ -2622,7 +5741,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    type: string
+                  type: array
+              type: object
       summary: Compiler versions
       tags:
       - contracts
@@ -2643,7 +5769,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.CouncilProposalJson'
+                  type: object
+              type: object
       summary: Council proposal
       tags:
       - governance
@@ -2664,7 +5798,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TechcommProposalSample'
+                      type: array
+                  type: object
+              type: object
       summary: Council proposals
       tags:
       - governance
@@ -2685,7 +5831,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DailyStaticJson'
+                      type: array
+                  type: object
+              type: object
       summary: Daily stat
       tags:
       - stat
@@ -2706,7 +5862,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DailyTokenStatusJson'
+                      type: array
+                  type: object
+              type: object
       summary: Daily token stat
       tags:
       - stat
@@ -2727,7 +5893,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.DemocracyJson'
+                  type: object
+              type: object
       summary: Democracy details
       tags:
       - governance
@@ -2748,7 +5922,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DemocracySampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Democracies list
       tags:
       - governance
@@ -2769,7 +5955,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.ReferendumJson'
+                  type: object
+              type: object
       summary: Referendum list(legacy)
       tags:
       - governance
@@ -2790,7 +5984,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DemocracyReferendumSampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Referendums
       tags:
       - governance
@@ -2811,7 +6017,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DemocracyProposalSeconded'
+                      type: array
+                  type: object
+              type: object
       summary: Democracy seconded list
       tags:
       - governance
@@ -2832,7 +6050,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DemocracyVoteJson'
+                      type: array
+                  type: object
+              type: object
       summary: Referendum votes list(legacy)
       tags:
       - governance
@@ -2854,7 +6084,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.DProgress'
+              type: object
       summary: Download progress
       tags:
       - api
@@ -2875,7 +6110,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ChainEvent'
+              type: object
       summary: Event by index
       tags:
       - event
@@ -2896,7 +6136,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.ChainEventParams'
+                  type: array
+              type: object
       summary: Event params by index
       tags:
       - event
@@ -3245,8 +6492,41 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ExtrinsicDetail'
+              type: object
       summary: Extrinsic detail
+      tags:
+      - extrinsic
+  /api/scan/extrinsic/params:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.extrinsicParamsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.ChainExtrinsicParams'
+                  type: array
+              type: object
+      summary: Extrinsic params
       tags:
       - extrinsic
   /api/scan/fellowship/referendum:
@@ -3266,7 +6546,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ReferendumV2Json'
+              type: object
       summary: Fellowship referenda details
       tags:
       - governance
@@ -3287,7 +6572,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ReferendumV2SampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Fellowship referenda list
       tags:
       - governance
@@ -3301,7 +6598,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.FellowshipReferendumStatisticsJson'
+              type: object
       summary: Fellowship referendum statistics
       tags:
       - governance
@@ -3315,7 +6617,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    $ref: '#/definitions/subscan_libs_substrate_storage.ReferendumTracksInfo'
+                  type: object
+              type: object
       summary: Fellowship referendum tracks
       tags:
       - governance
@@ -3336,7 +6645,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ConvictionVoteJson'
+                      type: array
+                  type: object
+              type: object
       summary: Fellowship referendum votes
       tags:
       - governance
@@ -3357,8 +6678,46 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ChainLogJson'
+              type: object
       summary: Block log by index
+      tags:
+      - log
+  /api/scan/logs:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.logParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    logs:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChainLogJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Block log list
       tags:
       - log
   /api/scan/metadata:
@@ -3369,7 +6728,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    type: string
+                  type: object
+              type: object
       summary: Current network metadata
       tags:
       - api
@@ -3390,7 +6756,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.AssetsJson'
+                  type: array
+              type: object
       summary: MultiChain account
       tags:
       - multiChain
@@ -3411,7 +6784,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_dao.AccountBalanceValueHistory'
+                  type: array
+              type: object
       summary: Account balance value history
       tags:
       - multiChain
@@ -3432,7 +6812,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    max:
+                      type: number
+                    min:
+                      type: number
+                    prev24H:
+                      type: number
+                  type: object
+              type: object
       summary: Account balance value stat
       tags:
       - multiChain
@@ -3453,7 +6845,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.IdentityJson'
+                  type: array
+              type: object
       summary: MultiChain identities
       tags:
       - multiChain
@@ -3474,7 +6873,13 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+              type: object
       summary: MultiChain price
       tags:
       - multiChain
@@ -3642,7 +7047,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.MultisigExtrinsicJson'
+              type: object
       summary: Multisig extrinsic
       tags:
       - multisig
@@ -3663,7 +7073,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    multisig:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.MultisigExtrinsicJson'
+                      type: array
+                  type: object
+              type: object
       summary: Multisig extrinsic list
       tags:
       - multisig
@@ -3684,7 +7106,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    multisig:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.MultisigExtrinsicDetailsJson'
+                      type: array
+                  type: object
+              type: object
       summary: Multisig extrinsic details list
       tags:
       - multisig
@@ -3824,7 +7258,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    currencies:
+                      items:
+                        type: string
+                      type: array
+                  type: object
+              type: object
       summary: supported currencies
       tags:
       - currency
@@ -3845,7 +7289,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_service_scan.CurrencyPrice'
+              type: object
       summary: currency price
       tags:
       - currency
@@ -3866,7 +7315,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_server_http.CurrencyConverter'
+              type: object
       summary: currency price converter
       tags:
       - currency
@@ -3885,9 +7339,18 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      $ref: '#/definitions/subscan_internal_model.ParachainFundHistoryStatJson'
+                    type: array
+                  type: object
+              type: object
       summary: Auction funds stat
       tags:
       - parachain
@@ -3906,9 +7369,16 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_service_scan.uniqueBid'
+                  type: array
+              type: object
       summary: Auction leading blocks
       tags:
       - parachain
@@ -3927,9 +7397,18 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      type: object
+                    type: array
+                  type: object
+              type: object
       summary: Auction competitors
       tags:
       - parachain
@@ -3948,9 +7427,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    auctions:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainAuction'
+                      type: array
+                    count:
+                      type: integer
+                  type: object
+              type: object
       summary: PLO auctions list
       tags:
       - parachain
@@ -3969,9 +7460,14 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
+              type: object
       summary: Best bid
       tags:
       - parachain
@@ -3990,9 +7486,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    bids:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
+                      type: array
+                    count:
+                      type: integer
+                  type: object
+              type: object
       summary: PLO slot bids list
       tags:
       - parachain
@@ -4011,9 +7519,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    contributes:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainFundContribution'
+                      type: array
+                    count:
+                      type: integer
+                  type: object
+              type: object
       summary: Crowdloan fund contributes list
       tags:
       - parachain
@@ -4032,9 +7552,19 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainFundHistoryStatJson'
+                      type: array
+                  type: object
+              type: object
       summary: Crowdloan fund stat
       tags:
       - parachain
@@ -4053,9 +7583,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    funds:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainFund'
+                      type: array
+                  type: object
+              type: object
       summary: Crowdloan funds list
       tags:
       - parachain
@@ -4074,9 +7616,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    chains:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainInfoJson'
+                      type: array
+                    count:
+                      type: integer
+                  type: object
+              type: object
       summary: Parachain info
       tags:
       - parachain
@@ -4095,9 +7649,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    chains:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParaChainSample'
+                      type: array
+                    count:
+                      type: integer
+                  type: object
+              type: object
       summary: Parachain list
       tags:
       - parachain
@@ -4109,9 +7675,14 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ParaChainMetaJson'
+              type: object
       summary: Parachain meta
       tags:
       - parachain
@@ -4130,9 +7701,16 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
+                  type: array
+              type: object
       summary: Winner predict
       tags:
       - parachain
@@ -4144,9 +7722,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    paraID:
+                      additionalProperties:
+                        type: string
+                      type: object
+                    relay_chain:
+                      type: string
+                  type: object
+              type: object
       summary: Parachain register info
       tags:
       - parachain
@@ -4160,7 +7750,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    extrinsics:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChainExtrinsicJson'
+                      type: array
+                  type: object
+              type: object
       summary: Pending extrinsic
       tags:
       - extrinsic
@@ -4181,7 +7781,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.PreimageJson'
+              type: object
       summary: Preimage details
       tags:
       - governance
@@ -4202,7 +7807,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.PreimageSampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Preimage list
       tags:
       - governance
@@ -4223,7 +7840,21 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    ema7_average:
+                      type: number
+                    ema30_average:
+                      type: number
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_service_scan.Price'
+                      type: array
+                  type: object
+              type: object
       summary: Price history
       tags:
       - stat
@@ -4244,8 +7875,20 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
-      summary: Proxy extrinsics
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    extrinsics:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ProxyChainExtrinsicJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Proxy extrinsics list
       tags:
       - proxy
   /api/scan/referenda/referendum:
@@ -4265,7 +7908,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ReferendumV2Json'
+              type: object
       summary: Referenda details
       tags:
       - governance
@@ -4286,7 +7934,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ReferendumV2SampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Referenda list
       tags:
       - governance
@@ -4300,7 +7960,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsJson'
+              type: object
       summary: Referendum statistics
       tags:
       - governance
@@ -4314,7 +7979,14 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    $ref: '#/definitions/subscan_libs_substrate_storage.ReferendumTracksInfo'
+                  type: object
+              type: object
       summary: Referendum tracks
       tags:
       - governance
@@ -4335,7 +8007,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ConvictionVoteJson'
+                      type: array
+                  type: object
+              type: object
       summary: Referenda votes list(v2)
       tags:
       - governance
@@ -4356,7 +8040,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountResourceCountJson'
+                      type: array
+                  type: object
+              type: object
       summary: Resource count
       tags:
       - accounts
@@ -4370,7 +8064,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.RuntimeVersion'
+                      type: array
+                  type: object
+              type: object
       summary: Runtime list
       tags:
       - runtime
@@ -4391,7 +8095,20 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      properties:
+                        metadata:
+                          items:
+                            $ref: '#/definitions/types.MetadataModules'
+                          type: array
+                      type: object
+                  type: object
+              type: object
       summary: Runtime metadata
       tags:
       - runtime
@@ -4412,7 +8129,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ValidatorStatJson'
+                      type: array
+                  type: object
+              type: object
       summary: Era stat list
       tags:
       - staking
@@ -4433,7 +8162,12 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.NominatorDetail'
+              type: object
       summary: Nominator info
       tags:
       - staking
@@ -4454,7 +8188,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.NominatorJson'
+                      type: array
+                  type: object
+              type: object
       summary: Nominators list
       tags:
       - staking
@@ -4475,7 +8221,16 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      $ref: '#/definitions/subscan_libs_substrate_derive.Unbonding'
+                    type: array
+                  type: object
+              type: object
       summary: Unbonding list
       tags:
       - staking
@@ -4496,8 +8251,47 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.ValidatorJson'
+                  type: object
+              type: object
       summary: Validator info
+      tags:
+      - staking
+  /api/scan/staking/validator/bond_stat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.bondStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.EraBondStat'
+                      type: array
+                  type: object
+              type: object
+      summary: Validator bond stat
       tags:
       - staking
   /api/scan/staking/validators:
@@ -4517,7 +8311,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ValidatorJson'
+                      type: array
+                  type: object
+              type: object
       summary: Validators list
       tags:
       - staking
@@ -4538,7 +8344,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountNominateList'
+                      type: array
+                  type: object
+              type: object
       summary: Voted validators list
       tags:
       - staking
@@ -4559,7 +8375,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ValidatorWaiting'
+                      type: array
+                  type: object
+              type: object
       summary: Waiting validators list
       tags:
       - staking
@@ -4573,7 +8401,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    sum:
+                      type: number
+                  type: object
+              type: object
       summary: Staking reward sum
       tags:
       - staking
@@ -4770,7 +8606,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.TechcommProposalJson'
+                  type: object
+              type: object
       summary: Techcomm proposal
       tags:
       - governance
@@ -4791,7 +8635,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TechcommProposalSample'
+                      type: array
+                  type: object
+              type: object
       summary: Techcomm proposals
       tags:
       - governance
@@ -4805,7 +8661,21 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    detail:
+                      additionalProperties:
+                        $ref: '#/definitions/subscan_internal_service_scan_token.Token'
+                      type: object
+                    token:
+                      items:
+                        type: string
+                      type: array
+                  type: object
+              type: object
       summary: Token list(token symbol)
       tags:
       - token
@@ -4824,9 +8694,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountSampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Token holders list
       tags:
       - account
@@ -4840,7 +8722,25 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    detail:
+                      additionalProperties:
+                        $ref: '#/definitions/subscan_internal_service_scan_token.Token'
+                      type: object
+                    token:
+                      items:
+                        type: string
+                      type: array
+                    unique_id:
+                      items:
+                        type: string
+                      type: array
+                  type: object
+              type: object
       summary: Token list(token unique_id)
       tags:
       - token
@@ -4861,7 +8761,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.TreasuryProposalDetailJson'
+                  type: object
+              type: object
       summary: Treasury proposal
       tags:
       - governance
@@ -4882,7 +8790,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TreasuryProposalJson'
+                      type: array
+                  type: object
+              type: object
       summary: Treasury proposals
       tags:
       - governance
@@ -4903,7 +8823,15 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.TreasuryTipJson'
+                  type: object
+              type: object
       summary: Treasury tip
       tags:
       - governance
@@ -4924,7 +8852,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TreasuryTipperJson'
+                      type: array
+                  type: object
+              type: object
       summary: Treasury tippers
       tags:
       - governance
@@ -4945,7 +8883,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TreasuryTip'
+                      type: array
+                  type: object
+              type: object
       summary: Treasury tips
       tags:
       - governance
@@ -5135,7 +9085,17 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.VestingRelease'
+                      type: array
+                  type: object
+              type: object
       summary: Vesting release list
       tags:
       - vesting
@@ -5156,7 +9116,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.StakingAccountEvent'
+                      type: array
+                  type: object
+              type: object
       summary: Account reward and slash list
       tags:
       - staking
@@ -5175,9 +9147,21 @@ paths:
       - application/json
       responses:
         "200":
-          description: success
+          description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountSampleJson'
+                      type: array
+                  type: object
+              type: object
       summary: Accounts list
       tags:
       - account
@@ -5198,7 +9182,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    blocks:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.SampleBlockV2Json'
+                      type: array
+                    count:
+                      type: integer
+                  type: object
+              type: object
       summary: Blocks list
       tags:
       - block
@@ -5219,11 +9215,53 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DailyStaticJsonV2'
+                      type: array
+                  type: object
+              type: object
       summary: Daily stat(v2)
       tags:
       - stat
+  /api/v2/scan/events:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.eventsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    events:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChainEventV2Json'
+                      type: array
+                  type: object
+              type: object
+      summary: Events list
+      tags:
+      - event
   /api/v2/scan/extrinsics:
     post:
       consumes:
@@ -5241,7 +9279,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    extrinsics:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChainExtrinsicV2Json'
+                      type: array
+                  type: object
+              type: object
       summary: Extrinsics list
       tags:
       - extrinsic
@@ -5262,7 +9312,19 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    logs:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChainLogJson'
+                      type: array
+                  type: object
+              type: object
       summary: Logs list
       tags:
       - log
@@ -5283,8 +9345,17 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    provider:
+                      type: string
+                    token:
+                      $ref: '#/definitions/internal_server_http.tokenJson'
+                  type: object
+              type: object
       summary: Native token list
       tags:
       - tokens
@@ -5298,8 +9369,17 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    providers:
+                      items:
+                        $ref: '#/definitions/internal_server_http.providerActiveJson'
+                      type: array
+                  type: object
+              type: object
       summary: Tokens providers
       tags:
       - tokens
@@ -5320,8 +9400,16 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      $ref: '#/definitions/internal_server_http.tokenJson'
+                    type: array
+                  type: object
+              type: object
       summary: Tokens search
       tags:
       - tokens
@@ -5342,8 +9430,21 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    provider:
+                      type: string
+                    tokens:
+                      items:
+                        $ref: '#/definitions/internal_server_http.tokenJson'
+                      type: array
+                  type: object
+              type: object
       summary: Tokens(v2)
       tags:
       - tokens
@@ -5364,7 +9465,21 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    total:
+                      $ref: '#/definitions/subscan_internal_model.TransferHistoryTokensTotal'
+                    transfers:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TransferHistory'
+                      type: array
+                  type: object
+              type: object
       summary: Transfers list
       tags:
       - account
