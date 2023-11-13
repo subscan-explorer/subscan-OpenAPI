@@ -2572,7 +2572,30 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_nfts_db.CollectionBalance"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -2605,7 +2628,30 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_nfts_db.NftRelateExtrinsic"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -2638,7 +2684,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_plugin_nfts_db.NftsJson"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -2671,7 +2729,30 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_nfts_db.NftHolderJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -2704,7 +2785,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_plugin_nfts_db.CollectionItemJson"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -2737,7 +2830,30 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_nfts_db.ItemSample"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -2770,7 +2886,30 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_nfts_db.NftsSampleJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -6236,19 +6375,23 @@
             ],
             "properties": {
                 "address": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf"
                 },
                 "collection_id": {
-                    "type": "number"
+                    "type": "number",
+                    "example": 1
                 },
                 "page": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "example": 0
                 },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -6256,19 +6399,25 @@
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "description": "Collection id, required",
+                    "type": "number",
+                    "example": 1
                 },
                 "item_id": {
-                    "type": "integer"
+                    "description": "Item id, optional",
+                    "type": "integer",
+                    "example": 1
                 },
                 "page": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "example": 0
                 },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -6276,16 +6425,19 @@
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "number",
+                    "example": 1
                 },
                 "page": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "example": 0
                 },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -6293,9 +6445,11 @@
             "type": "object",
             "properties": {
                 "collection_id": {
+                    "description": "Collection id, required",
                     "type": "number"
                 },
                 "item_id": {
+                    "description": "Item id, required",
                     "type": "number"
                 }
             }
@@ -6304,7 +6458,8 @@
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "number",
+                    "example": 1
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -6318,20 +6473,25 @@
                     "description": "Optional, order field",
                     "type": "string",
                     "enum": [
-                        "item_id"
+                        "item_id",
+                        "create_at"
                     ]
                 },
                 "owner": {
-                    "type": "string"
+                    "description": "Optional, owner address",
+                    "type": "string",
+                    "example": "EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf"
                 },
                 "page": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "example": 0
                 },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -6339,7 +6499,8 @@
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "number",
+                    "example": 1
                 }
             }
         },
@@ -6347,7 +6508,8 @@
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "number",
+                    "example": 1
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -6355,7 +6517,8 @@
                     "enum": [
                         "desc",
                         "asc"
-                    ]
+                    ],
+                    "example": "desc"
                 },
                 "order_field": {
                     "description": "Optional, order field",
@@ -6365,7 +6528,8 @@
                         "holders",
                         "collection_id",
                         "transfer_count"
-                    ]
+                    ],
+                    "example": "holders"
                 },
                 "page": {
                     "type": "integer",
@@ -8538,6 +8702,342 @@
             "properties": {
                 "auction_index": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.AccountDisplay": {
+            "type": "object",
+            "properties": {
+                "account_index": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "display": {
+                    "type": "string"
+                },
+                "evm_contract": {
+                    "$ref": "#/definitions/subscan_internal_model.EvmAccountDisplay"
+                },
+                "identity": {
+                    "type": "boolean"
+                },
+                "judgements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
+                    }
+                },
+                "merkle": {
+                    "$ref": "#/definitions/subscan_internal_model.MerkleTag"
+                },
+                "parent": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
+                }
+            }
+        },
+        "subscan_internal_model.AccountParentJson": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "display": {
+                    "type": "string"
+                },
+                "identity": {
+                    "type": "boolean"
+                },
+                "sub_symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.EvmAccountDisplay": {
+            "type": "object",
+            "properties": {
+                "contract_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.MerkleTag": {
+            "type": "object",
+            "properties": {
+                "address_type": {
+                    "type": "string"
+                },
+                "tag_name": {
+                    "type": "string"
+                },
+                "tag_subtype": {
+                    "type": "string"
+                },
+                "tag_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.MetadataMedia": {
+            "type": "object",
+            "properties": {
+                "types": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.MetadataSample": {
+            "type": "object",
+            "properties": {
+                "fallback_image": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "media": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.RegistrationJudgementJson": {
+            "type": "object",
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "judgement": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.StandardMetadata": {
+            "type": "object",
+            "properties": {
+                "attributes": {},
+                "description": {
+                    "type": "string",
+                    "example": "Thanks"
+                },
+                "external_url": {
+                    "type": "string",
+                    "example": "https://beta.nft.io/my-collections"
+                },
+                "fallback_image": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string",
+                    "example": "https://ipfs.io/ipfs/bafkreihmb2esqysriq46l2uutyu2bqxkzlgluarbr36kom3hrykd2ku42u"
+                },
+                "media": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "example": "500 Followers"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.CollectionBalance": {
+            "type": "object",
+            "properties": {
+                "balance": {
+                    "type": "number",
+                    "example": 1
+                },
+                "collection_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "collection_name": {
+                    "type": "string",
+                    "example": "Kusama Crowdloans"
+                },
+                "item_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "token_metadata": {
+                    "$ref": "#/definitions/subscan_internal_model.MetadataSample"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.CollectionItemJson": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "collection_id": {
+                    "type": "number",
+                    "example": 126
+                },
+                "data": {
+                    "type": "string",
+                    "example": "ipfs://ipfs/bafkreiga2srd2royhpxav3migytg35ny5ph74sbqhfxujwqu6tpoio5ize"
+                },
+                "holder": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "item_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.ItemSample": {
+            "type": "object",
+            "properties": {
+                "item_id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.NftHolderJson": {
+            "type": "object",
+            "properties": {
+                "balance": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "holder": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.NftRelateExtrinsic": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer",
+                    "example": 5296820
+                },
+                "block_timestamp": {
+                    "type": "integer",
+                    "example": 1693996722
+                },
+                "collection_id": {
+                    "type": "number",
+                    "example": 129
+                },
+                "event_id": {
+                    "type": "string",
+                    "example": "ItemMetadataSet"
+                },
+                "event_index": {
+                    "type": "string",
+                    "example": "5296820-26"
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "example": "5296820-3"
+                },
+                "item_id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "module_id": {
+                    "type": "string",
+                    "example": "nfts"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.NftsJson": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "collection_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "data": {
+                    "type": "string",
+                    "example": "ipfs://ipfs/bafkreiga2srd2royhpxav3migytg35ny5ph74sbqhfxujwqu6tpoio5ize"
+                },
+                "holders": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "is_destroyed": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "items": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "total_supply": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "unique_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_nfts_db.NftsSampleJson": {
+            "type": "object",
+            "properties": {
+                "collection_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "collection_name": {
+                    "type": "string",
+                    "example": "Retrowave"
+                },
+                "holders": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "items": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "transfer_count": {
+                    "type": "integer",
+                    "example": 10
                 }
             }
         },
