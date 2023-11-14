@@ -8155,6 +8155,9 @@ const docTemplate = `{
                 "address": {
                     "type": "string"
                 },
+                "after_id": {
+                    "type": "integer"
+                },
                 "category": {
                     "type": "string",
                     "enum": [

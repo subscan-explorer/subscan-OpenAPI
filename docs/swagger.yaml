@@ -480,6 +480,8 @@ definitions:
     properties:
       address:
         type: string
+      after_id:
+        type: integer
       category:
         enum:
         - erc20
