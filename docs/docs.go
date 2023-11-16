@@ -2705,6 +2705,40 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/getRawTx": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "extrinsic"
+                ],
+                "summary": "Extrinsic raw tx",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/log": {
             "post": {
                 "consumes": [
@@ -8155,9 +8189,6 @@ const docTemplate = `{
                 "address": {
                     "type": "string"
                 },
-                "after_id": {
-                    "type": "integer"
-                },
                 "category": {
                     "type": "string",
                     "enum": [
@@ -10711,7 +10742,7 @@ const docTemplate = `{
                     "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 1,
+                    "minimum": 0,
                     "example": 10
                 }
             }

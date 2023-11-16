@@ -480,8 +480,6 @@ definitions:
     properties:
       address:
         type: string
-      after_id:
-        type: integer
       category:
         enum:
         - erc20
@@ -2305,7 +2303,7 @@ definitions:
         description: Data size per page
         example: 10
         maximum: 100
-        minimum: 1
+        minimum: 0
         type: integer
     type: object
   internal_server_http.vestingReleaseParams:
@@ -6663,6 +6661,25 @@ paths:
       summary: Fellowship referendum votes
       tags:
       - governance
+  /api/scan/getRawTx:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Extrinsic raw tx
+      tags:
+      - extrinsic
   /api/scan/log:
     post:
       consumes:
