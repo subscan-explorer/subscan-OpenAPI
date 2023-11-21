@@ -8314,7 +8314,9 @@ const docTemplate = `{
                     "type": "string",
                     "enum": [
                         "holders",
-                        "item_id"
+                        "item_id",
+                        "create_at",
+                        "transfer_count"
                     ]
                 },
                 "page": {
@@ -8725,7 +8727,7 @@ const docTemplate = `{
                 },
                 "item_id": {
                     "description": "Item id, optional",
-                    "type": "integer",
+                    "type": "number",
                     "example": 1
                 },
                 "page": {
@@ -8972,6 +8974,21 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "type": "number"
+                },
+                "order": {
+                    "description": "Optional, order sort, default desc",
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "description": "Optional, order field",
+                    "type": "string",
+                    "enum": [
+                        "collection_id"
+                    ]
                 },
                 "page": {
                     "type": "integer",
@@ -12829,6 +12846,12 @@ const docTemplate = `{
                 "signature": {
                     "type": "string"
                 },
+                "sub_calls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicSubCallJson"
+                    }
+                },
                 "success": {
                     "type": "boolean"
                 },
@@ -12895,6 +12918,36 @@ const docTemplate = `{
                 },
                 "success": {
                     "type": "boolean"
+                }
+            }
+        },
+        "subscan_internal_model.ExtrinsicSubCallJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "exec_result": {
+                    "$ref": "#/definitions/subscan_libs_substrate.MetadataModuleError"
+                },
+                "exec_status": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string"
+                },
+                "multisig": {
+                    "$ref": "#/definitions/subscan_internal_model.MultisigJson"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "param": {},
+                "sub_calls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicSubCallJson"
+                    }
                 }
             }
         },
@@ -13131,6 +13184,12 @@ const docTemplate = `{
                 "status": {
                     "$ref": "#/definitions/subscan_internal_model.MultiAction"
                 },
+                "sub_calls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicSubCallJson"
+                    }
+                },
                 "threshold": {
                     "type": "integer"
                 }
@@ -13178,6 +13237,12 @@ const docTemplate = `{
                 },
                 "status": {
                     "$ref": "#/definitions/subscan_internal_model.MultiAction"
+                },
+                "sub_calls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicSubCallJson"
+                    }
                 },
                 "threshold": {
                     "type": "integer"
@@ -14964,6 +15029,14 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.ItemSample": {
             "type": "object",
             "properties": {
+                "collection_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "collection_name": {
+                    "type": "string",
+                    "example": "Kusama Crowdloans"
+                },
                 "item_id": {
                     "type": "integer",
                     "example": 1
@@ -14973,6 +15046,9 @@ const docTemplate = `{
                 },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "transfer_count": {
+                    "type": "integer"
                 }
             }
         },
@@ -15016,7 +15092,7 @@ const docTemplate = `{
                     "example": "5296820-3"
                 },
                 "item_id": {
-                    "type": "integer",
+                    "type": "number",
                     "example": 1
                 },
                 "module_id": {
@@ -15077,6 +15153,10 @@ const docTemplate = `{
                     "type": "number",
                     "example": 1
                 },
+                "collection_image": {
+                    "type": "string",
+                    "example": "https://ipfs.io/ipfs/bafkreihmb2esqysriq46l2uutyu2bqxkzlgluarbr36kom3hrykd2ku42u"
+                },
                 "collection_name": {
                     "type": "string",
                     "example": "Retrowave"
@@ -15116,6 +15196,12 @@ const docTemplate = `{
         "subscan_internal_plugin_uniques_db.ItemSample": {
             "type": "object",
             "properties": {
+                "collection_id": {
+                    "type": "number"
+                },
+                "collection_name": {
+                    "type": "string"
+                },
                 "item_id": {
                     "type": "integer"
                 },
@@ -15124,6 +15210,9 @@ const docTemplate = `{
                 },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "transfer_count": {
+                    "type": "integer"
                 }
             }
         },
@@ -15338,6 +15427,26 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_libs_substrate.MetadataModuleError": {
+            "type": "object",
+            "properties": {
+                "doc": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "module": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "value": {
                     "type": "string"
                 }
             }
