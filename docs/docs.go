@@ -8676,6 +8676,15 @@ const docTemplate = `{
                 "contract": {
                     "type": "string"
                 },
+                "direction": {
+                    "type": "string",
+                    "default": "from",
+                    "enum": [
+                        "from",
+                        "to",
+                        "all"
+                    ]
+                },
                 "page": {
                     "type": "integer",
                     "minimum": 0
@@ -8974,21 +8983,6 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "type": "number"
-                },
-                "order": {
-                    "description": "Optional, order sort, default desc",
-                    "type": "string",
-                    "enum": [
-                        "desc",
-                        "asc"
-                    ]
-                },
-                "order_field": {
-                    "description": "Optional, order field",
-                    "type": "string",
-                    "enum": [
-                        "collection_id"
-                    ]
                 },
                 "page": {
                     "type": "integer",

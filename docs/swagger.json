@@ -8665,6 +8665,15 @@
                 "contract": {
                     "type": "string"
                 },
+                "direction": {
+                    "type": "string",
+                    "default": "from",
+                    "enum": [
+                        "from",
+                        "to",
+                        "all"
+                    ]
+                },
                 "page": {
                     "type": "integer",
                     "minimum": 0
@@ -8963,21 +8972,6 @@
             "properties": {
                 "collection_id": {
                     "type": "number"
-                },
-                "order": {
-                    "description": "Optional, order sort, default desc",
-                    "type": "string",
-                    "enum": [
-                        "desc",
-                        "asc"
-                    ]
-                },
-                "order_field": {
-                    "description": "Optional, order field",
-                    "type": "string",
-                    "enum": [
-                        "collection_id"
-                    ]
                 },
                 "page": {
                     "type": "integer",

@@ -548,6 +548,13 @@ definitions:
         type: string
       contract:
         type: string
+      direction:
+        default: from
+        enum:
+        - from
+        - to
+        - all
+        type: string
       page:
         minimum: 0
         type: integer
@@ -765,17 +772,6 @@ definitions:
     properties:
       collection_id:
         type: number
-      order:
-        description: Optional, order sort, default desc
-        enum:
-        - desc
-        - asc
-        type: string
-      order_field:
-        description: Optional, order field
-        enum:
-        - collection_id
-        type: string
       page:
         minimum: 0
         type: integer
