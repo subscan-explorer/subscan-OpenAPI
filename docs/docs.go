@@ -9046,6 +9046,15 @@ const docTemplate = `{
                 "contract": {
                     "type": "string"
                 },
+                "direction": {
+                    "type": "string",
+                    "default": "from",
+                    "enum": [
+                        "from",
+                        "to",
+                        "all"
+                    ]
+                },
                 "page": {
                     "type": "integer",
                     "minimum": 0

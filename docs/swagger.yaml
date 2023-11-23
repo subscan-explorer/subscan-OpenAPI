@@ -548,6 +548,13 @@ definitions:
         type: string
       contract:
         type: string
+      direction:
+        default: from
+        enum:
+        - from
+        - to
+        - all
+        type: string
       page:
         minimum: 0
         type: integer
