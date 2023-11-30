@@ -1197,51 +1197,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/contracts/verify/log": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contracts"
-                ],
-                "summary": "Verify wasm contract log",
-                "parameters": [
-                    {
-                        "description": "param",
-                        "name": "param",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.contractInfoParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/council/proposal": {
             "post": {
                 "consumes": [
@@ -2775,6 +2730,62 @@ const docTemplate = `{
                                     "properties": {
                                         "data": {
                                             "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/ibc/transfers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ibc"
+                ],
+                "summary": "Ibc Transfers list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_ibc.transfersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_ibc.j"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -9091,6 +9102,123 @@ const docTemplate = `{
                             "$ref": "#/definitions/internal_pluginv2_pallets_collator.Status"
                         }
                     ]
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.TransferJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "amount_v2": {
+                    "type": "number"
+                },
+                "asset_id": {
+                    "type": "number"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "destination_channel": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "from_chain": {
+                    "type": "string"
+                },
+                "ibc_denom": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "source_channel": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                },
+                "to_chain": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.j": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "example": 0
+                },
+                "data": {},
+                "generated_at": {
+                    "type": "integer",
+                    "example": 1699600641
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Success"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.transfersParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "asset_id": {
+                    "type": "string"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string",
+                    "example": "110000-120000"
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "sent",
+                        "received"
+                    ]
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "example": "12321-2"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },

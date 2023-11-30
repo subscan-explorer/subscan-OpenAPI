@@ -858,6 +858,88 @@ definitions:
         - 1
         - 2
     type: object
+  internal_pluginv2_pallets_ibc.TransferJson:
+    properties:
+      amount:
+        type: number
+      amount_v2:
+        type: number
+      asset_id:
+        type: number
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      destination_channel:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      from:
+        type: string
+      from_chain:
+        type: string
+      ibc_denom:
+        type: string
+      id:
+        type: integer
+      source_channel:
+        type: string
+      status:
+        type: string
+      to:
+        type: string
+      to_chain:
+        type: string
+    type: object
+  internal_pluginv2_pallets_ibc.j:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data: {}
+      generated_at:
+        example: 1699600641
+        type: integer
+      message:
+        example: Success
+        type: string
+    type: object
+  internal_pluginv2_pallets_ibc.transfersParams:
+    properties:
+      address:
+        type: string
+      asset_id:
+        type: string
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      block_range:
+        example: 110000-120000
+        type: string
+      direction:
+        enum:
+        - all
+        - sent
+        - received
+        type: string
+      extrinsic_index:
+        example: 12321-2
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
       page:
@@ -6151,32 +6233,6 @@ paths:
       summary: Compiler versions
       tags:
       - contracts
-  /api/scan/contracts/verify/log:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: param
-        in: body
-        name: param
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.contractInfoParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  type: string
-              type: object
-      summary: Verify wasm contract log
-      tags:
-      - contracts
   /api/scan/council/proposal:
     post:
       consumes:
@@ -7105,6 +7161,39 @@ paths:
       summary: Extrinsic raw tx
       tags:
       - extrinsic
+  /api/scan/ibc/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_ibc.transfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_pluginv2_pallets_ibc.j'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Ibc Transfers list
+      tags:
+      - ibc
   /api/scan/log:
     post:
       consumes:
