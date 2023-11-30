@@ -893,19 +893,6 @@ definitions:
       to_chain:
         type: string
     type: object
-  internal_pluginv2_pallets_ibc.j:
-    properties:
-      code:
-        example: 0
-        type: integer
-      data: {}
-      generated_at:
-        example: 1699600641
-        type: integer
-      message:
-        example: Success
-        type: string
-    type: object
   internal_pluginv2_pallets_ibc.transfersParams:
     properties:
       address:
@@ -7178,19 +7165,21 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/internal_pluginv2_pallets_ibc.j'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
-                      type: array
-                  type: object
-              type: object
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
       summary: Ibc Transfers list
       tags:
       - ibc

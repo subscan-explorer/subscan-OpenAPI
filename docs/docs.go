@@ -2766,30 +2766,29 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_pluginv2_pallets_ibc.j"
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
                                 },
-                                {
+                                "data": {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
-                                                    }
-                                                }
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
                                             }
                                         }
                                     }
+                                },
+                                "message": {
+                                    "type": "string"
                                 }
-                            ]
+                            }
                         }
                     }
                 }
@@ -9155,24 +9154,6 @@ const docTemplate = `{
                 },
                 "to_chain": {
                     "type": "string"
-                }
-            }
-        },
-        "internal_pluginv2_pallets_ibc.j": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "example": 0
-                },
-                "data": {},
-                "generated_at": {
-                    "type": "integer",
-                    "example": 1699600641
-                },
-                "message": {
-                    "type": "string",
-                    "example": "Success"
                 }
             }
         },
