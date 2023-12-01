@@ -858,6 +858,75 @@ definitions:
         - 1
         - 2
     type: object
+  internal_pluginv2_pallets_ibc.TransferJson:
+    properties:
+      amount:
+        type: number
+      amount_v2:
+        type: number
+      asset_id:
+        type: number
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      destination_channel:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      from:
+        type: string
+      from_chain:
+        type: string
+      ibc_denom:
+        type: string
+      id:
+        type: integer
+      source_channel:
+        type: string
+      status:
+        type: string
+      to:
+        type: string
+      to_chain:
+        type: string
+    type: object
+  internal_pluginv2_pallets_ibc.transfersParams:
+    properties:
+      address:
+        type: string
+      asset_id:
+        type: string
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      block_range:
+        example: 110000-120000
+        type: string
+      direction:
+        enum:
+        - all
+        - sent
+        - received
+        type: string
+      extrinsic_index:
+        example: 12321-2
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
       page:
@@ -951,20 +1020,6 @@ definitions:
       message:
         example: Success
         type: string
-    type: object
-  internal_server_http.ResourceCountParams:
-    properties:
-      account:
-        type: string
-      extra:
-        additionalProperties: true
-        type: object
-      resource:
-        items:
-          type: string
-        type: array
-    required:
-    - resource
     type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
@@ -2709,13 +2764,6 @@ definitions:
         type: integer
       value:
         type: number
-    type: object
-  subscan_internal_model.AccountResourceCountJson:
-    properties:
-      count:
-        type: integer
-      resource:
-        type: string
     type: object
   subscan_internal_model.AccountRoleCountJson:
     properties:
@@ -7100,6 +7148,41 @@ paths:
       summary: Extrinsic raw tx
       tags:
       - extrinsic
+  /api/scan/ibc/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_ibc.transfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Ibc Transfers list
+      tags:
+      - ibc
   /api/scan/log:
     post:
       consumes:
@@ -8679,37 +8762,6 @@ paths:
       summary: Referenda votes list(v2)
       tags:
       - governance
-  /api/scan/resource_count:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.ResourceCountParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.AccountResourceCountJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Resource count
-      tags:
-      - accounts
   /api/scan/runtime/list:
     post:
       consumes:

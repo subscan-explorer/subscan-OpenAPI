@@ -2739,6 +2739,61 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/ibc/transfers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ibc"
+                ],
+                "summary": "Ibc Transfers list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_ibc.transfersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/log": {
             "post": {
                 "consumes": [
@@ -5393,59 +5448,6 @@ const docTemplate = `{
                                                     "type": "array",
                                                     "items": {
                                                         "$ref": "#/definitions/subscan_internal_model.ConvictionVoteJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/resource_count": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "accounts"
-                ],
-                "summary": "Resource count",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.ResourceCountParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountResourceCountJson"
                                                     }
                                                 }
                                             }
@@ -9102,6 +9104,105 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_pluginv2_pallets_ibc.TransferJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "amount_v2": {
+                    "type": "number"
+                },
+                "asset_id": {
+                    "type": "number"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "destination_channel": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "from_chain": {
+                    "type": "string"
+                },
+                "ibc_denom": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "source_channel": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                },
+                "to_chain": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.transfersParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "asset_id": {
+                    "type": "string"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string",
+                    "example": "110000-120000"
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "sent",
+                        "received"
+                    ]
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "example": "12321-2"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
         "internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams": {
             "type": "object",
             "properties": {
@@ -9236,27 +9337,6 @@ const docTemplate = `{
                 "message": {
                     "type": "string",
                     "example": "Success"
-                }
-            }
-        },
-        "internal_server_http.ResourceCountParams": {
-            "type": "object",
-            "required": [
-                "resource"
-            ],
-            "properties": {
-                "account": {
-                    "type": "string"
-                },
-                "extra": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "resource": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
                 }
             }
         },
@@ -11714,17 +11794,6 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.AccountResourceCountJson": {
-            "type": "object",
-            "properties": {
-                "count": {
-                    "type": "integer"
-                },
-                "resource": {
-                    "type": "string"
                 }
             }
         },
