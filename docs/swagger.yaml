@@ -952,6 +952,20 @@ definitions:
         example: Success
         type: string
     type: object
+  internal_server_http.ResourceCountParams:
+    properties:
+      account:
+        type: string
+      extra:
+        additionalProperties: true
+        type: object
+      resource:
+        items:
+          type: string
+        type: array
+    required:
+    - resource
+    type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
       address:
@@ -2212,15 +2226,6 @@ definitions:
         example: 9430
         type: integer
     type: object
-  internal_server_http.searchByIdentityParams:
-    properties:
-      identity:
-        maxLength: 300
-        minLength: 1
-        type: string
-    required:
-    - identity
-    type: object
   internal_server_http.techcommProposalParams:
     properties:
       proposal_id:
@@ -2704,6 +2709,13 @@ definitions:
         type: integer
       value:
         type: number
+    type: object
+  subscan_internal_model.AccountResourceCountJson:
+    properties:
+      count:
+        type: integer
+      resource:
+        type: string
     type: object
   subscan_internal_model.AccountRoleCountJson:
     properties:
@@ -5069,15 +5081,6 @@ definitions:
         type: array
       time:
         type: integer
-    type: object
-  subscan_internal_service_scan.IdentifierWithSubAccount:
-    properties:
-      identifier:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      subAccount:
-        items:
-          $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-        type: array
     type: object
   subscan_internal_service_scan.Price:
     properties:
@@ -8676,6 +8679,37 @@ paths:
       summary: Referenda votes list(v2)
       tags:
       - governance
+  /api/scan/resource_count:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.ResourceCountParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountResourceCountJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Resource count
+      tags:
+      - accounts
   /api/scan/runtime/list:
     post:
       consumes:
@@ -8734,37 +8768,6 @@ paths:
       summary: Runtime metadata
       tags:
       - runtime
-  /api/scan/search/identity:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.searchByIdentityParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    identity:
-                      items:
-                        $ref: '#/definitions/subscan_internal_service_scan.IdentifierWithSubAccount'
-                      type: array
-                  type: object
-              type: object
-      summary: Search by identity
-      tags:
-      - account
   /api/scan/staking/era_stat:
     post:
       consumes:

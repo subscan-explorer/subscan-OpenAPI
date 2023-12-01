@@ -5405,6 +5405,59 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/resource_count": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "Resource count",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.ResourceCountParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.AccountResourceCountJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/runtime/list": {
             "post": {
                 "consumes": [
@@ -5493,59 +5546,6 @@ const docTemplate = `{
                                                                 "$ref": "#/definitions/types.MetadataModules"
                                                             }
                                                         }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/search/identity": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "account"
-                ],
-                "summary": "Search by identity",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.searchByIdentityParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "identity": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_service_scan.IdentifierWithSubAccount"
                                                     }
                                                 }
                                             }
@@ -9239,6 +9239,27 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.ResourceCountParams": {
+            "type": "object",
+            "required": [
+                "resource"
+            ],
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "extra": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "resource": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "internal_server_http.accountBalanceValueHistoryParams": {
             "type": "object",
             "required": [
@@ -10989,19 +11010,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.searchByIdentityParams": {
-            "type": "object",
-            "required": [
-                "identity"
-            ],
-            "properties": {
-                "identity": {
-                    "type": "string",
-                    "maxLength": 300,
-                    "minLength": 1
-                }
-            }
-        },
         "internal_server_http.techcommProposalParams": {
             "type": "object",
             "properties": {
@@ -11706,6 +11714,17 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "number"
+                }
+            }
+        },
+        "subscan_internal_model.AccountResourceCountJson": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "resource": {
+                    "type": "string"
                 }
             }
         },
@@ -15277,20 +15296,6 @@ const docTemplate = `{
                 },
                 "time": {
                     "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_service_scan.IdentifierWithSubAccount": {
-            "type": "object",
-            "properties": {
-                "identifier": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "subAccount": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                    }
                 }
             }
         },
