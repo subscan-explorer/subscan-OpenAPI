@@ -696,139 +696,6 @@ definitions:
         minimum: 1
         type: integer
     type: object
-  internal_plugin_unique_unique_http.UniqueAccountBalancesParams:
-    properties:
-      address:
-        example: EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf
-        type: string
-      collection_id:
-        example: 1
-        type: number
-      page:
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-    required:
-    - address
-    type: object
-  internal_plugin_unique_unique_http.UniqueActivitiesParams:
-    properties:
-      collection_id:
-        description: Collection id, required
-        example: 1
-        type: number
-      item_id:
-        description: Item id, optional
-        example: 1
-        type: number
-      page:
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
-  internal_plugin_unique_unique_http.UniqueHoldersParams:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-      page:
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
-  internal_plugin_unique_unique_http.UniqueItemParams:
-    properties:
-      collection_id:
-        description: Collection id, required
-        type: number
-      item_id:
-        description: Item id, required
-        type: number
-    type: object
-  internal_plugin_unique_unique_http.UniqueItemsParams:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-      order:
-        description: Optional, order sort, default desc
-        enum:
-        - desc
-        - asc
-        type: string
-      order_field:
-        description: Optional, order field
-        enum:
-        - item_id
-        - create_at
-        - transfer_count
-        type: string
-      page:
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      type:
-        enum:
-        - nft
-        - nested
-        - bundle
-        type: string
-    type: object
-  internal_plugin_unique_unique_http.UniqueParams:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-    type: object
-  internal_plugin_unique_unique_http.UniquesParams:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-      order:
-        description: Optional, order sort, default desc
-        enum:
-        - desc
-        - asc
-        example: desc
-        type: string
-      order_field:
-        description: Optional, order field
-        enum:
-        - items
-        - holders
-        - collection_id
-        - transfer_count
-        example: holders
-        type: string
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
   internal_plugin_uniques_http.UniquesActivitiesParams:
     properties:
       collection_id:
@@ -991,6 +858,75 @@ definitions:
         - 1
         - 2
     type: object
+  internal_pluginv2_pallets_ibc.TransferJson:
+    properties:
+      amount:
+        type: number
+      amount_v2:
+        type: number
+      asset_id:
+        type: number
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      destination_channel:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      from:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      from_chain:
+        type: string
+      ibc_denom:
+        type: string
+      id:
+        type: integer
+      source_channel:
+        type: string
+      status:
+        type: string
+      to:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      to_chain:
+        type: string
+    type: object
+  internal_pluginv2_pallets_ibc.transfersParams:
+    properties:
+      address:
+        type: string
+      asset_id:
+        type: string
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      block_range:
+        example: 110000-120000
+        type: string
+      direction:
+        enum:
+        - all
+        - sent
+        - received
+        type: string
+      extrinsic_index:
+        example: 12321-2
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
       page:
@@ -1084,20 +1020,6 @@ definitions:
       message:
         example: Success
         type: string
-    type: object
-  internal_server_http.ResourceCountParams:
-    properties:
-      account:
-        type: string
-      extra:
-        additionalProperties: true
-        type: object
-      resource:
-        items:
-          type: string
-        type: array
-    required:
-    - resource
     type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
@@ -2842,13 +2764,6 @@ definitions:
         type: integer
       value:
         type: number
-    type: object
-  subscan_internal_model.AccountResourceCountJson:
-    properties:
-      count:
-        type: integer
-      resource:
-        type: string
     type: object
   subscan_internal_model.AccountRoleCountJson:
     properties:
@@ -5164,163 +5079,6 @@ definitions:
       message:
         type: string
     type: object
-  subscan_internal_plugin_unique_unique_db.CollectionBalance:
-    properties:
-      balance:
-        example: 1
-        type: number
-      collection_id:
-        example: 1
-        type: number
-      collection_name:
-        example: Kusama Crowdloans
-        type: string
-      item_id:
-        example: 1
-        type: number
-      token_metadata:
-        $ref: '#/definitions/subscan_internal_model.MetadataSample'
-    type: object
-  subscan_internal_plugin_unique_unique_db.CollectionItemJson:
-    properties:
-      collection_id:
-        example: 126
-        type: number
-      collection_name:
-        type: string
-      create_at:
-        type: integer
-      holder:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      item_id:
-        example: 1
-        type: number
-      metadata:
-        $ref: '#/definitions/subscan_internal_model.StandardMetadata'
-      nested:
-        items:
-          $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.NestedItem'
-        type: array
-      nested_type:
-        type: string
-    type: object
-  subscan_internal_plugin_unique_unique_db.ItemSample:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-      collection_name:
-        example: Kusama Crowdloans
-        type: string
-      item_id:
-        example: 1
-        type: integer
-      metadata:
-        $ref: '#/definitions/subscan_internal_model.StandardMetadata'
-      owner:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      transfer_count:
-        type: integer
-    type: object
-  subscan_internal_plugin_unique_unique_db.NestedItem:
-    properties:
-      collection_id:
-        example: 126
-        type: number
-      collection_name:
-        type: string
-      holder:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      item_id:
-        example: 1
-        type: number
-      metadata:
-        $ref: '#/definitions/subscan_internal_model.MetadataSample'
-      nested_type:
-        type: string
-    type: object
-  subscan_internal_plugin_unique_unique_db.NftHolderJson:
-    properties:
-      balance:
-        example: 1
-        type: integer
-      holder:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-    type: object
-  subscan_internal_plugin_unique_unique_db.NftRelateExtrinsic:
-    properties:
-      block_num:
-        example: 5296820
-        type: integer
-      block_timestamp:
-        example: 1693996722
-        type: integer
-      collection_id:
-        example: 129
-        type: number
-      event_id:
-        example: ItemMetadataSet
-        type: string
-      event_index:
-        example: 5296820-26
-        type: string
-      extrinsic_index:
-        example: 5296820-3
-        type: string
-      item_id:
-        example: 1
-        type: number
-      module_id:
-        example: nfts
-        type: string
-    type: object
-  subscan_internal_plugin_unique_unique_db.NftsJson:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-      create_at:
-        type: integer
-      holders:
-        example: 10
-        type: integer
-      is_destroyed:
-        example: false
-        type: boolean
-      items:
-        example: 10
-        type: integer
-      metadata:
-        $ref: '#/definitions/subscan_internal_model.StandardMetadata'
-      owner:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      total_supply:
-        example: 10
-        type: integer
-      unique_id:
-        example: standard_nfts/126
-        type: string
-    type: object
-  subscan_internal_plugin_unique_unique_db.NftsSampleJson:
-    properties:
-      collection_id:
-        example: 1
-        type: number
-      collection_name:
-        example: Retrowave
-        type: string
-      holders:
-        example: 10
-        type: integer
-      items:
-        example: 10
-        type: integer
-      owner:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      transfer_count:
-        example: 10
-        type: integer
-    type: object
   subscan_internal_plugin_uniques_db.ItemSample:
     properties:
       collection_id:
@@ -7390,6 +7148,41 @@ paths:
       summary: Extrinsic raw tx
       tags:
       - extrinsic
+  /api/scan/ibc/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_ibc.transfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Ibc Transfers list
+      tags:
+      - ibc
   /api/scan/log:
     post:
       consumes:
@@ -8969,37 +8762,6 @@ paths:
       summary: Referenda votes list(v2)
       tags:
       - governance
-  /api/scan/resource_count:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.ResourceCountParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.AccountResourceCountJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Resource count
-      tags:
-      - accounts
   /api/scan/runtime/list:
     post:
       consumes:
@@ -9845,223 +9607,6 @@ paths:
       summary: Treasury tips
       tags:
       - governance
-  /api/scan/unique/account/balances:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniqueAccountBalancesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.CollectionBalance'
-                      type: array
-                  type: object
-              type: object
-      summary: NFT account balances
-      tags:
-      - uniqueNetwork
-  /api/scan/unique/activities:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniqueActivitiesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.NftRelateExtrinsic'
-                      type: array
-                  type: object
-              type: object
-      summary: NFT activities
-      tags:
-      - uniqueNetwork
-  /api/scan/unique/info:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniqueParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.NftsJson'
-              type: object
-      summary: NFT info
-      tags:
-      - uniqueNetwork
-  /api/scan/unique/info/holders:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniqueHoldersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.NftHolderJson'
-                      type: array
-                  type: object
-              type: object
-      summary: NFT holders
-      tags:
-      - uniqueNetwork
-  /api/scan/unique/info/item:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniqueItemParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.CollectionItemJson'
-              type: object
-      summary: NFT item
-      tags:
-      - uniqueNetwork
-  /api/scan/unique/info/items:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniqueItemsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.ItemSample'
-                      type: array
-                  type: object
-              type: object
-      summary: NFT items
-      tags:
-      - uniqueNetwork
-  /api/scan/unique/list:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: body
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_unique_unique_http.UniquesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_plugin_unique_unique_db.NftsSampleJson'
-                      type: array
-                  type: object
-              type: object
-      summary: NFTs list
-      tags:
-      - uniqueNetwork
   /api/scan/uniques/account/balances:
     post:
       consumes:

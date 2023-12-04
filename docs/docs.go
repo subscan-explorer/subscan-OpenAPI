@@ -2739,6 +2739,61 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/ibc/transfers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ibc"
+                ],
+                "summary": "Ibc Transfers list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_ibc.transfersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/log": {
             "post": {
                 "consumes": [
@@ -5405,59 +5460,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/resource_count": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "accounts"
-                ],
-                "summary": "Resource count",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.ResourceCountParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountResourceCountJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/runtime/list": {
             "post": {
                 "consumes": [
@@ -6862,376 +6864,6 @@ const docTemplate = `{
                                                     "type": "array",
                                                     "items": {
                                                         "$ref": "#/definitions/subscan_internal_model.TreasuryTip"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/account/balances": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFT account balances",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniqueAccountBalancesParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.CollectionBalance"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/activities": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFT activities",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniqueActivitiesParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.NftRelateExtrinsic"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/info": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFT info",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniqueParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.NftsJson"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/info/holders": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFT holders",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniqueHoldersParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.NftHolderJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/info/item": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFT item",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniqueItemParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.CollectionItemJson"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/info/items": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFT items",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniqueItemsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.ItemSample"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/unique/list": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "uniqueNetwork"
-                ],
-                "summary": "NFTs list",
-                "parameters": [
-                    {
-                        "description": "body",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_unique_unique_http.UniquesParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.NftsSampleJson"
                                                     }
                                                 }
                                             }
@@ -9244,184 +8876,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_plugin_unique_unique_http.UniqueAccountBalancesParams": {
-            "type": "object",
-            "required": [
-                "address"
-            ],
-            "properties": {
-                "address": {
-                    "type": "string",
-                    "example": "EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf"
-                },
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                }
-            }
-        },
-        "internal_plugin_unique_unique_http.UniqueActivitiesParams": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "description": "Collection id, required",
-                    "type": "number",
-                    "example": 1
-                },
-                "item_id": {
-                    "description": "Item id, optional",
-                    "type": "number",
-                    "example": 1
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                }
-            }
-        },
-        "internal_plugin_unique_unique_http.UniqueHoldersParams": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                }
-            }
-        },
-        "internal_plugin_unique_unique_http.UniqueItemParams": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "description": "Collection id, required",
-                    "type": "number"
-                },
-                "item_id": {
-                    "description": "Item id, required",
-                    "type": "number"
-                }
-            }
-        },
-        "internal_plugin_unique_unique_http.UniqueItemsParams": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "order": {
-                    "description": "Optional, order sort, default desc",
-                    "type": "string",
-                    "enum": [
-                        "desc",
-                        "asc"
-                    ]
-                },
-                "order_field": {
-                    "description": "Optional, order field",
-                    "type": "string",
-                    "enum": [
-                        "item_id",
-                        "create_at",
-                        "transfer_count"
-                    ]
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "nft",
-                        "nested",
-                        "bundle"
-                    ]
-                }
-            }
-        },
-        "internal_plugin_unique_unique_http.UniqueParams": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                }
-            }
-        },
-        "internal_plugin_unique_unique_http.UniquesParams": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "order": {
-                    "description": "Optional, order sort, default desc",
-                    "type": "string",
-                    "enum": [
-                        "desc",
-                        "asc"
-                    ],
-                    "example": "desc"
-                },
-                "order_field": {
-                    "description": "Optional, order field",
-                    "type": "string",
-                    "enum": [
-                        "items",
-                        "holders",
-                        "collection_id",
-                        "transfer_count"
-                    ],
-                    "example": "holders"
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                }
-            }
-        },
         "internal_plugin_uniques_http.UniquesActivitiesParams": {
             "type": "object",
             "properties": {
@@ -9650,6 +9104,105 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_pluginv2_pallets_ibc.TransferJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "amount_v2": {
+                    "type": "number"
+                },
+                "asset_id": {
+                    "type": "number"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "destination_channel": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "from": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "from_chain": {
+                    "type": "string"
+                },
+                "ibc_denom": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "source_channel": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "to": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "to_chain": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.transfersParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "asset_id": {
+                    "type": "string"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string",
+                    "example": "110000-120000"
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "sent",
+                        "received"
+                    ]
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "example": "12321-2"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
         "internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams": {
             "type": "object",
             "properties": {
@@ -9784,27 +9337,6 @@ const docTemplate = `{
                 "message": {
                     "type": "string",
                     "example": "Success"
-                }
-            }
-        },
-        "internal_server_http.ResourceCountParams": {
-            "type": "object",
-            "required": [
-                "resource"
-            ],
-            "properties": {
-                "account": {
-                    "type": "string"
-                },
-                "extra": {
-                    "type": "object",
-                    "additionalProperties": true
-                },
-                "resource": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
                 }
             }
         },
@@ -12262,17 +11794,6 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "number"
-                }
-            }
-        },
-        "subscan_internal_model.AccountResourceCountJson": {
-            "type": "object",
-            "properties": {
-                "count": {
-                    "type": "integer"
-                },
-                "resource": {
-                    "type": "string"
                 }
             }
         },
@@ -15766,230 +15287,6 @@ const docTemplate = `{
                 },
                 "message": {
                     "type": "string"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.CollectionBalance": {
-            "type": "object",
-            "properties": {
-                "balance": {
-                    "type": "number",
-                    "example": 1
-                },
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "collection_name": {
-                    "type": "string",
-                    "example": "Kusama Crowdloans"
-                },
-                "item_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "token_metadata": {
-                    "$ref": "#/definitions/subscan_internal_model.MetadataSample"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.CollectionItemJson": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 126
-                },
-                "collection_name": {
-                    "type": "string"
-                },
-                "create_at": {
-                    "type": "integer"
-                },
-                "holder": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "item_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "metadata": {
-                    "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
-                },
-                "nested": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_plugin_unique_unique_db.NestedItem"
-                    }
-                },
-                "nested_type": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.ItemSample": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "collection_name": {
-                    "type": "string",
-                    "example": "Kusama Crowdloans"
-                },
-                "item_id": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "metadata": {
-                    "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
-                },
-                "owner": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "transfer_count": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.NestedItem": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 126
-                },
-                "collection_name": {
-                    "type": "string"
-                },
-                "holder": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "item_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "metadata": {
-                    "$ref": "#/definitions/subscan_internal_model.MetadataSample"
-                },
-                "nested_type": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.NftHolderJson": {
-            "type": "object",
-            "properties": {
-                "balance": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "holder": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.NftRelateExtrinsic": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer",
-                    "example": 5296820
-                },
-                "block_timestamp": {
-                    "type": "integer",
-                    "example": 1693996722
-                },
-                "collection_id": {
-                    "type": "number",
-                    "example": 129
-                },
-                "event_id": {
-                    "type": "string",
-                    "example": "ItemMetadataSet"
-                },
-                "event_index": {
-                    "type": "string",
-                    "example": "5296820-26"
-                },
-                "extrinsic_index": {
-                    "type": "string",
-                    "example": "5296820-3"
-                },
-                "item_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "module_id": {
-                    "type": "string",
-                    "example": "nfts"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.NftsJson": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "create_at": {
-                    "type": "integer"
-                },
-                "holders": {
-                    "type": "integer",
-                    "example": 10
-                },
-                "is_destroyed": {
-                    "type": "boolean",
-                    "example": false
-                },
-                "items": {
-                    "type": "integer",
-                    "example": 10
-                },
-                "metadata": {
-                    "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
-                },
-                "owner": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "total_supply": {
-                    "type": "integer",
-                    "example": 10
-                },
-                "unique_id": {
-                    "type": "string",
-                    "example": "standard_nfts/126"
-                }
-            }
-        },
-        "subscan_internal_plugin_unique_unique_db.NftsSampleJson": {
-            "type": "object",
-            "properties": {
-                "collection_id": {
-                    "type": "number",
-                    "example": 1
-                },
-                "collection_name": {
-                    "type": "string",
-                    "example": "Retrowave"
-                },
-                "holders": {
-                    "type": "integer",
-                    "example": 10
-                },
-                "items": {
-                    "type": "integer",
-                    "example": 10
-                },
-                "owner": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "transfer_count": {
-                    "type": "integer",
-                    "example": 10
                 }
             }
         },
