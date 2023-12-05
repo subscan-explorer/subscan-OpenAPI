@@ -858,75 +858,6 @@ definitions:
         - 1
         - 2
     type: object
-  internal_pluginv2_pallets_ibc.TransferJson:
-    properties:
-      amount:
-        type: number
-      amount_v2:
-        type: number
-      asset_id:
-        type: number
-      asset_symbol:
-        type: string
-      asset_unique_id:
-        type: string
-      destination_channel:
-        type: string
-      event_index:
-        type: string
-      extrinsic_index:
-        type: string
-      from:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      from_chain:
-        type: string
-      ibc_denom:
-        type: string
-      id:
-        type: integer
-      source_channel:
-        type: string
-      status:
-        type: string
-      to:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      to_chain:
-        type: string
-    type: object
-  internal_pluginv2_pallets_ibc.transfersParams:
-    properties:
-      address:
-        type: string
-      asset_id:
-        type: string
-      asset_symbol:
-        type: string
-      asset_unique_id:
-        type: string
-      block_range:
-        example: 110000-120000
-        type: string
-      direction:
-        enum:
-        - all
-        - sent
-        - received
-        type: string
-      extrinsic_index:
-        example: 12321-2
-        type: string
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
       page:
@@ -2280,6 +2211,15 @@ definitions:
         description: Runtime version
         example: 9430
         type: integer
+    type: object
+  internal_server_http.searchByIdentityParams:
+    properties:
+      identity:
+        maxLength: 300
+        minLength: 1
+        type: string
+    required:
+    - identity
     type: object
   internal_server_http.techcommProposalParams:
     properties:
@@ -5130,6 +5070,15 @@ definitions:
       time:
         type: integer
     type: object
+  subscan_internal_service_scan.IdentifierWithSubAccount:
+    properties:
+      identifier:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      sub_account:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        type: array
+    type: object
   subscan_internal_service_scan.Price:
     properties:
       feed_at:
@@ -7148,41 +7097,6 @@ paths:
       summary: Extrinsic raw tx
       tags:
       - extrinsic
-  /api/scan/ibc/transfers:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_pluginv2_pallets_ibc.transfersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            properties:
-              code:
-                type: integer
-              data:
-                properties:
-                  count:
-                    type: integer
-                  list:
-                    items:
-                      $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
-                    type: array
-                type: object
-              message:
-                type: string
-            type: object
-      summary: Ibc Transfers list
-      tags:
-      - ibc
   /api/scan/log:
     post:
       consumes:
@@ -8820,6 +8734,37 @@ paths:
       summary: Runtime metadata
       tags:
       - runtime
+  /api/scan/search/identity:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.searchByIdentityParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    identity:
+                      items:
+                        $ref: '#/definitions/subscan_internal_service_scan.IdentifierWithSubAccount'
+                      type: array
+                  type: object
+              type: object
+      summary: Search by identity
+      tags:
+      - account
   /api/scan/staking/era_stat:
     post:
       consumes:
