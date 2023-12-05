@@ -858,6 +858,77 @@ definitions:
         - 1
         - 2
     type: object
+  internal_pluginv2_pallets_ibc.TransferJson:
+    properties:
+      amount:
+        type: number
+      amount_v2:
+        type: number
+      asset_id:
+        type: number
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      block_timestamp:
+        type: integer
+      destination_channel:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      from:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      from_chain:
+        type: string
+      ibc_denom:
+        type: string
+      id:
+        type: integer
+      source_channel:
+        type: string
+      status:
+        type: string
+      to:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      to_chain:
+        type: string
+    type: object
+  internal_pluginv2_pallets_ibc.transfersParams:
+    properties:
+      address:
+        type: string
+      asset_id:
+        type: string
+      asset_symbol:
+        type: string
+      asset_unique_id:
+        type: string
+      block_range:
+        example: 110000-120000
+        type: string
+      direction:
+        enum:
+        - all
+        - sent
+        - received
+        type: string
+      extrinsic_index:
+        example: 12321-2
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
       page:
@@ -1051,7 +1122,6 @@ definitions:
         - convictionDelegated
         - democracyDelegate
         - democracyDelegated
-        - multiTokensHolder
         type: string
       max_balance:
         type: string
@@ -7080,6 +7150,41 @@ paths:
       summary: Extrinsic raw tx
       tags:
       - extrinsic
+  /api/scan/ibc/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_ibc.transfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Ibc Transfers list
+      tags:
+      - ibc
   /api/scan/log:
     post:
       consumes:
