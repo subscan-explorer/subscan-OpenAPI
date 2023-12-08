@@ -2346,6 +2346,15 @@ definitions:
         example: 9430
         type: integer
     type: object
+  internal_server_http.searchByIdentityParams:
+    properties:
+      identity:
+        maxLength: 300
+        minLength: 1
+        type: string
+    required:
+    - identity
+    type: object
   internal_server_http.techcommProposalParams:
     properties:
       proposal_id:
@@ -3697,6 +3706,8 @@ definitions:
     type: object
   subscan_internal_model.ItemDetail:
     properties:
+      collection_symbol:
+        type: string
       fallback_image:
         type: string
       image:
@@ -4561,6 +4572,9 @@ definitions:
   subscan_internal_model.StandardMetadata:
     properties:
       attributes: {}
+      decode_attrs:
+        items: {}
+        type: array
       description:
         example: Thanks
         type: string
@@ -4578,6 +4592,9 @@ definitions:
         type: array
       name:
         example: 500 Followers
+        type: string
+      symbol:
+        example: PKG
         type: string
     type: object
   subscan_internal_model.TechcommProposalJson:
@@ -5155,9 +5172,14 @@ definitions:
       collection_name:
         example: Kusama Crowdloans
         type: string
+      collection_symbol:
+        example: PLO
+        type: string
       item_id:
         example: 1
         type: number
+      nested_type:
+        type: string
       token_metadata:
         $ref: '#/definitions/subscan_internal_model.MetadataSample'
     type: object
@@ -5167,6 +5189,8 @@ definitions:
         example: 126
         type: number
       collection_name:
+        type: string
+      collection_symbol:
         type: string
       create_at:
         type: integer
@@ -5192,11 +5216,16 @@ definitions:
       collection_name:
         example: Kusama Crowdloans
         type: string
+      collection_symbol:
+        example: PLO
+        type: string
       item_id:
         example: 1
         type: integer
       metadata:
         $ref: '#/definitions/subscan_internal_model.StandardMetadata'
+      nested_type:
+        type: string
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       transfer_count:
@@ -5209,6 +5238,8 @@ definitions:
         type: number
       collection_name:
         type: string
+      collection_symbol:
+        type: string
       holder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       item_id:
@@ -5217,6 +5248,8 @@ definitions:
       metadata:
         $ref: '#/definitions/subscan_internal_model.MetadataSample'
       nested_type:
+        type: string
+      parent_index:
         type: string
     type: object
   subscan_internal_plugin_unique_unique_db.NftHolderJson:
@@ -5286,6 +5319,8 @@ definitions:
       collection_id:
         example: 1
         type: number
+      collection_image:
+        type: string
       collection_name:
         example: Retrowave
         type: string
@@ -5351,6 +5386,15 @@ definitions:
         type: array
       time:
         type: integer
+    type: object
+  subscan_internal_service_scan.IdentifierWithSubAccount:
+    properties:
+      identifier:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      sub_account:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        type: array
     type: object
   subscan_internal_service_scan.Price:
     properties:
@@ -9007,6 +9051,37 @@ paths:
       summary: Runtime metadata
       tags:
       - runtime
+  /api/scan/search/identity:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.searchByIdentityParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    identity:
+                      items:
+                        $ref: '#/definitions/subscan_internal_service_scan.IdentifierWithSubAccount'
+                      type: array
+                  type: object
+              type: object
+      summary: Search by identity
+      tags:
+      - account
   /api/scan/staking/era_stat:
     post:
       consumes:

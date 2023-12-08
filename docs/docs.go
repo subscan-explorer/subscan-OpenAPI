@@ -5505,6 +5505,59 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/search/identity": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Search by identity",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.searchByIdentityParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "identity": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_service_scan.IdentifierWithSubAccount"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/staking/era_stat": {
             "post": {
                 "consumes": [
@@ -11485,6 +11538,19 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.searchByIdentityParams": {
+            "type": "object",
+            "required": [
+                "identity"
+            ],
+            "properties": {
+                "identity": {
+                    "type": "string",
+                    "maxLength": 300,
+                    "minLength": 1
+                }
+            }
+        },
         "internal_server_http.techcommProposalParams": {
             "type": "object",
             "properties": {
@@ -13510,6 +13576,9 @@ const docTemplate = `{
         "subscan_internal_model.ItemDetail": {
             "type": "object",
             "properties": {
+                "collection_symbol": {
+                    "type": "string"
+                },
                 "fallback_image": {
                     "type": "string"
                 },
@@ -14817,6 +14886,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "attributes": {},
+                "decode_attrs": {
+                    "type": "array",
+                    "items": {}
+                },
                 "description": {
                     "type": "string",
                     "example": "Thanks"
@@ -14841,6 +14914,10 @@ const docTemplate = `{
                 "name": {
                     "type": "string",
                     "example": "500 Followers"
+                },
+                "symbol": {
+                    "type": "string",
+                    "example": "PKG"
                 }
             }
         },
@@ -15700,9 +15777,16 @@ const docTemplate = `{
                     "type": "string",
                     "example": "Kusama Crowdloans"
                 },
+                "collection_symbol": {
+                    "type": "string",
+                    "example": "PLO"
+                },
                 "item_id": {
                     "type": "number",
                     "example": 1
+                },
+                "nested_type": {
+                    "type": "string"
                 },
                 "token_metadata": {
                     "$ref": "#/definitions/subscan_internal_model.MetadataSample"
@@ -15717,6 +15801,9 @@ const docTemplate = `{
                     "example": 126
                 },
                 "collection_name": {
+                    "type": "string"
+                },
+                "collection_symbol": {
                     "type": "string"
                 },
                 "create_at": {
@@ -15754,12 +15841,19 @@ const docTemplate = `{
                     "type": "string",
                     "example": "Kusama Crowdloans"
                 },
+                "collection_symbol": {
+                    "type": "string",
+                    "example": "PLO"
+                },
                 "item_id": {
                     "type": "integer",
                     "example": 1
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
+                },
+                "nested_type": {
+                    "type": "string"
                 },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -15779,6 +15873,9 @@ const docTemplate = `{
                 "collection_name": {
                     "type": "string"
                 },
+                "collection_symbol": {
+                    "type": "string"
+                },
                 "holder": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -15790,6 +15887,9 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.MetadataSample"
                 },
                 "nested_type": {
+                    "type": "string"
+                },
+                "parent_index": {
                     "type": "string"
                 }
             }
@@ -15888,6 +15988,9 @@ const docTemplate = `{
                     "type": "number",
                     "example": 1
                 },
+                "collection_image": {
+                    "type": "string"
+                },
                 "collection_name": {
                     "type": "string",
                     "example": "Retrowave"
@@ -15984,6 +16087,20 @@ const docTemplate = `{
                 },
                 "time": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_scan.IdentifierWithSubAccount": {
+            "type": "object",
+            "properties": {
+                "identifier": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "sub_account": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                    }
                 }
             }
         },
