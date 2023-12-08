@@ -1085,20 +1085,6 @@ definitions:
         example: Success
         type: string
     type: object
-  internal_server_http.ResourceCountParams:
-    properties:
-      account:
-        type: string
-      extra:
-        additionalProperties: true
-        type: object
-      resource:
-        items:
-          type: string
-        type: array
-    required:
-    - resource
-    type: object
   internal_server_http.accountBalanceValueHistoryParams:
     properties:
       address:
@@ -1198,6 +1184,7 @@ definitions:
         - convictionDelegated
         - democracyDelegate
         - democracyDelegated
+        - multiTokensHolder
         type: string
       max_balance:
         type: string
@@ -2842,13 +2829,6 @@ definitions:
         type: integer
       value:
         type: number
-    type: object
-  subscan_internal_model.AccountResourceCountJson:
-    properties:
-      count:
-        type: integer
-      resource:
-        type: string
     type: object
   subscan_internal_model.AccountRoleCountJson:
     properties:
@@ -8969,37 +8949,6 @@ paths:
       summary: Referenda votes list(v2)
       tags:
       - governance
-  /api/scan/resource_count:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.ResourceCountParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.AccountResourceCountJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Resource count
-      tags:
-      - accounts
   /api/scan/runtime/list:
     post:
       consumes:
