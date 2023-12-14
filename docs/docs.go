@@ -940,7 +940,7 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "type": "object"
+                                            "$ref": "#/definitions/subscan_internal_model.ContractDetailJson"
                                         }
                                     }
                                 }
@@ -1188,6 +1188,51 @@ const docTemplate = `{
                                             "items": {
                                                 "type": "string"
                                             }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/contracts/verify/log": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "contracts"
+                ],
+                "summary": "Verify wasm contract log",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.contractInfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "string"
                                         }
                                     }
                                 }
@@ -12830,6 +12875,59 @@ const docTemplate = `{
                 "ContractTerminated",
                 "ContractCodeUpdated"
             ]
+        },
+        "subscan_internal_model.ContractDetailJson": {
+            "type": "object",
+            "properties": {
+                "abi": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "balance": {
+                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "code_hash": {
+                    "type": "string"
+                },
+                "contract_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "deposit": {
+                    "type": "number"
+                },
+                "input_data": {
+                    "type": "string"
+                },
+                "is_verifying": {
+                    "type": "boolean"
+                },
+                "last_compile_result": {
+                    "type": "string"
+                },
+                "owner_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "salt": {
+                    "type": "string"
+                },
+                "source_code": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "transaction_count": {
+                    "type": "integer"
+                },
+                "verify_time": {
+                    "type": "integer"
+                }
+            }
         },
         "subscan_internal_model.ContractEventJson": {
             "type": "object",

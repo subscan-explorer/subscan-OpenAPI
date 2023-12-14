@@ -3217,6 +3217,41 @@ definitions:
     - ContractInstantiated
     - ContractTerminated
     - ContractCodeUpdated
+  subscan_internal_model.ContractDetailJson:
+    properties:
+      abi:
+        items:
+          type: integer
+        type: array
+      balance:
+        $ref: '#/definitions/subscan_internal_types.Balance'
+      code:
+        type: string
+      code_hash:
+        type: string
+      contract_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      deposit:
+        type: number
+      input_data:
+        type: string
+      is_verifying:
+        type: boolean
+      last_compile_result:
+        type: string
+      owner_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      salt:
+        type: string
+      source_code:
+        items:
+          type: integer
+        type: array
+      transaction_count:
+        type: integer
+      verify_time:
+        type: integer
+    type: object
   subscan_internal_model.ContractEventJson:
     properties:
       block_timestamp:
@@ -6337,7 +6372,7 @@ paths:
             - $ref: '#/definitions/internal_server_http.J'
             - properties:
                 data:
-                  type: object
+                  $ref: '#/definitions/subscan_internal_model.ContractDetailJson'
               type: object
       summary: Contract meta
       tags:
@@ -6484,6 +6519,32 @@ paths:
                   type: array
               type: object
       summary: Compiler versions
+      tags:
+      - contracts
+  /api/scan/contracts/verify/log:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.contractInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Verify wasm contract log
       tags:
       - contracts
   /api/scan/council/proposal:
