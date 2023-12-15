@@ -8433,6 +8433,21 @@ const docTemplate = `{
                 "asset_id": {
                     "type": "number"
                 },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "asset_id",
+                        "symbol",
+                        "holders"
+                    ]
+                },
                 "page": {
                     "type": "integer",
                     "minimum": 0
@@ -11735,6 +11750,21 @@ const docTemplate = `{
             "properties": {
                 "include_extends": {
                     "type": "boolean"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "currency_id",
+                        "symbol",
+                        "holders"
+                    ]
                 },
                 "page": {
                     "description": "Page number, starting from 0",

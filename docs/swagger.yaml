@@ -82,6 +82,17 @@ definitions:
     properties:
       asset_id:
         type: number
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - asset_id
+        - symbol
+        - holders
+        type: string
       page:
         minimum: 0
         type: integer
@@ -2452,6 +2463,17 @@ definitions:
     properties:
       include_extends:
         type: boolean
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - currency_id
+        - symbol
+        - holders
+        type: string
       page:
         description: Page number, starting from 0
         example: 0
