@@ -2784,6 +2784,78 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/ibc/transfers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ibc"
+                ],
+                "summary": "Ibc Transfers list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_ibc.transfersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "chains": {
+                                            "type": "object",
+                                            "properties": {
+                                                "from": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "to": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/log": {
             "post": {
                 "consumes": [
@@ -9707,6 +9779,116 @@ const docTemplate = `{
                             "$ref": "#/definitions/internal_pluginv2_pallets_collator.Status"
                         }
                     ]
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.TransferJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "amount_v2": {
+                    "type": "number"
+                },
+                "asset_id": {
+                    "type": "number"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "destination_channel": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "from": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "from_chain": {
+                    "type": "string"
+                },
+                "ibc_denom": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "source_channel": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "to": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "to_chain": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_ibc.transfersParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "asset_id": {
+                    "type": "string"
+                },
+                "asset_symbol": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string",
+                    "example": "110000-120000"
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "sent",
+                        "received"
+                    ]
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "example": "12321-2"
+                },
+                "from_chain": {
+                    "type": "string",
+                    "example": "composable"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "to_chain": {
+                    "type": "string",
+                    "example": "picasso"
                 }
             }
         },
