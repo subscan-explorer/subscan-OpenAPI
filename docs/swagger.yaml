@@ -1211,6 +1211,7 @@ definitions:
         - balance
         - locked
         - ring_lock
+        - nft_amount
         type: string
       page:
         description: Page number, starting from 0
@@ -2890,10 +2891,10 @@ definitions:
         type: integer
       is_evm_contract:
         type: boolean
+      lock:
+        type: number
       registrar_info:
         $ref: '#/definitions/subscan_internal_model.RoleRegistrarJson'
-      ring_lock:
-        type: number
       substrate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
@@ -3239,41 +3240,6 @@ definitions:
     - ContractInstantiated
     - ContractTerminated
     - ContractCodeUpdated
-  subscan_internal_model.ContractDetailJson:
-    properties:
-      abi:
-        items:
-          type: integer
-        type: array
-      balance:
-        $ref: '#/definitions/subscan_internal_types.Balance'
-      code:
-        type: string
-      code_hash:
-        type: string
-      contract_display:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      deposit:
-        type: number
-      input_data:
-        type: string
-      is_verifying:
-        type: boolean
-      last_compile_result:
-        type: string
-      owner_display:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      salt:
-        type: string
-      source_code:
-        items:
-          type: integer
-        type: array
-      transaction_count:
-        type: integer
-      verify_time:
-        type: integer
-    type: object
   subscan_internal_model.ContractEventJson:
     properties:
       block_timestamp:
@@ -6394,7 +6360,7 @@ paths:
             - $ref: '#/definitions/internal_server_http.J'
             - properties:
                 data:
-                  $ref: '#/definitions/subscan_internal_model.ContractDetailJson'
+                  type: object
               type: object
       summary: Contract meta
       tags:

@@ -940,7 +940,7 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ContractDetailJson"
+                                            "type": "object"
                                         }
                                     }
                                 }
@@ -10000,7 +10000,8 @@ const docTemplate = `{
                     "enum": [
                         "balance",
                         "locked",
-                        "ring_lock"
+                        "ring_lock",
+                        "nft_amount"
                     ]
                 },
                 "page": {
@@ -12377,11 +12378,11 @@ const docTemplate = `{
                 "is_evm_contract": {
                     "type": "boolean"
                 },
+                "lock": {
+                    "type": "number"
+                },
                 "registrar_info": {
                     "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
-                },
-                "ring_lock": {
-                    "type": "number"
                 },
                 "substrate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -12905,59 +12906,6 @@ const docTemplate = `{
                 "ContractTerminated",
                 "ContractCodeUpdated"
             ]
-        },
-        "subscan_internal_model.ContractDetailJson": {
-            "type": "object",
-            "properties": {
-                "abi": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "balance": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
-                },
-                "code": {
-                    "type": "string"
-                },
-                "code_hash": {
-                    "type": "string"
-                },
-                "contract_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "deposit": {
-                    "type": "number"
-                },
-                "input_data": {
-                    "type": "string"
-                },
-                "is_verifying": {
-                    "type": "boolean"
-                },
-                "last_compile_result": {
-                    "type": "string"
-                },
-                "owner_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "salt": {
-                    "type": "string"
-                },
-                "source_code": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "transaction_count": {
-                    "type": "integer"
-                },
-                "verify_time": {
-                    "type": "integer"
-                }
-            }
         },
         "subscan_internal_model.ContractEventJson": {
             "type": "object",
