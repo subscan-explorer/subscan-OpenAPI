@@ -295,6 +295,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/accounts/balance_history": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Account Balance History",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountBalanceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "history": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.SnapshotBalanceHistoryJson"
+                                                    }
+                                                },
+                                                "status": {
+                                                    "$ref": "#/definitions/subscan_internal_model.AccountBalanceHistoryStatus"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/accounts/statistics": {
             "post": {
                 "consumes": [
@@ -10029,6 +10085,30 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.accountBalanceParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                },
+                "recent_block": {
+                    "type": "integer",
+                    "maximum": 10000
+                },
+                "start": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.accountBalanceValueHistoryParams": {
             "type": "object",
             "required": [
@@ -12276,6 +12356,15 @@ const docTemplate = `{
                     "type": "number"
                 }
             }
+        },
+        "subscan_internal_model.AccountBalanceHistoryStatus": {
+            "type": "string",
+            "enum": [
+                ""
+            ],
+            "x-enum-varnames": [
+                "AccountBalanceHistoryStatusNone"
+            ]
         },
         "subscan_internal_model.AccountContributedJson": {
             "type": "object",
@@ -15085,6 +15174,20 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.SnapshotBalanceHistoryJson": {
+            "type": "object",
+            "properties": {
+                "balance": {
+                    "type": "number"
+                },
+                "block": {
+                    "type": "integer"
+                },
+                "date": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.StakingAccount": {
             "type": "object",
             "properties": {
@@ -16442,6 +16545,9 @@ const docTemplate = `{
                     "type": "number"
                 },
                 "bonded_locked_balance": {
+                    "type": "number"
+                },
+                "conviction_lock_balance": {
                     "type": "number"
                 },
                 "democracy_locked_balance": {
