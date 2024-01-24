@@ -2578,6 +2578,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/extrinsic/reward": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "extrinsic"
+                ],
+                "summary": "Extrinsic reward",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.extrinsicRewardParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicRewardJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/fellowship/referendum": {
             "post": {
                 "consumes": [
@@ -10962,6 +11018,30 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.extrinsicRewardParams": {
+            "type": "object",
+            "required": [
+                "extrinsic_index"
+            ],
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
         "internal_server_http.extrinsicsParams": {
             "type": "object",
             "properties": {
@@ -13823,6 +13903,17 @@ const docTemplate = `{
                 },
                 "success": {
                     "type": "boolean"
+                }
+            }
+        },
+        "subscan_internal_model.ExtrinsicRewardJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "amount": {
+                    "type": "number"
                 }
             }
         },

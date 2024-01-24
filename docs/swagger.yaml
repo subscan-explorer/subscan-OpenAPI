@@ -1799,6 +1799,24 @@ definitions:
     required:
     - extrinsic_index
     type: object
+  internal_server_http.extrinsicRewardParams:
+    properties:
+      extrinsic_index:
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - extrinsic_index
+    type: object
   internal_server_http.extrinsicsParams:
     properties:
       address:
@@ -3763,6 +3781,13 @@ definitions:
         type: array
       success:
         type: boolean
+    type: object
+  subscan_internal_model.ExtrinsicRewardJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: number
     type: object
   subscan_internal_model.ExtrinsicSubCallJson:
     properties:
@@ -7453,6 +7478,39 @@ paths:
                   type: array
               type: object
       summary: Extrinsic params
+      tags:
+      - extrinsic
+  /api/scan/extrinsic/reward:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.extrinsicRewardParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ExtrinsicRewardJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Extrinsic reward
       tags:
       - extrinsic
   /api/scan/fellowship/referendum:
