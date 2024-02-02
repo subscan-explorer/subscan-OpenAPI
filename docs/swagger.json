@@ -8187,6 +8187,51 @@
                 }
             }
         },
+        "/api/v2/scan/search": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Account by address",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountInfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.AccountJsonV1"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/v2/scan/token/native": {
             "post": {
                 "consumes": [
@@ -10207,6 +10252,17 @@
                     "example": 10
                 },
                 "who": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.accountInfoParams": {
+            "type": "object",
+            "required": [
+                "key"
+            ],
+            "properties": {
+                "key": {
                     "type": "string"
                 }
             }
@@ -12593,6 +12649,164 @@
                 }
             }
         },
+        "subscan_internal_model.AccountJsonV1": {
+            "type": "object",
+            "properties": {
+                "account_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "assets_tag": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "balance": {
+                    "type": "number"
+                },
+                "balance_lock": {
+                    "type": "number"
+                },
+                "bonded": {
+                    "type": "number"
+                },
+                "conviction_lock": {
+                    "type": "number"
+                },
+                "count_extrinsic": {
+                    "type": "integer"
+                },
+                "customize_role": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "boolean"
+                    }
+                },
+                "delegate": {
+                    "$ref": "#/definitions/subscan_internal_model.DelegateAccountJson"
+                },
+                "democracy_lock": {
+                    "type": "number"
+                },
+                "derive_token": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountDerive"
+                    }
+                },
+                "display": {
+                    "type": "string"
+                },
+                "election_lock": {
+                    "type": "number"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "evm_account": {
+                    "type": "string"
+                },
+                "fellowship_rank": {
+                    "type": "integer"
+                },
+                "is_contract": {
+                    "type": "boolean"
+                },
+                "is_council_member": {
+                    "type": "boolean"
+                },
+                "is_erc20": {
+                    "type": "boolean"
+                },
+                "is_erc721": {
+                    "type": "boolean"
+                },
+                "is_evm_contract": {
+                    "type": "boolean"
+                },
+                "is_evm_system": {
+                    "type": "boolean"
+                },
+                "is_fellowship_member": {
+                    "type": "boolean"
+                },
+                "is_module_account": {
+                    "type": "boolean"
+                },
+                "is_pool_member": {
+                    "type": "boolean"
+                },
+                "is_registrar": {
+                    "type": "boolean"
+                },
+                "is_techcomm_member": {
+                    "type": "boolean"
+                },
+                "judgements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
+                    }
+                },
+                "legal": {
+                    "type": "string"
+                },
+                "lock": {
+                    "type": "number"
+                },
+                "multisig": {
+                    "$ref": "#/definitions/subscan_internal_model.MultiAccountJson"
+                },
+                "nonce": {
+                    "type": "integer"
+                },
+                "proxy": {
+                    "$ref": "#/definitions/subscan_internal_model.ProxyAccountJson"
+                },
+                "registrar_fee": {
+                    "type": "number"
+                },
+                "registrar_index": {
+                    "type": "integer"
+                },
+                "registrar_info": {
+                    "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
+                },
+                "reserved": {
+                    "type": "number"
+                },
+                "riot": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                },
+                "staking_info": {
+                    "$ref": "#/definitions/subscan_internal_model.StakingAccount"
+                },
+                "stash": {
+                    "type": "string"
+                },
+                "substrate_account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "twitter": {
+                    "type": "string"
+                },
+                "unbonding": {
+                    "type": "number"
+                },
+                "vesting": {
+                    "$ref": "#/definitions/subscan_internal_model.VestingJson"
+                },
+                "web": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.AccountNominateList": {
             "type": "object",
             "properties": {
@@ -13536,6 +13750,55 @@
                 }
             }
         },
+        "subscan_internal_model.DelegateAccountJson": {
+            "type": "object",
+            "properties": {
+                "conviction_delegate": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.DelegateJson"
+                    }
+                },
+                "conviction_delegated": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.DelegateJson"
+                    }
+                },
+                "democracy_delegate": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.DelegateJson"
+                    }
+                },
+                "democracy_delegated": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.DelegateJson"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.DelegateJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "conviction": {
+                    "type": "number"
+                },
+                "delegate_account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "origins": {
+                    "type": "integer"
+                }
+            }
+        },
         "subscan_internal_model.DemocracyJson": {
             "type": "object",
             "properties": {
@@ -14093,6 +14356,26 @@
                 },
                 "name": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.MultiAccountJson": {
+            "type": "object",
+            "properties": {
+                "multi_account": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                    }
+                },
+                "multi_account_member": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                    }
+                },
+                "threshold": {
+                    "type": "integer"
                 }
             }
         },
@@ -14887,6 +15170,34 @@
                 },
                 "status": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ProxyAccountInfoJson": {
+            "type": "object",
+            "properties": {
+                "account_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "proxy_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ProxyAccountJson": {
+            "type": "object",
+            "properties": {
+                "proxy_account": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ProxyAccountInfoJson"
+                    }
+                },
+                "real_account": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ProxyAccountInfoJson"
+                    }
                 }
             }
         },

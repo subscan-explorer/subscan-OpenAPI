@@ -1229,6 +1229,13 @@ definitions:
     required:
     - who
     type: object
+  internal_server_http.accountInfoParams:
+    properties:
+      key:
+        type: string
+    required:
+    - key
+    type: object
   internal_server_http.accountReferendumParams:
     properties:
       account:
@@ -2926,6 +2933,111 @@ definitions:
       stash:
         type: string
     type: object
+  subscan_internal_model.AccountJsonV1:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      address:
+        type: string
+      assets_tag:
+        items:
+          type: string
+        type: array
+      balance:
+        type: number
+      balance_lock:
+        type: number
+      bonded:
+        type: number
+      conviction_lock:
+        type: number
+      count_extrinsic:
+        type: integer
+      customize_role:
+        additionalProperties:
+          type: boolean
+        type: object
+      delegate:
+        $ref: '#/definitions/subscan_internal_model.DelegateAccountJson'
+      democracy_lock:
+        type: number
+      derive_token:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.AccountDerive'
+        type: object
+      display:
+        type: string
+      election_lock:
+        type: number
+      email:
+        type: string
+      evm_account:
+        type: string
+      fellowship_rank:
+        type: integer
+      is_contract:
+        type: boolean
+      is_council_member:
+        type: boolean
+      is_erc20:
+        type: boolean
+      is_erc721:
+        type: boolean
+      is_evm_contract:
+        type: boolean
+      is_evm_system:
+        type: boolean
+      is_fellowship_member:
+        type: boolean
+      is_module_account:
+        type: boolean
+      is_pool_member:
+        type: boolean
+      is_registrar:
+        type: boolean
+      is_techcomm_member:
+        type: boolean
+      judgements:
+        items:
+          $ref: '#/definitions/subscan_internal_model.RegistrationJudgementJson'
+        type: array
+      legal:
+        type: string
+      lock:
+        type: number
+      multisig:
+        $ref: '#/definitions/subscan_internal_model.MultiAccountJson'
+      nonce:
+        type: integer
+      proxy:
+        $ref: '#/definitions/subscan_internal_model.ProxyAccountJson'
+      registrar_fee:
+        type: number
+      registrar_index:
+        type: integer
+      registrar_info:
+        $ref: '#/definitions/subscan_internal_model.RoleRegistrarJson'
+      reserved:
+        type: number
+      riot:
+        type: string
+      role:
+        type: string
+      staking_info:
+        $ref: '#/definitions/subscan_internal_model.StakingAccount'
+      stash:
+        type: string
+      substrate_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      twitter:
+        type: string
+      unbonding:
+        type: number
+      vesting:
+        $ref: '#/definitions/subscan_internal_model.VestingJson'
+      web:
+        type: string
+    type: object
   subscan_internal_model.AccountNominateList:
     properties:
       bonded:
@@ -3546,6 +3658,38 @@ definitions:
       total_issuance:
         type: number
     type: object
+  subscan_internal_model.DelegateAccountJson:
+    properties:
+      conviction_delegate:
+        items:
+          $ref: '#/definitions/subscan_internal_model.DelegateJson'
+        type: array
+      conviction_delegated:
+        items:
+          $ref: '#/definitions/subscan_internal_model.DelegateJson'
+        type: array
+      democracy_delegate:
+        items:
+          $ref: '#/definitions/subscan_internal_model.DelegateJson'
+        type: array
+      democracy_delegated:
+        items:
+          $ref: '#/definitions/subscan_internal_model.DelegateJson'
+        type: array
+    type: object
+  subscan_internal_model.DelegateJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: number
+      conviction:
+        type: number
+      delegate_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      origins:
+        type: integer
+    type: object
   subscan_internal_model.DemocracyJson:
     properties:
       call_module:
@@ -3912,6 +4056,19 @@ definitions:
         type: array
       name:
         type: string
+    type: object
+  subscan_internal_model.MultiAccountJson:
+    properties:
+      multi_account:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        type: array
+      multi_account_member:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        type: array
+      threshold:
+        type: integer
     type: object
   subscan_internal_model.MultiAction:
     enum:
@@ -4438,6 +4595,24 @@ definitions:
         type: array
       status:
         type: string
+    type: object
+  subscan_internal_model.ProxyAccountInfoJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      proxy_type:
+        type: string
+    type: object
+  subscan_internal_model.ProxyAccountJson:
+    properties:
+      proxy_account:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ProxyAccountInfoJson'
+        type: array
+      real_account:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ProxyAccountInfoJson'
+        type: array
     type: object
   subscan_internal_model.ProxyChainExtrinsicJson:
     properties:
@@ -10822,6 +10997,32 @@ paths:
       summary: Logs list
       tags:
       - log
+  /api/v2/scan/search:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.AccountJsonV1'
+              type: object
+      summary: Account by address
+      tags:
+      - account
   /api/v2/scan/token/native:
     post:
       consumes:
