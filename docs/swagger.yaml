@@ -1920,33 +1920,6 @@ definitions:
     required:
     - log_index
     type: object
-  internal_server_http.logParams:
-    properties:
-      block_num:
-        minimum: 0
-        type: integer
-      block_range:
-        type: string
-      engine:
-        type: string
-      from:
-        type: integer
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      to:
-        type: integer
-      type:
-        type: string
-    type: object
   internal_server_http.logsParams:
     properties:
       after_id:
@@ -5104,6 +5077,8 @@ definitions:
         type: string
       to_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      transfer_id:
+        type: integer
       usd_amount:
         type: number
     type: object
@@ -5485,11 +5460,14 @@ definitions:
   subscan_internal_plugin_share.J:
     properties:
       code:
+        example: 0
         type: integer
       data: {}
       generated_at:
+        example: 1699600641
         type: integer
       message:
+        example: Success
         type: string
     type: object
   subscan_internal_plugin_unique_unique_db.CollectionBalance:
@@ -7909,39 +7887,6 @@ paths:
                   $ref: '#/definitions/subscan_internal_model.ChainLogJson'
               type: object
       summary: Block log by index
-      tags:
-      - log
-  /api/scan/logs:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.logParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    logs:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.ChainLogJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Block log list
       tags:
       - log
   /api/scan/metadata:
