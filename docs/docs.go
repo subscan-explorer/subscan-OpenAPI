@@ -1510,6 +1510,74 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/dataAvailability/info": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Avail"
+                ],
+                "summary": "Submitted Data info",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_avail_dataAvailability_http.SubmittedDataInfoParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/dataAvailability/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Avail"
+                ],
+                "summary": "Submitted Data list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_avail_dataAvailability_http.SubmittedListParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/democracy/proposal": {
             "post": {
                 "consumes": [
@@ -8694,6 +8762,47 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_plugin_avail_dataAvailability_http.SubmittedDataInfoParam": {
+            "type": "object",
+            "required": [
+                "extrinsic_index",
+                "hash"
+            ],
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string",
+                    "example": "277764-458"
+                },
+                "hash": {
+                    "type": "string",
+                    "example": "0x2a421fc1d893762dcb6391fb48193354147e36d2a2655f4e2eb52a204add42a8"
+                }
+            }
+        },
+        "internal_plugin_avail_dataAvailability_http.SubmittedListParam": {
+            "type": "object",
+            "properties": {
+                "app_id": {
+                    "type": "integer"
+                },
+                "block_num": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_plugin_crust_swork_http.CrustFilesParams": {
             "type": "object",
             "required": [
@@ -13112,6 +13221,10 @@ const docTemplate = `{
                 "account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "additional_meta": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
                 "block_num": {
                     "type": "integer"
                 },
@@ -13374,6 +13487,10 @@ const docTemplate = `{
             "properties": {
                 "account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "additional_meta": {
+                    "type": "object",
+                    "additionalProperties": true
                 },
                 "block_num": {
                     "type": "integer"
@@ -14024,6 +14141,10 @@ const docTemplate = `{
                 },
                 "account_id": {
                     "type": "string"
+                },
+                "additional_meta": {
+                    "type": "object",
+                    "additionalProperties": true
                 },
                 "block_hash": {
                     "type": "string"
@@ -15538,6 +15659,10 @@ const docTemplate = `{
             "properties": {
                 "account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "additional_meta": {
+                    "type": "object",
+                    "additionalProperties": true
                 },
                 "block_num": {
                     "type": "integer"

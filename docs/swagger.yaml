@@ -106,6 +106,35 @@ definitions:
         minLength: 1
         type: string
     type: object
+  internal_plugin_avail_dataAvailability_http.SubmittedDataInfoParam:
+    properties:
+      extrinsic_index:
+        example: 277764-458
+        type: string
+      hash:
+        example: 0x2a421fc1d893762dcb6391fb48193354147e36d2a2655f4e2eb52a204add42a8
+        type: string
+    required:
+    - extrinsic_index
+    - hash
+    type: object
+  internal_plugin_avail_dataAvailability_http.SubmittedListParam:
+    properties:
+      app_id:
+        type: integer
+      block_num:
+        minimum: 1
+        type: integer
+      extrinsic_index:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_plugin_crust_swork_http.CrustFilesParams:
     properties:
       address:
@@ -3231,6 +3260,9 @@ definitions:
     properties:
       account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      additional_meta:
+        additionalProperties: true
+        type: object
       block_num:
         type: integer
       block_timestamp:
@@ -3404,6 +3436,9 @@ definitions:
     properties:
       account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      additional_meta:
+        additionalProperties: true
+        type: object
       block_num:
         type: integer
       block_timestamp:
@@ -3831,6 +3866,9 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       account_id:
         type: string
+      additional_meta:
+        additionalProperties: true
+        type: object
       block_hash:
         type: string
       block_num:
@@ -4831,6 +4869,9 @@ definitions:
     properties:
       account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      additional_meta:
+        additionalProperties: true
+        type: object
       block_num:
         type: integer
       block_timestamp:
@@ -7002,6 +7043,50 @@ paths:
       summary: Daily token stat
       tags:
       - stat
+  /api/scan/dataAvailability/info:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_avail_dataAvailability_http.SubmittedDataInfoParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Submitted Data info
+      tags:
+      - Avail
+  /api/scan/dataAvailability/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_avail_dataAvailability_http.SubmittedListParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Submitted Data list
+      tags:
+      - Avail
   /api/scan/democracy/proposal:
     post:
       consumes:
