@@ -15,39 +15,6 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/check_hash": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "search"
-                ],
-                "summary": "Check hash",
-                "parameters": [
-                    {
-                        "description": "param",
-                        "name": "param",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.checkHashParam"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                }
-            }
-        },
         "/api/now": {
             "get": {
                 "consumes": [
@@ -812,6 +779,39 @@ const docTemplate = `{
                                     }
                                 }
                             ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/check_hash": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "search"
+                ],
+                "summary": "Check hash",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.checkHashParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 }
@@ -16074,6 +16074,9 @@ const docTemplate = `{
                 "to_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "transfer_id": {
+                    "type": "integer"
+                },
                 "usd_amount": {
                     "type": "number"
                 }
@@ -16639,14 +16642,17 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "code": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 0
                 },
                 "data": {},
                 "generated_at": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 1699600641
                 },
                 "message": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Success"
                 }
             }
         },
