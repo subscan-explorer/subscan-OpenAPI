@@ -15515,6 +15515,9 @@ const docTemplate = `{
                 "account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "approval_threshold": {
+                    "type": "number"
+                },
                 "ayes_amount": {
                     "type": "number"
                 },
@@ -15588,6 +15591,12 @@ const docTemplate = `{
             "properties": {
                 "account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "approval_rate": {
+                    "type": "number"
+                },
+                "approval_threshold": {
+                    "type": "number"
                 },
                 "call_module": {
                     "type": "string"

@@ -4774,6 +4774,8 @@ definitions:
         type: integer
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      approval_threshold:
+        type: number
       ayes_amount:
         type: number
       ayes_count:
@@ -4823,6 +4825,10 @@ definitions:
     properties:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      approval_rate:
+        type: number
+      approval_threshold:
+        type: number
       call_module:
         type: string
       call_name:
