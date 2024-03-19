@@ -5108,7 +5108,7 @@ definitions:
       vesting:
         $ref: '#/definitions/subscan_internal_model.VestingJson'
     type: object
-  subscan_internal_model.TransferHistory:
+  subscan_internal_model.TransferHistoryJson:
     properties:
       amount:
         type: number
@@ -5137,6 +5137,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       hash:
         type: string
+      is_lock:
+        type: boolean
       item_detail:
         $ref: '#/definitions/subscan_internal_model.ItemDetail'
       item_id:
@@ -6508,8 +6510,21 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    total:
+                      $ref: '#/definitions/subscan_internal_model.TransferHistoryTokensTotal'
+                    transfers:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TransferHistoryJson'
+                      type: array
+                  type: object
+              type: object
       summary: Asset transfers
       tags:
       - assets
@@ -11267,7 +11282,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TransferHistoryTokensTotal'
                     transfers:
                       items:
-                        $ref: '#/definitions/subscan_internal_model.TransferHistory'
+                        $ref: '#/definitions/subscan_internal_model.TransferHistoryJson'
                       type: array
                   type: object
               type: object

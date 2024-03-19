@@ -586,8 +586,33 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": true
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "total": {
+                                                    "$ref": "#/definitions/subscan_internal_model.TransferHistoryTokensTotal"
+                                                },
+                                                "transfers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.TransferHistoryJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -8562,7 +8587,7 @@ const docTemplate = `{
                                                 "transfers": {
                                                     "type": "array",
                                                     "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TransferHistory"
+                                                        "$ref": "#/definitions/subscan_internal_model.TransferHistoryJson"
                                                     }
                                                 }
                                             }
@@ -16019,7 +16044,7 @@ const docTemplate = `{
                 }
             }
         },
-        "subscan_internal_model.TransferHistory": {
+        "subscan_internal_model.TransferHistoryJson": {
             "type": "object",
             "properties": {
                 "amount": {
@@ -16061,6 +16086,9 @@ const docTemplate = `{
                 },
                 "hash": {
                     "type": "string"
+                },
+                "is_lock": {
+                    "type": "boolean"
                 },
                 "item_detail": {
                     "$ref": "#/definitions/subscan_internal_model.ItemDetail"
