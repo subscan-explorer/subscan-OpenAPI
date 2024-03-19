@@ -3106,62 +3106,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/logs": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "log"
-                ],
-                "summary": "Block log list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.logParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "logs": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/metadata": {
             "post": {
                 "produces": [
@@ -9330,9 +9274,6 @@ const docTemplate = `{
         },
         "internal_plugin_evm_http.EvmEventLogsParams": {
             "type": "object",
-            "required": [
-                "address"
-            ],
             "properties": {
                 "address": {
                     "type": "string",
@@ -9341,6 +9282,9 @@ const docTemplate = `{
                 "block_range": {
                     "type": "string",
                     "example": "400000-400001"
+                },
+                "hash": {
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -11362,43 +11306,6 @@ const docTemplate = `{
             ],
             "properties": {
                 "log_index": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_server_http.logParams": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "engine": {
-                    "type": "string"
-                },
-                "from": {
-                    "type": "integer"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "to": {
-                    "type": "integer"
-                },
-                "type": {
                     "type": "string"
                 }
             }
