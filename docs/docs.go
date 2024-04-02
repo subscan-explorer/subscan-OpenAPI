@@ -49,6 +49,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/account/balance_history": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Account Balance History",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountBalanceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "history": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.SnapshotBalanceHistoryJson"
+                                                    }
+                                                },
+                                                "status": {
+                                                    "$ref": "#/definitions/subscan_internal_model.AccountBalanceHistoryStatus"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/account/contributions": {
             "post": {
                 "consumes": [
@@ -253,62 +309,6 @@ const docTemplate = `{
                                     "properties": {
                                         "data": {
                                             "$ref": "#/definitions/subscan_internal_service_scan.AccountTokenJson"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/accounts/balance_history": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "account"
-                ],
-                "summary": "Account Balance History",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.accountBalanceParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "history": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.SnapshotBalanceHistoryJson"
-                                                    }
-                                                },
-                                                "status": {
-                                                    "$ref": "#/definitions/subscan_internal_model.AccountBalanceHistoryStatus"
-                                                }
-                                            }
                                         }
                                     }
                                 }
@@ -15587,6 +15587,9 @@ const docTemplate = `{
         "subscan_internal_model.RuntimeVersion": {
             "type": "object",
             "properties": {
+                "block_num": {
+                    "type": "integer"
+                },
                 "modules": {
                     "type": "string"
                 },

@@ -4839,6 +4839,8 @@ definitions:
     type: object
   subscan_internal_model.RuntimeVersion:
     properties:
+      block_num:
+        type: integer
       modules:
         type: string
       spec_version:
@@ -6155,6 +6157,39 @@ paths:
       summary: current timestamp
       tags:
       - common
+  /api/scan/account/balance_history:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountBalanceParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    history:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.SnapshotBalanceHistoryJson'
+                      type: array
+                    status:
+                      $ref: '#/definitions/subscan_internal_model.AccountBalanceHistoryStatus'
+                  type: object
+              type: object
+      summary: Account Balance History
+      tags:
+      - account
   /api/scan/account/contributions:
     post:
       consumes:
@@ -6278,39 +6313,6 @@ paths:
                   $ref: '#/definitions/subscan_internal_service_scan.AccountTokenJson'
               type: object
       summary: Account token list
-      tags:
-      - account
-  /api/scan/accounts/balance_history:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.accountBalanceParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    history:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.SnapshotBalanceHistoryJson'
-                      type: array
-                    status:
-                      $ref: '#/definitions/subscan_internal_model.AccountBalanceHistoryStatus'
-                  type: object
-              type: object
-      summary: Account Balance History
       tags:
       - account
   /api/scan/accounts/statistics:
