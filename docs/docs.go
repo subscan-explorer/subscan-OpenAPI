@@ -12812,6 +12812,9 @@ const docTemplate = `{
                 "multisig": {
                     "$ref": "#/definitions/subscan_internal_model.MultiAccountJson"
                 },
+                "nomination_pool_balance": {
+                    "type": "number"
+                },
                 "nonce": {
                     "type": "integer"
                 },
