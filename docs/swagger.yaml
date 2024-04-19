@@ -2563,6 +2563,8 @@ definitions:
         type: string
       symbol:
         type: string
+      total_issuance:
+        type: number
       unique_id:
         type: string
     type: object
@@ -3010,7 +3012,8 @@ definitions:
       multisig:
         $ref: '#/definitions/subscan_internal_model.MultiAccountJson'
       nomination_pool_balance:
-        type: number
+        items: {}
+        type: array
       nonce:
         type: integer
       proxy:

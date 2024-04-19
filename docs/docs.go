@@ -12158,6 +12158,9 @@ const docTemplate = `{
                 "symbol": {
                     "type": "string"
                 },
+                "total_issuance": {
+                    "type": "number"
+                },
                 "unique_id": {
                     "type": "string"
                 }
@@ -12813,7 +12816,8 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.MultiAccountJson"
                 },
                 "nomination_pool_balance": {
-                    "type": "number"
+                    "type": "array",
+                    "items": {}
                 },
                 "nonce": {
                     "type": "integer"
