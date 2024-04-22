@@ -1230,6 +1230,46 @@
                 }
             }
         },
+        "/api/scan/contracts/verify/compiler_images": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "contracts"
+                ],
+                "summary": "Compiler images tag",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "additionalProperties": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/definitions/subscan_internal_model.ThirdPartyCompiler"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/contracts/verify/compiler_version": {
             "get": {
                 "consumes": [
@@ -15860,6 +15900,20 @@
                 },
                 "voting_time": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ThirdPartyCompiler": {
+            "type": "object",
+            "properties": {
+                "digest": {
+                    "type": "string"
+                },
+                "repository_tag": {
+                    "type": "string"
+                },
+                "worker_dir": {
+                    "type": "string"
                 }
             }
         },

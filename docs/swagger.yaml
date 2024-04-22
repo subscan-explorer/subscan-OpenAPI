@@ -5030,6 +5030,15 @@ definitions:
       voting_time:
         type: integer
     type: object
+  subscan_internal_model.ThirdPartyCompiler:
+    properties:
+      digest:
+        type: string
+      repository_tag:
+        type: string
+      worker_dir:
+        type: string
+    type: object
   subscan_internal_model.TimelineJson:
     properties:
       block:
@@ -6876,6 +6885,29 @@ paths:
                   type: object
               type: object
       summary: Contract transactions
+      tags:
+      - contracts
+  /api/scan/contracts/verify/compiler_images:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      $ref: '#/definitions/subscan_internal_model.ThirdPartyCompiler'
+                    type: array
+                  type: object
+              type: object
+      summary: Compiler images tag
       tags:
       - contracts
   /api/scan/contracts/verify/compiler_version:
