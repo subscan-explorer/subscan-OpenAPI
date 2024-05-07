@@ -1031,6 +1031,251 @@ definitions:
         - 1
         - 2
     type: object
+  internal_pluginv2_pallets_coretime.OperationJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      begin:
+        type: integer
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      core:
+        type: integer
+      core_index:
+        type: string
+      end:
+        type: integer
+      event_index:
+        type: string
+      eventId:
+        type: string
+      extrinsic_index:
+        type: string
+      mask:
+        type: string
+      module:
+        type: string
+    type: object
+  internal_pluginv2_pallets_coretime.RegionInfoJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      assign_type:
+        type: string
+      begin:
+        type: integer
+      core:
+        type: integer
+      core_index:
+        type: string
+      duration:
+        type: integer
+      mask:
+        type: string
+      status:
+        type: string
+      task:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.RegionPurchasedJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      begin:
+        type: integer
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      core:
+        type: integer
+      core_index:
+        type: string
+      end:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      mask:
+        type: string
+      price:
+        type: number
+      purchased_type:
+        type: string
+    type: object
+  internal_pluginv2_pallets_coretime.SaleInfoJson:
+    properties:
+      available_core:
+        type: integer
+      begin_start:
+        type: integer
+      bulk_sold:
+        type: integer
+      cores_offered:
+        type: integer
+      cores_sold:
+        type: integer
+      first_core:
+        type: integer
+      ideal_cores_sold:
+        type: integer
+      leadin_length:
+        type: integer
+      lease_core:
+        type: integer
+      price:
+        type: number
+      realtime_price:
+        type: number
+      region_begin:
+        type: integer
+      region_end:
+        type: integer
+      renewed_sold:
+        type: integer
+      reservation_core:
+        type: integer
+      sale_end:
+        type: integer
+      sale_start:
+        type: integer
+      sellout_price:
+        type: number
+      start_price:
+        type: number
+      total_core:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.SaleListItemJson:
+    properties:
+      region_begin:
+        type: integer
+      region_end:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.operationParams:
+    properties:
+      address:
+        type: string
+      block_range:
+        example: 110000-120000
+        type: string
+      core:
+        example: 10
+        minimum: 0
+        type: integer
+      core_index:
+        example: 12345-1260-20-12333121323217721
+        maxLength: 80
+        minLength: 0
+        type: string
+      event_id:
+        example: Interlaced
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.purchasedParams:
+    properties:
+      core:
+        example: 10
+        minimum: 0
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      purchased_type:
+        enum:
+        - bulk
+        - renewed
+        type: string
+      region_begin:
+        description: Address       string `json:"address" form:"address" binding:"omitempty,addr"`
+        example: 10
+        minimum: 1
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 1000
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.regionListParams:
+    properties:
+      address:
+        type: string
+      begin:
+        example: 10
+        minimum: 1
+        type: integer
+      core:
+        example: 10
+        minimum: 0
+        type: integer
+      end:
+        example: 20
+        minimum: 0
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      valid:
+        type: boolean
+    type: object
+  internal_pluginv2_pallets_coretime.regionParams:
+    properties:
+      core_index:
+        example: 12345-1260-20-12333121323217721
+        maxLength: 80
+        minLength: 0
+        type: string
+    required:
+    - core_index
+    type: object
+  internal_pluginv2_pallets_coretime.saleHistoryParams:
+    properties:
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.saleParams:
+    properties:
+      begin:
+        example: 10
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_ibc.TransferJson:
     properties:
       amount:
@@ -6628,6 +6873,202 @@ paths:
       summary: Bounty list
       tags:
       - governance
+  /api/scan/broker/operation:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.operationParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.OperationJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime Event list
+      tags:
+      - coretime
+  /api/scan/broker/purchased:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.purchasedParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.RegionPurchasedJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime Region Purchased list
+      tags:
+      - coretime
+  /api/scan/broker/region:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.regionParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_coretime.RegionInfoJson'
+              message:
+                type: string
+            type: object
+      summary: Coretime region info
+      tags:
+      - coretime
+  /api/scan/broker/regions:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.regionListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.RegionInfoJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime Region list
+      tags:
+      - coretime
+  /api/scan/broker/sale:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.saleParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_coretime.SaleInfoJson'
+              message:
+                type: string
+            type: object
+      summary: Coretime sale info
+      tags:
+      - coretime
+  /api/scan/broker/sales:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.saleHistoryParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.SaleListItemJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime sale history list
+      tags:
+      - coretime
   /api/scan/check_hash:
     post:
       consumes:

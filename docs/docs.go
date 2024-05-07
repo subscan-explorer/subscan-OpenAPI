@@ -809,6 +809,314 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/broker/operation": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime Event list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.operationParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.OperationJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/purchased": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime Region Purchased list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.purchasedParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.RegionPurchasedJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/region": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime region info",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.regionParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_coretime.RegionInfoJson"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/regions": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime Region list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.regionListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.RegionInfoJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/sale": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime sale info",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.saleParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_coretime.SaleInfoJson"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/sales": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime sale history list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.saleHistoryParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.SaleListItemJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/check_hash": {
             "post": {
                 "consumes": [
@@ -10054,6 +10362,353 @@ const docTemplate = `{
                             "$ref": "#/definitions/internal_pluginv2_pallets_collator.Status"
                         }
                     ]
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.OperationJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "begin": {
+                    "type": "integer"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "core_index": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "integer"
+                },
+                "eventId": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.RegionInfoJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "assign_type": {
+                    "type": "string"
+                },
+                "begin": {
+                    "type": "integer"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "core_index": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "integer"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "task": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.RegionPurchasedJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "begin": {
+                    "type": "integer"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "core_index": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "purchased_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.SaleInfoJson": {
+            "type": "object",
+            "properties": {
+                "available_core": {
+                    "type": "integer"
+                },
+                "begin_start": {
+                    "type": "integer"
+                },
+                "bulk_sold": {
+                    "type": "integer"
+                },
+                "cores_offered": {
+                    "type": "integer"
+                },
+                "cores_sold": {
+                    "type": "integer"
+                },
+                "first_core": {
+                    "type": "integer"
+                },
+                "ideal_cores_sold": {
+                    "type": "integer"
+                },
+                "leadin_length": {
+                    "type": "integer"
+                },
+                "lease_core": {
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "realtime_price": {
+                    "type": "number"
+                },
+                "region_begin": {
+                    "type": "integer"
+                },
+                "region_end": {
+                    "type": "integer"
+                },
+                "renewed_sold": {
+                    "type": "integer"
+                },
+                "reservation_core": {
+                    "type": "integer"
+                },
+                "sale_end": {
+                    "type": "integer"
+                },
+                "sale_start": {
+                    "type": "integer"
+                },
+                "sellout_price": {
+                    "type": "number"
+                },
+                "start_price": {
+                    "type": "number"
+                },
+                "total_core": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.SaleListItemJson": {
+            "type": "object",
+            "properties": {
+                "region_begin": {
+                    "type": "integer"
+                },
+                "region_end": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.operationParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string",
+                    "example": "110000-120000"
+                },
+                "core": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10
+                },
+                "core_index": {
+                    "type": "string",
+                    "maxLength": 80,
+                    "minLength": 0,
+                    "example": "12345-1260-20-12333121323217721"
+                },
+                "event_id": {
+                    "type": "string",
+                    "example": "Interlaced"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.purchasedParams": {
+            "type": "object",
+            "properties": {
+                "core": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "purchased_type": {
+                    "type": "string",
+                    "enum": [
+                        "bulk",
+                        "renewed"
+                    ]
+                },
+                "region_begin": {
+                    "description": "Address       string ` + "`" + `json:\"address\" form:\"address\" binding:\"omitempty,addr\"` + "`" + `",
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 10
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 1000,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.regionListParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "begin": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 10
+                },
+                "core": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10
+                },
+                "end": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 20
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "valid": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.regionParams": {
+            "type": "object",
+            "required": [
+                "core_index"
+            ],
+            "properties": {
+                "core_index": {
+                    "type": "string",
+                    "maxLength": 80,
+                    "minLength": 0,
+                    "example": "12345-1260-20-12333121323217721"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.saleHistoryParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.saleParams": {
+            "type": "object",
+            "properties": {
+                "begin": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
