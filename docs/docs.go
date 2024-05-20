@@ -10838,6 +10838,9 @@ const docTemplate = `{
                 "mask": {
                     "type": "string"
                 },
+                "price": {
+                    "type": "number"
+                },
                 "status": {
                     "type": "string"
                 },
@@ -10941,6 +10944,9 @@ const docTemplate = `{
                 "sale_start": {
                     "type": "integer"
                 },
+                "sales_cycle": {
+                    "type": "integer"
+                },
                 "sellout_price": {
                     "type": "number"
                 },
@@ -10959,6 +10965,10 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "region_end": {
+                    "type": "integer"
+                },
+                "sales_cycle": {
+                    "description": "-1 为 无效 0为内部计算错误 \u003e 1 为正常",
                     "type": "integer"
                 }
             }
@@ -11036,6 +11046,11 @@ const docTemplate = `{
                     "maximum": 1000,
                     "minimum": 1,
                     "example": 10
+                },
+                "sales_cycle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -11072,6 +11087,16 @@ const docTemplate = `{
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "valid",
+                        "assigned",
+                        "working",
+                        "dropped",
+                        "expired"
+                    ]
                 },
                 "valid": {
                     "type": "boolean"
@@ -11117,6 +11142,11 @@ const docTemplate = `{
                     "type": "integer",
                     "minimum": 1,
                     "example": 10
+                },
+                "sales_cycle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 1
                 }
             }
         },

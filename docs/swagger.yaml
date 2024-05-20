@@ -1149,6 +1149,8 @@ definitions:
         type: integer
       mask:
         type: string
+      price:
+        type: number
       status:
         type: string
       task:
@@ -1217,6 +1219,8 @@ definitions:
         type: integer
       sale_start:
         type: integer
+      sales_cycle:
+        type: integer
       sellout_price:
         type: number
       start_price:
@@ -1229,6 +1233,9 @@ definitions:
       region_begin:
         type: integer
       region_end:
+        type: integer
+      sales_cycle:
+        description: -1 为 无效 0为内部计算错误 > 1 为正常
         type: integer
     type: object
   internal_pluginv2_pallets_coretime.operationParams:
@@ -1289,6 +1296,10 @@ definitions:
         maximum: 1000
         minimum: 1
         type: integer
+      sales_cycle:
+        example: 10
+        minimum: 1
+        type: integer
     type: object
   internal_pluginv2_pallets_coretime.regionListParams:
     properties:
@@ -1317,6 +1328,14 @@ definitions:
         maximum: 100
         minimum: 1
         type: integer
+      status:
+        enum:
+        - valid
+        - assigned
+        - working
+        - dropped
+        - expired
+        type: string
       valid:
         type: boolean
     type: object
@@ -1348,6 +1367,10 @@ definitions:
     properties:
       begin:
         example: 10
+        minimum: 1
+        type: integer
+      sales_cycle:
+        example: 1
         minimum: 1
         type: integer
     type: object

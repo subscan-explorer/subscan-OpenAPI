@@ -10827,6 +10827,9 @@
                 "mask": {
                     "type": "string"
                 },
+                "price": {
+                    "type": "number"
+                },
                 "status": {
                     "type": "string"
                 },
@@ -10930,6 +10933,9 @@
                 "sale_start": {
                     "type": "integer"
                 },
+                "sales_cycle": {
+                    "type": "integer"
+                },
                 "sellout_price": {
                     "type": "number"
                 },
@@ -10948,6 +10954,10 @@
                     "type": "integer"
                 },
                 "region_end": {
+                    "type": "integer"
+                },
+                "sales_cycle": {
+                    "description": "-1 为 无效 0为内部计算错误 \u003e 1 为正常",
                     "type": "integer"
                 }
             }
@@ -11025,6 +11035,11 @@
                     "maximum": 1000,
                     "minimum": 1,
                     "example": 10
+                },
+                "sales_cycle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -11061,6 +11076,16 @@
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "valid",
+                        "assigned",
+                        "working",
+                        "dropped",
+                        "expired"
+                    ]
                 },
                 "valid": {
                     "type": "boolean"
@@ -11106,6 +11131,11 @@
                     "type": "integer",
                     "minimum": 1,
                     "example": 10
+                },
+                "sales_cycle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "example": 1
                 }
             }
         },
