@@ -3303,6 +3303,309 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/foreignAssets/account/balances": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "foreignAssets"
+                ],
+                "summary": "ForeignAssets account balances",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_foreignAssets_http.assetBalancesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.AssetBalance"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/foreignAssets/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "foreignAssets"
+                ],
+                "summary": "ForeignAssets activities",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_foreignAssets_http.assetActivitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.ForeignAssetRelateExtrinsicJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/foreignAssets/all": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "foreignAssets"
+                ],
+                "summary": "ForeignAssets list all",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.AssetsListAllJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/foreignAssets/asset": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "foreignAssets"
+                ],
+                "summary": "ForeignAssets info",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_foreignAssets_http.assetParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.StateAssetJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/foreignAssets/asset/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "foreignAssets"
+                ],
+                "summary": "ForeignAssets holders",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_foreignAssets_http.assetHolderParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.StateAssetHolderJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/foreignAssets/assets": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "foreignAssets"
+                ],
+                "summary": "ForeignAssets list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_foreignAssets_http.assetsParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.StateAssetSampleJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/getRawTx": {
             "post": {
                 "consumes": [
@@ -9781,6 +10084,111 @@ const docTemplate = `{
                 },
                 "success": {
                     "type": "boolean"
+                }
+            }
+        },
+        "internal_plugin_foreignAssets_http.assetActivitiesParams": {
+            "type": "object",
+            "required": [
+                "asset_id"
+            ],
+            "properties": {
+                "asset_id": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_foreignAssets_http.assetBalancesParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_foreignAssets_http.assetHolderParams": {
+            "type": "object",
+            "required": [
+                "asset_id"
+            ],
+            "properties": {
+                "asset_id": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 1
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_foreignAssets_http.assetParam": {
+            "type": "object",
+            "required": [
+                "asset_id"
+            ],
+            "properties": {
+                "asset_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_foreignAssets_http.assetsParam": {
+            "type": "object",
+            "properties": {
+                "asset_id": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 1
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "asset_id",
+                        "symbol",
+                        "holders"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "search": {
+                    "description": "assets symbol or name",
+                    "type": "string",
+                    "maxLength": 256,
+                    "minLength": 1
                 }
             }
         },
@@ -16614,7 +17022,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "balance": {
                     "type": "number"
@@ -17092,6 +17500,173 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "day": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.AssetBalance": {
+            "type": "object",
+            "properties": {
+                "asset_id": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "number"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.AssetsListAllJson": {
+            "type": "object",
+            "properties": {
+                "asset_id": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.ForeignAssetRelateExtrinsicJson": {
+            "type": "object",
+            "properties": {
+                "asset_id": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "event_id": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "module_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.Metadata": {
+            "type": "object",
+            "properties": {
+                "decimals": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.StateAssetHolderJson": {
+            "type": "object",
+            "properties": {
+                "balance": {
+                    "type": "number"
+                },
+                "holder": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "lock": {
+                    "type": "number"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.StateAssetJson": {
+            "type": "object",
+            "properties": {
+                "admin": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "asset_id": {
+                    "type": "string"
+                },
+                "freezer": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "holders": {
+                    "type": "integer"
+                },
+                "is_destroyed": {
+                    "type": "boolean"
+                },
+                "is_frozen": {
+                    "type": "boolean"
+                },
+                "issuer": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
+                },
+                "min_balance": {
+                    "type": "number"
+                },
+                "multi_location": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "supply": {
+                    "type": "number"
+                },
+                "unique_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_foreignAssets_db.StateAssetSampleJson": {
+            "type": "object",
+            "properties": {
+                "asset_id": {
+                    "type": "string"
+                },
+                "holders": {
+                    "type": "integer"
+                },
+                "issuer": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
+                },
+                "multi_location": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "supply": {
+                    "type": "number"
+                },
+                "unique_id": {
                     "type": "string"
                 }
             }

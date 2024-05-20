@@ -605,6 +605,81 @@ definitions:
       success:
         type: boolean
     type: object
+  internal_plugin_foreignAssets_http.assetActivitiesParams:
+    properties:
+      asset_id:
+        minLength: 1
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - asset_id
+    type: object
+  internal_plugin_foreignAssets_http.assetBalancesParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_plugin_foreignAssets_http.assetHolderParams:
+    properties:
+      asset_id:
+        maxLength: 100
+        minLength: 1
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - asset_id
+    type: object
+  internal_plugin_foreignAssets_http.assetParam:
+    properties:
+      asset_id:
+        type: string
+    required:
+    - asset_id
+    type: object
+  internal_plugin_foreignAssets_http.assetsParam:
+    properties:
+      asset_id:
+        maxLength: 100
+        minLength: 1
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - asset_id
+        - symbol
+        - holders
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      search:
+        description: assets symbol or name
+        maxLength: 256
+        minLength: 1
+        type: string
+    type: object
   internal_plugin_nfts_http.NftAccountBalancesParams:
     properties:
       address:
@@ -5305,7 +5380,7 @@ definitions:
       alias_name:
         type: string
       asset_id:
-        type: number
+        type: string
       balance:
         type: number
       bonded:
@@ -5620,6 +5695,115 @@ definitions:
       block_num:
         type: integer
       day:
+        type: string
+    type: object
+  subscan_internal_plugin_foreignAssets_db.AssetBalance:
+    properties:
+      asset_id:
+        type: string
+      balance:
+        type: number
+      decimals:
+        type: integer
+      name:
+        type: string
+      symbol:
+        type: string
+    type: object
+  subscan_internal_plugin_foreignAssets_db.AssetsListAllJson:
+    properties:
+      asset_id:
+        type: string
+      decimals:
+        type: integer
+      symbol:
+        type: string
+    type: object
+  subscan_internal_plugin_foreignAssets_db.ForeignAssetRelateExtrinsicJson:
+    properties:
+      asset_id:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      module_id:
+        type: string
+    type: object
+  subscan_internal_plugin_foreignAssets_db.Metadata:
+    properties:
+      decimals:
+        type: integer
+      name:
+        type: string
+      symbol:
+        type: string
+    type: object
+  subscan_internal_plugin_foreignAssets_db.StateAssetHolderJson:
+    properties:
+      balance:
+        type: number
+      holder:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      lock:
+        type: number
+    type: object
+  subscan_internal_plugin_foreignAssets_db.StateAssetJson:
+    properties:
+      admin:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      asset_id:
+        type: string
+      freezer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      holders:
+        type: integer
+      is_destroyed:
+        type: boolean
+      is_frozen:
+        type: boolean
+      issuer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      metadata:
+        $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
+      min_balance:
+        type: number
+      multi_location:
+        items:
+          type: integer
+        type: array
+      owner:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      supply:
+        type: number
+      unique_id:
+        type: string
+    type: object
+  subscan_internal_plugin_foreignAssets_db.StateAssetSampleJson:
+    properties:
+      asset_id:
+        type: string
+      holders:
+        type: integer
+      issuer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      metadata:
+        $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
+      multi_location:
+        items:
+          type: integer
+        type: array
+      owner:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      supply:
+        type: number
+      unique_id:
         type: string
     type: object
   subscan_internal_plugin_nfts_db.CollectionBalance:
@@ -8384,6 +8568,183 @@ paths:
       summary: Fellowship referendum votes
       tags:
       - governance
+  /api/scan/foreignAssets/account/balances:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_foreignAssets_http.assetBalancesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.AssetBalance'
+                  type: array
+              type: object
+      summary: ForeignAssets account balances
+      tags:
+      - foreignAssets
+  /api/scan/foreignAssets/activities:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_foreignAssets_http.assetActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.ForeignAssetRelateExtrinsicJson'
+                      type: array
+                  type: object
+              type: object
+      summary: ForeignAssets activities
+      tags:
+      - foreignAssets
+  /api/scan/foreignAssets/all:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.AssetsListAllJson'
+                      type: array
+                  type: object
+              type: object
+      summary: ForeignAssets list all
+      tags:
+      - foreignAssets
+  /api/scan/foreignAssets/asset:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_foreignAssets_http.assetParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.StateAssetJson'
+              type: object
+      summary: ForeignAssets info
+      tags:
+      - foreignAssets
+  /api/scan/foreignAssets/asset/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_foreignAssets_http.assetHolderParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.StateAssetHolderJson'
+                      type: array
+                  type: object
+              type: object
+      summary: ForeignAssets holders
+      tags:
+      - foreignAssets
+  /api/scan/foreignAssets/assets:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_foreignAssets_http.assetsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.StateAssetSampleJson'
+                      type: array
+                  type: object
+              type: object
+      summary: ForeignAssets list
+      tags:
+      - foreignAssets
   /api/scan/getRawTx:
     post:
       consumes:
