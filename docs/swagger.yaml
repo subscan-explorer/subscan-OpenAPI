@@ -2618,6 +2618,15 @@ definitions:
     required:
     - account
     type: object
+  internal_server_http.rawTxParams:
+    properties:
+      extrinsic_index:
+        description: Optional, extrinsic index
+        type: string
+      hash:
+        description: Optional, extrinsic hash
+        type: string
+    type: object
   internal_server_http.referendaVotesV2Params:
     properties:
       account:
@@ -8772,6 +8781,13 @@ paths:
     post:
       consumes:
       - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.rawTxParams'
       produces:
       - application/json
       responses:

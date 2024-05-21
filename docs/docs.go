@@ -3618,6 +3618,17 @@ const docTemplate = `{
                     "extrinsic"
                 ],
                 "summary": "Extrinsic raw tx",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.rawTxParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -12891,6 +12902,19 @@ const docTemplate = `{
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                }
+            }
+        },
+        "internal_server_http.rawTxParams": {
+            "type": "object",
+            "properties": {
+                "extrinsic_index": {
+                    "description": "Optional, extrinsic index",
+                    "type": "string"
+                },
+                "hash": {
+                    "description": "Optional, extrinsic hash",
+                    "type": "string"
                 }
             }
         },
