@@ -6632,6 +6632,82 @@ paths:
       summary: current timestamp
       tags:
       - common
+  /api/open/currencies:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    currencies:
+                      items:
+                        type: string
+                      type: array
+                  type: object
+              type: object
+      summary: supported currencies
+      tags:
+      - currency
+  /api/open/price:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.currencyPriceParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_service_scan.CurrencyPrice'
+              type: object
+      summary: currency price
+      tags:
+      - currency
+  /api/open/price_converter:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.currencyConverterParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_server_http.CurrencyConverter'
+              type: object
+      summary: currency price converter
+      tags:
+      - currency
   /api/scan/account/balance_history:
     post:
       consumes:
@@ -9620,82 +9696,6 @@ paths:
       summary: Nomination Pools Rewards
       tags:
       - nominationPools
-  /api/scan/open/currencies:
-    post:
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    currencies:
-                      items:
-                        type: string
-                      type: array
-                  type: object
-              type: object
-      summary: supported currencies
-      tags:
-      - currency
-  /api/scan/open/price:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.currencyPriceParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  $ref: '#/definitions/subscan_internal_service_scan.CurrencyPrice'
-              type: object
-      summary: currency price
-      tags:
-      - currency
-  /api/scan/open/price_converter:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.currencyConverterParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  $ref: '#/definitions/internal_server_http.CurrencyConverter'
-              type: object
-      summary: currency price converter
-      tags:
-      - currency
   /api/scan/parachain/auction_funds_stat:
     post:
       consumes:
