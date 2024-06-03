@@ -6974,6 +6974,17 @@ const docTemplate = `{
                     "staking"
                 ],
                 "summary": "Staking reward sum",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.stakingRewardParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -13205,6 +13216,26 @@ const docTemplate = `{
                     "type": "string",
                     "maxLength": 300,
                     "minLength": 1
+                }
+            }
+        },
+        "internal_server_http.stakingRewardParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "description": "Row int ` + "`" + `json:\"row\" binding:\"min=1,max=100\" example:\"10\"` + "`" + `\nPage    int    ` + "`" + `json:\"page\" binding:\"min=0\" example:\"0\"` + "`" + `",
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string",
+                    "example": "2023-06-01"
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2023-05-01"
                 }
             }
         },

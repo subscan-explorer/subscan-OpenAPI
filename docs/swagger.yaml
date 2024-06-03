@@ -2839,6 +2839,22 @@ definitions:
     required:
     - identity
     type: object
+  internal_server_http.stakingRewardParams:
+    properties:
+      address:
+        description: |-
+          Row int `json:"row" binding:"min=1,max=100" example:"10"`
+          Page    int    `json:"page" binding:"min=0" example:"0"`
+        type: string
+      end:
+        example: "2023-06-01"
+        type: string
+      start:
+        example: "2023-05-01"
+        type: string
+    required:
+    - address
+    type: object
   internal_server_http.techcommProposalParams:
     properties:
       proposal_id:
@@ -10767,6 +10783,13 @@ paths:
     post:
       consumes:
       - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.stakingRewardParams'
       produces:
       - application/json
       responses:
