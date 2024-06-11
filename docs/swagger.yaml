@@ -3417,6 +3417,8 @@ definitions:
     type: object
   subscan_internal_model.AccountNominateList:
     properties:
+      active:
+        type: boolean
       bonded:
         type: number
       bonded_nominators:

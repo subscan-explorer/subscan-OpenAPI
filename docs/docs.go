@@ -14060,6 +14060,9 @@ const docTemplate = `{
         "subscan_internal_model.AccountNominateList": {
             "type": "object",
             "properties": {
+                "active": {
+                    "type": "boolean"
+                },
                 "bonded": {
                     "type": "number"
                 },
