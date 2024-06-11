@@ -2846,6 +2846,8 @@ definitions:
           Row int `json:"row" binding:"min=1,max=100" example:"10"`
           Page    int    `json:"page" binding:"min=0" example:"0"`
         type: string
+      block_range:
+        type: string
       end:
         example: "2023-06-01"
         type: string
@@ -3431,6 +3433,8 @@ definitions:
         type: integer
       latest_mining:
         type: integer
+      next_session_selected:
+        type: boolean
       rank_validator:
         type: integer
       reward_point:
@@ -5270,7 +5274,7 @@ definitions:
       reward_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
-  subscan_internal_model.StakingAccountEvent:
+  subscan_internal_model.StakingAccountEventJson:
     properties:
       account:
         type: string
@@ -5666,6 +5670,8 @@ definitions:
         type: integer
       latest_mining:
         type: integer
+      next_session_selected:
+        type: boolean
       rank_validator:
         type: integer
       reward_point:
@@ -5706,12 +5712,8 @@ definitions:
         type: number
       count_nominators:
         type: integer
-      node_name:
-        type: string
-      reward_account:
-        type: string
-      reward_pot_balance:
-        type: number
+      next_session_selected:
+        type: boolean
       stash_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       validator_prefs_value:
@@ -11748,7 +11750,7 @@ paths:
                       type: integer
                     list:
                       items:
-                        $ref: '#/definitions/subscan_internal_model.StakingAccountEvent'
+                        $ref: '#/definitions/subscan_internal_model.StakingAccountEventJson'
                       type: array
                   type: object
               type: object

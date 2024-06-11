@@ -8562,7 +8562,7 @@ const docTemplate = `{
                                                 "list": {
                                                     "type": "array",
                                                     "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.StakingAccountEvent"
+                                                        "$ref": "#/definitions/subscan_internal_model.StakingAccountEventJson"
                                                     }
                                                 }
                                             }
@@ -13229,6 +13229,9 @@ const docTemplate = `{
                     "description": "Row int ` + "`" + `json:\"row\" binding:\"min=1,max=100\" example:\"10\"` + "`" + `\nPage    int    ` + "`" + `json:\"page\" binding:\"min=0\" example:\"0\"` + "`" + `",
                     "type": "string"
                 },
+                "block_range": {
+                    "type": "string"
+                },
                 "end": {
                     "type": "string",
                     "example": "2023-06-01"
@@ -14080,6 +14083,9 @@ const docTemplate = `{
                 },
                 "latest_mining": {
                     "type": "integer"
+                },
+                "next_session_selected": {
+                    "type": "boolean"
                 },
                 "rank_validator": {
                     "type": "integer"
@@ -16871,7 +16877,7 @@ const docTemplate = `{
                 }
             }
         },
-        "subscan_internal_model.StakingAccountEvent": {
+        "subscan_internal_model.StakingAccountEventJson": {
             "type": "object",
             "properties": {
                 "account": {
@@ -17468,6 +17474,9 @@ const docTemplate = `{
                 "latest_mining": {
                     "type": "integer"
                 },
+                "next_session_selected": {
+                    "type": "boolean"
+                },
                 "rank_validator": {
                     "type": "integer"
                 },
@@ -17529,14 +17538,8 @@ const docTemplate = `{
                 "count_nominators": {
                     "type": "integer"
                 },
-                "node_name": {
-                    "type": "string"
-                },
-                "reward_account": {
-                    "type": "string"
-                },
-                "reward_pot_balance": {
-                    "type": "number"
+                "next_session_selected": {
+                    "type": "boolean"
                 },
                 "stash_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
