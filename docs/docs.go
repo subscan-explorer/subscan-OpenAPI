@@ -14323,6 +14323,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "value": {
                     "type": "number"
                 }
@@ -14344,6 +14347,9 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 },
                 "value": {
@@ -14897,6 +14903,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -15099,6 +15108,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -15157,6 +15169,9 @@ const docTemplate = `{
                 "status": {
                     "type": "string"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "vote_threshold": {
                     "type": "string"
                 }
@@ -15184,6 +15199,9 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
@@ -16588,6 +16606,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "turnout": {
                     "type": "number"
                 },
@@ -16719,6 +16740,9 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
+                },
+                "title": {
+                    "type": "string"
                 }
             }
         },
@@ -16762,6 +16786,9 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
@@ -17005,6 +17032,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -17047,6 +17077,9 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
@@ -17328,6 +17361,9 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
+                },
+                "title": {
+                    "type": "string"
                 }
             }
         },
@@ -17353,6 +17389,9 @@ const docTemplate = `{
                     "type": "number"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }

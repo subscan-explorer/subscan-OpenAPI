@@ -3590,6 +3590,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
       value:
         type: number
     type: object
@@ -3604,6 +3606,8 @@ definitions:
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       status:
+        type: string
+      title:
         type: string
       value:
         type: number
@@ -3969,6 +3973,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
       updated_block:
         type: integer
       value:
@@ -4101,6 +4107,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
       updated_block:
         type: integer
       value:
@@ -4139,6 +4147,8 @@ definitions:
         type: integer
       status:
         type: string
+      title:
+        type: string
       vote_threshold:
         type: string
     type: object
@@ -4157,6 +4167,8 @@ definitions:
       seconded_count:
         type: integer
       status:
+        type: string
+      title:
         type: string
     type: object
   subscan_internal_model.DemocracyVoteJson:
@@ -5085,6 +5097,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
       turnout:
         type: number
       updated_block:
@@ -5172,6 +5186,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
     type: object
   subscan_internal_model.ReferendumV2SampleJson:
     properties:
@@ -5200,6 +5216,8 @@ definitions:
       referendum_index:
         type: integer
       status:
+        type: string
+      title:
         type: string
     type: object
   subscan_internal_model.RegistrationJudgementJson:
@@ -5361,6 +5379,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
       updated_block:
         type: integer
       value:
@@ -5389,6 +5409,8 @@ definitions:
       proposal_id:
         type: integer
       status:
+        type: string
+      title:
         type: string
     type: object
   subscan_internal_model.TechcommVoteJson:
@@ -5575,6 +5597,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
         type: array
+      title:
+        type: string
     type: object
   subscan_internal_model.TreasuryProposalJson:
     properties:
@@ -5591,6 +5615,8 @@ definitions:
       reward:
         type: number
       status:
+        type: string
+      title:
         type: string
     type: object
   subscan_internal_model.TreasuryTip:

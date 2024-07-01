@@ -14312,6 +14312,9 @@
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "value": {
                     "type": "number"
                 }
@@ -14333,6 +14336,9 @@
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 },
                 "value": {
@@ -14886,6 +14892,9 @@
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -15088,6 +15097,9 @@
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -15146,6 +15158,9 @@
                 "status": {
                     "type": "string"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "vote_threshold": {
                     "type": "string"
                 }
@@ -15173,6 +15188,9 @@
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
@@ -16577,6 +16595,9 @@
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "turnout": {
                     "type": "number"
                 },
@@ -16708,6 +16729,9 @@
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
+                },
+                "title": {
+                    "type": "string"
                 }
             }
         },
@@ -16751,6 +16775,9 @@
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
@@ -16994,6 +17021,9 @@
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
                 },
+                "title": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -17036,6 +17066,9 @@
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
@@ -17317,6 +17350,9 @@
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.TimelineJson"
                     }
+                },
+                "title": {
+                    "type": "string"
                 }
             }
         },
@@ -17342,6 +17378,9 @@
                     "type": "number"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 }
             }
