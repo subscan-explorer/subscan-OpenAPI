@@ -17184,6 +17184,12 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
                     }
                 },
+                "multi_location": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "reserved": {
                     "type": "number"
                 },
@@ -17645,6 +17651,12 @@ const docTemplate = `{
                 },
                 "decimals": {
                     "type": "integer"
+                },
+                "multi_location": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 },
                 "name": {
                     "type": "string"

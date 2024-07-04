@@ -17173,6 +17173,12 @@
                         "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
                     }
                 },
+                "multi_location": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "reserved": {
                     "type": "number"
                 },
@@ -17634,6 +17640,12 @@
                 },
                 "decimals": {
                     "type": "integer"
+                },
+                "multi_location": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 },
                 "name": {
                     "type": "string"

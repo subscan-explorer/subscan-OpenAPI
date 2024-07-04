@@ -5479,6 +5479,10 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
         type: array
+      multi_location:
+        items:
+          type: integer
+        type: array
       reserved:
         type: number
       symbol:
@@ -5783,6 +5787,10 @@ definitions:
         type: number
       decimals:
         type: integer
+      multi_location:
+        items:
+          type: integer
+        type: array
       name:
         type: string
       symbol:
