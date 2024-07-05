@@ -10836,6 +10836,17 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_pluginv2_pallets_coretime.PriceChatPoint": {
+            "type": "object",
+            "properties": {
+                "block": {
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                }
+            }
+        },
         "internal_pluginv2_pallets_coretime.RegionInfoJson": {
             "type": "object",
             "properties": {
@@ -10944,6 +10955,12 @@ const docTemplate = `{
                 },
                 "price": {
                     "type": "number"
+                },
+                "price_chat_point": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_coretime.PriceChatPoint"
+                    }
                 },
                 "realtime_price": {
                     "type": "number"
