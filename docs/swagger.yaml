@@ -2344,6 +2344,7 @@ definitions:
         example: 14661803-2
         type: string
     required:
+    - call_hash
     - multi_id
     type: object
   internal_server_http.multisigsDetailsParams:

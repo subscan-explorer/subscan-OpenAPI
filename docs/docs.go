@@ -12530,6 +12530,7 @@ const docTemplate = `{
         "internal_server_http.multisigParams": {
             "type": "object",
             "required": [
+                "call_hash",
                 "multi_id"
             ],
             "properties": {
