@@ -1649,6 +1649,38 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.accountsMerkleParams:
+    properties:
+      address_type:
+        type: string
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        enum:
+        - balance
+        - locked
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      tag_name:
+        type: string
+      tag_sub_type:
+        type: string
+      tag_type:
+        type: string
+    type: object
   internal_server_http.accountsParams:
     properties:
       address:
@@ -3425,6 +3457,25 @@ definitions:
       vesting:
         $ref: '#/definitions/subscan_internal_model.VestingJson'
       web:
+        type: string
+    type: object
+  subscan_internal_model.AccountMerkleJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      address_type:
+        type: string
+      balance:
+        type: number
+      count_extrinsic:
+        type: integer
+      locked:
+        type: number
+      tag_name:
+        type: string
+      tag_sub_type:
+        type: string
+      tag_type:
         type: string
     type: object
   subscan_internal_model.AccountNominateList:
@@ -6930,6 +6981,34 @@ paths:
                   $ref: '#/definitions/subscan_internal_service_scan.AccountTokenJson'
               type: object
       summary: Account token list
+      tags:
+      - account
+  /api/scan/accounts/merkle:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountsMerkleParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.AccountMerkleJson'
+                  type: array
+              type: object
+      summary: Account merkle list
       tags:
       - account
   /api/scan/accounts/statistics:

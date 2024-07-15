@@ -450,6 +450,54 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/accounts/merkle": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Account merkle list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountsMerkleParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/subscan_internal_model.AccountMerkleJson"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/accounts/statistics": {
             "post": {
                 "consumes": [
@@ -11570,6 +11618,50 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.accountsMerkleParams": {
+            "type": "object",
+            "properties": {
+                "address_type": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "balance",
+                        "locked"
+                    ]
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "tag_name": {
+                    "type": "string"
+                },
+                "tag_sub_type": {
+                    "type": "string"
+                },
+                "tag_type": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.accountsParams": {
             "type": "object",
             "properties": {
@@ -14071,6 +14163,35 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.VestingJson"
                 },
                 "web": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.AccountMerkleJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "address_type": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "number"
+                },
+                "count_extrinsic": {
+                    "type": "integer"
+                },
+                "locked": {
+                    "type": "number"
+                },
+                "tag_name": {
+                    "type": "string"
+                },
+                "tag_sub_type": {
+                    "type": "string"
+                },
+                "tag_type": {
                     "type": "string"
                 }
             }
