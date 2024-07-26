@@ -181,6 +181,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/account/assets_changed": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Account assets changed history",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.assetsChangedParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.AssetChangedHistoryJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/account/balance_history": {
             "post": {
                 "consumes": [
@@ -11750,6 +11806,31 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.assetsChangedParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
         "internal_server_http.auctionCompetitorsParams": {
             "type": "object",
             "properties": {
@@ -14335,6 +14416,29 @@ const docTemplate = `{
                 },
                 "substrate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                }
+            }
+        },
+        "subscan_internal_model.AssetChangedHistoryJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "event_id": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
                 }
             }
         },
@@ -17001,6 +17105,9 @@ const docTemplate = `{
         "subscan_internal_model.SessionKeys": {
             "type": "object",
             "properties": {
+                "aura": {
+                    "type": "string"
+                },
                 "authority_discovery": {
                     "type": "string"
                 },

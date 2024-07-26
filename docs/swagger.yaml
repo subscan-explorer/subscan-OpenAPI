@@ -1750,6 +1750,24 @@ definitions:
         - role
         type: string
     type: object
+  internal_server_http.assetsChangedParams:
+    properties:
+      address:
+        type: string
+      asset_unique_id:
+        type: string
+      page:
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - address
+    type: object
   internal_server_http.auctionCompetitorsParams:
     properties:
       auction_index:
@@ -3571,6 +3589,21 @@ definitions:
       substrate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
+  subscan_internal_model.AssetChangedHistoryJson:
+    properties:
+      amount:
+        type: number
+      asset_unique_id:
+        type: string
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+    type: object
   subscan_internal_model.AssetsJson:
     properties:
       asset_id:
@@ -5328,6 +5361,8 @@ definitions:
     type: object
   subscan_internal_model.SessionKeys:
     properties:
+      aura:
+        type: string
       authority_discovery:
         type: string
       babe:
@@ -6825,6 +6860,39 @@ paths:
       summary: currency price converter
       tags:
       - currency
+  /api/scan/account/assets_changed:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.assetsChangedParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AssetChangedHistoryJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Account assets changed history
+      tags:
+      - account
   /api/scan/account/balance_history:
     post:
       consumes:
