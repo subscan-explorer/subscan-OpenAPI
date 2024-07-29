@@ -4371,8 +4371,6 @@ definitions:
         type: array
       pending:
         type: boolean
-      proxy:
-        $ref: '#/definitions/subscan_internal_model.ExtrinsicProxyDetail'
       signature:
         type: string
       sub_calls:
@@ -4408,21 +4406,6 @@ definitions:
       type_name:
         type: string
       value: {}
-    type: object
-  subscan_internal_model.ExtrinsicProxyDetail:
-    properties:
-      account_display:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      call_module:
-        type: string
-      call_module_function:
-        type: string
-      params:
-        items:
-          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
-        type: array
-      success:
-        type: boolean
     type: object
   subscan_internal_model.ExtrinsicRewardJson:
     properties:

@@ -15606,9 +15606,6 @@ const docTemplate = `{
                 "pending": {
                     "type": "boolean"
                 },
-                "proxy": {
-                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicProxyDetail"
-                },
                 "signature": {
                     "type": "string"
                 },
@@ -15662,29 +15659,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "value": {}
-            }
-        },
-        "subscan_internal_model.ExtrinsicProxyDetail": {
-            "type": "object",
-            "properties": {
-                "account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "call_module": {
-                    "type": "string"
-                },
-                "call_module_function": {
-                    "type": "string"
-                },
-                "params": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
-                    }
-                },
-                "success": {
-                    "type": "boolean"
-                }
             }
         },
         "subscan_internal_model.ExtrinsicRewardJson": {
