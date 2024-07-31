@@ -4086,6 +4086,51 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/multiChain/account/count": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "MultiChain account count",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiChainAccountParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/multiChain/balance_value_history": {
             "post": {
                 "consumes": [
@@ -14431,6 +14476,9 @@ const docTemplate = `{
                 "block_timestamp": {
                     "type": "integer"
                 },
+                "decimals": {
+                    "type": "integer"
+                },
                 "event_id": {
                     "type": "string"
                 },
@@ -14438,6 +14486,9 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "extrinsic_index": {
+                    "type": "string"
+                },
+                "symbol": {
                     "type": "string"
                 }
             }

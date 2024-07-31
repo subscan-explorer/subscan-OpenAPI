@@ -3597,11 +3597,15 @@ definitions:
         type: string
       block_timestamp:
         type: integer
+      decimals:
+        type: integer
       event_id:
         type: string
       event_index:
         type: string
       extrinsic_index:
+        type: string
+      symbol:
         type: string
     type: object
   subscan_internal_model.AssetsJson:
@@ -9192,6 +9196,32 @@ paths:
                   type: array
               type: object
       summary: MultiChain account
+      tags:
+      - multiChain
+  /api/scan/multiChain/account/count:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiChainAccountParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  type: integer
+              type: object
+      summary: MultiChain account count
       tags:
       - multiChain
   /api/scan/multiChain/balance_value_history:
