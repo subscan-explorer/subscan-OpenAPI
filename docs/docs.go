@@ -3375,7 +3375,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_server_http.fellowshipReferendumsParams"
+                            "$ref": "#/definitions/internal_server_http.referendumsV2Params"
                         }
                     }
                 ],
@@ -12650,34 +12650,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.fellowshipReferendumsParams": {
-            "type": "object",
-            "properties": {
-                "origin": {
-                    "type": "string"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "status": {
-                    "type": "string",
-                    "enum": [
-                        "completed",
-                        "active"
-                    ]
-                }
-            }
-        },
         "internal_server_http.identitiesParams": {
             "type": "object",
             "required": [
@@ -13320,6 +13292,15 @@ const docTemplate = `{
         "internal_server_http.referendumsV2Params": {
             "type": "object",
             "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "call_module": {
+                    "type": "string"
+                },
+                "call_name": {
+                    "type": "string"
+                },
                 "origin": {
                     "type": "string"
                 },
