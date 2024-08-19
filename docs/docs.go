@@ -11766,6 +11766,9 @@ const docTemplate = `{
         "internal_server_http.accountsParams": {
             "type": "object",
             "properties": {
+                "account": {
+                    "type": "string"
+                },
                 "address": {
                     "type": "array",
                     "maxItems": 100,
@@ -14062,6 +14065,9 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
                         }
                     ]
+                },
+                "people": {
+                    "$ref": "#/definitions/subscan_internal_model.SampleIdentity"
                 }
             }
         },
@@ -14108,6 +14114,23 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "stash": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.AccountJsonExtra": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "conviction": {
+                    "type": "number"
+                },
+                "origins": {
+                    "type": "integer"
+                },
+                "proxy_type": {
                     "type": "string"
                 }
             }
@@ -14172,6 +14195,12 @@ const docTemplate = `{
                 "evm_account": {
                     "type": "string"
                 },
+                "extra": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountJsonExtra"
+                    }
+                },
                 "fellowship_rank": {
                     "type": "integer"
                 },
@@ -14222,6 +14251,10 @@ const docTemplate = `{
                 },
                 "multisig": {
                     "$ref": "#/definitions/subscan_internal_model.MultiAccountJson"
+                },
+                "nft_amount": {
+                    "description": "UpgradeV2      bool ` + "`" + `json:\"-\"` + "`" + `",
+                    "type": "number"
                 },
                 "nomination_pool_balance": {
                     "type": "array",
@@ -14428,6 +14461,12 @@ const docTemplate = `{
                 "evm_account": {
                     "type": "string"
                 },
+                "extra": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountJsonExtra"
+                    }
+                },
                 "fellowship_rank": {
                     "type": "integer"
                 },
@@ -14435,6 +14474,10 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "lock": {
+                    "type": "number"
+                },
+                "nft_amount": {
+                    "description": "UpgradeV2      bool ` + "`" + `json:\"-\"` + "`" + `",
                     "type": "number"
                 },
                 "registrar_info": {
@@ -17105,6 +17148,26 @@ const docTemplate = `{
                 },
                 "hash": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.SampleIdentity": {
+            "type": "object",
+            "properties": {
+                "display": {
+                    "type": "string"
+                },
+                "identity": {
+                    "type": "boolean"
+                },
+                "judgements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
+                    }
+                },
+                "parent": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
                 }
             }
         },
