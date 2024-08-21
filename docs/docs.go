@@ -7655,6 +7655,17 @@ const docTemplate = `{
                     "token"
                 ],
                 "summary": "Token list(token unique_id)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.TokenUniqueIDParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -11585,6 +11596,15 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.TokenUniqueIDParams": {
+            "type": "object",
+            "properties": {
+                "new_algorithm": {
+                    "description": "use new algorithm sum(free - max(0, frozen - reserve))",
+                    "type": "boolean"
+                }
+            }
+        },
         "internal_server_http.accountBalanceParams": {
             "type": "object",
             "required": [
@@ -11767,9 +11787,11 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "account": {
+                    "description": "Get the account data associated with different roles of the account,Only proxy,proxies,multisig,multisigMember,convictionDelegate,convictionDelegated,democracyDelegate,democracyDelegated role is valid",
                     "type": "string"
                 },
                 "address": {
+                    "description": "Get the specified account data",
                     "type": "array",
                     "maxItems": 100,
                     "minItems": 1,
@@ -16207,6 +16229,9 @@ const docTemplate = `{
         "subscan_internal_model.OtherDetail": {
             "type": "object",
             "properties": {
+                "conviction_locked_balance": {
+                    "type": "number"
+                },
                 "democracy_locked_balance": {
                     "type": "number"
                 },
@@ -17035,6 +17060,12 @@ const docTemplate = `{
                 },
                 "title": {
                     "type": "string"
+                },
+                "treasury_spend": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TreasurySpend"
+                    }
                 }
             }
         },
@@ -17713,6 +17744,29 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.TreasurySpend": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "paraId": {
+                    "type": "integer"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "token_unique_id": {
                     "type": "string"
                 }
             }

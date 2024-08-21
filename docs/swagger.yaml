@@ -1556,6 +1556,12 @@ definitions:
         example: Success
         type: string
     type: object
+  internal_server_http.TokenUniqueIDParams:
+    properties:
+      new_algorithm:
+        description: use new algorithm sum(free - max(0, frozen - reserve))
+        type: boolean
+    type: object
   internal_server_http.accountBalanceParams:
     properties:
       address:
@@ -1684,8 +1690,12 @@ definitions:
   internal_server_http.accountsParams:
     properties:
       account:
+        description: Get the account data associated with different roles of the account,Only
+          proxy,proxies,multisig,multisigMember,convictionDelegate,convictionDelegated,democracyDelegate,democracyDelegated
+          role is valid
         type: string
       address:
+        description: Get the specified account data
         items:
           type: string
         maxItems: 100
@@ -4736,6 +4746,8 @@ definitions:
     type: object
   subscan_internal_model.OtherDetail:
     properties:
+      conviction_locked_balance:
+        type: number
       democracy_locked_balance:
         type: number
       election_locked_balance:
@@ -5285,6 +5297,10 @@ definitions:
         type: array
       title:
         type: string
+      treasury_spend:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TreasurySpend'
+        type: array
     type: object
   subscan_internal_model.ReferendumV2SampleJson:
     properties:
@@ -5733,6 +5749,21 @@ definitions:
       status:
         type: string
       title:
+        type: string
+    type: object
+  subscan_internal_model.TreasurySpend:
+    properties:
+      amount:
+        type: number
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      decimals:
+        type: integer
+      paraId:
+        type: integer
+      symbol:
+        type: string
+      token_unique_id:
         type: string
     type: object
   subscan_internal_model.TreasuryTip:
@@ -11348,6 +11379,13 @@ paths:
     get:
       consumes:
       - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.TokenUniqueIDParams'
       produces:
       - application/json
       responses:
