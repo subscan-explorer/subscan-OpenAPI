@@ -17582,6 +17582,9 @@ const docTemplate = `{
                 "block_timestamp": {
                     "type": "integer"
                 },
+                "currency_amount": {
+                    "type": "number"
+                },
                 "event_idx": {
                     "type": "integer"
                 },
@@ -17628,6 +17631,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "usd_amount": {
+                    "description": "保留 兼容   下版本删除",
                     "type": "number"
                 }
             }
@@ -18716,9 +18720,6 @@ const docTemplate = `{
         "subscan_internal_service_scan.CurrencyPrice": {
             "type": "object",
             "properties": {
-                "height": {
-                    "type": "integer"
-                },
                 "price": {
                     "type": "number"
                 },
@@ -18761,9 +18762,6 @@ const docTemplate = `{
         "subscan_internal_service_scan.PriceRecord": {
             "type": "object",
             "properties": {
-                "height": {
-                    "type": "integer"
-                },
                 "price": {
                     "type": "number"
                 },
