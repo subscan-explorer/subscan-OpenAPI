@@ -2066,6 +2066,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/daily/reward_slash": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "staking"
+                ],
+                "summary": "Get daily reward or slash data. Only supports agung-testnet,peaq,krest network",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.dailyRewardSlashParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.DailyRewardSlashJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/daily_token": {
             "post": {
                 "consumes": [
@@ -12298,6 +12354,48 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.dailyRewardSlashParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string",
+                    "enum": [
+                        "Reward",
+                        "Slash"
+                    ]
+                },
+                "end": {
+                    "type": "string",
+                    "example": "2024-07-02"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2024-07-01"
+                }
+            }
+        },
         "internal_server_http.dailyStatParams": {
             "type": "object",
             "required": [
@@ -14805,6 +14903,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.EventParam"
                     }
                 },
+                "params_raw": {
+                    "type": "string"
+                },
                 "phase": {
                     "type": "integer"
                 }
@@ -15297,6 +15398,23 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.DailyRewardSlashJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "reward": {
+                    "type": "number"
+                },
+                "slash": {
+                    "type": "number"
+                }
+            }
+        },
         "subscan_internal_model.DailyStaticJson": {
             "type": "object",
             "properties": {
@@ -15609,6 +15727,12 @@ const docTemplate = `{
             "properties": {
                 "name": {
                     "type": "string"
+                },
+                "raw_value": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 },
                 "type": {
                     "type": "string"

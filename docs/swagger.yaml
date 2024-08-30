@@ -2059,6 +2059,37 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_server_http.dailyRewardSlashParams:
+    properties:
+      address:
+        type: string
+      category:
+        enum:
+        - Reward
+        - Slash
+        type: string
+      end:
+        example: "2024-07-02"
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      start:
+        example: "2024-07-01"
+        type: string
+    type: object
   internal_server_http.dailyStatParams:
     properties:
       category:
@@ -3808,6 +3839,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.EventParam'
         type: array
+      params_raw:
+        type: string
       phase:
         type: integer
     type: object
@@ -4132,6 +4165,17 @@ definitions:
       status:
         type: string
     type: object
+  subscan_internal_model.DailyRewardSlashJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      date:
+        type: string
+      reward:
+        type: number
+      slash:
+        type: number
+    type: object
   subscan_internal_model.DailyStaticJson:
     properties:
       balance_amount_total:
@@ -4337,6 +4381,10 @@ definitions:
     properties:
       name:
         type: string
+      raw_value:
+        items:
+          type: integer
+        type: array
       type:
         type: string
       type_name:
@@ -8040,6 +8088,40 @@ paths:
       summary: Daily stat
       tags:
       - stat
+  /api/scan/daily/reward_slash:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.dailyRewardSlashParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DailyRewardSlashJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Get daily reward or slash data. Only supports agung-testnet,peaq,krest
+        network
+      tags:
+      - staking
   /api/scan/daily_token:
     post:
       consumes:
