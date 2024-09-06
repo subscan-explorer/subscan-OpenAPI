@@ -8092,6 +8092,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get daily reward or slash data. Only supports agung-testnet,peaq,krest
+        network
       parameters:
       - description: params
         in: body
@@ -8118,8 +8120,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Get daily reward or slash data. Only supports agung-testnet,peaq,krest
-        network
+      summary: daily reward or slash data
       tags:
       - staking
   /api/scan/daily_token:

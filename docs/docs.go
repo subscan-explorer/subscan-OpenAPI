@@ -2068,6 +2068,7 @@ const docTemplate = `{
         },
         "/api/scan/daily/reward_slash": {
             "post": {
+                "description": "Get daily reward or slash data. Only supports agung-testnet,peaq,krest network",
                 "consumes": [
                     "application/json"
                 ],
@@ -2077,7 +2078,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Get daily reward or slash data. Only supports agung-testnet,peaq,krest network",
+                "summary": "daily reward or slash data",
                 "parameters": [
                     {
                         "description": "params",
