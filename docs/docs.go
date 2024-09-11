@@ -10210,6 +10210,11 @@ const docTemplate = `{
                 "address": {
                     "type": "string"
                 },
+                "after_id": {
+                    "description": "example:\"[response.id]\"",
+                    "type": "array",
+                    "items": {}
+                },
                 "category": {
                     "type": "string",
                     "enum": [

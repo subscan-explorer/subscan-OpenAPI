@@ -522,6 +522,10 @@ definitions:
     properties:
       address:
         type: string
+      after_id:
+        description: example:"[response.id]"
+        items: {}
+        type: array
       category:
         enum:
         - erc20
