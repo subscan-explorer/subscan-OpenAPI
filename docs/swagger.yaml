@@ -1064,6 +1064,33 @@ definitions:
         minLength: 1
         type: string
     type: object
+  internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward:
+    properties:
+      amount:
+        type: number
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      module_id:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_moonbeam_orbiters.OrbitersRewardParams:
+    properties:
+      address:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_collator.Status:
     enum:
     - 1
@@ -10066,6 +10093,39 @@ paths:
       summary: Nomination Pools Rewards
       tags:
       - nominationPools
+  /api/scan/orbiters/rewards:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_moonbeam_orbiters.OrbitersRewardParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward'
+                      type: array
+                  type: object
+              type: object
+      summary: Get Moonbeam Orbiters rewards
+      tags:
+      - moonbeam
   /api/scan/parachain/auction_funds_stat:
     post:
       consumes:

@@ -5342,6 +5342,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/orbiters/rewards": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "moonbeam"
+                ],
+                "summary": "Get Moonbeam Orbiters rewards",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_moonbeam_orbiters.OrbitersRewardParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/parachain/auctionCompetitors": {
             "post": {
                 "consumes": [
@@ -10947,6 +11003,46 @@ const docTemplate = `{
                     "type": "string",
                     "maxLength": 256,
                     "minLength": 1
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "event_id": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "module_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_moonbeam_orbiters.OrbitersRewardParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
