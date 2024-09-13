@@ -784,65 +784,6 @@
                 }
             }
         },
-        "/api/scan/assets/transfers": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "assets"
-                ],
-                "summary": "Asset transfers",
-                "parameters": [
-                    {
-                        "description": "param",
-                        "name": "param",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_assets_http.assetTransfersParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "total": {
-                                                    "$ref": "#/definitions/subscan_internal_model.TransferHistoryTokensTotal"
-                                                },
-                                                "transfers": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.TransferHistoryJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/block": {
             "post": {
                 "consumes": [
@@ -9563,68 +9504,6 @@
             "properties": {
                 "asset_id": {
                     "type": "number"
-                }
-            }
-        },
-        "internal_plugin_assets_http.assetTransfersParams": {
-            "type": "object",
-            "required": [
-                "asset_id"
-            ],
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "after_id": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "asset_id": {
-                    "type": "string"
-                },
-                "block_range": {
-                    "type": "string"
-                },
-                "direction": {
-                    "type": "string",
-                    "enum": [
-                        "all",
-                        "sent",
-                        "received"
-                    ]
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "include_total": {
-                    "type": "boolean"
-                },
-                "max_amount": {
-                    "type": "string"
-                },
-                "min_amount": {
-                    "type": "string"
-                },
-                "order": {
-                    "type": "string",
-                    "enum": [
-                        "asc",
-                        "desc"
-                    ]
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                },
-                "success": {
-                    "type": "boolean"
                 }
             }
         },

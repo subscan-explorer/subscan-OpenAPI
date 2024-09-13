@@ -35,49 +35,6 @@ definitions:
       asset_id:
         type: number
     type: object
-  internal_plugin_assets_http.assetTransfersParams:
-    properties:
-      address:
-        type: string
-      after_id:
-        items:
-          type: integer
-        type: array
-      asset_id:
-        type: string
-      block_range:
-        type: string
-      direction:
-        enum:
-        - all
-        - sent
-        - received
-        type: string
-      extrinsic_index:
-        type: string
-      include_total:
-        type: boolean
-      max_amount:
-        type: string
-      min_amount:
-        type: string
-      order:
-        enum:
-        - asc
-        - desc
-        type: string
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-      success:
-        type: boolean
-    required:
-    - asset_id
-    type: object
   internal_plugin_assets_http.assetsParam:
     properties:
       asset_id:
@@ -7353,41 +7310,6 @@ paths:
             additionalProperties: true
             type: object
       summary: Assets list
-      tags:
-      - assets
-  /api/scan/assets/transfers:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: param
-        in: body
-        name: param
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_assets_http.assetTransfersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_plugin_share.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    total:
-                      $ref: '#/definitions/subscan_internal_model.TransferHistoryTokensTotal'
-                    transfers:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.TransferHistoryJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Asset transfers
       tags:
       - assets
   /api/scan/block:
