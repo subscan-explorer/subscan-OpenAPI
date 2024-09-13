@@ -92,7 +92,6 @@ Please notice before you get started:
 | Kintsugi            | `kintsugi.api.subscan.io`                      | live   |
 | Khala               | `khala.api.subscan.io`                         | live   |
 | krest               | `krest.api.subscan.io`                         | live   |
-| KILT Peregrine      | `kilt-testnet.api.subscan.io`                  | test   |
 | KILT Spiritnet      | `spiritnet.api.subscan.io`                     | live   |
 | Mangata             | `mangatax.api.subscan.io`                      | live   |
 | Moonbase            | `moonbase.api.subscan.io`                      | test   |
@@ -102,7 +101,8 @@ Please notice before you get started:
 | Nodle               | `nodle.api.subscan.io`                         | live   |
 | NeuroWeb            | `neuroweb.api.subscan.io`                      | live   |
 | NeuroWeb Testnet    | `neuroweb-testnet.api.subscan.io`              | test   |
-| peaq                | `peaq-testnet.api.subscan.io`                  | test   |
+| Peaq                | `peaq.api.subscan.io`                          | live   |
+| Peaq  Testnet       | `peaq-testnet.api.subscan.io`                  | test   |
 | Phala               | `phala.api.subscan.io`                         | live   |
 | Picasso             | `picasso.api.subscan.io`                       | live   |
 | Pioneer             | `pioneer.api.subscan.io`                       | live   |
