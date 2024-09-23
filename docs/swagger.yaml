@@ -3446,6 +3446,8 @@ definitions:
         additionalProperties:
           $ref: '#/definitions/subscan_internal_model.AccountDerive'
         type: object
+      discord:
+        type: string
       display:
         type: string
       election_lock:
@@ -3460,6 +3462,8 @@ definitions:
         type: array
       fellowship_rank:
         type: integer
+      github:
+        type: string
       is_contract:
         type: boolean
       is_council_member:
@@ -3490,6 +3494,8 @@ definitions:
         type: string
       lock:
         type: number
+      matrix:
+        type: string
       multisig:
         $ref: '#/definitions/subscan_internal_model.MultiAccountJson'
       nft_amount:
@@ -4533,9 +4539,13 @@ definitions:
     type: object
   subscan_internal_model.IdentityJson:
     properties:
+      discord:
+        type: string
       display:
         type: string
       email:
+        type: string
+      github:
         type: string
       identity:
         type: boolean
@@ -4544,6 +4554,8 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.RegistrationJudgementJson'
         type: array
       legal:
+        type: string
+      matrix:
         type: string
       network:
         type: string

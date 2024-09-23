@@ -14363,6 +14363,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.AccountDerive"
                     }
                 },
+                "discord": {
+                    "type": "string"
+                },
                 "display": {
                     "type": "string"
                 },
@@ -14383,6 +14386,9 @@ const docTemplate = `{
                 },
                 "fellowship_rank": {
                     "type": "integer"
+                },
+                "github": {
+                    "type": "string"
                 },
                 "is_contract": {
                     "type": "boolean"
@@ -14428,6 +14434,9 @@ const docTemplate = `{
                 },
                 "lock": {
                     "type": "number"
+                },
+                "matrix": {
+                    "type": "string"
                 },
                 "multisig": {
                     "$ref": "#/definitions/subscan_internal_model.MultiAccountJson"
@@ -16012,10 +16021,16 @@ const docTemplate = `{
         "subscan_internal_model.IdentityJson": {
             "type": "object",
             "properties": {
+                "discord": {
+                    "type": "string"
+                },
                 "display": {
                     "type": "string"
                 },
                 "email": {
+                    "type": "string"
+                },
+                "github": {
                     "type": "string"
                 },
                 "identity": {
@@ -16028,6 +16043,9 @@ const docTemplate = `{
                     }
                 },
                 "legal": {
+                    "type": "string"
+                },
+                "matrix": {
                     "type": "string"
                 },
                 "network": {
