@@ -29,7 +29,7 @@
                 },
                 {
                     "name": "Changelog",
-                    "content": "# Changelog",
+                    "content": "# Changelog\n\nAll significant API changes to the project will be recorded in this file.\n\n### 1.0.0\n#### Changed\n - `/api/scan/assets/transfers` has been removed. Use `/api/v2/scan/transfers` instead.\n",
                     "folderId": 0,
                     "type": ""
                 }

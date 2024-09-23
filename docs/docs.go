@@ -3130,6 +3130,62 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/evm/transaction/internalTx": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM internal Tx",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmInternalTxParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_evm_db.TraceJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/evm/v2/transactions": {
             "post": {
                 "consumes": [
@@ -10122,6 +10178,30 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_plugin_evm_http.EvmInternalTxParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "description": "example:\"[response.id]\"",
+                    "type": "integer"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_plugin_evm_http.EvmTokenHoldersParam": {
             "type": "object",
             "properties": {
@@ -10147,8 +10227,7 @@ const docTemplate = `{
                 },
                 "after_id": {
                     "description": "example:\"[response.id]\"",
-                    "type": "array",
-                    "items": {}
+                    "type": "integer"
                 },
                 "category": {
                     "type": "string",
@@ -18115,6 +18194,32 @@ const docTemplate = `{
                 },
                 "day": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_evm_db.TraceJson": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer"
+                },
+                "create_at": {
+                    "type": "integer"
+                },
+                "from_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "to_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "value": {
+                    "type": "number"
                 }
             }
         },

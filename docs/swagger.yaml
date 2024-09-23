@@ -463,6 +463,23 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_plugin_evm_http.EvmInternalTxParam:
+    properties:
+      address:
+        type: string
+      after_id:
+        description: example:"[response.id]"
+        type: integer
+      hash:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_plugin_evm_http.EvmTokenHoldersParam:
     properties:
       contract:
@@ -481,8 +498,7 @@ definitions:
         type: string
       after_id:
         description: example:"[response.id]"
-        items: {}
-        type: array
+        type: integer
       category:
         enum:
         - erc20
@@ -5961,6 +5977,23 @@ definitions:
       day:
         type: string
     type: object
+  subscan_internal_plugin_evm_db.TraceJson:
+    properties:
+      block_num:
+        type: integer
+      create_at:
+        type: integer
+      from_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      hash:
+        type: string
+      id:
+        type: integer
+      to_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      value:
+        type: number
+    type: object
   subscan_internal_plugin_foreignAssets_db.AssetBalance:
     properties:
       asset_id:
@@ -8729,6 +8762,39 @@ paths:
           schema:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: EVM transaction info
+      tags:
+      - EVM
+  /api/scan/evm/transaction/internalTx:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmInternalTxParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_evm_db.TraceJson'
+                      type: array
+                  type: object
+              type: object
+      summary: EVM internal Tx
       tags:
       - EVM
   /api/scan/evm/v2/transactions:
