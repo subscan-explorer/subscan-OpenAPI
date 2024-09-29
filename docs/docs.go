@@ -17963,8 +17963,14 @@ const docTemplate = `{
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "current_currency_amount": {
+                    "type": "number"
+                },
                 "decimals": {
                     "type": "integer"
+                },
+                "history_currency_amount": {
+                    "type": "number"
                 },
                 "paraId": {
                     "type": "integer"
