@@ -11232,7 +11232,7 @@ const docTemplate = `{
                 "price": {
                     "type": "number"
                 },
-                "price_chat_point": {
+                "price_chart_point": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/internal_pluginv2_pallets_coretime.PriceChatPoint"
@@ -16077,6 +16077,9 @@ const docTemplate = `{
                 "image": {
                     "type": "string"
                 },
+                "local_image": {
+                    "type": "string"
+                },
                 "media": {
                     "type": "array",
                     "items": {
@@ -16084,6 +16087,9 @@ const docTemplate = `{
                     }
                 },
                 "symbol": {
+                    "type": "string"
+                },
+                "thumbnail": {
                     "type": "string"
                 }
             }
@@ -17516,6 +17522,9 @@ const docTemplate = `{
                     "type": "string",
                     "example": "https://ipfs.io/ipfs/bafkreihmb2esqysriq46l2uutyu2bqxkzlgluarbr36kom3hrykd2ku42u"
                 },
+                "local_image": {
+                    "type": "string"
+                },
                 "media": {
                     "type": "array",
                     "items": {
@@ -17529,6 +17538,9 @@ const docTemplate = `{
                 "symbol": {
                     "type": "string",
                     "example": "PKG"
+                },
+                "thumbnail": {
+                    "type": "string"
                 }
             }
         },

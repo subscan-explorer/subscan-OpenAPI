@@ -1216,7 +1216,7 @@ definitions:
         type: integer
       price:
         type: number
-      price_chat_point:
+      price_chart_point:
         items:
           $ref: '#/definitions/internal_pluginv2_pallets_coretime.PriceChatPoint'
         type: array
@@ -4576,11 +4576,15 @@ definitions:
         type: string
       image:
         type: string
+      local_image:
+        type: string
       media:
         items:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
         type: array
       symbol:
+        type: string
+      thumbnail:
         type: string
     type: object
   subscan_internal_model.Lifetime:
@@ -5528,6 +5532,8 @@ definitions:
       image:
         example: https://ipfs.io/ipfs/bafkreihmb2esqysriq46l2uutyu2bqxkzlgluarbr36kom3hrykd2ku42u
         type: string
+      local_image:
+        type: string
       media:
         items:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
@@ -5537,6 +5543,8 @@ definitions:
         type: string
       symbol:
         example: PKG
+        type: string
+      thumbnail:
         type: string
     type: object
   subscan_internal_model.TechcommProposalJson:

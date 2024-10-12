@@ -83,6 +83,8 @@ Please notice before you get started:
 | Enjin-matrix        | `matrix.api.subscan.io`                        | live   |
 | Enjin-canary-matrix | `canary-matrix.api.subscan.io`                 | test   |
 | Enjin-canary        | `canary.api.subscan.io`                        | test   |
+| Energywebx          | `energywebx.api.subscan.io`                    | live   |
+| Energywebx-testnet  | `energywebx-testnet.api.subscan.io`            | test   |
 | Humanode            | `humanode.api.subscan.io`                      | live   |
 | HydraDX             | `hydradx.api.subscan.io`                       | live   |
 | IntegriTEE          | `integritee.api.subscan.io`                    | live   |
