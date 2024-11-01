@@ -3887,6 +3887,7 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.EventParam'
         type: array
+      params_decode: {}
     type: object
   subscan_internal_model.ChainEventV2Json:
     properties:

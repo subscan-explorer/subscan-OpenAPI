@@ -15029,7 +15029,8 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.EventParam"
                     }
-                }
+                },
+                "params_decode": {}
             }
         },
         "subscan_internal_model.ChainEventV2Json": {
