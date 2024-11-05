@@ -17800,6 +17800,9 @@ const docTemplate = `{
                 "currency_amount": {
                     "type": "number"
                 },
+                "current_currency_amount": {
+                    "type": "number"
+                },
                 "event_idx": {
                     "type": "integer"
                 },
@@ -17844,10 +17847,6 @@ const docTemplate = `{
                 },
                 "transfer_id": {
                     "type": "integer"
-                },
-                "usd_amount": {
-                    "description": "保留 兼容   下版本删除",
-                    "type": "number"
                 }
             }
         },

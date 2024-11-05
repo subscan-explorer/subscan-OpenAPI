@@ -5717,6 +5717,8 @@ definitions:
         type: integer
       currency_amount:
         type: number
+      current_currency_amount:
+        type: number
       event_idx:
         type: integer
       extrinsic_index:
@@ -5747,9 +5749,6 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       transfer_id:
         type: integer
-      usd_amount:
-        description: 保留 兼容   下版本删除
-        type: number
     type: object
   subscan_internal_model.TransferHistoryTokensTotal:
     additionalProperties:
