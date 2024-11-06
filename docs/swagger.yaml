@@ -1466,6 +1466,49 @@ definitions:
         example: picasso
         type: string
     type: object
+  internal_pluginv2_pallets_liquidStaking.OperationRecordJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      id:
+        type: integer
+      module_id:
+        type: string
+      param:
+        items:
+          $ref: '#/definitions/subscan_internal_model.EventParam'
+        type: array
+    type: object
+  internal_pluginv2_pallets_liquidStaking.operationParams:
+    properties:
+      address:
+        type: string
+      module:
+        items:
+          type: string
+        type: array
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams:
     properties:
       page:
@@ -4604,6 +4647,19 @@ definitions:
       vesting:
         type: integer
     type: object
+  subscan_internal_model.LpTokenInfo:
+    properties:
+      amount:
+        type: string
+      decimals:
+        type: integer
+      price:
+        type: number
+      symbol:
+        type: string
+      unique_id:
+        type: string
+    type: object
   subscan_internal_model.MerkleTag:
     properties:
       address_type:
@@ -5674,8 +5730,14 @@ definitions:
         type: number
       election_lock:
         type: number
+      exchange_ratio:
+        type: number
       lock:
         type: number
+      lp_token_combination:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
+        type: array
       media:
         items:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
@@ -5684,6 +5746,8 @@ definitions:
         items:
           type: integer
         type: array
+      price:
+        type: number
       reserved:
         type: number
       symbol:
@@ -5731,6 +5795,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       hash:
         type: string
+      history_currency_amount:
+        type: number
       is_lock:
         type: boolean
       item_detail:
@@ -9308,6 +9374,41 @@ paths:
       summary: Ibc Transfers list
       tags:
       - ibc
+  /api/scan/liquidstaking/operations:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_liquidStaking.operationParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_liquidStaking.OperationRecordJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: LiquidStaking operation record list
+      tags:
+      - bifrost
   /api/scan/log:
     post:
       consumes:

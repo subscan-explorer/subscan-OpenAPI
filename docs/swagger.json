@@ -4002,6 +4002,61 @@
                 }
             }
         },
+        "/api/scan/liquidstaking/operations": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "bifrost"
+                ],
+                "summary": "LiquidStaking operation record list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_liquidStaking.operationParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_liquidStaking.OperationRecordJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/log": {
             "post": {
                 "consumes": [
@@ -11564,6 +11619,68 @@
                 }
             }
         },
+        "internal_pluginv2_pallets_liquidStaking.OperationRecordJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "event_id": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "module_id": {
+                    "type": "string"
+                },
+                "param": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.EventParam"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_liquidStaking.operationParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
         "internal_pluginv2_pallets_nominationPool.nominationPoolsActivitiesParams": {
             "type": "object",
             "properties": {
@@ -16109,6 +16226,26 @@
                 }
             }
         },
+        "subscan_internal_model.LpTokenInfo": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "unique_id": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.MerkleTag": {
             "type": "object",
             "properties": {
@@ -17725,8 +17862,17 @@
                 "election_lock": {
                     "type": "number"
                 },
+                "exchange_ratio": {
+                    "type": "number"
+                },
                 "lock": {
                     "type": "number"
+                },
+                "lp_token_combination": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.LpTokenInfo"
+                    }
                 },
                 "media": {
                     "type": "array",
@@ -17739,6 +17885,9 @@
                     "items": {
                         "type": "integer"
                     }
+                },
+                "price": {
+                    "type": "number"
                 },
                 "reserved": {
                     "type": "number"
@@ -17809,6 +17958,9 @@
                 },
                 "hash": {
                     "type": "string"
+                },
+                "history_currency_amount": {
+                    "type": "number"
                 },
                 "is_lock": {
                     "type": "boolean"
