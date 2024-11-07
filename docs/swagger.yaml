@@ -1569,6 +1569,25 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_server_http.BridgeStatParams:
+    properties:
+      end:
+        description: 'end date, format: 2006-01-02'
+        type: string
+      format:
+        description: json result format, default is day
+        enum:
+        - hour
+        - day
+        - 6hour
+        type: string
+      start:
+        description: 'start date, format: 2006-01-02'
+        type: string
+    required:
+    - end
+    - start
+    type: object
   internal_server_http.CurrencyConverter:
     properties:
       output:
@@ -1608,6 +1627,160 @@ definitions:
       new_algorithm:
         description: use new algorithm sum(free - max(0, frozen - reserve))
         type: boolean
+    type: object
+  internal_server_http.XcmChannelInfoParams:
+    properties:
+      recipient:
+        description: HRMP recipient parachain id
+        minimum: 1
+        type: integer
+      sender:
+        description: HRMP sender parachain id
+        minimum: 1
+        type: integer
+    type: object
+  internal_server_http.XcmChannelParams:
+    properties:
+      filter_para_id:
+        description: filter by parachain id(sender or recipient)
+        minimum: 1
+        type: integer
+      recipient:
+        description: HRMP recipient parachain id
+        minimum: 1
+        type: integer
+      sender:
+        description: HRMP sender parachain id
+        minimum: 1
+        type: integer
+      status:
+        description: filter by status
+        enum:
+        - closed
+        - accepted
+        - canceled
+        - requested
+        type: string
+    type: object
+  internal_server_http.XcmHashParams:
+    properties:
+      dest_event_id:
+        description: receiver event id
+        type: string
+      dest_para_id:
+        description: receiver parachain id
+        type: integer
+      message_hash:
+        description: message hash
+        type: string
+      origin_event_id:
+        description: sender event id
+        type: string
+      origin_para_id:
+        description: sender parachain id
+        type: integer
+    type: object
+  internal_server_http.XcmMessageDetailParams:
+    properties:
+      origin_event_id:
+        description: sender event id, need with origin_para_id
+        type: string
+      origin_para_id:
+        description: sender parachain id, need with origin_event_id
+        type: integer
+      unique_id:
+        description: unique id of the message
+        type: string
+    type: object
+  internal_server_http.XcmMessageParams:
+    properties:
+      address:
+        description: filter by address
+        type: string
+      after_id:
+        description: Pagination, the last message id of the previous page
+        type: string
+      block_range:
+        description: 'filter by block range,eg: 1000-2000'
+        example: 20000-30000
+        type: string
+      bridge_type:
+        description: filter by bridge type
+        items:
+          type: string
+        type: array
+      dest_para_id:
+        description: filter by receiver parachain id
+        type: integer
+      extrinsic_index:
+        description: filter by extrinsic index
+        type: string
+      filter_para_id:
+        description: filter by parachain id(sender or receiver)
+        minimum: 1
+        type: integer
+      filter_symbol:
+        description: filter by asset symbol
+        type: string
+      message_hash:
+        description: filter by message hash
+        type: string
+      message_type:
+        description: filter by message type
+        enum:
+        - transfer
+        - message
+        type: string
+      origin_para_id:
+        description: filter by sender origin parachain id
+        type: integer
+      page:
+        description: page number, start from 0
+        minimum: 0
+        type: integer
+      protocol:
+        description: filter by XCM protocol
+        enum:
+        - HRMP
+        - VMP
+        - UMP
+        - DMP
+        type: string
+      row:
+        description: page size
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        description: filter by status
+        enum:
+        - pending
+        - relayed
+        - success
+        - failed
+        type: string
+    type: object
+  internal_server_http.XcmMetaParams:
+    properties:
+      para_id:
+        description: optional, if not set or set 0, will return all parachain statistics
+        type: integer
+    type: object
+  internal_server_http.XcmStatParams:
+    properties:
+      end:
+        description: 'end date, format: 2006-01-02'
+        type: string
+      filter_para_id:
+        description: filter by parachain id, optional
+        minimum: 1
+        type: integer
+      start:
+        description: 'start date, format: 2006-01-02'
+        type: string
+    required:
+    - end
+    - start
     type: object
   internal_server_http.accountBalanceParams:
     properties:
@@ -3716,6 +3889,23 @@ definitions:
       symbol:
         type: string
     type: object
+  subscan_internal_model.AssetInstance:
+    properties:
+      Array4:
+        type: string
+      Array8:
+        type: string
+      Array16:
+        type: string
+      Array32:
+        type: string
+      Blob:
+        type: string
+      Index:
+        type: number
+      Undefined:
+        $ref: '#/definitions/subscan_internal_model.EnumData'
+    type: object
   subscan_internal_model.AssetsJson:
     properties:
       asset_id:
@@ -3819,6 +4009,40 @@ definitions:
         type: string
       value:
         type: number
+    type: object
+  subscan_internal_model.BoxProposal:
+    properties:
+      call_index:
+        type: string
+      call_module:
+        type: string
+      call_name:
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+    type: object
+  subscan_internal_model.BridgeStatStatJson:
+    properties:
+      time_utc:
+        type: string
+      total:
+        type: integer
+    type: object
+  subscan_internal_model.BuyExecution:
+    properties:
+      fees:
+        $ref: '#/definitions/subscan_internal_model.V1MultiAssets'
+      weight_limit:
+        $ref: '#/definitions/subscan_internal_model.WeightLimitV2'
+    type: object
+  subscan_internal_model.BuyExecutionV4:
+    properties:
+      fees:
+        $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
+      weight_limit:
+        $ref: '#/definitions/subscan_internal_model.WeightLimitV2'
     type: object
   subscan_internal_model.ChainBlockJson:
     properties:
@@ -4208,6 +4432,36 @@ definitions:
       voting_time:
         type: integer
     type: object
+  subscan_internal_model.CrossChainMetadata:
+    properties:
+      lane_id:
+        description: s2s message laneId
+        type: string
+      message_id:
+        description: ethBridge messageId
+        type: string
+      nonce:
+        description: s2s message nonce
+        type: integer
+      send_at:
+        description: ethBridge send time or received time
+        type: integer
+      tx_hash:
+        description: ethBridge transaction hash
+        type: string
+    type: object
+  subscan_internal_model.CrossChainProtocol:
+    enum:
+    - UMP
+    - DMP
+    - HRMP
+    - SnowBridge
+    type: string
+    x-enum-varnames:
+    - UMPProtocol
+    - DMPProtocol
+    - HRMPProtocol
+    - SnowBridge
   subscan_internal_model.DProgress:
     properties:
       download:
@@ -4418,6 +4672,90 @@ definitions:
       voting_time:
         type: integer
     type: object
+  subscan_internal_model.DepositAsset:
+    properties:
+      assets: {}
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
+      max_assets:
+        type: integer
+    type: object
+  subscan_internal_model.DepositAssetV0:
+    properties:
+      assets:
+        items: {}
+        type: array
+      dest:
+        $ref: '#/definitions/subscan_internal_model.V0MultiLocation'
+    type: object
+  subscan_internal_model.DepositAssetV4:
+    properties:
+      assets: {}
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.V4MultiLocation'
+    type: object
+  subscan_internal_model.DepositReserveAsset:
+    properties:
+      assets: {}
+      dest: {}
+      max_assets:
+        type: integer
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV2'
+    type: object
+  subscan_internal_model.DepositReserveAssetV3:
+    properties:
+      assets: {}
+      dest: {}
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV3'
+    type: object
+  subscan_internal_model.DescendOrigin:
+    properties:
+      Here:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.EnumValueNull'
+        description: 为了与v1 兼容
+      X1:
+        $ref: '#/definitions/subscan_internal_model.XCMJunction'
+      X2:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X3:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X4:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X5:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X6:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X7:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X8:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+    type: object
+  subscan_internal_model.EnumData:
+    additionalProperties:
+      type: string
+    type: object
+  subscan_internal_model.EnumValueNull:
+    properties:
+      set:
+        type: boolean
+    type: object
   subscan_internal_model.EraBondStat:
     properties:
       avg:
@@ -4449,6 +4787,16 @@ definitions:
     properties:
       contract_name:
         type: string
+    type: object
+  subscan_internal_model.ExportMessageV3:
+    properties:
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV3'
+    type: object
+  subscan_internal_model.ExportMessageV4:
+    properties:
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV4'
     type: object
   subscan_internal_model.ExtrinsicDetail:
     properties:
@@ -4581,6 +4929,25 @@ definitions:
       voting_total:
         type: integer
     type: object
+  subscan_internal_model.HrmpChannel:
+    properties:
+      active_at:
+        type: integer
+      message_count:
+        type: integer
+      proposed_max_capacity:
+        type: integer
+      proposed_max_message_size:
+        type: integer
+      recipient:
+        type: integer
+      sender:
+        type: integer
+      status:
+        type: string
+      transfer_count:
+        type: integer
+    type: object
   subscan_internal_model.IdentityJson:
     properties:
       discord:
@@ -4611,6 +4978,27 @@ definitions:
         type: string
       web:
         type: string
+    type: object
+  subscan_internal_model.InitiateTeleport:
+    properties:
+      assets: {}
+      dest: {}
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV2'
+    type: object
+  subscan_internal_model.InitiateTeleportV3:
+    properties:
+      assets: {}
+      dest: {}
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV3'
+    type: object
+  subscan_internal_model.InitiateTeleportV4:
+    properties:
+      assets: {}
+      dest: {}
+      xcm:
+        $ref: '#/definitions/subscan_internal_model.XcmV4'
     type: object
   subscan_internal_model.ItemDetail:
     properties:
@@ -4716,6 +5104,30 @@ definitions:
     - MultiActionExecuted
     - MultiActionCancelled
     - MultiActionExecuteFailed
+  subscan_internal_model.MultiAssets:
+    properties:
+      amount:
+        type: number
+      asset_module:
+        type: string
+      asset_unique_id:
+        type: string
+      current_currency_amount:
+        type: number
+      decimals:
+        type: integer
+      enum_key:
+        type: string
+      history_currency_amount:
+        type: number
+      network:
+        type: string
+      raw: {}
+      symbol:
+        type: string
+      version:
+        type: string
+    type: object
   subscan_internal_model.MultisigExtrinsicDetailsJson:
     properties:
       account_display:
@@ -4949,6 +5361,111 @@ definitions:
       xcm_send_message_count:
         type: integer
       xcm_send_transfer_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParaXcmMessageJson:
+    properties:
+      assets:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MultiAssets'
+        type: array
+      block_num:
+        description: relay chain block num
+        type: integer
+      bridge_type:
+        description: bridge type, like e2s(ethereum to substrate), s2e(substrate to
+          ethereum), s2s(substrate to substrate)
+        type: string
+      call_data:
+        description: xcm transact call data
+        items:
+          $ref: '#/definitions/subscan_internal_model.BoxProposal'
+        type: array
+      child_dest:
+        type: string
+      child_message:
+        $ref: '#/definitions/subscan_internal_model.XcmMessageEmbeddedJson'
+      child_para_id:
+        type: integer
+      confirm_block_timestamp:
+        type: integer
+      cross_chain_status:
+        description: 'cross chain status, 0: not cross chain, 1: cross chain unconfirmed,
+          2: cross chain confirmed, 3: cross chain completed'
+        type: integer
+      dest_chain:
+        description: dest chain, like Polkadot.kusama,Ethereum
+        type: string
+      dest_event_index:
+        description: receive message event index
+        type: string
+      dest_extrinsic_index:
+        description: receive message extrinsic index
+        type: string
+      dest_para_id:
+        description: eq 0 if to relay chain
+        type: integer
+      dest_raw:
+        items:
+          type: integer
+        type: array
+      extrinsic_index:
+        description: Send message extrinsic index
+        type: string
+      from_account_id:
+        description: sender address
+        type: string
+      from_chain:
+        description: source chain, like Polkadot.kusama,Ethereum
+        type: string
+      instructions:
+        $ref: '#/definitions/subscan_internal_model.VersionedXcm'
+      message_hash:
+        description: xcm message hash,
+        type: string
+      message_type:
+        description: transfer/message
+        type: string
+      metadata:
+        $ref: '#/definitions/subscan_internal_model.CrossChainMetadata'
+      origin_block_timestamp:
+        type: integer
+      origin_event_index:
+        description: send message event index
+        type: string
+      origin_para_id:
+        description: origin parachain id
+        type: integer
+      protocol:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.CrossChainProtocol'
+        description: UMP/DMP/HRMP
+      relayed_block_timestamp:
+        type: integer
+      relayed_event_index:
+        description: relaychain include message event index,only for HRMP protocol
+        type: string
+      relayed_extrinsic_index:
+        description: relaychain include message extrinsic index,only for HRMP protocol
+        type: string
+      s2s_dest_para_id:
+        description: s2s dest parachain id
+        type: integer
+      status:
+        description: pending, success, failed
+        type: string
+      to_account_id:
+        description: receiver address
+        type: string
+      to_account_raw:
+        items:
+          type: integer
+        type: array
+      unique_id:
+        description: global xcm message unique id
+        type: string
+      xcm_version:
+        description: xcm version
         type: integer
     type: object
   subscan_internal_model.ParachainAuction:
@@ -5303,6 +5820,15 @@ definitions:
         example: true
         type: boolean
     type: object
+  subscan_internal_model.ReceiveTeleportedAsset:
+    properties:
+      assets:
+        items: {}
+        type: array
+      effects:
+        items: {}
+        type: array
+    type: object
   subscan_internal_model.ReferendumJson:
     properties:
       aye_amount:
@@ -5464,6 +5990,14 @@ definitions:
         type: integer
       judgement:
         type: string
+    type: object
+  subscan_internal_model.ReserveAssetDeposited:
+    properties:
+      assets: {}
+      effects:
+        items:
+          $ref: '#/definitions/subscan_internal_model.V1XCMRuntimeCall'
+        type: array
     type: object
   subscan_internal_model.RoleRegistrarJson:
     properties:
@@ -5683,6 +6217,18 @@ definitions:
       voting_time:
         type: integer
     type: object
+  subscan_internal_model.TeleportAsset:
+    properties:
+      assets:
+        items:
+          additionalProperties: true
+          type: object
+        type: array
+      effects:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmV0Order'
+        type: array
+    type: object
   subscan_internal_model.ThirdPartyCompiler:
     properties:
       digest:
@@ -5761,6 +6307,28 @@ definitions:
         type: string
       vesting:
         $ref: '#/definitions/subscan_internal_model.VestingJson'
+    type: object
+  subscan_internal_model.Transact:
+    properties:
+      call:
+        type: string
+      origin_type:
+        type: string
+      require_weight_at_most: {}
+    type: object
+  subscan_internal_model.TransactV3:
+    properties:
+      call:
+        type: string
+      origin_kind:
+        type: string
+      require_weight_at_most: {}
+    type: object
+  subscan_internal_model.TransferAsset:
+    properties:
+      assets: {}
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
     type: object
   subscan_internal_model.TransferHistoryJson:
     properties:
@@ -5847,6 +6415,36 @@ definitions:
         type: string
       to_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+    type: object
+  subscan_internal_model.TransferReserveAsset:
+    properties:
+      assets: {}
+      dest:
+        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
+      xcm:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmInstruction'
+        type: array
+    type: object
+  subscan_internal_model.TransferReserveAssetV3:
+    properties:
+      assets: {}
+      dest:
+        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
+      xcm:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmInstructionV3'
+        type: array
+    type: object
+  subscan_internal_model.TransferReserveAssetV4:
+    properties:
+      assets: {}
+      dest:
+        $ref: '#/definitions/subscan_internal_model.V4MultiLocation'
+      xcm:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
+        type: array
     type: object
   subscan_internal_model.TreasuryProposalDetailJson:
     properties:
@@ -5974,6 +6572,164 @@ definitions:
       rewarder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
+  subscan_internal_model.V0MultiLocation:
+    properties:
+      Here:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.EnumValueNull'
+        description: 为了与v1 兼容
+      X1:
+        $ref: '#/definitions/subscan_internal_model.XCMJunction'
+      X2:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X3:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X4:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X5:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X6:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X7:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+      X8:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: object
+    type: object
+  subscan_internal_model.V1MultiAssets:
+    properties:
+      fun:
+        description: Fungibility
+        properties:
+          Fungible:
+            type: number
+          NonFungible:
+            $ref: '#/definitions/subscan_internal_model.AssetInstance'
+        type: object
+      id:
+        description: AssetId
+        properties:
+          Abstract:
+            type: string
+          Concrete:
+            $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
+        type: object
+    type: object
+  subscan_internal_model.V1MultiLocation:
+    properties:
+      interior:
+        $ref: '#/definitions/subscan_internal_model.V0MultiLocation'
+      parents:
+        type: integer
+    type: object
+  subscan_internal_model.V1XCMRuntimeCall:
+    properties:
+      BuyExecution: {}
+      DepositAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositAsset'
+      DepositReserveAsset: {}
+      ExchangeAsset: {}
+      InitiateReserveWithdraw: {}
+      InitiateTeleport: {}
+      Noop: {}
+      QueryHolding: {}
+    type: object
+  subscan_internal_model.V3MultiAssets:
+    properties:
+      fun:
+        description: Fungibility
+        properties:
+          Fungible:
+            type: number
+          NonFungible:
+            $ref: '#/definitions/subscan_internal_model.AssetInstance'
+        type: object
+      id:
+        description: AssetId
+        properties:
+          Abstract:
+            type: string
+          Concrete:
+            $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
+        type: object
+    type: object
+  subscan_internal_model.V4MultiAsset:
+    properties:
+      fun:
+        description: Fungibility
+        properties:
+          Fungible:
+            description: u128
+            type: number
+          NonFungible:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_model.AssetInstance'
+            description: AssetInstance
+        type: object
+      id:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.V4MultiLocation'
+        description: AssetId
+    type: object
+  subscan_internal_model.V4MultiLocation:
+    properties:
+      interior:
+        $ref: '#/definitions/subscan_internal_model.V4MultiLocationJunctions'
+      parents:
+        type: integer
+    type: object
+  subscan_internal_model.V4MultiLocationJunctions:
+    properties:
+      Here:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.EnumValueNull'
+        description: 为了与v1 兼容
+      X1:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X2:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X3:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X4:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X5:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X6:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X7:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+      X8:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XCMJunction'
+        type: array
+    type: object
   subscan_internal_model.ValidatorJson:
     properties:
       bonded_nominators:
@@ -6039,6 +6795,25 @@ definitions:
       validator_prefs_value:
         type: integer
     type: object
+  subscan_internal_model.VersionedXcm:
+    properties:
+      V0:
+        $ref: '#/definitions/subscan_internal_model.XcmV0'
+      V1:
+        $ref: '#/definitions/subscan_internal_model.XcmV1'
+      V2:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmInstruction'
+        type: array
+      V3:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmInstructionV3'
+        type: array
+      V4:
+        items:
+          $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
+        type: array
+    type: object
   subscan_internal_model.VestingJson:
     properties:
       linear_schedules:
@@ -6067,6 +6842,441 @@ definitions:
       day:
         type: string
     type: object
+  subscan_internal_model.WeightLimitV2:
+    properties:
+      Limited: {}
+      Unlimited:
+        $ref: '#/definitions/subscan_internal_model.EnumValueNull'
+    type: object
+  subscan_internal_model.XCMJunction:
+    properties:
+      AccountId32:
+        properties:
+          id:
+            type: string
+          network:
+            $ref: '#/definitions/subscan_internal_model.EnumData'
+        type: object
+      AccountIndex64:
+        properties:
+          index:
+            type: integer
+          network:
+            $ref: '#/definitions/subscan_internal_model.EnumData'
+        type: object
+      AccountKey20:
+        properties:
+          key:
+            type: string
+          network:
+            $ref: '#/definitions/subscan_internal_model.EnumData'
+        type: object
+      GeneralIndex:
+        type: string
+      GeneralKey: {}
+      GlobalConsensus:
+        $ref: '#/definitions/subscan_internal_model.XcmNetworkId'
+      OnlyChild: {}
+      PalletInstance:
+        type: integer
+      Parachain:
+        type: integer
+      Parent:
+        type: string
+      Plurality:
+        additionalProperties: true
+        type: object
+    type: object
+  subscan_internal_model.XcmInstruction:
+    properties:
+      BuyExecution:
+        $ref: '#/definitions/subscan_internal_model.BuyExecution'
+      ClaimAsset: {}
+      ClearError: {}
+      ClearOrigin: {}
+      DepositAsset:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.DepositAsset'
+        description: todo
+      DepositReserveAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositReserveAsset'
+      DescendOrigin:
+        $ref: '#/definitions/subscan_internal_model.DescendOrigin'
+      ExchangeAsset: {}
+      HrmpChannelAccepted: {}
+      HrmpChannelClosing: {}
+      HrmpNewChannelOpenRequest: {}
+      InitiateReserveWithdraw: {}
+      InitiateTeleport:
+        $ref: '#/definitions/subscan_internal_model.InitiateTeleport'
+      QueryHolding: {}
+      QueryResponse: {}
+      ReceiveTeleportedAsset: {}
+      RefundSurplus: {}
+      ReportError: {}
+      ReserveAssetDeposited: {}
+      SetAppendix: {}
+      SetErrorHandler: {}
+      SubscribeVersion: {}
+      Transact:
+        $ref: '#/definitions/subscan_internal_model.Transact'
+      TransferAsset:
+        $ref: '#/definitions/subscan_internal_model.TransferAsset'
+      TransferReserveAsset:
+        $ref: '#/definitions/subscan_internal_model.TransferReserveAsset'
+      Trap: {}
+      UnsubscribeVersion: {}
+      WithdrawAsset: {}
+    type: object
+  subscan_internal_model.XcmInstructionV3:
+    properties:
+      AliasOrigin: {}
+      BurnAsset: {}
+      BuyExecution:
+        $ref: '#/definitions/subscan_internal_model.BuyExecution'
+      ClaimAsset: {}
+      ClearError: {}
+      ClearOrigin: {}
+      ClearTopic: {}
+      ClearTransactStatus: {}
+      DepositAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositAsset'
+      DepositReserveAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositReserveAssetV3'
+      DescendOrigin:
+        $ref: '#/definitions/subscan_internal_model.DescendOrigin'
+      ExchangeAsset: {}
+      ExpectAsset: {}
+      ExpectError: {}
+      ExpectOrigin: {}
+      ExpectPallet: {}
+      ExpectTransactStatus: {}
+      ExportMessage:
+        $ref: '#/definitions/subscan_internal_model.ExportMessageV3'
+      HrmpChannelAccepted: {}
+      HrmpChannelClosing: {}
+      HrmpNewChannelOpenRequest: {}
+      InitiateReserveWithdraw: {}
+      InitiateTeleport:
+        $ref: '#/definitions/subscan_internal_model.InitiateTeleportV3'
+      LockAsset: {}
+      NoteUnlockable: {}
+      QueryHolding: {}
+      QueryPallet: {}
+      QueryResponse: {}
+      ReceiveTeleportedAsset: {}
+      RefundSurplus: {}
+      ReportError: {}
+      ReportTransactStatus: {}
+      RequestUnlock: {}
+      ReserveAssetDeposited:
+        items:
+          $ref: '#/definitions/subscan_internal_model.V3MultiAssets'
+        type: array
+      SetAppendix: {}
+      SetErrorHandler: {}
+      SetFeesMode: {}
+      SetTopic:
+        type: string
+      SubscribeVersion: {}
+      Transact:
+        $ref: '#/definitions/subscan_internal_model.TransactV3'
+      TransferAsset:
+        $ref: '#/definitions/subscan_internal_model.TransferAsset'
+      TransferReserveAsset:
+        $ref: '#/definitions/subscan_internal_model.TransferReserveAssetV3'
+      Trap: {}
+      UniversalOrigin: {}
+      UnlockAsset: {}
+      UnpaidExecution: {}
+      UnsubscribeVersion: {}
+      WithdrawAsset:
+        items:
+          $ref: '#/definitions/subscan_internal_model.V3MultiAssets'
+        type: array
+    type: object
+  subscan_internal_model.XcmInstructionV4:
+    properties:
+      AliasOrigin: {}
+      BurnAsset: {}
+      BuyExecution:
+        $ref: '#/definitions/subscan_internal_model.BuyExecutionV4'
+      ClaimAsset: {}
+      ClearError: {}
+      ClearOrigin: {}
+      ClearTopic: {}
+      ClearTransactStatus: {}
+      DepositAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositAssetV4'
+      DepositReserveAsset:
+        $ref: '#/definitions/subscan_internal_model.InitiateTeleportV4'
+      DescendOrigin: {}
+      ExchangeAsset: {}
+      ExpectAsset: {}
+      ExpectError: {}
+      ExpectOrigin: {}
+      ExpectPallet: {}
+      ExpectTransactStatus: {}
+      ExportMessage:
+        $ref: '#/definitions/subscan_internal_model.ExportMessageV4'
+      HrmpChannelAccepted: {}
+      HrmpChannelClosing: {}
+      HrmpNewChannelOpenRequest: {}
+      InitiateReserveWithdraw: {}
+      InitiateTeleport:
+        $ref: '#/definitions/subscan_internal_model.InitiateTeleportV4'
+      LockAsset: {}
+      NoteUnlockable: {}
+      QueryPallet: {}
+      QueryResponse: {}
+      ReceiveTeleportedAsset:
+        items:
+          $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
+        type: array
+      RefundSurplus: {}
+      ReportError: {}
+      ReportHolding: {}
+      ReportTransactStatus: {}
+      RequestUnlock: {}
+      ReserveAssetDeposited:
+        items:
+          $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
+        type: array
+      SetAppendix: {}
+      SetErrorHandler: {}
+      SetFeesMode: {}
+      SetTopic:
+        type: string
+      SubscribeVersion: {}
+      Transact:
+        $ref: '#/definitions/subscan_internal_model.TransactV3'
+      TransferAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositAssetV4'
+      TransferReserveAsset:
+        $ref: '#/definitions/subscan_internal_model.TransferReserveAssetV4'
+      Trap: {}
+      UniversalOrigin: {}
+      UnlockAsset: {}
+      UnpaidExecution: {}
+      UnsubscribeVersion: {}
+      WithdrawAsset:
+        items:
+          $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
+        type: array
+    type: object
+  subscan_internal_model.XcmMessageEmbeddedJson:
+    properties:
+      block_num:
+        description: relay chain block num
+        type: integer
+      bridge_type:
+        description: bridge type, like e2s(ethereum to substrate), s2e(substrate to
+          ethereum), s2s(substrate to substrate)
+        type: string
+      call_data:
+        description: xcm transact call data
+        items:
+          $ref: '#/definitions/subscan_internal_model.BoxProposal'
+        type: array
+      child_dest:
+        type: string
+      child_para_id:
+        type: integer
+      confirm_block_timestamp:
+        type: integer
+      cross_chain_status:
+        description: 'cross chain status, 0: not cross chain, 1: cross chain unconfirmed,
+          2: cross chain confirmed, 3: cross chain completed'
+        type: integer
+      dest_chain:
+        description: dest chain, like Polkadot.kusama,Ethereum
+        type: string
+      dest_event_index:
+        description: receive message event index
+        type: string
+      dest_extrinsic_index:
+        description: receive message extrinsic index
+        type: string
+      dest_para_id:
+        description: eq 0 if to relay chain
+        type: integer
+      dest_raw:
+        items:
+          type: integer
+        type: array
+      extrinsic_index:
+        description: Send message extrinsic index
+        type: string
+      from_account_id:
+        description: sender address
+        type: string
+      from_chain:
+        description: source chain, like Polkadot.kusama,Ethereum
+        type: string
+      instructions:
+        $ref: '#/definitions/subscan_internal_model.VersionedXcm'
+      message_hash:
+        description: xcm message hash,
+        type: string
+      message_type:
+        description: transfer/message
+        type: string
+      metadata:
+        $ref: '#/definitions/subscan_internal_model.CrossChainMetadata'
+      origin_block_timestamp:
+        type: integer
+      origin_event_index:
+        description: send message event index
+        type: string
+      origin_para_id:
+        description: origin parachain id
+        type: integer
+      protocol:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.CrossChainProtocol'
+        description: UMP/DMP/HRMP
+      relayed_block_timestamp:
+        type: integer
+      relayed_event_index:
+        description: relaychain include message event index,only for HRMP protocol
+        type: string
+      relayed_extrinsic_index:
+        description: relaychain include message extrinsic index,only for HRMP protocol
+        type: string
+      s2s_dest_para_id:
+        description: s2s dest parachain id
+        type: integer
+      status:
+        description: pending, success, failed
+        type: string
+      to_account_id:
+        description: receiver address
+        type: string
+      to_account_raw:
+        items:
+          type: integer
+        type: array
+      unique_id:
+        description: global xcm message unique id
+        type: string
+      xcm_version:
+        description: xcm version
+        type: integer
+    type: object
+  subscan_internal_model.XcmMessageStatJson:
+    properties:
+      message_total:
+        type: integer
+      time_utc:
+        type: string
+      total:
+        type: integer
+    type: object
+  subscan_internal_model.XcmMeta:
+    properties:
+      all_channel:
+        type: integer
+      connected_parachain_count:
+        type: integer
+      online_parachain:
+        type: integer
+      open_channel:
+        type: integer
+      parachain_count_with_requested:
+        type: integer
+      received_xcm_message_count:
+        type: integer
+      received_xcm_transfer_count:
+        type: integer
+      relayed_message_count:
+        type: integer
+      relayed_transfer_count:
+        type: integer
+      send_xcm_message_count:
+        type: integer
+      send_xcm_transfer_count:
+        type: integer
+      support_parachain:
+        type: integer
+    type: object
+  subscan_internal_model.XcmNetworkId:
+    properties:
+      Ethereum:
+        type: integer
+      Kusama:
+        type: string
+      Polkadot:
+        description: ByGenesis        *string `json:"ByGenesis,omitempty"`
+        type: string
+      Rococo:
+        type: string
+      Westend:
+        type: string
+      Wococo:
+        type: string
+    type: object
+  subscan_internal_model.XcmV0:
+    properties:
+      HrmpChannelAccepted: {}
+      HrmpChannelClosing: {}
+      HrmpNewChannelOpenRequest: {}
+      QueryResponse: {}
+      RelayedFrom: {}
+      ReserveAssetDeposit: {}
+      TeleportAsset:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.TeleportAsset'
+        description: todo
+      Transact: {}
+      TransferAsset: {}
+      TransferReserveAsset: {}
+      WithdrawAsset: {}
+    type: object
+  subscan_internal_model.XcmV0Order:
+    properties:
+      BuyExecution: {}
+      DepositAsset:
+        $ref: '#/definitions/subscan_internal_model.DepositAssetV0'
+      DepositReserveAsset: {}
+      ExchangeAsset: {}
+      InitiateReserveWithdraw: {}
+      InitiateTeleport: {}
+      "Null":
+        type: string
+      QueryHolding: {}
+    type: object
+  subscan_internal_model.XcmV1:
+    properties:
+      HrmpChannelAccepted: {}
+      HrmpChannelClosing: {}
+      HrmpNewChannelOpenRequest: {}
+      QueryResponse: {}
+      ReceiveTeleportedAsset:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.ReceiveTeleportedAsset'
+        description: todo
+      RelayedFrom: {}
+      ReserveAssetDeposited:
+        $ref: '#/definitions/subscan_internal_model.ReserveAssetDeposited'
+      SubscribeVersion: {}
+      Transact: {}
+      TransferAsset: {}
+      TransferReserveAsset: {}
+      UnsubscribeVersion: {}
+      WithdrawAsset: {}
+    type: object
+  subscan_internal_model.XcmV2:
+    items:
+      $ref: '#/definitions/subscan_internal_model.XcmInstruction'
+    type: array
+  subscan_internal_model.XcmV3:
+    items:
+      $ref: '#/definitions/subscan_internal_model.XcmInstructionV3'
+    type: array
+  subscan_internal_model.XcmV4:
+    items:
+      $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
+    type: array
   subscan_internal_plugin_evm_db.TraceJson:
     properties:
       block_num:
@@ -12256,6 +13466,243 @@ paths:
       summary: Vesting release list
       tags:
       - vesting
+  /api/scan/xcm/bridge_stat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.BridgeStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      $ref: '#/definitions/subscan_internal_model.BridgeStatStatJson'
+                    type: array
+                  type: object
+              type: object
+      summary: Xcm Bridge Stat (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/channel:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmChannelInfoParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.HrmpChannel'
+              type: object
+      summary: Xcm Channel (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/channels:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmChannelParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.HrmpChannel'
+                      type: array
+                  type: object
+              type: object
+      summary: Xcm Channels (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/check_hash:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmHashParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Find Xcm message id by hash (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/info:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmMessageDetailParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ParaXcmMessageJson'
+              type: object
+      summary: Xcm Message detail (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmMessageParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParaXcmMessageJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Xcm Messages list (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/meta:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmMetaParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.XcmMeta'
+              type: object
+      summary: Xcm Meta (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/stat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    all:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.XcmMessageStatJson'
+                      type: array
+                    receiver:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.XcmMessageStatJson'
+                      type: array
+                    send:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.XcmMessageStatJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Xcm Stat (PRO)
+      tags:
+      - Xcm
   /api/v2/scan/account/reward_slash:
     post:
       consumes:

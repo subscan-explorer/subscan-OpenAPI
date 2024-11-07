@@ -1,5 +1,3 @@
-# Changelog
-
 All significant API changes to the project will be recorded in this file.
 
 ### 1.0.0

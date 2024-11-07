@@ -1,5 +1,3 @@
-# Tutorial
-
 ## Getting Start
 
 ### 1. Sign up to Subscan API Platform
@@ -11,7 +9,7 @@ To activate your account, verify your email address by clicking the link sent to
 
 ### 2. Create API Key
 
-Once verified, you’ll be taken to the [management page](https://pro.subscan.io/apiKey) where you can add API Keys, view status, and add new plans.
+Once verified, you’ll be taken to the [management page](https://pro.subscan.io/api_service) where you can add API Keys, view status, and add new plans.
 
 
 ![create.png](https://api.apidog.com/api/v1/projects/384478/resources/338522/image-preview)
@@ -59,7 +57,7 @@ Invoices will be sent to the email in your profile once you finished the payment
 ![upgrade.png](https://api.apidog.com/api/v1/projects/384478/resources/338525/image-preview)
 
 - You can upgrade your plan for a better experience.
-- The Free Plan couldn’t be upgraded now. We will provide free plan upgrade service in the near future
+- The Free Plan could not be upgraded now. We will provide free plan upgrade service in the near future
 
 ## Subscribe
 

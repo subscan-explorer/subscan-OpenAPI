@@ -8844,6 +8844,411 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/xcm/bridge_stat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Bridge Stat (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.BridgeStatParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "additionalProperties": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/definitions/subscan_internal_model.BridgeStatStatJson"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/channel": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Channel (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmChannelInfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.HrmpChannel"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/channels": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Channels (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmChannelParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.HrmpChannel"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/check_hash": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Find Xcm message id by hash (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmHashParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/info": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Message detail (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmMessageDetailParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.ParaXcmMessageJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Messages list (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmMessageParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ParaXcmMessageJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/meta": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Meta (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmMetaParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.XcmMeta"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/xcm/stat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Stat (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmStatParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "all": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.XcmMessageStatJson"
+                                                    }
+                                                },
+                                                "receiver": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.XcmMessageStatJson"
+                                                    }
+                                                },
+                                                "send": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.XcmMessageStatJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/v2/scan/account/reward_slash": {
             "post": {
                 "consumes": [
@@ -11779,6 +12184,32 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.BridgeStatParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "description": "end date, format: 2006-01-02",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "json result format, default is day",
+                    "type": "string",
+                    "enum": [
+                        "hour",
+                        "day",
+                        "6hour"
+                    ]
+                },
+                "start": {
+                    "description": "start date, format: 2006-01-02",
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.CurrencyConverter": {
             "type": "object",
             "properties": {
@@ -11835,6 +12266,213 @@ const docTemplate = `{
                 "new_algorithm": {
                     "description": "use new algorithm sum(free - max(0, frozen - reserve))",
                     "type": "boolean"
+                }
+            }
+        },
+        "internal_server_http.XcmChannelInfoParams": {
+            "type": "object",
+            "properties": {
+                "recipient": {
+                    "description": "HRMP recipient parachain id",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "sender": {
+                    "description": "HRMP sender parachain id",
+                    "type": "integer",
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_server_http.XcmChannelParams": {
+            "type": "object",
+            "properties": {
+                "filter_para_id": {
+                    "description": "filter by parachain id(sender or recipient)",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "recipient": {
+                    "description": "HRMP recipient parachain id",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "sender": {
+                    "description": "HRMP sender parachain id",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "status": {
+                    "description": "filter by status",
+                    "type": "string",
+                    "enum": [
+                        "closed",
+                        "accepted",
+                        "canceled",
+                        "requested"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.XcmHashParams": {
+            "type": "object",
+            "properties": {
+                "dest_event_id": {
+                    "description": "receiver event id",
+                    "type": "string"
+                },
+                "dest_para_id": {
+                    "description": "receiver parachain id",
+                    "type": "integer"
+                },
+                "message_hash": {
+                    "description": "message hash",
+                    "type": "string"
+                },
+                "origin_event_id": {
+                    "description": "sender event id",
+                    "type": "string"
+                },
+                "origin_para_id": {
+                    "description": "sender parachain id",
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_server_http.XcmMessageDetailParams": {
+            "type": "object",
+            "properties": {
+                "origin_event_id": {
+                    "description": "sender event id, need with origin_para_id",
+                    "type": "string"
+                },
+                "origin_para_id": {
+                    "description": "sender parachain id, need with origin_event_id",
+                    "type": "integer"
+                },
+                "unique_id": {
+                    "description": "unique id of the message",
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmMessageParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "filter by address",
+                    "type": "string"
+                },
+                "after_id": {
+                    "description": "Pagination, the last message id of the previous page",
+                    "type": "string"
+                },
+                "block_range": {
+                    "description": "filter by block range,eg: 1000-2000",
+                    "type": "string",
+                    "example": "20000-30000"
+                },
+                "bridge_type": {
+                    "description": "filter by bridge type",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dest_para_id": {
+                    "description": "filter by receiver parachain id",
+                    "type": "integer"
+                },
+                "extrinsic_index": {
+                    "description": "filter by extrinsic index",
+                    "type": "string"
+                },
+                "filter_para_id": {
+                    "description": "filter by parachain id(sender or receiver)",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "filter_symbol": {
+                    "description": "filter by asset symbol",
+                    "type": "string"
+                },
+                "message_hash": {
+                    "description": "filter by message hash",
+                    "type": "string"
+                },
+                "message_type": {
+                    "description": "filter by message type",
+                    "type": "string",
+                    "enum": [
+                        "transfer",
+                        "message"
+                    ]
+                },
+                "origin_para_id": {
+                    "description": "filter by sender origin parachain id",
+                    "type": "integer"
+                },
+                "page": {
+                    "description": "page number, start from 0",
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "protocol": {
+                    "description": "filter by XCM protocol",
+                    "type": "string",
+                    "enum": [
+                        "HRMP",
+                        "VMP",
+                        "UMP",
+                        "DMP"
+                    ]
+                },
+                "row": {
+                    "description": "page size",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "description": "filter by status",
+                    "type": "string",
+                    "enum": [
+                        "pending",
+                        "relayed",
+                        "success",
+                        "failed"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.XcmMetaParams": {
+            "type": "object",
+            "properties": {
+                "para_id": {
+                    "description": "optional, if not set or set 0, will return all parachain statistics",
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_server_http.XcmStatParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "description": "end date, format: 2006-01-02",
+                    "type": "string"
+                },
+                "filter_para_id": {
+                    "description": "filter by parachain id, optional",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "start": {
+                    "description": "start date, format: 2006-01-02",
+                    "type": "string"
                 }
             }
         },
@@ -14823,6 +15461,32 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.AssetInstance": {
+            "type": "object",
+            "properties": {
+                "Array16": {
+                    "type": "string"
+                },
+                "Array32": {
+                    "type": "string"
+                },
+                "Array4": {
+                    "type": "string"
+                },
+                "Array8": {
+                    "type": "string"
+                },
+                "Blob": {
+                    "type": "string"
+                },
+                "Index": {
+                    "type": "number"
+                },
+                "Undefined": {
+                    "$ref": "#/definitions/subscan_internal_model.EnumData"
+                }
+            }
+        },
         "subscan_internal_model.AssetsJson": {
             "type": "object",
             "properties": {
@@ -14978,6 +15642,59 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "number"
+                }
+            }
+        },
+        "subscan_internal_model.BoxProposal": {
+            "type": "object",
+            "properties": {
+                "call_index": {
+                    "type": "string"
+                },
+                "call_module": {
+                    "type": "string"
+                },
+                "call_name": {
+                    "type": "string"
+                },
+                "params": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.BridgeStatStatJson": {
+            "type": "object",
+            "properties": {
+                "time_utc": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.BuyExecution": {
+            "type": "object",
+            "properties": {
+                "fees": {
+                    "$ref": "#/definitions/subscan_internal_model.V1MultiAssets"
+                },
+                "weight_limit": {
+                    "$ref": "#/definitions/subscan_internal_model.WeightLimitV2"
+                }
+            }
+        },
+        "subscan_internal_model.BuyExecutionV4": {
+            "type": "object",
+            "properties": {
+                "fees": {
+                    "$ref": "#/definitions/subscan_internal_model.V4MultiAsset"
+                },
+                "weight_limit": {
+                    "$ref": "#/definitions/subscan_internal_model.WeightLimitV2"
                 }
             }
         },
@@ -15568,6 +16285,46 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.CrossChainMetadata": {
+            "type": "object",
+            "properties": {
+                "lane_id": {
+                    "description": "s2s message laneId",
+                    "type": "string"
+                },
+                "message_id": {
+                    "description": "ethBridge messageId",
+                    "type": "string"
+                },
+                "nonce": {
+                    "description": "s2s message nonce",
+                    "type": "integer"
+                },
+                "send_at": {
+                    "description": "ethBridge send time or received time",
+                    "type": "integer"
+                },
+                "tx_hash": {
+                    "description": "ethBridge transaction hash",
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.CrossChainProtocol": {
+            "type": "string",
+            "enum": [
+                "UMP",
+                "DMP",
+                "HRMP",
+                "SnowBridge"
+            ],
+            "x-enum-varnames": [
+                "UMPProtocol",
+                "DMPProtocol",
+                "HRMPProtocol",
+                "SnowBridge"
+            ]
+        },
         "subscan_internal_model.DProgress": {
             "type": "object",
             "properties": {
@@ -15889,6 +16646,134 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.DepositAsset": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.V1MultiLocation"
+                },
+                "max_assets": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.DepositAssetV0": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {}
+                },
+                "dest": {
+                    "$ref": "#/definitions/subscan_internal_model.V0MultiLocation"
+                }
+            }
+        },
+        "subscan_internal_model.DepositAssetV4": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.V4MultiLocation"
+                }
+            }
+        },
+        "subscan_internal_model.DepositReserveAsset": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {},
+                "max_assets": {
+                    "type": "integer"
+                },
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV2"
+                }
+            }
+        },
+        "subscan_internal_model.DepositReserveAssetV3": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {},
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV3"
+                }
+            }
+        },
+        "subscan_internal_model.DescendOrigin": {
+            "type": "object",
+            "properties": {
+                "Here": {
+                    "description": "为了与v1 兼容",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.EnumValueNull"
+                        }
+                    ]
+                },
+                "X1": {
+                    "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                },
+                "X2": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X3": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X4": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X5": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X6": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X7": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X8": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.EnumData": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "subscan_internal_model.EnumValueNull": {
+            "type": "object",
+            "properties": {
+                "set": {
+                    "type": "boolean"
+                }
+            }
+        },
         "subscan_internal_model.EraBondStat": {
             "type": "object",
             "properties": {
@@ -15935,6 +16820,22 @@ const docTemplate = `{
             "properties": {
                 "contract_name": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ExportMessageV3": {
+            "type": "object",
+            "properties": {
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV3"
+                }
+            }
+        },
+        "subscan_internal_model.ExportMessageV4": {
+            "type": "object",
+            "properties": {
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV4"
                 }
             }
         },
@@ -16136,6 +17037,35 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.HrmpChannel": {
+            "type": "object",
+            "properties": {
+                "active_at": {
+                    "type": "integer"
+                },
+                "message_count": {
+                    "type": "integer"
+                },
+                "proposed_max_capacity": {
+                    "type": "integer"
+                },
+                "proposed_max_message_size": {
+                    "type": "integer"
+                },
+                "recipient": {
+                    "type": "integer"
+                },
+                "sender": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "transfer_count": {
+                    "type": "integer"
+                }
+            }
+        },
         "subscan_internal_model.IdentityJson": {
             "type": "object",
             "properties": {
@@ -16180,6 +17110,36 @@ const docTemplate = `{
                 },
                 "web": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.InitiateTeleport": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {},
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV2"
+                }
+            }
+        },
+        "subscan_internal_model.InitiateTeleportV3": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {},
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV3"
+                }
+            }
+        },
+        "subscan_internal_model.InitiateTeleportV4": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {},
+                "xcm": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV4"
                 }
             }
         },
@@ -16339,6 +17299,42 @@ const docTemplate = `{
                 "MultiActionCancelled",
                 "MultiActionExecuteFailed"
             ]
+        },
+        "subscan_internal_model.MultiAssets": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "asset_module": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "current_currency_amount": {
+                    "type": "number"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "enum_key": {
+                    "type": "string"
+                },
+                "history_currency_amount": {
+                    "type": "number"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "raw": {},
+                "symbol": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
         },
         "subscan_internal_model.MultisigExtrinsicDetailsJson": {
             "type": "object",
@@ -16693,6 +17689,152 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "xcm_send_transfer_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ParaXcmMessageJson": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.MultiAssets"
+                    }
+                },
+                "block_num": {
+                    "description": "relay chain block num",
+                    "type": "integer"
+                },
+                "bridge_type": {
+                    "description": "bridge type, like e2s(ethereum to substrate), s2e(substrate to ethereum), s2s(substrate to substrate)",
+                    "type": "string"
+                },
+                "call_data": {
+                    "description": "xcm transact call data",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.BoxProposal"
+                    }
+                },
+                "child_dest": {
+                    "type": "string"
+                },
+                "child_message": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmMessageEmbeddedJson"
+                },
+                "child_para_id": {
+                    "type": "integer"
+                },
+                "confirm_block_timestamp": {
+                    "type": "integer"
+                },
+                "cross_chain_status": {
+                    "description": "cross chain status, 0: not cross chain, 1: cross chain unconfirmed, 2: cross chain confirmed, 3: cross chain completed",
+                    "type": "integer"
+                },
+                "dest_chain": {
+                    "description": "dest chain, like Polkadot.kusama,Ethereum",
+                    "type": "string"
+                },
+                "dest_event_index": {
+                    "description": "receive message event index",
+                    "type": "string"
+                },
+                "dest_extrinsic_index": {
+                    "description": "receive message extrinsic index",
+                    "type": "string"
+                },
+                "dest_para_id": {
+                    "description": "eq 0 if to relay chain",
+                    "type": "integer"
+                },
+                "dest_raw": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "extrinsic_index": {
+                    "description": "Send message extrinsic index",
+                    "type": "string"
+                },
+                "from_account_id": {
+                    "description": "sender address",
+                    "type": "string"
+                },
+                "from_chain": {
+                    "description": "source chain, like Polkadot.kusama,Ethereum",
+                    "type": "string"
+                },
+                "instructions": {
+                    "$ref": "#/definitions/subscan_internal_model.VersionedXcm"
+                },
+                "message_hash": {
+                    "description": "xcm message hash,",
+                    "type": "string"
+                },
+                "message_type": {
+                    "description": "transfer/message",
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_model.CrossChainMetadata"
+                },
+                "origin_block_timestamp": {
+                    "type": "integer"
+                },
+                "origin_event_index": {
+                    "description": "send message event index",
+                    "type": "string"
+                },
+                "origin_para_id": {
+                    "description": "origin parachain id",
+                    "type": "integer"
+                },
+                "protocol": {
+                    "description": "UMP/DMP/HRMP",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.CrossChainProtocol"
+                        }
+                    ]
+                },
+                "relayed_block_timestamp": {
+                    "type": "integer"
+                },
+                "relayed_event_index": {
+                    "description": "relaychain include message event index,only for HRMP protocol",
+                    "type": "string"
+                },
+                "relayed_extrinsic_index": {
+                    "description": "relaychain include message extrinsic index,only for HRMP protocol",
+                    "type": "string"
+                },
+                "s2s_dest_para_id": {
+                    "description": "s2s dest parachain id",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "pending, success, failed",
+                    "type": "string"
+                },
+                "to_account_id": {
+                    "description": "receiver address",
+                    "type": "string"
+                },
+                "to_account_raw": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "unique_id": {
+                    "description": "global xcm message unique id",
+                    "type": "string"
+                },
+                "xcm_version": {
+                    "description": "xcm version",
                     "type": "integer"
                 }
             }
@@ -17227,6 +18369,19 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.ReceiveTeleportedAsset": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {}
+                },
+                "effects": {
+                    "type": "array",
+                    "items": {}
+                }
+            }
+        },
         "subscan_internal_model.ReferendumJson": {
             "type": "object",
             "properties": {
@@ -17470,6 +18625,18 @@ const docTemplate = `{
                 },
                 "judgement": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ReserveAssetDeposited": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "effects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.V1XCMRuntimeCall"
+                    }
                 }
             }
         },
@@ -17802,6 +18969,24 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.TeleportAsset": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                    }
+                },
+                "effects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmV0Order"
+                    }
+                }
+            }
+        },
         "subscan_internal_model.ThirdPartyCompiler": {
             "type": "object",
             "properties": {
@@ -17918,6 +19103,39 @@ const docTemplate = `{
                 },
                 "vesting": {
                     "$ref": "#/definitions/subscan_internal_model.VestingJson"
+                }
+            }
+        },
+        "subscan_internal_model.Transact": {
+            "type": "object",
+            "properties": {
+                "call": {
+                    "type": "string"
+                },
+                "origin_type": {
+                    "type": "string"
+                },
+                "require_weight_at_most": {}
+            }
+        },
+        "subscan_internal_model.TransactV3": {
+            "type": "object",
+            "properties": {
+                "call": {
+                    "type": "string"
+                },
+                "origin_kind": {
+                    "type": "string"
+                },
+                "require_weight_at_most": {}
+            }
+        },
+        "subscan_internal_model.TransferAsset": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.V1MultiLocation"
                 }
             }
         },
@@ -18048,6 +19266,51 @@ const docTemplate = `{
                 },
                 "to_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                }
+            }
+        },
+        "subscan_internal_model.TransferReserveAsset": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {
+                    "$ref": "#/definitions/subscan_internal_model.V1MultiLocation"
+                },
+                "xcm": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmInstruction"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.TransferReserveAssetV3": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {
+                    "$ref": "#/definitions/subscan_internal_model.V1MultiLocation"
+                },
+                "xcm": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmInstructionV3"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.TransferReserveAssetV4": {
+            "type": "object",
+            "properties": {
+                "assets": {},
+                "dest": {
+                    "$ref": "#/definitions/subscan_internal_model.V4MultiLocation"
+                },
+                "xcm": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmInstructionV4"
+                    }
                 }
             }
         },
@@ -18243,6 +19506,251 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.V0MultiLocation": {
+            "type": "object",
+            "properties": {
+                "Here": {
+                    "description": "为了与v1 兼容",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.EnumValueNull"
+                        }
+                    ]
+                },
+                "X1": {
+                    "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                },
+                "X2": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X3": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X4": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X5": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X6": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X7": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X8": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.V1MultiAssets": {
+            "type": "object",
+            "properties": {
+                "fun": {
+                    "description": "Fungibility",
+                    "type": "object",
+                    "properties": {
+                        "Fungible": {
+                            "type": "number"
+                        },
+                        "NonFungible": {
+                            "$ref": "#/definitions/subscan_internal_model.AssetInstance"
+                        }
+                    }
+                },
+                "id": {
+                    "description": "AssetId",
+                    "type": "object",
+                    "properties": {
+                        "Abstract": {
+                            "type": "string"
+                        },
+                        "Concrete": {
+                            "$ref": "#/definitions/subscan_internal_model.V1MultiLocation"
+                        }
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.V1MultiLocation": {
+            "type": "object",
+            "properties": {
+                "interior": {
+                    "$ref": "#/definitions/subscan_internal_model.V0MultiLocation"
+                },
+                "parents": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.V1XCMRuntimeCall": {
+            "type": "object",
+            "properties": {
+                "BuyExecution": {},
+                "DepositAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositAsset"
+                },
+                "DepositReserveAsset": {},
+                "ExchangeAsset": {},
+                "InitiateReserveWithdraw": {},
+                "InitiateTeleport": {},
+                "Noop": {},
+                "QueryHolding": {}
+            }
+        },
+        "subscan_internal_model.V3MultiAssets": {
+            "type": "object",
+            "properties": {
+                "fun": {
+                    "description": "Fungibility",
+                    "type": "object",
+                    "properties": {
+                        "Fungible": {
+                            "type": "number"
+                        },
+                        "NonFungible": {
+                            "$ref": "#/definitions/subscan_internal_model.AssetInstance"
+                        }
+                    }
+                },
+                "id": {
+                    "description": "AssetId",
+                    "type": "object",
+                    "properties": {
+                        "Abstract": {
+                            "type": "string"
+                        },
+                        "Concrete": {
+                            "$ref": "#/definitions/subscan_internal_model.V1MultiLocation"
+                        }
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.V4MultiAsset": {
+            "type": "object",
+            "properties": {
+                "fun": {
+                    "description": "Fungibility",
+                    "type": "object",
+                    "properties": {
+                        "Fungible": {
+                            "description": "u128",
+                            "type": "number"
+                        },
+                        "NonFungible": {
+                            "description": "AssetInstance",
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_model.AssetInstance"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "id": {
+                    "description": "AssetId",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.V4MultiLocation"
+                        }
+                    ]
+                }
+            }
+        },
+        "subscan_internal_model.V4MultiLocation": {
+            "type": "object",
+            "properties": {
+                "interior": {
+                    "$ref": "#/definitions/subscan_internal_model.V4MultiLocationJunctions"
+                },
+                "parents": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.V4MultiLocationJunctions": {
+            "type": "object",
+            "properties": {
+                "Here": {
+                    "description": "为了与v1 兼容",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.EnumValueNull"
+                        }
+                    ]
+                },
+                "X1": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X2": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X3": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X4": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X5": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X6": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X7": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                },
+                "X8": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XCMJunction"
+                    }
+                }
+            }
+        },
         "subscan_internal_model.ValidatorJson": {
             "type": "object",
             "properties": {
@@ -18342,6 +19850,35 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.VersionedXcm": {
+            "type": "object",
+            "properties": {
+                "V0": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV0"
+                },
+                "V1": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmV1"
+                },
+                "V2": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmInstruction"
+                    }
+                },
+                "V3": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmInstructionV3"
+                    }
+                },
+                "V4": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.XcmInstructionV4"
+                    }
+                }
+            }
+        },
         "subscan_internal_model.VestingJson": {
             "type": "object",
             "properties": {
@@ -18383,6 +19920,598 @@ const docTemplate = `{
                 "day": {
                     "type": "string"
                 }
+            }
+        },
+        "subscan_internal_model.WeightLimitV2": {
+            "type": "object",
+            "properties": {
+                "Limited": {},
+                "Unlimited": {
+                    "$ref": "#/definitions/subscan_internal_model.EnumValueNull"
+                }
+            }
+        },
+        "subscan_internal_model.XCMJunction": {
+            "type": "object",
+            "properties": {
+                "AccountId32": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "network": {
+                            "$ref": "#/definitions/subscan_internal_model.EnumData"
+                        }
+                    }
+                },
+                "AccountIndex64": {
+                    "type": "object",
+                    "properties": {
+                        "index": {
+                            "type": "integer"
+                        },
+                        "network": {
+                            "$ref": "#/definitions/subscan_internal_model.EnumData"
+                        }
+                    }
+                },
+                "AccountKey20": {
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "type": "string"
+                        },
+                        "network": {
+                            "$ref": "#/definitions/subscan_internal_model.EnumData"
+                        }
+                    }
+                },
+                "GeneralIndex": {
+                    "type": "string"
+                },
+                "GeneralKey": {},
+                "GlobalConsensus": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmNetworkId"
+                },
+                "OnlyChild": {},
+                "PalletInstance": {
+                    "type": "integer"
+                },
+                "Parachain": {
+                    "type": "integer"
+                },
+                "Parent": {
+                    "type": "string"
+                },
+                "Plurality": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "subscan_internal_model.XcmInstruction": {
+            "type": "object",
+            "properties": {
+                "BuyExecution": {
+                    "$ref": "#/definitions/subscan_internal_model.BuyExecution"
+                },
+                "ClaimAsset": {},
+                "ClearError": {},
+                "ClearOrigin": {},
+                "DepositAsset": {
+                    "description": "todo",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.DepositAsset"
+                        }
+                    ]
+                },
+                "DepositReserveAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositReserveAsset"
+                },
+                "DescendOrigin": {
+                    "$ref": "#/definitions/subscan_internal_model.DescendOrigin"
+                },
+                "ExchangeAsset": {},
+                "HrmpChannelAccepted": {},
+                "HrmpChannelClosing": {},
+                "HrmpNewChannelOpenRequest": {},
+                "InitiateReserveWithdraw": {},
+                "InitiateTeleport": {
+                    "$ref": "#/definitions/subscan_internal_model.InitiateTeleport"
+                },
+                "QueryHolding": {},
+                "QueryResponse": {},
+                "ReceiveTeleportedAsset": {},
+                "RefundSurplus": {},
+                "ReportError": {},
+                "ReserveAssetDeposited": {},
+                "SetAppendix": {},
+                "SetErrorHandler": {},
+                "SubscribeVersion": {},
+                "Transact": {
+                    "$ref": "#/definitions/subscan_internal_model.Transact"
+                },
+                "TransferAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.TransferAsset"
+                },
+                "TransferReserveAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.TransferReserveAsset"
+                },
+                "Trap": {},
+                "UnsubscribeVersion": {},
+                "WithdrawAsset": {}
+            }
+        },
+        "subscan_internal_model.XcmInstructionV3": {
+            "type": "object",
+            "properties": {
+                "AliasOrigin": {},
+                "BurnAsset": {},
+                "BuyExecution": {
+                    "$ref": "#/definitions/subscan_internal_model.BuyExecution"
+                },
+                "ClaimAsset": {},
+                "ClearError": {},
+                "ClearOrigin": {},
+                "ClearTopic": {},
+                "ClearTransactStatus": {},
+                "DepositAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositAsset"
+                },
+                "DepositReserveAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositReserveAssetV3"
+                },
+                "DescendOrigin": {
+                    "$ref": "#/definitions/subscan_internal_model.DescendOrigin"
+                },
+                "ExchangeAsset": {},
+                "ExpectAsset": {},
+                "ExpectError": {},
+                "ExpectOrigin": {},
+                "ExpectPallet": {},
+                "ExpectTransactStatus": {},
+                "ExportMessage": {
+                    "$ref": "#/definitions/subscan_internal_model.ExportMessageV3"
+                },
+                "HrmpChannelAccepted": {},
+                "HrmpChannelClosing": {},
+                "HrmpNewChannelOpenRequest": {},
+                "InitiateReserveWithdraw": {},
+                "InitiateTeleport": {
+                    "$ref": "#/definitions/subscan_internal_model.InitiateTeleportV3"
+                },
+                "LockAsset": {},
+                "NoteUnlockable": {},
+                "QueryHolding": {},
+                "QueryPallet": {},
+                "QueryResponse": {},
+                "ReceiveTeleportedAsset": {},
+                "RefundSurplus": {},
+                "ReportError": {},
+                "ReportTransactStatus": {},
+                "RequestUnlock": {},
+                "ReserveAssetDeposited": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.V3MultiAssets"
+                    }
+                },
+                "SetAppendix": {},
+                "SetErrorHandler": {},
+                "SetFeesMode": {},
+                "SetTopic": {
+                    "type": "string"
+                },
+                "SubscribeVersion": {},
+                "Transact": {
+                    "$ref": "#/definitions/subscan_internal_model.TransactV3"
+                },
+                "TransferAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.TransferAsset"
+                },
+                "TransferReserveAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.TransferReserveAssetV3"
+                },
+                "Trap": {},
+                "UniversalOrigin": {},
+                "UnlockAsset": {},
+                "UnpaidExecution": {},
+                "UnsubscribeVersion": {},
+                "WithdrawAsset": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.V3MultiAssets"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.XcmInstructionV4": {
+            "type": "object",
+            "properties": {
+                "AliasOrigin": {},
+                "BurnAsset": {},
+                "BuyExecution": {
+                    "$ref": "#/definitions/subscan_internal_model.BuyExecutionV4"
+                },
+                "ClaimAsset": {},
+                "ClearError": {},
+                "ClearOrigin": {},
+                "ClearTopic": {},
+                "ClearTransactStatus": {},
+                "DepositAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositAssetV4"
+                },
+                "DepositReserveAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.InitiateTeleportV4"
+                },
+                "DescendOrigin": {},
+                "ExchangeAsset": {},
+                "ExpectAsset": {},
+                "ExpectError": {},
+                "ExpectOrigin": {},
+                "ExpectPallet": {},
+                "ExpectTransactStatus": {},
+                "ExportMessage": {
+                    "$ref": "#/definitions/subscan_internal_model.ExportMessageV4"
+                },
+                "HrmpChannelAccepted": {},
+                "HrmpChannelClosing": {},
+                "HrmpNewChannelOpenRequest": {},
+                "InitiateReserveWithdraw": {},
+                "InitiateTeleport": {
+                    "$ref": "#/definitions/subscan_internal_model.InitiateTeleportV4"
+                },
+                "LockAsset": {},
+                "NoteUnlockable": {},
+                "QueryPallet": {},
+                "QueryResponse": {},
+                "ReceiveTeleportedAsset": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.V4MultiAsset"
+                    }
+                },
+                "RefundSurplus": {},
+                "ReportError": {},
+                "ReportHolding": {},
+                "ReportTransactStatus": {},
+                "RequestUnlock": {},
+                "ReserveAssetDeposited": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.V4MultiAsset"
+                    }
+                },
+                "SetAppendix": {},
+                "SetErrorHandler": {},
+                "SetFeesMode": {},
+                "SetTopic": {
+                    "type": "string"
+                },
+                "SubscribeVersion": {},
+                "Transact": {
+                    "$ref": "#/definitions/subscan_internal_model.TransactV3"
+                },
+                "TransferAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositAssetV4"
+                },
+                "TransferReserveAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.TransferReserveAssetV4"
+                },
+                "Trap": {},
+                "UniversalOrigin": {},
+                "UnlockAsset": {},
+                "UnpaidExecution": {},
+                "UnsubscribeVersion": {},
+                "WithdrawAsset": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.V4MultiAsset"
+                    }
+                }
+            }
+        },
+        "subscan_internal_model.XcmMessageEmbeddedJson": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "description": "relay chain block num",
+                    "type": "integer"
+                },
+                "bridge_type": {
+                    "description": "bridge type, like e2s(ethereum to substrate), s2e(substrate to ethereum), s2s(substrate to substrate)",
+                    "type": "string"
+                },
+                "call_data": {
+                    "description": "xcm transact call data",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.BoxProposal"
+                    }
+                },
+                "child_dest": {
+                    "type": "string"
+                },
+                "child_para_id": {
+                    "type": "integer"
+                },
+                "confirm_block_timestamp": {
+                    "type": "integer"
+                },
+                "cross_chain_status": {
+                    "description": "cross chain status, 0: not cross chain, 1: cross chain unconfirmed, 2: cross chain confirmed, 3: cross chain completed",
+                    "type": "integer"
+                },
+                "dest_chain": {
+                    "description": "dest chain, like Polkadot.kusama,Ethereum",
+                    "type": "string"
+                },
+                "dest_event_index": {
+                    "description": "receive message event index",
+                    "type": "string"
+                },
+                "dest_extrinsic_index": {
+                    "description": "receive message extrinsic index",
+                    "type": "string"
+                },
+                "dest_para_id": {
+                    "description": "eq 0 if to relay chain",
+                    "type": "integer"
+                },
+                "dest_raw": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "extrinsic_index": {
+                    "description": "Send message extrinsic index",
+                    "type": "string"
+                },
+                "from_account_id": {
+                    "description": "sender address",
+                    "type": "string"
+                },
+                "from_chain": {
+                    "description": "source chain, like Polkadot.kusama,Ethereum",
+                    "type": "string"
+                },
+                "instructions": {
+                    "$ref": "#/definitions/subscan_internal_model.VersionedXcm"
+                },
+                "message_hash": {
+                    "description": "xcm message hash,",
+                    "type": "string"
+                },
+                "message_type": {
+                    "description": "transfer/message",
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/subscan_internal_model.CrossChainMetadata"
+                },
+                "origin_block_timestamp": {
+                    "type": "integer"
+                },
+                "origin_event_index": {
+                    "description": "send message event index",
+                    "type": "string"
+                },
+                "origin_para_id": {
+                    "description": "origin parachain id",
+                    "type": "integer"
+                },
+                "protocol": {
+                    "description": "UMP/DMP/HRMP",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.CrossChainProtocol"
+                        }
+                    ]
+                },
+                "relayed_block_timestamp": {
+                    "type": "integer"
+                },
+                "relayed_event_index": {
+                    "description": "relaychain include message event index,only for HRMP protocol",
+                    "type": "string"
+                },
+                "relayed_extrinsic_index": {
+                    "description": "relaychain include message extrinsic index,only for HRMP protocol",
+                    "type": "string"
+                },
+                "s2s_dest_para_id": {
+                    "description": "s2s dest parachain id",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "pending, success, failed",
+                    "type": "string"
+                },
+                "to_account_id": {
+                    "description": "receiver address",
+                    "type": "string"
+                },
+                "to_account_raw": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "unique_id": {
+                    "description": "global xcm message unique id",
+                    "type": "string"
+                },
+                "xcm_version": {
+                    "description": "xcm version",
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.XcmMessageStatJson": {
+            "type": "object",
+            "properties": {
+                "message_total": {
+                    "type": "integer"
+                },
+                "time_utc": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.XcmMeta": {
+            "type": "object",
+            "properties": {
+                "all_channel": {
+                    "type": "integer"
+                },
+                "connected_parachain_count": {
+                    "type": "integer"
+                },
+                "online_parachain": {
+                    "type": "integer"
+                },
+                "open_channel": {
+                    "type": "integer"
+                },
+                "parachain_count_with_requested": {
+                    "type": "integer"
+                },
+                "received_xcm_message_count": {
+                    "type": "integer"
+                },
+                "received_xcm_transfer_count": {
+                    "type": "integer"
+                },
+                "relayed_message_count": {
+                    "type": "integer"
+                },
+                "relayed_transfer_count": {
+                    "type": "integer"
+                },
+                "send_xcm_message_count": {
+                    "type": "integer"
+                },
+                "send_xcm_transfer_count": {
+                    "type": "integer"
+                },
+                "support_parachain": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.XcmNetworkId": {
+            "type": "object",
+            "properties": {
+                "Ethereum": {
+                    "type": "integer"
+                },
+                "Kusama": {
+                    "type": "string"
+                },
+                "Polkadot": {
+                    "description": "ByGenesis        *string ` + "`" + `json:\"ByGenesis,omitempty\"` + "`" + `",
+                    "type": "string"
+                },
+                "Rococo": {
+                    "type": "string"
+                },
+                "Westend": {
+                    "type": "string"
+                },
+                "Wococo": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.XcmV0": {
+            "type": "object",
+            "properties": {
+                "HrmpChannelAccepted": {},
+                "HrmpChannelClosing": {},
+                "HrmpNewChannelOpenRequest": {},
+                "QueryResponse": {},
+                "RelayedFrom": {},
+                "ReserveAssetDeposit": {},
+                "TeleportAsset": {
+                    "description": "todo",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.TeleportAsset"
+                        }
+                    ]
+                },
+                "Transact": {},
+                "TransferAsset": {},
+                "TransferReserveAsset": {},
+                "WithdrawAsset": {}
+            }
+        },
+        "subscan_internal_model.XcmV0Order": {
+            "type": "object",
+            "properties": {
+                "BuyExecution": {},
+                "DepositAsset": {
+                    "$ref": "#/definitions/subscan_internal_model.DepositAssetV0"
+                },
+                "DepositReserveAsset": {},
+                "ExchangeAsset": {},
+                "InitiateReserveWithdraw": {},
+                "InitiateTeleport": {},
+                "Null": {
+                    "type": "string"
+                },
+                "QueryHolding": {}
+            }
+        },
+        "subscan_internal_model.XcmV1": {
+            "type": "object",
+            "properties": {
+                "HrmpChannelAccepted": {},
+                "HrmpChannelClosing": {},
+                "HrmpNewChannelOpenRequest": {},
+                "QueryResponse": {},
+                "ReceiveTeleportedAsset": {
+                    "description": "todo",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.ReceiveTeleportedAsset"
+                        }
+                    ]
+                },
+                "RelayedFrom": {},
+                "ReserveAssetDeposited": {
+                    "$ref": "#/definitions/subscan_internal_model.ReserveAssetDeposited"
+                },
+                "SubscribeVersion": {},
+                "Transact": {},
+                "TransferAsset": {},
+                "TransferReserveAsset": {},
+                "UnsubscribeVersion": {},
+                "WithdrawAsset": {}
+            }
+        },
+        "subscan_internal_model.XcmV2": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/subscan_internal_model.XcmInstruction"
+            }
+        },
+        "subscan_internal_model.XcmV3": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/subscan_internal_model.XcmInstructionV3"
+            }
+        },
+        "subscan_internal_model.XcmV4": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/subscan_internal_model.XcmInstructionV4"
             }
         },
         "subscan_internal_plugin_evm_db.TraceJson": {

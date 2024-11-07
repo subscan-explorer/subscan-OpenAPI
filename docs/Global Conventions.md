@@ -1,10 +1,6 @@
-# Global Conventions
-
 ## `X-API-Key` Header
 
 The `X-API-Key` or `x-api-key` (case-insensitive) request header is the authentication method that Subscan API uses to determine the identity and rate limits.
-
-**[Apply this form](https://docs.google.com/forms/d/e/1FAIpQLSfEDvsn-v7c5jshKFNaqBd20-SPAHLJw3Ua7IRUL8esrTgWPA/viewform) to get a free API key that includes higher quotas or start your trial with other subscriptions!**
 
 ## Rate Limiting
 
@@ -75,6 +71,7 @@ The table down below lists several HTTP status codes that Subscan might respond.
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | 200 OK                    | The request was handled without any error.                                                                                                      |
 | 401 Unauthorized          | The credentials is either not found or invalid. Please refer to the `message` field in the JSON response for more detail.                       |
+| 402 Payment Required      | API key invalid or api key is not a valid paid plan                                                                                             |
 | 404 Not Found             | The HTTP method or request URI was most likely wrong.                                                                                           |
 | 429 Too Many Requests     | The request hits the rate limit. Please request an API key with higher quotas.                                                                  |
 | 500 Internal Server Error | The servers could not respond your request due to an internal error. Find more information on our [status page](https://subscan.statuspage.io). |

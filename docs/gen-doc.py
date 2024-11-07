@@ -6,7 +6,9 @@ files = {
     'Introduction.md': 'Introduction',
     'Global Conventions.md': 'Global Conventions',
     'Tutorial.md': 'Tutorial',
-    'Changelog.md': 'Changelog'
+    'Changelog.md': 'Changelog',
+    'Subscan API Pro.md': 'Subscan API Pro',
+    'xcm.md': 'Xcm',
 }
 json_file = 'subscan.apidog.json'
 
@@ -50,6 +52,11 @@ def update_json_content(data, name, content):
     for item in data.get('docCollection', [])[0].get('items', []):
         if item['name'] == name:
             item['content'] = content
+
+    for item in data.get('docCollection',[])[0].get('children',[]):
+        if item['name'] == name:
+            item['items'][0]['content'] = content
+
 
 for name, content in file_contents.items():
     update_json_content(data, name, content)

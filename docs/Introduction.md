@@ -1,6 +1,4 @@
-# Introduction
-
-With Subscan API, we provide a simple way to access the chain data of more than 10 substrate-based networks.
+With Subscan API, we provide a simple way to access the chain data of more than 70 substrate-based networks.
 
 If you have any question or suggestion, please do not hesitate to contact our API support
 via [api@subscan.io](mailto:api@subscan.io).
@@ -48,8 +46,8 @@ Please notice before you get started:
 | Kusama              | `kusama.api.subscan.io`                        | live   |
 | Assethub Polkadot   | `assethub-polkadot.api.subscan.io`             | live   |
 | Assethub Kusama     | `assethub-kusama.api.subscan.io`               | live   |
-| Assethub Rococo     | `assethub-rococo.api.subscan.io`               | test   |
 | Assethub Westend    | `assethub-westend.api.subscan.io`              | test   |
+| Assethub Paseo      | `assethub-paseo.api.subscan.io/`               | test   |
 | Acala               | `acala.api.subscan.io`                         | live   |
 | Acala Mandala       | `acala-testnet.api.subscan.io`                 | test   |
 | Ajuna               | `ajuna.api.subscan.io`                         | live   |
@@ -64,8 +62,8 @@ Please notice before you get started:
 | Bifrost Kusama      | `bifrost-kusama.api.subscan.io`                | live   |
 | BridgeHub Polkadot  | `bridgehub-polkadot.api.subscan.io`            | live   |
 | BridgeHub Kusama    | `bridgehub-kusama.api.subscan.io`              | live   |
-| BridgeHub Rococo    | `bridgehub-rococo.api.subscan.io`              | test   |
 | BridgeHub Westend   | `bridgehub-westend.api.subscan.io`             | test   |
+| BridgeHub paseo     | `bridgehub-paseo.api.subscan.io`               | test   |
 | Calamari            | `calamari.api.subscan.io`                      | live   |
 | Centrifuge          | `centrifuge.api.subscan.io`                    | live   |
 | Centrifuge Solo     | `centrifuge-standalone-history.api.subscan.io` | live   |
@@ -103,6 +101,7 @@ Please notice before you get started:
 | Nodle               | `nodle.api.subscan.io`                         | live   |
 | NeuroWeb            | `neuroweb.api.subscan.io`                      | live   |
 | NeuroWeb Testnet    | `neuroweb-testnet.api.subscan.io`              | test   |
+| paseo               | `paseo.api.subscan.io`                         | test   |
 | Peaq                | `peaq.api.subscan.io`                          | live   |
 | Peaq  Testnet       | `peaq-testnet.api.subscan.io`                  | test   |
 | Phala               | `phala.api.subscan.io`                         | live   |
@@ -114,7 +113,6 @@ Please notice before you get started:
 | Polymesh Testnet    | `polymesh-testnet.api.subscan.io`              | test   |
 | Quartz              | `quartz.api.subscan.io`                        | live   |
 | Robonomics          | `robonomics.api.subscan.io`                    | live   |
-| Rococo              | `rococo.api.subscan.io`                        | test   |
 | Shibuya             | `shibuya.api.subscan.io`                       | test   |
 | Shiden              | `shiden.api.subscan.io`                        | live   |
 | SORA                | `sora.api.subscan.io`                          | live   |
