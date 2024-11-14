@@ -14552,7 +14552,8 @@ const docTemplate = `{
                     "enum": [
                         "currency_id",
                         "symbol",
-                        "holders"
+                        "holders",
+                        "token_id"
                     ]
                 },
                 "page": {
@@ -19187,9 +19188,6 @@ const docTemplate = `{
                 },
                 "hash": {
                     "type": "string"
-                },
-                "history_currency_amount": {
-                    "type": "number"
                 },
                 "is_lock": {
                     "type": "boolean"

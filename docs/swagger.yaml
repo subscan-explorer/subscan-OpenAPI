@@ -3276,6 +3276,7 @@ definitions:
         - currency_id
         - symbol
         - holders
+        - token_id
         type: string
       page:
         description: Page number, starting from 0
@@ -6363,8 +6364,6 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       hash:
         type: string
-      history_currency_amount:
-        type: number
       is_lock:
         type: boolean
       item_detail:
