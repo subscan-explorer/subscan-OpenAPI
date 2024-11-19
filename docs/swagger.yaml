@@ -7276,6 +7276,19 @@ definitions:
     items:
       $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
     type: array
+  subscan_internal_plugin_avail_dataAvailability_db.AppDataJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      app_id:
+        type: integer
+      data_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      size:
+        type: integer
+    type: object
   subscan_internal_plugin_evm_db.TraceJson:
     properties:
       block_num:
@@ -9478,8 +9491,21 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
-            type: object
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_avail_dataAvailability_db.AppDataJson'
+                      type: array
+                    size:
+                      type: integer
+                  type: object
+              type: object
       summary: Submitted Data list
       tags:
       - Avail

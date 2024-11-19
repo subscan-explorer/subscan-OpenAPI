@@ -2178,8 +2178,33 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object",
-                            "additionalProperties": true
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_avail_dataAvailability_db.AppDataJson"
+                                                    }
+                                                },
+                                                "size": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -20510,6 +20535,26 @@ const docTemplate = `{
             "type": "array",
             "items": {
                 "$ref": "#/definitions/subscan_internal_model.XcmInstructionV4"
+            }
+        },
+        "subscan_internal_plugin_avail_dataAvailability_db.AppDataJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "app_id": {
+                    "type": "integer"
+                },
+                "data_hash": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "integer"
+                }
             }
         },
         "subscan_internal_plugin_evm_db.TraceJson": {
