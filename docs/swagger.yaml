@@ -1713,7 +1713,7 @@ definitions:
         description: filter by receiver parachain id
         type: integer
       extrinsic_index:
-        description: filter by extrinsic index
+        description: filter by send extrinsic index
         type: string
       filter_para_id:
         description: filter by parachain id(sender or receiver)
@@ -3572,6 +3572,8 @@ definitions:
         type: string
       display:
         type: string
+      evm_address:
+        type: string
       evm_contract:
         $ref: '#/definitions/subscan_internal_model.EvmAccountDisplay'
       identity:
@@ -3890,22 +3892,14 @@ definitions:
       symbol:
         type: string
     type: object
-  subscan_internal_model.AssetInstance:
+  subscan_internal_model.AssetTokenPriceJson:
     properties:
-      Array4:
-        type: string
-      Array8:
-        type: string
-      Array16:
-        type: string
-      Array32:
-        type: string
-      Blob:
-        type: string
-      Index:
+      price:
         type: number
-      Undefined:
-        $ref: '#/definitions/subscan_internal_model.EnumData'
+      price_change:
+        type: number
+      unique_id:
+        type: string
     type: object
   subscan_internal_model.AssetsJson:
     properties:
@@ -4030,20 +4024,6 @@ definitions:
         type: string
       total:
         type: integer
-    type: object
-  subscan_internal_model.BuyExecution:
-    properties:
-      fees:
-        $ref: '#/definitions/subscan_internal_model.V1MultiAssets'
-      weight_limit:
-        $ref: '#/definitions/subscan_internal_model.WeightLimitV2'
-    type: object
-  subscan_internal_model.BuyExecutionV4:
-    properties:
-      fees:
-        $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
-      weight_limit:
-        $ref: '#/definitions/subscan_internal_model.WeightLimitV2'
     type: object
   subscan_internal_model.ChainBlockJson:
     properties:
@@ -4673,90 +4653,6 @@ definitions:
       voting_time:
         type: integer
     type: object
-  subscan_internal_model.DepositAsset:
-    properties:
-      assets: {}
-      beneficiary:
-        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
-      max_assets:
-        type: integer
-    type: object
-  subscan_internal_model.DepositAssetV0:
-    properties:
-      assets:
-        items: {}
-        type: array
-      dest:
-        $ref: '#/definitions/subscan_internal_model.V0MultiLocation'
-    type: object
-  subscan_internal_model.DepositAssetV4:
-    properties:
-      assets: {}
-      beneficiary:
-        $ref: '#/definitions/subscan_internal_model.V4MultiLocation'
-    type: object
-  subscan_internal_model.DepositReserveAsset:
-    properties:
-      assets: {}
-      dest: {}
-      max_assets:
-        type: integer
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV2'
-    type: object
-  subscan_internal_model.DepositReserveAssetV3:
-    properties:
-      assets: {}
-      dest: {}
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV3'
-    type: object
-  subscan_internal_model.DescendOrigin:
-    properties:
-      Here:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.EnumValueNull'
-        description: 为了与v1 兼容
-      X1:
-        $ref: '#/definitions/subscan_internal_model.XCMJunction'
-      X2:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X3:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X4:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X5:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X6:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X7:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X8:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-    type: object
-  subscan_internal_model.EnumData:
-    additionalProperties:
-      type: string
-    type: object
-  subscan_internal_model.EnumValueNull:
-    properties:
-      set:
-        type: boolean
-    type: object
   subscan_internal_model.EraBondStat:
     properties:
       avg:
@@ -4788,16 +4684,6 @@ definitions:
     properties:
       contract_name:
         type: string
-    type: object
-  subscan_internal_model.ExportMessageV3:
-    properties:
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV3'
-    type: object
-  subscan_internal_model.ExportMessageV4:
-    properties:
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV4'
     type: object
   subscan_internal_model.ExtrinsicDetail:
     properties:
@@ -4979,27 +4865,6 @@ definitions:
         type: string
       web:
         type: string
-    type: object
-  subscan_internal_model.InitiateTeleport:
-    properties:
-      assets: {}
-      dest: {}
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV2'
-    type: object
-  subscan_internal_model.InitiateTeleportV3:
-    properties:
-      assets: {}
-      dest: {}
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV3'
-    type: object
-  subscan_internal_model.InitiateTeleportV4:
-    properties:
-      assets: {}
-      dest: {}
-      xcm:
-        $ref: '#/definitions/subscan_internal_model.XcmV4'
     type: object
   subscan_internal_model.ItemDetail:
     properties:
@@ -5419,8 +5284,6 @@ definitions:
       from_chain:
         description: source chain, like Polkadot.kusama,Ethereum
         type: string
-      instructions:
-        $ref: '#/definitions/subscan_internal_model.VersionedXcm'
       message_hash:
         description: xcm message hash,
         type: string
@@ -5821,15 +5684,6 @@ definitions:
         example: true
         type: boolean
     type: object
-  subscan_internal_model.ReceiveTeleportedAsset:
-    properties:
-      assets:
-        items: {}
-        type: array
-      effects:
-        items: {}
-        type: array
-    type: object
   subscan_internal_model.ReferendumJson:
     properties:
       aye_amount:
@@ -5991,14 +5845,6 @@ definitions:
         type: integer
       judgement:
         type: string
-    type: object
-  subscan_internal_model.ReserveAssetDeposited:
-    properties:
-      assets: {}
-      effects:
-        items:
-          $ref: '#/definitions/subscan_internal_model.V1XCMRuntimeCall'
-        type: array
     type: object
   subscan_internal_model.RoleRegistrarJson:
     properties:
@@ -6218,18 +6064,6 @@ definitions:
       voting_time:
         type: integer
     type: object
-  subscan_internal_model.TeleportAsset:
-    properties:
-      assets:
-        items:
-          additionalProperties: true
-          type: object
-        type: array
-      effects:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmV0Order'
-        type: array
-    type: object
   subscan_internal_model.ThirdPartyCompiler:
     properties:
       digest:
@@ -6308,28 +6142,6 @@ definitions:
         type: string
       vesting:
         $ref: '#/definitions/subscan_internal_model.VestingJson'
-    type: object
-  subscan_internal_model.Transact:
-    properties:
-      call:
-        type: string
-      origin_type:
-        type: string
-      require_weight_at_most: {}
-    type: object
-  subscan_internal_model.TransactV3:
-    properties:
-      call:
-        type: string
-      origin_kind:
-        type: string
-      require_weight_at_most: {}
-    type: object
-  subscan_internal_model.TransferAsset:
-    properties:
-      assets: {}
-      beneficiary:
-        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
     type: object
   subscan_internal_model.TransferHistoryJson:
     properties:
@@ -6414,36 +6226,6 @@ definitions:
         type: string
       to_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-    type: object
-  subscan_internal_model.TransferReserveAsset:
-    properties:
-      assets: {}
-      dest:
-        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
-      xcm:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmInstruction'
-        type: array
-    type: object
-  subscan_internal_model.TransferReserveAssetV3:
-    properties:
-      assets: {}
-      dest:
-        $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
-      xcm:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmInstructionV3'
-        type: array
-    type: object
-  subscan_internal_model.TransferReserveAssetV4:
-    properties:
-      assets: {}
-      dest:
-        $ref: '#/definitions/subscan_internal_model.V4MultiLocation'
-      xcm:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
-        type: array
     type: object
   subscan_internal_model.TreasuryProposalDetailJson:
     properties:
@@ -6571,164 +6353,6 @@ definitions:
       rewarder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
-  subscan_internal_model.V0MultiLocation:
-    properties:
-      Here:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.EnumValueNull'
-        description: 为了与v1 兼容
-      X1:
-        $ref: '#/definitions/subscan_internal_model.XCMJunction'
-      X2:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X3:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X4:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X5:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X6:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X7:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-      X8:
-        additionalProperties:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: object
-    type: object
-  subscan_internal_model.V1MultiAssets:
-    properties:
-      fun:
-        description: Fungibility
-        properties:
-          Fungible:
-            type: number
-          NonFungible:
-            $ref: '#/definitions/subscan_internal_model.AssetInstance'
-        type: object
-      id:
-        description: AssetId
-        properties:
-          Abstract:
-            type: string
-          Concrete:
-            $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
-        type: object
-    type: object
-  subscan_internal_model.V1MultiLocation:
-    properties:
-      interior:
-        $ref: '#/definitions/subscan_internal_model.V0MultiLocation'
-      parents:
-        type: integer
-    type: object
-  subscan_internal_model.V1XCMRuntimeCall:
-    properties:
-      BuyExecution: {}
-      DepositAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositAsset'
-      DepositReserveAsset: {}
-      ExchangeAsset: {}
-      InitiateReserveWithdraw: {}
-      InitiateTeleport: {}
-      Noop: {}
-      QueryHolding: {}
-    type: object
-  subscan_internal_model.V3MultiAssets:
-    properties:
-      fun:
-        description: Fungibility
-        properties:
-          Fungible:
-            type: number
-          NonFungible:
-            $ref: '#/definitions/subscan_internal_model.AssetInstance'
-        type: object
-      id:
-        description: AssetId
-        properties:
-          Abstract:
-            type: string
-          Concrete:
-            $ref: '#/definitions/subscan_internal_model.V1MultiLocation'
-        type: object
-    type: object
-  subscan_internal_model.V4MultiAsset:
-    properties:
-      fun:
-        description: Fungibility
-        properties:
-          Fungible:
-            description: u128
-            type: number
-          NonFungible:
-            allOf:
-            - $ref: '#/definitions/subscan_internal_model.AssetInstance'
-            description: AssetInstance
-        type: object
-      id:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.V4MultiLocation'
-        description: AssetId
-    type: object
-  subscan_internal_model.V4MultiLocation:
-    properties:
-      interior:
-        $ref: '#/definitions/subscan_internal_model.V4MultiLocationJunctions'
-      parents:
-        type: integer
-    type: object
-  subscan_internal_model.V4MultiLocationJunctions:
-    properties:
-      Here:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.EnumValueNull'
-        description: 为了与v1 兼容
-      X1:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X2:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X3:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X4:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X5:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X6:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X7:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-      X8:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XCMJunction'
-        type: array
-    type: object
   subscan_internal_model.ValidatorJson:
     properties:
       bonded_nominators:
@@ -6794,25 +6418,6 @@ definitions:
       validator_prefs_value:
         type: integer
     type: object
-  subscan_internal_model.VersionedXcm:
-    properties:
-      V0:
-        $ref: '#/definitions/subscan_internal_model.XcmV0'
-      V1:
-        $ref: '#/definitions/subscan_internal_model.XcmV1'
-      V2:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmInstruction'
-        type: array
-      V3:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmInstructionV3'
-        type: array
-      V4:
-        items:
-          $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
-        type: array
-    type: object
   subscan_internal_model.VestingJson:
     properties:
       linear_schedules:
@@ -6840,228 +6445,6 @@ definitions:
         type: integer
       day:
         type: string
-    type: object
-  subscan_internal_model.WeightLimitV2:
-    properties:
-      Limited: {}
-      Unlimited:
-        $ref: '#/definitions/subscan_internal_model.EnumValueNull'
-    type: object
-  subscan_internal_model.XCMJunction:
-    properties:
-      AccountId32:
-        properties:
-          id:
-            type: string
-          network:
-            $ref: '#/definitions/subscan_internal_model.EnumData'
-        type: object
-      AccountIndex64:
-        properties:
-          index:
-            type: integer
-          network:
-            $ref: '#/definitions/subscan_internal_model.EnumData'
-        type: object
-      AccountKey20:
-        properties:
-          key:
-            type: string
-          network:
-            $ref: '#/definitions/subscan_internal_model.EnumData'
-        type: object
-      GeneralIndex:
-        type: string
-      GeneralKey: {}
-      GlobalConsensus:
-        $ref: '#/definitions/subscan_internal_model.XcmNetworkId'
-      OnlyChild: {}
-      PalletInstance:
-        type: integer
-      Parachain:
-        type: integer
-      Parent:
-        type: string
-      Plurality:
-        additionalProperties: true
-        type: object
-    type: object
-  subscan_internal_model.XcmInstruction:
-    properties:
-      BuyExecution:
-        $ref: '#/definitions/subscan_internal_model.BuyExecution'
-      ClaimAsset: {}
-      ClearError: {}
-      ClearOrigin: {}
-      DepositAsset:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.DepositAsset'
-        description: todo
-      DepositReserveAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositReserveAsset'
-      DescendOrigin:
-        $ref: '#/definitions/subscan_internal_model.DescendOrigin'
-      ExchangeAsset: {}
-      HrmpChannelAccepted: {}
-      HrmpChannelClosing: {}
-      HrmpNewChannelOpenRequest: {}
-      InitiateReserveWithdraw: {}
-      InitiateTeleport:
-        $ref: '#/definitions/subscan_internal_model.InitiateTeleport'
-      QueryHolding: {}
-      QueryResponse: {}
-      ReceiveTeleportedAsset: {}
-      RefundSurplus: {}
-      ReportError: {}
-      ReserveAssetDeposited: {}
-      SetAppendix: {}
-      SetErrorHandler: {}
-      SubscribeVersion: {}
-      Transact:
-        $ref: '#/definitions/subscan_internal_model.Transact'
-      TransferAsset:
-        $ref: '#/definitions/subscan_internal_model.TransferAsset'
-      TransferReserveAsset:
-        $ref: '#/definitions/subscan_internal_model.TransferReserveAsset'
-      Trap: {}
-      UnsubscribeVersion: {}
-      WithdrawAsset: {}
-    type: object
-  subscan_internal_model.XcmInstructionV3:
-    properties:
-      AliasOrigin: {}
-      BurnAsset: {}
-      BuyExecution:
-        $ref: '#/definitions/subscan_internal_model.BuyExecution'
-      ClaimAsset: {}
-      ClearError: {}
-      ClearOrigin: {}
-      ClearTopic: {}
-      ClearTransactStatus: {}
-      DepositAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositAsset'
-      DepositReserveAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositReserveAssetV3'
-      DescendOrigin:
-        $ref: '#/definitions/subscan_internal_model.DescendOrigin'
-      ExchangeAsset: {}
-      ExpectAsset: {}
-      ExpectError: {}
-      ExpectOrigin: {}
-      ExpectPallet: {}
-      ExpectTransactStatus: {}
-      ExportMessage:
-        $ref: '#/definitions/subscan_internal_model.ExportMessageV3'
-      HrmpChannelAccepted: {}
-      HrmpChannelClosing: {}
-      HrmpNewChannelOpenRequest: {}
-      InitiateReserveWithdraw: {}
-      InitiateTeleport:
-        $ref: '#/definitions/subscan_internal_model.InitiateTeleportV3'
-      LockAsset: {}
-      NoteUnlockable: {}
-      QueryHolding: {}
-      QueryPallet: {}
-      QueryResponse: {}
-      ReceiveTeleportedAsset: {}
-      RefundSurplus: {}
-      ReportError: {}
-      ReportTransactStatus: {}
-      RequestUnlock: {}
-      ReserveAssetDeposited:
-        items:
-          $ref: '#/definitions/subscan_internal_model.V3MultiAssets'
-        type: array
-      SetAppendix: {}
-      SetErrorHandler: {}
-      SetFeesMode: {}
-      SetTopic:
-        type: string
-      SubscribeVersion: {}
-      Transact:
-        $ref: '#/definitions/subscan_internal_model.TransactV3'
-      TransferAsset:
-        $ref: '#/definitions/subscan_internal_model.TransferAsset'
-      TransferReserveAsset:
-        $ref: '#/definitions/subscan_internal_model.TransferReserveAssetV3'
-      Trap: {}
-      UniversalOrigin: {}
-      UnlockAsset: {}
-      UnpaidExecution: {}
-      UnsubscribeVersion: {}
-      WithdrawAsset:
-        items:
-          $ref: '#/definitions/subscan_internal_model.V3MultiAssets'
-        type: array
-    type: object
-  subscan_internal_model.XcmInstructionV4:
-    properties:
-      AliasOrigin: {}
-      BurnAsset: {}
-      BuyExecution:
-        $ref: '#/definitions/subscan_internal_model.BuyExecutionV4'
-      ClaimAsset: {}
-      ClearError: {}
-      ClearOrigin: {}
-      ClearTopic: {}
-      ClearTransactStatus: {}
-      DepositAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositAssetV4'
-      DepositReserveAsset:
-        $ref: '#/definitions/subscan_internal_model.InitiateTeleportV4'
-      DescendOrigin: {}
-      ExchangeAsset: {}
-      ExpectAsset: {}
-      ExpectError: {}
-      ExpectOrigin: {}
-      ExpectPallet: {}
-      ExpectTransactStatus: {}
-      ExportMessage:
-        $ref: '#/definitions/subscan_internal_model.ExportMessageV4'
-      HrmpChannelAccepted: {}
-      HrmpChannelClosing: {}
-      HrmpNewChannelOpenRequest: {}
-      InitiateReserveWithdraw: {}
-      InitiateTeleport:
-        $ref: '#/definitions/subscan_internal_model.InitiateTeleportV4'
-      LockAsset: {}
-      NoteUnlockable: {}
-      QueryPallet: {}
-      QueryResponse: {}
-      ReceiveTeleportedAsset:
-        items:
-          $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
-        type: array
-      RefundSurplus: {}
-      ReportError: {}
-      ReportHolding: {}
-      ReportTransactStatus: {}
-      RequestUnlock: {}
-      ReserveAssetDeposited:
-        items:
-          $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
-        type: array
-      SetAppendix: {}
-      SetErrorHandler: {}
-      SetFeesMode: {}
-      SetTopic:
-        type: string
-      SubscribeVersion: {}
-      Transact:
-        $ref: '#/definitions/subscan_internal_model.TransactV3'
-      TransferAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositAssetV4'
-      TransferReserveAsset:
-        $ref: '#/definitions/subscan_internal_model.TransferReserveAssetV4'
-      Trap: {}
-      UniversalOrigin: {}
-      UnlockAsset: {}
-      UnpaidExecution: {}
-      UnsubscribeVersion: {}
-      WithdrawAsset:
-        items:
-          $ref: '#/definitions/subscan_internal_model.V4MultiAsset'
-        type: array
     type: object
   subscan_internal_model.XcmMessageEmbeddedJson:
     properties:
@@ -7112,8 +6495,6 @@ definitions:
       from_chain:
         description: source chain, like Polkadot.kusama,Ethereum
         type: string
-      instructions:
-        $ref: '#/definitions/subscan_internal_model.VersionedXcm'
       message_hash:
         description: xcm message hash,
         type: string
@@ -7198,84 +6579,34 @@ definitions:
       support_parachain:
         type: integer
     type: object
-  subscan_internal_model.XcmNetworkId:
+  subscan_internal_plugin_assets_db.Metadata:
     properties:
-      Ethereum:
+      decimals:
         type: integer
-      Kusama:
+      deposit:
+        type: number
+      name:
         type: string
-      Polkadot:
-        description: ByGenesis        *string `json:"ByGenesis,omitempty"`
-        type: string
-      Rococo:
-        type: string
-      Westend:
-        type: string
-      Wococo:
+      symbol:
         type: string
     type: object
-  subscan_internal_model.XcmV0:
+  subscan_internal_plugin_assets_db.StateAssetSampleJson:
     properties:
-      HrmpChannelAccepted: {}
-      HrmpChannelClosing: {}
-      HrmpNewChannelOpenRequest: {}
-      QueryResponse: {}
-      RelayedFrom: {}
-      ReserveAssetDeposit: {}
-      TeleportAsset:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.TeleportAsset'
-        description: todo
-      Transact: {}
-      TransferAsset: {}
-      TransferReserveAsset: {}
-      WithdrawAsset: {}
-    type: object
-  subscan_internal_model.XcmV0Order:
-    properties:
-      BuyExecution: {}
-      DepositAsset:
-        $ref: '#/definitions/subscan_internal_model.DepositAssetV0'
-      DepositReserveAsset: {}
-      ExchangeAsset: {}
-      InitiateReserveWithdraw: {}
-      InitiateTeleport: {}
-      "Null":
+      asset_id:
+        type: number
+      holders:
+        type: integer
+      issuer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      metadata:
+        $ref: '#/definitions/subscan_internal_plugin_assets_db.Metadata'
+      owner:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      supply:
+        type: number
+      unique_id:
         type: string
-      QueryHolding: {}
     type: object
-  subscan_internal_model.XcmV1:
-    properties:
-      HrmpChannelAccepted: {}
-      HrmpChannelClosing: {}
-      HrmpNewChannelOpenRequest: {}
-      QueryResponse: {}
-      ReceiveTeleportedAsset:
-        allOf:
-        - $ref: '#/definitions/subscan_internal_model.ReceiveTeleportedAsset'
-        description: todo
-      RelayedFrom: {}
-      ReserveAssetDeposited:
-        $ref: '#/definitions/subscan_internal_model.ReserveAssetDeposited'
-      SubscribeVersion: {}
-      Transact: {}
-      TransferAsset: {}
-      TransferReserveAsset: {}
-      UnsubscribeVersion: {}
-      WithdrawAsset: {}
-    type: object
-  subscan_internal_model.XcmV2:
-    items:
-      $ref: '#/definitions/subscan_internal_model.XcmInstruction'
-    type: array
-  subscan_internal_model.XcmV3:
-    items:
-      $ref: '#/definitions/subscan_internal_model.XcmInstructionV3'
-    type: array
-  subscan_internal_model.XcmV4:
-    items:
-      $ref: '#/definitions/subscan_internal_model.XcmInstructionV4'
-    type: array
   subscan_internal_plugin_avail_dataAvailability_db.AppDataJson:
     properties:
       account:
@@ -8652,7 +7983,20 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/subscan_internal_plugin_assets_db.StateAssetSampleJson'
+                    type: array
+                type: object
+              message:
+                type: string
             type: object
       summary: Assets list
       tags:
@@ -12869,6 +12213,27 @@ paths:
       summary: Token holders list
       tags:
       - account
+  /api/scan/token/price:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.AssetTokenPriceJson'
+                  type: array
+              type: object
+      summary: Token price list
+      tags:
+      - token
   /api/scan/token/unique_id:
     get:
       consumes:
