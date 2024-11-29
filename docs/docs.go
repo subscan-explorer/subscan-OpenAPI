@@ -1007,6 +1007,61 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/broker/assigns": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime assign list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.assignParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.RegionAssignedJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/broker/operation": {
             "post": {
                 "consumes": [
@@ -1302,6 +1357,215 @@ const docTemplate = `{
                                             "type": "array",
                                             "items": {
                                                 "$ref": "#/definitions/internal_pluginv2_pallets_coretime.SaleListItemJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/workload/details": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime workload details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.workloadDetailsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_coretime.CoreWorkloadsPlansJson"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/workload/history": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime workload history",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.workloadHistoryParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.WorkloadHistoryJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/workloads": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime workload list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.workloadsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.CoreWorkLoadsJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/broker/workplans": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "coretime"
+                ],
+                "summary": "Coretime workplan list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_coretime.workplanParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_coretime.CoreWorkplanInfoJson"
                                             }
                                         }
                                     }
@@ -11614,6 +11878,92 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_pluginv2_pallets_coretime.CoreWorkLoadsJson": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_coretime.CoreWorkloadInfoJson"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.CoreWorkloadInfoJson": {
+            "type": "object",
+            "properties": {
+                "assigned_type": {
+                    "type": "string"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "last_block": {
+                    "type": "integer"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "purchased_type": {
+                    "type": "string"
+                },
+                "region_begin": {
+                    "type": "integer"
+                },
+                "region_end": {
+                    "type": "integer"
+                },
+                "region_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.CoreWorkloadsPlansJson": {
+            "type": "object",
+            "properties": {
+                "workloads": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_coretime.CoreWorkloadInfoJson"
+                    }
+                },
+                "workplans": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_coretime.CoreWorkplanInfoJson"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.CoreWorkplanInfoJson": {
+            "type": "object",
+            "properties": {
+                "assigned_type": {
+                    "type": "string"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "purchased_type": {
+                    "type": "string"
+                },
+                "region_begin": {
+                    "type": "integer"
+                }
+            }
+        },
         "internal_pluginv2_pallets_coretime.OperationJson": {
             "type": "object",
             "properties": {
@@ -11663,6 +12013,32 @@ const docTemplate = `{
                 },
                 "price": {
                     "type": "number"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.RegionAssignedJson": {
+            "type": "object",
+            "properties": {
+                "assigned_type": {
+                    "type": "string"
+                },
+                "begin": {
+                    "type": "integer"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "end": {
+                    "type": "integer"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "region_id": {
+                    "type": "string"
+                },
+                "task_id": {
+                    "type": "integer"
                 }
             }
         },
@@ -11828,6 +12204,74 @@ const docTemplate = `{
                 "sales_cycle": {
                     "description": "-1 为 无效 0为内部计算错误 \u003e 1 为正常",
                     "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.WorkloadHistoryJson": {
+            "type": "object",
+            "properties": {
+                "assigned_type": {
+                    "type": "string"
+                },
+                "begin": {
+                    "type": "integer"
+                },
+                "core": {
+                    "type": "integer"
+                },
+                "end": {
+                    "type": "integer"
+                },
+                "end_block": {
+                    "type": "integer"
+                },
+                "mask": {
+                    "type": "string"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "purchased_type": {
+                    "type": "string"
+                },
+                "region_id": {
+                    "type": "string"
+                },
+                "start_block": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.assignParams": {
+            "type": "object",
+            "properties": {
+                "core": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "paraId": {
+                    "type": "integer",
+                    "example": 1000
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 500,
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -12005,6 +12449,106 @@ const docTemplate = `{
                     "type": "integer",
                     "minimum": 1,
                     "example": 1
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.workloadDetailsParams": {
+            "type": "object",
+            "properties": {
+                "core": {
+                    "description": "one of core and paraid is required",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10
+                },
+                "para_id": {
+                    "type": "integer",
+                    "example": 1000
+                },
+                "region_begin": {
+                    "type": "integer",
+                    "example": 200000
+                },
+                "show_workplan": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.workloadHistoryParams": {
+            "type": "object",
+            "properties": {
+                "core": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 10
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "para_id": {
+                    "type": "integer",
+                    "example": 1000
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 500,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.workloadsParams": {
+            "type": "object",
+            "properties": {
+                "core_view": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "region_begin": {
+                    "type": "integer",
+                    "example": 200000
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 500,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_pluginv2_pallets_coretime.workplanParams": {
+            "type": "object",
+            "properties": {
+                "core": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "paraId": {
+                    "type": "integer",
+                    "example": 1000
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 500,
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },

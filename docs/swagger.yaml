@@ -1110,6 +1110,62 @@ definitions:
         - 1
         - 2
     type: object
+  internal_pluginv2_pallets_coretime.CoreWorkLoadsJson:
+    properties:
+      key:
+        type: integer
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.CoreWorkloadInfoJson'
+        type: array
+    type: object
+  internal_pluginv2_pallets_coretime.CoreWorkloadInfoJson:
+    properties:
+      assigned_type:
+        type: string
+      core:
+        type: integer
+      last_block:
+        type: integer
+      mask:
+        type: string
+      para_id:
+        type: integer
+      purchased_type:
+        type: string
+      region_begin:
+        type: integer
+      region_end:
+        type: integer
+      region_id:
+        type: string
+    type: object
+  internal_pluginv2_pallets_coretime.CoreWorkloadsPlansJson:
+    properties:
+      workloads:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.CoreWorkloadInfoJson'
+        type: array
+      workplans:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.CoreWorkplanInfoJson'
+        type: array
+    type: object
+  internal_pluginv2_pallets_coretime.CoreWorkplanInfoJson:
+    properties:
+      assigned_type:
+        type: string
+      core:
+        type: integer
+      mask:
+        type: string
+      para_id:
+        type: integer
+      purchased_type:
+        type: string
+      region_begin:
+        type: integer
+    type: object
   internal_pluginv2_pallets_coretime.OperationJson:
     properties:
       account:
@@ -1143,6 +1199,23 @@ definitions:
         type: integer
       price:
         type: number
+    type: object
+  internal_pluginv2_pallets_coretime.RegionAssignedJson:
+    properties:
+      assigned_type:
+        type: string
+      begin:
+        type: integer
+      core:
+        type: integer
+      end:
+        type: integer
+      mask:
+        type: string
+      region_id:
+        type: string
+      task_id:
+        type: integer
     type: object
   internal_pluginv2_pallets_coretime.RegionInfoJson:
     properties:
@@ -1251,6 +1324,54 @@ definitions:
         type: integer
       sales_cycle:
         description: -1 为 无效 0为内部计算错误 > 1 为正常
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.WorkloadHistoryJson:
+    properties:
+      assigned_type:
+        type: string
+      begin:
+        type: integer
+      core:
+        type: integer
+      end:
+        type: integer
+      end_block:
+        type: integer
+      mask:
+        type: string
+      para_id:
+        type: integer
+      purchased_type:
+        type: string
+      region_id:
+        type: string
+      start_block:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.assignParams:
+    properties:
+      core:
+        example: 10
+        type: integer
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      paraId:
+        example: 1000
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 500
+        minimum: 1
         type: integer
     type: object
   internal_pluginv2_pallets_coretime.operationParams:
@@ -1386,6 +1507,82 @@ definitions:
         type: integer
       sales_cycle:
         example: 1
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.workloadDetailsParams:
+    properties:
+      core:
+        description: one of core and paraid is required
+        example: 10
+        minimum: 0
+        type: integer
+      para_id:
+        example: 1000
+        type: integer
+      region_begin:
+        example: 200000
+        type: integer
+      show_workplan:
+        type: boolean
+    type: object
+  internal_pluginv2_pallets_coretime.workloadHistoryParams:
+    properties:
+      core:
+        example: 10
+        minimum: 0
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      para_id:
+        example: 1000
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 500
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.workloadsParams:
+    properties:
+      core_view:
+        type: boolean
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      region_begin:
+        example: 200000
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 500
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_coretime.workplanParams:
+    properties:
+      core:
+        example: 10
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      paraId:
+        example: 1000
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 500
         minimum: 1
         type: integer
     type: object
@@ -8116,6 +8313,41 @@ paths:
       summary: Bounty list
       tags:
       - governance
+  /api/scan/broker/assigns:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.assignParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.RegionAssignedJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime assign list
+      tags:
+      - coretime
   /api/scan/broker/operation:
     post:
       consumes:
@@ -8310,6 +8542,139 @@ paths:
                 type: string
             type: object
       summary: Coretime sale history list
+      tags:
+      - coretime
+  /api/scan/broker/workload/details:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.workloadDetailsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_coretime.CoreWorkloadsPlansJson'
+              message:
+                type: string
+            type: object
+      summary: Coretime workload details
+      tags:
+      - coretime
+  /api/scan/broker/workload/history:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.workloadHistoryParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.WorkloadHistoryJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime workload history
+      tags:
+      - coretime
+  /api/scan/broker/workloads:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.workloadsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.CoreWorkLoadsJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime workload list
+      tags:
+      - coretime
+  /api/scan/broker/workplans:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_coretime.workplanParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_coretime.CoreWorkplanInfoJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Coretime workplan list
       tags:
       - coretime
   /api/scan/check_hash:
