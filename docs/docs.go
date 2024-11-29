@@ -18897,6 +18897,12 @@ const docTemplate = `{
                 "lock": {
                     "type": "number"
                 },
+                "lp_bonded_token_combination": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.LpTokenInfo"
+                    }
+                },
                 "lp_token_combination": {
                     "type": "array",
                     "items": {

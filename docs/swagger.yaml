@@ -6115,6 +6115,10 @@ definitions:
         type: number
       lock:
         type: number
+      lp_bonded_token_combination:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
+        type: array
       lp_token_combination:
         items:
           $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
