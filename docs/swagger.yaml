@@ -3679,6 +3679,8 @@ definitions:
     type: object
   subscan_internal_dao.AccountBalanceValueHistory:
     properties:
+      asset_value:
+        type: number
       date:
         type: string
       value:
@@ -10506,6 +10508,12 @@ paths:
             - properties:
                 data:
                   properties:
+                    asset_max:
+                      type: number
+                    asset_min:
+                      type: number
+                    asset_prev24H:
+                      type: number
                     max:
                       type: number
                     min:
@@ -13691,6 +13699,34 @@ paths:
       summary: Logs list
       tags:
       - log
+  /api/v2/scan/multiChain/account:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiChainAccountParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.AssetsJson'
+                  type: array
+              type: object
+      summary: MultiChain account V2
+      tags:
+      - multiChain
   /api/v2/scan/search:
     post:
       consumes:

@@ -4635,6 +4635,15 @@ const docTemplate = `{
                                         "data": {
                                             "type": "object",
                                             "properties": {
+                                                "asset_max": {
+                                                    "type": "number"
+                                                },
+                                                "asset_min": {
+                                                    "type": "number"
+                                                },
+                                                "asset_prev24H": {
+                                                    "type": "number"
+                                                },
                                                 "max": {
                                                     "type": "number"
                                                 },
@@ -9975,6 +9984,54 @@ const docTemplate = `{
                                                         "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
                                                     }
                                                 }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/multiChain/account": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "MultiChain account V2",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiChainAccountParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/subscan_internal_model.AssetsJson"
                                             }
                                         }
                                     }
@@ -15469,6 +15526,9 @@ const docTemplate = `{
         "subscan_internal_dao.AccountBalanceValueHistory": {
             "type": "object",
             "properties": {
+                "asset_value": {
+                    "type": "number"
+                },
                 "date": {
                     "type": "string"
                 },
