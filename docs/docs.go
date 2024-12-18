@@ -15532,6 +15532,9 @@ const docTemplate = `{
                 "date": {
                     "type": "string"
                 },
+                "defi_value": {
+                    "type": "number"
+                },
                 "value": {
                     "type": "number"
                 }

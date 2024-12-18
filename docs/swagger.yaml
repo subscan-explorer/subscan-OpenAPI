@@ -3683,6 +3683,8 @@ definitions:
         type: number
       date:
         type: string
+      defi_value:
+        type: number
       value:
         type: number
     type: object
