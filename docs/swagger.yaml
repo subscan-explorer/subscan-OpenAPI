@@ -4886,6 +4886,17 @@ definitions:
       contract_name:
         type: string
     type: object
+  subscan_internal_model.ExecutionFee:
+    properties:
+      asset_unique_id:
+        type: string
+      decimals:
+        type: integer
+      estimate_fee:
+        type: number
+      symbol:
+        type: string
+    type: object
   subscan_internal_model.ExtrinsicDetail:
     properties:
       account_display:
@@ -5479,6 +5490,8 @@ definitions:
       extrinsic_index:
         description: Send message extrinsic index
         type: string
+      fee_asset:
+        $ref: '#/definitions/subscan_internal_model.ExecutionFee'
       from_account_id:
         description: sender address
         type: string
@@ -5529,6 +5542,9 @@ definitions:
       unique_id:
         description: global xcm message unique id
         type: string
+      used_fee:
+        description: used gas
+        type: number
       xcm_version:
         description: xcm version
         type: integer
@@ -6343,6 +6359,8 @@ definitions:
         type: string
       unbonding:
         type: number
+      unclaimed:
+        type: number
       unique_id:
         type: string
       vesting:
@@ -6694,6 +6712,8 @@ definitions:
       extrinsic_index:
         description: Send message extrinsic index
         type: string
+      fee_asset:
+        $ref: '#/definitions/subscan_internal_model.ExecutionFee'
       from_account_id:
         description: sender address
         type: string
@@ -6744,6 +6764,9 @@ definitions:
       unique_id:
         description: global xcm message unique id
         type: string
+      used_fee:
+        description: used gas
+        type: number
       xcm_version:
         description: xcm version
         type: integer

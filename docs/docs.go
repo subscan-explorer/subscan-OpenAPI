@@ -17355,6 +17355,23 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.ExecutionFee": {
+            "type": "object",
+            "properties": {
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "estimate_fee": {
+                    "type": "number"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.ExtrinsicDetail": {
             "type": "object",
             "properties": {
@@ -18245,6 +18262,9 @@ const docTemplate = `{
                     "description": "Send message extrinsic index",
                     "type": "string"
                 },
+                "fee_asset": {
+                    "$ref": "#/definitions/subscan_internal_model.ExecutionFee"
+                },
                 "from_account_id": {
                     "description": "sender address",
                     "type": "string"
@@ -18315,6 +18335,10 @@ const docTemplate = `{
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
+                },
+                "used_fee": {
+                    "description": "used gas",
+                    "type": "number"
                 },
                 "xcm_version": {
                     "description": "xcm version",
@@ -19544,6 +19568,9 @@ const docTemplate = `{
                 "unbonding": {
                     "type": "number"
                 },
+                "unclaimed": {
+                    "type": "number"
+                },
                 "unique_id": {
                     "type": "string"
                 },
@@ -20070,6 +20097,9 @@ const docTemplate = `{
                     "description": "Send message extrinsic index",
                     "type": "string"
                 },
+                "fee_asset": {
+                    "$ref": "#/definitions/subscan_internal_model.ExecutionFee"
+                },
                 "from_account_id": {
                     "description": "sender address",
                     "type": "string"
@@ -20140,6 +20170,10 @@ const docTemplate = `{
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
+                },
+                "used_fee": {
+                    "description": "used gas",
+                    "type": "number"
                 },
                 "xcm_version": {
                     "description": "xcm version",
