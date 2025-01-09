@@ -12,3 +12,8 @@ The PRO service is designed for users who require more frequent access to Subsca
 ## Upgrade to PRO
 
 All paid plans are designated as PRO, providing elevated access compared to the free version. To explore your options and upgrade, visit the [pricing page](https://pro.subscan.io/pricing) on the Subscan open platform.
+
+
+## About BEAT
+
+The APIs are currently in free beta testing. In the future, certain features will be available exclusively for Pro users. By subscribing to the Pro Plan, you will enjoy higher API limits, premium services, and additional advanced features.

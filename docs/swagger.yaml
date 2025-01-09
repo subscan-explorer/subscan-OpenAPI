@@ -4885,6 +4885,8 @@ definitions:
     properties:
       contract_name:
         type: string
+      verify_source:
+        type: string
     type: object
   subscan_internal_model.ExecutionFee:
     properties:
@@ -5046,37 +5048,6 @@ definitions:
         type: string
       transfer_count:
         type: integer
-    type: object
-  subscan_internal_model.IdentityJson:
-    properties:
-      discord:
-        type: string
-      display:
-        type: string
-      email:
-        type: string
-      github:
-        type: string
-      identity:
-        type: boolean
-      judgements:
-        items:
-          $ref: '#/definitions/subscan_internal_model.RegistrationJudgementJson'
-        type: array
-      legal:
-        type: string
-      matrix:
-        type: string
-      network:
-        type: string
-      parent:
-        $ref: '#/definitions/subscan_internal_model.AccountParentJson'
-      riot:
-        type: string
-      twitter:
-        type: string
-      web:
-        type: string
     type: object
   subscan_internal_model.ItemDetail:
     properties:
@@ -7025,7 +6996,7 @@ definitions:
         type: string
       item_id:
         example: 1
-        type: integer
+        type: number
       metadata:
         $ref: '#/definitions/subscan_internal_model.StandardMetadata'
       owner:
@@ -10454,7 +10425,7 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.AssetsJson'
                   type: array
               type: object
-      summary: MultiChain account
+      summary: MultiChain account (BETA)
       tags:
       - multiChain
   /api/scan/multiChain/account/count:
@@ -10480,7 +10451,7 @@ paths:
                 data:
                   type: integer
               type: object
-      summary: MultiChain account count
+      summary: MultiChain account count (BETA)
       tags:
       - multiChain
   /api/scan/multiChain/balance_value_history:
@@ -10508,7 +10479,7 @@ paths:
                     $ref: '#/definitions/subscan_internal_dao.AccountBalanceValueHistory'
                   type: array
               type: object
-      summary: Account balance value history
+      summary: Account balance value history (BETA)
       tags:
       - multiChain
   /api/scan/multiChain/balance_value_stat:
@@ -10547,35 +10518,7 @@ paths:
                       type: number
                   type: object
               type: object
-      summary: Account balance value stat
-      tags:
-      - multiChain
-  /api/scan/multiChain/identities:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.identitiesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/subscan_internal_model.IdentityJson'
-                  type: array
-              type: object
-      summary: MultiChain identities
+      summary: Account balance value stat (BETA)
       tags:
       - multiChain
   /api/scan/multiChain/price:
@@ -10602,7 +10545,7 @@ paths:
                   additionalProperties: true
                   type: object
               type: object
-      summary: MultiChain price
+      summary: MultiChain price (BETA)
       tags:
       - multiChain
   /api/scan/multiTokens/account/balances:
@@ -13724,34 +13667,6 @@ paths:
       summary: Logs list
       tags:
       - log
-  /api/v2/scan/multiChain/account:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.multiChainAccountParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/subscan_internal_model.AssetsJson'
-                  type: array
-              type: object
-      summary: MultiChain account V2
-      tags:
-      - multiChain
   /api/v2/scan/search:
     post:
       consumes:

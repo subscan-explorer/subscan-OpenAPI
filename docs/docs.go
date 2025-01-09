@@ -4468,7 +4468,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain account",
+                "summary": "MultiChain account (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -4516,7 +4516,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain account count",
+                "summary": "MultiChain account count (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -4561,7 +4561,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "Account balance value history",
+                "summary": "Account balance value history (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -4609,7 +4609,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "Account balance value stat",
+                "summary": "Account balance value stat (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -4663,54 +4663,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/multiChain/identities": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "multiChain"
-                ],
-                "summary": "MultiChain identities",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.identitiesParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.IdentityJson"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/multiChain/price": {
             "post": {
                 "consumes": [
@@ -4722,7 +4674,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain price",
+                "summary": "MultiChain price (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -9984,54 +9936,6 @@ const docTemplate = `{
                                                         "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
                                                     }
                                                 }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v2/scan/multiChain/account": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "multiChain"
-                ],
-                "summary": "MultiChain account V2",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.multiChainAccountParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.AssetsJson"
                                             }
                                         }
                                     }
@@ -17352,6 +17256,9 @@ const docTemplate = `{
             "properties": {
                 "contract_name": {
                     "type": "string"
+                },
+                "verify_source": {
+                    "type": "string"
                 }
             }
         },
@@ -17596,53 +17503,6 @@ const docTemplate = `{
                 },
                 "transfer_count": {
                     "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.IdentityJson": {
-            "type": "object",
-            "properties": {
-                "discord": {
-                    "type": "string"
-                },
-                "display": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "github": {
-                    "type": "string"
-                },
-                "identity": {
-                    "type": "boolean"
-                },
-                "judgements": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.RegistrationJudgementJson"
-                    }
-                },
-                "legal": {
-                    "type": "string"
-                },
-                "matrix": {
-                    "type": "string"
-                },
-                "network": {
-                    "type": "string"
-                },
-                "parent": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
-                },
-                "riot": {
-                    "type": "string"
-                },
-                "twitter": {
-                    "type": "string"
-                },
-                "web": {
-                    "type": "string"
                 }
             }
         },
@@ -20563,7 +20423,7 @@ const docTemplate = `{
                     "example": "Kusama Crowdloans"
                 },
                 "item_id": {
-                    "type": "integer",
+                    "type": "number",
                     "example": 1
                 },
                 "metadata": {
