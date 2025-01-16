@@ -660,7 +660,7 @@
             }
         },
         "/api/scan/assets/all": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -16014,6 +16014,9 @@
                 "registrar_info": {
                     "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
                 },
+                "reserved": {
+                    "type": "number"
+                },
                 "substrate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 }
@@ -16974,6 +16977,9 @@
                     "type": "string"
                 },
                 "total_issuance": {
+                    "type": "number"
+                },
+                "treasury_amount": {
                     "type": "number"
                 }
             }
@@ -21031,6 +21037,9 @@
                     "type": "integer"
                 },
                 "total_issuance": {
+                    "type": "number"
+                },
+                "treasury_balance": {
                     "type": "number"
                 },
                 "unbonded_locked_balance": {

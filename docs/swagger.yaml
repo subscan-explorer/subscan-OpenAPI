@@ -4071,6 +4071,8 @@ definitions:
         type: number
       registrar_info:
         $ref: '#/definitions/subscan_internal_model.RoleRegistrarJson'
+      reserved:
+        type: number
       substrate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
@@ -4707,6 +4709,8 @@ definitions:
       time_utc:
         type: string
       total_issuance:
+        type: number
+      treasury_amount:
         type: number
     type: object
   subscan_internal_model.DelegateAccountJson:
@@ -7422,6 +7426,8 @@ definitions:
         type: integer
       total_issuance:
         type: number
+      treasury_balance:
+        type: number
       unbonded_locked_balance:
         type: number
       unique_id:
@@ -8107,7 +8113,7 @@ paths:
       tags:
       - assets
   /api/scan/assets/all:
-    get:
+    post:
       consumes:
       - application/json
       produces:

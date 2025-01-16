@@ -671,7 +671,7 @@ const docTemplate = `{
             }
         },
         "/api/scan/assets/all": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -16025,6 +16025,9 @@ const docTemplate = `{
                 "registrar_info": {
                     "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
                 },
+                "reserved": {
+                    "type": "number"
+                },
                 "substrate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 }
@@ -16985,6 +16988,9 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "total_issuance": {
+                    "type": "number"
+                },
+                "treasury_amount": {
                     "type": "number"
                 }
             }
@@ -21042,6 +21048,9 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "total_issuance": {
+                    "type": "number"
+                },
+                "treasury_balance": {
                     "type": "number"
                 },
                 "unbonded_locked_balance": {
