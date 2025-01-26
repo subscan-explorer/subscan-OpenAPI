@@ -18911,6 +18911,9 @@
                 "title": {
                     "type": "string"
                 },
+                "treasury_proposal_id": {
+                    "type": "integer"
+                },
                 "treasury_spend": {
                     "type": "array",
                     "items": {
@@ -19582,6 +19585,9 @@
                 "proposer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "referendum_id": {
+                    "type": "integer"
+                },
                 "reward": {
                     "type": "number"
                 },
@@ -19616,6 +19622,9 @@
                 },
                 "proposer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "referendum_id": {
+                    "type": "integer"
                 },
                 "reward": {
                     "type": "number"

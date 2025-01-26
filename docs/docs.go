@@ -18922,6 +18922,9 @@ const docTemplate = `{
                 "title": {
                     "type": "string"
                 },
+                "treasury_proposal_id": {
+                    "type": "integer"
+                },
                 "treasury_spend": {
                     "type": "array",
                     "items": {
@@ -19593,6 +19596,9 @@ const docTemplate = `{
                 "proposer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "referendum_id": {
+                    "type": "integer"
+                },
                 "reward": {
                     "type": "number"
                 },
@@ -19627,6 +19633,9 @@ const docTemplate = `{
                 },
                 "proposer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "referendum_id": {
+                    "type": "integer"
                 },
                 "reward": {
                     "type": "number"

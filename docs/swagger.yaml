@@ -5995,6 +5995,8 @@ definitions:
         type: array
       title:
         type: string
+      treasury_proposal_id:
+        type: integer
       treasury_spend:
         items:
           $ref: '#/definitions/subscan_internal_model.TreasurySpend'
@@ -6439,6 +6441,8 @@ definitions:
         type: integer
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      referendum_id:
+        type: integer
       reward:
         type: number
       status:
@@ -6462,6 +6466,8 @@ definitions:
         type: integer
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      referendum_id:
+        type: integer
       reward:
         type: number
       status:
