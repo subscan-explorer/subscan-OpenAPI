@@ -10400,6 +10400,9 @@ const docTemplate = `{
         "internal_plugin_avail_dataAvailability_http.SubmittedListParam": {
             "type": "object",
             "properties": {
+                "address": {
+                    "type": "string"
+                },
                 "app_id": {
                     "type": "integer"
                 },
@@ -16109,6 +16112,9 @@ const docTemplate = `{
                 "election_lock": {
                     "type": "number"
                 },
+                "label": {
+                    "type": "string"
+                },
                 "locked": {
                     "type": "number"
                 },
@@ -19393,6 +19399,9 @@ const docTemplate = `{
                 },
                 "exchange_ratio": {
                     "type": "number"
+                },
+                "label": {
+                    "type": "string"
                 },
                 "lock": {
                     "type": "number"
