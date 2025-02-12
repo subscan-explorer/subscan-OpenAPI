@@ -3189,6 +3189,105 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/evm/erc1155/collectible": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc1155 collectible detail",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc1155CollectibleParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/erc1155/collectible/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc1155 token holders",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc1155HoldersParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/erc1155/collectibles": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM ERC1155 collectibles",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/evm/erc721/collectible": {
             "post": {
                 "consumes": [
@@ -3208,7 +3307,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc721CollectibleParam"
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc1155CollectibleParam"
                         }
                     }
                 ],
@@ -3233,7 +3332,7 @@ const docTemplate = `{
                 "tags": [
                     "EVM"
                 ],
-                "summary": "EVM erc721 collectibles",
+                "summary": "EVM ERC721 collectibles",
                 "parameters": [
                     {
                         "description": "param",
@@ -3241,7 +3340,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_plugin_evm_http.EvmErc721CollectiblesParam"
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam"
                         }
                     }
                 ],
@@ -10844,7 +10943,6 @@ const docTemplate = `{
                 "order_field": {
                     "type": "string",
                     "enum": [
-                        "balances",
                         "verify_time",
                         "transaction_count"
                     ]
@@ -10887,7 +10985,7 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_plugin_evm_http.EvmErc721CollectibleParam": {
+        "internal_plugin_evm_http.EvmErc1155CollectibleParam": {
             "type": "object",
             "required": [
                 "token_id"
@@ -10901,14 +10999,27 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_plugin_evm_http.EvmErc721CollectiblesParam": {
+        "internal_plugin_evm_http.EvmErc1155HoldersParam": {
             "type": "object",
+            "required": [
+                "token_id"
+            ],
             "properties": {
-                "address": {
-                    "type": "string"
-                },
                 "contract": {
                     "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "balance"
+                    ]
                 },
                 "page": {
                     "type": "integer",
@@ -10973,6 +11084,29 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_plugin_evm_http.EvmNFTCollectiblesParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_id": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_plugin_evm_http.EvmTokenHoldersParam": {
             "type": "object",
             "properties": {
@@ -11004,7 +11138,8 @@ const docTemplate = `{
                     "type": "string",
                     "enum": [
                         "erc20",
-                        "erc721"
+                        "erc721",
+                        "nft"
                     ]
                 },
                 "contract": {
@@ -11034,7 +11169,9 @@ const docTemplate = `{
                     "type": "string",
                     "enum": [
                         "erc20",
-                        "erc721"
+                        "erc721",
+                        "erc1155",
+                        "nft"
                     ]
                 },
                 "contracts": {
@@ -20881,6 +21018,12 @@ const docTemplate = `{
         "subscan_internal_service_scan.AccountTokenJson": {
             "type": "object",
             "properties": {
+                "ERC1155": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TokenJson"
+                    }
+                },
                 "ERC20": {
                     "type": "array",
                     "items": {

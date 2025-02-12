@@ -392,7 +392,6 @@ definitions:
         type: string
       order_field:
         enum:
-        - balances
         - verify_time
         - transaction_count
         type: string
@@ -422,7 +421,7 @@ definitions:
       releases:
         type: boolean
     type: object
-  internal_plugin_evm_http.EvmErc721CollectibleParam:
+  internal_plugin_evm_http.EvmErc1155CollectibleParam:
     properties:
       contract:
         type: string
@@ -431,11 +430,18 @@ definitions:
     required:
     - token_id
     type: object
-  internal_plugin_evm_http.EvmErc721CollectiblesParam:
+  internal_plugin_evm_http.EvmErc1155HoldersParam:
     properties:
-      address:
-        type: string
       contract:
+        type: string
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      order_field:
+        enum:
+        - balance
         type: string
       page:
         minimum: 0
@@ -446,6 +452,8 @@ definitions:
         type: integer
       token_id:
         type: string
+    required:
+    - token_id
     type: object
   internal_plugin_evm_http.EvmEventLogsParams:
     properties:
@@ -482,6 +490,22 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_plugin_evm_http.EvmNFTCollectiblesParam:
+    properties:
+      address:
+        type: string
+      contract:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_id:
+        type: string
+    type: object
   internal_plugin_evm_http.EvmTokenHoldersParam:
     properties:
       contract:
@@ -505,6 +529,7 @@ definitions:
         enum:
         - erc20
         - erc721
+        - nft
         type: string
       contract:
         type: string
@@ -526,6 +551,8 @@ definitions:
         enum:
         - erc20
         - erc721
+        - erc1155
+        - nft
         type: string
       contracts:
         items:
@@ -7323,6 +7350,10 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TokenJson'
         type: array
+      ERC1155:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TokenJson'
+        type: array
       assets:
         items:
           $ref: '#/definitions/subscan_internal_model.TokenJson'
@@ -9666,7 +9697,7 @@ paths:
         name: param
         required: true
         schema:
-          $ref: '#/definitions/internal_plugin_evm_http.EvmErc721CollectibleParam'
+          $ref: '#/definitions/internal_plugin_evm_http.EvmErc1155CollectibleParam'
       produces:
       - application/json
       responses:
@@ -9687,7 +9718,7 @@ paths:
         name: param
         required: true
         schema:
-          $ref: '#/definitions/internal_plugin_evm_http.EvmErc721CollectiblesParam'
+          $ref: '#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam'
       produces:
       - application/json
       responses:
@@ -9695,7 +9726,70 @@ paths:
           description: OK
           schema:
             type: object
-      summary: EVM erc721 collectibles
+      summary: EVM ERC721 collectibles
+      tags:
+      - EVM
+  /api/scan/evm/erc1155/collectible:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmErc1155CollectibleParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM erc1155 collectible detail
+      tags:
+      - EVM
+  /api/scan/evm/erc1155/collectible/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmErc1155HoldersParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM erc1155 token holders
+      tags:
+      - EVM
+  /api/scan/evm/erc1155/collectibles:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: EVM ERC1155 collectibles
       tags:
       - EVM
   /api/scan/evm/logs:
