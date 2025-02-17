@@ -68,7 +68,6 @@ Please notice before you get started:
 | Centrifuge          | `centrifuge.api.subscan.io`                    | live   |
 | Centrifuge Solo     | `centrifuge-standalone-history.api.subscan.io` | live   |
 | Clover              | `clover.api.subscan.io`                        | live   |
-| Composable          | `composable.api.subscan.io`                    | live   |
 | Continuum           | `continuum.api.subscan.io`                     | live   |
 | creditcoin          | `creditcoin.api.subscan.io`                    | live   |
 | creditcoin-testnet  | `creditcoin-testnet.api.subscan.io`            | test   |
@@ -105,13 +104,11 @@ Please notice before you get started:
 | Peaq                | `peaq.api.subscan.io`                          | live   |
 | Peaq  Testnet       | `peaq-testnet.api.subscan.io`                  | test   |
 | Phala               | `phala.api.subscan.io`                         | live   |
-| Picasso             | `picasso.api.subscan.io`                       | live   |
 | Pioneer             | `pioneer.api.subscan.io`                       | live   |
 | Polkadex            | `polkadex.api.subscan.io`                      | live   |
 | Polkadex Parachain  | `polkadex-parachain.api.subscan.io`            | live   |
 | Polymesh            | `polymesh.api.subscan.io`                      | live   |
 | Polymesh Testnet    | `polymesh-testnet.api.subscan.io`              | test   |
-| Quartz              | `quartz.api.subscan.io`                        | live   |
 | Robonomics          | `robonomics.api.subscan.io`                    | live   |
 | Shibuya             | `shibuya.api.subscan.io`                       | test   |
 | Shiden              | `shiden.api.subscan.io`                        | live   |

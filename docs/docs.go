@@ -15225,15 +15225,24 @@ const docTemplate = `{
                 "is_native": {
                     "type": "boolean"
                 },
+                "market_cap": {
+                    "type": "number"
+                },
                 "metadata": {},
                 "name": {
                     "type": "string"
+                },
+                "price": {
+                    "type": "number"
                 },
                 "symbol": {
                     "type": "string"
                 },
                 "total_issuance": {
                     "type": "number"
+                },
+                "transfer_count": {
+                    "type": "integer"
                 },
                 "unique_id": {
                     "type": "string"
@@ -20286,14 +20295,23 @@ const docTemplate = `{
                 "issuer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "market_cap": {
+                    "type": "number"
+                },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_assets_db.Metadata"
                 },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "price": {
+                    "type": "number"
+                },
                 "supply": {
                     "type": "number"
+                },
+                "transfer_count": {
+                    "type": "integer"
                 },
                 "unique_id": {
                     "type": "string"
@@ -20499,6 +20517,9 @@ const docTemplate = `{
                 "issuer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "market_cap": {
+                    "type": "number"
+                },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
                 },
@@ -20511,8 +20532,14 @@ const docTemplate = `{
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "price": {
+                    "type": "number"
+                },
                 "supply": {
                     "type": "number"
+                },
+                "transfer_count": {
+                    "type": "integer"
                 },
                 "unique_id": {
                     "type": "string"
