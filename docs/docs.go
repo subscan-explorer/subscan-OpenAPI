@@ -8545,6 +8545,112 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/treasury_spend/proposal": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "Treasury spend proposal",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.treasuryProposalParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "info": {
+                                                    "$ref": "#/definitions/subscan_internal_model.TreasurySpendProposalDetailJson"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/treasury_spend/proposals": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "Treasury spend proposals",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.treasuryProposalsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.TreasurySpendProposalJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/unique/account/balances": {
             "post": {
                 "consumes": [
@@ -19053,6 +19159,9 @@ const docTemplate = `{
                 "origins_id": {
                     "type": "integer"
                 },
+                "paid_expire_block": {
+                    "type": "integer"
+                },
                 "pre_image": {
                     "$ref": "#/definitions/subscan_internal_model.PreImageJson"
                 },
@@ -19082,6 +19191,9 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.TreasurySpend"
                     }
+                },
+                "treasury_spend_id": {
+                    "type": "integer"
                 }
             }
         },
@@ -19745,6 +19857,9 @@ const docTemplate = `{
                 "created_block": {
                     "type": "integer"
                 },
+                "period_block": {
+                    "type": "integer"
+                },
                 "proposal_id": {
                     "type": "integer"
                 },
@@ -19783,14 +19898,14 @@ const docTemplate = `{
                 "created_block": {
                     "type": "integer"
                 },
+                "period_block": {
+                    "type": "integer"
+                },
                 "proposal_id": {
                     "type": "integer"
                 },
                 "proposer": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "referendum_id": {
-                    "type": "integer"
                 },
                 "reward": {
                     "type": "number"
@@ -19829,6 +19944,85 @@ const docTemplate = `{
                 },
                 "token_unique_id": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.TreasurySpendProposalDetailJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "created_block": {
+                    "type": "integer"
+                },
+                "expire_block": {
+                    "type": "integer"
+                },
+                "proposal_id": {
+                    "type": "integer"
+                },
+                "proposer": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "referendum_id": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "timeline": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                },
+                "treasury_spend": {
+                    "$ref": "#/definitions/subscan_internal_model.TreasurySpend"
+                },
+                "valid_from": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.TreasurySpendProposalJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "created_block": {
+                    "type": "integer"
+                },
+                "proposal_id": {
+                    "type": "integer"
+                },
+                "proposer": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "treasury_spend": {
+                    "$ref": "#/definitions/subscan_internal_model.TreasurySpend"
                 }
             }
         },

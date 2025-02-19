@@ -6018,6 +6018,8 @@ definitions:
         type: string
       origins_id:
         type: integer
+      paid_expire_block:
+        type: integer
       pre_image:
         $ref: '#/definitions/subscan_internal_model.PreImageJson'
       referendum_index:
@@ -6038,6 +6040,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.TreasurySpend'
         type: array
+      treasury_spend_id:
+        type: integer
     type: object
   subscan_internal_model.ReferendumV2SampleJson:
     properties:
@@ -6476,6 +6480,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.CouncilJson'
       created_block:
         type: integer
+      period_block:
+        type: integer
       proposal_id:
         type: integer
       proposer:
@@ -6501,12 +6507,12 @@ definitions:
         type: integer
       created_block:
         type: integer
+      period_block:
+        type: integer
       proposal_id:
         type: integer
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      referendum_id:
-        type: integer
       reward:
         type: number
       status:
@@ -6532,6 +6538,58 @@ definitions:
         type: string
       token_unique_id:
         type: string
+    type: object
+  subscan_internal_model.TreasurySpendProposalDetailJson:
+    properties:
+      amount:
+        type: number
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      created_block:
+        type: integer
+      expire_block:
+        type: integer
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      referendum_id:
+        type: integer
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      title:
+        type: string
+      treasury_spend:
+        $ref: '#/definitions/subscan_internal_model.TreasurySpend'
+      valid_from:
+        type: integer
+    type: object
+  subscan_internal_model.TreasurySpendProposalJson:
+    properties:
+      amount:
+        type: number
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_timestamp:
+        type: integer
+      created_block:
+        type: integer
+      proposal_id:
+        type: integer
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      title:
+        type: string
+      treasury_spend:
+        $ref: '#/definitions/subscan_internal_model.TreasurySpend'
     type: object
   subscan_internal_model.TreasuryTip:
     properties:
@@ -12901,6 +12959,68 @@ paths:
                   type: object
               type: object
       summary: Treasury tips
+      tags:
+      - governance
+  /api/scan/treasury_spend/proposal:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.treasuryProposalParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.TreasurySpendProposalDetailJson'
+                  type: object
+              type: object
+      summary: Treasury spend proposal
+      tags:
+      - governance
+  /api/scan/treasury_spend/proposals:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.treasuryProposalsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TreasurySpendProposalJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Treasury spend proposals
       tags:
       - governance
   /api/scan/unique/account/balances:
