@@ -7454,6 +7454,97 @@ definitions:
       time:
         type: integer
     type: object
+  subscan_internal_service_scan.DefiBifrost:
+    properties:
+      farming:
+        items:
+          $ref: '#/definitions/subscan_internal_service_scan.DefiBifrostFarming'
+        type: array
+      liquid_staking:
+        items:
+          $ref: '#/definitions/subscan_internal_service_scan.DefiLiquidStaking'
+        type: array
+      loop_stake:
+        items:
+          $ref: '#/definitions/subscan_internal_service_scan.DefiLoopStake'
+        type: array
+    type: object
+  subscan_internal_service_scan.DefiBifrostFarming:
+    properties:
+      bonded_redeem:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
+        type: array
+      redeem:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
+        type: array
+      token_unique_id:
+        type: string
+    type: object
+  subscan_internal_service_scan.DefiJson:
+    properties:
+      bifrost_defi:
+        additionalProperties:
+          $ref: '#/definitions/subscan_internal_service_scan.DefiBifrost'
+        type: object
+      defi_nomination_pool:
+        items:
+          $ref: '#/definitions/subscan_internal_service_scan.DefiNominationPool'
+        type: array
+      staking:
+        $ref: '#/definitions/subscan_internal_service_scan.DefiStaking'
+    type: object
+  subscan_internal_service_scan.DefiLiquidStaking:
+    properties:
+      bonded:
+        type: number
+      exchange_ratio:
+        type: number
+      price:
+        type: number
+      token_unique_id:
+        type: string
+      unbonding:
+        type: number
+    type: object
+  subscan_internal_service_scan.DefiLoopStake:
+    properties:
+      bonded:
+        type: number
+      price:
+        type: number
+      token_unique_id:
+        type: string
+      unbonding:
+        type: number
+    type: object
+  subscan_internal_service_scan.DefiNominationPool:
+    properties:
+      SENJ_amount:
+        type: number
+      bonded:
+        type: number
+      network:
+        type: string
+      token_unique_id:
+        type: string
+      unbonding:
+        type: number
+      unclaimed:
+        type: number
+    type: object
+  subscan_internal_service_scan.DefiStaking:
+    properties:
+      enable_staking_network:
+        items:
+          type: string
+        type: array
+      staking_v2:
+        items:
+          $ref: '#/definitions/subscan_internal_service_scan.StakingV2'
+        type: array
+    type: object
   subscan_internal_service_scan.IdentifierWithSubAccount:
     properties:
       identifier:
@@ -7476,6 +7567,15 @@ definitions:
         type: number
       time:
         type: integer
+    type: object
+  subscan_internal_service_scan.StakingV2:
+    properties:
+      network:
+        type: string
+      token_unique_id:
+        type: string
+      unclaimed:
+        type: number
     type: object
   subscan_internal_service_scan.uniqueBid:
     properties:
@@ -10588,34 +10688,6 @@ paths:
       summary: Current network metadata
       tags:
       - api
-  /api/scan/multiChain/account:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.multiChainAccountParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/subscan_internal_model.AssetsJson'
-                  type: array
-              type: object
-      summary: MultiChain account (BETA)
-      tags:
-      - multiChain
   /api/scan/multiChain/account/count:
     post:
       consumes:
@@ -13917,6 +13989,39 @@ paths:
       summary: Logs list
       tags:
       - log
+  /api/v2/scan/multiChain/account:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiChainAccountParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    assets:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AssetsJson'
+                      type: array
+                    defi:
+                      $ref: '#/definitions/subscan_internal_service_scan.DefiJson'
+                  type: object
+              type: object
+      summary: MultiChain account, Defi support(BETA)
+      tags:
+      - multiChain
   /api/v2/scan/search:
     post:
       consumes:

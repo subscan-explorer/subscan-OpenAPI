@@ -4556,54 +4556,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/multiChain/account": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "multiChain"
-                ],
-                "summary": "MultiChain account (BETA)",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.multiChainAccountParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.AssetsJson"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/multiChain/account/count": {
             "post": {
                 "consumes": [
@@ -10140,6 +10092,62 @@ const docTemplate = `{
                                                     "items": {
                                                         "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
                                                     }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/multiChain/account": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "multiChain"
+                ],
+                "summary": "MultiChain account, Defi support(BETA)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiChainAccountParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "assets": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.AssetsJson"
+                                                    }
+                                                },
+                                                "defi": {
+                                                    "$ref": "#/definitions/subscan_internal_service_scan.DefiJson"
                                                 }
                                             }
                                         }
@@ -21294,6 +21302,146 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_service_scan.DefiBifrost": {
+            "type": "object",
+            "properties": {
+                "farming": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_scan.DefiBifrostFarming"
+                    }
+                },
+                "liquid_staking": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_scan.DefiLiquidStaking"
+                    }
+                },
+                "loop_stake": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_scan.DefiLoopStake"
+                    }
+                }
+            }
+        },
+        "subscan_internal_service_scan.DefiBifrostFarming": {
+            "type": "object",
+            "properties": {
+                "bonded_redeem": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.LpTokenInfo"
+                    }
+                },
+                "redeem": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.LpTokenInfo"
+                    }
+                },
+                "token_unique_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_scan.DefiJson": {
+            "type": "object",
+            "properties": {
+                "bifrost_defi": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/subscan_internal_service_scan.DefiBifrost"
+                    }
+                },
+                "defi_nomination_pool": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_scan.DefiNominationPool"
+                    }
+                },
+                "staking": {
+                    "$ref": "#/definitions/subscan_internal_service_scan.DefiStaking"
+                }
+            }
+        },
+        "subscan_internal_service_scan.DefiLiquidStaking": {
+            "type": "object",
+            "properties": {
+                "bonded": {
+                    "type": "number"
+                },
+                "exchange_ratio": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "token_unique_id": {
+                    "type": "string"
+                },
+                "unbonding": {
+                    "type": "number"
+                }
+            }
+        },
+        "subscan_internal_service_scan.DefiLoopStake": {
+            "type": "object",
+            "properties": {
+                "bonded": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "token_unique_id": {
+                    "type": "string"
+                },
+                "unbonding": {
+                    "type": "number"
+                }
+            }
+        },
+        "subscan_internal_service_scan.DefiNominationPool": {
+            "type": "object",
+            "properties": {
+                "SENJ_amount": {
+                    "type": "number"
+                },
+                "bonded": {
+                    "type": "number"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "token_unique_id": {
+                    "type": "string"
+                },
+                "unbonding": {
+                    "type": "number"
+                },
+                "unclaimed": {
+                    "type": "number"
+                }
+            }
+        },
+        "subscan_internal_service_scan.DefiStaking": {
+            "type": "object",
+            "properties": {
+                "enable_staking_network": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "staking_v2": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_scan.StakingV2"
+                    }
+                }
+            }
+        },
         "subscan_internal_service_scan.IdentifierWithSubAccount": {
             "type": "object",
             "properties": {
@@ -21327,6 +21475,20 @@ const docTemplate = `{
                 },
                 "time": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_scan.StakingV2": {
+            "type": "object",
+            "properties": {
+                "network": {
+                    "type": "string"
+                },
+                "token_unique_id": {
+                    "type": "string"
+                },
+                "unclaimed": {
+                    "type": "number"
                 }
             }
         },
