@@ -8486,6 +8486,168 @@
                 }
             }
         },
+        "/api/scan/treasury_council_collective/proposal": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "treasury council collective details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.treasuryCouncilCollectiveProposalParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "info": {
+                                                    "$ref": "#/definitions/subscan_internal_model.TreasuryCouncilCollectiveProposalDetailsJson"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/treasury_council_collective/proposals": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "treasury council collective list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.treasuryCouncilCollectiveProposalsParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.TreasuryCouncilCollectiveProposalJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/treasury_council_collective/votes": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "treasury council collective vote list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.treasuryCouncilCollectiveVotesParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.TreasuryCouncilCollectiveVoteJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/treasury_spend/proposal": {
             "post": {
                 "consumes": [
@@ -15503,6 +15665,63 @@
                 }
             }
         },
+        "internal_server_http.treasuryCouncilCollectiveProposalParam": {
+            "type": "object",
+            "properties": {
+                "proposal_hash": {
+                    "type": "string",
+                    "minLength": 0
+                },
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.treasuryCouncilCollectiveProposalsParam": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_server_http.treasuryCouncilCollectiveVotesParam": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "proposal_hash": {
+                    "type": "string",
+                    "minLength": 0
+                },
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
         "internal_server_http.treasuryProposalParams": {
             "type": "object",
             "properties": {
@@ -19843,6 +20062,147 @@
                 }
             }
         },
+        "subscan_internal_model.TreasuryCouncilCollectiveProposalDetailsJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "beneficiary_amount": {
+                    "type": "number"
+                },
+                "call": {
+                    "type": "string"
+                },
+                "created_block": {
+                    "type": "integer"
+                },
+                "created_block_timestamp": {
+                    "type": "integer"
+                },
+                "executed_success": {
+                    "type": "boolean"
+                },
+                "module": {
+                    "type": "string"
+                },
+                "no": {
+                    "type": "integer"
+                },
+                "param": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
+                    }
+                },
+                "proposal_hash": {
+                    "type": "string"
+                },
+                "proposal_id": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "threshold": {
+                    "type": "integer"
+                },
+                "timeline": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
+                    }
+                },
+                "treasury_id": {
+                    "type": "integer"
+                },
+                "treasury_spend": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TreasurySpend"
+                    }
+                },
+                "updated_block": {
+                    "type": "integer"
+                },
+                "yes": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.TreasuryCouncilCollectiveProposalJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "call": {
+                    "type": "string"
+                },
+                "created_block": {
+                    "type": "integer"
+                },
+                "created_block_timestamp": {
+                    "type": "integer"
+                },
+                "executed_success": {
+                    "type": "boolean"
+                },
+                "module": {
+                    "type": "string"
+                },
+                "no": {
+                    "type": "integer"
+                },
+                "proposal_hash": {
+                    "type": "string"
+                },
+                "proposal_id": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "threshold": {
+                    "type": "integer"
+                },
+                "treasury_id": {
+                    "type": "integer"
+                },
+                "yes": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.TreasuryCouncilCollectiveVoteJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "passed": {
+                    "type": "boolean"
+                },
+                "proposal_hash": {
+                    "type": "string"
+                },
+                "voting_time": {
+                    "type": "integer"
+                }
+            }
+        },
         "subscan_internal_model.TreasuryProposalDetailJson": {
             "type": "object",
             "properties": {
@@ -19854,6 +20214,9 @@
                 },
                 "council": {
                     "$ref": "#/definitions/subscan_internal_model.CouncilJson"
+                },
+                "council_id": {
+                    "type": "integer"
                 },
                 "created_block": {
                     "type": "integer"

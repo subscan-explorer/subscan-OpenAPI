@@ -3587,6 +3587,49 @@ definitions:
           type: string
         type: array
     type: object
+  internal_server_http.treasuryCouncilCollectiveProposalParam:
+    properties:
+      proposal_hash:
+        minLength: 0
+        type: string
+      proposal_id:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.treasuryCouncilCollectiveProposalsParam:
+    properties:
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_server_http.treasuryCouncilCollectiveVotesParam:
+    properties:
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      proposal_hash:
+        minLength: 0
+        type: string
+      proposal_id:
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.treasuryProposalParams:
     properties:
       proposal_id:
@@ -6473,6 +6516,99 @@ definitions:
       to_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
+  subscan_internal_model.TreasuryCouncilCollectiveProposalDetailsJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      beneficiary_amount:
+        type: number
+      call:
+        type: string
+      created_block:
+        type: integer
+      created_block_timestamp:
+        type: integer
+      executed_success:
+        type: boolean
+      module:
+        type: string
+      "no":
+        type: integer
+      param:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      proposal_hash:
+        type: string
+      proposal_id:
+        type: integer
+      status:
+        type: string
+      threshold:
+        type: integer
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      treasury_id:
+        type: integer
+      treasury_spend:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TreasurySpend'
+        type: array
+      updated_block:
+        type: integer
+      "yes":
+        type: integer
+    type: object
+  subscan_internal_model.TreasuryCouncilCollectiveProposalJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      call:
+        type: string
+      created_block:
+        type: integer
+      created_block_timestamp:
+        type: integer
+      executed_success:
+        type: boolean
+      module:
+        type: string
+      "no":
+        type: integer
+      proposal_hash:
+        type: string
+      proposal_id:
+        type: integer
+      status:
+        type: string
+      threshold:
+        type: integer
+      treasury_id:
+        type: integer
+      "yes":
+        type: integer
+    type: object
+  subscan_internal_model.TreasuryCouncilCollectiveVoteJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      block_num:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      passed:
+        type: boolean
+      proposal_hash:
+        type: string
+      voting_time:
+        type: integer
+    type: object
   subscan_internal_model.TreasuryProposalDetailJson:
     properties:
       beneficiary:
@@ -6481,6 +6617,8 @@ definitions:
         type: integer
       council:
         $ref: '#/definitions/subscan_internal_model.CouncilJson'
+      council_id:
+        type: integer
       created_block:
         type: integer
       period_block:
@@ -13039,6 +13177,101 @@ paths:
                   type: object
               type: object
       summary: Treasury tips
+      tags:
+      - governance
+  /api/scan/treasury_council_collective/proposal:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.treasuryCouncilCollectiveProposalParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    info:
+                      $ref: '#/definitions/subscan_internal_model.TreasuryCouncilCollectiveProposalDetailsJson'
+                  type: object
+              type: object
+      summary: treasury council collective details
+      tags:
+      - governance
+  /api/scan/treasury_council_collective/proposals:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.treasuryCouncilCollectiveProposalsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TreasuryCouncilCollectiveProposalJson'
+                      type: array
+                  type: object
+              type: object
+      summary: treasury council collective list
+      tags:
+      - governance
+  /api/scan/treasury_council_collective/votes:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.treasuryCouncilCollectiveVotesParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TreasuryCouncilCollectiveVoteJson'
+                      type: array
+                  type: object
+              type: object
+      summary: treasury council collective vote list
       tags:
       - governance
   /api/scan/treasury_spend/proposal:
