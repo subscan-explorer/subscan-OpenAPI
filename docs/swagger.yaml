@@ -14019,7 +14019,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_service_scan.DefiJson'
                   type: object
               type: object
-      summary: MultiChain account, Defi support(BETA)
+      summary: MultiChain account (BETA)
       tags:
       - multiChain
   /api/v2/scan/search:

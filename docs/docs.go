@@ -10114,7 +10114,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain account, Defi support(BETA)",
+                "summary": "MultiChain account (BETA)",
                 "parameters": [
                     {
                         "description": "params",
