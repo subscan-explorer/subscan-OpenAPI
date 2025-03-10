@@ -18409,6 +18409,10 @@ const docTemplate = `{
                     "description": "xcm message hash,",
                     "type": "string"
                 },
+                "message_relay_chain": {
+                    "description": "message relay chain name",
+                    "type": "string"
+                },
                 "message_type": {
                     "description": "transfer/message",
                     "type": "string"
@@ -20293,6 +20297,9 @@ const docTemplate = `{
                 "child_dest": {
                     "type": "string"
                 },
+                "child_message": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmMessageEmbeddedJson"
+                },
                 "child_para_id": {
                     "type": "integer"
                 },
@@ -20342,6 +20349,10 @@ const docTemplate = `{
                 },
                 "message_hash": {
                     "description": "xcm message hash,",
+                    "type": "string"
+                },
+                "message_relay_chain": {
+                    "description": "message relay chain name",
                     "type": "string"
                 },
                 "message_type": {

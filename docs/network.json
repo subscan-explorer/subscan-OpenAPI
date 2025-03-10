@@ -1,0 +1,890 @@
+{
+  "acala": {
+    "backend_service_name": "subscan-acala",
+    "db_name": "subscan_acala",
+    "network_node": "acala",
+    "type": "mainnet",
+    "ui_domains": [
+      "acala"
+    ]
+  },
+  "acala-test": {
+    "backend_service_name": "subscan-acala-test",
+    "db_name": "subscan_acala_testnet",
+    "network_node": "acala-test",
+    "type": "testnet",
+    "ui_domains": [
+      "acala-testnet"
+    ]
+  },
+  "ajuna": {
+    "backend_service_name": "subscan-ajuna",
+    "db_name": "subscan_ajuna",
+    "network_node": "ajuna",
+    "type": "mainnet",
+    "ui_domains": [
+      "ajuna"
+    ]
+  },
+  "alephzero": {
+    "backend_service_name": "subscan-alephzero",
+    "db_name": "subscan_alephzero",
+    "network_node": "alephzero",
+    "type": "mainnet",
+    "ui_domains": [
+      "alephzero"
+    ]
+  },
+  "alephzero-test": {
+    "backend_service_name": "subscan-alephzero-test",
+    "db_name": "subscan_alephzero_testnet",
+    "network_node": "alephzero-test",
+    "type": "testnet",
+    "ui_domains": [
+      "alephzero-testnet"
+    ]
+  },
+  "altair": {
+    "backend_service_name": "subscan-altair",
+    "db_name": "subscan_altair",
+    "network_node": "altair",
+    "type": "mainnet",
+    "ui_domains": [
+      "altair"
+    ]
+  },
+  "assethub-paseo": {
+    "backend_service_name": "subscan-assethub-paseo",
+    "db_name": "subscan_assethub_paseo",
+    "network_node": "assethub-paseo",
+    "type": "testnet",
+    "ui_domains": [
+      "assethub-paseo"
+    ]
+  },
+  "assethub-westend": {
+    "backend_service_name": "subscan-assethub-westend",
+    "db_name": "subscan_assethub_westend",
+    "network_node": "assethub-westend",
+    "type": "testnet",
+    "ui_domains": [
+      "assethub-westend"
+    ]
+  },
+  "astar": {
+    "backend_service_name": "subscan-astar",
+    "db_name": "subscan_astar",
+    "network_node": "astar",
+    "type": "mainnet",
+    "ui_domains": [
+      "astar"
+    ]
+  },
+  "autonomys": {
+    "backend_service_name": "subscan-autonomys",
+    "db_name": "subscan_autonomys",
+    "network_node": "autonomys",
+    "type": "mainnet",
+    "ui_domains": [
+      "autonomys"
+    ]
+  },
+  "avail": {
+    "backend_service_name": "subscan-avail",
+    "db_name": "subscan_avail",
+    "network_node": "avail",
+    "type": "mainnet",
+    "ui_domains": [
+      "avail"
+    ]
+  },
+  "avail-turing": {
+    "backend_service_name": "subscan-avail-turing",
+    "db_name": "subscan_avail_turing",
+    "network_node": "avail-turing",
+    "type": "testnet",
+    "ui_domains": [
+      "avail-turing"
+    ]
+  },
+  "bajun": {
+    "backend_service_name": "subscan-bajun",
+    "db_name": "subscan_bajun",
+    "network_node": "bajun",
+    "type": "mainnet",
+    "ui_domains": [
+      "bajun"
+    ]
+  },
+  "basilisk": {
+    "backend_service_name": "subscan-basilisk",
+    "db_name": "subscan_basilisk",
+    "network_node": "basilisk",
+    "type": "mainnet",
+    "ui_domains": [
+      "basilisk"
+    ]
+  },
+  "bifrost": {
+    "backend_service_name": "subscan-bifrost",
+    "db_name": "subscan_bifrost",
+    "network_node": "bifrost",
+    "type": "mainnet",
+    "ui_domains": [
+      "bifrost-kusama"
+    ]
+  },
+  "bifrost-p": {
+    "backend_service_name": "subscan-bifrost-p",
+    "db_name": "subscan_bifrost_p",
+    "network_node": "bifrost-p",
+    "type": "mainnet",
+    "ui_domains": [
+      "bifrost"
+    ]
+  },
+  "bridgehub-kusama": {
+    "backend_service_name": "subscan-bridgehub-kusama",
+    "db_name": "subscan_bridgehub_kusama",
+    "network_node": "bridgehub-kusama",
+    "type": "mainnet",
+    "ui_domains": [
+      "bridgehub-kusama"
+    ]
+  },
+  "bridgehub-paseo": {
+    "backend_service_name": "subscan-bridgehub-paseo",
+    "db_name": "subscan_bridgehub_paseo",
+    "network_node": "bridgehub-paseo",
+    "type": "testnet",
+    "ui_domains": [
+      "bridgehub-paseo"
+    ]
+  },
+  "bridgehub-polkadot": {
+    "backend_service_name": "subscan-bridgehub-polkadot",
+    "db_name": "subscan_bridgehub_polkadot",
+    "network_node": "bridgehub-polkadot",
+    "type": "mainnet",
+    "ui_domains": [
+      "bridgehub-polkadot"
+    ]
+  },
+  "bridgehub-westend": {
+    "backend_service_name": "subscan-bridgehub-westend",
+    "db_name": "subscan_bridgehub_westend",
+    "network_node": "bridgehub-westend",
+    "type": "testnet",
+    "ui_domains": [
+      "bridgehub-westend"
+    ]
+  },
+  "calamari": {
+    "backend_service_name": "subscan-calamari",
+    "db_name": "subscan_calamari",
+    "network_node": "calamari",
+    "type": "mainnet",
+    "ui_domains": [
+      "calamari"
+    ]
+  },
+  "centrifuge": {
+    "backend_service_name": "subscan-centrifuge",
+    "db_name": "subscan_centrifuge",
+    "network_node": "centrifuge",
+    "type": "mainnet",
+    "ui_domains": [
+      "centrifuge-standalone-history"
+    ]
+  },
+  "centrifuge-parachain": {
+    "backend_service_name": "subscan-centrifuge-parachain",
+    "db_name": "subscan_centrifuge_parachain",
+    "network_node": "centrifuge-parachain",
+    "type": "mainnet",
+    "ui_domains": [
+      "centrifuge"
+    ]
+  },
+  "clover": {
+    "backend_service_name": "subscan-clover",
+    "db_name": "subscan_clover",
+    "network_node": "clover",
+    "type": "mainnet",
+    "ui_domains": [
+      "clover"
+    ]
+  },
+  "collectives": {
+    "backend_service_name": "subscan-collectives",
+    "db_name": "subscan_collectives",
+    "network_node": "collectives",
+    "type": "mainnet",
+    "ui_domains": [
+      "collectives-polkadot"
+    ]
+  },
+  "continuum": {
+    "backend_service_name": "subscan-continuum",
+    "db_name": "subscan_continuum",
+    "network_node": "continuum",
+    "type": "mainnet",
+    "ui_domains": [
+      "continuum"
+    ]
+  },
+  "coretime-kusama": {
+    "backend_service_name": "subscan-coretime-kusama",
+    "db_name": "subscan_coretime_kusama",
+    "network_node": "coretime-kusama",
+    "type": "mainnet",
+    "ui_domains": [
+      "coretime-kusama"
+    ]
+  },
+  "coretime-polkadot": {
+    "backend_service_name": "subscan-coretime-polkadot",
+    "db_name": "subscan_coretime_polkadot",
+    "network_node": "coretime-polkadot",
+    "type": "mainnet",
+    "ui_domains": [
+      "coretime-polkadot"
+    ]
+  },
+  "coretime-westend": {
+    "backend_service_name": "subscan-coretime-westend",
+    "db_name": "subscan_coretime_westend",
+    "network_node": "coretime-westend",
+    "type": "testnet",
+    "ui_domains": [
+      "coretime-westend"
+    ]
+  },
+  "creditcoin": {
+    "backend_service_name": "subscan-creditcoin",
+    "db_name": "subscan_creditcoin",
+    "network_node": "creditcoin",
+    "type": "mainnet",
+    "ui_domains": [
+      "creditcoin-classic",
+      "cc-enterprise"
+    ]
+  },
+  "creditcoin-cc3": {
+    "backend_service_name": "subscan-creditcoin-cc3",
+    "db_name": "subscan_creditcoin_cc3",
+    "network_node": "creditcoin-cc3",
+    "type": "mainnet",
+    "ui_domains": [
+      "creditcoin"
+    ]
+  },
+  "creditcoin-cc3-test": {
+    "backend_service_name": "subscan-creditcoin-cc3-test",
+    "db_name": "subscan_creditcoincc3_testnet",
+    "network_node": "creditcoin-cc3-test",
+    "type": "testnet",
+    "ui_domains": [
+      "creditcoin3-testnet"
+    ]
+  },
+  "creditcoin-dev": {
+    "backend_service_name": "subscan-creditcoin-dev",
+    "db_name": "subscan_creditcoin_dev",
+    "network_node": "creditcoin-dev",
+    "type": "testnet",
+    "ui_domains": [
+      "creditcoin3-dev"
+    ]
+  },
+  "creditcoin-test": {
+    "backend_service_name": "subscan-creditcoin-test",
+    "db_name": "subscan_creditcoin_testnet",
+    "network_node": "creditcoin-test",
+    "type": "testnet",
+    "ui_domains": [
+      "creditcoin-testnet",
+      "cc-enterprise-testnet"
+    ]
+  },
+  "crust-main": {
+    "backend_service_name": "subscan-crust-main",
+    "db_name": "subscan_crust",
+    "network_node": "crust-main",
+    "type": "mainnet",
+    "ui_domains": [
+      "crust"
+    ]
+  },
+  "crust-parachain": {
+    "backend_service_name": "subscan-crust-parachain",
+    "db_name": "subscan_crust_parachain",
+    "network_node": "crust-parachain",
+    "type": "mainnet",
+    "ui_domains": [
+      "crust-parachain"
+    ]
+  },
+  "darwinia2": {
+    "backend_service_name": "subscan-darwinia2",
+    "db_name": "subscan_darwinia2",
+    "network_node": "darwinia2",
+    "type": "mainnet",
+    "ui_domains": [
+      "darwinia"
+    ]
+  },
+  "dbc": {
+    "backend_service_name": "subscan-dbc",
+    "db_name": "subscan_dbc",
+    "network_node": "dbc",
+    "type": "mainnet",
+    "ui_domains": [
+      "dbc"
+    ]
+  },
+  "dock-pos": {
+    "backend_service_name": "subscan-dock-pos",
+    "db_name": "subscan_dock_pos",
+    "network_node": "dock-pos",
+    "type": "mainnet",
+    "ui_domains": [
+      "dock"
+    ]
+  },
+  "energywebx": {
+    "backend_service_name": "subscan-energywebx",
+    "db_name": "subscan_energywebx",
+    "network_node": "energywebx",
+    "type": "mainnet",
+    "ui_domains": [
+      "energywebx"
+    ]
+  },
+  "energywebx-testnet": {
+    "backend_service_name": "subscan-energywebx-testnet",
+    "db_name": "subscan_energywebx_testnet",
+    "network_node": "energywebx-testnet",
+    "type": "testnet",
+    "ui_domains": [
+      "energywebx-testnet"
+    ]
+  },
+  "enjin-canary-matrix": {
+    "backend_service_name": "subscan-enjin-canary-matrix",
+    "db_name": "subscan_enjin_canary_matrix",
+    "network_node": "enjin-canary-matrix",
+    "type": "testnet",
+    "ui_domains": [
+      "canary-matrix"
+    ]
+  },
+  "enjin-canary-relay": {
+    "backend_service_name": "subscan-enjin-canary-relay",
+    "db_name": "subscan_enjin_canary_relay",
+    "network_node": "enjin-canary-relay",
+    "type": "testnet",
+    "ui_domains": [
+      "canary"
+    ]
+  },
+  "enjin-matrix": {
+    "backend_service_name": "subscan-enjin-matrix",
+    "db_name": "subscan_enjin_matrix",
+    "network_node": "enjin-matrix",
+    "type": "mainnet",
+    "ui_domains": [
+      "matrix"
+    ]
+  },
+  "enjin-relay": {
+    "backend_service_name": "subscan-enjin-relay",
+    "db_name": "subscan_enjin_relay",
+    "network_node": "enjin-relay",
+    "type": "mainnet",
+    "ui_domains": [
+      "enjin"
+    ]
+  },
+  "gasp": {
+    "backend_service_name": "subscan-gasp",
+    "db_name": "subscan_gasp",
+    "network_node": "gasp",
+    "type": "mainnet",
+    "ui_domains": [
+      "gasp"
+    ]
+  },
+  "heima": {
+    "backend_service_name": "subscan-heima",
+    "db_name": "subscan_heima",
+    "network_node": "heima",
+    "type": "mainnet",
+    "ui_domains": [
+      "heima"
+    ]
+  },
+  "humanode": {
+    "backend_service_name": "subscan-humanode",
+    "db_name": "subscan_humanode",
+    "network_node": "humanode",
+    "type": "mainnet",
+    "ui_domains": [
+      "humanode"
+    ]
+  },
+  "hydradx": {
+    "backend_service_name": "subscan-hydradx",
+    "db_name": "subscan_hydradx",
+    "network_node": "hydradx",
+    "type": "mainnet",
+    "ui_domains": [
+      "hydradx",
+      "hydration"
+    ]
+  },
+  "integritee-para": {
+    "backend_service_name": "subscan-integritee-para",
+    "db_name": "subscan_integritee_para",
+    "network_node": "integritee-para",
+    "type": "mainnet",
+    "ui_domains": [
+      "integritee"
+    ]
+  },
+  "interlay": {
+    "backend_service_name": "subscan-interlay",
+    "db_name": "subscan_interlay",
+    "network_node": "interlay",
+    "type": "mainnet",
+    "ui_domains": [
+      "interlay"
+    ]
+  },
+  "joystream": {
+    "backend_service_name": "subscan-joystream",
+    "db_name": "subscan_joystream",
+    "network_node": "joystream",
+    "type": "mainnet",
+    "ui_domains": [
+      "joystream"
+    ]
+  },
+  "karura": {
+    "backend_service_name": "subscan-karura",
+    "db_name": "subscan_karura",
+    "network_node": "karura",
+    "type": "mainnet",
+    "ui_domains": [
+      "karura"
+    ]
+  },
+  "khala": {
+    "backend_service_name": "subscan-khala",
+    "db_name": "subscan_khala",
+    "is_archive": true,
+    "network_node": "khala",
+    "type": "mainnet",
+    "ui_domains": [
+      "khala"
+    ]
+  },
+  "kintsugi": {
+    "backend_service_name": "subscan-kintsugi",
+    "db_name": "subscan_kintsugi",
+    "network_node": "kintsugi",
+    "type": "mainnet",
+    "ui_domains": [
+      "kintsugi"
+    ]
+  },
+  "krest": {
+    "backend_service_name": "subscan-krest",
+    "db_name": "subscan_krest",
+    "network_node": "krest",
+    "type": "mainnet",
+    "ui_domains": [
+      "krest"
+    ]
+  },
+  "kusama": {
+    "backend_service_name": "subscan-kusama",
+    "db_name": "subscan_kusama",
+    "network_node": "kusama",
+    "type": "mainnet",
+    "ui_domains": [
+      "kusama"
+    ]
+  },
+  "mangata": {
+    "backend_service_name": "subscan-mangata",
+    "db_name": "subscan_mangata",
+    "network_node": "mangata",
+    "type": "mainnet",
+    "ui_domains": [
+      "mangatax"
+    ]
+  },
+  "manta": {
+    "backend_service_name": "subscan-manta",
+    "db_name": "subscan_manta",
+    "network_node": "manta",
+    "type": "mainnet",
+    "ui_domains": [
+      "manta"
+    ]
+  },
+  "moonbase": {
+    "backend_service_name": "subscan-moonbase",
+    "db_name": "subscan_moonbase",
+    "network_node": "moonbase",
+    "type": "testnet",
+    "ui_domains": [
+      "moonbase"
+    ]
+  },
+  "moonbeam": {
+    "backend_service_name": "subscan-moonbeam",
+    "db_name": "subscan_moonbeam",
+    "network_node": "moonbeam",
+    "type": "mainnet",
+    "ui_domains": [
+      "moonbeam"
+    ]
+  },
+  "moonriver": {
+    "backend_service_name": "subscan-moonriver",
+    "db_name": "subscan_moonriver",
+    "network_node": "moonriver",
+    "type": "mainnet",
+    "ui_domains": [
+      "moonriver"
+    ]
+  },
+  "mythos": {
+    "backend_service_name": "subscan-mythos",
+    "db_name": "subscan_mythos",
+    "network_node": "mythos",
+    "type": "mainnet",
+    "ui_domains": [
+      "mythos"
+    ]
+  },
+  "nodle": {
+    "backend_service_name": "subscan-nodle",
+    "db_name": "subscan_nodle",
+    "network_node": "nodle",
+    "type": "mainnet",
+    "ui_domains": [
+      "nodle"
+    ]
+  },
+  "opal": {
+    "backend_service_name": "subscan-opal",
+    "db_name": "subscan_opal",
+    "network_node": "opal",
+    "type": "testnet",
+    "ui_domains": [
+      "opal"
+    ]
+  },
+  "origintrail": {
+    "backend_service_name": "subscan-origintrail",
+    "db_name": "subscan_origintrail",
+    "network_node": "origintrail",
+    "type": "mainnet",
+    "ui_domains": [
+      "origintrail",
+      "neuroweb"
+    ]
+  },
+  "origintrail-rococo": {
+    "backend_service_name": "subscan-origintrail-rococo",
+    "db_name": "subscan_origintrail_test",
+    "network_node": "origintrail-rococo",
+    "type": "testnet",
+    "ui_domains": [
+      "origintrail-testnet",
+      "neuroweb-testnet"
+    ]
+  },
+  "paseo": {
+    "backend_service_name": "subscan-paseo",
+    "db_name": "subscan_paseo",
+    "network_node": "paseo",
+    "type": "testnet",
+    "ui_domains": [
+      "paseo"
+    ]
+  },
+  "peaq": {
+    "backend_service_name": "subscan-peaq",
+    "db_name": "subscan_peaq_testnet",
+    "network_node": "peaq",
+    "type": "testnet",
+    "ui_domains": [
+      "agung-testnet"
+    ]
+  },
+  "peaq-main": {
+    "backend_service_name": "subscan-peaq-main",
+    "db_name": "subscan_peaq_main",
+    "network_node": "peaq-main",
+    "type": "mainnet",
+    "ui_domains": [
+      "peaq"
+    ]
+  },
+  "pendulum": {
+    "backend_service_name": "subscan-pendulum",
+    "db_name": "subscan_pendulum",
+    "network_node": "pendulum",
+    "type": "mainnet",
+    "ui_domains": [
+      "pendulum"
+    ]
+  },
+  "people-kusama": {
+    "backend_service_name": "subscan-people-kusama",
+    "db_name": "subscan_people",
+    "network_node": "people-kusama",
+    "type": "mainnet",
+    "ui_domains": [
+      "people-kusama"
+    ]
+  },
+  "people-polkadot": {
+    "backend_service_name": "subscan-people-polkadot",
+    "db_name": "subscan_people_polkadot",
+    "network_node": "people-polkadot",
+    "type": "mainnet",
+    "ui_domains": [
+      "people-polkadot"
+    ]
+  },
+  "phala": {
+    "backend_service_name": "subscan-phala",
+    "db_name": "subscan_phala",
+    "network_node": "phala",
+    "type": "mainnet",
+    "ui_domains": [
+      "phala"
+    ]
+  },
+  "pioneer": {
+    "backend_service_name": "subscan-pioneer",
+    "db_name": "subscan_pioneer",
+    "network_node": "pioneer",
+    "type": "mainnet",
+    "ui_domains": [
+      "pioneer"
+    ]
+  },
+  "polkadex": {
+    "backend_service_name": "subscan-polkadex",
+    "db_name": "subscan_polkadex",
+    "network_node": "polkadex",
+    "type": "mainnet",
+    "ui_domains": [
+      "polkadex"
+    ]
+  },
+  "polkadex-parachain": {
+    "backend_service_name": "subscan-polkadex-parachain",
+    "db_name": "subscan_polkadex_parachain",
+    "network_node": "polkadex-parachain",
+    "type": "mainnet",
+    "ui_domains": [
+      "polkadex-parachain"
+    ]
+  },
+  "polkadot": {
+    "backend_service_name": "subscan-polkadot",
+    "db_name": "subscan_polkadot",
+    "network_node": "polkadot",
+    "type": "mainnet",
+    "ui_domains": [
+      "polkadot"
+    ]
+  },
+  "polymesh": {
+    "backend_service_name": "subscan-polymesh",
+    "db_name": "subscan_polymesh",
+    "network_node": "polymesh",
+    "type": "mainnet",
+    "ui_domains": [
+      "polymesh"
+    ]
+  },
+  "polymesh-test": {
+    "backend_service_name": "subscan-polymesh-test",
+    "db_name": "subscan_polymesh_testnet",
+    "network_node": "polymesh-test",
+    "type": "testnet",
+    "ui_domains": [
+      "polymesh-testnet"
+    ]
+  },
+  "robonomics": {
+    "backend_service_name": "subscan-robonomics",
+    "db_name": "subscan_robonomics",
+    "network_node": "robonomics",
+    "type": "mainnet",
+    "ui_domains": [
+      "robonomics-freemium"
+    ]
+  },
+  "robonomics-polkadot": {
+    "backend_service_name": "subscan-robonomics-polkadot",
+    "db_name": "subscan_robonomics_polkadot",
+    "network_node": "robonomics-polkadot",
+    "type": "mainnet",
+    "ui_domains": [
+      "robonomics"
+    ]
+  },
+  "shadow": {
+    "backend_service_name": "subscan-shadow",
+    "db_name": "subscan_shadow",
+    "network_node": "shadow",
+    "type": "mainnet",
+    "ui_domains": [
+      "shadow"
+    ]
+  },
+  "shibuya": {
+    "backend_service_name": "subscan-shibuya",
+    "db_name": "subscan_shibuya",
+    "network_node": "shibuya",
+    "type": "testnet",
+    "ui_domains": [
+      "shibuya"
+    ]
+  },
+  "shiden": {
+    "backend_service_name": "subscan-shiden",
+    "db_name": "subscan_shiden",
+    "network_node": "shiden",
+    "type": "mainnet",
+    "ui_domains": [
+      "shiden"
+    ]
+  },
+  "sora": {
+    "backend_service_name": "subscan-sora",
+    "db_name": "subscan_sora",
+    "network_node": "sora",
+    "type": "mainnet",
+    "ui_domains": [
+      "sora"
+    ]
+  },
+  "spiritnet": {
+    "backend_service_name": "subscan-spiritnet",
+    "db_name": "subscan_spiritnet",
+    "network_node": "spiritnet",
+    "type": "mainnet",
+    "ui_domains": [
+      "spiritnet"
+    ]
+  },
+  "stafi": {
+    "backend_service_name": "subscan-stafi",
+    "db_name": "subscan_stafi",
+    "network_node": "stafi",
+    "type": "mainnet",
+    "ui_domains": [
+      "stafi"
+    ]
+  },
+  "statemine": {
+    "backend_service_name": "subscan-statemine",
+    "db_name": "subscan_statemine",
+    "network_node": "statemine",
+    "type": "mainnet",
+    "ui_domains": [
+      "assethub-kusama"
+    ]
+  },
+  "statemint": {
+    "backend_service_name": "subscan-statemint",
+    "db_name": "subscan_statemint",
+    "network_node": "statemint",
+    "type": "mainnet",
+    "ui_domains": [
+      "assethub-polkadot"
+    ]
+  },
+  "subspace": {
+    "backend_service_name": "subscan-subspace",
+    "db_name": "subscan_subspace",
+    "network_node": "subspace",
+    "type": "testnet",
+    "ui_domains": [
+      "subspace"
+    ]
+  },
+  "tanssi-test": {
+    "backend_service_name": "subscan-tanssi-test",
+    "db_name": "subscan_tanssi-testnet",
+    "network_node": "tanssi-test",
+    "type": "testnet",
+    "ui_domains": [
+      "dancebox"
+    ]
+  },
+  "turing": {
+    "backend_service_name": "subscan-turing",
+    "db_name": "subscan_turing",
+    "network_node": "turing",
+    "type": "mainnet",
+    "ui_domains": [
+      "turing"
+    ]
+  },
+  "unique": {
+    "backend_service_name": "subscan-unique",
+    "db_name": "subscan_unique",
+    "network_node": "unique",
+    "type": "mainnet",
+    "ui_domains": [
+      "unique"
+    ]
+  },
+  "vara": {
+    "backend_service_name": "subscan-vara",
+    "db_name": "subscan_vara",
+    "network_node": "vara",
+    "type": "mainnet",
+    "ui_domains": [
+      "vara"
+    ]
+  },
+  "westend": {
+    "backend_service_name": "subscan-westend",
+    "db_name": "subscan_westend",
+    "network_node": "westend",
+    "type": "testnet",
+    "ui_domains": [
+      "westend"
+    ]
+  },
+  "zeitgeist": {
+    "backend_service_name": "subscan-zeitgeist",
+    "db_name": "subscan_zeitgeist",
+    "network_node": "zeitgeist",
+    "type": "mainnet",
+    "ui_domains": [
+      "zeitgeist"
+    ]
+  },
+  "zkverify-testnet": {
+    "backend_service_name": "subscan-zkverify-testnet",
+    "db_name": "subscan_zkverify_testnet",
+    "network_node": "zkverify-testnet",
+    "type": "testnet",
+    "ui_domains": [
+      "zkverify-testnet"
+    ]
+  }
+}

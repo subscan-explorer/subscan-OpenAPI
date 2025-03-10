@@ -5513,6 +5513,9 @@ definitions:
       message_hash:
         description: xcm message hash,
         type: string
+      message_relay_chain:
+        description: message relay chain name
+        type: string
       message_type:
         description: transfer/message
         type: string
@@ -6763,6 +6766,8 @@ definitions:
         type: array
       child_dest:
         type: string
+      child_message:
+        $ref: '#/definitions/subscan_internal_model.XcmMessageEmbeddedJson'
       child_para_id:
         type: integer
       confirm_block_timestamp:
@@ -6800,6 +6805,9 @@ definitions:
         type: string
       message_hash:
         description: xcm message hash,
+        type: string
+      message_relay_chain:
+        description: message relay chain name
         type: string
       message_type:
         description: transfer/message

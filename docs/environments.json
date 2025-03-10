@@ -1,66 +1,12 @@
 {
   "environments": [
     {
-      "baseUrl": "https://polkadot.api.subscan.io",
-      "baseUrls": {
-        "default": "https://polkadot.api.subscan.io"
-      },
-      "name": "Polkadot",
-      "ordering": 0,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://kusama.api.subscan.io",
-      "baseUrls": {
-        "default": "https://kusama.api.subscan.io"
-      },
-      "name": "Kusama",
-      "ordering": 1,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://darwinia.api.subscan.io",
-      "baseUrls": {
-        "default": "https://darwinia.api.subscan.io"
-      },
-      "name": "Darwinia",
-      "ordering": 2,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://assethub-polkadot.api.subscan.io",
-      "baseUrls": {
-        "default": "https://assethub-polkadot.api.subscan.io"
-      },
-      "name": "Assethub-polkadot",
-      "ordering": 3,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://assethub-kusama.api.subscan.io",
-      "baseUrls": {
-        "default": "https://assethub-kusama.api.subscan.io"
-      },
-      "name": "Assethub-kusama",
-      "ordering": 4,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://assethub-rococo.api.subscan.io",
-      "baseUrls": {
-        "default": "https://assethub-rococo.api.subscan.io"
-      },
-      "name": "Assethub-rococo",
-      "ordering": 5,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://acala.api.subscan.io",
       "baseUrls": {
         "default": "https://acala.api.subscan.io"
       },
       "name": "Acala",
-      "ordering": 6,
+      "ordering": 0,
       "projectType": "HTTP"
     },
     {
@@ -69,7 +15,16 @@
         "default": "https://acala-testnet.api.subscan.io"
       },
       "name": "Acala-testnet",
-      "ordering": 7,
+      "ordering": 1,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://ajuna.api.subscan.io",
+      "baseUrls": {
+        "default": "https://ajuna.api.subscan.io"
+      },
+      "name": "Ajuna",
+      "ordering": 2,
       "projectType": "HTTP"
     },
     {
@@ -78,7 +33,16 @@
         "default": "https://alephzero.api.subscan.io"
       },
       "name": "Alephzero",
-      "ordering": 8,
+      "ordering": 3,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://alephzero-testnet.api.subscan.io",
+      "baseUrls": {
+        "default": "https://alephzero-testnet.api.subscan.io"
+      },
+      "name": "Alephzero-testnet",
+      "ordering": 4,
       "projectType": "HTTP"
     },
     {
@@ -87,7 +51,25 @@
         "default": "https://altair.api.subscan.io"
       },
       "name": "Altair",
-      "ordering": 9,
+      "ordering": 5,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://assethub-paseo.api.subscan.io",
+      "baseUrls": {
+        "default": "https://assethub-paseo.api.subscan.io"
+      },
+      "name": "Assethub-paseo",
+      "ordering": 6,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://assethub-westend.api.subscan.io",
+      "baseUrls": {
+        "default": "https://assethub-westend.api.subscan.io"
+      },
+      "name": "Assethub-westend",
+      "ordering": 7,
       "projectType": "HTTP"
     },
     {
@@ -96,7 +78,34 @@
         "default": "https://astar.api.subscan.io"
       },
       "name": "Astar",
+      "ordering": 8,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://autonomys.api.subscan.io",
+      "baseUrls": {
+        "default": "https://autonomys.api.subscan.io"
+      },
+      "name": "Autonomys",
+      "ordering": 9,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://avail.api.subscan.io",
+      "baseUrls": {
+        "default": "https://avail.api.subscan.io"
+      },
+      "name": "Avail",
       "ordering": 10,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://avail-turing.api.subscan.io",
+      "baseUrls": {
+        "default": "https://avail-turing.api.subscan.io"
+      },
+      "name": "Avail-turing",
+      "ordering": 11,
       "projectType": "HTTP"
     },
     {
@@ -105,7 +114,7 @@
         "default": "https://bajun.api.subscan.io"
       },
       "name": "Bajun",
-      "ordering": 11,
+      "ordering": 12,
       "projectType": "HTTP"
     },
     {
@@ -114,15 +123,6 @@
         "default": "https://basilisk.api.subscan.io"
       },
       "name": "Basilisk",
-      "ordering": 12,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://bifrost.api.subscan.io",
-      "baseUrls": {
-        "default": "https://bifrost.api.subscan.io"
-      },
-      "name": "Bifrost",
       "ordering": 13,
       "projectType": "HTTP"
     },
@@ -136,12 +136,48 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://bifrost-testnet.api.subscan.io",
+      "baseUrl": "https://bifrost.api.subscan.io",
       "baseUrls": {
-        "default": "https://bifrost-testnet.api.subscan.io"
+        "default": "https://bifrost.api.subscan.io"
       },
-      "name": "Bifrost-testnet",
+      "name": "Bifrost",
       "ordering": 15,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://bridgehub-kusama.api.subscan.io",
+      "baseUrls": {
+        "default": "https://bridgehub-kusama.api.subscan.io"
+      },
+      "name": "Bridgehub-kusama",
+      "ordering": 16,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://bridgehub-paseo.api.subscan.io",
+      "baseUrls": {
+        "default": "https://bridgehub-paseo.api.subscan.io"
+      },
+      "name": "Bridgehub-paseo",
+      "ordering": 17,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://bridgehub-polkadot.api.subscan.io",
+      "baseUrls": {
+        "default": "https://bridgehub-polkadot.api.subscan.io"
+      },
+      "name": "Bridgehub-polkadot",
+      "ordering": 18,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://bridgehub-westend.api.subscan.io",
+      "baseUrls": {
+        "default": "https://bridgehub-westend.api.subscan.io"
+      },
+      "name": "Bridgehub-westend",
+      "ordering": 19,
       "projectType": "HTTP"
     },
     {
@@ -150,16 +186,7 @@
         "default": "https://calamari.api.subscan.io"
       },
       "name": "Calamari",
-      "ordering": 16,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://centrifuge.api.subscan.io",
-      "baseUrls": {
-        "default": "https://centrifuge.api.subscan.io"
-      },
-      "name": "Centrifuge",
-      "ordering": 17,
+      "ordering": 20,
       "projectType": "HTTP"
     },
     {
@@ -168,7 +195,16 @@
         "default": "https://centrifuge-standalone-history.api.subscan.io"
       },
       "name": "Centrifuge-standalone-history",
-      "ordering": 18,
+      "ordering": 21,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://centrifuge.api.subscan.io",
+      "baseUrls": {
+        "default": "https://centrifuge.api.subscan.io"
+      },
+      "name": "Centrifuge",
+      "ordering": 22,
       "projectType": "HTTP"
     },
     {
@@ -177,43 +213,88 @@
         "default": "https://clover.api.subscan.io"
       },
       "name": "Clover",
-      "ordering": 19,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://clv.api.subscan.io",
-      "baseUrls": {
-        "default": "https://clv.api.subscan.io"
-      },
-      "name": "Clv",
-      "ordering": 20,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://clover-testnet.api.subscan.io",
-      "baseUrls": {
-        "default": "https://clover-testnet.api.subscan.io"
-      },
-      "name": "Clover-testnet",
-      "ordering": 21,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://composable.api.subscan.io",
-      "baseUrls": {
-        "default": "https://composable.api.subscan.io"
-      },
-      "name": "Composable",
-      "ordering": 22,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://crab.api.subscan.io",
-      "baseUrls": {
-        "default": "https://crab.api.subscan.io"
-      },
-      "name": "Crab",
       "ordering": 23,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://collectives-polkadot.api.subscan.io",
+      "baseUrls": {
+        "default": "https://collectives-polkadot.api.subscan.io"
+      },
+      "name": "Collectives-polkadot",
+      "ordering": 24,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://continuum.api.subscan.io",
+      "baseUrls": {
+        "default": "https://continuum.api.subscan.io"
+      },
+      "name": "Continuum",
+      "ordering": 25,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://coretime-kusama.api.subscan.io",
+      "baseUrls": {
+        "default": "https://coretime-kusama.api.subscan.io"
+      },
+      "name": "Coretime-kusama",
+      "ordering": 26,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://coretime-polkadot.api.subscan.io",
+      "baseUrls": {
+        "default": "https://coretime-polkadot.api.subscan.io"
+      },
+      "name": "Coretime-polkadot",
+      "ordering": 27,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://coretime-westend.api.subscan.io",
+      "baseUrls": {
+        "default": "https://coretime-westend.api.subscan.io"
+      },
+      "name": "Coretime-westend",
+      "ordering": 28,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://cc-enterprise.api.subscan.io",
+      "baseUrls": {
+        "default": "https://cc-enterprise.api.subscan.io"
+      },
+      "name": "Cc-enterprise",
+      "ordering": 29,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://creditcoin.api.subscan.io",
+      "baseUrls": {
+        "default": "https://creditcoin.api.subscan.io"
+      },
+      "name": "Creditcoin",
+      "ordering": 30,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://creditcoin3-testnet.api.subscan.io",
+      "baseUrls": {
+        "default": "https://creditcoin3-testnet.api.subscan.io"
+      },
+      "name": "Creditcoin3-testnet",
+      "ordering": 31,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://creditcoin3-dev.api.subscan.io",
+      "baseUrls": {
+        "default": "https://creditcoin3-dev.api.subscan.io"
+      },
+      "name": "Creditcoin3-dev",
+      "ordering": 32,
       "projectType": "HTTP"
     },
     {
@@ -222,25 +303,25 @@
         "default": "https://crust.api.subscan.io"
       },
       "name": "Crust",
-      "ordering": 24,
+      "ordering": 33,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://maxwell.api.subscan.io",
+      "baseUrl": "https://crust-parachain.api.subscan.io",
       "baseUrls": {
-        "default": "https://maxwell.api.subscan.io"
+        "default": "https://crust-parachain.api.subscan.io"
       },
-      "name": "Maxwell",
-      "ordering": 25,
+      "name": "Crust-parachain",
+      "ordering": 34,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://shadow.api.subscan.io",
+      "baseUrl": "https://darwinia.api.subscan.io",
       "baseUrls": {
-        "default": "https://shadow.api.subscan.io"
+        "default": "https://darwinia.api.subscan.io"
       },
-      "name": "Shadow",
-      "ordering": 26,
+      "name": "Darwinia",
+      "ordering": 35,
       "projectType": "HTTP"
     },
     {
@@ -249,7 +330,7 @@
         "default": "https://dbc.api.subscan.io"
       },
       "name": "Dbc",
-      "ordering": 27,
+      "ordering": 36,
       "projectType": "HTTP"
     },
     {
@@ -258,34 +339,79 @@
         "default": "https://dock.api.subscan.io"
       },
       "name": "Dock",
-      "ordering": 28,
+      "ordering": 37,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://dolphin.api.subscan.io",
+      "baseUrl": "https://energywebx.api.subscan.io",
       "baseUrls": {
-        "default": "https://dolphin.api.subscan.io"
+        "default": "https://energywebx.api.subscan.io"
       },
-      "name": "Dolphin",
-      "ordering": 29,
+      "name": "Energywebx",
+      "ordering": 38,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://efinity.api.subscan.io",
+      "baseUrl": "https://energywebx-testnet.api.subscan.io",
       "baseUrls": {
-        "default": "https://efinity.api.subscan.io"
+        "default": "https://energywebx-testnet.api.subscan.io"
       },
-      "name": "Efinity",
-      "ordering": 30,
+      "name": "Energywebx-testnet",
+      "ordering": 39,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://encointer.api.subscan.io",
+      "baseUrl": "https://canary-matrix.api.subscan.io",
       "baseUrls": {
-        "default": "https://encointer.api.subscan.io"
+        "default": "https://canary-matrix.api.subscan.io"
       },
-      "name": "Encointer",
-      "ordering": 31,
+      "name": "Canary-matrix",
+      "ordering": 40,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://canary.api.subscan.io",
+      "baseUrls": {
+        "default": "https://canary.api.subscan.io"
+      },
+      "name": "Canary",
+      "ordering": 41,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://matrix.api.subscan.io",
+      "baseUrls": {
+        "default": "https://matrix.api.subscan.io"
+      },
+      "name": "Matrix",
+      "ordering": 42,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://enjin.api.subscan.io",
+      "baseUrls": {
+        "default": "https://enjin.api.subscan.io"
+      },
+      "name": "Enjin",
+      "ordering": 43,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://gasp.api.subscan.io",
+      "baseUrls": {
+        "default": "https://gasp.api.subscan.io"
+      },
+      "name": "Gasp",
+      "ordering": 44,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://heima.api.subscan.io",
+      "baseUrls": {
+        "default": "https://heima.api.subscan.io"
+      },
+      "name": "Heima",
+      "ordering": 45,
       "projectType": "HTTP"
     },
     {
@@ -294,16 +420,16 @@
         "default": "https://humanode.api.subscan.io"
       },
       "name": "Humanode",
-      "ordering": 34,
+      "ordering": 46,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://hydradx.api.subscan.io",
+      "baseUrl": "https://hydration.api.subscan.io",
       "baseUrls": {
-        "default": "https://hydradx.api.subscan.io"
+        "default": "https://hydration.api.subscan.io"
       },
-      "name": "Hydradx",
-      "ordering": 35,
+      "name": "Hydration",
+      "ordering": 47,
       "projectType": "HTTP"
     },
     {
@@ -312,7 +438,7 @@
         "default": "https://integritee.api.subscan.io"
       },
       "name": "Integritee",
-      "ordering": 36,
+      "ordering": 48,
       "projectType": "HTTP"
     },
     {
@@ -321,7 +447,16 @@
         "default": "https://interlay.api.subscan.io"
       },
       "name": "Interlay",
-      "ordering": 37,
+      "ordering": 49,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://joystream.api.subscan.io",
+      "baseUrls": {
+        "default": "https://joystream.api.subscan.io"
+      },
+      "name": "Joystream",
+      "ordering": 50,
       "projectType": "HTTP"
     },
     {
@@ -330,16 +465,7 @@
         "default": "https://karura.api.subscan.io"
       },
       "name": "Karura",
-      "ordering": 38,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://kintsugi.api.subscan.io",
-      "baseUrls": {
-        "default": "https://kintsugi.api.subscan.io"
-      },
-      "name": "Kintsugi",
-      "ordering": 39,
+      "ordering": 51,
       "projectType": "HTTP"
     },
     {
@@ -348,7 +474,16 @@
         "default": "https://khala.api.subscan.io"
       },
       "name": "Khala",
-      "ordering": 40,
+      "ordering": 52,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://kintsugi.api.subscan.io",
+      "baseUrls": {
+        "default": "https://kintsugi.api.subscan.io"
+      },
+      "name": "Kintsugi",
+      "ordering": 53,
       "projectType": "HTTP"
     },
     {
@@ -357,34 +492,16 @@
         "default": "https://krest.api.subscan.io"
       },
       "name": "Krest",
-      "ordering": 41,
+      "ordering": 54,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://kilt-testnet.api.subscan.io",
+      "baseUrl": "https://kusama.api.subscan.io",
       "baseUrls": {
-        "default": "https://kilt-testnet.api.subscan.io"
+        "default": "https://kusama.api.subscan.io"
       },
-      "name": "Kilt-testnet",
-      "ordering": 42,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://spiritnet.api.subscan.io",
-      "baseUrls": {
-        "default": "https://spiritnet.api.subscan.io"
-      },
-      "name": "Spiritnet",
-      "ordering": 43,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://litmus.api.subscan.io",
-      "baseUrls": {
-        "default": "https://litmus.api.subscan.io"
-      },
-      "name": "Litmus",
-      "ordering": 44,
+      "name": "Kusama",
+      "ordering": 55,
       "projectType": "HTTP"
     },
     {
@@ -393,7 +510,16 @@
         "default": "https://mangatax.api.subscan.io"
       },
       "name": "Mangatax",
-      "ordering": 45,
+      "ordering": 56,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://manta.api.subscan.io",
+      "baseUrls": {
+        "default": "https://manta.api.subscan.io"
+      },
+      "name": "Manta",
+      "ordering": 57,
       "projectType": "HTTP"
     },
     {
@@ -402,7 +528,7 @@
         "default": "https://moonbase.api.subscan.io"
       },
       "name": "Moonbase",
-      "ordering": 46,
+      "ordering": 58,
       "projectType": "HTTP"
     },
     {
@@ -411,7 +537,7 @@
         "default": "https://moonbeam.api.subscan.io"
       },
       "name": "Moonbeam",
-      "ordering": 47,
+      "ordering": 59,
       "projectType": "HTTP"
     },
     {
@@ -420,7 +546,16 @@
         "default": "https://moonriver.api.subscan.io"
       },
       "name": "Moonriver",
-      "ordering": 48,
+      "ordering": 60,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://mythos.api.subscan.io",
+      "baseUrls": {
+        "default": "https://mythos.api.subscan.io"
+      },
+      "name": "Mythos",
+      "ordering": 61,
       "projectType": "HTTP"
     },
     {
@@ -429,79 +564,88 @@
         "default": "https://nodle.api.subscan.io"
       },
       "name": "Nodle",
-      "ordering": 49,
+      "ordering": 62,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://origintrail.api.subscan.io",
+      "baseUrl": "https://opal.api.subscan.io",
       "baseUrls": {
-        "default": "https://origintrail.api.subscan.io"
+        "default": "https://opal.api.subscan.io"
       },
-      "name": "Origintrail",
-      "ordering": 50,
+      "name": "Opal",
+      "ordering": 63,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://origintrail-testnet.api.subscan.io",
+      "baseUrl": "https://neuroweb.api.subscan.io",
       "baseUrls": {
-        "default": "https://origintrail-testnet.api.subscan.io"
+        "default": "https://neuroweb.api.subscan.io"
       },
-      "name": "Origintrail-testnet",
-      "ordering": 51,
+      "name": "Neuroweb",
+      "ordering": 64,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://pangolin.api.subscan.io",
+      "baseUrl": "https://neuroweb-testnet.api.subscan.io",
       "baseUrls": {
-        "default": "https://pangolin.api.subscan.io"
+        "default": "https://neuroweb-testnet.api.subscan.io"
       },
-      "name": "Pangolin",
-      "ordering": 52,
+      "name": "Neuroweb-testnet",
+      "ordering": 65,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://pangolin-parachain.api.subscan.io",
+      "baseUrl": "https://paseo.api.subscan.io",
       "baseUrls": {
-        "default": "https://pangolin-parachain.api.subscan.io"
+        "default": "https://paseo.api.subscan.io"
       },
-      "name": "Pangolin-parachain",
-      "ordering": 53,
+      "name": "Paseo",
+      "ordering": 66,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://pangoro.api.subscan.io",
+      "baseUrl": "https://agung-testnet.api.subscan.io",
       "baseUrls": {
-        "default": "https://pangoro.api.subscan.io"
+        "default": "https://agung-testnet.api.subscan.io"
       },
-      "name": "Pangoro",
-      "ordering": 54,
+      "name": "Agung-testnet",
+      "ordering": 67,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://parallel.api.subscan.io",
+      "baseUrl": "https://peaq.api.subscan.io",
       "baseUrls": {
-        "default": "https://parallel.api.subscan.io"
+        "default": "https://peaq.api.subscan.io"
       },
-      "name": "Parallel",
-      "ordering": 55,
+      "name": "Peaq",
+      "ordering": 68,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://parallel-heiko.api.subscan.io",
+      "baseUrl": "https://pendulum.api.subscan.io",
       "baseUrls": {
-        "default": "https://parallel-heiko.api.subscan.io"
+        "default": "https://pendulum.api.subscan.io"
       },
-      "name": "Parallel-heiko",
-      "ordering": 56,
+      "name": "Pendulum",
+      "ordering": 69,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://peaq-testnet.api.subscan.io",
+      "baseUrl": "https://people-kusama.api.subscan.io",
       "baseUrls": {
-        "default": "https://peaq-testnet.api.subscan.io"
+        "default": "https://people-kusama.api.subscan.io"
       },
-      "name": "Peaq-testnet",
-      "ordering": 57,
+      "name": "People-kusama",
+      "ordering": 70,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://people-polkadot.api.subscan.io",
+      "baseUrls": {
+        "default": "https://people-polkadot.api.subscan.io"
+      },
+      "name": "People-polkadot",
+      "ordering": 71,
       "projectType": "HTTP"
     },
     {
@@ -510,25 +654,7 @@
         "default": "https://phala.api.subscan.io"
       },
       "name": "Phala",
-      "ordering": 58,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://picasso.api.subscan.io",
-      "baseUrls": {
-        "default": "https://picasso.api.subscan.io"
-      },
-      "name": "Picasso",
-      "ordering": 59,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://picasso-rococo.api.subscan.io",
-      "baseUrls": {
-        "default": "https://picasso-rococo.api.subscan.io"
-      },
-      "name": "Picasso-rococo",
-      "ordering": 60,
+      "ordering": 72,
       "projectType": "HTTP"
     },
     {
@@ -537,7 +663,7 @@
         "default": "https://pioneer.api.subscan.io"
       },
       "name": "Pioneer",
-      "ordering": 61,
+      "ordering": 73,
       "projectType": "HTTP"
     },
     {
@@ -546,7 +672,25 @@
         "default": "https://polkadex.api.subscan.io"
       },
       "name": "Polkadex",
-      "ordering": 62,
+      "ordering": 74,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://polkadex-parachain.api.subscan.io",
+      "baseUrls": {
+        "default": "https://polkadex-parachain.api.subscan.io"
+      },
+      "name": "Polkadex-parachain",
+      "ordering": 75,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://polkadot.api.subscan.io",
+      "baseUrls": {
+        "default": "https://polkadot.api.subscan.io"
+      },
+      "name": "Polkadot",
+      "ordering": 76,
       "projectType": "HTTP"
     },
     {
@@ -555,7 +699,7 @@
         "default": "https://polymesh.api.subscan.io"
       },
       "name": "Polymesh",
-      "ordering": 63,
+      "ordering": 77,
       "projectType": "HTTP"
     },
     {
@@ -564,25 +708,16 @@
         "default": "https://polymesh-testnet.api.subscan.io"
       },
       "name": "Polymesh-testnet",
-      "ordering": 64,
+      "ordering": 78,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://quartz.api.subscan.io",
+      "baseUrl": "https://robonomics-freemium.api.subscan.io",
       "baseUrls": {
-        "default": "https://quartz.api.subscan.io"
+        "default": "https://robonomics-freemium.api.subscan.io"
       },
-      "name": "Quartz",
-      "ordering": 65,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://reef.api.subscan.io",
-      "baseUrls": {
-        "default": "https://reef.api.subscan.io"
-      },
-      "name": "Reef",
-      "ordering": 66,
+      "name": "Robonomics-freemium",
+      "ordering": 79,
       "projectType": "HTTP"
     },
     {
@@ -591,25 +726,16 @@
         "default": "https://robonomics.api.subscan.io"
       },
       "name": "Robonomics",
-      "ordering": 67,
+      "ordering": 80,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://rococo.api.subscan.io",
+      "baseUrl": "https://shadow.api.subscan.io",
       "baseUrls": {
-        "default": "https://rococo.api.subscan.io"
+        "default": "https://shadow.api.subscan.io"
       },
-      "name": "Rococo",
-      "ordering": 68,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://sakura.api.subscan.io",
-      "baseUrls": {
-        "default": "https://sakura.api.subscan.io"
-      },
-      "name": "Sakura",
-      "ordering": 69,
+      "name": "Shadow",
+      "ordering": 81,
       "projectType": "HTTP"
     },
     {
@@ -618,7 +744,7 @@
         "default": "https://shibuya.api.subscan.io"
       },
       "name": "Shibuya",
-      "ordering": 70,
+      "ordering": 82,
       "projectType": "HTTP"
     },
     {
@@ -627,7 +753,7 @@
         "default": "https://shiden.api.subscan.io"
       },
       "name": "Shiden",
-      "ordering": 71,
+      "ordering": 83,
       "projectType": "HTTP"
     },
     {
@@ -636,16 +762,16 @@
         "default": "https://sora.api.subscan.io"
       },
       "name": "Sora",
-      "ordering": 72,
+      "ordering": 84,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://subspace.api.subscan.io",
+      "baseUrl": "https://spiritnet.api.subscan.io",
       "baseUrls": {
-        "default": "https://subspace.api.subscan.io"
+        "default": "https://spiritnet.api.subscan.io"
       },
-      "name": "Subspace",
-      "ordering": 73,
+      "name": "Spiritnet",
+      "ordering": 85,
       "projectType": "HTTP"
     },
     {
@@ -654,16 +780,43 @@
         "default": "https://stafi.api.subscan.io"
       },
       "name": "Stafi",
-      "ordering": 74,
+      "ordering": 86,
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://datahighway.api.subscan.io",
+      "baseUrl": "https://assethub-kusama.api.subscan.io",
       "baseUrls": {
-        "default": "https://datahighway.api.subscan.io"
+        "default": "https://assethub-kusama.api.subscan.io"
       },
-      "name": "Datahighway",
-      "ordering": 75,
+      "name": "Assethub-kusama",
+      "ordering": 87,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://assethub-polkadot.api.subscan.io",
+      "baseUrls": {
+        "default": "https://assethub-polkadot.api.subscan.io"
+      },
+      "name": "Assethub-polkadot",
+      "ordering": 88,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://subspace.api.subscan.io",
+      "baseUrls": {
+        "default": "https://subspace.api.subscan.io"
+      },
+      "name": "Subspace",
+      "ordering": 89,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://dancebox.api.subscan.io",
+      "baseUrls": {
+        "default": "https://dancebox.api.subscan.io"
+      },
+      "name": "Dancebox",
+      "ordering": 90,
       "projectType": "HTTP"
     },
     {
@@ -672,7 +825,7 @@
         "default": "https://turing.api.subscan.io"
       },
       "name": "Turing",
-      "ordering": 76,
+      "ordering": 91,
       "projectType": "HTTP"
     },
     {
@@ -681,7 +834,7 @@
         "default": "https://unique.api.subscan.io"
       },
       "name": "Unique",
-      "ordering": 77,
+      "ordering": 92,
       "projectType": "HTTP"
     },
     {
@@ -690,7 +843,7 @@
         "default": "https://vara.api.subscan.io"
       },
       "name": "Vara",
-      "ordering": 78,
+      "ordering": 93,
       "projectType": "HTTP"
     },
     {
@@ -699,7 +852,7 @@
         "default": "https://westend.api.subscan.io"
       },
       "name": "Westend",
-      "ordering": 79,
+      "ordering": 94,
       "projectType": "HTTP"
     },
     {
@@ -708,7 +861,16 @@
         "default": "https://zeitgeist.api.subscan.io"
       },
       "name": "Zeitgeist",
-      "ordering": 80,
+      "ordering": 95,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://zkverify-testnet.api.subscan.io",
+      "baseUrls": {
+        "default": "https://zkverify-testnet.api.subscan.io"
+      },
+      "name": "Zkverify-testnet",
+      "ordering": 96,
       "projectType": "HTTP"
     }
   ],

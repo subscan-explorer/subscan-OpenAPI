@@ -1,6 +1,24 @@
 import json
 
-subdomains = ["polkadot","kusama","darwinia","assethub-polkadot","assethub-kusama","assethub-rococo","acala","acala-testnet","alephzero","altair","astar","bajun","basilisk","bifrost","bifrost-kusama","bifrost-testnet","calamari","centrifuge","centrifuge-standalone-history","clover","clv","clover-testnet","composable","crab","crust","maxwell","shadow","dbc","dock","dolphin","efinity","encointer","humanode","hydradx","integritee","interlay","karura","kintsugi","khala","krest","kilt-testnet","spiritnet","litmus","mangatax","moonbase","moonbeam","moonriver","nodle","origintrail","origintrail-testnet","pangolin","pangolin-parachain","pangoro","parallel","parallel-heiko","peaq-testnet","phala","picasso","picasso-rococo","pioneer","polkadex","polymesh","polymesh-testnet","quartz","reef","robonomics","rococo","sakura","shibuya","shiden","sora","subspace","stafi","datahighway","turing","unique","vara","westend","zeitgeist"]
+
+def parse_network_json(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    ignoreDomains = ['origintrail','origintrail-testnet','hydradx','creditcoin-classic','creditcoin-testnet','cc-enterprise-testnet']
+    replaceNetwork = {
+        "statemine": "assethub-kusama",
+        "statemint": "assethub-polkadot",
+    }
+    networks = []
+    data = dict(sorted(data.items()))
+
+    for network, details in data.items():
+        for domain in details['ui_domains']:
+            if domain in ignoreDomains:
+                continue
+            networks.append(domain)
+
+    return networks
 
 def generate_json(subdomains):
     domain = "api.subscan.io"
@@ -33,6 +51,6 @@ def generate_json(subdomains):
     return data
 
 
-data = generate_json(subdomains)
+data = generate_json(parse_network_json('network.json'))
 with open('environments.json', 'w') as f:
     json.dump(data, f, indent=2)
