@@ -2013,13 +2013,19 @@ definitions:
       address:
         type: string
       block_range:
+        description: 'block range filter, e.g.: 1000-2000, only polkadot,kusama,westend
+          available'
         type: string
       end:
+        description: 'history end date, e.g.: 2024-01-02'
         type: string
       recent_block:
+        description: 'Block-level returns rows, e.g.: 1000, only polkadot,kusama,westend
+          available'
         maximum: 10000
         type: integer
       start:
+        description: 'history start date, e.g.: 2024-01-02'
         type: string
     required:
     - address
@@ -8190,6 +8196,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the account assets changed history (currently only support
+        the assets & foreign assets)
       parameters:
       - description: params
         in: body
@@ -8223,6 +8231,10 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Native token balance history implementations vary by network.
+        Block-level granularity: Polkadot, Kusama, Westend.
+        Daily snapshot granularity: All other supported chains
       parameters:
       - description: params
         in: body

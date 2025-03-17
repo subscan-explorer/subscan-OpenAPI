@@ -35,15 +35,6 @@
       "alephzero"
     ]
   },
-  "alephzero-test": {
-    "backend_service_name": "subscan-alephzero-test",
-    "db_name": "subscan_alephzero_testnet",
-    "network_node": "alephzero-test",
-    "type": "testnet",
-    "ui_domains": [
-      "alephzero-testnet"
-    ]
-  },
   "altair": {
     "backend_service_name": "subscan-altair",
     "db_name": "subscan_altair",

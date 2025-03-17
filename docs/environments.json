@@ -37,15 +37,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://alephzero-testnet.api.subscan.io",
-      "baseUrls": {
-        "default": "https://alephzero-testnet.api.subscan.io"
-      },
-      "name": "Alephzero-testnet",
-      "ordering": 4,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://altair.api.subscan.io",
       "baseUrls": {
         "default": "https://altair.api.subscan.io"
@@ -448,15 +439,6 @@
       },
       "name": "Interlay",
       "ordering": 49,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://joystream.api.subscan.io",
-      "baseUrls": {
-        "default": "https://joystream.api.subscan.io"
-      },
-      "name": "Joystream",
-      "ordering": 50,
       "projectType": "HTTP"
     },
     {

@@ -183,6 +183,7 @@ const docTemplate = `{
         },
         "/api/scan/account/assets_changed": {
             "post": {
+                "description": "Get the account assets changed history (currently only support the assets \u0026 foreign assets)",
                 "consumes": [
                     "application/json"
                 ],
@@ -239,6 +240,7 @@ const docTemplate = `{
         },
         "/api/scan/account/balance_history": {
             "post": {
+                "description": "Native token balance history implementations vary by network.\nBlock-level granularity: Polkadot, Kusama, Westend.\nDaily snapshot granularity: All other supported chains",
                 "consumes": [
                     "application/json"
                 ],
@@ -13490,16 +13492,20 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "block_range": {
+                    "description": "block range filter, e.g.: 1000-2000, only polkadot,kusama,westend available",
                     "type": "string"
                 },
                 "end": {
+                    "description": "history end date, e.g.: 2024-01-02",
                     "type": "string"
                 },
                 "recent_block": {
+                    "description": "Block-level returns rows, e.g.: 1000, only polkadot,kusama,westend available",
                     "type": "integer",
                     "maximum": 10000
                 },
                 "start": {
+                    "description": "history start date, e.g.: 2024-01-02",
                     "type": "string"
                 }
             }

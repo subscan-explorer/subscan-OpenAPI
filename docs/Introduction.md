@@ -1,7 +1,6 @@
-With Subscan API, we provide a simple way to access the chain data of more than 70 substrate-based networks.
+With Subscan API, we provide a simple way to access the chain data of more than 90 substrate-based networks.
 
-If you have any question or suggestion, please do not hesitate to contact our API support
-via [api@subscan.io](mailto:api@subscan.io).
+If you have any question or suggestion, please do not hesitate to contact our API support via [api@subscan.io](mailto:api@subscan.io).
 
 The documentation was created with [apidog](apidog.com).
 
@@ -16,7 +15,7 @@ The service status of Subscan API can be found on our [status page](https://subs
 
 ## Service Level Agreement
 
-Subscan provides our customers the Service Level Agreement (SLA), which includes **Monthly Uptime Percentage**
+Subscan provides our customers the Service Level Agreement (SLA), which includes **Monthly Uptime Percentage** 
 commitment for multiple networks. Please contact us ([api@subscan.io](mailto:api@subscan.io)) for more information.
 
 ## API Endpoints
@@ -40,13 +39,16 @@ Please notice before you get started:
    marked as **test** is test network, which may be unstable. Some new features of Subscan will be updated on testnet
    first.
 
+5. All APIs documented here are specifically designed for Subscan UI. While they may undergo frequent updates, 
+   we strictly avoid introducing breaking changes. In the rare event of a mandatory breaking change, we will issue 
+    advance email notifications to all subscribers.
+
 | Network              | API Host                                       | Status |
 |----------------------|------------------------------------------------|--------|
 | Acala                | `acala.api.subscan.io`                         | live   |
 | Acala-test           | `acala-testnet.api.subscan.io`                 | test   |
 | Ajuna                | `ajuna.api.subscan.io`                         | live   |
 | Alephzero            | `alephzero.api.subscan.io`                     | live   |
-| Alephzero-test       | `alephzero-testnet.api.subscan.io`             | test   |
 | Altair               | `altair.api.subscan.io`                        | live   |
 | Assethub-kusama      | `assethub-kusama.api.subscan.io`               | live   |
 | Assethub-paseo       | `assethub-paseo.api.subscan.io`                | test   |
@@ -94,7 +96,6 @@ Please notice before you get started:
 | Hydradx              | `hydration.api.subscan.io`                     | live   |
 | Integritee-para      | `integritee.api.subscan.io`                    | live   |
 | Interlay             | `interlay.api.subscan.io`                      | live   |
-| Joystream            | `joystream.api.subscan.io`                     | live   |
 | Karura               | `karura.api.subscan.io`                        | live   |
 | Khala                | `khala.api.subscan.io`                         | live   |
 | Kintsugi             | `kintsugi.api.subscan.io`                      | live   |
