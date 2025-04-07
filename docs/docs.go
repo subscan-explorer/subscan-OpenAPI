@@ -13533,6 +13533,9 @@ const docTemplate = `{
                 "start": {
                     "description": "history start date, e.g.: 2024-01-02",
                     "type": "string"
+                },
+                "token_unique_id": {
+                    "type": "string"
                 }
             }
         },
