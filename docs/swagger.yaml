@@ -490,10 +490,28 @@ definitions:
         minimum: 1
         type: integer
     type: object
-  internal_plugin_evm_http.EvmNFTCollectiblesParam:
+  internal_plugin_evm_http.EvmNFT721CollectiblesParam:
     properties:
       address:
         type: string
+      contract:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_id:
+        type: string
+    type: object
+  internal_plugin_evm_http.EvmNFT1155CollectiblesParam:
+    properties:
+      address:
+        type: string
+      after_id:
+        type: integer
       contract:
         type: string
       page:
@@ -10052,7 +10070,7 @@ paths:
         name: param
         required: true
         schema:
-          $ref: '#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam'
+          $ref: '#/definitions/internal_plugin_evm_http.EvmNFT721CollectiblesParam'
       produces:
       - application/json
       responses:
@@ -10115,7 +10133,7 @@ paths:
         name: param
         required: true
         schema:
-          $ref: '#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam'
+          $ref: '#/definitions/internal_plugin_evm_http.EvmNFT1155CollectiblesParam'
       produces:
       - application/json
       responses:

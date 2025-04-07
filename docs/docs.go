@@ -3276,7 +3276,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam"
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmNFT1155CollectiblesParam"
                         }
                     }
                 ],
@@ -3342,7 +3342,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/internal_plugin_evm_http.EvmNFTCollectiblesParam"
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmNFT721CollectiblesParam"
                         }
                     }
                 ],
@@ -11362,7 +11362,33 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_plugin_evm_http.EvmNFTCollectiblesParam": {
+        "internal_plugin_evm_http.EvmNFT1155CollectiblesParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmNFT721CollectiblesParam": {
             "type": "object",
             "properties": {
                 "address": {
