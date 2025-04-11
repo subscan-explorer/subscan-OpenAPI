@@ -15007,6 +15007,9 @@
                     "type": "string",
                     "example": "14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ"
                 },
+                "after_id": {
+                    "type": "integer"
+                },
                 "order": {
                     "type": "string",
                     "enum": [
@@ -19166,6 +19169,9 @@
                 "finalized": {
                     "type": "boolean",
                     "example": true
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "nonce": {
                     "type": "integer",

@@ -3154,6 +3154,8 @@ definitions:
         description: Current network account
         example: 14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ
         type: string
+      after_id:
+        type: integer
       order:
         enum:
         - asc
@@ -5967,6 +5969,8 @@ definitions:
       finalized:
         example: true
         type: boolean
+      id:
+        type: integer
       nonce:
         example: 1
         type: integer

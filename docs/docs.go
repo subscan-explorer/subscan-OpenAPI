@@ -15018,6 +15018,9 @@ const docTemplate = `{
                     "type": "string",
                     "example": "14RYaXRSqb9rPqMaAVp1UZW2czQ6dMNGMbvukwfifi6m8ZgZ"
                 },
+                "after_id": {
+                    "type": "integer"
+                },
                 "order": {
                     "type": "string",
                     "enum": [
@@ -19177,6 +19180,9 @@ const docTemplate = `{
                 "finalized": {
                     "type": "boolean",
                     "example": true
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "nonce": {
                     "type": "integer",
