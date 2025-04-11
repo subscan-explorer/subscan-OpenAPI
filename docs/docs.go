@@ -1607,9 +1607,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1640,9 +1638,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1673,9 +1669,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1695,9 +1689,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1792,9 +1784,7 @@ const docTemplate = `{
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
-                                            "type": "object"
-                                        }
+                                        "data": {}
                                     }
                                 }
                             ]
@@ -2986,9 +2976,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3019,9 +3007,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3052,9 +3038,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3085,9 +3069,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3118,9 +3100,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3151,9 +3131,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3184,9 +3162,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3217,9 +3193,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3250,9 +3224,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3283,9 +3255,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3316,9 +3286,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3349,9 +3317,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3383,9 +3349,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3402,9 +3366,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3435,9 +3397,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3468,9 +3428,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3501,9 +3459,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3623,9 +3579,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5546,9 +5500,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5579,9 +5531,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5612,9 +5562,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5645,9 +5593,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5678,9 +5624,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5711,9 +5655,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5812,9 +5754,7 @@ const docTemplate = `{
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {
-                                                    "type": "object"
-                                                }
+                                                "items": {}
                                             }
                                         }
                                     }
@@ -10670,7 +10610,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -10698,7 +10638,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -10715,7 +10655,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -10723,7 +10663,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "order": {
                     "type": "string",
@@ -10975,7 +10915,7 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "multiToken collection id",
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -10984,7 +10924,7 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "multiToken collection id",
-                    "type": "number"
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -10997,7 +10937,7 @@ const docTemplate = `{
                 },
                 "token_id": {
                     "description": "Optional. filter by token id",
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -11011,7 +10951,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -11032,7 +10972,7 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "multiToken collection id",
-                    "type": "number"
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -11045,7 +10985,7 @@ const docTemplate = `{
                 },
                 "token_id": {
                     "description": "optional. filter by token id",
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -11053,10 +10993,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "token_id": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -11065,7 +11005,7 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "Optional. multiToken collection id",
-                    "type": "number"
+                    "type": "string"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -11102,7 +11042,7 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "Optional, multiToken collection id",
-                    "type": "number"
+                    "type": "string"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -11673,8 +11613,8 @@ const docTemplate = `{
                     "example": "EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf"
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -11694,13 +11634,13 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "Collection id, required",
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "item_id": {
                     "description": "Item id, optional",
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -11719,8 +11659,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -11740,11 +11680,11 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "Collection id, required",
-                    "type": "number"
+                    "type": "string"
                 },
                 "item_id": {
                     "description": "Item id, required",
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -11752,8 +11692,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -11794,8 +11734,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 }
             }
         },
@@ -11803,8 +11743,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -11848,8 +11788,8 @@ const docTemplate = `{
                     "example": "EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf"
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -11869,13 +11809,13 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "Collection id, required",
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "item_id": {
                     "description": "Item id, optional",
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -11894,8 +11834,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -11915,11 +11855,11 @@ const docTemplate = `{
             "properties": {
                 "collection_id": {
                     "description": "Collection id, required",
-                    "type": "number"
+                    "type": "string"
                 },
                 "item_id": {
                     "description": "Item id, required",
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -11927,8 +11867,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -11972,8 +11912,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 }
             }
         },
@@ -11981,8 +11921,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -12019,7 +11959,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "item_id": {
                     "type": "integer"
@@ -12046,8 +11986,8 @@ const docTemplate = `{
                     "example": "EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf"
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "page": {
                     "type": "integer",
@@ -12066,7 +12006,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "page": {
                     "type": "integer",
@@ -12083,7 +12023,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "item_id": {
                     "type": "integer"
@@ -12094,7 +12034,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -12131,7 +12071,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -12139,7 +12079,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "order": {
                     "description": "Optional, order sort, default desc",
@@ -12180,7 +12120,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "block_timestamp": {
                     "type": "integer"
@@ -12417,7 +12357,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -12472,7 +12412,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "status": {
                     "type": "string"
@@ -12516,7 +12456,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "purchased_type": {
                     "type": "string"
@@ -12554,7 +12494,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price_chart_point": {
                     "type": "array",
@@ -12563,7 +12503,7 @@ const docTemplate = `{
                     }
                 },
                 "realtime_price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "region_begin": {
                     "type": "integer"
@@ -12587,10 +12527,10 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "sellout_price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "start_price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "total_core": {
                     "type": "integer"
@@ -12961,13 +12901,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "amount_v2": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "asset_symbol": {
                     "type": "string"
@@ -13246,7 +13186,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "output": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price": {
                     "$ref": "#/definitions/subscan_internal_service_scan.CurrencyPrice"
@@ -14186,7 +14126,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -15478,10 +15418,10 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "max_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "min_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "order": {
                     "type": "string",
@@ -15537,20 +15477,20 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "market_cap": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "metadata": {},
                 "name": {
                     "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
                 },
                 "total_issuance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "transfer_count": {
                     "type": "integer"
@@ -15948,16 +15888,16 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_value": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "date": {
                     "type": "string"
                 },
                 "defi_value": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -15968,16 +15908,16 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "max_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "min_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
                 "total": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -15991,7 +15931,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -16014,7 +15954,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "contributed": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "event_index": {
                     "type": "string"
@@ -16052,25 +15992,25 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "id": {
                     "type": "integer"
                 },
                 "locked": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "reserved": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "token": {
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unique_id": {
                     "type": "string"
@@ -16128,7 +16068,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "block_num": {
                     "type": "integer"
@@ -16172,10 +16112,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "origins": {
                     "type": "integer"
@@ -16201,16 +16141,16 @@ const docTemplate = `{
                     }
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "balance_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "conviction_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "count_extrinsic": {
                     "type": "integer"
@@ -16225,7 +16165,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.DelegateAccountJson"
                 },
                 "democracy_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "derive_token": {
                     "type": "object",
@@ -16240,7 +16180,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "election_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "email": {
                     "type": "string"
@@ -16303,7 +16243,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "matrix": {
                     "type": "string"
@@ -16313,7 +16253,7 @@ const docTemplate = `{
                 },
                 "nft_amount": {
                     "description": "UpgradeV2      bool ` + "`" + `json:\"-\"` + "`" + `",
-                    "type": "number"
+                    "type": "string"
                 },
                 "nomination_pool_balance": {
                     "type": "array",
@@ -16326,7 +16266,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.ProxyAccountJson"
                 },
                 "registrar_fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "registrar_index": {
                     "type": "integer"
@@ -16335,7 +16275,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
                 },
                 "reserved": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "riot": {
                     "type": "string"
@@ -16356,7 +16296,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "vesting": {
                     "$ref": "#/definitions/subscan_internal_model.VestingJson"
@@ -16376,13 +16316,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "count_extrinsic": {
                     "type": "integer"
                 },
                 "locked": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "tag_name": {
                     "type": "string"
@@ -16402,16 +16342,16 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_nominators": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_owner": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_total": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "controller_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -16472,13 +16412,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "referendum_index": {
                     "type": "integer"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -16503,10 +16443,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "balance_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "count_extrinsic": {
                     "type": "integer"
@@ -16533,17 +16473,17 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nft_amount": {
                     "description": "UpgradeV2      bool ` + "`" + `json:\"-\"` + "`" + `",
-                    "type": "number"
+                    "type": "string"
                 },
                 "registrar_info": {
                     "$ref": "#/definitions/subscan_internal_model.RoleRegistrarJson"
                 },
                 "reserved": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "substrate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -16554,7 +16494,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "asset_unique_id": {
                     "type": "string"
@@ -16583,10 +16523,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price_change": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unique_id": {
                     "type": "string"
@@ -16597,13 +16537,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "category": {
                     "type": "string"
@@ -16612,7 +16552,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "conviction_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "currency_id": {
                     "type": "string"
@@ -16621,28 +16561,28 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "democracy_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "election_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "label": {
                     "type": "string"
                 },
                 "locked": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "network": {
                     "type": "string"
                 },
                 "nomination_bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "reserved": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
@@ -16651,7 +16591,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -16685,7 +16625,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "bond": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "created_block": {
                     "type": "integer"
@@ -16694,10 +16634,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "curator_deposit": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "curator_fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "description": {
                     "type": "string"
@@ -16724,7 +16664,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -16750,7 +16690,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17017,10 +16957,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "fee_used": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "finalized": {
                     "type": "boolean"
@@ -17085,10 +17025,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "fee_used": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "finalized": {
                     "type": "boolean"
@@ -17103,7 +17043,7 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "tip": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17224,10 +17164,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "delegate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -17248,7 +17188,7 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "votes": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "voting_time": {
                     "type": "integer"
@@ -17342,7 +17282,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "votes": {
                     "type": "array",
@@ -17439,10 +17379,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "reward": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "slash": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17450,7 +17390,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance_amount_total": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "time_hour_utc": {
                     "type": "string"
@@ -17465,7 +17405,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "transfer_amount_total": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17476,10 +17416,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "total": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "transfer_amount": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17487,16 +17427,16 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "available": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "other": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "other_details": {
                     "$ref": "#/definitions/subscan_internal_model.OtherDetail"
                 },
                 "staking": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "system_accounts": {
                     "type": "array",
@@ -17508,10 +17448,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "total_issuance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "treasury_amount": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17551,10 +17491,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "delegate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -17607,7 +17547,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17705,10 +17645,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "delegate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -17729,7 +17669,7 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "votes": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "voting_time": {
                     "type": "integer"
@@ -17740,19 +17680,19 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "avg": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "era": {
                     "type": "integer"
                 },
                 "owner": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "total_avg": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "total_bond": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -17798,7 +17738,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "estimate_fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
@@ -17852,10 +17792,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "fee_used": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "finalized": {
                     "type": "boolean"
@@ -17894,7 +17834,7 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "tip": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "transfer": {
                     "$ref": "#/definitions/subscan_internal_model.TransferJson"
@@ -17943,7 +17883,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -18096,7 +18036,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
@@ -18193,7 +18133,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "asset_module": {
                     "type": "string"
@@ -18202,7 +18142,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "current_currency_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "decimals": {
                     "type": "integer"
@@ -18211,7 +18151,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "history_currency_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "network": {
                     "type": "string"
@@ -18404,7 +18344,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nominator_stash": {
                     "type": "string"
@@ -18427,7 +18367,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nominator_stash": {
                     "type": "string"
@@ -18461,28 +18401,28 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "conviction_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "democracy_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "election_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nominator_bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "reserved_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unbonded_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "validator_bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "vesting_balance": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -18728,7 +18668,7 @@ const docTemplate = `{
                 },
                 "used_fee": {
                     "description": "used gas",
-                    "type": "number"
+                    "type": "string"
                 },
                 "xcm_version": {
                     "description": "xcm version",
@@ -18775,13 +18715,13 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bid_id": {
                     "type": "string"
                 },
                 "cap": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "contributors": {
                     "type": "integer"
@@ -18829,7 +18769,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "raised": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "start_block": {
                     "type": "integer"
@@ -18853,11 +18793,11 @@ const docTemplate = `{
                 },
                 "contributed": {
                     "description": "total amount",
-                    "type": "number"
+                    "type": "string"
                 },
                 "contributing": {
                     "description": "last contributed amount",
-                    "type": "number"
+                    "type": "string"
                 },
                 "event_index": {
                     "type": "string"
@@ -18898,7 +18838,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "total": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -18916,7 +18856,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "deposit": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "first_period": {
                     "type": "integer"
@@ -18990,7 +18930,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "auction_index": {
                     "type": "integer"
@@ -19043,7 +18983,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "author": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -19075,7 +19015,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "author": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -19226,13 +19166,13 @@ const docTemplate = `{
                 },
                 "fee": {
                     "description": "Estimated handling fee",
-                    "type": "number",
-                    "example": 10000
+                    "type": "string",
+                    "example": "10000"
                 },
                 "fee_used": {
                     "description": "Actual handling fee",
-                    "type": "number",
-                    "example": 10000
+                    "type": "string",
+                    "example": "10000"
                 },
                 "finalized": {
                     "type": "boolean",
@@ -19270,10 +19210,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "aye_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "aye_without_conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "created_block": {
                     "type": "integer"
@@ -19288,10 +19228,10 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "nay_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nay_without_conviction": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "pre_image": {
                     "$ref": "#/definitions/subscan_internal_model.PreImageJson"
@@ -19312,13 +19252,13 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "turnout": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "updated_block": {
                     "type": "integer"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "vote_threshold": {
                     "type": "string"
@@ -19341,10 +19281,10 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "referendum_locked": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "referendum_participate": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "voting_total": {
                     "type": "integer"
@@ -19375,22 +19315,22 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "approval_threshold": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "ayes_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "ayes_count": {
                     "type": "integer"
                 },
                 "bare_ayes": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "beneficiary_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "created_block": {
                     "type": "integer"
@@ -19402,10 +19342,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "decision_deposit_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "deposit_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "latest_block_num": {
                     "type": "integer"
@@ -19414,7 +19354,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "nays_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nays_count": {
                     "type": "integer"
@@ -19438,7 +19378,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "support_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "timeline": {
                     "type": "array",
@@ -19470,10 +19410,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "approval_rate": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "approval_threshold": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "call_module": {
                     "type": "string"
@@ -19525,7 +19465,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "registrar_fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "registrar_index": {
                     "type": "integer"
@@ -19620,7 +19560,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "block": {
                     "type": "integer"
@@ -19654,7 +19594,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "block_timestamp": {
                     "type": "integer"
@@ -19785,7 +19725,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "votes": {
                     "type": "array",
@@ -19898,16 +19838,16 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "contract": {
                     "type": "string"
                 },
                 "conviction_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "currency_id": {
                     "type": "string"
@@ -19916,19 +19856,19 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "democracy_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "election_lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "exchange_ratio": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "label": {
                     "type": "string"
                 },
                 "lock": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "lp_bonded_token_combination": {
                     "type": "array",
@@ -19955,10 +19895,10 @@ const docTemplate = `{
                     }
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "reserved": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
@@ -19968,10 +19908,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unclaimed": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unique_id": {
                     "type": "string"
@@ -19985,10 +19925,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "amount_v2": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "asset_symbol": {
                     "type": "string"
@@ -20007,10 +19947,10 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "currency_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "current_currency_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "event_idx": {
                     "type": "integer"
@@ -20019,7 +19959,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "fee": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "from": {
                     "type": "string"
@@ -20037,7 +19977,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.ItemDetail"
                 },
                 "item_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "module": {
                     "type": "string"
@@ -20069,13 +20009,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "received": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "sent": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "total": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -20083,7 +20023,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "asset_symbol": {
                     "type": "string"
@@ -20118,7 +20058,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "beneficiary_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "call": {
                     "type": "string"
@@ -20280,7 +20220,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "reward": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "status": {
                     "type": "string"
@@ -20318,7 +20258,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "reward": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "status": {
                     "type": "string"
@@ -20332,19 +20272,19 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "current_currency_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "decimals": {
                     "type": "integer"
                 },
                 "history_currency_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "paraId": {
                     "type": "integer"
@@ -20361,7 +20301,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -20408,7 +20348,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -20440,7 +20380,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -20478,7 +20418,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -20522,7 +20462,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "extrinsic_index": {
                     "type": "string"
@@ -20536,13 +20476,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "bonded_nominators": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_owner": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_total": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "controller_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -20595,13 +20535,13 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "reward": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "reward_point": {
                     "type": "integer"
                 },
                 "slash": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "start_block_num": {
                     "type": "integer"
@@ -20612,10 +20552,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "bonded_nominators": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_owner": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "count_nominators": {
                     "type": "integer"
@@ -20664,7 +20604,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "block_num": {
                     "type": "integer"
@@ -20814,7 +20754,7 @@ const docTemplate = `{
                 },
                 "used_fee": {
                     "description": "used gas",
-                    "type": "number"
+                    "type": "string"
                 },
                 "xcm_version": {
                     "description": "xcm version",
@@ -20884,7 +20824,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "deposit": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -20898,7 +20838,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "asset_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "holders": {
                     "type": "integer"
@@ -20907,7 +20847,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "market_cap": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_assets_db.Metadata"
@@ -20916,10 +20856,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "supply": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "transfer_count": {
                     "type": "integer"
@@ -20971,7 +20911,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "value": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -20982,7 +20922,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "decimals": {
                     "type": "integer"
@@ -21059,13 +20999,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "holder": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "lock": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -21097,7 +21037,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
                 },
                 "min_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "multi_location": {
                     "type": "array",
@@ -21109,7 +21049,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "supply": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unique_id": {
                     "type": "string"
@@ -21129,7 +21069,7 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "market_cap": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
@@ -21144,10 +21084,10 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "supply": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "transfer_count": {
                     "type": "integer"
@@ -21161,20 +21101,20 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_name": {
                     "type": "string",
                     "example": "Kusama Crowdloans"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "token_metadata": {
                     "$ref": "#/definitions/subscan_internal_model.MetadataSample"
@@ -21191,8 +21131,8 @@ const docTemplate = `{
                     }
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 126
+                    "type": "string",
+                    "example": "126"
                 },
                 "data": {
                     "type": "string",
@@ -21202,8 +21142,8 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
@@ -21214,16 +21154,16 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_name": {
                     "type": "string",
                     "example": "Kusama Crowdloans"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
@@ -21260,8 +21200,8 @@ const docTemplate = `{
                     "example": 1693996722
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 129
+                    "type": "string",
+                    "example": "129"
                 },
                 "event_id": {
                     "type": "string",
@@ -21276,8 +21216,8 @@ const docTemplate = `{
                     "example": "5296820-3"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "module_id": {
                     "type": "string",
@@ -21295,8 +21235,8 @@ const docTemplate = `{
                     }
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "data": {
                     "type": "string",
@@ -21334,8 +21274,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_image": {
                     "type": "string",
@@ -21384,12 +21324,12 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_name": {
                     "type": "string",
@@ -21400,8 +21340,8 @@ const docTemplate = `{
                     "example": "PLO"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "nested_type": {
                     "type": "string"
@@ -21415,8 +21355,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 126
+                    "type": "string",
+                    "example": "126"
                 },
                 "collection_name": {
                     "type": "string"
@@ -21431,8 +21371,8 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_model.StandardMetadata"
@@ -21452,8 +21392,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_name": {
                     "type": "string",
@@ -21485,8 +21425,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 126
+                    "type": "string",
+                    "example": "126"
                 },
                 "collection_name": {
                     "type": "string"
@@ -21498,8 +21438,8 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_model.MetadataSample"
@@ -21536,8 +21476,8 @@ const docTemplate = `{
                     "example": 1693996722
                 },
                 "collection_id": {
-                    "type": "number",
-                    "example": 129
+                    "type": "string",
+                    "example": "129"
                 },
                 "event_id": {
                     "type": "string",
@@ -21552,8 +21492,8 @@ const docTemplate = `{
                     "example": "5296820-3"
                 },
                 "item_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "module_id": {
                     "type": "string",
@@ -21565,8 +21505,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "create_at": {
                     "type": "integer"
@@ -21603,8 +21543,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number",
-                    "example": 1
+                    "type": "string",
+                    "example": "1"
                 },
                 "collection_image": {
                     "type": "string"
@@ -21634,7 +21574,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "collection_id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "collection_name": {
                     "type": "string"
@@ -21698,7 +21638,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "records": {
                     "type": "array",
@@ -21778,19 +21718,19 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "exchange_ratio": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "token_unique_id": {
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -21798,16 +21738,16 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "token_unique_id": {
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -21815,10 +21755,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "SENJ_amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "network": {
                     "type": "string"
@@ -21827,10 +21767,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "unbonding": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unclaimed": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -21872,7 +21812,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -21880,7 +21820,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "time": {
                     "type": "integer"
@@ -21897,7 +21837,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "unclaimed": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -21939,7 +21879,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "circulating_supply": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "source": {
                     "type": "string"
@@ -21953,46 +21893,46 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_service_scan_token.AssetType"
                 },
                 "available_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "bonded_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "conviction_lock_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "democracy_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "display_name": {
                     "type": "string"
                 },
                 "election_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "external_data": {
                     "$ref": "#/definitions/subscan_internal_service_scan_token.ExternalDataSource"
                 },
                 "free_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "inflation": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "nominator_bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "price_change": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "reserved_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "symbol": {
                     "type": "string"
@@ -22001,22 +21941,22 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "total_issuance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "treasury_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unbonded_locked_balance": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "unique_id": {
                     "type": "string"
                 },
                 "validator_bonded": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "vesting_balance": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -22024,7 +21964,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "types.Balance": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -22066,7 +22006,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "amount": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "until": {
                     "type": "integer"
@@ -22091,13 +22031,13 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "factor": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "x_offset": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "y_offset": {
-                    "type": "number"
+                    "type": "string"
                 }
             }
         },
@@ -22126,7 +22066,7 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "decision_deposit": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "decision_period": {
                     "type": "integer"

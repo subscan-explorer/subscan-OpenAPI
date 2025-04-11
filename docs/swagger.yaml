@@ -2,7 +2,7 @@ definitions:
   internal_plugin_assets_http.assetActivitiesParams:
     properties:
       asset_id:
-        type: number
+        type: string
       page:
         minimum: 0
         type: integer
@@ -21,7 +21,7 @@ definitions:
   internal_plugin_assets_http.assetHolderParams:
     properties:
       asset_id:
-        type: number
+        type: string
       page:
         minimum: 0
         type: integer
@@ -33,12 +33,12 @@ definitions:
   internal_plugin_assets_http.assetParam:
     properties:
       asset_id:
-        type: number
+        type: string
     type: object
   internal_plugin_assets_http.assetsParam:
     properties:
       asset_id:
-        type: number
+        type: string
       order:
         enum:
         - asc
@@ -216,13 +216,13 @@ definitions:
     properties:
       collection_id:
         description: multiToken collection id
-        type: number
+        type: string
     type: object
   internal_plugin_enjin_multiTokens_http.EnjinMultiTokenActivitiesParams:
     properties:
       collection_id:
         description: multiToken collection id
-        type: number
+        type: string
       page:
         minimum: 0
         type: integer
@@ -232,14 +232,14 @@ definitions:
         type: integer
       token_id:
         description: Optional. filter by token id
-        type: number
+        type: string
     type: object
   internal_plugin_enjin_multiTokens_http.EnjinMultiTokenHolderBalanceParams:
     properties:
       address:
         type: string
       collection_id:
-        type: number
+        type: string
       page:
         minimum: 0
         type: integer
@@ -254,7 +254,7 @@ definitions:
     properties:
       collection_id:
         description: multiToken collection id
-        type: number
+        type: string
       page:
         minimum: 0
         type: integer
@@ -264,22 +264,22 @@ definitions:
         type: integer
       token_id:
         description: optional. filter by token id
-        type: number
+        type: string
     required:
     - collection_id
     type: object
   internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemParams:
     properties:
       collection_id:
-        type: number
+        type: string
       token_id:
-        type: number
+        type: string
     type: object
   internal_plugin_enjin_multiTokens_http.EnjinMultiTokenItemsParams:
     properties:
       collection_id:
         description: Optional. multiToken collection id
-        type: number
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -308,7 +308,7 @@ definitions:
     properties:
       collection_id:
         description: Optional, multiToken collection id
-        type: number
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -710,8 +710,8 @@ definitions:
         example: EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf
         type: string
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -728,12 +728,12 @@ definitions:
     properties:
       collection_id:
         description: Collection id, required
-        example: 1
-        type: number
+        example: "1"
+        type: string
       item_id:
         description: Item id, optional
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -747,8 +747,8 @@ definitions:
   internal_plugin_nfts_http.NftHoldersParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -763,16 +763,16 @@ definitions:
     properties:
       collection_id:
         description: Collection id, required
-        type: number
+        type: string
       item_id:
         description: Item id, required
-        type: number
+        type: string
     type: object
   internal_plugin_nfts_http.NftItemsParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -803,14 +803,14 @@ definitions:
   internal_plugin_nfts_http.NftParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
     type: object
   internal_plugin_nfts_http.NftsParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -841,8 +841,8 @@ definitions:
         example: EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf
         type: string
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -859,12 +859,12 @@ definitions:
     properties:
       collection_id:
         description: Collection id, required
-        example: 1
-        type: number
+        example: "1"
+        type: string
       item_id:
         description: Item id, optional
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -878,8 +878,8 @@ definitions:
   internal_plugin_unique_unique_http.UniqueHoldersParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -894,16 +894,16 @@ definitions:
     properties:
       collection_id:
         description: Collection id, required
-        type: number
+        type: string
       item_id:
         description: Item id, required
-        type: number
+        type: string
     type: object
   internal_plugin_unique_unique_http.UniqueItemsParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -936,14 +936,14 @@ definitions:
   internal_plugin_unique_unique_http.UniqueParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
     type: object
   internal_plugin_unique_unique_http.UniquesParams:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -971,7 +971,7 @@ definitions:
   internal_plugin_uniques_http.UniquesActivitiesParams:
     properties:
       collection_id:
-        type: number
+        type: string
       item_id:
         type: integer
       page:
@@ -988,8 +988,8 @@ definitions:
         example: EaBRZ3VBUFEd6GT9kxXXk9C5gsYC6zAsNfxahmpusrYPtPf
         type: string
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       page:
         example: 0
         minimum: 0
@@ -1005,7 +1005,7 @@ definitions:
   internal_plugin_uniques_http.UniquesHoldersParams:
     properties:
       collection_id:
-        type: number
+        type: string
       page:
         minimum: 0
         type: integer
@@ -1017,14 +1017,14 @@ definitions:
   internal_plugin_uniques_http.uniqueItemParams:
     properties:
       collection_id:
-        type: number
+        type: string
       item_id:
         type: integer
     type: object
   internal_plugin_uniques_http.uniqueItemsParams:
     properties:
       collection_id:
-        type: number
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -1051,12 +1051,12 @@ definitions:
   internal_plugin_uniques_http.uniqueParam:
     properties:
       collection_id:
-        type: number
+        type: string
     type: object
   internal_plugin_uniques_http.uniquesListParam:
     properties:
       collection_id:
-        type: number
+        type: string
       order:
         description: Optional, order sort, default desc
         enum:
@@ -1087,7 +1087,7 @@ definitions:
   internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward:
     properties:
       amount:
-        type: number
+        type: string
       block_timestamp:
         type: integer
       event_id:
@@ -1245,7 +1245,7 @@ definitions:
       block:
         type: integer
       price:
-        type: number
+        type: string
     type: object
   internal_pluginv2_pallets_coretime.RegionAssignedJson:
     properties:
@@ -1281,7 +1281,7 @@ definitions:
       mask:
         type: string
       price:
-        type: number
+        type: string
       status:
         type: string
       task:
@@ -1310,7 +1310,7 @@ definitions:
       mask:
         type: string
       price:
-        type: number
+        type: string
       purchased_type:
         type: string
     type: object
@@ -1335,13 +1335,13 @@ definitions:
       lease_core:
         type: integer
       price:
-        type: number
+        type: string
       price_chart_point:
         items:
           $ref: '#/definitions/internal_pluginv2_pallets_coretime.PriceChatPoint'
         type: array
       realtime_price:
-        type: number
+        type: string
       region_begin:
         type: integer
       region_end:
@@ -1357,9 +1357,9 @@ definitions:
       sales_cycle:
         type: integer
       sellout_price:
-        type: number
+        type: string
       start_price:
-        type: number
+        type: string
       total_core:
         type: integer
     type: object
@@ -1636,11 +1636,11 @@ definitions:
   internal_pluginv2_pallets_ibc.TransferJson:
     properties:
       amount:
-        type: number
+        type: string
       amount_v2:
-        type: number
+        type: string
       asset_id:
-        type: number
+        type: string
       asset_symbol:
         type: string
       asset_unique_id:
@@ -1835,7 +1835,7 @@ definitions:
   internal_server_http.CurrencyConverter:
     properties:
       output:
-        type: number
+        type: string
       price:
         $ref: '#/definitions/subscan_internal_service_scan.CurrencyPrice'
     type: object
@@ -2513,7 +2513,7 @@ definitions:
       time:
         type: integer
       value:
-        type: number
+        type: string
     required:
     - from
     - quote
@@ -3449,9 +3449,9 @@ definitions:
       included_zero_balance:
         type: boolean
       max_balance:
-        type: number
+        type: string
       min_balance:
-        type: number
+        type: string
       order:
         enum:
         - desc
@@ -3491,16 +3491,16 @@ definitions:
       is_native:
         type: boolean
       market_cap:
-        type: number
+        type: string
       metadata: {}
       name:
         type: string
       price:
-        type: number
+        type: string
       symbol:
         type: string
       total_issuance:
-        type: number
+        type: string
       transfer_count:
         type: integer
       unique_id:
@@ -3784,26 +3784,26 @@ definitions:
   subscan_internal_dao.AccountBalanceValueHistory:
     properties:
       asset_value:
-        type: number
+        type: string
       date:
         type: string
       defi_value:
-        type: number
+        type: string
       value:
-        type: number
+        type: string
     type: object
   subscan_internal_model.AccountAssetsCountJson:
     properties:
       account_count:
         type: integer
       max_balance:
-        type: number
+        type: string
       min_balance:
-        type: number
+        type: string
       name:
         type: string
       total:
-        type: number
+        type: string
     type: object
   subscan_internal_model.AccountBalanceDetailJson:
     properties:
@@ -3812,7 +3812,7 @@ definitions:
       address:
         type: string
       balance:
-        type: number
+        type: string
     type: object
   subscan_internal_model.AccountBalanceHistoryStatus:
     enum:
@@ -3827,7 +3827,7 @@ definitions:
       block_timestamp:
         type: integer
       contributed:
-        type: number
+        type: string
       event_index:
         type: string
       extrinsic_index:
@@ -3852,19 +3852,19 @@ definitions:
   subscan_internal_model.AccountDerive:
     properties:
       balance:
-        type: number
+        type: string
       bonded:
-        type: number
+        type: string
       id:
         type: integer
       locked:
-        type: number
+        type: string
       reserved:
-        type: number
+        type: string
       token:
         type: string
       unbonding:
-        type: number
+        type: string
       unique_id:
         type: string
     type: object
@@ -3901,7 +3901,7 @@ definitions:
       account:
         type: string
       amount:
-        type: number
+        type: string
       block_num:
         type: integer
       block_timestamp:
@@ -3930,9 +3930,9 @@ definitions:
   subscan_internal_model.AccountJsonExtra:
     properties:
       amount:
-        type: number
+        type: string
       conviction:
-        type: number
+        type: string
       origins:
         type: integer
       proxy_type:
@@ -3949,13 +3949,13 @@ definitions:
           type: string
         type: array
       balance:
-        type: number
+        type: string
       balance_lock:
-        type: number
+        type: string
       bonded:
-        type: number
+        type: string
       conviction_lock:
-        type: number
+        type: string
       count_extrinsic:
         type: integer
       customize_role:
@@ -3965,7 +3965,7 @@ definitions:
       delegate:
         $ref: '#/definitions/subscan_internal_model.DelegateAccountJson'
       democracy_lock:
-        type: number
+        type: string
       derive_token:
         additionalProperties:
           $ref: '#/definitions/subscan_internal_model.AccountDerive'
@@ -3975,7 +3975,7 @@ definitions:
       display:
         type: string
       election_lock:
-        type: number
+        type: string
       email:
         type: string
       evm_account:
@@ -4017,14 +4017,14 @@ definitions:
       legal:
         type: string
       lock:
-        type: number
+        type: string
       matrix:
         type: string
       multisig:
         $ref: '#/definitions/subscan_internal_model.MultiAccountJson'
       nft_amount:
         description: UpgradeV2      bool `json:"-"`
-        type: number
+        type: string
       nomination_pool_balance:
         items: {}
         type: array
@@ -4033,13 +4033,13 @@ definitions:
       proxy:
         $ref: '#/definitions/subscan_internal_model.ProxyAccountJson'
       registrar_fee:
-        type: number
+        type: string
       registrar_index:
         type: integer
       registrar_info:
         $ref: '#/definitions/subscan_internal_model.RoleRegistrarJson'
       reserved:
-        type: number
+        type: string
       riot:
         type: string
       role:
@@ -4053,7 +4053,7 @@ definitions:
       twitter:
         type: string
       unbonding:
-        type: number
+        type: string
       vesting:
         $ref: '#/definitions/subscan_internal_model.VestingJson'
       web:
@@ -4066,11 +4066,11 @@ definitions:
       address_type:
         type: string
       balance:
-        type: number
+        type: string
       count_extrinsic:
         type: integer
       locked:
-        type: number
+        type: string
       tag_name:
         type: string
       tag_sub_type:
@@ -4083,13 +4083,13 @@ definitions:
       active:
         type: boolean
       bonded:
-        type: number
+        type: string
       bonded_nominators:
-        type: number
+        type: string
       bonded_owner:
-        type: number
+        type: string
       bonded_total:
-        type: number
+        type: string
       controller_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       count_nominators:
@@ -4129,11 +4129,11 @@ definitions:
   subscan_internal_model.AccountReferendumJson:
     properties:
       conviction:
-        type: number
+        type: string
       referendum_index:
         type: integer
       value:
-        type: number
+        type: string
     type: object
   subscan_internal_model.AccountRoleCountJson:
     properties:
@@ -4149,9 +4149,9 @@ definitions:
       address:
         type: string
       balance:
-        type: number
+        type: string
       balance_lock:
-        type: number
+        type: string
       count_extrinsic:
         type: integer
       derive_token:
@@ -4169,21 +4169,21 @@ definitions:
       is_evm_contract:
         type: boolean
       lock:
-        type: number
+        type: string
       nft_amount:
         description: UpgradeV2      bool `json:"-"`
-        type: number
+        type: string
       registrar_info:
         $ref: '#/definitions/subscan_internal_model.RoleRegistrarJson'
       reserved:
-        type: number
+        type: string
       substrate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
     type: object
   subscan_internal_model.AssetChangedHistoryJson:
     properties:
       amount:
-        type: number
+        type: string
       asset_unique_id:
         type: string
       block_timestamp:
@@ -4202,52 +4202,52 @@ definitions:
   subscan_internal_model.AssetTokenPriceJson:
     properties:
       price:
-        type: number
+        type: string
       price_change:
-        type: number
+        type: string
       unique_id:
         type: string
     type: object
   subscan_internal_model.AssetsJson:
     properties:
       asset_id:
-        type: number
+        type: string
       balance:
-        type: number
+        type: string
       bonded:
-        type: number
+        type: string
       category:
         type: string
       contract:
         type: string
       conviction_lock:
-        type: number
+        type: string
       currency_id:
         type: string
       decimal:
         type: integer
       democracy_lock:
-        type: number
+        type: string
       election_lock:
-        type: number
+        type: string
       label:
         type: string
       locked:
-        type: number
+        type: string
       network:
         type: string
       nomination_bonded:
-        type: number
+        type: string
       price:
-        type: number
+        type: string
       reserved:
-        type: number
+        type: string
       symbol:
         type: string
       token_unique_id:
         type: string
       unbonding:
-        type: number
+        type: string
     type: object
   subscan_internal_model.BlockHeader:
     properties:
@@ -4269,15 +4269,15 @@ definitions:
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       bond:
-        type: number
+        type: string
       created_block:
         type: integer
       curator:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       curator_deposit:
-        type: number
+        type: string
       curator_fee:
-        type: number
+        type: string
       description:
         type: string
       expire_block:
@@ -4295,7 +4295,7 @@ definitions:
       title:
         type: string
       value:
-        type: number
+        type: string
     type: object
   subscan_internal_model.BountySampleJson:
     properties:
@@ -4312,7 +4312,7 @@ definitions:
       title:
         type: string
       value:
-        type: number
+        type: string
     type: object
   subscan_internal_model.BoxProposal:
     properties:
@@ -4488,9 +4488,9 @@ definitions:
       extrinsic_index:
         type: string
       fee:
-        type: number
+        type: string
       fee_used:
-        type: number
+        type: string
       finalized:
         type: boolean
       from_hex:
@@ -4533,9 +4533,9 @@ definitions:
       extrinsic_index:
         type: string
       fee:
-        type: number
+        type: string
       fee_used:
-        type: number
+        type: string
       finalized:
         type: boolean
       id:
@@ -4545,7 +4545,7 @@ definitions:
       success:
         type: boolean
       tip:
-        type: number
+        type: string
     type: object
   subscan_internal_model.ChainLogJson:
     properties:
@@ -4625,9 +4625,9 @@ definitions:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       amount:
-        type: number
+        type: string
       conviction:
-        type: number
+        type: string
       delegate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       extrinsic_index:
@@ -4641,7 +4641,7 @@ definitions:
       valid:
         type: boolean
       votes:
-        type: number
+        type: string
       voting_time:
         type: integer
     type: object
@@ -4703,7 +4703,7 @@ definitions:
       updated_block:
         type: integer
       value:
-        type: number
+        type: string
       votes:
         items:
           $ref: '#/definitions/subscan_internal_model.CouncilVoteJson'
@@ -4770,14 +4770,14 @@ definitions:
       date:
         type: string
       reward:
-        type: number
+        type: string
       slash:
-        type: number
+        type: string
     type: object
   subscan_internal_model.DailyStaticJson:
     properties:
       balance_amount_total:
-        type: number
+        type: string
       time_hour_utc:
         type: string
       time_six_hour_utc:
@@ -4787,27 +4787,27 @@ definitions:
       total:
         type: integer
       transfer_amount_total:
-        type: number
+        type: string
     type: object
   subscan_internal_model.DailyStaticJsonV2:
     properties:
       time_utc:
         type: string
       total:
-        type: number
+        type: string
       transfer_amount:
-        type: number
+        type: string
     type: object
   subscan_internal_model.DailyTokenStatusJson:
     properties:
       available:
-        type: number
+        type: string
       other:
-        type: number
+        type: string
       other_details:
         $ref: '#/definitions/subscan_internal_model.OtherDetail'
       staking:
-        type: number
+        type: string
       system_accounts:
         items:
           $ref: '#/definitions/subscan_internal_model.AccountBalanceDetailJson'
@@ -4815,9 +4815,9 @@ definitions:
       time_utc:
         type: string
       total_issuance:
-        type: number
+        type: string
       treasury_amount:
-        type: number
+        type: string
     type: object
   subscan_internal_model.DelegateAccountJson:
     properties:
@@ -4843,9 +4843,9 @@ definitions:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       amount:
-        type: number
+        type: string
       conviction:
-        type: number
+        type: string
       delegate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       origins:
@@ -4880,7 +4880,7 @@ definitions:
       updated_block:
         type: integer
       value:
-        type: number
+        type: string
     type: object
   subscan_internal_model.DemocracyProposalSeconded:
     properties:
@@ -4944,9 +4944,9 @@ definitions:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       amount:
-        type: number
+        type: string
       conviction:
-        type: number
+        type: string
       delegate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       extrinsic_index:
@@ -4960,22 +4960,22 @@ definitions:
       valid:
         type: boolean
       votes:
-        type: number
+        type: string
       voting_time:
         type: integer
     type: object
   subscan_internal_model.EraBondStat:
     properties:
       avg:
-        type: number
+        type: string
       era:
         type: integer
       owner:
-        type: number
+        type: string
       total_avg:
-        type: number
+        type: string
       total_bond:
-        type: number
+        type: string
     type: object
   subscan_internal_model.EventParam:
     properties:
@@ -5005,7 +5005,7 @@ definitions:
       decimals:
         type: integer
       estimate_fee:
-        type: number
+        type: string
       symbol:
         type: string
     type: object
@@ -5041,9 +5041,9 @@ definitions:
       extrinsic_index:
         type: string
       fee:
-        type: number
+        type: string
       fee_used:
-        type: number
+        type: string
       finalized:
         type: boolean
       lifetime:
@@ -5069,7 +5069,7 @@ definitions:
       success:
         type: boolean
       tip:
-        type: number
+        type: string
       transfer:
         $ref: '#/definitions/subscan_internal_model.TransferJson'
     type: object
@@ -5101,7 +5101,7 @@ definitions:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       amount:
-        type: number
+        type: string
     type: object
   subscan_internal_model.ExtrinsicSubCallJson:
     properties:
@@ -5201,7 +5201,7 @@ definitions:
       decimals:
         type: integer
       price:
-        type: number
+        type: string
       symbol:
         type: string
       unique_id:
@@ -5266,19 +5266,19 @@ definitions:
   subscan_internal_model.MultiAssets:
     properties:
       amount:
-        type: number
+        type: string
       asset_module:
         type: string
       asset_unique_id:
         type: string
       current_currency_amount:
-        type: number
+        type: string
       decimals:
         type: integer
       enum_key:
         type: string
       history_currency_amount:
-        type: number
+        type: string
       network:
         type: string
       raw: {}
@@ -5406,7 +5406,7 @@ definitions:
   subscan_internal_model.NominatorDetail:
     properties:
       bonded:
-        type: number
+        type: string
       nominator_stash:
         type: string
       staking_info:
@@ -5421,7 +5421,7 @@ definitions:
       account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       bonded:
-        type: number
+        type: string
       nominator_stash:
         type: string
       rank_nominator:
@@ -5443,21 +5443,21 @@ definitions:
   subscan_internal_model.OtherDetail:
     properties:
       conviction_locked_balance:
-        type: number
+        type: string
       democracy_locked_balance:
-        type: number
+        type: string
       election_locked_balance:
-        type: number
+        type: string
       nominator_bonded:
-        type: number
+        type: string
       reserved_balance:
-        type: number
+        type: string
       unbonded_locked_balance:
-        type: number
+        type: string
       validator_bonded:
-        type: number
+        type: string
       vesting_balance:
-        type: number
+        type: string
     type: object
   subscan_internal_model.PalletVestingSchedule:
     properties:
@@ -5628,7 +5628,7 @@ definitions:
         type: string
       used_fee:
         description: used gas
-        type: number
+        type: string
       xcm_version:
         description: xcm version
         type: integer
@@ -5659,11 +5659,11 @@ definitions:
       auction_index:
         type: integer
       balance:
-        type: number
+        type: string
       bid_id:
         type: string
       cap:
-        type: number
+        type: string
       contributors:
         type: integer
       end_block:
@@ -5695,7 +5695,7 @@ definitions:
       para_id:
         type: integer
       raised:
-        type: number
+        type: string
       start_block:
         type: integer
       start_block_at:
@@ -5711,10 +5711,10 @@ definitions:
         type: integer
       contributed:
         description: total amount
-        type: number
+        type: string
       contributing:
         description: last contributed amount
-        type: number
+        type: string
       event_index:
         type: string
       extrinsic_index:
@@ -5741,7 +5741,7 @@ definitions:
       time_utc:
         type: string
       total:
-        type: number
+        type: string
     type: object
   subscan_internal_model.ParachainInfoJson:
     properties:
@@ -5753,7 +5753,7 @@ definitions:
       bid_id:
         type: string
       deposit:
-        type: number
+        type: string
       first_period:
         type: integer
       fund_account:
@@ -5802,7 +5802,7 @@ definitions:
   subscan_internal_model.ParachainSlotWinner:
     properties:
       amount:
-        type: number
+        type: string
       auction_index:
         type: integer
       bid_count:
@@ -5837,7 +5837,7 @@ definitions:
   subscan_internal_model.PreImageJson:
     properties:
       amount:
-        type: number
+        type: string
       author:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       call_module:
@@ -5858,7 +5858,7 @@ definitions:
   subscan_internal_model.PreimageJson:
     properties:
       amount:
-        type: number
+        type: string
       author:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       call_module:
@@ -5958,12 +5958,12 @@ definitions:
         type: string
       fee:
         description: Estimated handling fee
-        example: 10000
-        type: number
+        example: "10000"
+        type: string
       fee_used:
         description: Actual handling fee
-        example: 10000
-        type: number
+        example: "10000"
+        type: string
       finalized:
         example: true
         type: boolean
@@ -5988,9 +5988,9 @@ definitions:
   subscan_internal_model.ReferendumJson:
     properties:
       aye_amount:
-        type: number
+        type: string
       aye_without_conviction:
-        type: number
+        type: string
       created_block:
         type: integer
       delay:
@@ -6000,9 +6000,9 @@ definitions:
       executed_success:
         type: boolean
       nay_amount:
-        type: number
+        type: string
       nay_without_conviction:
-        type: number
+        type: string
       pre_image:
         $ref: '#/definitions/subscan_internal_model.PreImageJson'
       referendum_index:
@@ -6016,11 +6016,11 @@ definitions:
       title:
         type: string
       turnout:
-        type: number
+        type: string
       updated_block:
         type: integer
       value:
-        type: number
+        type: string
       vote_threshold:
         type: string
     type: object
@@ -6035,9 +6035,9 @@ definitions:
       originsCount:
         type: integer
       referendum_locked:
-        type: number
+        type: string
       referendum_participate:
-        type: number
+        type: string
       voting_total:
         type: integer
     type: object
@@ -6057,17 +6057,17 @@ definitions:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       approval_threshold:
-        type: number
+        type: string
       ayes_amount:
-        type: number
+        type: string
       ayes_count:
         type: integer
       bare_ayes:
-        type: number
+        type: string
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       beneficiary_amount:
-        type: number
+        type: string
       created_block:
         type: integer
       created_block_timestamp:
@@ -6075,15 +6075,15 @@ definitions:
       decision_deposit_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       decision_deposit_balance:
-        type: number
+        type: string
       deposit_balance:
-        type: number
+        type: string
       latest_block_num:
         type: integer
       latest_block_timestamp:
         type: integer
       nays_amount:
-        type: number
+        type: string
       nays_count:
         type: integer
       origins:
@@ -6099,7 +6099,7 @@ definitions:
       status:
         type: string
       support_amount:
-        type: number
+        type: string
       timeline:
         items:
           $ref: '#/definitions/subscan_internal_model.TimelineJson'
@@ -6120,9 +6120,9 @@ definitions:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       approval_rate:
-        type: number
+        type: string
       approval_threshold:
-        type: number
+        type: string
       call_module:
         type: string
       call_name:
@@ -6156,7 +6156,7 @@ definitions:
   subscan_internal_model.RoleRegistrarJson:
     properties:
       registrar_fee:
-        type: number
+        type: string
       registrar_index:
         type: integer
     type: object
@@ -6218,7 +6218,7 @@ definitions:
   subscan_internal_model.SnapshotBalanceHistoryJson:
     properties:
       balance:
-        type: number
+        type: string
       block:
         type: integer
       date:
@@ -6240,7 +6240,7 @@ definitions:
       account:
         type: string
       amount:
-        type: number
+        type: string
       block_timestamp:
         type: integer
       era:
@@ -6329,7 +6329,7 @@ definitions:
       updated_block:
         type: integer
       value:
-        type: number
+        type: string
       votes:
         items:
           $ref: '#/definitions/subscan_internal_model.TechcommVoteJson'
@@ -6403,27 +6403,27 @@ definitions:
       asset_id:
         type: string
       balance:
-        type: number
+        type: string
       bonded:
-        type: number
+        type: string
       contract:
         type: string
       conviction_lock:
-        type: number
+        type: string
       currency_id:
         type: string
       decimals:
         type: integer
       democracy_lock:
-        type: number
+        type: string
       election_lock:
-        type: number
+        type: string
       exchange_ratio:
-        type: number
+        type: string
       label:
         type: string
       lock:
-        type: number
+        type: string
       lp_bonded_token_combination:
         items:
           $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
@@ -6441,18 +6441,18 @@ definitions:
           type: integer
         type: array
       price:
-        type: number
+        type: string
       reserved:
-        type: number
+        type: string
       symbol:
         type: string
       token_image:
         description: TokenId        *decimal.Decimal `json:"token_id,omitempty"`
         type: string
       unbonding:
-        type: number
+        type: string
       unclaimed:
-        type: number
+        type: string
       unique_id:
         type: string
       vesting:
@@ -6461,9 +6461,9 @@ definitions:
   subscan_internal_model.TransferHistoryJson:
     properties:
       amount:
-        type: number
+        type: string
       amount_v2:
-        type: number
+        type: string
       asset_symbol:
         type: string
       asset_type:
@@ -6476,15 +6476,15 @@ definitions:
       block_timestamp:
         type: integer
       currency_amount:
-        type: number
+        type: string
       current_currency_amount:
-        type: number
+        type: string
       event_idx:
         type: integer
       extrinsic_index:
         type: string
       fee:
-        type: number
+        type: string
       from:
         type: string
       from_account_display:
@@ -6496,7 +6496,7 @@ definitions:
       item_detail:
         $ref: '#/definitions/subscan_internal_model.ItemDetail'
       item_id:
-        type: number
+        type: string
       module:
         type: string
       nonce:
@@ -6517,16 +6517,16 @@ definitions:
   subscan_internal_model.TransferHistoryTotal:
     properties:
       received:
-        type: number
+        type: string
       sent:
-        type: number
+        type: string
       total:
-        type: number
+        type: string
     type: object
   subscan_internal_model.TransferJson:
     properties:
       amount:
-        type: number
+        type: string
       asset_symbol:
         type: string
       from:
@@ -6549,7 +6549,7 @@ definitions:
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       beneficiary_amount:
-        type: number
+        type: string
       call:
         type: string
       created_block:
@@ -6656,7 +6656,7 @@ definitions:
       referendum_id:
         type: integer
       reward:
-        type: number
+        type: string
       status:
         type: string
       timeline:
@@ -6681,7 +6681,7 @@ definitions:
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       reward:
-        type: number
+        type: string
       status:
         type: string
       title:
@@ -6690,15 +6690,15 @@ definitions:
   subscan_internal_model.TreasurySpend:
     properties:
       amount:
-        type: number
+        type: string
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       current_currency_amount:
-        type: number
+        type: string
       decimals:
         type: integer
       history_currency_amount:
-        type: number
+        type: string
       paraId:
         type: integer
       symbol:
@@ -6709,7 +6709,7 @@ definitions:
   subscan_internal_model.TreasurySpendProposalDetailJson:
     properties:
       amount:
-        type: number
+        type: string
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       block_timestamp:
@@ -6740,7 +6740,7 @@ definitions:
   subscan_internal_model.TreasurySpendProposalJson:
     properties:
       amount:
-        type: number
+        type: string
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       block_timestamp:
@@ -6761,7 +6761,7 @@ definitions:
   subscan_internal_model.TreasuryTip:
     properties:
       amount:
-        type: number
+        type: string
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       block_num:
@@ -6786,7 +6786,7 @@ definitions:
   subscan_internal_model.TreasuryTipJson:
     properties:
       amount:
-        type: number
+        type: string
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       block_num:
@@ -6815,7 +6815,7 @@ definitions:
   subscan_internal_model.TreasuryTipperJson:
     properties:
       amount:
-        type: number
+        type: string
       extrinsic_index:
         type: string
       rewarder:
@@ -6824,11 +6824,11 @@ definitions:
   subscan_internal_model.ValidatorJson:
     properties:
       bonded_nominators:
-        type: number
+        type: string
       bonded_owner:
-        type: number
+        type: string
       bonded_total:
-        type: number
+        type: string
       controller_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       count_nominators:
@@ -6863,20 +6863,20 @@ definitions:
       era:
         type: integer
       reward:
-        type: number
+        type: string
       reward_point:
         type: integer
       slash:
-        type: number
+        type: string
       start_block_num:
         type: integer
     type: object
   subscan_internal_model.ValidatorWaiting:
     properties:
       bonded_nominators:
-        type: number
+        type: string
       bonded_owner:
-        type: number
+        type: string
       count_nominators:
         type: integer
       next_session_selected:
@@ -6908,7 +6908,7 @@ definitions:
   subscan_internal_model.VestingRelease:
     properties:
       amount:
-        type: number
+        type: string
       block_num:
         type: integer
       day:
@@ -7016,7 +7016,7 @@ definitions:
         type: string
       used_fee:
         description: used gas
-        type: number
+        type: string
       xcm_version:
         description: xcm version
         type: integer
@@ -7062,7 +7062,7 @@ definitions:
       decimals:
         type: integer
       deposit:
-        type: number
+        type: string
       name:
         type: string
       symbol:
@@ -7071,21 +7071,21 @@ definitions:
   subscan_internal_plugin_assets_db.StateAssetSampleJson:
     properties:
       asset_id:
-        type: number
+        type: string
       holders:
         type: integer
       issuer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       market_cap:
-        type: number
+        type: string
       metadata:
         $ref: '#/definitions/subscan_internal_plugin_assets_db.Metadata'
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       price:
-        type: number
+        type: string
       supply:
-        type: number
+        type: string
       transfer_count:
         type: integer
       unique_id:
@@ -7119,14 +7119,14 @@ definitions:
       to_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       value:
-        type: number
+        type: string
     type: object
   subscan_internal_plugin_foreignAssets_db.AssetBalance:
     properties:
       asset_id:
         type: string
       balance:
-        type: number
+        type: string
       decimals:
         type: integer
       multi_location:
@@ -7176,11 +7176,11 @@ definitions:
   subscan_internal_plugin_foreignAssets_db.StateAssetHolderJson:
     properties:
       balance:
-        type: number
+        type: string
       holder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       lock:
-        type: number
+        type: string
     type: object
   subscan_internal_plugin_foreignAssets_db.StateAssetJson:
     properties:
@@ -7201,7 +7201,7 @@ definitions:
       metadata:
         $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
       min_balance:
-        type: number
+        type: string
       multi_location:
         items:
           type: integer
@@ -7209,7 +7209,7 @@ definitions:
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       supply:
-        type: number
+        type: string
       unique_id:
         type: string
     type: object
@@ -7222,7 +7222,7 @@ definitions:
       issuer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       market_cap:
-        type: number
+        type: string
       metadata:
         $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
       multi_location:
@@ -7232,9 +7232,9 @@ definitions:
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       price:
-        type: number
+        type: string
       supply:
-        type: number
+        type: string
       transfer_count:
         type: integer
       unique_id:
@@ -7243,17 +7243,17 @@ definitions:
   subscan_internal_plugin_nfts_db.CollectionBalance:
     properties:
       balance:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_name:
         example: Kusama Crowdloans
         type: string
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       token_metadata:
         $ref: '#/definitions/subscan_internal_model.MetadataSample'
     type: object
@@ -7264,30 +7264,30 @@ definitions:
           type: integer
         type: array
       collection_id:
-        example: 126
-        type: number
+        example: "126"
+        type: string
       data:
         example: ipfs://ipfs/bafkreiga2srd2royhpxav3migytg35ny5ph74sbqhfxujwqu6tpoio5ize
         type: string
       holder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       metadata:
         $ref: '#/definitions/subscan_internal_model.StandardMetadata'
     type: object
   subscan_internal_plugin_nfts_db.ItemSample:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_name:
         example: Kusama Crowdloans
         type: string
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       metadata:
         $ref: '#/definitions/subscan_internal_model.StandardMetadata'
       owner:
@@ -7312,8 +7312,8 @@ definitions:
         example: 1693996722
         type: integer
       collection_id:
-        example: 129
-        type: number
+        example: "129"
+        type: string
       event_id:
         example: ItemMetadataSet
         type: string
@@ -7324,8 +7324,8 @@ definitions:
         example: 5296820-3
         type: string
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       module_id:
         example: nfts
         type: string
@@ -7337,8 +7337,8 @@ definitions:
           type: integer
         type: array
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       data:
         example: ipfs://ipfs/bafkreiga2srd2royhpxav3migytg35ny5ph74sbqhfxujwqu6tpoio5ize
         type: string
@@ -7365,8 +7365,8 @@ definitions:
   subscan_internal_plugin_nfts_db.NftsSampleJson:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_image:
         example: https://ipfs.io/ipfs/bafkreihmb2esqysriq46l2uutyu2bqxkzlgluarbr36kom3hrykd2ku42u
         type: string
@@ -7401,11 +7401,11 @@ definitions:
   subscan_internal_plugin_unique_unique_db.CollectionBalance:
     properties:
       balance:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_name:
         example: Kusama Crowdloans
         type: string
@@ -7413,8 +7413,8 @@ definitions:
         example: PLO
         type: string
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       nested_type:
         type: string
       token_metadata:
@@ -7423,8 +7423,8 @@ definitions:
   subscan_internal_plugin_unique_unique_db.CollectionItemJson:
     properties:
       collection_id:
-        example: 126
-        type: number
+        example: "126"
+        type: string
       collection_name:
         type: string
       collection_symbol:
@@ -7434,8 +7434,8 @@ definitions:
       holder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       metadata:
         $ref: '#/definitions/subscan_internal_model.StandardMetadata'
       nested:
@@ -7448,8 +7448,8 @@ definitions:
   subscan_internal_plugin_unique_unique_db.ItemSample:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_name:
         example: Kusama Crowdloans
         type: string
@@ -7471,8 +7471,8 @@ definitions:
   subscan_internal_plugin_unique_unique_db.NestedItem:
     properties:
       collection_id:
-        example: 126
-        type: number
+        example: "126"
+        type: string
       collection_name:
         type: string
       collection_symbol:
@@ -7480,8 +7480,8 @@ definitions:
       holder:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       metadata:
         $ref: '#/definitions/subscan_internal_model.MetadataSample'
       nested_type:
@@ -7506,8 +7506,8 @@ definitions:
         example: 1693996722
         type: integer
       collection_id:
-        example: 129
-        type: number
+        example: "129"
+        type: string
       event_id:
         example: ItemMetadataSet
         type: string
@@ -7518,8 +7518,8 @@ definitions:
         example: 5296820-3
         type: string
       item_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       module_id:
         example: nfts
         type: string
@@ -7527,8 +7527,8 @@ definitions:
   subscan_internal_plugin_unique_unique_db.NftsJson:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       create_at:
         type: integer
       holders:
@@ -7554,8 +7554,8 @@ definitions:
   subscan_internal_plugin_unique_unique_db.NftsSampleJson:
     properties:
       collection_id:
-        example: 1
-        type: number
+        example: "1"
+        type: string
       collection_image:
         type: string
       collection_name:
@@ -7576,7 +7576,7 @@ definitions:
   subscan_internal_plugin_uniques_db.ItemSample:
     properties:
       collection_id:
-        type: number
+        type: string
       collection_name:
         type: string
       item_id:
@@ -7618,7 +7618,7 @@ definitions:
   subscan_internal_service_scan.CurrencyPrice:
     properties:
       price:
-        type: number
+        type: string
       records:
         items:
           $ref: '#/definitions/subscan_internal_service_scan.PriceRecord'
@@ -7670,41 +7670,41 @@ definitions:
   subscan_internal_service_scan.DefiLiquidStaking:
     properties:
       bonded:
-        type: number
+        type: string
       exchange_ratio:
-        type: number
+        type: string
       price:
-        type: number
+        type: string
       token_unique_id:
         type: string
       unbonding:
-        type: number
+        type: string
     type: object
   subscan_internal_service_scan.DefiLoopStake:
     properties:
       bonded:
-        type: number
+        type: string
       price:
-        type: number
+        type: string
       token_unique_id:
         type: string
       unbonding:
-        type: number
+        type: string
     type: object
   subscan_internal_service_scan.DefiNominationPool:
     properties:
       SENJ_amount:
-        type: number
+        type: string
       bonded:
-        type: number
+        type: string
       network:
         type: string
       token_unique_id:
         type: string
       unbonding:
-        type: number
+        type: string
       unclaimed:
-        type: number
+        type: string
     type: object
   subscan_internal_service_scan.DefiStaking:
     properties:
@@ -7731,12 +7731,12 @@ definitions:
       feed_at:
         type: integer
       price:
-        type: number
+        type: string
     type: object
   subscan_internal_service_scan.PriceRecord:
     properties:
       price:
-        type: number
+        type: string
       time:
         type: integer
     type: object
@@ -7747,7 +7747,7 @@ definitions:
       token_unique_id:
         type: string
       unclaimed:
-        type: number
+        type: string
     type: object
   subscan_internal_service_scan.uniqueBid:
     properties:
@@ -7775,7 +7775,7 @@ definitions:
       authorization_source:
         type: string
       circulating_supply:
-        type: number
+        type: string
       source:
         type: string
     type: object
@@ -7784,54 +7784,54 @@ definitions:
       asset_type:
         $ref: '#/definitions/subscan_internal_service_scan_token.AssetType'
       available_balance:
-        type: number
+        type: string
       bonded_locked_balance:
-        type: number
+        type: string
       conviction_lock_balance:
-        type: number
+        type: string
       democracy_locked_balance:
-        type: number
+        type: string
       display_name:
         type: string
       election_locked_balance:
-        type: number
+        type: string
       external_data:
         $ref: '#/definitions/subscan_internal_service_scan_token.ExternalDataSource'
       free_balance:
-        type: number
+        type: string
       inflation:
-        type: number
+        type: string
       locked_balance:
-        type: number
+        type: string
       nominator_bonded:
-        type: number
+        type: string
       price:
-        type: number
+        type: string
       price_change:
-        type: number
+        type: string
       reserved_balance:
-        type: number
+        type: string
       symbol:
         type: string
       token_decimals:
         type: integer
       total_issuance:
-        type: number
+        type: string
       treasury_balance:
-        type: number
+        type: string
       unbonded_locked_balance:
-        type: number
+        type: string
       unique_id:
         type: string
       validator_bonded:
-        type: number
+        type: string
       vesting_balance:
-        type: number
+        type: string
     type: object
   subscan_internal_types.Balance:
     properties:
       types.Balance:
-        type: number
+        type: string
     type: object
   subscan_libs_stakingrewards.Provider:
     properties:
@@ -7858,7 +7858,7 @@ definitions:
   subscan_libs_substrate_derive.Unbonding:
     properties:
       amount:
-        type: number
+        type: string
       until:
         type: integer
     type: object
@@ -7874,11 +7874,11 @@ definitions:
   subscan_libs_substrate_storage.Reciprocal:
     properties:
       factor:
-        type: number
+        type: string
       x_offset:
-        type: number
+        type: string
       y_offset:
-        type: number
+        type: string
     type: object
   subscan_libs_substrate_storage.ReferendaCurve:
     properties:
@@ -7897,7 +7897,7 @@ definitions:
         description: custom field
         type: integer
       decision_deposit:
-        type: number
+        type: string
       decision_period:
         type: integer
       max_deciding:
@@ -9094,8 +9094,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Check hash
       tags:
       - search
@@ -9115,8 +9114,7 @@ paths:
       responses:
         "200":
           description: ok
-          schema:
-            type: object
+          schema: {}
       summary: Collator Info
       tags:
       - collator
@@ -9136,8 +9134,7 @@ paths:
       responses:
         "200":
           description: ok
-          schema:
-            type: object
+          schema: {}
       summary: Collator List
       tags:
       - collator
@@ -9150,8 +9147,7 @@ paths:
       responses:
         "200":
           description: ok
-          schema:
-            type: object
+          schema: {}
       summary: Collator Meta
       tags:
       - collator
@@ -9208,8 +9204,7 @@ paths:
             allOf:
             - $ref: '#/definitions/internal_server_http.J'
             - properties:
-                data:
-                  type: object
+                data: {}
               type: object
       summary: Contract meta
       tags:
@@ -9910,8 +9905,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: ABI by method id or event topic
       tags:
       - EVM
@@ -9931,8 +9925,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM account tokens
       tags:
       - EVM
@@ -9952,8 +9945,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Evm block by block number
       tags:
       - EVM
@@ -9973,8 +9965,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM Blocks
       tags:
       - EVM
@@ -9994,8 +9985,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM contract detail
       tags:
       - EVM
@@ -10015,8 +10005,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM contract list
       tags:
       - EVM
@@ -10036,8 +10025,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM contract solc versions
       tags:
       - EVM
@@ -10057,8 +10045,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM erc721 collectible detail
       tags:
       - EVM
@@ -10078,8 +10065,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM ERC721 collectibles
       tags:
       - EVM
@@ -10099,8 +10085,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM erc1155 collectible detail
       tags:
       - EVM
@@ -10120,8 +10105,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM erc1155 token holders
       tags:
       - EVM
@@ -10141,8 +10125,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM ERC1155 collectibles
       tags:
       - EVM
@@ -10165,8 +10148,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM event Logs
       tags:
       - EVM
@@ -10177,8 +10159,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Evm meta
       tags:
       - EVM
@@ -10198,8 +10179,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM token holders
       tags:
       - EVM
@@ -10219,8 +10199,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM token transfer
       tags:
       - EVM
@@ -10240,8 +10219,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: EVM erc20/erc721 tokens
       tags:
       - EVM
@@ -10315,8 +10293,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Evm transactions
       tags:
       - EVM
@@ -11458,8 +11435,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Nomination Pools Activities
       tags:
       - nominationPools
@@ -11479,8 +11455,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Nomination Pools Info
       tags:
       - nominationPools
@@ -11500,8 +11475,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Nomination Pools Member Vote
       tags:
       - nominationPools
@@ -11521,8 +11495,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Nomination Pools Members
       tags:
       - nominationPools
@@ -11542,8 +11515,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Nomination Pools List
       tags:
       - nominationPools
@@ -11563,8 +11535,7 @@ paths:
       responses:
         "200":
           description: OK
-          schema:
-            type: object
+          schema: {}
       summary: Nomination Pools Rewards
       tags:
       - nominationPools
@@ -11681,8 +11652,7 @@ paths:
             - properties:
                 data:
                   additionalProperties:
-                    items:
-                      type: object
+                    items: {}
                     type: array
                   type: object
               type: object
