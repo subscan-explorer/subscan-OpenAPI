@@ -1596,7 +1596,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1627,7 +1629,9 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1658,7 +1662,9 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1678,7 +1684,9 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1773,7 +1781,9 @@
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "data": {}
+                                        "data": {
+                                            "type": "object"
+                                        }
                                     }
                                 }
                             ]
@@ -2965,7 +2975,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -2996,7 +3008,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3027,7 +3041,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3058,7 +3074,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3089,7 +3107,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3120,7 +3140,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3151,7 +3173,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3182,7 +3206,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3213,7 +3239,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3244,7 +3272,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3275,7 +3305,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3306,7 +3338,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3338,7 +3372,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3355,7 +3391,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3386,7 +3424,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3417,7 +3457,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3448,7 +3490,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3568,7 +3612,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5489,7 +5535,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5520,7 +5568,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5551,7 +5601,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5582,7 +5634,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5613,7 +5667,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5644,7 +5700,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5743,7 +5801,9 @@
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {}
+                                                "items": {
+                                                    "type": "object"
+                                                }
                                             }
                                         }
                                     }
@@ -13682,7 +13742,8 @@
                         "balance",
                         "locked",
                         "ring_lock",
-                        "nft_amount"
+                        "nft_amount",
+                        "evm_txn_count"
                     ]
                 },
                 "page": {
@@ -16180,6 +16241,9 @@
                 "evm_account": {
                     "type": "string"
                 },
+                "evm_txn_count": {
+                    "type": "integer"
+                },
                 "extra": {
                     "type": "array",
                     "items": {
@@ -16451,6 +16515,9 @@
                 },
                 "evm_account": {
                     "type": "string"
+                },
+                "evm_txn_count": {
+                    "type": "integer"
                 },
                 "extra": {
                     "type": "array",

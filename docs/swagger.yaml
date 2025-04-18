@@ -2211,6 +2211,7 @@ definitions:
         - locked
         - ring_lock
         - nft_amount
+        - evm_txn_count
         type: string
       page:
         description: Page number, starting from 0
@@ -3982,6 +3983,8 @@ definitions:
         type: string
       evm_account:
         type: string
+      evm_txn_count:
+        type: integer
       extra:
         items:
           $ref: '#/definitions/subscan_internal_model.AccountJsonExtra'
@@ -4162,6 +4165,8 @@ definitions:
         type: object
       evm_account:
         type: string
+      evm_txn_count:
+        type: integer
       extra:
         items:
           $ref: '#/definitions/subscan_internal_model.AccountJsonExtra'
@@ -9098,7 +9103,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Check hash
       tags:
       - search
@@ -9118,7 +9124,8 @@ paths:
       responses:
         "200":
           description: ok
-          schema: {}
+          schema:
+            type: object
       summary: Collator Info
       tags:
       - collator
@@ -9138,7 +9145,8 @@ paths:
       responses:
         "200":
           description: ok
-          schema: {}
+          schema:
+            type: object
       summary: Collator List
       tags:
       - collator
@@ -9151,7 +9159,8 @@ paths:
       responses:
         "200":
           description: ok
-          schema: {}
+          schema:
+            type: object
       summary: Collator Meta
       tags:
       - collator
@@ -9208,7 +9217,8 @@ paths:
             allOf:
             - $ref: '#/definitions/internal_server_http.J'
             - properties:
-                data: {}
+                data:
+                  type: object
               type: object
       summary: Contract meta
       tags:
@@ -9909,7 +9919,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: ABI by method id or event topic
       tags:
       - EVM
@@ -9929,7 +9940,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM account tokens
       tags:
       - EVM
@@ -9949,7 +9961,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Evm block by block number
       tags:
       - EVM
@@ -9969,7 +9982,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM Blocks
       tags:
       - EVM
@@ -9989,7 +10003,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM contract detail
       tags:
       - EVM
@@ -10009,7 +10024,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM contract list
       tags:
       - EVM
@@ -10029,7 +10045,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM contract solc versions
       tags:
       - EVM
@@ -10049,7 +10066,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc721 collectible detail
       tags:
       - EVM
@@ -10069,7 +10087,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM ERC721 collectibles
       tags:
       - EVM
@@ -10089,7 +10108,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc1155 collectible detail
       tags:
       - EVM
@@ -10109,7 +10129,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc1155 token holders
       tags:
       - EVM
@@ -10129,7 +10150,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM ERC1155 collectibles
       tags:
       - EVM
@@ -10152,7 +10174,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM event Logs
       tags:
       - EVM
@@ -10163,7 +10186,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Evm meta
       tags:
       - EVM
@@ -10183,7 +10207,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM token holders
       tags:
       - EVM
@@ -10203,7 +10228,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM token transfer
       tags:
       - EVM
@@ -10223,7 +10249,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc20/erc721 tokens
       tags:
       - EVM
@@ -10297,7 +10324,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Evm transactions
       tags:
       - EVM
@@ -11439,7 +11467,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Activities
       tags:
       - nominationPools
@@ -11459,7 +11488,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Info
       tags:
       - nominationPools
@@ -11479,7 +11509,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Member Vote
       tags:
       - nominationPools
@@ -11499,7 +11530,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Members
       tags:
       - nominationPools
@@ -11519,7 +11551,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools List
       tags:
       - nominationPools
@@ -11539,7 +11572,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Rewards
       tags:
       - nominationPools
@@ -11656,7 +11690,8 @@ paths:
             - properties:
                 data:
                   additionalProperties:
-                    items: {}
+                    items:
+                      type: object
                     type: array
                   type: object
               type: object

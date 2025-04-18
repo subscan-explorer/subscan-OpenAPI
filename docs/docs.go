@@ -1607,7 +1607,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1638,7 +1640,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1669,7 +1673,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1689,7 +1695,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1784,7 +1792,9 @@ const docTemplate = `{
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "data": {}
+                                        "data": {
+                                            "type": "object"
+                                        }
                                     }
                                 }
                             ]
@@ -2976,7 +2986,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3007,7 +3019,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3038,7 +3052,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3069,7 +3085,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3100,7 +3118,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3131,7 +3151,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3162,7 +3184,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3193,7 +3217,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3224,7 +3250,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3255,7 +3283,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3286,7 +3316,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3317,7 +3349,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3349,7 +3383,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3366,7 +3402,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3397,7 +3435,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3428,7 +3468,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3459,7 +3501,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3579,7 +3623,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5500,7 +5546,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5531,7 +5579,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5562,7 +5612,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5593,7 +5645,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5624,7 +5678,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5655,7 +5711,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5754,7 +5812,9 @@ const docTemplate = `{
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {}
+                                                "items": {
+                                                    "type": "object"
+                                                }
                                             }
                                         }
                                     }
@@ -13693,7 +13753,8 @@ const docTemplate = `{
                         "balance",
                         "locked",
                         "ring_lock",
-                        "nft_amount"
+                        "nft_amount",
+                        "evm_txn_count"
                     ]
                 },
                 "page": {
@@ -16191,6 +16252,9 @@ const docTemplate = `{
                 "evm_account": {
                     "type": "string"
                 },
+                "evm_txn_count": {
+                    "type": "integer"
+                },
                 "extra": {
                     "type": "array",
                     "items": {
@@ -16462,6 +16526,9 @@ const docTemplate = `{
                 },
                 "evm_account": {
                     "type": "string"
+                },
+                "evm_txn_count": {
+                    "type": "integer"
                 },
                 "extra": {
                     "type": "array",
