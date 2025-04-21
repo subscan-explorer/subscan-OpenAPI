@@ -852,51 +852,6 @@
                 }
             }
         },
-        "/api/scan/block/header": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "block"
-                ],
-                "summary": "Block header",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.blockHeaderParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.BlockHeader"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/bounties/proposal": {
             "post": {
                 "consumes": [
@@ -1596,9 +1551,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1629,9 +1582,7 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1662,9 +1613,7 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1684,9 +1633,7 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1781,9 +1728,7 @@
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
-                                            "type": "object"
-                                        }
+                                        "data": {}
                                     }
                                 }
                             ]
@@ -2975,9 +2920,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3008,9 +2951,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3041,9 +2982,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3074,9 +3013,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3107,9 +3044,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3140,9 +3075,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3173,9 +3106,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3206,9 +3137,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3239,9 +3168,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3272,9 +3199,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3305,9 +3230,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3338,9 +3261,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3372,9 +3293,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3391,9 +3310,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3424,9 +3341,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3457,9 +3372,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3490,9 +3403,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3612,9 +3523,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3867,7 +3776,7 @@
             }
         },
         "/api/scan/fellowship/statistics": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -3901,7 +3810,7 @@
             }
         },
         "/api/scan/fellowship/tracks": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -4098,7 +4007,7 @@
             }
         },
         "/api/scan/foreignAssets/all": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -4332,6 +4241,51 @@
                                     "properties": {
                                         "data": {
                                             "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/header": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "block"
+                ],
+                "summary": "Block header",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.blockHeaderParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.BlockHeader"
                                         }
                                     }
                                 }
@@ -5535,9 +5489,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5568,9 +5520,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5601,9 +5551,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5634,9 +5582,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5667,9 +5613,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5700,9 +5644,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5801,9 +5743,7 @@
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {
-                                                    "type": "object"
-                                                }
+                                                "items": {}
                                             }
                                         }
                                     }
@@ -6834,7 +6774,7 @@
             }
         },
         "/api/scan/referenda/statistics": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -6868,7 +6808,7 @@
             }
         },
         "/api/scan/referenda/tracks": {
-            "get": {
+            "post": {
                 "consumes": [
                     "application/json"
                 ],
@@ -7270,6 +7210,56 @@
                 }
             }
         },
+        "/api/scan/staking/total_reward": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "staking"
+                ],
+                "summary": "Staking reward sum",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.stakingRewardParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "sum": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/staking/unbonding": {
             "post": {
                 "consumes": [
@@ -7578,56 +7568,6 @@
                                                     "items": {
                                                         "$ref": "#/definitions/subscan_internal_model.ValidatorWaiting"
                                                     }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/staking_history": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "staking"
-                ],
-                "summary": "Staking reward sum",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.stakingRewardParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "sum": {
-                                                    "type": "number"
                                                 }
                                             }
                                         }
@@ -8026,7 +7966,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "token"
+                    "tokens"
                 ],
                 "summary": "Token list(token symbol)",
                 "responses": {
@@ -8130,7 +8070,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "token"
+                    "tokens"
                 ],
                 "summary": "Token price list",
                 "responses": {
@@ -8167,7 +8107,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "token"
+                    "tokens"
                 ],
                 "summary": "Token list(token unique_id)",
                 "parameters": [
@@ -15413,7 +15353,6 @@
             ],
             "properties": {
                 "address": {
-                    "description": "Row int `json:\"row\" binding:\"min=1,max=100\" example:\"10\"`\nPage    int    `json:\"page\" binding:\"min=0\" example:\"0\"`",
                     "type": "string"
                 },
                 "block_range": {
