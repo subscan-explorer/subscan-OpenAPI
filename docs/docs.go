@@ -1716,7 +1716,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract meta",
+                "summary": "Contract info",
                 "parameters": [
                     {
                         "description": "param",
@@ -1739,7 +1739,9 @@ const docTemplate = `{
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "data": {}
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.ContractDetailJson"
+                                        }
                                     }
                                 }
                             ]
@@ -2772,7 +2774,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "download"
                 ],
                 "summary": "Download progress",
                 "parameters": [
@@ -4484,7 +4486,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "metadata"
                 ],
                 "summary": "Current network metadata",
                 "responses": {
@@ -17083,7 +17085,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                    "type": "string"
                 },
                 "contract_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
@@ -17111,6 +17113,62 @@ const docTemplate = `{
                 "ContractTerminated",
                 "ContractCodeUpdated"
             ]
+        },
+        "subscan_internal_model.ContractDetailJson": {
+            "type": "object",
+            "properties": {
+                "abi": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "balance": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "code_hash": {
+                    "type": "string"
+                },
+                "contract_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "deposit": {
+                    "type": "string"
+                },
+                "has_compile_log": {
+                    "type": "boolean"
+                },
+                "input_data": {
+                    "type": "string"
+                },
+                "is_verifying": {
+                    "type": "boolean"
+                },
+                "last_compile_result": {
+                    "type": "string"
+                },
+                "owner_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "salt": {
+                    "type": "string"
+                },
+                "source_code": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "transaction_count": {
+                    "type": "integer"
+                },
+                "verify_time": {
+                    "type": "integer"
+                }
+            }
         },
         "subscan_internal_model.ContractEventJson": {
             "type": "object",
@@ -18025,7 +18083,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                    "type": "string"
                 },
                 "cliff": {
                     "type": "integer"
@@ -18393,7 +18451,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "per_period": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                    "type": "string"
                 },
                 "period": {
                     "type": "integer"
@@ -18439,10 +18497,10 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "locked": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                    "type": "string"
                 },
                 "per_block": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                    "type": "string"
                 },
                 "starting_block": {
                     "type": "integer"
@@ -20605,7 +20663,7 @@ const docTemplate = `{
                     }
                 },
                 "total_locked": {
-                    "$ref": "#/definitions/subscan_internal_types.Balance"
+                    "type": "string"
                 },
                 "type": {
                     "type": "string"
@@ -21968,14 +22026,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "vesting_balance": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_types.Balance": {
-            "type": "object",
-            "properties": {
-                "types.Balance": {
                     "type": "string"
                 }
             }

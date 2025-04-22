@@ -4569,7 +4569,7 @@ definitions:
   subscan_internal_model.ContractAccountListJson:
     properties:
       balance:
-        $ref: '#/definitions/subscan_internal_types.Balance'
+        type: string
       contract_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       owner_display:
@@ -4589,6 +4589,43 @@ definitions:
     - ContractInstantiated
     - ContractTerminated
     - ContractCodeUpdated
+  subscan_internal_model.ContractDetailJson:
+    properties:
+      abi:
+        items:
+          type: integer
+        type: array
+      balance:
+        type: string
+      code:
+        type: string
+      code_hash:
+        type: string
+      contract_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      deposit:
+        type: string
+      has_compile_log:
+        type: boolean
+      input_data:
+        type: string
+      is_verifying:
+        type: boolean
+      last_compile_result:
+        type: string
+      owner_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      salt:
+        type: string
+      source_code:
+        items:
+          type: integer
+        type: array
+      transaction_count:
+        type: integer
+      verify_time:
+        type: integer
+    type: object
   subscan_internal_model.ContractEventJson:
     properties:
       block_timestamp:
@@ -5192,7 +5229,7 @@ definitions:
   subscan_internal_model.LinearVestingSchedule:
     properties:
       balance:
-        $ref: '#/definitions/subscan_internal_types.Balance'
+        type: string
       cliff:
         type: integer
       vesting:
@@ -5436,7 +5473,7 @@ definitions:
   subscan_internal_model.OrmlVestingSchedule:
     properties:
       per_period:
-        $ref: '#/definitions/subscan_internal_types.Balance'
+        type: string
       period:
         type: integer
       period_count:
@@ -5466,9 +5503,9 @@ definitions:
   subscan_internal_model.PalletVestingSchedule:
     properties:
       locked:
-        $ref: '#/definitions/subscan_internal_types.Balance'
+        type: string
       per_block:
-        $ref: '#/definitions/subscan_internal_types.Balance'
+        type: string
       starting_block:
         type: integer
     type: object
@@ -6907,7 +6944,7 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.PalletVestingSchedule'
         type: array
       total_locked:
-        $ref: '#/definitions/subscan_internal_types.Balance'
+        type: string
       type:
         type: string
     type: object
@@ -7832,11 +7869,6 @@ definitions:
       validator_bonded:
         type: string
       vesting_balance:
-        type: string
-    type: object
-  subscan_internal_types.Balance:
-    properties:
-      types.Balance:
         type: string
     type: object
   subscan_libs_stakingrewards.Provider:
@@ -9184,9 +9216,10 @@ paths:
             allOf:
             - $ref: '#/definitions/internal_server_http.J'
             - properties:
-                data: {}
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ContractDetailJson'
               type: object
-      summary: Contract meta
+      summary: Contract info
       tags:
       - contracts
   /api/scan/contracts/list:
@@ -9814,7 +9847,7 @@ paths:
               type: object
       summary: Download progress
       tags:
-      - api
+      - download
   /api/scan/event:
     post:
       consumes:
@@ -10848,7 +10881,7 @@ paths:
               type: object
       summary: Current network metadata
       tags:
-      - api
+      - metadata
   /api/scan/multiChain/account/count:
     post:
       consumes:
