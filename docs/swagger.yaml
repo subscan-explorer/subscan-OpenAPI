@@ -4591,10 +4591,7 @@ definitions:
     - ContractCodeUpdated
   subscan_internal_model.ContractDetailJson:
     properties:
-      abi:
-        items:
-          type: integer
-        type: array
+      abi: {}
       balance:
         type: string
       code:
@@ -4617,10 +4614,7 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       salt:
         type: string
-      source_code:
-        items:
-          type: integer
-        type: array
+      source_code: {}
       transaction_count:
         type: integer
       verify_time:
@@ -5605,10 +5599,7 @@ definitions:
       dest_para_id:
         description: eq 0 if to relay chain
         type: integer
-      dest_raw:
-        items:
-          type: integer
-        type: array
+      dest_raw: {}
       extrinsic_index:
         description: Send message extrinsic index
         type: string
@@ -5660,10 +5651,7 @@ definitions:
       to_account_id:
         description: receiver address
         type: string
-      to_account_raw:
-        items:
-          type: integer
-        type: array
+      to_account_raw: {}
       unique_id:
         description: global xcm message unique id
         type: string
@@ -6479,10 +6467,7 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
         type: array
-      multi_location:
-        items:
-          type: integer
-        type: array
+      multi_location: {}
       price:
         type: string
       reserved:
@@ -6995,10 +6980,7 @@ definitions:
       dest_para_id:
         description: eq 0 if to relay chain
         type: integer
-      dest_raw:
-        items:
-          type: integer
-        type: array
+      dest_raw: {}
       extrinsic_index:
         description: Send message extrinsic index
         type: string
@@ -7050,10 +7032,7 @@ definitions:
       to_account_id:
         description: receiver address
         type: string
-      to_account_raw:
-        items:
-          type: integer
-        type: array
+      to_account_raw: {}
       unique_id:
         description: global xcm message unique id
         type: string
@@ -7099,6 +7078,15 @@ definitions:
         type: integer
       support_parachain:
         type: integer
+    type: object
+  subscan_internal_plugin_assets_db.AssetsListAllJson:
+    properties:
+      asset_id:
+        type: string
+      decimals:
+        type: integer
+      symbol:
+        type: string
     type: object
   subscan_internal_plugin_assets_db.Metadata:
     properties:
@@ -7172,10 +7160,7 @@ definitions:
         type: string
       decimals:
         type: integer
-      multi_location:
-        items:
-          type: integer
-        type: array
+      multi_location: {}
       name:
         type: string
       symbol:
@@ -7245,10 +7230,7 @@ definitions:
         $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
       min_balance:
         type: string
-      multi_location:
-        items:
-          type: integer
-        type: array
+      multi_location: {}
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       supply:
@@ -7268,10 +7250,7 @@ definitions:
         type: string
       metadata:
         $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
-      multi_location:
-        items:
-          type: integer
-        type: array
+      multi_location: {}
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       price:
@@ -7302,10 +7281,7 @@ definitions:
     type: object
   subscan_internal_plugin_nfts_db.CollectionItemJson:
     properties:
-      attributes:
-        items:
-          type: integer
-        type: array
+      attributes: {}
       collection_id:
         example: "126"
         type: string
@@ -7375,10 +7351,7 @@ definitions:
     type: object
   subscan_internal_plugin_nfts_db.NftsJson:
     properties:
-      attributes:
-        items:
-          type: integer
-        type: array
+      attributes: {}
       collection_id:
         example: "1"
         type: string
@@ -8557,7 +8530,18 @@ paths:
         "200":
           description: OK
           schema:
-            additionalProperties: true
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  list:
+                    items:
+                      $ref: '#/definitions/subscan_internal_plugin_assets_db.AssetsListAllJson'
+                    type: array
+                type: object
+              message:
+                type: string
             type: object
       summary: Assets list all
       tags:
@@ -12132,9 +12116,9 @@ paths:
                 data:
                   properties:
                     ema7_average:
-                      type: number
+                      type: string
                     ema30_average:
-                      type: number
+                      type: string
                     list:
                       items:
                         $ref: '#/definitions/subscan_internal_service_scan.Price'
