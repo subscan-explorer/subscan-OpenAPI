@@ -15,7 +15,7 @@ The service status of Subscan API can be found on our [status page](https://subs
 
 ## Service Level Agreement
 
-Subscan provides our customers the Service Level Agreement (SLA), which includes **Monthly Uptime Percentage** 
+Subscan provides our customers the Service Level Agreement (SLA), which includes **Monthly Uptime Percentage**
 commitment for multiple networks. Please contact us ([api@subscan.io](mailto:api@subscan.io)) for more information.
 
 ## API Endpoints
@@ -39,8 +39,8 @@ Please notice before you get started:
    marked as **test** is test network, which may be unstable. Some new features of Subscan will be updated on testnet
    first.
 
-5. All APIs documented here are specifically designed for Subscan UI. While they may undergo frequent updates, 
-   we strictly avoid introducing breaking changes. In the rare event of a mandatory breaking change, we will issue 
+5. All APIs documented here are specifically designed for Subscan UI. While they may undergo frequent updates,
+   we strictly avoid introducing breaking changes. In the rare event of a mandatory breaking change, we will issue
     advance email notifications to all subscribers.
 
 | Network              | API Host                                       | Status |
@@ -75,6 +75,7 @@ Please notice before you get started:
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live   |
 | Coretime-polkadot    | `coretime-polkadot.api.subscan.io`             | live   |
 | Coretime-westend     | `coretime-westend.api.subscan.io`              | test   |
+| Coretime-paseo       | `coretime-paseo.api.subscan.io`                | test   |
 | Creditcoin           | `cc-enterprise.api.subscan.io`                 | live   |
 | Creditcoin-cc3       | `creditcoin.api.subscan.io`                    | live   |
 | Creditcoin-cc3-test  | `creditcoin3-testnet.api.subscan.io`           | test   |
@@ -117,6 +118,7 @@ Please notice before you get started:
 | Pendulum             | `pendulum.api.subscan.io`                      | live   |
 | People-kusama        | `people-kusama.api.subscan.io`                 | live   |
 | People-polkadot      | `people-polkadot.api.subscan.io`               | live   |
+| People-paseo         | `people-paseo.api.subscan.io`                  | test   |
 | Phala                | `phala.api.subscan.io`                         | live   |
 | Pioneer              | `pioneer.api.subscan.io`                       | live   |
 | Polkadex             | `polkadex.api.subscan.io`                      | live   |
