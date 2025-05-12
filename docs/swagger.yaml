@@ -4591,7 +4591,8 @@ definitions:
     - ContractCodeUpdated
   subscan_internal_model.ContractDetailJson:
     properties:
-      abi: {}
+      abi:
+        type: object
       balance:
         type: string
       code:
@@ -4614,7 +4615,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       salt:
         type: string
-      source_code: {}
+      source_code:
+        type: object
       transaction_count:
         type: integer
       verify_time:
@@ -5599,7 +5601,8 @@ definitions:
       dest_para_id:
         description: eq 0 if to relay chain
         type: integer
-      dest_raw: {}
+      dest_raw:
+        type: object
       extrinsic_index:
         description: Send message extrinsic index
         type: string
@@ -5651,7 +5654,8 @@ definitions:
       to_account_id:
         description: receiver address
         type: string
-      to_account_raw: {}
+      to_account_raw:
+        type: object
       unique_id:
         description: global xcm message unique id
         type: string
@@ -6467,7 +6471,8 @@ definitions:
         items:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
         type: array
-      multi_location: {}
+      multi_location:
+        type: object
       price:
         type: string
       reserved:
@@ -6980,7 +6985,8 @@ definitions:
       dest_para_id:
         description: eq 0 if to relay chain
         type: integer
-      dest_raw: {}
+      dest_raw:
+        type: object
       extrinsic_index:
         description: Send message extrinsic index
         type: string
@@ -7032,7 +7038,8 @@ definitions:
       to_account_id:
         description: receiver address
         type: string
-      to_account_raw: {}
+      to_account_raw:
+        type: object
       unique_id:
         description: global xcm message unique id
         type: string
@@ -7160,7 +7167,8 @@ definitions:
         type: string
       decimals:
         type: integer
-      multi_location: {}
+      multi_location:
+        type: object
       name:
         type: string
       symbol:
@@ -7230,7 +7238,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
       min_balance:
         type: string
-      multi_location: {}
+      multi_location:
+        type: object
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       supply:
@@ -7250,7 +7259,8 @@ definitions:
         type: string
       metadata:
         $ref: '#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata'
-      multi_location: {}
+      multi_location:
+        type: object
       owner:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       price:
@@ -7281,7 +7291,8 @@ definitions:
     type: object
   subscan_internal_plugin_nfts_db.CollectionItemJson:
     properties:
-      attributes: {}
+      attributes:
+        type: object
       collection_id:
         example: "126"
         type: string
@@ -7351,7 +7362,8 @@ definitions:
     type: object
   subscan_internal_plugin_nfts_db.NftsJson:
     properties:
-      attributes: {}
+      attributes:
+        type: object
       collection_id:
         example: "1"
         type: string
@@ -9090,7 +9102,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Check hash
       tags:
       - search
@@ -9110,7 +9123,8 @@ paths:
       responses:
         "200":
           description: ok
-          schema: {}
+          schema:
+            type: object
       summary: Collator Info
       tags:
       - collator
@@ -9130,7 +9144,8 @@ paths:
       responses:
         "200":
           description: ok
-          schema: {}
+          schema:
+            type: object
       summary: Collator List
       tags:
       - collator
@@ -9143,7 +9158,8 @@ paths:
       responses:
         "200":
           description: ok
-          schema: {}
+          schema:
+            type: object
       summary: Collator Meta
       tags:
       - collator
@@ -9902,7 +9918,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: ABI by method id or event topic
       tags:
       - EVM
@@ -9922,7 +9939,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM account tokens
       tags:
       - EVM
@@ -9942,7 +9960,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Evm block by block number
       tags:
       - EVM
@@ -9962,7 +9981,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM Blocks
       tags:
       - EVM
@@ -9982,7 +10002,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM contract detail
       tags:
       - EVM
@@ -10002,7 +10023,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM contract list
       tags:
       - EVM
@@ -10010,20 +10032,21 @@ paths:
     post:
       consumes:
       - application/json
-      parameters:
-      - description: param
-        in: body
-        name: param
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_evm_http.EvmContractSolcVersionsParam'
       produces:
       - application/json
       responses:
         "200":
           description: OK
-          schema: {}
-      summary: EVM contract solc versions
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  items:
+                    type: string
+                  type: array
+              type: object
+      summary: Polkadot pvm resolc versions
       tags:
       - EVM
   /api/scan/evm/erc721/collectible:
@@ -10042,7 +10065,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc721 collectible detail
       tags:
       - EVM
@@ -10062,7 +10086,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM ERC721 collectibles
       tags:
       - EVM
@@ -10082,7 +10107,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc1155 collectible detail
       tags:
       - EVM
@@ -10102,7 +10128,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc1155 token holders
       tags:
       - EVM
@@ -10122,7 +10149,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM ERC1155 collectibles
       tags:
       - EVM
@@ -10145,7 +10173,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM event Logs
       tags:
       - EVM
@@ -10156,7 +10185,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Evm meta
       tags:
       - EVM
@@ -10176,7 +10206,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM token holders
       tags:
       - EVM
@@ -10196,7 +10227,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM token transfer
       tags:
       - EVM
@@ -10216,7 +10248,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: EVM erc20/erc721 tokens
       tags:
       - EVM
@@ -10290,7 +10323,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Evm transactions
       tags:
       - EVM
@@ -11458,7 +11492,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Activities
       tags:
       - nominationPools
@@ -11478,7 +11513,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Info
       tags:
       - nominationPools
@@ -11498,7 +11534,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Member Vote
       tags:
       - nominationPools
@@ -11518,7 +11555,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Members
       tags:
       - nominationPools
@@ -11538,7 +11576,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools List
       tags:
       - nominationPools
@@ -11558,7 +11597,8 @@ paths:
       responses:
         "200":
           description: OK
-          schema: {}
+          schema:
+            type: object
       summary: Nomination Pools Rewards
       tags:
       - nominationPools
@@ -11675,7 +11715,8 @@ paths:
             - properties:
                 data:
                   additionalProperties:
-                    items: {}
+                    items:
+                      type: object
                     type: array
                   type: object
               type: object
