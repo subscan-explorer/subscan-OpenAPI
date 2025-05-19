@@ -1580,9 +1580,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1613,9 +1611,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1646,9 +1642,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1668,9 +1662,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -2959,9 +2951,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -2992,9 +2982,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3025,9 +3013,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3058,9 +3044,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3091,9 +3075,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3124,9 +3106,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3194,9 +3174,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3227,9 +3205,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3260,9 +3236,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3293,9 +3267,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3326,9 +3298,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3360,9 +3330,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3379,9 +3347,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3412,9 +3378,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3446,7 +3410,33 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_evm_db.TokenTransferJson"
+                                                    }
+                                                },
+                                                "total": {
+                                                    "$ref": "#/definitions/subscan_internal_model.TransferHistoryTotal"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -3478,9 +3468,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3600,9 +3588,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5568,9 +5554,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5601,9 +5585,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5634,9 +5616,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5667,9 +5647,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5700,9 +5678,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5733,9 +5709,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5834,9 +5808,7 @@ const docTemplate = `{
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {
-                                                    "type": "object"
-                                                }
+                                                "items": {}
                                             }
                                         }
                                     }
@@ -11473,6 +11445,9 @@ const docTemplate = `{
                 },
                 "hash": {
                     "type": "string"
+                },
+                "include_total": {
+                    "type": "boolean"
                 },
                 "page": {
                     "type": "integer",
@@ -17197,9 +17172,7 @@ const docTemplate = `{
         "subscan_internal_model.ContractDetailJson": {
             "type": "object",
             "properties": {
-                "abi": {
-                    "type": "object"
-                },
+                "abi": {},
                 "balance": {
                     "type": "string"
                 },
@@ -17233,9 +17206,7 @@ const docTemplate = `{
                 "salt": {
                     "type": "string"
                 },
-                "source_code": {
-                    "type": "object"
-                },
+                "source_code": {},
                 "transaction_count": {
                     "type": "integer"
                 },
@@ -18719,9 +18690,7 @@ const docTemplate = `{
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {
-                    "type": "object"
-                },
+                "dest_raw": {},
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -18794,9 +18763,7 @@ const docTemplate = `{
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {
-                    "type": "object"
-                },
+                "to_account_raw": {},
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -20026,9 +19993,7 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
                     }
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "price": {
                     "type": "string"
                 },
@@ -20799,9 +20764,7 @@ const docTemplate = `{
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {
-                    "type": "object"
-                },
+                "dest_raw": {},
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -20874,9 +20837,7 @@ const docTemplate = `{
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {
-                    "type": "object"
-                },
+                "to_account_raw": {},
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -21032,6 +20993,62 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_plugin_evm_db.TokenTransferJson": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "create_at": {
+                    "type": "integer"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "from_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "index": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "storage_url": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                },
+                "to_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "token_id": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_plugin_evm_db.TraceJson": {
             "type": "object",
             "properties": {
@@ -21070,9 +21087,7 @@ const docTemplate = `{
                 "decimals": {
                     "type": "integer"
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "name": {
                     "type": "string"
                 },
@@ -21179,9 +21194,7 @@ const docTemplate = `{
                 "min_balance": {
                     "type": "string"
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21211,9 +21224,7 @@ const docTemplate = `{
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21258,9 +21269,7 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.CollectionItemJson": {
             "type": "object",
             "properties": {
-                "attributes": {
-                    "type": "object"
-                },
+                "attributes": {},
                 "collection_id": {
                     "type": "string",
                     "example": "126"
@@ -21359,9 +21368,7 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.NftsJson": {
             "type": "object",
             "properties": {
-                "attributes": {
-                    "type": "object"
-                },
+                "attributes": {},
                 "collection_id": {
                     "type": "string",
                     "example": "1"
