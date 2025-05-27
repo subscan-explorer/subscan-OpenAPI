@@ -1569,7 +1569,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1600,7 +1602,9 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1631,7 +1635,9 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1651,7 +1657,9 @@
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -2940,7 +2948,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -2971,7 +2981,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3002,7 +3014,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3033,7 +3047,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3064,7 +3080,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3095,7 +3113,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3163,7 +3183,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3194,7 +3216,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3225,7 +3249,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3256,7 +3282,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3287,7 +3315,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3319,7 +3349,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3336,7 +3368,42 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/token": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc20/erc721/erc1155 token",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmTokenParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3367,7 +3434,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3442,7 +3511,7 @@
                 "tags": [
                     "EVM"
                 ],
-                "summary": "EVM erc20/erc721 tokens",
+                "summary": "EVM erc20/erc721/erc1155 tokens",
                 "parameters": [
                     {
                         "description": "param",
@@ -3457,7 +3526,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3577,7 +3648,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5543,7 +5616,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5574,7 +5649,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5605,7 +5682,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5636,7 +5715,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5667,7 +5748,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5698,7 +5781,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5797,7 +5882,9 @@
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {}
+                                                "items": {
+                                                    "type": "object"
+                                                }
                                             }
                                         }
                                     }
@@ -11408,6 +11495,14 @@
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmTokenParam": {
+            "type": "object",
+            "properties": {
+                "contract": {
+                    "type": "string"
                 }
             }
         },
@@ -17161,7 +17256,9 @@
         "subscan_internal_model.ContractDetailJson": {
             "type": "object",
             "properties": {
-                "abi": {},
+                "abi": {
+                    "type": "object"
+                },
                 "balance": {
                     "type": "string"
                 },
@@ -17195,7 +17292,9 @@
                 "salt": {
                     "type": "string"
                 },
-                "source_code": {},
+                "source_code": {
+                    "type": "object"
+                },
                 "transaction_count": {
                     "type": "integer"
                 },
@@ -18679,7 +18778,9 @@
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {},
+                "dest_raw": {
+                    "type": "object"
+                },
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -18752,7 +18853,9 @@
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {},
+                "to_account_raw": {
+                    "type": "object"
+                },
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -19982,7 +20085,9 @@
                         "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
                     }
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "price": {
                     "type": "string"
                 },
@@ -20753,7 +20858,9 @@
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {},
+                "dest_raw": {
+                    "type": "object"
+                },
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -20826,7 +20933,9 @@
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {},
+                "to_account_raw": {
+                    "type": "object"
+                },
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -21076,7 +21185,9 @@
                 "decimals": {
                     "type": "integer"
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -21183,7 +21294,9 @@
                 "min_balance": {
                     "type": "string"
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21213,7 +21326,9 @@
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21258,7 +21373,9 @@
         "subscan_internal_plugin_nfts_db.CollectionItemJson": {
             "type": "object",
             "properties": {
-                "attributes": {},
+                "attributes": {
+                    "type": "object"
+                },
                 "collection_id": {
                     "type": "string",
                     "example": "126"
@@ -21357,7 +21474,9 @@
         "subscan_internal_plugin_nfts_db.NftsJson": {
             "type": "object",
             "properties": {
-                "attributes": {},
+                "attributes": {
+                    "type": "object"
+                },
                 "collection_id": {
                     "type": "string",
                     "example": "1"

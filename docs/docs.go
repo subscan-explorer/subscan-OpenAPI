@@ -1580,7 +1580,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1611,7 +1613,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1642,7 +1646,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -1662,7 +1668,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -2951,7 +2959,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -2982,7 +2992,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3013,7 +3025,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3044,7 +3058,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3075,7 +3091,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3106,7 +3124,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3174,7 +3194,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3205,7 +3227,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3236,7 +3260,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3267,7 +3293,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3298,7 +3326,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3330,7 +3360,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3347,7 +3379,42 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/evm/token": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "EVM erc20/erc721/erc1155 token",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EvmTokenParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3378,7 +3445,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3453,7 +3522,7 @@ const docTemplate = `{
                 "tags": [
                     "EVM"
                 ],
-                "summary": "EVM erc20/erc721 tokens",
+                "summary": "EVM erc20/erc721/erc1155 tokens",
                 "parameters": [
                     {
                         "description": "param",
@@ -3468,7 +3537,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -3588,7 +3659,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5554,7 +5627,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5585,7 +5660,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5616,7 +5693,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5647,7 +5726,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5678,7 +5759,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5709,7 +5792,9 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {}
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 }
             }
@@ -5808,7 +5893,9 @@ const docTemplate = `{
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {}
+                                                "items": {
+                                                    "type": "object"
+                                                }
                                             }
                                         }
                                     }
@@ -11419,6 +11506,14 @@ const docTemplate = `{
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.EvmTokenParam": {
+            "type": "object",
+            "properties": {
+                "contract": {
+                    "type": "string"
                 }
             }
         },
@@ -17172,7 +17267,9 @@ const docTemplate = `{
         "subscan_internal_model.ContractDetailJson": {
             "type": "object",
             "properties": {
-                "abi": {},
+                "abi": {
+                    "type": "object"
+                },
                 "balance": {
                     "type": "string"
                 },
@@ -17206,7 +17303,9 @@ const docTemplate = `{
                 "salt": {
                     "type": "string"
                 },
-                "source_code": {},
+                "source_code": {
+                    "type": "object"
+                },
                 "transaction_count": {
                     "type": "integer"
                 },
@@ -18690,7 +18789,9 @@ const docTemplate = `{
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {},
+                "dest_raw": {
+                    "type": "object"
+                },
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -18763,7 +18864,9 @@ const docTemplate = `{
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {},
+                "to_account_raw": {
+                    "type": "object"
+                },
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -19993,7 +20096,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
                     }
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "price": {
                     "type": "string"
                 },
@@ -20764,7 +20869,9 @@ const docTemplate = `{
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {},
+                "dest_raw": {
+                    "type": "object"
+                },
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -20837,7 +20944,9 @@ const docTemplate = `{
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {},
+                "to_account_raw": {
+                    "type": "object"
+                },
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -21087,7 +21196,9 @@ const docTemplate = `{
                 "decimals": {
                     "type": "integer"
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -21194,7 +21305,9 @@ const docTemplate = `{
                 "min_balance": {
                     "type": "string"
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21224,7 +21337,9 @@ const docTemplate = `{
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
                 },
-                "multi_location": {},
+                "multi_location": {
+                    "type": "object"
+                },
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21269,7 +21384,9 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.CollectionItemJson": {
             "type": "object",
             "properties": {
-                "attributes": {},
+                "attributes": {
+                    "type": "object"
+                },
                 "collection_id": {
                     "type": "string",
                     "example": "126"
@@ -21368,7 +21485,9 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.NftsJson": {
             "type": "object",
             "properties": {
-                "attributes": {},
+                "attributes": {
+                    "type": "object"
+                },
                 "collection_id": {
                     "type": "string",
                     "example": "1"
