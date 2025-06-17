@@ -4697,6 +4697,8 @@ definitions:
         type: string
       referendum_index:
         type: integer
+      relay_chain:
+        type: integer
       status:
         type: string
       unlock_block:

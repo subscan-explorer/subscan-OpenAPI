@@ -17401,6 +17401,9 @@ const docTemplate = `{
                 "referendum_index": {
                     "type": "integer"
                 },
+                "relay_chain": {
+                    "type": "integer"
+                },
                 "status": {
                     "type": "string"
                 },
