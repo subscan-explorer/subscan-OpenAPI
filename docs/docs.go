@@ -16951,8 +16951,20 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.ChainLogJson"
                     }
                 },
+                "max_proof_size": {
+                    "type": "integer"
+                },
+                "max_ref_time": {
+                    "type": "integer"
+                },
                 "parent_hash": {
                     "type": "string"
+                },
+                "proof_size": {
+                    "type": "integer"
+                },
+                "ref_time": {
+                    "type": "integer"
                 },
                 "spec_version": {
                     "type": "integer"
@@ -19732,6 +19744,18 @@ const docTemplate = `{
                 },
                 "hash": {
                     "type": "string"
+                },
+                "max_proof_size": {
+                    "type": "integer"
+                },
+                "max_ref_time": {
+                    "type": "integer"
+                },
+                "proof_size": {
+                    "type": "integer"
+                },
+                "ref_time": {
+                    "type": "integer"
                 }
             }
         },
@@ -20325,6 +20349,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.TreasurySpend"
                     }
                 },
+                "treasury_type": {
+                    "type": "string"
+                },
                 "updated_block": {
                     "type": "integer"
                 },
@@ -20371,6 +20398,9 @@ const docTemplate = `{
                 },
                 "treasury_id": {
                     "type": "integer"
+                },
+                "treasury_type": {
+                    "type": "string"
                 },
                 "yes": {
                     "type": "integer"
