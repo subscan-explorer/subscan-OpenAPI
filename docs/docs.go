@@ -13406,6 +13406,10 @@ const docTemplate = `{
                 "hash": {
                     "type": "string"
                 },
+                "hidden_params": {
+                    "description": "hide extrinsic params in response",
+                    "type": "boolean"
+                },
                 "only_extrinsic_event": {
                     "type": "boolean"
                 }
