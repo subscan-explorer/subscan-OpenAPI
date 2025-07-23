@@ -1580,9 +1580,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1613,9 +1611,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1646,9 +1642,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -1668,9 +1662,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "ok",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -2959,9 +2951,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -2992,9 +2982,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3025,9 +3013,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3058,9 +3044,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3091,9 +3075,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3124,9 +3106,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3194,9 +3174,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3227,9 +3205,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3260,9 +3236,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3293,9 +3267,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3326,9 +3298,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3360,9 +3330,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3379,9 +3347,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3412,9 +3378,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3445,9 +3409,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3537,9 +3499,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -3659,9 +3619,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5672,9 +5630,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5705,9 +5661,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5738,9 +5692,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5771,9 +5723,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5804,9 +5754,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5837,9 +5785,7 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
+                        "schema": {}
                     }
                 }
             }
@@ -5938,9 +5884,7 @@ const docTemplate = `{
                                             "type": "object",
                                             "additionalProperties": {
                                                 "type": "array",
-                                                "items": {
-                                                    "type": "object"
-                                                }
+                                                "items": {}
                                             }
                                         }
                                     }
@@ -14439,7 +14383,8 @@ const docTemplate = `{
                     "enum": [
                         "day",
                         "hour",
-                        "6hour"
+                        "6hour",
+                        "minute"
                     ]
                 },
                 "start": {
@@ -17355,9 +17300,7 @@ const docTemplate = `{
         "subscan_internal_model.ContractDetailJson": {
             "type": "object",
             "properties": {
-                "abi": {
-                    "type": "object"
-                },
+                "abi": {},
                 "balance": {
                     "type": "string"
                 },
@@ -17391,9 +17334,7 @@ const docTemplate = `{
                 "salt": {
                     "type": "string"
                 },
-                "source_code": {
-                    "type": "object"
-                },
+                "source_code": {},
                 "transaction_count": {
                     "type": "integer"
                 },
@@ -18880,9 +18821,7 @@ const docTemplate = `{
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {
-                    "type": "object"
-                },
+                "dest_raw": {},
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -18955,9 +18894,7 @@ const docTemplate = `{
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {
-                    "type": "object"
-                },
+                "to_account_raw": {},
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -20199,9 +20136,7 @@ const docTemplate = `{
                         "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
                     }
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "price": {
                     "type": "string"
                 },
@@ -20978,9 +20913,7 @@ const docTemplate = `{
                     "description": "eq 0 if to relay chain",
                     "type": "integer"
                 },
-                "dest_raw": {
-                    "type": "object"
-                },
+                "dest_raw": {},
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -21053,9 +20986,7 @@ const docTemplate = `{
                     "description": "receiver address",
                     "type": "string"
                 },
-                "to_account_raw": {
-                    "type": "object"
-                },
+                "to_account_raw": {},
                 "unique_id": {
                     "description": "global xcm message unique id",
                     "type": "string"
@@ -21313,9 +21244,7 @@ const docTemplate = `{
                 "decimals": {
                     "type": "integer"
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "name": {
                     "type": "string"
                 },
@@ -21422,9 +21351,7 @@ const docTemplate = `{
                 "min_balance": {
                     "type": "string"
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21454,9 +21381,7 @@ const docTemplate = `{
                 "metadata": {
                     "$ref": "#/definitions/subscan_internal_plugin_foreignAssets_db.Metadata"
                 },
-                "multi_location": {
-                    "type": "object"
-                },
+                "multi_location": {},
                 "owner": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -21501,9 +21426,7 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.CollectionItemJson": {
             "type": "object",
             "properties": {
-                "attributes": {
-                    "type": "object"
-                },
+                "attributes": {},
                 "collection_id": {
                     "type": "string",
                     "example": "126"
@@ -21602,9 +21525,7 @@ const docTemplate = `{
         "subscan_internal_plugin_nfts_db.NftsJson": {
             "type": "object",
             "properties": {
-                "attributes": {
-                    "type": "object"
-                },
+                "attributes": {},
                 "collection_id": {
                     "type": "string",
                     "example": "1"
