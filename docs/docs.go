@@ -19236,6 +19236,9 @@ const docTemplate = `{
                 "params": {
                     "type": "string"
                 },
+                "source": {
+                    "type": "string"
+                },
                 "status": {
                     "type": "string"
                 },
@@ -19283,6 +19286,12 @@ const docTemplate = `{
                 "status": {
                     "type": "string"
                 },
+                "timeline": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
+                    }
+                },
                 "updated_block": {
                     "type": "integer"
                 }
@@ -19328,6 +19337,9 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/subscan_internal_model.PreimageLinkJson"
                     }
+                },
+                "source": {
+                    "type": "string"
                 },
                 "status": {
                     "type": "string"
