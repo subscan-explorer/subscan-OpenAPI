@@ -6211,12 +6211,20 @@ definitions:
         type: string
       treasury_proposal_id:
         type: integer
+      treasury_proposal_ids:
+        items:
+          type: integer
+        type: array
       treasury_spend:
         items:
           $ref: '#/definitions/subscan_internal_model.TreasurySpend'
         type: array
       treasury_spend_id:
         type: integer
+      treasury_spend_ids:
+        items:
+          type: integer
+        type: array
     type: object
   subscan_internal_model.ReferendumV2SampleJson:
     properties:

@@ -19783,6 +19783,12 @@ const docTemplate = `{
                 "treasury_proposal_id": {
                     "type": "integer"
                 },
+                "treasury_proposal_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "treasury_spend": {
                     "type": "array",
                     "items": {
@@ -19791,6 +19797,12 @@ const docTemplate = `{
                 },
                 "treasury_spend_id": {
                     "type": "integer"
+                },
+                "treasury_spend_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 }
             }
         },
