@@ -7981,6 +7981,118 @@
                 }
             }
         },
+        "/api/scan/sxt/holders": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "sxt"
+                ],
+                "summary": "sxt evm holder list",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_spaceTime_http.holderParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_spaceTime_db.Holder"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/sxt/transfers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "sxt"
+                ],
+                "summary": "sxt evm transfer list",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_spaceTime_http.transferParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_spaceTime_db.TransferJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/techcomm/proposal": {
             "post": {
                 "consumes": [
@@ -11895,6 +12007,37 @@
                         "transfer_count"
                     ],
                     "example": "holders"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_spaceTime_http.holderParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_spaceTime_http.transferParams": {
+            "type": "object",
+            "properties": {
+                "after_id": {
+                    "type": "integer"
                 },
                 "page": {
                     "type": "integer",
@@ -21610,6 +21753,84 @@
                 "message": {
                     "type": "string",
                     "example": "Success"
+                }
+            }
+        },
+        "subscan_internal_plugin_spaceTime_db.Holder": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "string"
+                },
+                "is_contract": {
+                    "type": "boolean"
+                },
+                "is_verified": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_spaceTime_db.HolderDisplay": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "is_contract": {
+                    "type": "boolean"
+                },
+                "is_verified": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_spaceTime_db.TransferJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "amount_raw": {
+                    "type": "string"
+                },
+                "block_hash": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "from": {
+                    "$ref": "#/definitions/subscan_internal_plugin_spaceTime_db.HolderDisplay"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "log_index": {
+                    "type": "integer"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "to": {
+                    "$ref": "#/definitions/subscan_internal_plugin_spaceTime_db.HolderDisplay"
+                },
+                "transaction_hash": {
+                    "type": "string"
                 }
             }
         },

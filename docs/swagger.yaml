@@ -842,6 +842,28 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_plugin_spaceTime_http.holderParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_spaceTime_http.transferParams:
+    properties:
+      after_id:
+        type: integer
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_plugin_unique_unique_http.UniqueAccountBalancesParams:
     properties:
       address:
@@ -7518,6 +7540,57 @@ definitions:
         example: Success
         type: string
     type: object
+  subscan_internal_plugin_spaceTime_db.Holder:
+    properties:
+      address:
+        type: string
+      balance:
+        type: string
+      is_contract:
+        type: boolean
+      is_verified:
+        type: boolean
+      name:
+        type: string
+    type: object
+  subscan_internal_plugin_spaceTime_db.HolderDisplay:
+    properties:
+      address:
+        type: string
+      is_contract:
+        type: boolean
+      is_verified:
+        type: boolean
+      name:
+        type: string
+    type: object
+  subscan_internal_plugin_spaceTime_db.TransferJson:
+    properties:
+      amount:
+        type: string
+      amount_raw:
+        type: string
+      block_hash:
+        type: string
+      block_num:
+        type: integer
+      contract:
+        type: string
+      from:
+        $ref: '#/definitions/subscan_internal_plugin_spaceTime_db.HolderDisplay'
+      id:
+        type: integer
+      log_index:
+        type: integer
+      method:
+        type: string
+      timestamp:
+        type: integer
+      to:
+        $ref: '#/definitions/subscan_internal_plugin_spaceTime_db.HolderDisplay'
+      transaction_hash:
+        type: string
+    type: object
   subscan_internal_plugin_unique_unique_db.CollectionBalance:
     properties:
       balance:
@@ -13070,6 +13143,72 @@ paths:
       summary: Crust storage orders
       tags:
       - crustStorage
+  /api/scan/sxt/holders:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_spaceTime_http.holderParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_spaceTime_db.Holder'
+                      type: array
+                  type: object
+              type: object
+      summary: sxt evm holder list
+      tags:
+      - sxt
+  /api/scan/sxt/transfers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_spaceTime_http.transferParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_spaceTime_db.TransferJson'
+                      type: array
+                  type: object
+              type: object
+      summary: sxt evm transfer list
+      tags:
+      - sxt
   /api/scan/techcomm/proposal:
     post:
       consumes:
