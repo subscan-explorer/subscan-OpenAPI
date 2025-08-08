@@ -51,6 +51,7 @@ const docTemplate = `{
         },
         "/api/open/currencies": {
             "post": {
+                "description": "Get all supported currency pairs for the native token.",
                 "consumes": [
                     "application/json"
                 ],
@@ -93,6 +94,7 @@ const docTemplate = `{
         },
         "/api/open/price": {
             "post": {
+                "description": "Query the native token price at a specific time.",
                 "consumes": [
                     "application/json"
                 ],
@@ -138,6 +140,7 @@ const docTemplate = `{
         },
         "/api/open/price_converter": {
             "post": {
+                "description": "Convert the value of a token from one currency to another at a specific time.",
                 "consumes": [
                     "application/json"
                 ],
@@ -183,7 +186,7 @@ const docTemplate = `{
         },
         "/api/scan/account/assets_changed": {
             "post": {
-                "description": "Get the account assets changed history (currently only support the assets \u0026 foreign assets)",
+                "description": "Get the account assets changed history (only support the assets \u0026 foreign assets)",
                 "consumes": [
                     "application/json"
                 ],
@@ -295,64 +298,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/account/contributions": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Account crowdloan contributions",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.accountCrowdloanContributionsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.AccountContributedJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/account/referendum": {
             "post": {
+                "description": "Account referendum list\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -409,6 +357,7 @@ const docTemplate = `{
         },
         "/api/scan/account/reward_slash": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -465,6 +414,7 @@ const docTemplate = `{
         },
         "/api/scan/account/tokens": {
             "post": {
+                "description": "Get the account token list, including native token and builtin/assets tokens and evm tokens(erc20/erc721).",
                 "consumes": [
                     "application/json"
                 ],
@@ -510,6 +460,7 @@ const docTemplate = `{
         },
         "/api/scan/accounts/merkle": {
             "post": {
+                "description": "Get the account merkle list, only support polkadot and assethub polkadot network",
                 "consumes": [
                     "application/json"
                 ],
@@ -558,6 +509,7 @@ const docTemplate = `{
         },
         "/api/scan/accounts/statistics": {
             "post": {
+                "description": "Get the account statistics, including assets and role statistics.",
                 "consumes": [
                     "application/json"
                 ],
@@ -606,6 +558,7 @@ const docTemplate = `{
         },
         "/api/scan/assets/account/balances": {
             "post": {
+                "description": "Get asset balances by account address\nThis API only supports networks with assets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -640,6 +593,7 @@ const docTemplate = `{
         },
         "/api/scan/assets/activities": {
             "post": {
+                "description": "Get asset activities(include asset Created/Issued/Burned...) by asset id\nThis API only supports networks with assets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -672,49 +626,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/assets/all": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "assets"
-                ],
-                "summary": "Assets list all",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer"
-                                },
-                                "data": {
-                                    "type": "object",
-                                    "properties": {
-                                        "list": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_plugin_assets_db.AssetsListAllJson"
-                                            }
-                                        }
-                                    }
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/assets/asset": {
             "post": {
+                "description": "Get asset info by asset id\nThis API only supports networks with assets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -749,6 +663,7 @@ const docTemplate = `{
         },
         "/api/scan/assets/asset/holders": {
             "post": {
+                "description": "Get asset holders by asset id\nThis API only supports networks with assets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -783,6 +698,7 @@ const docTemplate = `{
         },
         "/api/scan/assets/assets": {
             "post": {
+                "description": "Assets token list\nThis API only supports networks with assets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -838,6 +754,7 @@ const docTemplate = `{
         },
         "/api/scan/block": {
             "post": {
+                "description": "Get block detail by block number, block hash or block timestamp(Nearest).",
                 "consumes": [
                     "application/json"
                 ],
@@ -883,6 +800,7 @@ const docTemplate = `{
         },
         "/api/scan/bounties/proposal": {
             "post": {
+                "description": "Bounty detail\nThis API only supports networks with bounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -928,6 +846,7 @@ const docTemplate = `{
         },
         "/api/scan/bounties/proposals": {
             "post": {
+                "description": "Bounty list\nThis API only supports networks with bounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -1556,6 +1475,7 @@ const docTemplate = `{
         },
         "/api/scan/check_hash": {
             "post": {
+                "description": "Check hash type, return hash type and address/extrinsic/evm transaction/block/xcm message/multisig call hash if found",
                 "consumes": [
                     "application/json"
                 ],
@@ -1565,7 +1485,7 @@ const docTemplate = `{
                 "tags": [
                     "search"
                 ],
-                "summary": "Check hash",
+                "summary": "Check hash type",
                 "parameters": [
                     {
                         "description": "param",
@@ -1677,6 +1597,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/events": {
             "post": {
+                "description": "WASM contract emitted events by contract address(only support network has contracts frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -1733,6 +1654,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/info": {
             "post": {
+                "description": "WASM contract info by contract address(only support network has contracts frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -1778,6 +1700,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/list": {
             "post": {
+                "description": "WASM contract list(only support network has contracts frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -1787,7 +1710,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract List",
+                "summary": "WASM Contract List",
                 "parameters": [
                     {
                         "description": "param",
@@ -1834,6 +1757,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/meta": {
             "post": {
+                "description": "WASM contract metadata(only support network has contracts frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -1879,6 +1803,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/timeline": {
             "post": {
+                "description": "WASM contract lifetime timeline by contract address(only support network has contracts frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -1932,6 +1857,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/transactions": {
             "post": {
+                "description": "WASM contract transactions by address or contract address(only support network has contracts frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -1941,7 +1867,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract transactions",
+                "summary": "WASM Contract transactions",
                 "parameters": [
                     {
                         "description": "param",
@@ -1988,6 +1914,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/verify/compiler_images": {
             "get": {
+                "description": "WASM contract available compiler images for verifying contracts",
                 "consumes": [
                     "application/json"
                 ],
@@ -2028,6 +1955,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/verify/compiler_version": {
             "get": {
+                "description": "WASM contract available compiler versions for verifying contracts",
                 "consumes": [
                     "application/json"
                 ],
@@ -2063,53 +1991,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/contracts/verify/log": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contracts"
-                ],
-                "summary": "Verify wasm contract log",
-                "parameters": [
-                    {
-                        "description": "param",
-                        "name": "param",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.contractInfoParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/council/proposal": {
             "post": {
+                "description": "Council proposal detail\nThis API only supports networks with council frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2160,6 +2044,7 @@ const docTemplate = `{
         },
         "/api/scan/council/proposals": {
             "post": {
+                "description": "Council proposal list\nThis API only supports networks with council frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2269,7 +2154,7 @@ const docTemplate = `{
         },
         "/api/scan/daily/reward_slash": {
             "post": {
-                "description": "Get daily reward or slash data. Only supports agung-testnet,peaq,krest network",
+                "description": "Get daily reward or slash data.\nOnly supports agung-testnet,peaq,krest network",
                 "consumes": [
                     "application/json"
                 ],
@@ -2379,6 +2264,7 @@ const docTemplate = `{
         },
         "/api/scan/dataAvailability/info": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2413,6 +2299,7 @@ const docTemplate = `{
         },
         "/api/scan/dataAvailability/list": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2472,6 +2359,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/proposal": {
             "post": {
+                "description": "Democracy details\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2522,6 +2410,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/proposals": {
             "post": {
+                "description": "Democracies list\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2578,6 +2467,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/referendum": {
             "post": {
+                "description": "Referendum list\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2628,6 +2518,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/referendums": {
             "post": {
+                "description": "Referendums list\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2684,6 +2575,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/seconded": {
             "post": {
+                "description": "Democracy seconded list\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2740,6 +2632,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/votes": {
             "post": {
+                "description": "Referendum votes list\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2785,52 +2678,6 @@ const docTemplate = `{
                                                     }
                                                 }
                                             }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/download/progress": {
-            "get": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "download"
-                ],
-                "summary": "Download progress",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "download key",
-                        "name": "key",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "description": "timeout",
-                        "name": "timeout",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.DProgress"
                                         }
                                     }
                                 }
@@ -2935,6 +2782,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/abi": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -2968,6 +2816,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/account/tokens": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3001,6 +2850,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/block": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3067,6 +2917,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/contract": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3100,6 +2951,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/contract/list": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3133,6 +2985,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/contract/solcs": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3170,6 +3023,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/erc1155/collectible": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3203,6 +3057,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/erc1155/collectible/holders": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3236,6 +3091,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/erc1155/collectibles": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3269,6 +3125,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/erc721/collectible": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3302,6 +3159,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/erc721/collectibles": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3335,7 +3193,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/logs": {
             "post": {
-                "description": "EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.",
+                "description": "EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.\nThis API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3369,6 +3227,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/meta": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "produces": [
                     "application/json"
                 ],
@@ -3388,6 +3247,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/token": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3421,6 +3281,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/token/holders": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3454,6 +3315,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/token/transfer": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3513,6 +3375,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/tokens": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3546,6 +3409,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/transaction": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3579,6 +3443,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/transaction/internalTx": {
             "post": {
+                "description": "This API only available for the PEAQ network",
                 "consumes": [
                     "application/json"
                 ],
@@ -3635,6 +3500,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/v2/transactions": {
             "post": {
+                "description": "This API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3758,6 +3624,7 @@ const docTemplate = `{
         },
         "/api/scan/extrinsic/reward": {
             "post": {
+                "description": "Get extrinsic reward list by extrinsic index.\nThis API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -3814,6 +3681,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/referendum": {
             "post": {
+                "description": "Fellowship referenda details\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3859,6 +3727,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/referendums": {
             "post": {
+                "description": "Fellowship referenda list\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3915,6 +3784,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/statistics": {
             "post": {
+                "description": "Fellowship referendum statistics\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3949,6 +3819,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/tracks": {
             "post": {
+                "description": "Fellowship referendum tracks\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3986,6 +3857,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/votes": {
             "post": {
+                "description": "Fellowship referendum votes list\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4042,6 +3914,7 @@ const docTemplate = `{
         },
         "/api/scan/foreignAssets/account/balances": {
             "post": {
+                "description": "This API only supports networks with foreignAssets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4090,6 +3963,7 @@ const docTemplate = `{
         },
         "/api/scan/foreignAssets/activities": {
             "post": {
+                "description": "This API only supports networks with foreignAssets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4146,6 +4020,7 @@ const docTemplate = `{
         },
         "/api/scan/foreignAssets/all": {
             "post": {
+                "description": "This API only supports networks with foreignAssets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4188,6 +4063,7 @@ const docTemplate = `{
         },
         "/api/scan/foreignAssets/asset": {
             "post": {
+                "description": "This API only supports networks with foreignAssets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4233,6 +4109,7 @@ const docTemplate = `{
         },
         "/api/scan/foreignAssets/asset/holders": {
             "post": {
+                "description": "This API only supports networks with foreignAssets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4289,6 +4166,7 @@ const docTemplate = `{
         },
         "/api/scan/foreignAssets/assets": {
             "post": {
+                "description": "This API only supports networks with foreignAssets frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4390,6 +4268,7 @@ const docTemplate = `{
         },
         "/api/scan/governance/desc": {
             "post": {
+                "description": "This API provides post/comments about the proposal, this api powered by the subsquare/polkassembly",
                 "consumes": [
                     "application/json"
                 ],
@@ -4435,6 +4314,7 @@ const docTemplate = `{
         },
         "/api/scan/header": {
             "post": {
+                "description": "Get block header by block number.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4478,80 +4358,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/ibc/transfers": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "ibc"
-                ],
-                "summary": "Ibc Transfers list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_pluginv2_pallets_ibc.transfersParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "code": {
-                                    "type": "integer"
-                                },
-                                "data": {
-                                    "type": "object",
-                                    "properties": {
-                                        "chains": {
-                                            "type": "object",
-                                            "properties": {
-                                                "from": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "to": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "count": {
-                                            "type": "integer"
-                                        },
-                                        "list": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/internal_pluginv2_pallets_ibc.TransferJson"
-                                            }
-                                        }
-                                    }
-                                },
-                                "message": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/liquidstaking/operations": {
             "post": {
+                "description": "This API only available for bifrost/bifrost-kusama network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4652,6 +4461,7 @@ const docTemplate = `{
         },
         "/api/scan/metadata": {
             "post": {
+                "description": "Current network metadata, including current networkNode name, ss58 addressType and other information",
                 "produces": [
                     "application/json"
                 ],
@@ -4686,6 +4496,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/account/count": {
             "post": {
+                "description": "Get the number of accounts in multi-chains\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -4731,6 +4542,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_history": {
             "post": {
+                "description": "Get the historical balance value of an account over a specified period.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -4779,6 +4591,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_stat": {
             "post": {
+                "description": "Get the maximum, minimum, and 24-hour previous balance value of an account.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -4844,6 +4657,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/price": {
             "post": {
+                "description": "Support Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -4890,6 +4704,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/account/balances": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4923,6 +4738,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/activities": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4956,6 +4772,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/holders": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4989,6 +4806,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/info": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5022,6 +4840,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/info/item": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5055,6 +4874,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/items": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5088,6 +4908,7 @@ const docTemplate = `{
         },
         "/api/scan/multiTokens/list": {
             "post": {
+                "description": "This API only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5278,6 +5099,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/account/balances": {
             "post": {
+                "description": "Get NFT balances by account address\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5334,6 +5156,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/activities": {
             "post": {
+                "description": "Get Nft activities(include nft Created/Issued/Burned...) by nft collection id\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5390,6 +5213,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/info": {
             "post": {
+                "description": "NFT collection info\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5435,6 +5259,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/info/holders": {
             "post": {
+                "description": "NFT holders in a collection\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5491,6 +5316,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/info/item": {
             "post": {
+                "description": "NFT item info\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5536,6 +5362,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/info/items": {
             "post": {
+                "description": "NFT items in a collection\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5592,6 +5419,7 @@ const docTemplate = `{
         },
         "/api/scan/nfts/list": {
             "post": {
+                "description": "NFTs collection list\nThis API only supports networks with nfts frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5648,6 +5476,7 @@ const docTemplate = `{
         },
         "/api/scan/nomination_pool/activities": {
             "post": {
+                "description": "This API only supports networks with nominationPools frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5681,6 +5510,7 @@ const docTemplate = `{
         },
         "/api/scan/nomination_pool/pool": {
             "post": {
+                "description": "This API only supports networks with nominationPools frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5714,6 +5544,7 @@ const docTemplate = `{
         },
         "/api/scan/nomination_pool/pool/member/vote": {
             "post": {
+                "description": "This API only supports networks with nominationPools frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5747,6 +5578,7 @@ const docTemplate = `{
         },
         "/api/scan/nomination_pool/pool/members": {
             "post": {
+                "description": "This API only supports networks with nominationPools frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5780,6 +5612,7 @@ const docTemplate = `{
         },
         "/api/scan/nomination_pool/pools": {
             "post": {
+                "description": "This API only supports networks with nominationPools frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5813,6 +5646,7 @@ const docTemplate = `{
         },
         "/api/scan/nomination_pool/rewards": {
             "post": {
+                "description": "This API only supports networks with nominationPools frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -5846,6 +5680,7 @@ const docTemplate = `{
         },
         "/api/scan/orbiters/rewards": {
             "post": {
+                "description": "This API only available for moonbeam(moonriver,moonbase) network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5900,480 +5735,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/parachain/auctionCompetitors": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Auction competitors",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.auctionCompetitorsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/auction_funds_stat": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Auction funds stat",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.auctionFundsStatParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "additionalProperties": {
-                                                "type": "array",
-                                                "items": {
-                                                    "$ref": "#/definitions/subscan_internal_model.ParachainFundHistoryStatJson"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/auction_leading_blocks": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Auction leading blocks",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.auctionLeadingBlocksParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_service_scan.uniqueBid"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/auctions": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "PLO auctions list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.parachainAuctionsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "auctions": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainAuction"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/bestBid": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Best bid",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.bestBidParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/bids": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "PLO slot bids list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.parachainSlotBidsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "bids": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/contributes": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Crowdloan fund contributes list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.parachainFundContributesParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "contributes": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainFundContribution"
-                                                    }
-                                                },
-                                                "count": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/fundStat": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Crowdloan fund stat",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.parachainFundContributesParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainFundHistoryStatJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/api/scan/parachain/funds": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Crowdloan funds list",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.crowdloanFundsParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "funds": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ParachainFund"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/parachain/info": {
             "post": {
+                "description": "Get detailed information about Parachain\nonly available on relay chain(Polkadot,Kusama,Westend,Paseo).",
                 "consumes": [
                     "application/json"
                 ],
@@ -6430,6 +5794,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/list": {
             "post": {
+                "description": "List ParaChains/ParaThread with their status and other details.\nonly available on relay chain(Polkadot,Kusama,Westend,Paseo).",
                 "consumes": [
                     "application/json"
                 ],
@@ -6486,6 +5851,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/meta": {
             "post": {
+                "description": "Get the metadata of all parachains.\nonly available on relay chain(Polkadot,Kusama,Westend,Paseo).",
                 "consumes": [
                     "application/json"
                 ],
@@ -6518,56 +5884,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/parachain/predict": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "parachain"
-                ],
-                "summary": "Winner predict",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.winnerPredictParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/parachain/registerinfo": {
             "post": {
+                "description": "Get the register info of parachain.",
                 "consumes": [
                     "application/json"
                 ],
@@ -6655,6 +5974,7 @@ const docTemplate = `{
         },
         "/api/scan/preimage/details": {
             "post": {
+                "description": "Preimage details\nThis API only supports networks with preimage frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -6700,6 +6020,7 @@ const docTemplate = `{
         },
         "/api/scan/preimage/list": {
             "post": {
+                "description": "Preimage list\nThis API only supports networks with preimage frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -6871,6 +6192,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/referendum": {
             "post": {
+                "description": "Referenda details\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -6916,6 +6238,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/referendums": {
             "post": {
+                "description": "Referenda list\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -6972,6 +6295,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/statistics": {
             "post": {
+                "description": "Referendum statistics\nThis API only supports networks with referenda/democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -7006,6 +6330,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/tracks": {
             "post": {
+                "description": "Referendum tracks\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -7043,6 +6368,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/votes": {
             "post": {
+                "description": "Referenda votes list\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -7199,6 +6525,7 @@ const docTemplate = `{
         },
         "/api/scan/search/identity": {
             "post": {
+                "description": "Search by account identity display(fuzzy search)",
                 "consumes": [
                     "application/json"
                 ],
@@ -7252,6 +6579,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/era_stat": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7308,6 +6636,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/nominator": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7353,6 +6682,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/nominators": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7409,6 +6739,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/total_reward": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7459,6 +6790,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/unbonding": {
             "post": {
+                "description": "This API only supports networks with staking frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -7510,6 +6842,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validator": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7560,6 +6893,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validator/bond_stat": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7613,6 +6947,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validators": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7722,6 +7057,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/waiting": {
             "post": {
+                "description": "This API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -7778,6 +7114,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/daily": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7812,6 +7149,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/group": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7846,6 +7184,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/group/members": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7880,6 +7219,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/groups": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7914,6 +7254,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/member": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7948,6 +7289,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/member/files": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7982,6 +7324,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/member/orders": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8016,6 +7359,7 @@ const docTemplate = `{
         },
         "/api/scan/swork/orders": {
             "post": {
+                "description": "This API only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8050,6 +7394,7 @@ const docTemplate = `{
         },
         "/api/scan/sxt/holders": {
             "post": {
+                "description": "This API only available for sxt network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8106,6 +7451,7 @@ const docTemplate = `{
         },
         "/api/scan/sxt/transfers": {
             "post": {
+                "description": "This API only available for sxt network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8162,6 +7508,7 @@ const docTemplate = `{
         },
         "/api/scan/techcomm/proposal": {
             "post": {
+                "description": "technical-committee proposal detail\nThis API only supports networks with technicalCommittee frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8212,6 +7559,7 @@ const docTemplate = `{
         },
         "/api/scan/techcomm/proposals": {
             "post": {
+                "description": "technical-committee proposals list\nThis API only supports networks with technicalCommittee frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8316,6 +7664,7 @@ const docTemplate = `{
         },
         "/api/scan/token/holders": {
             "post": {
+                "description": "Get the token holders list, including native token and builtin tokens",
                 "consumes": [
                     "application/json"
                 ],
@@ -8474,6 +7823,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/proposal": {
             "post": {
+                "description": "Treasury proposal detail\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8524,6 +7874,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/proposals": {
             "post": {
+                "description": "Treasury proposals list\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8580,6 +7931,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/tip": {
             "post": {
+                "description": "Treasury tip detail\nThis API only supports networks with tips frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8630,6 +7982,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/tippers": {
             "post": {
+                "description": "Treasury tippers list\nThis API only supports networks with tips frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8683,6 +8036,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/tips": {
             "post": {
+                "description": "Treasury tips list\nThis API only supports networks with tips frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8739,6 +8093,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_council_collective/proposal": {
             "post": {
+                "description": "treasury council collective proposal detail\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8789,6 +8144,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_council_collective/proposals": {
             "post": {
+                "description": "treasury council collective proposals list\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8845,6 +8201,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_council_collective/votes": {
             "post": {
+                "description": "treasury council collective votes list\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8901,6 +8258,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_spend/proposal": {
             "post": {
+                "description": "Treasury spend proposal detail\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8951,6 +8309,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_spend/proposals": {
             "post": {
+                "description": "Treasury spend proposals list\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -9660,6 +9019,7 @@ const docTemplate = `{
         },
         "/api/scan/vesting_release": {
             "post": {
+                "description": "Get the list of vesting releases within a specified date range.(only for network has vesting frame)",
                 "consumes": [
                     "application/json"
                 ],
@@ -10174,6 +9534,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/accounts": {
             "post": {
+                "description": "Get the native token accounts list",
                 "consumes": [
                     "application/json"
                 ],
@@ -10507,6 +9868,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/multiChain/account": {
             "post": {
+                "description": "balance of a multi-chains account along with data related to the account's participation in DeFi data.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -10563,6 +9925,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/search": {
             "post": {
+                "description": "Get account information by address",
                 "consumes": [
                     "application/json"
                 ],
@@ -13237,116 +12600,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_pluginv2_pallets_ibc.TransferJson": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "string"
-                },
-                "amount_v2": {
-                    "type": "string"
-                },
-                "asset_id": {
-                    "type": "string"
-                },
-                "asset_symbol": {
-                    "type": "string"
-                },
-                "asset_unique_id": {
-                    "type": "string"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "destination_channel": {
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "from": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "from_chain": {
-                    "type": "string"
-                },
-                "ibc_denom": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "source_channel": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "to": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "to_chain": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_pluginv2_pallets_ibc.transfersParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "asset_id": {
-                    "type": "string"
-                },
-                "asset_symbol": {
-                    "type": "string"
-                },
-                "asset_unique_id": {
-                    "type": "string"
-                },
-                "block_range": {
-                    "type": "string",
-                    "example": "110000-120000"
-                },
-                "direction": {
-                    "type": "string",
-                    "enum": [
-                        "all",
-                        "sent",
-                        "received"
-                    ]
-                },
-                "extrinsic_index": {
-                    "type": "string",
-                    "example": "12321-2"
-                },
-                "from_chain": {
-                    "type": "string",
-                    "example": "composable"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "to_chain": {
-                    "type": "string",
-                    "example": "picasso"
-                }
-            }
-        },
         "internal_pluginv2_pallets_liquidStaking.OperationRecordJson": {
             "type": "object",
             "properties": {
@@ -13853,33 +13106,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.accountCrowdloanContributionsParams": {
-            "type": "object",
-            "required": [
-                "who"
-            ],
-            "properties": {
-                "include_total": {
-                    "type": "boolean"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "who": {
-                    "type": "string"
-                }
-            }
-        },
         "internal_server_http.accountInfoParams": {
             "type": "object",
             "required": [
@@ -14096,61 +13322,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.auctionCompetitorsParams": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "includingFund": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "internal_server_http.auctionFundsStatParams": {
-            "type": "object",
-            "properties": {
-                "auction_id": {
-                    "type": "integer"
-                },
-                "end": {
-                    "type": "string"
-                },
-                "format": {
-                    "type": "string",
-                    "enum": [
-                        "day",
-                        "hour",
-                        "6hour"
-                    ]
-                },
-                "start": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_server_http.auctionLeadingBlocksParams": {
-            "type": "object",
-            "required": [
-                "auction_id"
-            ],
-            "properties": {
-                "auction_id": {
-                    "type": "integer"
-                }
-            }
-        },
-        "internal_server_http.bestBidParams": {
-            "type": "object",
-            "required": [
-                "bid_id"
-            ],
-            "properties": {
-                "bid_id": {
-                    "type": "string"
-                }
-            }
-        },
         "internal_server_http.blockHeaderParams": {
             "type": "object",
             "properties": {
@@ -14275,7 +13446,8 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "block_range": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "20000-30000"
                 },
                 "contract": {
                     "type": "string"
@@ -14381,75 +13553,6 @@ const docTemplate = `{
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
-                }
-            }
-        },
-        "internal_server_http.crowdloanFundsParams": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "from_block": {
-                    "type": "integer"
-                },
-                "from_history": {
-                    "type": "boolean"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "order": {
-                    "type": "string"
-                },
-                "owner": {
-                    "type": "string"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "para_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "progress": {
-                    "type": "boolean"
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "statuses": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "to_block": {
-                    "type": "integer"
                 }
             }
         },
@@ -15140,63 +14243,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.parachainAuctionsParams": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "status": {
-                    "type": "integer"
-                }
-            }
-        },
-        "internal_server_http.parachainFundContributesParams": {
-            "type": "object",
-            "properties": {
-                "from_history": {
-                    "type": "boolean"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "order": {
-                    "type": "string"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "who": {
-                    "type": "string"
-                }
-            }
-        },
         "internal_server_http.parachainInfoParams": {
             "type": "object",
             "properties": {
@@ -15227,66 +14273,6 @@ const docTemplate = `{
                     "items": {
                         "type": "string"
                     }
-                }
-            }
-        },
-        "internal_server_http.parachainSlotBidsParams": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "bidder": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "from_block": {
-                    "type": "integer"
-                },
-                "from_history": {
-                    "type": "boolean"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "latest": {
-                    "type": "boolean"
-                },
-                "order": {
-                    "type": "string"
-                },
-                "page": {
-                    "description": "Page number, starting from 0",
-                    "type": "integer",
-                    "minimum": 0,
-                    "example": 0
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "row": {
-                    "description": "Data size per page",
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1,
-                    "example": 10
-                },
-                "source": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "to_block": {
-                    "type": "integer"
                 }
             }
         },
@@ -16251,14 +15237,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.winnerPredictParams": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                }
-            }
-        },
         "subscan_internal_dao.AccountBalanceValueHistory": {
             "type": "object",
             "properties": {
@@ -16318,50 +15296,6 @@ const docTemplate = `{
             "x-enum-varnames": [
                 "AccountBalanceHistoryStatusNone"
             ]
-        },
-        "subscan_internal_model.AccountContributedJson": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "contributed": {
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fund_auction_status": {
-                    "type": "integer"
-                },
-                "fund_event_index": {
-                    "type": "string"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "fund_status": {
-                    "type": "integer"
-                },
-                "memo": {
-                    "type": "string"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "unlocking_block": {
-                    "type": "integer"
-                }
-            }
         },
         "subscan_internal_model.AccountDerive": {
             "type": "object",
@@ -17798,23 +16732,6 @@ const docTemplate = `{
                 "SnowBridge"
             ]
         },
-        "subscan_internal_model.DProgress": {
-            "type": "object",
-            "properties": {
-                "download": {
-                    "type": "string"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "progress": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
         "subscan_internal_model.DailyRewardSlashJson": {
             "type": "object",
             "properties": {
@@ -19116,172 +18033,6 @@ const docTemplate = `{
                 }
             }
         },
-        "subscan_internal_model.ParachainAuction": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "early_end_block": {
-                    "type": "integer"
-                },
-                "end_block": {
-                    "type": "integer"
-                },
-                "extinguish_block": {
-                    "type": "integer"
-                },
-                "lease_index": {
-                    "type": "integer"
-                },
-                "start_block": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "winners": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/subscan_internal_model.ParachainSlotWinner"
-                    }
-                }
-            }
-        },
-        "subscan_internal_model.ParachainFund": {
-            "type": "object",
-            "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "balance": {
-                    "type": "string"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "cap": {
-                    "type": "string"
-                },
-                "contributors": {
-                    "type": "integer"
-                },
-                "end_block": {
-                    "type": "integer"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_auction_status": {
-                    "type": "integer"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "in_auctions": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "last_change_block": {
-                    "type": "integer"
-                },
-                "last_change_event_idx": {
-                    "type": "integer"
-                },
-                "last_change_timestamp": {
-                    "type": "integer"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "owner": {
-                    "type": "string"
-                },
-                "owner_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "raised": {
-                    "type": "string"
-                },
-                "start_block": {
-                    "type": "integer"
-                },
-                "start_block_at": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainFundContribution": {
-            "type": "object",
-            "properties": {
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "contributed": {
-                    "description": "total amount",
-                    "type": "string"
-                },
-                "contributing": {
-                    "description": "last contributed amount",
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "memo": {
-                    "type": "string"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "integer"
-                },
-                "who": {
-                    "type": "string"
-                },
-                "who_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainFundHistoryStatJson": {
-            "type": "object",
-            "properties": {
-                "time_hour_utc": {
-                    "type": "string"
-                },
-                "time_six_hour_utc": {
-                    "type": "string"
-                },
-                "time_utc": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "string"
-                }
-            }
-        },
         "subscan_internal_model.ParachainInfoJson": {
             "type": "object",
             "properties": {
@@ -19362,59 +18113,6 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "xcm_send_transfer_count": {
-                    "type": "integer"
-                }
-            }
-        },
-        "subscan_internal_model.ParachainSlotWinner": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "string"
-                },
-                "auction_index": {
-                    "type": "integer"
-                },
-                "bid_count": {
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "bidder_account": {
-                    "type": "string"
-                },
-                "bidder_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "block_num": {
-                    "type": "integer"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "source": {
-                    "type": "integer"
-                },
-                "status": {
                     "type": "integer"
                 }
             }
@@ -21293,20 +19991,6 @@ const docTemplate = `{
                 }
             }
         },
-        "subscan_internal_plugin_assets_db.AssetsListAllJson": {
-            "type": "object",
-            "properties": {
-                "asset_id": {
-                    "type": "string"
-                },
-                "decimals": {
-                    "type": "integer"
-                },
-                "symbol": {
-                    "type": "string"
-                }
-            }
-        },
         "subscan_internal_plugin_assets_db.Metadata": {
             "type": "object",
             "properties": {
@@ -22454,26 +21138,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "unclaimed": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_service_scan.uniqueBid": {
-            "type": "object",
-            "properties": {
-                "bid_id": {
-                    "type": "string"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "leading_blocks": {
-                    "type": "integer"
-                },
-                "para_id": {
-                    "type": "integer"
-                },
-                "unique_key": {
                     "type": "string"
                 }
             }

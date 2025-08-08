@@ -8,6 +8,11 @@ def parse_network_json(file_path):
         "statemine": "assethub-kusama",
         "statemint": "assethub-polkadot",
         "darwinia2": "darwinia",
+        "bifrost":"bifrost-kusama",
+        "bifrost-p":"bifrost-polkadot",
+        "Crust-main":"crust",
+        "Origintrail-rococo":"neuroweb-paseo",
+        "Origintrail":"neuroweb",
     }
     table = []
 

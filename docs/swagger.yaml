@@ -1662,83 +1662,6 @@ definitions:
         minimum: 1
         type: integer
     type: object
-  internal_pluginv2_pallets_ibc.TransferJson:
-    properties:
-      amount:
-        type: string
-      amount_v2:
-        type: string
-      asset_id:
-        type: string
-      asset_symbol:
-        type: string
-      asset_unique_id:
-        type: string
-      block_timestamp:
-        type: integer
-      destination_channel:
-        type: string
-      event_index:
-        type: string
-      extrinsic_index:
-        type: string
-      from:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      from_chain:
-        type: string
-      ibc_denom:
-        type: string
-      id:
-        type: integer
-      source_channel:
-        type: string
-      status:
-        type: string
-      to:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      to_chain:
-        type: string
-    type: object
-  internal_pluginv2_pallets_ibc.transfersParams:
-    properties:
-      address:
-        type: string
-      asset_id:
-        type: string
-      asset_symbol:
-        type: string
-      asset_unique_id:
-        type: string
-      block_range:
-        example: 110000-120000
-        type: string
-      direction:
-        enum:
-        - all
-        - sent
-        - received
-        type: string
-      extrinsic_index:
-        example: 12321-2
-        type: string
-      from_chain:
-        example: composable
-        type: string
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      to_chain:
-        example: picasso
-        type: string
-    type: object
   internal_pluginv2_pallets_liquidStaking.OperationRecordJson:
     properties:
       account:
@@ -2102,26 +2025,6 @@ definitions:
     required:
     - address
     type: object
-  internal_server_http.accountCrowdloanContributionsParams:
-    properties:
-      include_total:
-        type: boolean
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      who:
-        type: string
-    required:
-    - who
-    type: object
   internal_server_http.accountInfoParams:
     properties:
       key:
@@ -2285,42 +2188,6 @@ definitions:
     required:
     - address
     type: object
-  internal_server_http.auctionCompetitorsParams:
-    properties:
-      auction_index:
-        type: integer
-      includingFund:
-        type: boolean
-    type: object
-  internal_server_http.auctionFundsStatParams:
-    properties:
-      auction_id:
-        type: integer
-      end:
-        type: string
-      format:
-        enum:
-        - day
-        - hour
-        - 6hour
-        type: string
-      start:
-        type: string
-    type: object
-  internal_server_http.auctionLeadingBlocksParams:
-    properties:
-      auction_id:
-        type: integer
-    required:
-    - auction_id
-    type: object
-  internal_server_http.bestBidParams:
-    properties:
-      bid_id:
-        type: string
-    required:
-    - bid_id
-    type: object
   internal_server_http.blockHeaderParams:
     properties:
       block_num:
@@ -2408,6 +2275,7 @@ definitions:
       address:
         type: string
       block_range:
+        example: 20000-30000
         type: string
       contract:
         type: string
@@ -2487,54 +2355,6 @@ definitions:
         example: 10
         maximum: 100
         minimum: 1
-        type: integer
-    type: object
-  internal_server_http.crowdloanFundsParams:
-    properties:
-      auction_index:
-        type: integer
-      bid_id:
-        type: string
-      first_period:
-        type: integer
-      from_block:
-        type: integer
-      from_history:
-        type: boolean
-      fund_id:
-        type: string
-      last_period:
-        type: integer
-      order:
-        type: string
-      owner:
-        type: string
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      para_id:
-        type: integer
-      para_ids:
-        items:
-          type: integer
-        type: array
-      progress:
-        type: boolean
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      status:
-        type: integer
-      statuses:
-        items:
-          type: integer
-        type: array
-      to_block:
         type: integer
     type: object
   internal_server_http.currencyConverterParams:
@@ -3031,48 +2851,6 @@ definitions:
           type: string
         type: array
     type: object
-  internal_server_http.parachainAuctionsParams:
-    properties:
-      auction_index:
-        type: integer
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      status:
-        type: integer
-    type: object
-  internal_server_http.parachainFundContributesParams:
-    properties:
-      from_history:
-        type: boolean
-      fund_id:
-        type: string
-      order:
-        type: string
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      para_id:
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      who:
-        type: string
-    type: object
   internal_server_http.parachainInfoParams:
     properties:
       filter_anonymous:
@@ -3096,48 +2874,6 @@ definitions:
         items:
           type: string
         type: array
-    type: object
-  internal_server_http.parachainSlotBidsParams:
-    properties:
-      auction_index:
-        type: integer
-      bid_id:
-        type: string
-      bidder:
-        type: string
-      first_period:
-        type: integer
-      from_block:
-        type: integer
-      from_history:
-        type: boolean
-      fund_id:
-        type: string
-      last_period:
-        type: integer
-      latest:
-        type: boolean
-      order:
-        type: string
-      page:
-        description: Page number, starting from 0
-        example: 0
-        minimum: 0
-        type: integer
-      para_id:
-        type: integer
-      row:
-        description: Data size per page
-        example: 10
-        maximum: 100
-        minimum: 1
-        type: integer
-      source:
-        type: integer
-      status:
-        type: integer
-      to_block:
-        type: integer
     type: object
   internal_server_http.preimageDetailsParams:
     properties:
@@ -3830,11 +3566,6 @@ definitions:
         - validator_prefs_value
         type: string
     type: object
-  internal_server_http.winnerPredictParams:
-    properties:
-      auction_index:
-        type: integer
-    type: object
   subscan_internal_dao.AccountBalanceValueHistory:
     properties:
       asset_value:
@@ -3874,35 +3605,6 @@ definitions:
     type: string
     x-enum-varnames:
     - AccountBalanceHistoryStatusNone
-  subscan_internal_model.AccountContributedJson:
-    properties:
-      block_num:
-        type: integer
-      block_timestamp:
-        type: integer
-      contributed:
-        type: string
-      event_index:
-        type: string
-      extrinsic_index:
-        type: string
-      fund_auction_status:
-        type: integer
-      fund_event_index:
-        type: string
-      fund_id:
-        type: string
-      fund_status:
-        type: integer
-      memo:
-        type: string
-      para_id:
-        type: integer
-      status:
-        type: integer
-      unlocking_block:
-        type: integer
-    type: object
   subscan_internal_model.AccountDerive:
     properties:
       balance:
@@ -4853,17 +4555,6 @@ definitions:
     - DMPProtocol
     - HRMPProtocol
     - SnowBridge
-  subscan_internal_model.DProgress:
-    properties:
-      download:
-        type: string
-      key:
-        type: string
-      progress:
-        type: integer
-      status:
-        type: string
-    type: object
   subscan_internal_model.DailyRewardSlashJson:
     properties:
       account:
@@ -5730,116 +5421,6 @@ definitions:
         description: xcm version
         type: integer
     type: object
-  subscan_internal_model.ParachainAuction:
-    properties:
-      auction_index:
-        type: integer
-      early_end_block:
-        type: integer
-      end_block:
-        type: integer
-      extinguish_block:
-        type: integer
-      lease_index:
-        type: integer
-      start_block:
-        type: integer
-      status:
-        type: integer
-      winners:
-        items:
-          $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
-        type: array
-    type: object
-  subscan_internal_model.ParachainFund:
-    properties:
-      auction_index:
-        type: integer
-      balance:
-        type: string
-      bid_id:
-        type: string
-      cap:
-        type: string
-      contributors:
-        type: integer
-      end_block:
-        type: integer
-      extrinsic_index:
-        type: string
-      first_period:
-        type: integer
-      fund_auction_status:
-        type: integer
-      fund_id:
-        type: string
-      in_auctions:
-        items:
-          type: integer
-        type: array
-      last_change_block:
-        type: integer
-      last_change_event_idx:
-        type: integer
-      last_change_timestamp:
-        type: integer
-      last_period:
-        type: integer
-      owner:
-        type: string
-      owner_display:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      para_id:
-        type: integer
-      raised:
-        type: string
-      start_block:
-        type: integer
-      start_block_at:
-        type: integer
-      status:
-        type: integer
-    type: object
-  subscan_internal_model.ParachainFundContribution:
-    properties:
-      block_num:
-        type: integer
-      block_timestamp:
-        type: integer
-      contributed:
-        description: total amount
-        type: string
-      contributing:
-        description: last contributed amount
-        type: string
-      event_index:
-        type: string
-      extrinsic_index:
-        type: string
-      fund_id:
-        type: string
-      memo:
-        type: string
-      para_id:
-        type: integer
-      status:
-        type: integer
-      who:
-        type: string
-      who_display:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-    type: object
-  subscan_internal_model.ParachainFundHistoryStatJson:
-    properties:
-      time_hour_utc:
-        type: string
-      time_six_hour_utc:
-        type: string
-      time_utc:
-        type: string
-      total:
-        type: string
-    type: object
   subscan_internal_model.ParachainInfoJson:
     properties:
       auction_index:
@@ -5894,41 +5475,6 @@ definitions:
       xcm_send_message_count:
         type: integer
       xcm_send_transfer_count:
-        type: integer
-    type: object
-  subscan_internal_model.ParachainSlotWinner:
-    properties:
-      amount:
-        type: string
-      auction_index:
-        type: integer
-      bid_count:
-        type: integer
-      bid_id:
-        type: string
-      bidder_account:
-        type: string
-      bidder_account_display:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      block_num:
-        type: integer
-      block_timestamp:
-        type: integer
-      event_index:
-        type: string
-      extrinsic_index:
-        type: string
-      first_period:
-        type: integer
-      fund_id:
-        type: string
-      last_period:
-        type: integer
-      para_id:
-        type: integer
-      source:
-        type: integer
-      status:
         type: integer
     type: object
   subscan_internal_model.PreImageJson:
@@ -7178,15 +6724,6 @@ definitions:
       support_parachain:
         type: integer
     type: object
-  subscan_internal_plugin_assets_db.AssetsListAllJson:
-    properties:
-      asset_id:
-        type: string
-      decimals:
-        type: integer
-      symbol:
-        type: string
-    type: object
   subscan_internal_plugin_assets_db.Metadata:
     properties:
       decimals:
@@ -7962,19 +7499,6 @@ definitions:
       unclaimed:
         type: string
     type: object
-  subscan_internal_service_scan.uniqueBid:
-    properties:
-      bid_id:
-        type: string
-      fund_id:
-        type: string
-      leading_blocks:
-        type: integer
-      para_id:
-        type: integer
-      unique_key:
-        type: string
-    type: object
   subscan_internal_service_scan_token.AssetType:
     enum:
     - native
@@ -8386,6 +7910,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get all supported currency pairs for the native token.
       produces:
       - application/json
       responses:
@@ -8410,6 +7935,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Query the native token price at a specific time.
       parameters:
       - description: params
         in: body
@@ -8436,6 +7962,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Convert the value of a token from one currency to another at a
+        specific time.
       parameters:
       - description: params
         in: body
@@ -8462,8 +7990,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the account assets changed history (currently only support
-        the assets & foreign assets)
+      description: Get the account assets changed history (only support the assets
+        & foreign assets)
       parameters:
       - description: params
         in: body
@@ -8530,43 +8058,13 @@ paths:
       summary: Account Balance History
       tags:
       - account
-  /api/scan/account/contributions:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.accountCrowdloanContributionsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.AccountContributedJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Account crowdloan contributions
-      tags:
-      - parachain
   /api/scan/account/referendum:
     post:
       consumes:
       - application/json
+      description: |-
+        Account referendum list
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -8600,6 +8098,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -8633,6 +8133,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the account token list, including native token and builtin/assets
+        tokens and evm tokens(erc20/erc721).
       parameters:
       - description: params
         in: body
@@ -8659,6 +8161,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the account merkle list, only support polkadot and assethub
+        polkadot network
       parameters:
       - description: params
         in: body
@@ -8687,6 +8191,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the account statistics, including assets and role statistics.
       parameters:
       - description: params
         in: body
@@ -8715,6 +8220,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get asset balances by account address
+        This API only supports networks with assets frame
       parameters:
       - description: param
         in: body
@@ -8737,6 +8245,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get asset activities(include asset Created/Issued/Burned...) by asset id
+        This API only supports networks with assets frame
       parameters:
       - description: param
         in: body
@@ -8755,36 +8266,13 @@ paths:
       summary: Asset activities
       tags:
       - assets
-  /api/scan/assets/all:
-    post:
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            properties:
-              code:
-                type: integer
-              data:
-                properties:
-                  list:
-                    items:
-                      $ref: '#/definitions/subscan_internal_plugin_assets_db.AssetsListAllJson'
-                    type: array
-                type: object
-              message:
-                type: string
-            type: object
-      summary: Assets list all
-      tags:
-      - assets
   /api/scan/assets/asset:
     post:
       consumes:
       - application/json
+      description: |-
+        Get asset info by asset id
+        This API only supports networks with assets frame
       parameters:
       - description: param
         in: body
@@ -8807,6 +8295,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get asset holders by asset id
+        This API only supports networks with assets frame
       parameters:
       - description: param
         in: body
@@ -8829,6 +8320,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Assets token list
+        This API only supports networks with assets frame
       parameters:
       - description: param
         in: body
@@ -8864,6 +8358,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get block detail by block number, block hash or block timestamp(Nearest).
       parameters:
       - description: params
         in: body
@@ -8890,6 +8385,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Bounty detail
+        This API only supports networks with bounties frame
       parameters:
       - description: params
         in: body
@@ -8916,6 +8414,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Bounty list
+        This API only supports networks with bounties frame
       parameters:
       - description: params
         in: body
@@ -9313,6 +8814,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Check hash type, return hash type and address/extrinsic/evm transaction/block/xcm
+        message/multisig call hash if found
       parameters:
       - description: param
         in: body
@@ -9327,7 +8830,7 @@ paths:
           description: OK
           schema:
             type: object
-      summary: Check hash
+      summary: Check hash type
       tags:
       - search
   /api/scan/collator/info:
@@ -9390,6 +8893,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: WASM contract emitted events by contract address(only support network
+        has contracts frame)
       parameters:
       - description: param
         in: body
@@ -9423,6 +8928,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: WASM contract info by contract address(only support network has
+        contracts frame)
       parameters:
       - description: param
         in: body
@@ -9449,6 +8956,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: WASM contract list(only support network has contracts frame)
       parameters:
       - description: param
         in: body
@@ -9475,13 +8983,14 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Contract List
+      summary: WASM Contract List
       tags:
       - contracts
   /api/scan/contracts/meta:
     post:
       consumes:
       - application/json
+      description: WASM contract metadata(only support network has contracts frame)
       produces:
       - application/json
       responses:
@@ -9508,6 +9017,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: WASM contract lifetime timeline by contract address(only support
+        network has contracts frame)
       parameters:
       - description: param
         in: body
@@ -9539,6 +9050,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: WASM contract transactions by address or contract address(only
+        support network has contracts frame)
       parameters:
       - description: param
         in: body
@@ -9565,13 +9078,14 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Contract transactions
+      summary: WASM Contract transactions
       tags:
       - contracts
   /api/scan/contracts/verify/compiler_images:
     get:
       consumes:
       - application/json
+      description: WASM contract available compiler images for verifying contracts
       produces:
       - application/json
       responses:
@@ -9595,6 +9109,7 @@ paths:
     get:
       consumes:
       - application/json
+      description: WASM contract available compiler versions for verifying contracts
       produces:
       - application/json
       responses:
@@ -9612,36 +9127,13 @@ paths:
       summary: Compiler versions
       tags:
       - contracts
-  /api/scan/contracts/verify/log:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: param
-        in: body
-        name: param
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.contractInfoParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  type: string
-              type: object
-      summary: Verify wasm contract log
-      tags:
-      - contracts
   /api/scan/council/proposal:
     post:
       consumes:
       - application/json
+      description: |-
+        Council proposal detail
+        This API only supports networks with council frame
       parameters:
       - description: params
         in: body
@@ -9671,6 +9163,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Council proposal list
+        This API only supports networks with council frame
       parameters:
       - description: params
         in: body
@@ -9735,8 +9230,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get daily reward or slash data. Only supports agung-testnet,peaq,krest
-        network
+      description: |-
+        Get daily reward or slash data.
+        Only supports agung-testnet,peaq,krest network
       parameters:
       - description: params
         in: body
@@ -9801,6 +9297,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: param
         in: body
@@ -9823,6 +9320,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: param
         in: body
@@ -9858,6 +9356,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Democracy details
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -9887,6 +9388,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Democracies list
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -9920,6 +9424,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referendum list
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -9949,6 +9456,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referendums list
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -9982,6 +9492,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Democracy seconded list
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -10015,6 +9528,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referendum votes list
+        This API only supports networks with democracy frame
       parameters:
       - description: params
         in: body
@@ -10044,33 +9560,6 @@ paths:
       summary: Referendum votes list(legacy)
       tags:
       - governance
-  /api/scan/download/progress:
-    get:
-      parameters:
-      - description: download key
-        in: query
-        name: key
-        required: true
-        type: string
-      - description: timeout
-        in: query
-        name: timeout
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  $ref: '#/definitions/subscan_internal_model.DProgress'
-              type: object
-      summary: Download progress
-      tags:
-      - download
   /api/scan/event:
     post:
       consumes:
@@ -10129,6 +9618,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: params
         in: body
@@ -10150,6 +9640,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10171,6 +9662,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10213,6 +9705,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10234,6 +9727,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10255,6 +9749,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(revive)
       produces:
       - application/json
       responses:
@@ -10276,6 +9771,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10297,6 +9793,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10318,6 +9815,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10339,6 +9837,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10360,6 +9859,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10381,9 +9881,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: EVM event Logs，returns the event logs from an address. The current
-        maximum limit for the number of results returned through pagination is 10,000.
-        If you require more, please adjust the block_range parameter.
+      description: |-
+        EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.
+        This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: params
         in: body
@@ -10403,6 +9903,7 @@ paths:
       - EVM
   /api/scan/evm/meta:
     post:
+      description: This API only supports networks with EVM pallet(frontier or revive)
       produces:
       - application/json
       responses:
@@ -10417,6 +9918,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10438,6 +9940,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10459,6 +9962,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10494,6 +9998,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10515,6 +10020,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: param
         in: body
@@ -10536,6 +10042,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for the PEAQ network
       parameters:
       - description: param
         in: body
@@ -10569,6 +10076,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: body
         in: body
@@ -10642,6 +10150,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get extrinsic reward list by extrinsic index.
+        This API only supports networks with staking frame or parachain-staking pallet
       parameters:
       - description: params
         in: body
@@ -10675,6 +10186,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Fellowship referenda details
+        This API only supports networks with FellowshipReferenda frame
       parameters:
       - description: params
         in: body
@@ -10701,6 +10215,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Fellowship referenda list
+        This API only supports networks with FellowshipReferenda frame
       parameters:
       - description: params
         in: body
@@ -10734,6 +10251,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Fellowship referendum statistics
+        This API only supports networks with FellowshipReferenda frame
       produces:
       - application/json
       responses:
@@ -10753,6 +10273,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Fellowship referendum tracks
+        This API only supports networks with FellowshipReferenda frame
       produces:
       - application/json
       responses:
@@ -10774,6 +10297,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Fellowship referendum votes list
+        This API only supports networks with FellowshipReferenda frame
       parameters:
       - description: params
         in: body
@@ -10807,6 +10333,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with foreignAssets frame
       parameters:
       - description: param
         in: body
@@ -10835,6 +10362,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with foreignAssets frame
       parameters:
       - description: param
         in: body
@@ -10868,6 +10396,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with foreignAssets frame
       produces:
       - application/json
       responses:
@@ -10892,6 +10421,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with foreignAssets frame
       parameters:
       - description: param
         in: body
@@ -10918,6 +10448,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with foreignAssets frame
       parameters:
       - description: param
         in: body
@@ -10951,6 +10482,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with foreignAssets frame
       parameters:
       - description: param
         in: body
@@ -11010,6 +10542,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API provides post/comments about the proposal, this api powered
+        by the subsquare/polkassembly
       parameters:
       - description: params
         in: body
@@ -11036,6 +10570,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get block header by block number.
       parameters:
       - description: params
         in: body
@@ -11058,56 +10593,11 @@ paths:
       summary: Block header
       tags:
       - block
-  /api/scan/ibc/transfers:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_pluginv2_pallets_ibc.transfersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            properties:
-              code:
-                type: integer
-              data:
-                properties:
-                  chains:
-                    properties:
-                      from:
-                        items:
-                          type: string
-                        type: array
-                      to:
-                        items:
-                          type: string
-                        type: array
-                    type: object
-                  count:
-                    type: integer
-                  list:
-                    items:
-                      $ref: '#/definitions/internal_pluginv2_pallets_ibc.TransferJson'
-                    type: array
-                type: object
-              message:
-                type: string
-            type: object
-      summary: Ibc Transfers list
-      tags:
-      - ibc
   /api/scan/liquidstaking/operations:
     post:
       consumes:
       - application/json
+      description: This API only available for bifrost/bifrost-kusama network.
       parameters:
       - description: params
         in: body
@@ -11167,6 +10657,8 @@ paths:
       - log
   /api/scan/metadata:
     post:
+      description: Current network metadata, including current networkNode name, ss58
+        addressType and other information
       produces:
       - application/json
       responses:
@@ -11188,6 +10680,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get the number of accounts in multi-chains
+        Support Network: polkadot
       parameters:
       - description: params
         in: body
@@ -11214,6 +10709,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get the historical balance value of an account over a specified period.
+        Support Network: polkadot
       parameters:
       - description: params
         in: body
@@ -11242,6 +10740,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get the maximum, minimum, and 24-hour previous balance value of an account.
+        Support Network: polkadot
       parameters:
       - description: params
         in: body
@@ -11281,6 +10782,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: 'Support Network: polkadot'
       parameters:
       - description: params
         in: body
@@ -11308,6 +10810,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11329,6 +10832,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11350,6 +10854,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11371,6 +10876,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11392,6 +10898,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11413,6 +10920,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11434,6 +10942,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11547,6 +11056,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get NFT balances by account address
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11580,6 +11092,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get Nft activities(include nft Created/Issued/Burned...) by nft collection id
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11613,6 +11128,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        NFT collection info
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11639,6 +11157,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        NFT holders in a collection
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11672,6 +11193,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        NFT item info
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11698,6 +11222,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        NFT items in a collection
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11731,6 +11258,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        NFTs collection list
+        This API only supports networks with nfts frame
       parameters:
       - description: body
         in: body
@@ -11764,6 +11294,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with nominationPools frame
       parameters:
       - description: params
         in: body
@@ -11785,6 +11316,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with nominationPools frame
       parameters:
       - description: params
         in: body
@@ -11806,6 +11338,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with nominationPools frame
       parameters:
       - description: params
         in: body
@@ -11827,6 +11360,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with nominationPools frame
       parameters:
       - description: params
         in: body
@@ -11848,6 +11382,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with nominationPools frame
       parameters:
       - description: params
         in: body
@@ -11869,6 +11404,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with nominationPools frame
       parameters:
       - description: params
         in: body
@@ -11890,6 +11426,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for moonbeam(moonriver,moonbase) network.
       parameters:
       - description: param
         in: body
@@ -11919,287 +11456,13 @@ paths:
       summary: Get Moonbeam Orbiters rewards
       tags:
       - moonbeam
-  /api/scan/parachain/auction_funds_stat:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.auctionFundsStatParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  additionalProperties:
-                    items:
-                      $ref: '#/definitions/subscan_internal_model.ParachainFundHistoryStatJson'
-                    type: array
-                  type: object
-              type: object
-      summary: Auction funds stat
-      tags:
-      - parachain
-  /api/scan/parachain/auction_leading_blocks:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.auctionLeadingBlocksParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/subscan_internal_service_scan.uniqueBid'
-                  type: array
-              type: object
-      summary: Auction leading blocks
-      tags:
-      - parachain
-  /api/scan/parachain/auctionCompetitors:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.auctionCompetitorsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  additionalProperties:
-                    items:
-                      type: object
-                    type: array
-                  type: object
-              type: object
-      summary: Auction competitors
-      tags:
-      - parachain
-  /api/scan/parachain/auctions:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.parachainAuctionsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    auctions:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.ParachainAuction'
-                      type: array
-                    count:
-                      type: integer
-                  type: object
-              type: object
-      summary: PLO auctions list
-      tags:
-      - parachain
-  /api/scan/parachain/bestBid:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.bestBidParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
-              type: object
-      summary: Best bid
-      tags:
-      - parachain
-  /api/scan/parachain/bids:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.parachainSlotBidsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    bids:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
-                      type: array
-                    count:
-                      type: integer
-                  type: object
-              type: object
-      summary: PLO slot bids list
-      tags:
-      - parachain
-  /api/scan/parachain/contributes:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.parachainFundContributesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    contributes:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.ParachainFundContribution'
-                      type: array
-                    count:
-                      type: integer
-                  type: object
-              type: object
-      summary: Crowdloan fund contributes list
-      tags:
-      - parachain
-  /api/scan/parachain/fundStat:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.parachainFundContributesParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    list:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.ParachainFundHistoryStatJson'
-                      type: array
-                  type: object
-              type: object
-      summary: Crowdloan fund stat
-      tags:
-      - parachain
-  /api/scan/parachain/funds:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.crowdloanFundsParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  properties:
-                    count:
-                      type: integer
-                    funds:
-                      items:
-                        $ref: '#/definitions/subscan_internal_model.ParachainFund'
-                      type: array
-                  type: object
-              type: object
-      summary: Crowdloan funds list
-      tags:
-      - parachain
   /api/scan/parachain/info:
     post:
       consumes:
       - application/json
+      description: |-
+        Get detailed information about Parachain
+        only available on relay chain(Polkadot,Kusama,Westend,Paseo).
       parameters:
       - description: params
         in: body
@@ -12233,6 +11496,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        List ParaChains/ParaThread with their status and other details.
+        only available on relay chain(Polkadot,Kusama,Westend,Paseo).
       parameters:
       - description: params
         in: body
@@ -12266,6 +11532,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Get the metadata of all parachains.
+        only available on relay chain(Polkadot,Kusama,Westend,Paseo).
       produces:
       - application/json
       responses:
@@ -12281,38 +11550,11 @@ paths:
       summary: Parachain meta
       tags:
       - parachain
-  /api/scan/parachain/predict:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_server_http.winnerPredictParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/internal_server_http.J'
-            - properties:
-                data:
-                  items:
-                    $ref: '#/definitions/subscan_internal_model.ParachainSlotWinner'
-                  type: array
-              type: object
-      summary: Winner predict
-      tags:
-      - parachain
   /api/scan/parachain/registerinfo:
     post:
       consumes:
       - application/json
+      description: Get the register info of parachain.
       produces:
       - application/json
       responses:
@@ -12363,6 +11605,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Preimage details
+        This API only supports networks with preimage frame
       parameters:
       - description: params
         in: body
@@ -12389,6 +11634,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Preimage list
+        This API only supports networks with preimage frame
       parameters:
       - description: params
         in: body
@@ -12490,6 +11738,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referenda details
+        This API only supports networks with referenda frame
       parameters:
       - description: params
         in: body
@@ -12516,6 +11767,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referenda list
+        This API only supports networks with referenda frame
       parameters:
       - description: params
         in: body
@@ -12549,6 +11803,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referendum statistics
+        This API only supports networks with referenda/democracy frame
       produces:
       - application/json
       responses:
@@ -12568,6 +11825,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referendum tracks
+        This API only supports networks with referenda frame
       produces:
       - application/json
       responses:
@@ -12589,6 +11849,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Referenda votes list
+        This API only supports networks with referenda frame
       parameters:
       - description: params
         in: body
@@ -12680,6 +11943,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Search by account identity display(fuzzy search)
       parameters:
       - description: params
         in: body
@@ -12711,6 +11975,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12744,6 +12010,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12770,6 +12038,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12803,6 +12073,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12832,6 +12104,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame
       parameters:
       - description: params
         in: body
@@ -12862,6 +12135,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12891,6 +12166,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12922,6 +12199,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -12986,6 +12265,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only supports networks with staking frame or parachain-staking
+        pallet
       parameters:
       - description: params
         in: body
@@ -13019,6 +12300,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13041,6 +12323,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13063,6 +12346,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13085,6 +12369,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13107,6 +12392,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13129,6 +12415,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13151,6 +12438,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13173,6 +12461,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13195,6 +12484,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for sxt network.
       parameters:
       - description: body
         in: body
@@ -13228,6 +12518,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: This API only available for sxt network.
       parameters:
       - description: body
         in: body
@@ -13261,6 +12552,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        technical-committee proposal detail
+        This API only supports networks with technicalCommittee frame
       parameters:
       - description: params
         in: body
@@ -13290,6 +12584,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        technical-committee proposals list
+        This API only supports networks with technicalCommittee frame
       parameters:
       - description: params
         in: body
@@ -13351,6 +12648,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the token holders list, including native token and builtin
+        tokens
       parameters:
       - description: params
         in: body
@@ -13444,6 +12743,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury proposal detail
+        This API only supports networks with treasury frame
       parameters:
       - description: params
         in: body
@@ -13473,6 +12775,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury proposals list
+        This API only supports networks with treasury frame
       parameters:
       - description: params
         in: body
@@ -13506,6 +12811,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury tip detail
+        This API only supports networks with tips frame
       parameters:
       - description: params
         in: body
@@ -13535,6 +12843,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury tippers list
+        This API only supports networks with tips frame
       parameters:
       - description: params
         in: body
@@ -13566,6 +12877,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury tips list
+        This API only supports networks with tips frame
       parameters:
       - description: params
         in: body
@@ -13599,6 +12913,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        treasury council collective proposal detail
+        This API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame
       parameters:
       - description: params
         in: body
@@ -13628,6 +12945,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        treasury council collective proposals list
+        This API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame
       parameters:
       - description: params
         in: body
@@ -13661,6 +12981,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        treasury council collective votes list
+        This API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame
       parameters:
       - description: params
         in: body
@@ -13694,6 +13017,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury spend proposal detail
+        This API only supports networks with treasury frame
       parameters:
       - description: params
         in: body
@@ -13723,6 +13049,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        Treasury spend proposals list
+        This API only supports networks with treasury frame
       parameters:
       - description: params
         in: body
@@ -14153,6 +13482,8 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the list of vesting releases within a specified date range.(only
+        for network has vesting frame)
       parameters:
       - description: params
         in: body
@@ -14454,6 +13785,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get the native token accounts list
       parameters:
       - description: params
         in: body
@@ -14650,6 +13982,9 @@ paths:
     post:
       consumes:
       - application/json
+      description: |-
+        balance of a multi-chains account along with data related to the account's participation in DeFi data.
+        Support Network: polkadot
       parameters:
       - description: params
         in: body
@@ -14683,6 +14018,7 @@ paths:
     post:
       consumes:
       - application/json
+      description: Get account information by address
       parameters:
       - description: param
         in: body

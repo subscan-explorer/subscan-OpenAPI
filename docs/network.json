@@ -1,5 +1,8 @@
 {
   "acala": {
+    "api_domains": [
+      "acala"
+    ],
     "backend_service_name": "subscan-acala",
     "db_name": "subscan_acala",
     "network_node": "acala",
@@ -9,6 +12,9 @@
     ]
   },
   "acala-test": {
+    "api_domains": [
+      "acala-testnet"
+    ],
     "backend_service_name": "subscan-acala-test",
     "db_name": "subscan_acala_testnet",
     "network_node": "acala-test",
@@ -17,16 +23,10 @@
       "acala-testnet"
     ]
   },
-  "ajuna": {
-    "backend_service_name": "subscan-ajuna",
-    "db_name": "subscan_ajuna",
-    "network_node": "ajuna",
-    "type": "mainnet",
-    "ui_domains": [
-      "ajuna"
-    ]
-  },
   "alephzero": {
+    "api_domains": [
+      "alephzero"
+    ],
     "backend_service_name": "subscan-alephzero",
     "db_name": "subscan_alephzero",
     "network_node": "alephzero",
@@ -36,6 +36,9 @@
     ]
   },
   "altair": {
+    "api_domains": [
+      "altair"
+    ],
     "backend_service_name": "subscan-altair",
     "db_name": "subscan_altair",
     "network_node": "altair",
@@ -45,6 +48,9 @@
     ]
   },
   "assethub-paseo": {
+    "api_domains": [
+      "assethub-paseo"
+    ],
     "backend_service_name": "subscan-assethub-paseo",
     "db_name": "subscan_assethub_paseo",
     "network_node": "assethub-paseo",
@@ -54,6 +60,9 @@
     ]
   },
   "assethub-westend": {
+    "api_domains": [
+      "assethub-westend"
+    ],
     "backend_service_name": "subscan-assethub-westend",
     "db_name": "subscan_assethub_westend",
     "network_node": "assethub-westend",
@@ -63,6 +72,9 @@
     ]
   },
   "astar": {
+    "api_domains": [
+      "astar"
+    ],
     "backend_service_name": "subscan-astar",
     "db_name": "subscan_astar",
     "network_node": "astar",
@@ -72,6 +84,9 @@
     ]
   },
   "autonomys": {
+    "api_domains": [
+      "autonomys"
+    ],
     "backend_service_name": "subscan-autonomys",
     "db_name": "subscan_autonomys",
     "network_node": "autonomys",
@@ -81,6 +96,9 @@
     ]
   },
   "avail": {
+    "api_domains": [
+      "avail"
+    ],
     "backend_service_name": "subscan-avail",
     "db_name": "subscan_avail",
     "network_node": "avail",
@@ -90,6 +108,9 @@
     ]
   },
   "avail-turing": {
+    "api_domains": [
+      "avail-turing"
+    ],
     "backend_service_name": "subscan-avail-turing",
     "db_name": "subscan_avail_turing",
     "network_node": "avail-turing",
@@ -98,16 +119,10 @@
       "avail-turing"
     ]
   },
-  "bajun": {
-    "backend_service_name": "subscan-bajun",
-    "db_name": "subscan_bajun",
-    "network_node": "bajun",
-    "type": "mainnet",
-    "ui_domains": [
-      "bajun"
-    ]
-  },
   "basilisk": {
+    "api_domains": [
+      "basilisk"
+    ],
     "backend_service_name": "subscan-basilisk",
     "db_name": "subscan_basilisk",
     "network_node": "basilisk",
@@ -117,6 +132,9 @@
     ]
   },
   "bifrost": {
+    "api_domains": [
+      "bifrost-kusama"
+    ],
     "backend_service_name": "subscan-bifrost",
     "db_name": "subscan_bifrost",
     "network_node": "bifrost",
@@ -126,6 +144,9 @@
     ]
   },
   "bifrost-p": {
+    "api_domains": [
+      "bifrost"
+    ],
     "backend_service_name": "subscan-bifrost-p",
     "db_name": "subscan_bifrost_p",
     "network_node": "bifrost-p",
@@ -135,6 +156,9 @@
     ]
   },
   "bridgehub-kusama": {
+    "api_domains": [
+      "bridgehub-kusama"
+    ],
     "backend_service_name": "subscan-bridgehub-kusama",
     "db_name": "subscan_bridgehub_kusama",
     "network_node": "bridgehub-kusama",
@@ -144,6 +168,9 @@
     ]
   },
   "bridgehub-paseo": {
+    "api_domains": [
+      "bridgehub-paseo"
+    ],
     "backend_service_name": "subscan-bridgehub-paseo",
     "db_name": "subscan_bridgehub_paseo",
     "network_node": "bridgehub-paseo",
@@ -153,6 +180,9 @@
     ]
   },
   "bridgehub-polkadot": {
+    "api_domains": [
+      "bridgehub-polkadot"
+    ],
     "backend_service_name": "subscan-bridgehub-polkadot",
     "db_name": "subscan_bridgehub_polkadot",
     "network_node": "bridgehub-polkadot",
@@ -162,6 +192,9 @@
     ]
   },
   "bridgehub-westend": {
+    "api_domains": [
+      "bridgehub-westend"
+    ],
     "backend_service_name": "subscan-bridgehub-westend",
     "db_name": "subscan_bridgehub_westend",
     "network_node": "bridgehub-westend",
@@ -171,8 +204,12 @@
     ]
   },
   "calamari": {
+    "api_domains": [
+      "calamari"
+    ],
     "backend_service_name": "subscan-calamari",
     "db_name": "subscan_calamari",
+    "is_archive": true,
     "network_node": "calamari",
     "type": "mainnet",
     "ui_domains": [
@@ -180,6 +217,9 @@
     ]
   },
   "centrifuge": {
+    "api_domains": [
+      "centrifuge-standalone-history"
+    ],
     "backend_service_name": "subscan-centrifuge",
     "db_name": "subscan_centrifuge",
     "network_node": "centrifuge",
@@ -189,6 +229,9 @@
     ]
   },
   "centrifuge-parachain": {
+    "api_domains": [
+      "centrifuge"
+    ],
     "backend_service_name": "subscan-centrifuge-parachain",
     "db_name": "subscan_centrifuge_parachain",
     "network_node": "centrifuge-parachain",
@@ -198,6 +241,9 @@
     ]
   },
   "clover": {
+    "api_domains": [
+      "clover"
+    ],
     "backend_service_name": "subscan-clover",
     "db_name": "subscan_clover",
     "network_node": "clover",
@@ -207,6 +253,9 @@
     ]
   },
   "collectives": {
+    "api_domains": [
+      "collectives-polkadot"
+    ],
     "backend_service_name": "subscan-collectives",
     "db_name": "subscan_collectives",
     "network_node": "collectives",
@@ -215,16 +264,10 @@
       "collectives-polkadot"
     ]
   },
-  "continuum": {
-    "backend_service_name": "subscan-continuum",
-    "db_name": "subscan_continuum",
-    "network_node": "continuum",
-    "type": "mainnet",
-    "ui_domains": [
-      "continuum"
-    ]
-  },
   "coretime-kusama": {
+    "api_domains": [
+      "coretime-kusama"
+    ],
     "backend_service_name": "subscan-coretime-kusama",
     "db_name": "subscan_coretime_kusama",
     "network_node": "coretime-kusama",
@@ -233,7 +276,22 @@
       "coretime-kusama"
     ]
   },
+  "coretime-paseo": {
+    "api_domains": [
+      "coretime-paseo"
+    ],
+    "backend_service_name": "subscan-coretime-paseo",
+    "db_name": "subscan_coretime_paseo",
+    "network_node": "coretime-paseo",
+    "type": "testnet",
+    "ui_domains": [
+      "coretime-paseo"
+    ]
+  },
   "coretime-polkadot": {
+    "api_domains": [
+      "coretime-polkadot"
+    ],
     "backend_service_name": "subscan-coretime-polkadot",
     "db_name": "subscan_coretime_polkadot",
     "network_node": "coretime-polkadot",
@@ -243,6 +301,9 @@
     ]
   },
   "coretime-westend": {
+    "api_domains": [
+      "coretime-westend"
+    ],
     "backend_service_name": "subscan-coretime-westend",
     "db_name": "subscan_coretime_westend",
     "network_node": "coretime-westend",
@@ -252,6 +313,9 @@
     ]
   },
   "creditcoin": {
+    "api_domains": [
+      "creditcoin"
+    ],
     "backend_service_name": "subscan-creditcoin",
     "db_name": "subscan_creditcoin",
     "network_node": "creditcoin",
@@ -262,6 +326,9 @@
     ]
   },
   "creditcoin-cc3": {
+    "api_domains": [
+      "creditcoin3"
+    ],
     "backend_service_name": "subscan-creditcoin-cc3",
     "db_name": "subscan_creditcoin_cc3",
     "network_node": "creditcoin-cc3",
@@ -271,6 +338,9 @@
     ]
   },
   "creditcoin-cc3-test": {
+    "api_domains": [
+      "creditcoin3-testnet"
+    ],
     "backend_service_name": "subscan-creditcoin-cc3-test",
     "db_name": "subscan_creditcoincc3_testnet",
     "network_node": "creditcoin-cc3-test",
@@ -280,6 +350,9 @@
     ]
   },
   "creditcoin-dev": {
+    "api_domains": [
+      "creditcoin3-dev"
+    ],
     "backend_service_name": "subscan-creditcoin-dev",
     "db_name": "subscan_creditcoin_dev",
     "network_node": "creditcoin-dev",
@@ -289,6 +362,9 @@
     ]
   },
   "creditcoin-test": {
+    "api_domains": [
+      "creditcoin-testnet"
+    ],
     "backend_service_name": "subscan-creditcoin-test",
     "db_name": "subscan_creditcoin_testnet",
     "network_node": "creditcoin-test",
@@ -299,6 +375,9 @@
     ]
   },
   "crust-main": {
+    "api_domains": [
+      "crust"
+    ],
     "backend_service_name": "subscan-crust-main",
     "db_name": "subscan_crust",
     "network_node": "crust-main",
@@ -308,6 +387,9 @@
     ]
   },
   "crust-parachain": {
+    "api_domains": [
+      "crust-parachain"
+    ],
     "backend_service_name": "subscan-crust-parachain",
     "db_name": "subscan_crust_parachain",
     "network_node": "crust-parachain",
@@ -316,7 +398,22 @@
       "crust-parachain"
     ]
   },
+  "dancelight-test": {
+    "api_domains": [
+      "dancelight"
+    ],
+    "backend_service_name": "subscan-dancelight-test",
+    "db_name": "subscan_dancelight-testnet",
+    "network_node": "dancelight-test",
+    "type": "testnet",
+    "ui_domains": [
+      "dancelight"
+    ]
+  },
   "darwinia2": {
+    "api_domains": [
+      "darwinia"
+    ],
     "backend_service_name": "subscan-darwinia2",
     "db_name": "subscan_darwinia2",
     "network_node": "darwinia2",
@@ -326,6 +423,9 @@
     ]
   },
   "dbc": {
+    "api_domains": [
+      "dbc"
+    ],
     "backend_service_name": "subscan-dbc",
     "db_name": "subscan_dbc",
     "network_node": "dbc",
@@ -335,8 +435,12 @@
     ]
   },
   "dock-pos": {
+    "api_domains": [
+      "dock"
+    ],
     "backend_service_name": "subscan-dock-pos",
     "db_name": "subscan_dock_pos",
+    "is_archive": true,
     "network_node": "dock-pos",
     "type": "mainnet",
     "ui_domains": [
@@ -344,6 +448,9 @@
     ]
   },
   "energywebx": {
+    "api_domains": [
+      "energywebx"
+    ],
     "backend_service_name": "subscan-energywebx",
     "db_name": "subscan_energywebx",
     "network_node": "energywebx",
@@ -353,6 +460,9 @@
     ]
   },
   "energywebx-testnet": {
+    "api_domains": [
+      "energywebx-testnet"
+    ],
     "backend_service_name": "subscan-energywebx-testnet",
     "db_name": "subscan_energywebx_testnet",
     "network_node": "energywebx-testnet",
@@ -362,6 +472,9 @@
     ]
   },
   "enjin-canary-matrix": {
+    "api_domains": [
+      "canary-matrix"
+    ],
     "backend_service_name": "subscan-enjin-canary-matrix",
     "db_name": "subscan_enjin_canary_matrix",
     "network_node": "enjin-canary-matrix",
@@ -371,6 +484,9 @@
     ]
   },
   "enjin-canary-relay": {
+    "api_domains": [
+      "canary"
+    ],
     "backend_service_name": "subscan-enjin-canary-relay",
     "db_name": "subscan_enjin_canary_relay",
     "network_node": "enjin-canary-relay",
@@ -380,6 +496,9 @@
     ]
   },
   "enjin-matrix": {
+    "api_domains": [
+      "matrix"
+    ],
     "backend_service_name": "subscan-enjin-matrix",
     "db_name": "subscan_enjin_matrix",
     "network_node": "enjin-matrix",
@@ -389,6 +508,9 @@
     ]
   },
   "enjin-relay": {
+    "api_domains": [
+      "enjin"
+    ],
     "backend_service_name": "subscan-enjin-relay",
     "db_name": "subscan_enjin_relay",
     "network_node": "enjin-relay",
@@ -398,6 +520,9 @@
     ]
   },
   "gasp": {
+    "api_domains": [
+      "gasp"
+    ],
     "backend_service_name": "subscan-gasp",
     "db_name": "subscan_gasp",
     "network_node": "gasp",
@@ -407,6 +532,9 @@
     ]
   },
   "heima": {
+    "api_domains": [
+      "heima"
+    ],
     "backend_service_name": "subscan-heima",
     "db_name": "subscan_heima",
     "network_node": "heima",
@@ -416,6 +544,9 @@
     ]
   },
   "humanode": {
+    "api_domains": [
+      "humanode"
+    ],
     "backend_service_name": "subscan-humanode",
     "db_name": "subscan_humanode",
     "network_node": "humanode",
@@ -425,6 +556,10 @@
     ]
   },
   "hydradx": {
+    "api_domains": [
+      "hydradx",
+      "hydration"
+    ],
     "backend_service_name": "subscan-hydradx",
     "db_name": "subscan_hydradx",
     "network_node": "hydradx",
@@ -435,6 +570,9 @@
     ]
   },
   "integritee-para": {
+    "api_domains": [
+      "integritee"
+    ],
     "backend_service_name": "subscan-integritee-para",
     "db_name": "subscan_integritee_para",
     "network_node": "integritee-para",
@@ -443,25 +581,10 @@
       "integritee"
     ]
   },
-  "interlay": {
-    "backend_service_name": "subscan-interlay",
-    "db_name": "subscan_interlay",
-    "network_node": "interlay",
-    "type": "mainnet",
-    "ui_domains": [
-      "interlay"
-    ]
-  },
-  "joystream": {
-    "backend_service_name": "subscan-joystream",
-    "db_name": "subscan_joystream",
-    "network_node": "joystream",
-    "type": "mainnet",
-    "ui_domains": [
-      "joystream"
-    ]
-  },
   "karura": {
+    "api_domains": [
+      "karura"
+    ],
     "backend_service_name": "subscan-karura",
     "db_name": "subscan_karura",
     "network_node": "karura",
@@ -471,16 +594,22 @@
     ]
   },
   "khala": {
+    "api_domains": [
+      "khala"
+    ],
     "backend_service_name": "subscan-khala",
     "db_name": "subscan_khala",
     "is_archive": true,
     "network_node": "khala",
-    "type": "mainnet",
+    "type": "testnet",
     "ui_domains": [
       "khala"
     ]
   },
   "kintsugi": {
+    "api_domains": [
+      "kintsugi"
+    ],
     "backend_service_name": "subscan-kintsugi",
     "db_name": "subscan_kintsugi",
     "network_node": "kintsugi",
@@ -490,6 +619,9 @@
     ]
   },
   "krest": {
+    "api_domains": [
+      "krest"
+    ],
     "backend_service_name": "subscan-krest",
     "db_name": "subscan_krest",
     "network_node": "krest",
@@ -499,6 +631,9 @@
     ]
   },
   "kusama": {
+    "api_domains": [
+      "kusama"
+    ],
     "backend_service_name": "subscan-kusama",
     "db_name": "subscan_kusama",
     "network_node": "kusama",
@@ -507,16 +642,10 @@
       "kusama"
     ]
   },
-  "mangata": {
-    "backend_service_name": "subscan-mangata",
-    "db_name": "subscan_mangata",
-    "network_node": "mangata",
-    "type": "mainnet",
-    "ui_domains": [
-      "mangatax"
-    ]
-  },
   "manta": {
+    "api_domains": [
+      "manta"
+    ],
     "backend_service_name": "subscan-manta",
     "db_name": "subscan_manta",
     "network_node": "manta",
@@ -525,7 +654,22 @@
       "manta"
     ]
   },
+  "midnight-testnet": {
+    "api_domains": [
+      "midnight-testnet"
+    ],
+    "backend_service_name": "subscan-midnight-testnet",
+    "db_name": "subscan_midnight_testnet",
+    "network_node": "midnight-testnet",
+    "type": "testnet",
+    "ui_domains": [
+      "midnight-testnet"
+    ]
+  },
   "moonbase": {
+    "api_domains": [
+      "moonbase"
+    ],
     "backend_service_name": "subscan-moonbase",
     "db_name": "subscan_moonbase",
     "network_node": "moonbase",
@@ -535,6 +679,9 @@
     ]
   },
   "moonbeam": {
+    "api_domains": [
+      "moonbeam"
+    ],
     "backend_service_name": "subscan-moonbeam",
     "db_name": "subscan_moonbeam",
     "network_node": "moonbeam",
@@ -544,6 +691,9 @@
     ]
   },
   "moonriver": {
+    "api_domains": [
+      "moonriver"
+    ],
     "backend_service_name": "subscan-moonriver",
     "db_name": "subscan_moonriver",
     "network_node": "moonriver",
@@ -553,6 +703,9 @@
     ]
   },
   "mythos": {
+    "api_domains": [
+      "mythos"
+    ],
     "backend_service_name": "subscan-mythos",
     "db_name": "subscan_mythos",
     "network_node": "mythos",
@@ -562,6 +715,9 @@
     ]
   },
   "nodle": {
+    "api_domains": [
+      "nodle"
+    ],
     "backend_service_name": "subscan-nodle",
     "db_name": "subscan_nodle",
     "network_node": "nodle",
@@ -571,6 +727,9 @@
     ]
   },
   "opal": {
+    "api_domains": [
+      "opal"
+    ],
     "backend_service_name": "subscan-opal",
     "db_name": "subscan_opal",
     "network_node": "opal",
@@ -580,6 +739,10 @@
     ]
   },
   "origintrail": {
+    "api_domains": [
+      "origintrail",
+      "neuroweb"
+    ],
     "backend_service_name": "subscan-origintrail",
     "db_name": "subscan_origintrail",
     "network_node": "origintrail",
@@ -590,6 +753,10 @@
     ]
   },
   "origintrail-rococo": {
+    "api_domains": [
+      "origintrail-testnet",
+      "neuroweb-testnet"
+    ],
     "backend_service_name": "subscan-origintrail-rococo",
     "db_name": "subscan_origintrail_test",
     "network_node": "origintrail-rococo",
@@ -600,6 +767,9 @@
     ]
   },
   "paseo": {
+    "api_domains": [
+      "paseo"
+    ],
     "backend_service_name": "subscan-paseo",
     "db_name": "subscan_paseo",
     "network_node": "paseo",
@@ -609,6 +779,9 @@
     ]
   },
   "peaq": {
+    "api_domains": [
+      "agung-testnet"
+    ],
     "backend_service_name": "subscan-peaq",
     "db_name": "subscan_peaq_testnet",
     "network_node": "peaq",
@@ -618,6 +791,9 @@
     ]
   },
   "peaq-main": {
+    "api_domains": [
+      "peaq"
+    ],
     "backend_service_name": "subscan-peaq-main",
     "db_name": "subscan_peaq_main",
     "network_node": "peaq-main",
@@ -627,6 +803,9 @@
     ]
   },
   "pendulum": {
+    "api_domains": [
+      "pendulum"
+    ],
     "backend_service_name": "subscan-pendulum",
     "db_name": "subscan_pendulum",
     "network_node": "pendulum",
@@ -636,6 +815,9 @@
     ]
   },
   "people-kusama": {
+    "api_domains": [
+      "people-kusama"
+    ],
     "backend_service_name": "subscan-people-kusama",
     "db_name": "subscan_people",
     "network_node": "people-kusama",
@@ -644,7 +826,22 @@
       "people-kusama"
     ]
   },
+  "people-paseo": {
+    "api_domains": [
+      "people-paseo"
+    ],
+    "backend_service_name": "subscan-people-paseo",
+    "db_name": "subscan_people_paseo",
+    "network_node": "people-paseo",
+    "type": "testnet",
+    "ui_domains": [
+      "people-paseo"
+    ]
+  },
   "people-polkadot": {
+    "api_domains": [
+      "people-polkadot"
+    ],
     "backend_service_name": "subscan-people-polkadot",
     "db_name": "subscan_people_polkadot",
     "network_node": "people-polkadot",
@@ -653,7 +850,22 @@
       "people-polkadot"
     ]
   },
+  "people-westend": {
+    "api_domains": [
+      "people-westend"
+    ],
+    "backend_service_name": "subscan-people-westend",
+    "db_name": "subscan_people_westend",
+    "network_node": "people-westend",
+    "type": "testnet",
+    "ui_domains": [
+      "people-westend"
+    ]
+  },
   "phala": {
+    "api_domains": [
+      "phala"
+    ],
     "backend_service_name": "subscan-phala",
     "db_name": "subscan_phala",
     "network_node": "phala",
@@ -662,34 +874,10 @@
       "phala"
     ]
   },
-  "pioneer": {
-    "backend_service_name": "subscan-pioneer",
-    "db_name": "subscan_pioneer",
-    "network_node": "pioneer",
-    "type": "mainnet",
-    "ui_domains": [
-      "pioneer"
-    ]
-  },
-  "polkadex": {
-    "backend_service_name": "subscan-polkadex",
-    "db_name": "subscan_polkadex",
-    "network_node": "polkadex",
-    "type": "mainnet",
-    "ui_domains": [
-      "polkadex"
-    ]
-  },
-  "polkadex-parachain": {
-    "backend_service_name": "subscan-polkadex-parachain",
-    "db_name": "subscan_polkadex_parachain",
-    "network_node": "polkadex-parachain",
-    "type": "mainnet",
-    "ui_domains": [
-      "polkadex-parachain"
-    ]
-  },
   "polkadot": {
+    "api_domains": [
+      "polkadot"
+    ],
     "backend_service_name": "subscan-polkadot",
     "db_name": "subscan_polkadot",
     "network_node": "polkadot",
@@ -699,6 +887,9 @@
     ]
   },
   "polymesh": {
+    "api_domains": [
+      "polymesh"
+    ],
     "backend_service_name": "subscan-polymesh",
     "db_name": "subscan_polymesh",
     "network_node": "polymesh",
@@ -708,6 +899,9 @@
     ]
   },
   "polymesh-test": {
+    "api_domains": [
+      "polymesh-testnet"
+    ],
     "backend_service_name": "subscan-polymesh-test",
     "db_name": "subscan_polymesh_testnet",
     "network_node": "polymesh-test",
@@ -716,7 +910,22 @@
       "polymesh-testnet"
     ]
   },
+  "reef": {
+    "api_domains": [
+      "reef"
+    ],
+    "backend_service_name": "subscan-reef",
+    "db_name": "subscan_reef",
+    "network_node": "reef",
+    "type": "mainnet",
+    "ui_domains": [
+      "reef"
+    ]
+  },
   "robonomics": {
+    "api_domains": [
+      "robonomics-freemium"
+    ],
     "backend_service_name": "subscan-robonomics",
     "db_name": "subscan_robonomics",
     "network_node": "robonomics",
@@ -726,6 +935,9 @@
     ]
   },
   "robonomics-polkadot": {
+    "api_domains": [
+      "robonomics"
+    ],
     "backend_service_name": "subscan-robonomics-polkadot",
     "db_name": "subscan_robonomics_polkadot",
     "network_node": "robonomics-polkadot",
@@ -734,16 +946,10 @@
       "robonomics"
     ]
   },
-  "shadow": {
-    "backend_service_name": "subscan-shadow",
-    "db_name": "subscan_shadow",
-    "network_node": "shadow",
-    "type": "mainnet",
-    "ui_domains": [
-      "shadow"
-    ]
-  },
   "shibuya": {
+    "api_domains": [
+      "shibuya"
+    ],
     "backend_service_name": "subscan-shibuya",
     "db_name": "subscan_shibuya",
     "network_node": "shibuya",
@@ -753,6 +959,9 @@
     ]
   },
   "shiden": {
+    "api_domains": [
+      "shiden"
+    ],
     "backend_service_name": "subscan-shiden",
     "db_name": "subscan_shiden",
     "network_node": "shiden",
@@ -762,6 +971,9 @@
     ]
   },
   "sora": {
+    "api_domains": [
+      "sora"
+    ],
     "backend_service_name": "subscan-sora",
     "db_name": "subscan_sora",
     "network_node": "sora",
@@ -770,7 +982,34 @@
       "sora"
     ]
   },
+  "space-time": {
+    "api_domains": [
+      "sxt"
+    ],
+    "backend_service_name": "subscan-space-time",
+    "db_name": "subscan_space_time",
+    "network_node": "space-time",
+    "type": "mainnet",
+    "ui_domains": [
+      "sxt"
+    ]
+  },
+  "space-time-test": {
+    "api_domains": [
+      "sxt-testnet"
+    ],
+    "backend_service_name": "subscan-space-time-test",
+    "db_name": "subscan_space_time-testnet",
+    "network_node": "space-time-test",
+    "type": "testnet",
+    "ui_domains": [
+      "sxt-testnet"
+    ]
+  },
   "spiritnet": {
+    "api_domains": [
+      "spiritnet"
+    ],
     "backend_service_name": "subscan-spiritnet",
     "db_name": "subscan_spiritnet",
     "network_node": "spiritnet",
@@ -780,6 +1019,9 @@
     ]
   },
   "stafi": {
+    "api_domains": [
+      "stafi"
+    ],
     "backend_service_name": "subscan-stafi",
     "db_name": "subscan_stafi",
     "network_node": "stafi",
@@ -789,6 +1031,9 @@
     ]
   },
   "statemine": {
+    "api_domains": [
+      "assethub-kusama"
+    ],
     "backend_service_name": "subscan-statemine",
     "db_name": "subscan_statemine",
     "network_node": "statemine",
@@ -798,6 +1043,9 @@
     ]
   },
   "statemint": {
+    "api_domains": [
+      "assethub-polkadot"
+    ],
     "backend_service_name": "subscan-statemint",
     "db_name": "subscan_statemint",
     "network_node": "statemint",
@@ -806,16 +1054,22 @@
       "assethub-polkadot"
     ]
   },
-  "subspace": {
-    "backend_service_name": "subscan-subspace",
-    "db_name": "subscan_subspace",
-    "network_node": "subspace",
-    "type": "testnet",
+  "tanssi": {
+    "api_domains": [
+      "tanssi"
+    ],
+    "backend_service_name": "subscan-tanssi",
+    "db_name": "subscan_tanssi",
+    "network_node": "tanssi",
+    "type": "mainnet",
     "ui_domains": [
-      "subspace"
+      "tanssi"
     ]
   },
   "tanssi-test": {
+    "api_domains": [
+      "dancebox"
+    ],
     "backend_service_name": "subscan-tanssi-test",
     "db_name": "subscan_tanssi-testnet",
     "network_node": "tanssi-test",
@@ -824,16 +1078,10 @@
       "dancebox"
     ]
   },
-  "turing": {
-    "backend_service_name": "subscan-turing",
-    "db_name": "subscan_turing",
-    "network_node": "turing",
-    "type": "mainnet",
-    "ui_domains": [
-      "turing"
-    ]
-  },
   "unique": {
+    "api_domains": [
+      "unique"
+    ],
     "backend_service_name": "subscan-unique",
     "db_name": "subscan_unique",
     "network_node": "unique",
@@ -843,6 +1091,9 @@
     ]
   },
   "vara": {
+    "api_domains": [
+      "vara"
+    ],
     "backend_service_name": "subscan-vara",
     "db_name": "subscan_vara",
     "network_node": "vara",
@@ -852,6 +1103,9 @@
     ]
   },
   "westend": {
+    "api_domains": [
+      "westend"
+    ],
     "backend_service_name": "subscan-westend",
     "db_name": "subscan_westend",
     "network_node": "westend",
@@ -861,6 +1115,9 @@
     ]
   },
   "zeitgeist": {
+    "api_domains": [
+      "zeitgeist"
+    ],
     "backend_service_name": "subscan-zeitgeist",
     "db_name": "subscan_zeitgeist",
     "network_node": "zeitgeist",
@@ -870,12 +1127,27 @@
     ]
   },
   "zkverify-testnet": {
+    "api_domains": [
+      "zkverify-testnet"
+    ],
     "backend_service_name": "subscan-zkverify-testnet",
-    "db_name": "subscan_zkverify_testnet",
+    "db_name": "subscan_zkverify_testnet2",
     "network_node": "zkverify-testnet",
     "type": "testnet",
     "ui_domains": [
       "zkverify-testnet"
+    ]
+  },
+  "zkverify-vflow": {
+    "api_domains": [
+      "vflow-testnet"
+    ],
+    "backend_service_name": "subscan-zkverify-vflow",
+    "db_name": "subscan_zkverify_vflow",
+    "network_node": "zkverify-vflow",
+    "type": "testnet",
+    "ui_domains": [
+      "vflow-testnet"
     ]
   }
 }
