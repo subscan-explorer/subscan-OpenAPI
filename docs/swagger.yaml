@@ -3566,6 +3566,25 @@ definitions:
         - validator_prefs_value
         type: string
     type: object
+  internal_server_http.xcmSenderStatParams:
+    properties:
+      direction:
+        enum:
+        - in
+        - out
+        type: string
+      end:
+        description: 'end date, format: 2006-01-02'
+        type: string
+      filter_para_id:
+        description: filter by parachain id, optional，if filter_para_id =-1 ，return
+          all parachain send stat
+        minimum: -1
+        type: integer
+      start:
+        description: 'start date, format: 2006-01-02'
+        type: string
+    type: object
   subscan_internal_dao.AccountBalanceValueHistory:
     properties:
       asset_value:
@@ -6584,6 +6603,17 @@ definitions:
         type: integer
       day:
         type: string
+    type: object
+  subscan_internal_model.XcmMessageCountStatJson:
+    properties:
+      message_total:
+        type: integer
+      recipient:
+        type: integer
+      sender:
+        type: integer
+      transfer_total:
+        type: integer
     type: object
   subscan_internal_model.XcmMessageEmbeddedJson:
     properties:
@@ -13707,6 +13737,34 @@ paths:
                   $ref: '#/definitions/subscan_internal_model.XcmMeta'
               type: object
       summary: Xcm Meta (PRO)
+      tags:
+      - Xcm
+  /api/scan/xcm/parachain/stat:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.xcmSenderStatParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_model.XcmMessageCountStatJson'
+                  type: array
+              type: object
+      summary: Xcm Sender Stat (PRO)
       tags:
       - Xcm
   /api/scan/xcm/stat:

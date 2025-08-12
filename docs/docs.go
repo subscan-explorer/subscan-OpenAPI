@@ -9411,6 +9411,54 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/xcm/parachain/stat": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Sender Stat (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.xcmSenderStatParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/subscan_internal_model.XcmMessageCountStatJson"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/xcm/stat": {
             "post": {
                 "consumes": [
@@ -15237,6 +15285,31 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.xcmSenderStatParams": {
+            "type": "object",
+            "properties": {
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "in",
+                        "out"
+                    ]
+                },
+                "end": {
+                    "description": "end date, format: 2006-01-02",
+                    "type": "string"
+                },
+                "filter_para_id": {
+                    "description": "filter by parachain id, optional，if filter_para_id =-1 ，return all parachain send stat",
+                    "type": "integer",
+                    "minimum": -1
+                },
+                "start": {
+                    "description": "start date, format: 2006-01-02",
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_dao.AccountBalanceValueHistory": {
             "type": "object",
             "properties": {
@@ -19791,6 +19864,23 @@ const docTemplate = `{
                 },
                 "day": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.XcmMessageCountStatJson": {
+            "type": "object",
+            "properties": {
+                "message_total": {
+                    "type": "integer"
+                },
+                "recipient": {
+                    "type": "integer"
+                },
+                "sender": {
+                    "type": "integer"
+                },
+                "transfer_total": {
+                    "type": "integer"
                 }
             }
         },
