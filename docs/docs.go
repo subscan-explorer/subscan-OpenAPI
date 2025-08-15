@@ -11352,6 +11352,12 @@ const docTemplate = `{
         "internal_plugin_nfts_http.NftActivitiesParams": {
             "type": "object",
             "properties": {
+                "after_id": {
+                    "description": "Optional, after id for pagination",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
                 "collection_id": {
                     "description": "Collection id, required",
                     "type": "string",
@@ -13289,7 +13295,8 @@ const docTemplate = `{
                         "convictionDelegated",
                         "democracyDelegate",
                         "democracyDelegated",
-                        "multiTokensHolder"
+                        "multiTokensHolder",
+                        "tanssiOperator"
                     ]
                 },
                 "max_balance": {
@@ -20530,6 +20537,9 @@ const docTemplate = `{
                 "extrinsic_index": {
                     "type": "string",
                     "example": "5296820-3"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "item_id": {
                     "type": "string",

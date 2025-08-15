@@ -733,6 +733,11 @@ definitions:
     type: object
   internal_plugin_nfts_http.NftActivitiesParams:
     properties:
+      after_id:
+        description: Optional, after id for pagination
+        example: 0
+        minimum: 0
+        type: integer
       collection_id:
         description: Collection id, required
         example: "1"
@@ -2130,6 +2135,7 @@ definitions:
         - democracyDelegate
         - democracyDelegated
         - multiTokensHolder
+        - tanssiOperator
         type: string
       max_balance:
         type: string
@@ -7054,6 +7060,8 @@ definitions:
       extrinsic_index:
         example: 5296820-3
         type: string
+      id:
+        type: integer
       item_id:
         example: "1"
         type: string
