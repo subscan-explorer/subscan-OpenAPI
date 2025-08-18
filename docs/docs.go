@@ -458,6 +458,59 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/accounts/mau": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "stat"
+                ],
+                "summary": "Month daily stat",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountsMAUHandleParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.MonthStatistics"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/accounts/merkle": {
             "post": {
                 "description": "Get the account merkle list, only support polkadot and assethub polkadot network",
@@ -13213,6 +13266,23 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.accountsMAUHandleParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "example": "2023-06-01"
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2023-05-01"
+                }
+            }
+        },
         "internal_server_http.accountsMerkleParams": {
             "type": "object",
             "properties": {
@@ -17533,6 +17603,17 @@ const docTemplate = `{
                     }
                 },
                 "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.MonthStatistics": {
+            "type": "object",
+            "properties": {
+                "active_account": {
+                    "type": "integer"
+                },
+                "time_utc": {
                     "type": "string"
                 }
             }

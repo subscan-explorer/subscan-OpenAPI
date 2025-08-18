@@ -2067,6 +2067,18 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.accountsMAUHandleParams:
+    properties:
+      end:
+        example: "2023-06-01"
+        type: string
+      start:
+        example: "2023-05-01"
+        type: string
+    required:
+    - end
+    - start
+    type: object
   internal_server_http.accountsMerkleParams:
     properties:
       address_type:
@@ -5053,6 +5065,13 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.MetadataMedia'
         type: array
       name:
+        type: string
+    type: object
+  subscan_internal_model.MonthStatistics:
+    properties:
+      active_account:
+        type: integer
+      time_utc:
         type: string
     type: object
   subscan_internal_model.MultiAccountJson:
@@ -8195,6 +8214,37 @@ paths:
       summary: Account token list
       tags:
       - account
+  /api/scan/accounts/mau:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountsMAUHandleParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.MonthStatistics'
+                      type: array
+                  type: object
+              type: object
+      summary: Month daily stat
+      tags:
+      - stat
   /api/scan/accounts/merkle:
     post:
       consumes:
