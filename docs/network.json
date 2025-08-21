@@ -95,6 +95,18 @@
       "autonomys"
     ]
   },
+  "autonomys-chronos": {
+    "api_domains": [
+      "autonomys-chronos"
+    ],
+    "backend_service_name": "subscan-autonomys-chronos",
+    "db_name": "subscan_autonomys_chronos",
+    "network_node": "autonomys-chronos",
+    "type": "testnet",
+    "ui_domains": [
+      "autonomys-chronos"
+    ]
+  },
   "avail": {
     "api_domains": [
       "avail"

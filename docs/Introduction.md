@@ -55,6 +55,7 @@ Please notice before you get started:
 | Assethub-westend     | `assethub-westend.api.subscan.io`              | test   |
 | Astar                | `astar.api.subscan.io`                         | live   |
 | Autonomys            | `autonomys.api.subscan.io`                     | live   |
+| Autonomys-chronos    | `autonomys-chronos.api.subscan.io`             | live   |
 | Avail                | `avail.api.subscan.io`                         | live   |
 | Avail-turing         | `avail-turing.api.subscan.io`                  | test   |
 | Basilisk             | `basilisk.api.subscan.io`                      | live   |
