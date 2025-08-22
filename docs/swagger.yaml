@@ -2278,6 +2278,24 @@ definitions:
       hash:
         type: string
     type: object
+  internal_server_http.childBountiesParams:
+    properties:
+      bounties_id:
+        example: 0
+        minimum: 0
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.contractInfoParams:
     properties:
       contract:
@@ -4366,6 +4384,23 @@ definitions:
       log_index:
         type: string
       log_type:
+        type: string
+    type: object
+  subscan_internal_model.ChildBountySampleJson:
+    properties:
+      amount:
+        type: string
+      index:
+        type: string
+      proposer:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      status:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      title:
         type: string
     type: object
   subscan_internal_model.ContractAccountListJson:
@@ -8458,6 +8493,42 @@ paths:
       summary: Block detail
       tags:
       - block
+  /api/scan/bounties/child:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Child Bounty list
+        This API only supports networks with childbounties frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.childBountiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChildBountySampleJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Child Bounty list
+      tags:
+      - governance
   /api/scan/bounties/proposal:
     post:
       consumes:
