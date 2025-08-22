@@ -2201,59 +2201,6 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/scan/daily": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "stat"
-                ],
-                "summary": "Daily stat",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_server_http.dailyStatParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.DailyStaticJson"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "/api/scan/daily/reward_slash": {
             "post": {
                 "description": "Get daily reward or slash data.\nOnly supports agung-testnet,peaq,krest network",
@@ -13892,34 +13839,6 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_server_http.dailyStatParams": {
-            "type": "object",
-            "required": [
-                "end",
-                "start"
-            ],
-            "properties": {
-                "category": {
-                    "type": "string"
-                },
-                "end": {
-                    "type": "string",
-                    "example": "2023-06-01"
-                },
-                "format": {
-                    "type": "string",
-                    "enum": [
-                        "day",
-                        "hour",
-                        "6hour"
-                    ]
-                },
-                "start": {
-                    "type": "string",
-                    "example": "2023-05-01"
-                }
-            }
-        },
         "internal_server_http.dailyStatV2Param": {
             "type": "object",
             "required": [
@@ -17047,29 +16966,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "slash": {
-                    "type": "string"
-                }
-            }
-        },
-        "subscan_internal_model.DailyStaticJson": {
-            "type": "object",
-            "properties": {
-                "balance_amount_total": {
-                    "type": "string"
-                },
-                "time_hour_utc": {
-                    "type": "string"
-                },
-                "time_six_hour_utc": {
-                    "type": "string"
-                },
-                "time_utc": {
-                    "type": "string"
-                },
-                "total": {
-                    "type": "integer"
-                },
-                "transfer_amount_total": {
                     "type": "string"
                 }
             }
