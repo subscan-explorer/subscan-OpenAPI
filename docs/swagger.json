@@ -9625,6 +9625,70 @@
                 }
             }
         },
+        "/api/v2/scan/account/tokens": {
+            "post": {
+                "description": "Get the account token list, including native token and builtin/assets tokens and evm tokens(erc20/erc721).",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account",
+                    "token"
+                ],
+                "summary": "Account token list v2",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountTokenV2Params"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.TokenJsonV2Json"
+                                                    }
+                                                },
+                                                "module": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/v2/scan/accounts": {
             "post": {
                 "description": "Get the native token accounts list",
@@ -13254,6 +13318,45 @@
             ],
             "properties": {
                 "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.accountTokenV2Params": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "token",
+                        "balance",
+                        "price",
+                        "supply"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 0
+                },
+                "token_type": {
                     "type": "string"
                 }
             }
@@ -19265,6 +19368,100 @@
                     "type": "string"
                 },
                 "reserved": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "token_image": {
+                    "description": "TokenId        *decimal.Decimal `json:\"token_id,omitempty\"`",
+                    "type": "string"
+                },
+                "unbonding": {
+                    "type": "string"
+                },
+                "unclaimed": {
+                    "type": "string"
+                },
+                "unique_id": {
+                    "type": "string"
+                },
+                "vesting": {
+                    "$ref": "#/definitions/subscan_internal_model.VestingJson"
+                }
+            }
+        },
+        "subscan_internal_model.TokenJsonV2Json": {
+            "type": "object",
+            "properties": {
+                "alias_name": {
+                    "type": "string"
+                },
+                "asset_id": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "string"
+                },
+                "bonded": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "conviction_lock": {
+                    "type": "string"
+                },
+                "currency_id": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "democracy_lock": {
+                    "type": "string"
+                },
+                "election_lock": {
+                    "type": "string"
+                },
+                "exchange_ratio": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "lock": {
+                    "type": "string"
+                },
+                "lp_bonded_token_combination": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.LpTokenInfo"
+                    }
+                },
+                "lp_token_combination": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.LpTokenInfo"
+                    }
+                },
+                "media": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.MetadataMedia"
+                    }
+                },
+                "multi_location": {},
+                "price": {
+                    "type": "string"
+                },
+                "reserved": {
+                    "type": "string"
+                },
+                "supply": {
                     "type": "string"
                 },
                 "symbol": {

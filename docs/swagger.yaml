@@ -2067,6 +2067,34 @@ definitions:
     required:
     - address
     type: object
+  internal_server_http.accountTokenV2Params:
+    properties:
+      address:
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - token
+        - balance
+        - price
+        - supply
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 0
+        type: integer
+      token_type:
+        type: string
+    required:
+    - address
+    type: object
   internal_server_http.accountsMAUHandleParams:
     properties:
       end:
@@ -6185,6 +6213,69 @@ definitions:
       price:
         type: string
       reserved:
+        type: string
+      symbol:
+        type: string
+      token_image:
+        description: TokenId        *decimal.Decimal `json:"token_id,omitempty"`
+        type: string
+      unbonding:
+        type: string
+      unclaimed:
+        type: string
+      unique_id:
+        type: string
+      vesting:
+        $ref: '#/definitions/subscan_internal_model.VestingJson'
+    type: object
+  subscan_internal_model.TokenJsonV2Json:
+    properties:
+      alias_name:
+        type: string
+      asset_id:
+        type: string
+      balance:
+        type: string
+      bonded:
+        type: string
+      category:
+        type: string
+      contract:
+        type: string
+      conviction_lock:
+        type: string
+      currency_id:
+        type: string
+      decimals:
+        type: integer
+      democracy_lock:
+        type: string
+      election_lock:
+        type: string
+      exchange_ratio:
+        type: string
+      label:
+        type: string
+      lock:
+        type: string
+      lp_bonded_token_combination:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
+        type: array
+      lp_token_combination:
+        items:
+          $ref: '#/definitions/subscan_internal_model.LpTokenInfo'
+        type: array
+      media:
+        items:
+          $ref: '#/definitions/subscan_internal_model.MetadataMedia'
+        type: array
+      multi_location: {}
+      price:
+        type: string
+      reserved:
+        type: string
+      supply:
         type: string
       symbol:
         type: string
@@ -13930,6 +14021,46 @@ paths:
       summary: Account reward and slash list
       tags:
       - staking
+  /api/v2/scan/account/tokens:
+    post:
+      consumes:
+      - application/json
+      description: Get the account token list, including native token and builtin/assets
+        tokens and evm tokens(erc20/erc721).
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountTokenV2Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TokenJsonV2Json'
+                      type: array
+                    module:
+                      items:
+                        type: string
+                      type: array
+                  type: object
+              type: object
+      summary: Account token list v2
+      tags:
+      - account
+      - token
   /api/v2/scan/accounts:
     post:
       consumes:
