@@ -16188,6 +16188,9 @@ const docTemplate = `{
                 "block_timestamp": {
                     "type": "integer"
                 },
+                "child_bounty_count": {
+                    "type": "integer"
+                },
                 "description": {
                     "type": "string"
                 },
@@ -16944,13 +16947,15 @@ const docTemplate = `{
                 "UMP",
                 "DMP",
                 "HRMP",
-                "SnowBridge"
+                "SnowBridge",
+                "SnowbridgeTanssi"
             ],
             "x-enum-varnames": [
                 "UMPProtocol",
                 "DMPProtocol",
                 "HRMPProtocol",
-                "SnowBridge"
+                "SnowBridge",
+                "SnowbridgeTanssi"
             ]
         },
         "subscan_internal_model.DailyRewardSlashJson": {

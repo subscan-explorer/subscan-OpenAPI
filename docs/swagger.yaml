@@ -4125,6 +4125,8 @@ definitions:
     properties:
       block_timestamp:
         type: integer
+      child_bounty_count:
+        type: integer
       description:
         type: string
       proposal_id:
@@ -4628,12 +4630,14 @@ definitions:
     - DMP
     - HRMP
     - SnowBridge
+    - SnowbridgeTanssi
     type: string
     x-enum-varnames:
     - UMPProtocol
     - DMPProtocol
     - HRMPProtocol
     - SnowBridge
+    - SnowbridgeTanssi
   subscan_internal_model.DailyRewardSlashJson:
     properties:
       account:
