@@ -17781,6 +17781,9 @@ const docTemplate = `{
                 "confirm_extrinsic_idx": {
                     "type": "string"
                 },
+                "error": {
+                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicError"
+                },
                 "multi_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -17835,6 +17838,9 @@ const docTemplate = `{
                 "call_module_function": {
                     "type": "string"
                 },
+                "error": {
+                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicError"
+                },
                 "multi_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -17879,6 +17885,9 @@ const docTemplate = `{
                 },
                 "call_module_function": {
                     "type": "string"
+                },
+                "error": {
+                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicError"
                 },
                 "multi_id": {
                     "type": "string"

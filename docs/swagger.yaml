@@ -5180,6 +5180,8 @@ definitions:
         type: array
       confirm_extrinsic_idx:
         type: string
+      error:
+        $ref: '#/definitions/subscan_internal_model.ExtrinsicError'
       multi_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       multi_id:
@@ -5216,6 +5218,8 @@ definitions:
         type: string
       call_module_function:
         type: string
+      error:
+        $ref: '#/definitions/subscan_internal_model.ExtrinsicError'
       multi_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       multi_id:
@@ -5246,6 +5250,8 @@ definitions:
         type: string
       call_module_function:
         type: string
+      error:
+        $ref: '#/definitions/subscan_internal_model.ExtrinsicError'
       multi_id:
         type: string
       multisig_account_display:
