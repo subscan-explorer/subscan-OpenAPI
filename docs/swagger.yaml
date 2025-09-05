@@ -3230,6 +3230,16 @@ definitions:
         example: 9430
         type: integer
     type: object
+  internal_server_http.runtimeModuleParams:
+    properties:
+      all:
+        example: true
+        type: boolean
+      spec:
+        description: Runtime version
+        example: 9430
+        type: integer
+    type: object
   internal_server_http.searchByIdentityParams:
     properties:
       identity:
@@ -5898,6 +5908,28 @@ definitions:
       registrar_fee:
         type: string
       registrar_index:
+        type: integer
+    type: object
+  subscan_internal_model.RuntimeModuleItemJson:
+    properties:
+      call:
+        items:
+          type: string
+        type: array
+      event:
+        items:
+          type: string
+        type: array
+      module:
+        type: string
+    type: object
+  subscan_internal_model.RuntimeModuleJson:
+    properties:
+      modules:
+        items:
+          $ref: '#/definitions/subscan_internal_model.RuntimeModuleItemJson'
+        type: array
+      spec_version:
         type: integer
     type: object
   subscan_internal_model.RuntimeVersion:
@@ -12093,6 +12125,37 @@ paths:
                   type: object
               type: object
       summary: Runtime metadata
+      tags:
+      - runtime
+  /api/scan/runtime/modules:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.runtimeModuleParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.RuntimeModuleJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Runtime module list
       tags:
       - runtime
   /api/scan/search/identity:

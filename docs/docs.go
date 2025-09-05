@@ -6526,6 +6526,59 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/runtime/modules": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "runtime"
+                ],
+                "summary": "Runtime module list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.runtimeModuleParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.RuntimeModuleJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/search/identity": {
             "post": {
                 "description": "Search by account identity display(fuzzy search)",
@@ -14876,6 +14929,20 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.runtimeModuleParams": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "spec": {
+                    "description": "Runtime version",
+                    "type": "integer",
+                    "example": 9430
+                }
+            }
+        },
         "internal_server_http.searchByIdentityParams": {
             "type": "object",
             "required": [
@@ -18852,6 +18919,40 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "registrar_index": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.RuntimeModuleItemJson": {
+            "type": "object",
+            "properties": {
+                "call": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "event": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "module": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.RuntimeModuleJson": {
+            "type": "object",
+            "properties": {
+                "modules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.RuntimeModuleItemJson"
+                    }
+                },
+                "spec_version": {
                     "type": "integer"
                 }
             }
