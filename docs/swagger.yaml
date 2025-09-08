@@ -3240,6 +3240,55 @@ definitions:
         example: 9430
         type: integer
     type: object
+  internal_server_http.schedulersDetailsParams:
+    properties:
+      id:
+        minimum: 0
+        type: integer
+      index:
+        minimum: 0
+        type: integer
+      when:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.schedulersParams:
+    properties:
+      after_id:
+        description: '[exec_time,id]'
+        items:
+          type: integer
+        type: array
+      block_range:
+        type: string
+      call:
+        type: string
+      end_date:
+        type: string
+      module:
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      start_date:
+        type: string
+      status:
+        enum:
+        - Pending
+        - Cancel
+        - CallUnavailable
+        - Executed
+        - ExecutedFailed
+        type: string
+    type: object
   internal_server_http.searchByIdentityParams:
     properties:
       identity:
@@ -4955,6 +5004,8 @@ definitions:
         type: string
       value:
         type: string
+      version:
+        type: integer
     type: object
   subscan_internal_model.ExtrinsicParam:
     properties:
@@ -5981,6 +6032,87 @@ definitions:
         type: array
       parent:
         $ref: '#/definitions/subscan_internal_model.AccountParentJson'
+    type: object
+  subscan_internal_model.SchedulerDetailsJson:
+    properties:
+      call_hash:
+        type: string
+      call_module:
+        type: string
+      call_name:
+        type: string
+      create_event_index:
+        type: string
+      exec_event_index:
+        type: string
+      id:
+        type: integer
+      index:
+        type: integer
+      origin: {}
+      params:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicParam'
+        type: array
+      priority:
+        type: integer
+      status:
+        type: string
+      sub_calls:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ExtrinsicSubCallJson'
+        type: array
+      task_name:
+        type: string
+      timeline:
+        items:
+          $ref: '#/definitions/subscan_internal_model.TimelineJson'
+        type: array
+      when:
+        type: integer
+      when_timestamp:
+        type: integer
+    type: object
+  subscan_internal_model.SchedulerJson:
+    properties:
+      call_hash:
+        type: string
+      call_module:
+        type: string
+      call_name:
+        type: string
+      create_event_index:
+        type: string
+      exec_event_index:
+        type: string
+      id:
+        type: integer
+      index:
+        type: integer
+      origin: {}
+      priority:
+        type: integer
+      status:
+        type: string
+      task_name:
+        type: string
+      when:
+        type: integer
+      when_timestamp:
+        type: integer
+    type: object
+  subscan_internal_model.SchedulerStatisticsJson:
+    properties:
+      call_unavailable_count:
+        type: integer
+      cancel_count:
+        type: integer
+      executed_count:
+        type: integer
+      executed_failed_count:
+        type: integer
+      scheduled_count:
+        type: integer
     type: object
   subscan_internal_model.SessionKeys:
     properties:
@@ -7960,6 +8092,8 @@ definitions:
         items:
           $ref: '#/definitions/types.ModuleErrorField'
         type: array
+      index:
+        type: integer
       name:
         type: string
     type: object
@@ -12158,6 +12292,84 @@ paths:
       summary: Runtime module list
       tags:
       - runtime
+  /api/scan/scheduler:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.schedulersDetailsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.SchedulerDetailsJson'
+              type: object
+      summary: scheduler details
+      tags:
+      - scheduler
+  /api/scan/schedulers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.schedulersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.SchedulerJson'
+                      type: array
+                  type: object
+              type: object
+      summary: scheduler list
+      tags:
+      - scheduler
+  /api/scan/schedulers/statistics:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.SchedulerStatisticsJson'
+              type: object
+      summary: scheduler statistics details
+      tags:
+      - scheduler
   /api/scan/search/identity:
     post:
       consumes:

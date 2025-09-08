@@ -6579,6 +6579,141 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/scheduler": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "scheduler"
+                ],
+                "summary": "scheduler details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.schedulersDetailsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.SchedulerDetailsJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/schedulers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "scheduler"
+                ],
+                "summary": "scheduler list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.schedulersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.SchedulerJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/schedulers/statistics": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "scheduler"
+                ],
+                "summary": "scheduler statistics details",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.SchedulerStatisticsJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/search/identity": {
             "post": {
                 "description": "Search by account identity display(fuzzy search)",
@@ -14943,6 +15078,73 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.schedulersDetailsParams": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "index": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "when": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.schedulersParams": {
+            "type": "object",
+            "properties": {
+                "after_id": {
+                    "description": "[exec_time,id]",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "call": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Pending",
+                        "Cancel",
+                        "CallUnavailable",
+                        "Executed",
+                        "ExecutedFailed"
+                    ]
+                }
+            }
+        },
         "internal_server_http.searchByIdentityParams": {
             "type": "object",
             "required": [
@@ -17491,6 +17693,9 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "string"
+                },
+                "version": {
+                    "type": "integer"
                 }
             }
         },
@@ -19030,6 +19235,128 @@ const docTemplate = `{
                 },
                 "parent": {
                     "$ref": "#/definitions/subscan_internal_model.AccountParentJson"
+                }
+            }
+        },
+        "subscan_internal_model.SchedulerDetailsJson": {
+            "type": "object",
+            "properties": {
+                "call_hash": {
+                    "type": "string"
+                },
+                "call_module": {
+                    "type": "string"
+                },
+                "call_name": {
+                    "type": "string"
+                },
+                "create_event_index": {
+                    "type": "string"
+                },
+                "exec_event_index": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "index": {
+                    "type": "integer"
+                },
+                "origin": {},
+                "params": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicParam"
+                    }
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "sub_calls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ExtrinsicSubCallJson"
+                    }
+                },
+                "task_name": {
+                    "type": "string"
+                },
+                "timeline": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.TimelineJson"
+                    }
+                },
+                "when": {
+                    "type": "integer"
+                },
+                "when_timestamp": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.SchedulerJson": {
+            "type": "object",
+            "properties": {
+                "call_hash": {
+                    "type": "string"
+                },
+                "call_module": {
+                    "type": "string"
+                },
+                "call_name": {
+                    "type": "string"
+                },
+                "create_event_index": {
+                    "type": "string"
+                },
+                "exec_event_index": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "index": {
+                    "type": "integer"
+                },
+                "origin": {},
+                "priority": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "task_name": {
+                    "type": "string"
+                },
+                "when": {
+                    "type": "integer"
+                },
+                "when_timestamp": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.SchedulerStatisticsJson": {
+            "type": "object",
+            "properties": {
+                "call_unavailable_count": {
+                    "type": "integer"
+                },
+                "cancel_count": {
+                    "type": "integer"
+                },
+                "executed_count": {
+                    "type": "integer"
+                },
+                "executed_failed_count": {
+                    "type": "integer"
+                },
+                "scheduled_count": {
+                    "type": "integer"
                 }
             }
         },
@@ -21989,6 +22316,9 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/types.ModuleErrorField"
                     }
+                },
+                "index": {
+                    "type": "integer"
                 },
                 "name": {
                     "type": "string"
