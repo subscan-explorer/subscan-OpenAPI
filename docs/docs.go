@@ -7136,6 +7136,63 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/staking/validator/commission_history": {
+            "post": {
+                "description": "This API only supports networks with staking frame pallet",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "staking"
+                ],
+                "summary": "Validator commission history",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.commissionHistoryParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.StakingCommissionHistoryJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/staking/validators": {
             "post": {
                 "description": "This API only supports networks with staking frame or parachain-staking pallet",
@@ -13813,6 +13870,30 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.commissionHistoryParams": {
+            "type": "object",
+            "required": [
+                "stash"
+            ],
+            "properties": {
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "stash": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.contractInfoParams": {
             "type": "object",
             "properties": {
@@ -15137,7 +15218,7 @@ const docTemplate = `{
                 "status": {
                     "type": "string",
                     "enum": [
-                        "Pending",
+                        "Scheduled",
                         "Cancel",
                         "CallUnavailable",
                         "Executed",
@@ -19447,6 +19528,29 @@ const docTemplate = `{
                 },
                 "validator_stash": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.StakingCommissionHistoryJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "commission": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "force": {
+                    "type": "boolean"
+                },
+                "timestamp": {
+                    "type": "integer"
                 }
             }
         },

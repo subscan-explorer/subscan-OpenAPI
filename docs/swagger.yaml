@@ -2325,6 +2325,24 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_server_http.commissionHistoryParams:
+    properties:
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      stash:
+        type: string
+    required:
+    - stash
+    type: object
   internal_server_http.contractInfoParams:
     properties:
       contract:
@@ -3283,7 +3301,7 @@ definitions:
         type: string
       status:
         enum:
-        - Pending
+        - Scheduled
         - Cancel
         - CallUnavailable
         - Executed
@@ -6172,6 +6190,21 @@ definitions:
         type: string
       validator_stash:
         type: string
+    type: object
+  subscan_internal_model.StakingCommissionHistoryJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      commission:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      force:
+        type: boolean
+      timestamp:
+        type: integer
     type: object
   subscan_internal_model.StandardMetadata:
     properties:
@@ -12625,6 +12658,40 @@ paths:
                   type: object
               type: object
       summary: Validator bond stat
+      tags:
+      - staking
+  /api/scan/staking/validator/commission_history:
+    post:
+      consumes:
+      - application/json
+      description: This API only supports networks with staking frame pallet
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.commissionHistoryParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.StakingCommissionHistoryJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Validator commission history
       tags:
       - staking
   /api/scan/staking/validators:
