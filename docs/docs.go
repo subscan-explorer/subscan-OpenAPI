@@ -13607,7 +13607,8 @@ const docTemplate = `{
                         "democracyDelegate",
                         "democracyDelegated",
                         "multiTokensHolder",
-                        "tanssiOperator"
+                        "tanssiOperator",
+                        "activeBlockAuthor"
                     ]
                 },
                 "max_balance": {

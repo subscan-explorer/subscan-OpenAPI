@@ -2176,6 +2176,7 @@ definitions:
         - democracyDelegated
         - multiTokensHolder
         - tanssiOperator
+        - activeBlockAuthor
         type: string
       max_balance:
         type: string
