@@ -3183,6 +3183,8 @@ definitions:
     properties:
       address:
         type: string
+      after_id:
+        type: integer
       block_range:
         type: string
       category:
@@ -3818,6 +3820,8 @@ definitions:
         type: integer
       extrinsic_index:
         type: string
+      id:
+        type: integer
       module_id:
         type: string
       params:

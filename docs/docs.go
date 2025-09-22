@@ -15058,6 +15058,9 @@ const docTemplate = `{
                 "address": {
                     "type": "string"
                 },
+                "after_id": {
+                    "type": "integer"
+                },
                 "block_range": {
                     "type": "string"
                 },
@@ -15955,6 +15958,9 @@ const docTemplate = `{
                 },
                 "extrinsic_index": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "module_id": {
                     "type": "string"
