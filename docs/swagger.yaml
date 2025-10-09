@@ -5522,6 +5522,10 @@ definitions:
         description: eq 0 if to relay chain
         type: integer
       dest_raw: {}
+      error_msg:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.XcmErrorMsg'
+        description: message dispatch error msg
       extrinsic_index:
         description: Send message extrinsic index
         type: string
@@ -6928,6 +6932,13 @@ definitions:
       day:
         type: string
     type: object
+  subscan_internal_model.XcmErrorMsg:
+    properties:
+      doc:
+        type: string
+      name:
+        type: string
+    type: object
   subscan_internal_model.XcmMessageCountStatJson:
     properties:
       message_total:
@@ -6978,6 +6989,10 @@ definitions:
         description: eq 0 if to relay chain
         type: integer
       dest_raw: {}
+      error_msg:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.XcmErrorMsg'
+        description: message dispatch error msg
       extrinsic_index:
         description: Send message extrinsic index
         type: string
@@ -9615,7 +9630,7 @@ paths:
       - application/json
       description: |-
         Get daily reward or slash data.
-        Only supports agung-testnet,peaq,krest network
+        Only supports agung-testnet,peaq,krest,tanssi network
       parameters:
       - description: params
         in: body

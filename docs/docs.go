@@ -2203,7 +2203,7 @@ const docTemplate = `{
         },
         "/api/scan/daily/reward_slash": {
             "post": {
-                "description": "Get daily reward or slash data.\nOnly supports agung-testnet,peaq,krest network",
+                "description": "Get daily reward or slash data.\nOnly supports agung-testnet,peaq,krest,tanssi network",
                 "consumes": [
                     "application/json"
                 ],
@@ -18525,6 +18525,14 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "dest_raw": {},
+                "error_msg": {
+                    "description": "message dispatch error msg",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.XcmErrorMsg"
+                        }
+                    ]
+                },
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
@@ -20644,6 +20652,17 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.XcmErrorMsg": {
+            "type": "object",
+            "properties": {
+                "doc": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.XcmMessageCountStatJson": {
             "type": "object",
             "properties": {
@@ -20712,6 +20731,14 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "dest_raw": {},
+                "error_msg": {
+                    "description": "message dispatch error msg",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.XcmErrorMsg"
+                        }
+                    ]
+                },
                 "extrinsic_index": {
                     "description": "Send message extrinsic index",
                     "type": "string"
