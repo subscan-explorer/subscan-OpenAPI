@@ -17668,6 +17668,26 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.ExtrinsicAssetFee": {
+            "type": "object",
+            "properties": {
+                "decimal": {
+                    "type": "integer"
+                },
+                "fee": {
+                    "type": "string"
+                },
+                "fee_used": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "token_unique_id": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.ExtrinsicDetail": {
             "type": "object",
             "properties": {
@@ -17680,6 +17700,9 @@ const docTemplate = `{
                 "additional_meta": {
                     "type": "object",
                     "additionalProperties": true
+                },
+                "asset_fee": {
+                    "$ref": "#/definitions/subscan_internal_model.ExtrinsicAssetFee"
                 },
                 "block_hash": {
                     "type": "string"

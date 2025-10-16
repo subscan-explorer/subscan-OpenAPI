@@ -4951,6 +4951,19 @@ definitions:
       symbol:
         type: string
     type: object
+  subscan_internal_model.ExtrinsicAssetFee:
+    properties:
+      decimal:
+        type: integer
+      fee:
+        type: string
+      fee_used:
+        type: string
+      symbol:
+        type: string
+      token_unique_id:
+        type: string
+    type: object
   subscan_internal_model.ExtrinsicDetail:
     properties:
       account_display:
@@ -4960,6 +4973,8 @@ definitions:
       additional_meta:
         additionalProperties: true
         type: object
+      asset_fee:
+        $ref: '#/definitions/subscan_internal_model.ExtrinsicAssetFee'
       block_hash:
         type: string
       block_num:
