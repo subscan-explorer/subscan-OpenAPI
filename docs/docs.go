@@ -13665,7 +13665,8 @@ const docTemplate = `{
                         "democracyDelegated",
                         "multiTokensHolder",
                         "tanssiOperator",
-                        "activeBlockAuthor"
+                        "activeBlockAuthor",
+                        "collator"
                     ]
                 },
                 "max_balance": {
@@ -15044,7 +15045,19 @@ const docTemplate = `{
                     "type": "string",
                     "enum": [
                         "completed",
-                        "active"
+                        "active",
+                        "submitted",
+                        "decision",
+                        "confirmStarted",
+                        "confirm",
+                        "approved",
+                        "confirmAborted",
+                        "rejected",
+                        "cancelled",
+                        "timeout",
+                        "killed",
+                        "executed",
+                        "executedFailed"
                     ]
                 }
             }

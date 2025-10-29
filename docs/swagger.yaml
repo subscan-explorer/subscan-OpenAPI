@@ -2177,6 +2177,7 @@ definitions:
         - multiTokensHolder
         - tanssiOperator
         - activeBlockAuthor
+        - collator
         type: string
       max_balance:
         type: string
@@ -3177,6 +3178,18 @@ definitions:
         enum:
         - completed
         - active
+        - submitted
+        - decision
+        - confirmStarted
+        - confirm
+        - approved
+        - confirmAborted
+        - rejected
+        - cancelled
+        - timeout
+        - killed
+        - executed
+        - executedFailed
         type: string
     type: object
   internal_server_http.rewardSlashParams:
