@@ -3082,6 +3082,90 @@ definitions:
         - invalid
         type: string
     type: object
+  internal_server_http.referendumDelegateDetailsParams:
+    properties:
+      account:
+        type: string
+      is_delegator:
+        type: boolean
+    required:
+    - account
+    type: object
+  internal_server_http.referendumDelegateParams:
+    properties:
+      account:
+        type: string
+      is_active:
+        type: boolean
+      is_delegator:
+        type: boolean
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - origin
+        - value
+        - votes
+        type: string
+      origin:
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - account
+    type: object
+  internal_server_http.referendumDelegateVotesParams:
+    properties:
+      account:
+        type: string
+      is_delegator:
+        type: boolean
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - referendumId
+        - origin
+        - block
+        - result
+        type: string
+      origin:
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - ayes
+        - nays
+        - abstains
+        type: string
+    required:
+    - account
+    type: object
   internal_server_http.referendumParams:
     properties:
       referendum_index:
@@ -4597,6 +4681,40 @@ definitions:
       success:
         type: boolean
     type: object
+  subscan_internal_model.ConvictionDelegateSum:
+    properties:
+      amount:
+        type: string
+      count:
+        type: integer
+      origins:
+        type: string
+      votes:
+        type: string
+    type: object
+  subscan_internal_model.ConvictionDelegateVoteJson:
+    properties:
+      delegated_votes:
+        type: string
+      delegator:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_index:
+        type: string
+      origins:
+        type: string
+      referendum_index:
+        type: integer
+      relay_chain:
+        type: integer
+      status:
+        type: string
+      valid:
+        type: boolean
+      votes:
+        type: string
+      voting_time:
+        type: integer
+    type: object
   subscan_internal_model.ConvictionVoteJson:
     properties:
       account:
@@ -4805,6 +4923,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       origins:
         type: integer
+      votes:
+        type: string
     type: object
   subscan_internal_model.DemocracyJson:
     properties:
@@ -5832,6 +5952,40 @@ definitions:
       success:
         example: true
         type: boolean
+    type: object
+  subscan_internal_model.ReferendumDelegateDetailsJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      active_delegated_count:
+        type: integer
+      origins:
+        items:
+          $ref: '#/definitions/subscan_internal_model.ConvictionDelegateSum'
+        type: array
+      referendum_vote_abstain_count:
+        type: integer
+      referendum_vote_aye_count:
+        type: integer
+      referendum_vote_nay_count:
+        type: integer
+    type: object
+  subscan_internal_model.ReferendumDelegateJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: string
+      conviction:
+        type: string
+      origins:
+        type: string
+      unlock_at:
+        type: integer
+      valid:
+        type: boolean
+      votes:
+        type: string
     type: object
   subscan_internal_model.ReferendumJson:
     properties:
@@ -12137,6 +12291,107 @@ paths:
       summary: Proxy extrinsics list
       tags:
       - proxy
+  /api/scan/referenda/delegate:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Referendum delegator
+        This API only supports networks with referenda frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumDelegateDetailsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.ReferendumDelegateDetailsJson'
+              type: object
+      summary: Referendum delegator details
+      tags:
+      - governance
+  /api/scan/referenda/delegate/votes:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Referendum delegator vote list
+        This API only supports networks with referenda frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumDelegateVotesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ConvictionDelegateVoteJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Referendum delegator votes
+      tags:
+      - governance
+  /api/scan/referenda/delegates:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Referendum delegated of delegator list
+        This API only supports networks with referenda frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumDelegateParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ReferendumDelegateJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Referendum delegated of delegator list
+      tags:
+      - governance
   /api/scan/referenda/referendum:
     post:
       consumes:

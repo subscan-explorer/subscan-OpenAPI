@@ -6193,6 +6193,166 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/referenda/delegate": {
+            "post": {
+                "description": "Referendum delegator\nThis API only supports networks with referenda frame",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "Referendum delegator details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumDelegateDetailsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.ReferendumDelegateDetailsJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/delegate/votes": {
+            "post": {
+                "description": "Referendum delegator vote list\nThis API only supports networks with referenda frame",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "Referendum delegator votes",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumDelegateVotesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ConvictionDelegateVoteJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/referenda/delegates": {
+            "post": {
+                "description": "Referendum delegated of delegator list\nThis API only supports networks with referenda frame",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "governance"
+                ],
+                "summary": "Referendum delegated of delegator list",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumDelegateParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ReferendumDelegateJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/referenda/referendum": {
             "post": {
                 "description": "Referenda details\nThis API only supports networks with referenda frame",
@@ -14916,6 +15076,122 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.referendumDelegateDetailsParams": {
+            "type": "object",
+            "required": [
+                "account"
+            ],
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "is_delegator": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_server_http.referendumDelegateParams": {
+            "type": "object",
+            "required": [
+                "account"
+            ],
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "is_active": {
+                    "type": "boolean"
+                },
+                "is_delegator": {
+                    "type": "boolean"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "origin",
+                        "value",
+                        "votes"
+                    ]
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                }
+            }
+        },
+        "internal_server_http.referendumDelegateVotesParams": {
+            "type": "object",
+            "required": [
+                "account"
+            ],
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "is_delegator": {
+                    "type": "boolean"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "referendumId",
+                        "origin",
+                        "block",
+                        "result"
+                    ]
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "ayes",
+                        "nays",
+                        "abstains"
+                    ]
+                }
+            }
+        },
         "internal_server_http.referendumParams": {
             "type": "object",
             "properties": {
@@ -17128,6 +17404,58 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.ConvictionDelegateSum": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "origins": {
+                    "type": "string"
+                },
+                "votes": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ConvictionDelegateVoteJson": {
+            "type": "object",
+            "properties": {
+                "delegated_votes": {
+                    "type": "string"
+                },
+                "delegator": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "origins": {
+                    "type": "string"
+                },
+                "referendum_index": {
+                    "type": "integer"
+                },
+                "relay_chain": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "valid": {
+                    "type": "boolean"
+                },
+                "votes": {
+                    "type": "string"
+                },
+                "voting_time": {
+                    "type": "integer"
+                }
+            }
+        },
         "subscan_internal_model.ConvictionVoteJson": {
             "type": "object",
             "properties": {
@@ -17437,6 +17765,9 @@ const docTemplate = `{
                 },
                 "origins": {
                     "type": "integer"
+                },
+                "votes": {
+                    "type": "string"
                 }
             }
         },
@@ -18979,6 +19310,58 @@ const docTemplate = `{
                 "success": {
                     "type": "boolean",
                     "example": true
+                }
+            }
+        },
+        "subscan_internal_model.ReferendumDelegateDetailsJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "active_delegated_count": {
+                    "type": "integer"
+                },
+                "origins": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.ConvictionDelegateSum"
+                    }
+                },
+                "referendum_vote_abstain_count": {
+                    "type": "integer"
+                },
+                "referendum_vote_aye_count": {
+                    "type": "integer"
+                },
+                "referendum_vote_nay_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ReferendumDelegateJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "conviction": {
+                    "type": "string"
+                },
+                "origins": {
+                    "type": "string"
+                },
+                "unlock_at": {
+                    "type": "integer"
+                },
+                "valid": {
+                    "type": "boolean"
+                },
+                "votes": {
+                    "type": "string"
                 }
             }
         },
