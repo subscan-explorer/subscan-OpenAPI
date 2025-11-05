@@ -1640,8 +1640,21 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "ok",
-                        "schema": {}
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_collator.CollatorJson"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1671,8 +1684,32 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "ok",
-                        "schema": {}
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_collator.CollatorJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1691,8 +1728,76 @@ const docTemplate = `{
                 "summary": "Collator Meta",
                 "responses": {
                     "200": {
-                        "description": "ok",
-                        "schema": {}
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_collator.MetadataJson"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/collator/timeline": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "collator"
+                ],
+                "summary": "Collator Timelime",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_collator.collatorTimelineParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_collator.CollatorTimelineJson"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -12385,16 +12490,63 @@ const docTemplate = `{
                 }
             }
         },
-        "internal_pluginv2_pallets_collator.Status": {
-            "type": "integer",
-            "enum": [
-                1,
-                2
-            ],
-            "x-enum-varnames": [
-                "Invulnerable",
-                "Candidate"
-            ]
+        "internal_pluginv2_pallets_collator.CollatorJson": {
+            "type": "object",
+            "properties": {
+                "account_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "balance": {
+                    "type": "string"
+                },
+                "bond": {
+                    "type": "string"
+                },
+                "last_authored_block": {
+                    "description": "LastChangeBlock   int                   ` + "`" + `json:\"last_change_block\"` + "`" + `",
+                    "type": "integer"
+                },
+                "status": {
+                    "$ref": "#/definitions/subscan_internal_dao.CollatorStatus"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_collator.CollatorTimelineJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "action": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_collator.MetadataJson": {
+            "type": "object",
+            "properties": {
+                "candidacy_bond": {
+                    "type": "string"
+                },
+                "candidates": {
+                    "type": "integer"
+                },
+                "candidates_total_bond": {
+                    "type": "string"
+                },
+                "desired_candidates": {
+                    "type": "integer"
+                },
+                "invulnerables": {
+                    "type": "integer"
+                }
+            }
         },
         "internal_pluginv2_pallets_collator.collatorInfoParams": {
             "type": "object",
@@ -12446,9 +12598,26 @@ const docTemplate = `{
                     ],
                     "allOf": [
                         {
-                            "$ref": "#/definitions/internal_pluginv2_pallets_collator.Status"
+                            "$ref": "#/definitions/subscan_internal_dao.CollatorStatus"
                         }
                     ]
+                }
+            }
+        },
+        "internal_pluginv2_pallets_collator.collatorTimelineParams": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -13940,6 +14109,15 @@ const docTemplate = `{
         "internal_server_http.blocksParams": {
             "type": "object",
             "properties": {
+                "after_id": {
+                    "type": "integer"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string"
+                },
                 "page": {
                     "description": "Page number, starting from 0",
                     "type": "integer",
@@ -15851,12 +16029,18 @@ const docTemplate = `{
                     "minimum": 0,
                     "example": 0
                 },
+                "receiver": {
+                    "type": "string"
+                },
                 "row": {
                     "description": "Data size per page",
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "sender": {
+                    "type": "string"
                 },
                 "success": {
                     "type": "boolean"
@@ -16139,6 +16323,19 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_dao.CollatorStatus": {
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3
+            ],
+            "x-enum-varnames": [
+                "CollatorInvulnerable",
+                "CollatorCandidate",
+                "CollatorRetired"
+            ]
+        },
         "subscan_internal_model.AccountAssetsCountJson": {
             "type": "object",
             "properties": {
@@ -16399,6 +16596,9 @@ const docTemplate = `{
                 },
                 "github": {
                     "type": "string"
+                },
+                "is_collator": {
+                    "type": "boolean"
                 },
                 "is_contract": {
                     "type": "boolean"

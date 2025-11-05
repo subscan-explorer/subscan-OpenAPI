@@ -1145,14 +1145,44 @@ definitions:
         minimum: 1
         type: integer
     type: object
-  internal_pluginv2_pallets_collator.Status:
-    enum:
-    - 1
-    - 2
-    type: integer
-    x-enum-varnames:
-    - Invulnerable
-    - Candidate
+  internal_pluginv2_pallets_collator.CollatorJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      balance:
+        type: string
+      bond:
+        type: string
+      last_authored_block:
+        description: LastChangeBlock   int                   `json:"last_change_block"`
+        type: integer
+      status:
+        $ref: '#/definitions/subscan_internal_dao.CollatorStatus'
+    type: object
+  internal_pluginv2_pallets_collator.CollatorTimelineJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      action:
+        type: string
+      block_num:
+        type: integer
+      event_index:
+        type: string
+    type: object
+  internal_pluginv2_pallets_collator.MetadataJson:
+    properties:
+      candidacy_bond:
+        type: string
+      candidates:
+        type: integer
+      candidates_total_bond:
+        type: string
+      desired_candidates:
+        type: integer
+      invulnerables:
+        type: integer
+    type: object
   internal_pluginv2_pallets_collator.collatorInfoParams:
     properties:
       account:
@@ -1185,11 +1215,23 @@ definitions:
         type: integer
       status:
         allOf:
-        - $ref: '#/definitions/internal_pluginv2_pallets_collator.Status'
+        - $ref: '#/definitions/subscan_internal_dao.CollatorStatus'
         enum:
         - 0
         - 1
         - 2
+    type: object
+  internal_pluginv2_pallets_collator.collatorTimelineParams:
+    properties:
+      account:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
     type: object
   internal_pluginv2_pallets_coretime.CoreWorkLoadsJson:
     properties:
@@ -2259,6 +2301,12 @@ definitions:
     type: object
   internal_server_http.blocksParams:
     properties:
+      after_id:
+        type: integer
+      author:
+        type: string
+      block_range:
+        type: string
       page:
         description: Page number, starting from 0
         example: 0
@@ -3641,12 +3689,16 @@ definitions:
         example: 0
         minimum: 0
         type: integer
+      receiver:
+        type: string
       row:
         description: Data size per page
         example: 10
         maximum: 100
         minimum: 1
         type: integer
+      sender:
+        type: string
       success:
         type: boolean
       timeout:
@@ -3849,6 +3901,16 @@ definitions:
       value:
         type: string
     type: object
+  subscan_internal_dao.CollatorStatus:
+    enum:
+    - 1
+    - 2
+    - 3
+    type: integer
+    x-enum-varnames:
+    - CollatorInvulnerable
+    - CollatorCandidate
+    - CollatorRetired
   subscan_internal_model.AccountAssetsCountJson:
     properties:
       account_count:
@@ -4020,6 +4082,8 @@ definitions:
         type: integer
       github:
         type: string
+      is_collator:
+        type: boolean
       is_contract:
         type: boolean
       is_council_member:
@@ -9493,8 +9557,16 @@ paths:
       - application/json
       responses:
         "200":
-          description: ok
-          schema: {}
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_collator.CollatorJson'
+              message:
+                type: string
+            type: object
       summary: Collator Info
       tags:
       - collator
@@ -9513,8 +9585,23 @@ paths:
       - application/json
       responses:
         "200":
-          description: ok
-          schema: {}
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_collator.CollatorJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
       summary: Collator List
       tags:
       - collator
@@ -9526,9 +9613,52 @@ paths:
       - application/json
       responses:
         "200":
-          description: ok
-          schema: {}
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_collator.MetadataJson'
+              message:
+                type: string
+            type: object
       summary: Collator Meta
+      tags:
+      - collator
+  /api/scan/collator/timeline:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_collator.collatorTimelineParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_collator.CollatorTimelineJson'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: Collator Timelime
       tags:
       - collator
   /api/scan/contracts/events:
