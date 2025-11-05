@@ -2751,6 +2751,33 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_server_http.fellowshipReferendumsV2Params:
+    properties:
+      account:
+        type: string
+      call_module:
+        type: string
+      call_name:
+        type: string
+      origin:
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - completed
+        - active
+        type: string
+    type: object
   internal_server_http.governanceDescParam:
     properties:
       gov:
@@ -3245,6 +3272,10 @@ definitions:
         type: string
       call_name:
         type: string
+      multi_status:
+        items:
+          type: string
+        type: array
       origin:
         type: string
       page:
@@ -10787,7 +10818,7 @@ paths:
         name: params
         required: true
         schema:
-          $ref: '#/definitions/internal_server_http.referendumsV2Params'
+          $ref: '#/definitions/internal_server_http.fellowshipReferendumsV2Params'
       produces:
       - application/json
       responses:
