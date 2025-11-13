@@ -618,18 +618,6 @@
       "khala"
     ]
   },
-  "kintsugi": {
-    "api_domains": [
-      "kintsugi"
-    ],
-    "backend_service_name": "subscan-kintsugi",
-    "db_name": "subscan_kintsugi",
-    "network_node": "kintsugi",
-    "type": "mainnet",
-    "ui_domains": [
-      "kintsugi"
-    ]
-  },
   "krest": {
     "api_domains": [
       "krest"
@@ -1078,18 +1066,6 @@
       "tanssi"
     ]
   },
-  "tanssi-test": {
-    "api_domains": [
-      "dancebox"
-    ],
-    "backend_service_name": "subscan-tanssi-test",
-    "db_name": "subscan_tanssi-testnet",
-    "network_node": "tanssi-test",
-    "type": "testnet",
-    "ui_domains": [
-      "dancebox"
-    ]
-  },
   "unique": {
     "api_domains": [
       "unique"
@@ -1114,6 +1090,18 @@
       "vara"
     ]
   },
+  "vflow": {
+    "api_domains": [
+      "vflow"
+    ],
+    "backend_service_name": "subscan-vflow",
+    "db_name": "subscan_zkverify_vflow",
+    "network_node": "vflow",
+    "type": "mainnet",
+    "ui_domains": [
+      "vflow"
+    ]
+  },
   "westend": {
     "api_domains": [
       "westend"
@@ -1126,16 +1114,16 @@
       "westend"
     ]
   },
-  "zeitgeist": {
+  "zkverify": {
     "api_domains": [
-      "zeitgeist"
+      "zkverify"
     ],
-    "backend_service_name": "subscan-zeitgeist",
-    "db_name": "subscan_zeitgeist",
-    "network_node": "zeitgeist",
+    "backend_service_name": "subscan-zkverify",
+    "db_name": "subscan_zkverify",
+    "network_node": "zkverify",
     "type": "mainnet",
     "ui_domains": [
-      "zeitgeist"
+      "zkverify"
     ]
   },
   "zkverify-testnet": {

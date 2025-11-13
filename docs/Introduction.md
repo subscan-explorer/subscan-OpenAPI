@@ -22,7 +22,7 @@ commitment for multiple networks. Please contact us ([api@subscan.io](mailto:api
 
 Please notice before you get started:
 
-1. The following endpoints list is maintained mannually and it might be outdated. In fact, every individual network
+1. The following endpoints list is maintained manually and it might be outdated. In fact, every individual network
    supported on Subscan.io will have available API endpoint as well. The endpoint naming convention
    is `https://$NETWORK_NAME.api.subscan.io` where the `$NETWORK_NAME` is the same as the subdomain of the corresponding
    network on Subscan.io.
@@ -55,7 +55,7 @@ Please notice before you get started:
 | Assethub-westend     | `assethub-westend.api.subscan.io`              | test   |
 | Astar                | `astar.api.subscan.io`                         | live   |
 | Autonomys            | `autonomys.api.subscan.io`                     | live   |
-| Autonomys-chronos    | `autonomys-chronos.api.subscan.io`             | live   |
+| Autonomys-chronos    | `autonomys-chronos.api.subscan.io`             | test   |
 | Avail                | `avail.api.subscan.io`                         | live   |
 | Avail-turing         | `avail-turing.api.subscan.io`                  | test   |
 | Basilisk             | `basilisk.api.subscan.io`                      | live   |
@@ -97,7 +97,6 @@ Please notice before you get started:
 | Integritee-para      | `integritee.api.subscan.io`                    | live   |
 | Karura               | `karura.api.subscan.io`                        | live   |
 | Khala                | `khala.api.subscan.io`                         | test   |
-| Kintsugi             | `kintsugi.api.subscan.io`                      | live   |
 | Krest                | `krest.api.subscan.io`                         | live   |
 | Kusama               | `kusama.api.subscan.io`                        | live   |
 | Manta                | `manta.api.subscan.io`                         | live   |
@@ -133,11 +132,11 @@ Please notice before you get started:
 | Spiritnet            | `spiritnet.api.subscan.io`                     | live   |
 | Stafi                | `stafi.api.subscan.io`                         | live   |
 | Tanssi               | `tanssi.api.subscan.io`                        | live   |
-| Tanssi-test          | `dancebox.api.subscan.io`                      | test   |
 | Unique               | `unique.api.subscan.io`                        | live   |
 | Vara                 | `vara.api.subscan.io`                          | live   |
+| Vflow                | `vflow.api.subscan.io`                         | live   |
 | Westend              | `westend.api.subscan.io`                       | test   |
-| Zeitgeist            | `zeitgeist.api.subscan.io`                     | live   |
+| Zkverify             | `zkverify.api.subscan.io`                      | live   |
 | Zkverify-testnet     | `zkverify-testnet.api.subscan.io`              | test   |
 | Zkverify-vflow       | `vflow-testnet.api.subscan.io`                 | test   |
 

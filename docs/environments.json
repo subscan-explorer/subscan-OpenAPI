@@ -73,12 +73,21 @@
       "projectType": "HTTP"
     },
     {
+      "baseUrl": "https://autonomys-chronos.api.subscan.io",
+      "baseUrls": {
+        "default": "https://autonomys-chronos.api.subscan.io"
+      },
+      "name": "Autonomys-chronos",
+      "ordering": 8,
+      "projectType": "HTTP"
+    },
+    {
       "baseUrl": "https://avail.api.subscan.io",
       "baseUrls": {
         "default": "https://avail.api.subscan.io"
       },
       "name": "Avail",
-      "ordering": 8,
+      "ordering": 9,
       "projectType": "HTTP"
     },
     {
@@ -87,7 +96,7 @@
         "default": "https://avail-turing.api.subscan.io"
       },
       "name": "Avail-turing",
-      "ordering": 9,
+      "ordering": 10,
       "projectType": "HTTP"
     },
     {
@@ -96,7 +105,7 @@
         "default": "https://basilisk.api.subscan.io"
       },
       "name": "Basilisk",
-      "ordering": 10,
+      "ordering": 11,
       "projectType": "HTTP"
     },
     {
@@ -105,7 +114,7 @@
         "default": "https://bifrost-kusama.api.subscan.io"
       },
       "name": "Bifrost-kusama",
-      "ordering": 11,
+      "ordering": 12,
       "projectType": "HTTP"
     },
     {
@@ -114,7 +123,7 @@
         "default": "https://bifrost.api.subscan.io"
       },
       "name": "Bifrost",
-      "ordering": 12,
+      "ordering": 13,
       "projectType": "HTTP"
     },
     {
@@ -123,7 +132,7 @@
         "default": "https://bridgehub-kusama.api.subscan.io"
       },
       "name": "Bridgehub-kusama",
-      "ordering": 13,
+      "ordering": 14,
       "projectType": "HTTP"
     },
     {
@@ -132,7 +141,7 @@
         "default": "https://bridgehub-paseo.api.subscan.io"
       },
       "name": "Bridgehub-paseo",
-      "ordering": 14,
+      "ordering": 15,
       "projectType": "HTTP"
     },
     {
@@ -141,7 +150,7 @@
         "default": "https://bridgehub-polkadot.api.subscan.io"
       },
       "name": "Bridgehub-polkadot",
-      "ordering": 15,
+      "ordering": 16,
       "projectType": "HTTP"
     },
     {
@@ -150,7 +159,7 @@
         "default": "https://bridgehub-westend.api.subscan.io"
       },
       "name": "Bridgehub-westend",
-      "ordering": 16,
+      "ordering": 17,
       "projectType": "HTTP"
     },
     {
@@ -159,7 +168,7 @@
         "default": "https://calamari.api.subscan.io"
       },
       "name": "Calamari",
-      "ordering": 17,
+      "ordering": 18,
       "projectType": "HTTP"
     },
     {
@@ -168,7 +177,7 @@
         "default": "https://centrifuge-standalone-history.api.subscan.io"
       },
       "name": "Centrifuge-standalone-history",
-      "ordering": 18,
+      "ordering": 19,
       "projectType": "HTTP"
     },
     {
@@ -177,7 +186,7 @@
         "default": "https://centrifuge.api.subscan.io"
       },
       "name": "Centrifuge",
-      "ordering": 19,
+      "ordering": 20,
       "projectType": "HTTP"
     },
     {
@@ -186,7 +195,7 @@
         "default": "https://clover.api.subscan.io"
       },
       "name": "Clover",
-      "ordering": 20,
+      "ordering": 21,
       "projectType": "HTTP"
     },
     {
@@ -195,7 +204,7 @@
         "default": "https://collectives-polkadot.api.subscan.io"
       },
       "name": "Collectives-polkadot",
-      "ordering": 21,
+      "ordering": 22,
       "projectType": "HTTP"
     },
     {
@@ -204,7 +213,7 @@
         "default": "https://coretime-kusama.api.subscan.io"
       },
       "name": "Coretime-kusama",
-      "ordering": 22,
+      "ordering": 23,
       "projectType": "HTTP"
     },
     {
@@ -213,7 +222,7 @@
         "default": "https://coretime-paseo.api.subscan.io"
       },
       "name": "Coretime-paseo",
-      "ordering": 23,
+      "ordering": 24,
       "projectType": "HTTP"
     },
     {
@@ -222,7 +231,7 @@
         "default": "https://coretime-polkadot.api.subscan.io"
       },
       "name": "Coretime-polkadot",
-      "ordering": 24,
+      "ordering": 25,
       "projectType": "HTTP"
     },
     {
@@ -231,7 +240,7 @@
         "default": "https://coretime-westend.api.subscan.io"
       },
       "name": "Coretime-westend",
-      "ordering": 25,
+      "ordering": 26,
       "projectType": "HTTP"
     },
     {
@@ -240,7 +249,7 @@
         "default": "https://cc-enterprise.api.subscan.io"
       },
       "name": "Cc-enterprise",
-      "ordering": 26,
+      "ordering": 27,
       "projectType": "HTTP"
     },
     {
@@ -249,7 +258,7 @@
         "default": "https://creditcoin.api.subscan.io"
       },
       "name": "Creditcoin",
-      "ordering": 27,
+      "ordering": 28,
       "projectType": "HTTP"
     },
     {
@@ -258,7 +267,7 @@
         "default": "https://creditcoin3-testnet.api.subscan.io"
       },
       "name": "Creditcoin3-testnet",
-      "ordering": 28,
+      "ordering": 29,
       "projectType": "HTTP"
     },
     {
@@ -267,7 +276,7 @@
         "default": "https://creditcoin3-dev.api.subscan.io"
       },
       "name": "Creditcoin3-dev",
-      "ordering": 29,
+      "ordering": 30,
       "projectType": "HTTP"
     },
     {
@@ -276,7 +285,7 @@
         "default": "https://crust.api.subscan.io"
       },
       "name": "Crust",
-      "ordering": 30,
+      "ordering": 31,
       "projectType": "HTTP"
     },
     {
@@ -285,7 +294,7 @@
         "default": "https://crust-parachain.api.subscan.io"
       },
       "name": "Crust-parachain",
-      "ordering": 31,
+      "ordering": 32,
       "projectType": "HTTP"
     },
     {
@@ -294,7 +303,7 @@
         "default": "https://dancelight.api.subscan.io"
       },
       "name": "Dancelight",
-      "ordering": 32,
+      "ordering": 33,
       "projectType": "HTTP"
     },
     {
@@ -303,7 +312,7 @@
         "default": "https://darwinia.api.subscan.io"
       },
       "name": "Darwinia",
-      "ordering": 33,
+      "ordering": 34,
       "projectType": "HTTP"
     },
     {
@@ -312,7 +321,7 @@
         "default": "https://dbc.api.subscan.io"
       },
       "name": "Dbc",
-      "ordering": 34,
+      "ordering": 35,
       "projectType": "HTTP"
     },
     {
@@ -321,7 +330,7 @@
         "default": "https://dock.api.subscan.io"
       },
       "name": "Dock",
-      "ordering": 35,
+      "ordering": 36,
       "projectType": "HTTP"
     },
     {
@@ -330,7 +339,7 @@
         "default": "https://energywebx.api.subscan.io"
       },
       "name": "Energywebx",
-      "ordering": 36,
+      "ordering": 37,
       "projectType": "HTTP"
     },
     {
@@ -339,7 +348,7 @@
         "default": "https://energywebx-testnet.api.subscan.io"
       },
       "name": "Energywebx-testnet",
-      "ordering": 37,
+      "ordering": 38,
       "projectType": "HTTP"
     },
     {
@@ -348,7 +357,7 @@
         "default": "https://canary-matrix.api.subscan.io"
       },
       "name": "Canary-matrix",
-      "ordering": 38,
+      "ordering": 39,
       "projectType": "HTTP"
     },
     {
@@ -357,7 +366,7 @@
         "default": "https://canary.api.subscan.io"
       },
       "name": "Canary",
-      "ordering": 39,
+      "ordering": 40,
       "projectType": "HTTP"
     },
     {
@@ -366,7 +375,7 @@
         "default": "https://matrix.api.subscan.io"
       },
       "name": "Matrix",
-      "ordering": 40,
+      "ordering": 41,
       "projectType": "HTTP"
     },
     {
@@ -375,7 +384,7 @@
         "default": "https://enjin.api.subscan.io"
       },
       "name": "Enjin",
-      "ordering": 41,
+      "ordering": 42,
       "projectType": "HTTP"
     },
     {
@@ -384,7 +393,7 @@
         "default": "https://gasp.api.subscan.io"
       },
       "name": "Gasp",
-      "ordering": 42,
+      "ordering": 43,
       "projectType": "HTTP"
     },
     {
@@ -393,7 +402,7 @@
         "default": "https://heima.api.subscan.io"
       },
       "name": "Heima",
-      "ordering": 43,
+      "ordering": 44,
       "projectType": "HTTP"
     },
     {
@@ -402,7 +411,7 @@
         "default": "https://humanode.api.subscan.io"
       },
       "name": "Humanode",
-      "ordering": 44,
+      "ordering": 45,
       "projectType": "HTTP"
     },
     {
@@ -411,7 +420,7 @@
         "default": "https://hydration.api.subscan.io"
       },
       "name": "Hydration",
-      "ordering": 45,
+      "ordering": 46,
       "projectType": "HTTP"
     },
     {
@@ -420,7 +429,7 @@
         "default": "https://integritee.api.subscan.io"
       },
       "name": "Integritee",
-      "ordering": 46,
+      "ordering": 47,
       "projectType": "HTTP"
     },
     {
@@ -429,7 +438,7 @@
         "default": "https://karura.api.subscan.io"
       },
       "name": "Karura",
-      "ordering": 47,
+      "ordering": 48,
       "projectType": "HTTP"
     },
     {
@@ -438,15 +447,6 @@
         "default": "https://khala.api.subscan.io"
       },
       "name": "Khala",
-      "ordering": 48,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://kintsugi.api.subscan.io",
-      "baseUrls": {
-        "default": "https://kintsugi.api.subscan.io"
-      },
-      "name": "Kintsugi",
       "ordering": 49,
       "projectType": "HTTP"
     },
@@ -784,21 +784,12 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://dancebox.api.subscan.io",
-      "baseUrls": {
-        "default": "https://dancebox.api.subscan.io"
-      },
-      "name": "Dancebox",
-      "ordering": 87,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://unique.api.subscan.io",
       "baseUrls": {
         "default": "https://unique.api.subscan.io"
       },
       "name": "Unique",
-      "ordering": 88,
+      "ordering": 87,
       "projectType": "HTTP"
     },
     {
@@ -807,6 +798,15 @@
         "default": "https://vara.api.subscan.io"
       },
       "name": "Vara",
+      "ordering": 88,
+      "projectType": "HTTP"
+    },
+    {
+      "baseUrl": "https://vflow.api.subscan.io",
+      "baseUrls": {
+        "default": "https://vflow.api.subscan.io"
+      },
+      "name": "Vflow",
       "ordering": 89,
       "projectType": "HTTP"
     },
@@ -820,11 +820,11 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://zeitgeist.api.subscan.io",
+      "baseUrl": "https://zkverify.api.subscan.io",
       "baseUrls": {
-        "default": "https://zeitgeist.api.subscan.io"
+        "default": "https://zkverify.api.subscan.io"
       },
-      "name": "Zeitgeist",
+      "name": "Zkverify",
       "ordering": 91,
       "projectType": "HTTP"
     },
