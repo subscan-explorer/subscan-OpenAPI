@@ -778,6 +778,18 @@
       "paseo"
     ]
   },
+  "passethub-paseo": {
+    "api_domains": [
+      "passet-hub"
+    ],
+    "backend_service_name": "subscan-passethub-paseo",
+    "db_name": "subscan_passethub_paseo",
+    "network_node": "passethub-paseo",
+    "type": "testnet",
+    "ui_domains": [
+      "passet-hub"
+    ]
+  },
   "peaq": {
     "api_domains": [
       "agung-testnet"

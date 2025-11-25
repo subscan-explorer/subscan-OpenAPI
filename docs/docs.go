@@ -3323,6 +3323,23 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/evm/etherscan": {
+            "get": {
+                "description": "We provide a subset of Etherscan-like API for EVM-compatible chains. Please refer to the official Etherscan API documentation for details on parameters and responses.\nOfficial Etherscan API Documentation: https://docs.etherscan.io/api-endpoints\nBelow are the API Endpoints we already support.\n- Account Module: balance, balancehistory, txlist, tokentx, tokennfttx, txlistinternal\n- Block Module: getblocknobytime\n- Contract Module: getabi, getsourcecode, getcontractcreation, verifysourcecode, checkverifystatus\n- Logs Module: getLogs\n- Transaction Module: getstatus, gettxreceiptstatus\n- Token Module: tokensupply, tokenbalance, tokenbalancehistory, tokensupplyhistory, topholders, tokenholderlist, tokenholdercount, tokeninfo, addresstokenbalance, addresstokennftbalance, addresstokennftinventory",
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "Etherscan-like API",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.EtherscanResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/evm/logs": {
             "post": {
                 "description": "EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.\nThis API only supports networks with EVM pallet(frontier or revive)",
@@ -11397,6 +11414,22 @@ const docTemplate = `{
                     "description": "Optional, Also known as Transaction ID (TxID).",
                     "type": "string",
                     "example": "0x09bc77f61a670ea22b66e1e440d2c2163fb43e11974e3563109630571fae42ac"
+                }
+            }
+        },
+        "internal_plugin_evm_http.EtherscanResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "description": "\"OK\" for success, error message for failure",
+                    "type": "string"
+                },
+                "result": {
+                    "description": "Actual data or error description"
+                },
+                "status": {
+                    "description": "\"1\" for success, \"0\" for error",
+                    "type": "string"
                 }
             }
         },

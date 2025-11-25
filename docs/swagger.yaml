@@ -360,6 +360,17 @@ definitions:
         example: 0x09bc77f61a670ea22b66e1e440d2c2163fb43e11974e3563109630571fae42ac
         type: string
     type: object
+  internal_plugin_evm_http.EtherscanResponse:
+    properties:
+      message:
+        description: '"OK" for success, error message for failure'
+        type: string
+      result:
+        description: Actual data or error description
+      status:
+        description: '"1" for success, "0" for error'
+        type: string
+    type: object
   internal_plugin_evm_http.EvmAbiSearchParams:
     properties:
       id:
@@ -10611,6 +10622,26 @@ paths:
           description: OK
           schema: {}
       summary: EVM ERC1155 collectibles
+      tags:
+      - EVM
+  /api/scan/evm/etherscan:
+    get:
+      description: |-
+        We provide a subset of Etherscan-like API for EVM-compatible chains. Please refer to the official Etherscan API documentation for details on parameters and responses.
+        Official Etherscan API Documentation: https://docs.etherscan.io/api-endpoints
+        Below are the API Endpoints we already support.
+        - Account Module: balance, balancehistory, txlist, tokentx, tokennfttx, txlistinternal
+        - Block Module: getblocknobytime
+        - Contract Module: getabi, getsourcecode, getcontractcreation, verifysourcecode, checkverifystatus
+        - Logs Module: getLogs
+        - Transaction Module: getstatus, gettxreceiptstatus
+        - Token Module: tokensupply, tokenbalance, tokenbalancehistory, tokensupplyhistory, topholders, tokenholderlist, tokenholdercount, tokeninfo, addresstokenbalance, addresstokennftbalance, addresstokennftinventory
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/internal_plugin_evm_http.EtherscanResponse'
+      summary: Etherscan-like API
       tags:
       - EVM
   /api/scan/evm/logs:
