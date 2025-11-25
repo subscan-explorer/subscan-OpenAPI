@@ -581,18 +581,6 @@
       "hydration"
     ]
   },
-  "integritee-para": {
-    "api_domains": [
-      "integritee"
-    ],
-    "backend_service_name": "subscan-integritee-para",
-    "db_name": "subscan_integritee_para",
-    "network_node": "integritee-para",
-    "type": "mainnet",
-    "ui_domains": [
-      "integritee"
-    ]
-  },
   "karura": {
     "api_domains": [
       "karura"
@@ -712,18 +700,6 @@
     "type": "mainnet",
     "ui_domains": [
       "mythos"
-    ]
-  },
-  "nodle": {
-    "api_domains": [
-      "nodle"
-    ],
-    "backend_service_name": "subscan-nodle",
-    "db_name": "subscan_nodle",
-    "network_node": "nodle",
-    "type": "mainnet",
-    "ui_domains": [
-      "nodle"
     ]
   },
   "opal": {

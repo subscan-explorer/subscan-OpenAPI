@@ -18500,7 +18500,8 @@
                     }
                 },
                 "originsCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "voting_total": {
                     "type": "integer"
@@ -19708,7 +19709,8 @@
                     }
                 },
                 "originsCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "referendum_locked": {
                     "type": "string"
@@ -19725,7 +19727,8 @@
             "type": "object",
             "properties": {
                 "count": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "id": {
                     "type": "integer"

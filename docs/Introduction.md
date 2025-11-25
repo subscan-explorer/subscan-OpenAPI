@@ -94,7 +94,6 @@ Please notice before you get started:
 | Heima                | `heima.api.subscan.io`                         | live   |
 | Humanode             | `humanode.api.subscan.io`                      | live   |
 | Hydradx              | `hydration.api.subscan.io`                     | live   |
-| Integritee-para      | `integritee.api.subscan.io`                    | live   |
 | Karura               | `karura.api.subscan.io`                        | live   |
 | Khala                | `khala.api.subscan.io`                         | test   |
 | Krest                | `krest.api.subscan.io`                         | live   |
@@ -105,7 +104,6 @@ Please notice before you get started:
 | Moonbeam             | `moonbeam.api.subscan.io`                      | live   |
 | Moonriver            | `moonriver.api.subscan.io`                     | live   |
 | Mythos               | `mythos.api.subscan.io`                        | live   |
-| Nodle                | `nodle.api.subscan.io`                         | live   |
 | Opal                 | `opal.api.subscan.io`                          | test   |
 | Origintrail          | `neuroweb.api.subscan.io`                      | live   |
 | Origintrail-rococo   | `neuroweb-testnet.api.subscan.io`              | test   |
