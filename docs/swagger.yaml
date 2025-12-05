@@ -1782,6 +1782,10 @@ definitions:
     type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsListParams:
     properties:
+      multi_state:
+        items:
+          type: string
+        type: array
       state:
         enum:
         - Destroying
@@ -4399,6 +4403,8 @@ definitions:
         type: integer
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      relay_chain:
+        type: integer
       status:
         type: string
       timeline:
@@ -4422,6 +4428,8 @@ definitions:
         type: integer
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      relay_chain:
+        type: integer
       status:
         type: string
       title:
@@ -4693,6 +4701,8 @@ definitions:
         type: string
       proposer:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      relay_chain:
+        type: integer
       status:
         type: string
       timeline:
@@ -5338,7 +5348,6 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
-        format: int64
         type: integer
       voting_total:
         type: integer
@@ -6146,7 +6155,6 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
-        format: int64
         type: integer
       referendum_locked:
         type: string
@@ -6158,7 +6166,6 @@ definitions:
   subscan_internal_model.ReferendumStatisticsOriginsJson:
     properties:
       count:
-        format: int64
         type: integer
       id:
         type: integer
