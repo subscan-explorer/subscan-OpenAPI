@@ -10864,6 +10864,74 @@
                 }
             }
         },
+        "/api/v2/scan/xcm/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Xcm"
+                ],
+                "summary": "Xcm Messages list (PRO)",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmMessageV2Params"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "daily": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ParaXcmMessageTokenDailyCountJson"
+                                                    }
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ParaXcmMessageJson"
+                                                    }
+                                                },
+                                                "total": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ParaXcmMessageTokenTotalJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/healthz": {
             "get": {
                 "tags": [
@@ -13724,6 +13792,98 @@
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                },
+                "status": {
+                    "description": "filter by status",
+                    "type": "string",
+                    "enum": [
+                        "pending",
+                        "relayed",
+                        "success",
+                        "failed"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.XcmMessageV2Params": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "filter by address",
+                    "type": "string"
+                },
+                "after_id": {
+                    "description": "Pagination, the last message id of the previous page",
+                    "type": "string"
+                },
+                "block_range": {
+                    "description": "filter by block range,eg: 1000-2000",
+                    "type": "string",
+                    "example": "20000-30000"
+                },
+                "bridge_type": {
+                    "description": "filter by bridge type",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dest_para_id": {
+                    "description": "filter by receiver parachain id",
+                    "type": "integer"
+                },
+                "extrinsic_index": {
+                    "description": "filter by send extrinsic index",
+                    "type": "string"
+                },
+                "filter_para_id": {
+                    "description": "filter by parachain id(sender or receiver)",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "filter_symbol": {
+                    "description": "filter by asset symbol",
+                    "type": "string"
+                },
+                "include_total": {
+                    "type": "boolean"
+                },
+                "message_hash": {
+                    "description": "filter by message hash",
+                    "type": "string"
+                },
+                "message_type": {
+                    "description": "filter by message type",
+                    "type": "string",
+                    "enum": [
+                        "transfer",
+                        "message"
+                    ]
+                },
+                "origin_para_id": {
+                    "description": "filter by sender origin parachain id",
+                    "type": "integer"
+                },
+                "page": {
+                    "description": "page number, start from 0",
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "protocol": {
+                    "description": "filter by XCM protocol",
+                    "type": "string",
+                    "enum": [
+                        "HRMP",
+                        "VMP",
+                        "UMP",
+                        "DMP"
+                    ]
+                },
+                "row": {
+                    "description": "page size",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 0
                 },
                 "status": {
                     "description": "filter by status",
@@ -19270,6 +19430,37 @@
                 "xcm_version": {
                     "description": "xcm version",
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ParaXcmMessageTokenDailyCountJson": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ParaXcmMessageTokenTotalJson": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "unique_id": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },

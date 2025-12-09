@@ -2021,6 +2021,76 @@ definitions:
         - failed
         type: string
     type: object
+  internal_server_http.XcmMessageV2Params:
+    properties:
+      address:
+        description: filter by address
+        type: string
+      after_id:
+        description: Pagination, the last message id of the previous page
+        type: string
+      block_range:
+        description: 'filter by block range,eg: 1000-2000'
+        example: 20000-30000
+        type: string
+      bridge_type:
+        description: filter by bridge type
+        items:
+          type: string
+        type: array
+      dest_para_id:
+        description: filter by receiver parachain id
+        type: integer
+      extrinsic_index:
+        description: filter by send extrinsic index
+        type: string
+      filter_para_id:
+        description: filter by parachain id(sender or receiver)
+        minimum: 1
+        type: integer
+      filter_symbol:
+        description: filter by asset symbol
+        type: string
+      include_total:
+        type: boolean
+      message_hash:
+        description: filter by message hash
+        type: string
+      message_type:
+        description: filter by message type
+        enum:
+        - transfer
+        - message
+        type: string
+      origin_para_id:
+        description: filter by sender origin parachain id
+        type: integer
+      page:
+        description: page number, start from 0
+        minimum: 0
+        type: integer
+      protocol:
+        description: filter by XCM protocol
+        enum:
+        - HRMP
+        - VMP
+        - UMP
+        - DMP
+        type: string
+      row:
+        description: page size
+        maximum: 100
+        minimum: 0
+        type: integer
+      status:
+        description: filter by status
+        enum:
+        - pending
+        - relayed
+        - success
+        - failed
+        type: string
+    type: object
   internal_server_http.XcmMetaParams:
     properties:
       para_id:
@@ -5855,6 +5925,26 @@ definitions:
       xcm_version:
         description: xcm version
         type: integer
+    type: object
+  subscan_internal_model.ParaXcmMessageTokenDailyCountJson:
+    properties:
+      count:
+        type: integer
+      time:
+        type: string
+    type: object
+  subscan_internal_model.ParaXcmMessageTokenTotalJson:
+    properties:
+      count:
+        type: integer
+      decimals:
+        type: integer
+      symbol:
+        type: string
+      unique_id:
+        type: string
+      value:
+        type: string
     type: object
   subscan_internal_model.ParachainInfoJson:
     properties:
@@ -15273,6 +15363,47 @@ paths:
       summary: Transfers list
       tags:
       - account
+  /api/v2/scan/xcm/list:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.XcmMessageV2Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    daily:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParaXcmMessageTokenDailyCountJson'
+                      type: array
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParaXcmMessageJson'
+                      type: array
+                    total:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParaXcmMessageTokenTotalJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Xcm Messages list (PRO)
+      tags:
+      - Xcm
   /healthz:
     get:
       responses:
