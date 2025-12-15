@@ -1859,15 +1859,10 @@ definitions:
         type: integer
       extrinsic_index:
         type: string
-      focus:
-        description: only using for subscan
-        type: string
       hash:
         type: string
-      hidden_params:
-        description: hide extrinsic params in response
-        type: boolean
-      only_extrinsic_event:
+      hide_events:
+        description: hide events in response
         type: boolean
     type: object
   internal_server_http.J:
@@ -5418,6 +5413,7 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
+        format: int64
         type: integer
       voting_total:
         type: integer
@@ -6245,6 +6241,7 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
+        format: int64
         type: integer
       referendum_locked:
         type: string
@@ -6256,6 +6253,7 @@ definitions:
   subscan_internal_model.ReferendumStatisticsOriginsJson:
     properties:
       count:
+        format: int64
         type: integer
       id:
         type: integer
@@ -6538,6 +6536,9 @@ definitions:
       aura:
         type: string
       authority_discovery:
+        type: string
+      avn:
+        description: AVN specific, energywebx
         type: string
       babe:
         type: string

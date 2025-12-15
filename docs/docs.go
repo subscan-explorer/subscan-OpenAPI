@@ -13597,18 +13597,11 @@ const docTemplate = `{
                 "extrinsic_index": {
                     "type": "string"
                 },
-                "focus": {
-                    "description": "only using for subscan",
-                    "type": "string"
-                },
                 "hash": {
                     "type": "string"
                 },
-                "hidden_params": {
-                    "description": "hide extrinsic params in response",
-                    "type": "boolean"
-                },
-                "only_extrinsic_event": {
+                "hide_events": {
+                    "description": "hide events in response",
                     "type": "boolean"
                 }
             }
@@ -18686,7 +18679,8 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "voting_total": {
                     "type": "integer"
@@ -19925,7 +19919,8 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "referendum_locked": {
                     "type": "string"
@@ -19942,7 +19937,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "count": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "id": {
                     "type": "integer"
@@ -20370,6 +20366,10 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "authority_discovery": {
+                    "type": "string"
+                },
+                "avn": {
+                    "description": "AVN specific, energywebx",
                     "type": "string"
                 },
                 "babe": {
