@@ -4631,6 +4631,297 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/midnight/compact_version": {
+            "post": {
+                "description": "This API only available midnight network",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Supported Compact Compiler Versions",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/contract": {
+            "post": {
+                "description": "This API only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Contract Detail",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidContract"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/contract/cma": {
+            "post": {
+                "description": "This API only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Contract CMA info",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/contract/state": {
+            "post": {
+                "description": "This API only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Contract State",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractState"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "additionalProperties": true
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/contracts": {
+            "post": {
+                "description": "This API only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Contracts",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidContract"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/transactions": {
+            "post": {
+                "description": "This API only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Transactions",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightTransactionsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidCallJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/multiChain/account/count": {
             "post": {
                 "description": "Get the number of accounts in multi-chains\nSupport Network: polkadot",
@@ -12549,6 +12840,192 @@ const docTemplate = `{
                     "maxLength": 256,
                     "minLength": 1
                 }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidCallJson": {
+            "type": "object",
+            "properties": {
+                "contract": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "tx_hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidContract": {
+            "type": "object",
+            "properties": {
+                "abi": {},
+                "address": {
+                    "type": "string"
+                },
+                "circuits_count": {
+                    "type": "integer"
+                },
+                "cma": {
+                    "description": "VerifiedCircuits int            ` + "`" + `json:\"verified_circuits\" gorm:\"size:32\"` + "`" + `\nmaintain info"
+                },
+                "compiler_version": {
+                    "type": "string"
+                },
+                "create_at": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "integer"
+                },
+                "extrinsic_index": {
+                    "type": "integer"
+                },
+                "last_verify_error": {
+                    "type": "string"
+                },
+                "source_code": {
+                    "type": "string"
+                },
+                "source_type": {
+                    "description": "single_file, multi_file",
+                    "type": "string"
+                },
+                "transaction_count": {
+                    "type": "integer"
+                },
+                "tx_hash": {
+                    "type": "string"
+                },
+                "verification_key": {
+                    "description": "{\"circuit_name\"=\u003e\"key\"}",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey"
+                        }
+                    ]
+                },
+                "verify_time": {
+                    "type": "integer"
+                },
+                "verifying": {
+                    "type": "boolean"
+                },
+                "viewer": {}
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightContractParams": {
+            "type": "object",
+            "required": [
+                "contract"
+            ],
+            "properties": {
+                "contract": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightContractState": {
+            "type": "object",
+            "required": [
+                "contract"
+            ],
+            "properties": {
+                "contract": {
+                    "type": "string"
+                },
+                "hash": {
+                    "description": "optional, if not provided, get latest state",
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightContractsParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "order": {
+                    "description": "asc or desc",
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "sort": {
+                    "description": "sort by transaction_count or verify_time",
+                    "type": "string",
+                    "enum": [
+                        "transaction_count",
+                        "verify_time"
+                    ]
+                },
+                "verified": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightTransactionsParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "after_id": {
+                    "description": "optional, for pagination, get records after this ID",
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "block_range": {
+                    "description": "optional, e.g. \"1000-2000\"",
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "txn_type": {
+                    "description": "optional, filter by transaction type",
+                    "type": "string",
+                    "enum": [
+                        "zk",
+                        "contract"
+                    ]
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.VerificationKey": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
             }
         },
         "internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward": {

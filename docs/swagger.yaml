@@ -1129,6 +1129,135 @@ definitions:
         minLength: 1
         type: string
     type: object
+  internal_pluginv2_customizeds_midnight.MidCallJson:
+    properties:
+      contract:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      id:
+        type: integer
+      timestamp:
+        type: integer
+      tx_hash:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.MidContract:
+    properties:
+      abi: {}
+      address:
+        type: string
+      circuits_count:
+        type: integer
+      cma:
+        description: |-
+          VerifiedCircuits int            `json:"verified_circuits" gorm:"size:32"`
+          maintain info
+      compiler_version:
+        type: string
+      create_at:
+        type: integer
+      event_index:
+        type: integer
+      extrinsic_index:
+        type: integer
+      last_verify_error:
+        type: string
+      source_code:
+        type: string
+      source_type:
+        description: single_file, multi_file
+        type: string
+      transaction_count:
+        type: integer
+      tx_hash:
+        type: string
+      verification_key:
+        allOf:
+        - $ref: '#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey'
+        description: '{"circuit_name"=>"key"}'
+      verify_time:
+        type: integer
+      verifying:
+        type: boolean
+      viewer: {}
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightContractParams:
+    properties:
+      contract:
+        type: string
+    required:
+    - contract
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightContractState:
+    properties:
+      contract:
+        type: string
+      hash:
+        description: optional, if not provided, get latest state
+        type: string
+    required:
+    - contract
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightContractsParams:
+    properties:
+      order:
+        description: asc or desc
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      sort:
+        description: sort by transaction_count or verify_time
+        enum:
+        - transaction_count
+        - verify_time
+        type: string
+      verified:
+        type: boolean
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightTransactionsParams:
+    properties:
+      after_id:
+        description: optional, for pagination, get records after this ID
+        minimum: 0
+        type: integer
+      block_range:
+        description: optional, e.g. "1000-2000"
+        type: string
+      contract:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      txn_type:
+        description: optional, filter by transaction type
+        enum:
+        - zk
+        - contract
+        type: string
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.VerificationKey:
+    additionalProperties:
+      type: string
+    type: object
   internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward:
     properties:
       amount:
@@ -11538,6 +11667,178 @@ paths:
       summary: Current network metadata
       tags:
       - metadata
+  /api/scan/midnight/compact_version:
+    post:
+      description: This API only available midnight network
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  items:
+                    type: string
+                  type: array
+              type: object
+      summary: Midnight Supported Compact Compiler Versions
+      tags:
+      - midnight
+  /api/scan/midnight/contract:
+    post:
+      consumes:
+      - application/json
+      description: This API only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidContract'
+              type: object
+      summary: Midnight Contract Detail
+      tags:
+      - midnight
+  /api/scan/midnight/contract/cma:
+    post:
+      consumes:
+      - application/json
+      description: This API only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  items:
+                    type: string
+                  type: array
+              type: object
+      summary: Midnight Contract CMA info
+      tags:
+      - midnight
+  /api/scan/midnight/contract/state:
+    post:
+      consumes:
+      - application/json
+      description: This API only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractState'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+              type: object
+      summary: Midnight Contract State
+      tags:
+      - midnight
+  /api/scan/midnight/contracts:
+    post:
+      consumes:
+      - application/json
+      description: This API only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightContractsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidContract'
+                      type: array
+                  type: object
+              type: object
+      summary: Midnight Contracts
+      tags:
+      - midnight
+  /api/scan/midnight/transactions:
+    post:
+      consumes:
+      - application/json
+      description: This API only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightTransactionsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidCallJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Midnight Transactions
+      tags:
+      - midnight
   /api/scan/multiChain/account/count:
     post:
       consumes:
