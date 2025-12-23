@@ -23,18 +23,6 @@
       "acala-testnet"
     ]
   },
-  "alephzero": {
-    "api_domains": [
-      "alephzero"
-    ],
-    "backend_service_name": "subscan-alephzero",
-    "db_name": "subscan_alephzero",
-    "network_node": "alephzero",
-    "type": "mainnet",
-    "ui_domains": [
-      "alephzero"
-    ]
-  },
   "altair": {
     "api_domains": [
       "altair"

@@ -47,7 +47,6 @@ Please notice before you get started:
 |----------------------|------------------------------------------------|--------|
 | Acala                | `acala.api.subscan.io`                         | live   |
 | Acala-test           | `acala-testnet.api.subscan.io`                 | test   |
-| Alephzero            | `alephzero.api.subscan.io`                     | live   |
 | Altair               | `altair.api.subscan.io`                        | live   |
 | Assethub-kusama      | `assethub-kusama.api.subscan.io`               | live   |
 | Assethub-paseo       | `assethub-paseo.api.subscan.io`                | test   |

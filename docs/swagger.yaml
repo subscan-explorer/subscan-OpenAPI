@@ -1258,6 +1258,13 @@ definitions:
     additionalProperties:
       type: string
     type: object
+  internal_pluginv2_customizeds_midnight.midnightTransactionParams:
+    properties:
+      extrinsic_index:
+        type: string
+      tx_hash:
+        type: string
+    type: object
   internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward:
     properties:
       amount:
@@ -11803,6 +11810,33 @@ paths:
                   type: object
               type: object
       summary: Midnight Contracts
+      tags:
+      - midnight
+  /api/scan/midnight/transaction:
+    post:
+      consumes:
+      - application/json
+      description: This API only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.midnightTransactionParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidCallJson'
+              type: object
+      summary: Midnight Transaction Detail
       tags:
       - midnight
   /api/scan/midnight/transactions:

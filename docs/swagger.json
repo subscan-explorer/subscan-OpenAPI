@@ -4854,6 +4854,52 @@
                 }
             }
         },
+        "/api/scan/midnight/transaction": {
+            "post": {
+                "description": "This API only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Transaction Detail",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.midnightTransactionParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidCallJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/midnight/transactions": {
             "post": {
                 "description": "This API only available midnight network",
@@ -13015,6 +13061,17 @@
             "type": "object",
             "additionalProperties": {
                 "type": "string"
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.midnightTransactionParams": {
+            "type": "object",
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "tx_hash": {
+                    "type": "string"
+                }
             }
         },
         "internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward": {
