@@ -16718,6 +16718,12 @@ const docTemplate = `{
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "search": {
+                    "description": "symbol",
+                    "type": "string",
+                    "maxLength": 256,
+                    "minLength": 1
                 }
             }
         },
@@ -19247,8 +19253,7 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "integer"
                 },
                 "voting_total": {
                     "type": "integer"
@@ -20487,8 +20492,7 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "integer"
                 },
                 "referendum_locked": {
                     "type": "string"
@@ -20505,8 +20509,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "count": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "integer"
                 },
                 "id": {
                     "type": "integer"

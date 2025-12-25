@@ -3878,6 +3878,11 @@ definitions:
         maximum: 100
         minimum: 1
         type: integer
+      search:
+        description: symbol
+        maxLength: 256
+        minLength: 1
+        type: string
     type: object
   internal_server_http.transfersParams:
     properties:
@@ -5571,7 +5576,6 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
-        format: int64
         type: integer
       voting_total:
         type: integer
@@ -6399,7 +6403,6 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
-        format: int64
         type: integer
       referendum_locked:
         type: string
@@ -6411,7 +6414,6 @@ definitions:
   subscan_internal_model.ReferendumStatisticsOriginsJson:
     properties:
       count:
-        format: int64
         type: integer
       id:
         type: integer
