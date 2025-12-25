@@ -15372,6 +15372,12 @@ const docTemplate = `{
                 "module": {
                     "type": "string"
                 },
+                "module_event": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_server_http.moduleEventFilterParams"
+                    }
+                },
                 "order": {
                     "type": "string",
                     "enum": [
@@ -15461,6 +15467,12 @@ const docTemplate = `{
                 },
                 "module": {
                     "type": "string"
+                },
+                "module_call": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_server_http.moduleCallFilterParams"
+                    }
                 },
                 "order": {
                     "type": "string",
@@ -15641,6 +15653,28 @@ const docTemplate = `{
                     "example": 10
                 },
                 "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.moduleCallFilterParams": {
+            "type": "object",
+            "properties": {
+                "call": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.moduleEventFilterParams": {
+            "type": "object",
+            "properties": {
+                "event_id": {
+                    "type": "string"
+                },
+                "module": {
                     "type": "string"
                 }
             }

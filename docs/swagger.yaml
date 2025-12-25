@@ -2904,6 +2904,10 @@ definitions:
         type: string
       module:
         type: string
+      module_event:
+        items:
+          $ref: '#/definitions/internal_server_http.moduleEventFilterParams'
+        type: array
       order:
         enum:
         - asc
@@ -2969,6 +2973,10 @@ definitions:
         type: string
       module:
         type: string
+      module_call:
+        items:
+          $ref: '#/definitions/internal_server_http.moduleCallFilterParams'
+        type: array
       order:
         enum:
         - asc
@@ -3101,6 +3109,20 @@ definitions:
         minimum: 1
         type: integer
       type:
+        type: string
+    type: object
+  internal_server_http.moduleCallFilterParams:
+    properties:
+      call:
+        type: string
+      module:
+        type: string
+    type: object
+  internal_server_http.moduleEventFilterParams:
+    properties:
+      event_id:
+        type: string
+      module:
         type: string
     type: object
   internal_server_http.multiChainAccountParams:
