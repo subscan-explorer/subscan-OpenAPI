@@ -7387,6 +7387,60 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/search/tokens": {
+            "post": {
+                "description": "Search by token key",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tokens"
+                ],
+                "summary": "Search token by name/symbol/id",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.searchTokenParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.TokenSearchJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/staking/era_stat": {
             "post": {
                 "description": "This API only supports networks with staking frame or parachain-staking pallet",
@@ -16531,6 +16585,17 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.searchTokenParams": {
+            "type": "object",
+            "required": [
+                "key"
+            ],
+            "properties": {
+                "key": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_server_http.stakingRewardParams": {
             "type": "object",
             "required": [
@@ -21449,6 +21514,29 @@ const docTemplate = `{
                 },
                 "vesting": {
                     "$ref": "#/definitions/subscan_internal_model.VestingJson"
+                }
+            }
+        },
+        "subscan_internal_model.TokenSearchJson": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "currency_id": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "unique_id": {
+                    "type": "string"
                 }
             }
         },

@@ -3748,6 +3748,13 @@ definitions:
     required:
     - identity
     type: object
+  internal_server_http.searchTokenParams:
+    properties:
+      key:
+        type: string
+    required:
+    - key
+    type: object
   internal_server_http.stakingRewardParams:
     properties:
       address:
@@ -7041,6 +7048,21 @@ definitions:
         type: string
       vesting:
         $ref: '#/definitions/subscan_internal_model.VestingJson'
+    type: object
+  subscan_internal_model.TokenSearchJson:
+    properties:
+      category:
+        type: string
+      contract:
+        type: string
+      currency_id:
+        type: string
+      price:
+        type: string
+      symbol:
+        type: string
+      unique_id:
+        type: string
     type: object
   subscan_internal_model.TransferHistoryJson:
     properties:
@@ -13415,6 +13437,38 @@ paths:
       summary: Search by identity
       tags:
       - account
+  /api/scan/search/tokens:
+    post:
+      consumes:
+      - application/json
+      description: Search by token key
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.searchTokenParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.TokenSearchJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Search token by name/symbol/id
+      tags:
+      - tokens
   /api/scan/staking/era_stat:
     post:
       consumes:
