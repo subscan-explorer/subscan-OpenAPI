@@ -392,6 +392,12 @@ definitions:
     type: object
   internal_plugin_evm_http.EvmContractListParam:
     properties:
+      contract_type:
+        description: contract type filter, only available in assethub network
+        enum:
+        - evm
+        - pvm
+        type: string
       contracts:
         items:
           type: string
@@ -569,6 +575,8 @@ definitions:
         type: string
       hash:
         type: string
+      include_pvm:
+        type: boolean
       include_total:
         type: boolean
       page:
@@ -7728,6 +7736,8 @@ definitions:
         type: string
       price:
         type: string
+      pvm:
+        type: boolean
       storage_url:
         type: string
       symbol:

@@ -11869,6 +11869,14 @@ const docTemplate = `{
         "internal_plugin_evm_http.EvmContractListParam": {
             "type": "object",
             "properties": {
+                "contract_type": {
+                    "description": "contract type filter, only available in assethub network",
+                    "type": "string",
+                    "enum": [
+                        "evm",
+                        "pvm"
+                    ]
+                },
                 "contracts": {
                     "type": "array",
                     "items": {
@@ -12123,6 +12131,9 @@ const docTemplate = `{
                 },
                 "hash": {
                     "type": "string"
+                },
+                "include_pvm": {
+                    "type": "boolean"
                 },
                 "include_total": {
                     "type": "boolean"
@@ -22483,6 +22494,9 @@ const docTemplate = `{
                 },
                 "price": {
                     "type": "string"
+                },
+                "pvm": {
+                    "type": "boolean"
                 },
                 "storage_url": {
                     "type": "string"
