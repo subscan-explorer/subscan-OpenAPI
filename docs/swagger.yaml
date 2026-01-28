@@ -2429,6 +2429,10 @@ definitions:
         - system
         - module
         - evm
+        - erc20
+        - erc721
+        - erc1155
+        - contract
         - nominationPool
         - proxies
         - proxy
@@ -4348,6 +4352,8 @@ definitions:
         type: boolean
       is_erc721:
         type: boolean
+      is_erc1155:
+        type: boolean
       is_evm_contract:
         type: boolean
       is_evm_system:
@@ -5587,7 +5593,6 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
-        format: int64
         type: integer
       voting_total:
         type: integer
@@ -6415,7 +6420,6 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
-        format: int64
         type: integer
       referendum_locked:
         type: string
@@ -6427,7 +6431,6 @@ definitions:
   subscan_internal_model.ReferendumStatisticsOriginsJson:
     properties:
       count:
-        format: int64
         type: integer
       id:
         type: integer

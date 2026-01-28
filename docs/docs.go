@@ -14718,6 +14718,10 @@ const docTemplate = `{
                         "system",
                         "module",
                         "evm",
+                        "erc20",
+                        "erc721",
+                        "erc1155",
+                        "contract",
                         "nominationPool",
                         "proxies",
                         "proxy",
@@ -17389,6 +17393,9 @@ const docTemplate = `{
                 "is_council_member": {
                     "type": "boolean"
                 },
+                "is_erc1155": {
+                    "type": "boolean"
+                },
                 "is_erc20": {
                     "type": "boolean"
                 },
@@ -19267,8 +19274,7 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "integer"
                 },
                 "voting_total": {
                     "type": "integer"
@@ -20507,8 +20513,7 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "integer"
                 },
                 "referendum_locked": {
                     "type": "string"
@@ -20525,8 +20530,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "count": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "integer"
                 },
                 "id": {
                     "type": "integer"
