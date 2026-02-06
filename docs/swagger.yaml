@@ -4092,6 +4092,8 @@ definitions:
     properties:
       blocked:
         type: boolean
+      commission_range:
+        type: string
       order:
         enum:
         - desc
@@ -4139,6 +4141,8 @@ definitions:
     type: object
   internal_server_http.waitingValidatorsParams:
     properties:
+      commission_range:
+        type: string
       order:
         enum:
         - desc
@@ -4150,6 +4154,7 @@ definitions:
         - bonded_owner
         - count_nominators
         - validator_prefs_value
+        - sum_nominators_bonded
         type: string
     type: object
   internal_server_http.xcmSenderStatParams:
@@ -7509,6 +7514,8 @@ definitions:
         type: boolean
       stash_account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      sum_nominators_bonded:
+        type: string
       validator_prefs_value:
         type: integer
     type: object

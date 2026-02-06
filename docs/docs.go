@@ -17072,6 +17072,9 @@ const docTemplate = `{
                 "blocked": {
                     "type": "boolean"
                 },
+                "commission_range": {
+                    "type": "string"
+                },
                 "order": {
                     "type": "string",
                     "enum": [
@@ -17136,6 +17139,9 @@ const docTemplate = `{
         "internal_server_http.waitingValidatorsParams": {
             "type": "object",
             "properties": {
+                "commission_range": {
+                    "type": "string"
+                },
                 "order": {
                     "type": "string",
                     "enum": [
@@ -17149,7 +17155,8 @@ const docTemplate = `{
                         "bonded_nominators",
                         "bonded_owner",
                         "count_nominators",
-                        "validator_prefs_value"
+                        "validator_prefs_value",
+                        "sum_nominators_bonded"
                     ]
                 }
             }
@@ -22214,6 +22221,9 @@ const docTemplate = `{
                 },
                 "stash_account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "sum_nominators_bonded": {
+                    "type": "string"
                 },
                 "validator_prefs_value": {
                     "type": "integer"
