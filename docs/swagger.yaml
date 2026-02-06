@@ -582,10 +582,14 @@ definitions:
       page:
         minimum: 0
         type: integer
+      receiver:
+        type: string
       row:
         maximum: 100
         minimum: 1
         type: integer
+      sender:
+        type: string
       token_id:
         type: string
     type: object
@@ -648,10 +652,14 @@ definitions:
       page:
         minimum: 0
         type: integer
+      receiver:
+        type: string
       row:
         maximum: 100
         minimum: 1
         type: integer
+      sender:
+        type: string
       success:
         type: boolean
     type: object
@@ -878,15 +886,21 @@ definitions:
     type: object
   internal_plugin_spaceTime_http.transferParams:
     properties:
+      address:
+        type: string
       after_id:
         type: integer
       page:
         minimum: 0
         type: integer
+      receiver:
+        type: string
       row:
         maximum: 100
         minimum: 1
         type: integer
+      sender:
+        type: string
     type: object
   internal_plugin_unique_unique_http.UniqueAccountBalancesParams:
     properties:

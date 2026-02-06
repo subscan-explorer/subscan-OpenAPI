@@ -12196,10 +12196,16 @@ const docTemplate = `{
                     "type": "integer",
                     "minimum": 0
                 },
+                "receiver": {
+                    "type": "string"
+                },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                },
+                "sender": {
+                    "type": "string"
                 },
                 "token_id": {
                     "type": "string"
@@ -12287,10 +12293,16 @@ const docTemplate = `{
                     "type": "integer",
                     "minimum": 0
                 },
+                "receiver": {
+                    "type": "string"
+                },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                },
+                "sender": {
+                    "type": "string"
                 },
                 "success": {
                     "type": "boolean"
@@ -12600,6 +12612,9 @@ const docTemplate = `{
         "internal_plugin_spaceTime_http.transferParams": {
             "type": "object",
             "properties": {
+                "address": {
+                    "type": "string"
+                },
                 "after_id": {
                     "type": "integer"
                 },
@@ -12607,10 +12622,16 @@ const docTemplate = `{
                     "type": "integer",
                     "minimum": 0
                 },
+                "receiver": {
+                    "type": "string"
+                },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                },
+                "sender": {
+                    "type": "string"
                 }
             }
         },
