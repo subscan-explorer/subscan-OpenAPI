@@ -11,18 +11,6 @@
       "acala"
     ]
   },
-  "acala-test": {
-    "api_domains": [
-      "acala-testnet"
-    ],
-    "backend_service_name": "subscan-acala-test",
-    "db_name": "subscan_acala_testnet",
-    "network_node": "acala-test",
-    "type": "testnet",
-    "ui_domains": [
-      "acala-testnet"
-    ]
-  },
   "altair": {
     "api_domains": [
       "altair"
@@ -238,18 +226,6 @@
     "type": "mainnet",
     "ui_domains": [
       "centrifuge"
-    ]
-  },
-  "clover": {
-    "api_domains": [
-      "clover"
-    ],
-    "backend_service_name": "subscan-clover",
-    "db_name": "subscan_clover",
-    "network_node": "clover",
-    "type": "mainnet",
-    "ui_domains": [
-      "clover"
     ]
   },
   "collectives": {
@@ -690,18 +666,6 @@
       "mythos"
     ]
   },
-  "opal": {
-    "api_domains": [
-      "opal"
-    ],
-    "backend_service_name": "subscan-opal",
-    "db_name": "subscan_opal",
-    "network_node": "opal",
-    "type": "testnet",
-    "ui_domains": [
-      "opal"
-    ]
-  },
   "origintrail": {
     "api_domains": [
       "origintrail",
@@ -740,18 +704,6 @@
     "type": "testnet",
     "ui_domains": [
       "paseo"
-    ]
-  },
-  "passethub-paseo": {
-    "api_domains": [
-      "passet-hub"
-    ],
-    "backend_service_name": "subscan-passethub-paseo",
-    "db_name": "subscan_passethub_paseo",
-    "network_node": "passethub-paseo",
-    "type": "testnet",
-    "ui_domains": [
-      "passet-hub"
     ]
   },
   "peaq": {
@@ -898,18 +850,6 @@
       "reef"
     ]
   },
-  "robonomics": {
-    "api_domains": [
-      "robonomics-freemium"
-    ],
-    "backend_service_name": "subscan-robonomics",
-    "db_name": "subscan_robonomics",
-    "network_node": "robonomics",
-    "type": "mainnet",
-    "ui_domains": [
-      "robonomics-freemium"
-    ]
-  },
   "robonomics-polkadot": {
     "api_domains": [
       "robonomics"
@@ -982,18 +922,6 @@
       "sxt-testnet"
     ]
   },
-  "spiritnet": {
-    "api_domains": [
-      "spiritnet"
-    ],
-    "backend_service_name": "subscan-spiritnet",
-    "db_name": "subscan_spiritnet",
-    "network_node": "spiritnet",
-    "type": "mainnet",
-    "ui_domains": [
-      "spiritnet"
-    ]
-  },
   "stafi": {
     "api_domains": [
       "stafi"
@@ -1040,18 +968,6 @@
     "type": "mainnet",
     "ui_domains": [
       "tanssi"
-    ]
-  },
-  "unique": {
-    "api_domains": [
-      "unique"
-    ],
-    "backend_service_name": "subscan-unique",
-    "db_name": "subscan_unique",
-    "network_node": "unique",
-    "type": "mainnet",
-    "ui_domains": [
-      "unique"
     ]
   },
   "vara": {

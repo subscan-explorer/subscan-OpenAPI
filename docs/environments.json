@@ -10,15 +10,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://acala-testnet.api.subscan.io",
-      "baseUrls": {
-        "default": "https://acala-testnet.api.subscan.io"
-      },
-      "name": "Acala-testnet",
-      "ordering": 1,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://altair.api.subscan.io",
       "baseUrls": {
         "default": "https://altair.api.subscan.io"
@@ -178,15 +169,6 @@
       },
       "name": "Centrifuge",
       "ordering": 20,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://clover.api.subscan.io",
-      "baseUrls": {
-        "default": "https://clover.api.subscan.io"
-      },
-      "name": "Clover",
-      "ordering": 21,
       "projectType": "HTTP"
     },
     {
@@ -523,15 +505,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://opal.api.subscan.io",
-      "baseUrls": {
-        "default": "https://opal.api.subscan.io"
-      },
-      "name": "Opal",
-      "ordering": 59,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://neuroweb.api.subscan.io",
       "baseUrls": {
         "default": "https://neuroweb.api.subscan.io"
@@ -667,15 +640,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://robonomics-freemium.api.subscan.io",
-      "baseUrls": {
-        "default": "https://robonomics-freemium.api.subscan.io"
-      },
-      "name": "Robonomics-freemium",
-      "ordering": 75,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://robonomics.api.subscan.io",
       "baseUrls": {
         "default": "https://robonomics.api.subscan.io"
@@ -730,15 +694,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://spiritnet.api.subscan.io",
-      "baseUrls": {
-        "default": "https://spiritnet.api.subscan.io"
-      },
-      "name": "Spiritnet",
-      "ordering": 82,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://stafi.api.subscan.io",
       "baseUrls": {
         "default": "https://stafi.api.subscan.io"
@@ -772,15 +727,6 @@
       },
       "name": "Tanssi",
       "ordering": 86,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://unique.api.subscan.io",
-      "baseUrls": {
-        "default": "https://unique.api.subscan.io"
-      },
-      "name": "Unique",
-      "ordering": 87,
       "projectType": "HTTP"
     },
     {

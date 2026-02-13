@@ -46,7 +46,6 @@ Please notice before you get started:
 | Network              | API Host                                       | Status |
 |----------------------|------------------------------------------------|--------|
 | Acala                | `acala.api.subscan.io`                         | live   |
-| Acala-test           | `acala-testnet.api.subscan.io`                 | test   |
 | Altair               | `altair.api.subscan.io`                        | live   |
 | Assethub-kusama      | `assethub-kusama.api.subscan.io`               | live   |
 | Assethub-paseo       | `assethub-paseo.api.subscan.io`                | test   |
@@ -67,7 +66,6 @@ Please notice before you get started:
 | Calamari             | `calamari.api.subscan.io`                      | live   |
 | Centrifuge           | `centrifuge-standalone-history.api.subscan.io` | live   |
 | Centrifuge-parachain | `centrifuge.api.subscan.io`                    | live   |
-| Clover               | `clover.api.subscan.io`                        | live   |
 | Collectives          | `collectives-polkadot.api.subscan.io`          | live   |
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live   |
 | Coretime-paseo       | `coretime-paseo.api.subscan.io`                | test   |
@@ -82,7 +80,6 @@ Please notice before you get started:
 | Dancelight-test      | `dancelight.api.subscan.io`                    | test   |
 | Darwinia             | `darwinia.api.subscan.io`                      | live   |
 | Dbc                  | `dbc.api.subscan.io`                           | live   |
-| Dock-pos             | `dock.api.subscan.io`                          | live   |
 | Energywebx           | `energywebx.api.subscan.io`                    | live   |
 | Energywebx-testnet   | `energywebx-testnet.api.subscan.io`            | test   |
 | Enjin-canary-matrix  | `canary-matrix.api.subscan.io`                 | test   |
@@ -98,12 +95,11 @@ Please notice before you get started:
 | Krest                | `krest.api.subscan.io`                         | live   |
 | Kusama               | `kusama.api.subscan.io`                        | live   |
 | Manta                | `manta.api.subscan.io`                         | live   |
-| Midnight-testnet     | `midnight-testnet.api.subscan.io`              | test   |
+| Midnight-preview     | `midnight-preview.api.subscan.io`              | test   |
 | Moonbase             | `moonbase.api.subscan.io`                      | test   |
 | Moonbeam             | `moonbeam.api.subscan.io`                      | live   |
 | Moonriver            | `moonriver.api.subscan.io`                     | live   |
 | Mythos               | `mythos.api.subscan.io`                        | live   |
-| Opal                 | `opal.api.subscan.io`                          | test   |
 | Origintrail          | `neuroweb.api.subscan.io`                      | live   |
 | Origintrail-rococo   | `neuroweb-testnet.api.subscan.io`              | test   |
 | Paseo                | `paseo.api.subscan.io`                         | test   |
@@ -119,17 +115,14 @@ Please notice before you get started:
 | Polymesh             | `polymesh.api.subscan.io`                      | live   |
 | Polymesh-test        | `polymesh-testnet.api.subscan.io`              | test   |
 | Reef                 | `reef.api.subscan.io`                          | live   |
-| Robonomics           | `robonomics-freemium.api.subscan.io`           | live   |
 | Robonomics-polkadot  | `robonomics.api.subscan.io`                    | live   |
 | Shibuya              | `shibuya.api.subscan.io`                       | test   |
 | Shiden               | `shiden.api.subscan.io`                        | live   |
 | Sora                 | `sora.api.subscan.io`                          | live   |
 | Space-time           | `sxt.api.subscan.io`                           | live   |
 | Space-time-test      | `sxt-testnet.api.subscan.io`                   | test   |
-| Spiritnet            | `spiritnet.api.subscan.io`                     | live   |
 | Stafi                | `stafi.api.subscan.io`                         | live   |
 | Tanssi               | `tanssi.api.subscan.io`                        | live   |
-| Unique               | `unique.api.subscan.io`                        | live   |
 | Vara                 | `vara.api.subscan.io`                          | live   |
 | Vflow                | `vflow.api.subscan.io`                         | live   |
 | Westend              | `westend.api.subscan.io`                       | test   |
