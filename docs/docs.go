@@ -5016,7 +5016,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_history": {
             "post": {
-                "description": "Get the historical balance value of an account over a specified period.\nSupport Network: polkadot",
+                "description": "Get the historical balance value of an account over a specified period. Date format: YYYY-MM-DD\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
