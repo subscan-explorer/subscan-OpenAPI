@@ -9568,6 +9568,147 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/scan/vector/daily": {
+            "post": {
+                "description": "This API only available for avail network.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Avail"
+                ],
+                "summary": "vector transfer daily list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_avail_vector_http.transferDailyParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/subscan_internal_plugin_avail_vector_db.VectorTransferDailyJson"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/vector/statistics": {
+            "post": {
+                "description": "This API only available for avail network.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Avail"
+                ],
+                "summary": "Transfer count statistics",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_plugin_avail_vector_db.VectorTransferStatistics"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/vector/transfer": {
+            "post": {
+                "description": "This API only available for avail network.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Avail"
+                ],
+                "summary": "vector transfer list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_avail_vector_http.transferParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_plugin_avail_vector_db.VectorTransferJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/vesting_release": {
             "post": {
                 "description": "Get the list of vesting releases within a specified date range.(only for network has vesting frame)",
@@ -11130,6 +11271,67 @@ const docTemplate = `{
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_avail_vector_http.transferDailyParam": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "example": "2023-06-01"
+                },
+                "format": {
+                    "type": "string",
+                    "enum": [
+                        "day",
+                        "week",
+                        "month"
+                    ],
+                    "example": "day"
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2023-05-01"
+                }
+            }
+        },
+        "internal_plugin_avail_vector_http.transferParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "block_range": {
+                    "type": "string"
+                },
+                "max_amount": {
+                    "type": "string"
+                },
+                "min_amount": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "receiver": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "sender": {
+                    "type": "string"
                 }
             }
         },
@@ -22023,6 +22225,75 @@ const docTemplate = `{
                 },
                 "size": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_plugin_avail_vector_db.VectorTransferDailyJson": {
+            "type": "object",
+            "properties": {
+                "avail_to_eth_count": {
+                    "type": "integer"
+                },
+                "avail_to_eth_sum": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "eth_to_avail_count": {
+                    "type": "integer"
+                },
+                "eth_to_avail_sum": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_avail_vector_db.VectorTransferJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "receiver": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "result": {
+                    "type": "boolean"
+                },
+                "sender": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "token_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_plugin_avail_vector_db.VectorTransferStatistics": {
+            "type": "object",
+            "properties": {
+                "avail_to_eth_count": {
+                    "type": "integer"
+                },
+                "avail_to_eth_sum": {
+                    "type": "string"
+                },
+                "eth_to_avail_count": {
+                    "type": "integer"
+                },
+                "eth_to_avail_sum": {
+                    "type": "string"
                 }
             }
         },

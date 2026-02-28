@@ -94,6 +94,49 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_plugin_avail_vector_http.transferDailyParam:
+    properties:
+      end:
+        example: "2023-06-01"
+        type: string
+      format:
+        enum:
+        - day
+        - week
+        - month
+        example: day
+        type: string
+      start:
+        example: "2023-05-01"
+        type: string
+    required:
+    - end
+    - start
+    type: object
+  internal_plugin_avail_vector_http.transferParam:
+    properties:
+      address:
+        type: string
+      block_range:
+        type: string
+      max_amount:
+        type: string
+      min_amount:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      receiver:
+        type: string
+      result:
+        type: boolean
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      sender:
+        type: string
+    type: object
   internal_plugin_crust_swork_http.CrustFilesParams:
     properties:
       address:
@@ -7620,6 +7663,51 @@ definitions:
       size:
         type: integer
     type: object
+  subscan_internal_plugin_avail_vector_db.VectorTransferDailyJson:
+    properties:
+      avail_to_eth_count:
+        type: integer
+      avail_to_eth_sum:
+        type: string
+      date:
+        type: string
+      eth_to_avail_count:
+        type: integer
+      eth_to_avail_sum:
+        type: string
+    type: object
+  subscan_internal_plugin_avail_vector_db.VectorTransferJson:
+    properties:
+      amount:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      extrinsic_index:
+        type: string
+      id:
+        type: integer
+      receiver:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      result:
+        type: boolean
+      sender:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      token_id:
+        type: string
+    type: object
+  subscan_internal_plugin_avail_vector_db.VectorTransferStatistics:
+    properties:
+      avail_to_eth_count:
+        type: integer
+      avail_to_eth_sum:
+        type: string
+      eth_to_avail_count:
+        type: integer
+      eth_to_avail_sum:
+        type: string
+    type: object
   subscan_internal_plugin_evm_db.EvmBalance:
     properties:
       decimal.Decimal:
@@ -14506,6 +14594,89 @@ paths:
       summary: Uniques list
       tags:
       - uniques
+  /api/scan/vector/daily:
+    post:
+      consumes:
+      - application/json
+      description: This API only available for avail network.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_avail_vector_http.transferDailyParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/subscan_internal_plugin_avail_vector_db.VectorTransferDailyJson'
+                  type: array
+              type: object
+      summary: vector transfer daily list
+      tags:
+      - Avail
+  /api/scan/vector/statistics:
+    post:
+      consumes:
+      - application/json
+      description: This API only available for avail network.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_plugin_avail_vector_db.VectorTransferStatistics'
+              type: object
+      summary: Transfer count statistics
+      tags:
+      - Avail
+  /api/scan/vector/transfer:
+    post:
+      consumes:
+      - application/json
+      description: This API only available for avail network.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_avail_vector_http.transferParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_plugin_avail_vector_db.VectorTransferJson'
+                      type: array
+                  type: object
+              type: object
+      summary: vector transfer list
+      tags:
+      - Avail
   /api/scan/vesting_release:
     post:
       consumes:
