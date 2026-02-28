@@ -6,8 +6,12 @@ The documentation was created with [apidog](apidog.com).
 
 ## API Keys
 
-**Get a free API key that includes higher quotas or start your trial with other available plans
-at <https://pro.subscan.io/>.**
+All Subscan API requests must be authenticated with an API Key. We provide flexible data access options to suit different needs:
+
+* Free Plan: Designed for developers, researchers, and ecosystem enthusiasts to build and explore at zero cost.
+* Pro Plans: High-performance API services with expanded quotas and dedicated support for production environments.
+
+Action Required: Visit https://pro.subscan.io/ to register your account and generate your required API key.
 
 ## Service Status
 
@@ -63,7 +67,6 @@ Please notice before you get started:
 | Bridgehub-paseo      | `bridgehub-paseo.api.subscan.io`               | test   |
 | Bridgehub-polkadot   | `bridgehub-polkadot.api.subscan.io`            | live   |
 | Bridgehub-westend    | `bridgehub-westend.api.subscan.io`             | test   |
-| Calamari             | `calamari.api.subscan.io`                      | live   |
 | Centrifuge           | `centrifuge-standalone-history.api.subscan.io` | live   |
 | Centrifuge-parachain | `centrifuge.api.subscan.io`                    | live   |
 | Collectives          | `collectives-polkadot.api.subscan.io`          | live   |
@@ -86,7 +89,6 @@ Please notice before you get started:
 | Enjin-canary-relay   | `canary.api.subscan.io`                        | test   |
 | Enjin-matrix         | `matrix.api.subscan.io`                        | live   |
 | Enjin-relay          | `enjin.api.subscan.io`                         | live   |
-| Gasp                 | `gasp.api.subscan.io`                          | live   |
 | Heima                | `heima.api.subscan.io`                         | live   |
 | Humanode             | `humanode.api.subscan.io`                      | live   |
 | Hydradx              | `hydration.api.subscan.io`                     | live   |
@@ -100,8 +102,8 @@ Please notice before you get started:
 | Moonbeam             | `moonbeam.api.subscan.io`                      | live   |
 | Moonriver            | `moonriver.api.subscan.io`                     | live   |
 | Mythos               | `mythos.api.subscan.io`                        | live   |
-| Origintrail          | `neuroweb.api.subscan.io`                      | live   |
-| Origintrail-rococo   | `neuroweb-testnet.api.subscan.io`              | test   |
+| Neuroweb             | `neuroweb.api.subscan.io`                      | live   |
+| neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | test   |
 | Paseo                | `paseo.api.subscan.io`                         | test   |
 | Peaq                 | `agung-testnet.api.subscan.io`                 | test   |
 | Peaq-main            | `peaq.api.subscan.io`                          | live   |
@@ -120,7 +122,6 @@ Please notice before you get started:
 | Shiden               | `shiden.api.subscan.io`                        | live   |
 | Sora                 | `sora.api.subscan.io`                          | live   |
 | Space-time           | `sxt.api.subscan.io`                           | live   |
-| Space-time-test      | `sxt-testnet.api.subscan.io`                   | test   |
 | Stafi                | `stafi.api.subscan.io`                         | live   |
 | Tanssi               | `tanssi.api.subscan.io`                        | live   |
 | Vara                 | `vara.api.subscan.io`                          | live   |

@@ -5529,6 +5529,7 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
+        format: int64
         type: integer
       voting_total:
         type: integer
@@ -6356,6 +6357,7 @@ definitions:
           $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsOriginsJson'
         type: array
       originsCount:
+        format: int64
         type: integer
       referendum_locked:
         type: string
@@ -6367,6 +6369,7 @@ definitions:
   subscan_internal_model.ReferendumStatisticsOriginsJson:
     properties:
       count:
+        format: int64
         type: integer
       id:
         type: integer

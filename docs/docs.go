@@ -19021,7 +19021,8 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "voting_total": {
                     "type": "integer"
@@ -20260,7 +20261,8 @@ const docTemplate = `{
                     }
                 },
                 "originsCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "referendum_locked": {
                     "type": "string"
@@ -20277,7 +20279,8 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "count": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "id": {
                     "type": "integer"
