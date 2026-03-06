@@ -120,7 +120,6 @@ Please notice before you get started:
 | Robonomics-polkadot  | `robonomics.api.subscan.io`                    | live   |
 | Shibuya              | `shibuya.api.subscan.io`                       | test   |
 | Shiden               | `shiden.api.subscan.io`                        | live   |
-| Sora                 | `sora.api.subscan.io`                          | live   |
 | Space-time           | `sxt.api.subscan.io`                           | live   |
 | Stafi                | `stafi.api.subscan.io`                         | live   |
 | Tanssi               | `tanssi.api.subscan.io`                        | live   |

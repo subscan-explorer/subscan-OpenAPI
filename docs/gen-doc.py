@@ -9,6 +9,7 @@ files = {
     'Changelog.md': 'Changelog',
     'Subscan API Pro.md': 'Subscan API Pro',
     'xcm.md': 'Xcm',
+    'evm.md': 'EVM',
 }
 json_file = 'subscan.apidog.json'
 
