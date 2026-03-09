@@ -17,6 +17,7 @@ const docTemplate = `{
     "paths": {
         "/api/now": {
             "get": {
+                "description": "Returns the current server timestamp in Unix seconds.",
                 "consumes": [
                     "application/json"
                 ],
@@ -26,7 +27,7 @@ const docTemplate = `{
                 "tags": [
                     "common"
                 ],
-                "summary": "current timestamp",
+                "summary": "Get current timestamp",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -46,7 +47,11 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "now",
+                    "timestamp"
+                ]
             }
         },
         "/api/open/currencies": {
@@ -89,7 +94,13 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "supported",
+                    "currencies",
+                    "currency",
+                    "open"
+                ]
             }
         },
         "/api/open/price": {
@@ -135,7 +146,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "currency",
+                    "price",
+                    "open",
+                    "rate",
+                    "valuation"
+                ]
             }
         },
         "/api/open/price_converter": {
@@ -181,7 +199,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "currency",
+                    "price",
+                    "converter",
+                    "open",
+                    "rate",
+                    "valuation"
+                ]
             }
         },
         "/api/scan/account/assets_changed": {
@@ -238,7 +264,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "assets",
+                    "changed",
+                    "history",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/account/balance_history": {
@@ -295,7 +331,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "balance",
+                    "history",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/account/referendum": {
@@ -352,7 +397,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "referendum",
+                    "governance",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/account/reward_slash": {
@@ -409,7 +466,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "reward",
+                    "slash",
+                    "staking",
+                    "scan",
+                    "account",
+                    "penalty",
+                    "slashing",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/account/tokens": {
@@ -455,11 +524,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "token",
+                    "scan",
+                    "tokens",
+                    "wallet",
+                    "address",
+                    "user",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/scan/accounts/mau": {
             "post": {
+                "description": "Returns monthly active account statistics for the requested date range.",
                 "consumes": [
                     "application/json"
                 ],
@@ -469,7 +550,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Month daily stat",
+                "summary": "Get monthly active account statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -508,7 +589,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "monthly",
+                    "active",
+                    "account",
+                    "statistics",
+                    "stat",
+                    "scan",
+                    "accounts",
+                    "mau",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/accounts/merkle": {
@@ -557,7 +651,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "merkle",
+                    "scan",
+                    "accounts",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/accounts/statistics": {
@@ -606,7 +709,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "statistics",
+                    "scan",
+                    "accounts",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/assets/account/balances": {
@@ -641,7 +753,17 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "asset",
+                    "account",
+                    "balances",
+                    "assets",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/assets/activities": {
@@ -676,7 +798,13 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "asset",
+                    "activities",
+                    "assets",
+                    "scan"
+                ]
             }
         },
         "/api/scan/assets/asset": {
@@ -711,7 +839,12 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "asset",
+                    "assets",
+                    "scan"
+                ]
             }
         },
         "/api/scan/assets/asset/holders": {
@@ -746,7 +879,15 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "asset",
+                    "holders",
+                    "assets",
+                    "scan",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/assets/assets": {
@@ -802,7 +943,11 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "assets",
+                    "scan"
+                ]
             }
         },
         "/api/scan/block": {
@@ -848,7 +993,13 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "block",
+                    "scan",
+                    "block height",
+                    "block number"
+                ]
             }
         },
         "/api/scan/bounties/child": {
@@ -905,7 +1056,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "child",
+                    "bounty",
+                    "governance",
+                    "scan",
+                    "bounties",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/bounties/proposal": {
@@ -951,7 +1113,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "bounty",
+                    "governance",
+                    "scan",
+                    "bounties",
+                    "proposal",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/bounties/proposals": {
@@ -1008,11 +1181,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "bounty",
+                    "governance",
+                    "scan",
+                    "bounties",
+                    "proposals",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/broker/assigns": {
             "post": {
+                "description": "Returns paginated coretime assignment records filtered by paraId and core.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1022,7 +1207,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime assign list",
+                "summary": "List coretime assignments",
                 "parameters": [
                     {
                         "description": "params",
@@ -1063,11 +1248,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "assignments",
+                    "scan",
+                    "broker",
+                    "assigns",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/operation": {
             "post": {
+                "description": "Returns a paginated list of broker operation events filtered by address, core, core index, event ID, and block range.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1077,7 +1272,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime Event list",
+                "summary": "List coretime broker operations",
                 "parameters": [
                     {
                         "description": "params",
@@ -1118,11 +1313,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "broker",
+                    "operations",
+                    "scan",
+                    "operation",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/purchased": {
             "post": {
+                "description": "Returns paginated purchased coretime regions with optional cycle, core, and purchase-type filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1132,7 +1337,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime Region Purchased list",
+                "summary": "List purchased coretime regions",
                 "parameters": [
                     {
                         "description": "params",
@@ -1173,11 +1378,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "purchased",
+                    "coretime",
+                    "regions",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/region": {
             "post": {
+                "description": "Returns detailed information for a coretime region by core_index.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1187,7 +1402,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime region info",
+                "summary": "Get coretime region information",
                 "parameters": [
                     {
                         "description": "params",
@@ -1217,11 +1432,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "region",
+                    "information",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/regions": {
             "post": {
+                "description": "Returns paginated coretime regions filtered by owner, lifecycle status, and block boundaries.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1231,7 +1456,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime Region list",
+                "summary": "List coretime regions",
                 "parameters": [
                     {
                         "description": "params",
@@ -1272,11 +1497,20 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "regions",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/sale": {
             "post": {
+                "description": "Returns coretime sale information filtered by region begin and sales cycle.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1286,7 +1520,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime sale info",
+                "summary": "Get coretime sale information",
                 "parameters": [
                     {
                         "description": "params",
@@ -1316,11 +1550,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "sale",
+                    "information",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/sales": {
             "post": {
+                "description": "Returns paginated historical coretime sale records.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1330,7 +1574,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime sale history list",
+                "summary": "List coretime sale history",
                 "parameters": [
                     {
                         "description": "params",
@@ -1371,11 +1615,22 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "sale",
+                    "history",
+                    "scan",
+                    "broker",
+                    "sales",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/workload/details": {
             "post": {
+                "description": "Returns workload details for a region and requires either core or para_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1385,7 +1640,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime workload details",
+                "summary": "Get coretime workload details",
                 "parameters": [
                     {
                         "description": "params",
@@ -1415,11 +1670,20 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "workload",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/workload/history": {
             "post": {
+                "description": "Returns paginated workload history and requires either core or para_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1429,7 +1693,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime workload history",
+                "summary": "List coretime workload history",
                 "parameters": [
                     {
                         "description": "params",
@@ -1470,11 +1734,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "workload",
+                    "history",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/workloads": {
             "post": {
+                "description": "Returns paginated workload summaries for the latest or specified region.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1484,7 +1758,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime workload list",
+                "summary": "List coretime workloads",
                 "parameters": [
                     {
                         "description": "params",
@@ -1525,11 +1799,20 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "workloads",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/broker/workplans": {
             "post": {
+                "description": "Returns paginated coretime workplan records filtered by paraId and core.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1539,7 +1822,7 @@ const docTemplate = `{
                 "tags": [
                     "coretime"
                 ],
-                "summary": "Coretime workplan list",
+                "summary": "List coretime workplans",
                 "parameters": [
                     {
                         "description": "params",
@@ -1580,7 +1863,15 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "coretime",
+                    "workplans",
+                    "scan",
+                    "broker",
+                    "core lease",
+                    "compute time"
+                ]
             }
         },
         "/api/scan/check_hash": {
@@ -1612,11 +1903,22 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "check",
+                    "hash",
+                    "type",
+                    "search",
+                    "scan",
+                    "lookup",
+                    "find",
+                    "query"
+                ]
             }
         },
         "/api/scan/collator/info": {
             "post": {
+                "description": "Returns detailed information for a single collator account.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1626,7 +1928,7 @@ const docTemplate = `{
                 "tags": [
                     "collator"
                 ],
-                "summary": "Collator Info",
+                "summary": "Get collator details",
                 "parameters": [
                     {
                         "description": "params",
@@ -1656,11 +1958,18 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "collator",
+                    "scan",
+                    "block producer",
+                    "validator"
+                ]
             }
         },
         "/api/scan/collator/list": {
             "post": {
+                "description": "Returns a paginated list of collators with status, account, and ordering filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1670,7 +1979,7 @@ const docTemplate = `{
                 "tags": [
                     "collator"
                 ],
-                "summary": "Collator List",
+                "summary": "List collators",
                 "parameters": [
                     {
                         "description": "params",
@@ -1711,11 +2020,19 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "collators",
+                    "collator",
+                    "scan",
+                    "block producer",
+                    "validator"
+                ]
             }
         },
         "/api/scan/collator/meta": {
             "get": {
+                "description": "Returns collator metadata used by the collator APIs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1725,7 +2042,7 @@ const docTemplate = `{
                 "tags": [
                     "collator"
                 ],
-                "summary": "Collator Meta",
+                "summary": "Get collator metadata",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1744,11 +2061,21 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "collator",
+                    "metadata",
+                    "scan",
+                    "meta",
+                    "block producer",
+                    "validator",
+                    "chain info"
+                ]
             }
         },
         "/api/scan/collator/timeline": {
             "post": {
+                "description": "Returns paginated timeline records for a collator.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1758,7 +2085,7 @@ const docTemplate = `{
                 "tags": [
                     "collator"
                 ],
-                "summary": "Collator Timelime",
+                "summary": "List collator timeline records",
                 "parameters": [
                     {
                         "description": "params",
@@ -1799,7 +2126,15 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "collator",
+                    "timeline",
+                    "records",
+                    "scan",
+                    "block producer",
+                    "validator"
+                ]
             }
         },
         "/api/scan/contracts/events": {
@@ -1856,7 +2191,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "contract",
+                    "events",
+                    "contracts",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract",
+                    "logs",
+                    "on-chain events"
+                ]
             }
         },
         "/api/scan/contracts/info": {
@@ -1902,7 +2248,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "contract",
+                    "contracts",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/contracts/list": {
@@ -1959,7 +2313,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "wasm",
+                    "contract",
+                    "contracts",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/contracts/meta": {
@@ -2005,7 +2368,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "contract",
+                    "meta",
+                    "contracts",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/contracts/timeline": {
@@ -2059,7 +2431,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "contract",
+                    "timeline",
+                    "contracts",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/contracts/transactions": {
@@ -2116,7 +2497,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "wasm",
+                    "contract",
+                    "transactions",
+                    "contracts",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/contracts/verify/compiler_images": {
@@ -2157,7 +2548,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "compiler",
+                    "images",
+                    "tag",
+                    "contracts",
+                    "scan",
+                    "verify"
+                ]
             }
         },
         "/api/scan/contracts/verify/compiler_version": {
@@ -2195,7 +2594,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "compiler",
+                    "versions",
+                    "contracts",
+                    "scan",
+                    "verify",
+                    "version"
+                ]
             }
         },
         "/api/scan/council/proposal": {
@@ -2246,7 +2653,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "council",
+                    "proposal",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury"
+                ]
             }
         },
         "/api/scan/council/proposals": {
@@ -2303,7 +2719,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "council",
+                    "proposals",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury"
+                ]
             }
         },
         "/api/scan/daily/reward_slash": {
@@ -2360,11 +2785,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "daily",
+                    "reward",
+                    "slash",
+                    "data",
+                    "staking",
+                    "scan",
+                    "penalty",
+                    "slashing"
+                ]
             }
         },
         "/api/scan/daily_token": {
             "post": {
+                "description": "Returns daily token statistics for a date range and optional token symbol.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2374,7 +2810,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Daily token stat",
+                "summary": "Get daily token statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -2413,12 +2849,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "daily",
+                    "token",
+                    "statistics",
+                    "stat",
+                    "scan",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/scan/dataAvailability/info": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2448,12 +2893,19 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "submitted",
+                    "data",
+                    "avail",
+                    "scan",
+                    "dataavailability"
+                ]
             }
         },
         "/api/scan/dataAvailability/list": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2508,7 +2960,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "submitted",
+                    "data",
+                    "avail",
+                    "scan",
+                    "dataavailability"
+                ]
             }
         },
         "/api/scan/democracy/proposal": {
@@ -2559,7 +3018,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "democracy",
+                    "governance",
+                    "scan",
+                    "proposal",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/democracy/proposals": {
@@ -2616,7 +3085,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "democracies",
+                    "governance",
+                    "scan",
+                    "democracy",
+                    "proposals",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/democracy/referendum": {
@@ -2667,7 +3147,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "legacy",
+                    "governance",
+                    "scan",
+                    "democracy",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/democracy/referendums": {
@@ -2724,7 +3214,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendums",
+                    "governance",
+                    "scan",
+                    "democracy",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/democracy/seconded": {
@@ -2781,7 +3281,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "democracy",
+                    "seconded",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/democracy/votes": {
@@ -2838,11 +3348,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "votes",
+                    "legacy",
+                    "governance",
+                    "scan",
+                    "democracy",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/event": {
             "post": {
+                "description": "Returns event details for a specific event index.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2852,7 +3374,7 @@ const docTemplate = `{
                 "tags": [
                     "event"
                 ],
-                "summary": "Event by index",
+                "summary": "Get event by index",
                 "parameters": [
                     {
                         "description": "params",
@@ -2883,11 +3405,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "event",
+                    "index",
+                    "scan",
+                    "log",
+                    "on-chain event"
+                ]
             }
         },
         "/api/scan/event/params": {
             "post": {
+                "description": "Returns parsed parameter payloads for up to 100 event indexes.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2897,7 +3427,7 @@ const docTemplate = `{
                 "tags": [
                     "event"
                 ],
-                "summary": "Event params by index",
+                "summary": "Get event parameters by index",
                 "parameters": [
                     {
                         "description": "params",
@@ -2931,7 +3461,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "event",
+                    "parameters",
+                    "index",
+                    "scan",
+                    "params",
+                    "log",
+                    "on-chain event"
+                ]
             }
         },
         "/api/scan/evm/abi": {
@@ -2963,7 +3502,21 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "abi",
+                    "method",
+                    "id",
+                    "event",
+                    "topic",
+                    "evm",
+                    "scan",
+                    "log",
+                    "on-chain event",
+                    "ethereum",
+                    "smart contract",
+                    "frontier"
+                ]
             }
         },
         "/api/scan/evm/account/tokens": {
@@ -2995,7 +3548,19 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "account",
+                    "tokens",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/evm/block": {
@@ -3027,11 +3592,23 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "block",
+                    "number",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "block height",
+                    "block number"
+                ]
             }
         },
         "/api/scan/evm/blocks": {
             "post": {
+                "description": "Returns paginated EVM blocks. This API only supports networks with EVM pallet(frontier or revive).",
                 "consumes": [
                     "application/json"
                 ],
@@ -3041,7 +3618,7 @@ const docTemplate = `{
                 "tags": [
                     "EVM"
                 ],
-                "summary": "EVM Blocks",
+                "summary": "List EVM blocks",
                 "parameters": [
                     {
                         "description": "params",
@@ -3058,7 +3635,17 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "blocks",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "block list",
+                    "block heights"
+                ]
             }
         },
         "/api/scan/evm/contract": {
@@ -3090,7 +3677,17 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "contract",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/evm/contract/list": {
@@ -3122,7 +3719,17 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "contract",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/evm/contract/solcs": {
@@ -3160,7 +3767,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "polkadot",
+                    "pvm",
+                    "resolc",
+                    "versions",
+                    "evm",
+                    "scan",
+                    "contract",
+                    "solcs",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/evm/erc1155/collectible": {
@@ -3192,7 +3814,20 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc1155",
+                    "collectible",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "multi token",
+                    "multi-token",
+                    "erc721"
+                ]
             }
         },
         "/api/scan/evm/erc1155/collectible/holders": {
@@ -3224,7 +3859,23 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc1155",
+                    "token",
+                    "holders",
+                    "scan",
+                    "collectible",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "multi token",
+                    "multi-token",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/scan/evm/erc1155/collectibles": {
@@ -3256,7 +3907,21 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc1155",
+                    "collectibles",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "multi token",
+                    "multi-token",
+                    "erc721",
+                    "collectible"
+                ]
             }
         },
         "/api/scan/evm/erc721/collectible": {
@@ -3288,7 +3953,18 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc721",
+                    "collectible",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "non-fungible token"
+                ]
             }
         },
         "/api/scan/evm/erc721/collectibles": {
@@ -3320,7 +3996,19 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc721",
+                    "collectibles",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "collectible",
+                    "non-fungible token"
+                ]
             }
         },
         "/api/scan/evm/etherscan": {
@@ -3337,12 +4025,21 @@ const docTemplate = `{
                             "$ref": "#/definitions/internal_plugin_evm_http.EtherscanResponse"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "etherscan-like",
+                    "evm",
+                    "scan",
+                    "etherscan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier"
+                ]
             }
         },
         "/api/scan/evm/logs": {
             "post": {
-                "description": "EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.\nThis API only supports networks with EVM pallet(frontier or revive)",
+                "description": "EVM event Logs,returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.\nThis API only supports networks with EVM pallet(frontier or revive)",
                 "consumes": [
                     "application/json"
                 ],
@@ -3369,7 +4066,18 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "event",
+                    "logs",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "log",
+                    "on-chain event"
+                ]
             }
         },
         "/api/scan/evm/meta": {
@@ -3387,7 +4095,15 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "meta",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier"
+                ]
             }
         },
         "/api/scan/evm/token": {
@@ -3419,7 +4135,23 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc20/erc721",
+                    "erc1155",
+                    "token",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "multi token",
+                    "multi-token",
+                    "asset",
+                    "coin",
+                    "erc721"
+                ]
             }
         },
         "/api/scan/evm/token/holders": {
@@ -3451,7 +4183,20 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "token",
+                    "holders",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "asset",
+                    "coin",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/evm/token/transfer": {
@@ -3511,7 +4256,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "token",
+                    "transfer",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "asset",
+                    "coin",
+                    "send",
+                    "asset movement"
+                ]
             }
         },
         "/api/scan/evm/tokens": {
@@ -3543,7 +4301,22 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "erc20/erc721",
+                    "erc1155",
+                    "tokens",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "nft",
+                    "multi token",
+                    "multi-token",
+                    "erc721",
+                    "collectible"
+                ]
             }
         },
         "/api/scan/evm/transaction": {
@@ -3577,12 +4350,22 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "transaction",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "extrinsic",
+                    "tx"
+                ]
             }
         },
         "/api/scan/evm/transaction/internalTx": {
             "post": {
-                "description": "This API only available for the PEAQ network",
+                "description": "This API is only available for the PEAQ network",
                 "consumes": [
                     "application/json"
                 ],
@@ -3634,7 +4417,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "internal",
+                    "tx",
+                    "scan",
+                    "transaction",
+                    "internaltx",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "extrinsic"
+                ]
             }
         },
         "/api/scan/evm/v2/transactions": {
@@ -3666,18 +4461,27 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "evm",
+                    "transactions",
+                    "scan",
+                    "ethereum",
+                    "smart contract",
+                    "frontier"
+                ]
             }
         },
         "/api/scan/extrinsic": {
             "post": {
+                "description": "Returns extrinsic details by extrinsic_index or hash, with optional event and parameter controls.",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Extrinsic detail",
+                "summary": "Get extrinsic details",
                 "parameters": [
                     {
                         "description": "params",
@@ -3708,11 +4512,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "extrinsic",
+                    "scan",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/extrinsic/params": {
             "post": {
+                "description": "Returns parsed parameter payloads for up to 100 extrinsic indexes.",
                 "consumes": [
                     "application/json"
                 ],
@@ -3722,7 +4534,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Extrinsic params",
+                "summary": "Get extrinsic parameters",
                 "parameters": [
                     {
                         "description": "params",
@@ -3756,7 +4568,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "extrinsic",
+                    "parameters",
+                    "scan",
+                    "params",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/extrinsic/reward": {
@@ -3813,7 +4634,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "extrinsic",
+                    "reward",
+                    "scan",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/fellowship/referendum": {
@@ -3859,7 +4688,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "fellowship",
+                    "referenda",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/fellowship/referendums": {
@@ -3916,7 +4755,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "fellowship",
+                    "referenda",
+                    "governance",
+                    "scan",
+                    "referendums",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/fellowship/statistics": {
@@ -3951,7 +4801,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "fellowship",
+                    "referendum",
+                    "statistics",
+                    "governance",
+                    "scan",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/fellowship/tracks": {
@@ -3989,7 +4849,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "fellowship",
+                    "referendum",
+                    "tracks",
+                    "governance",
+                    "scan",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/fellowship/votes": {
@@ -4046,7 +4916,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "fellowship",
+                    "referendum",
+                    "votes",
+                    "governance",
+                    "scan",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/foreignAssets/account/balances": {
@@ -4095,7 +4975,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "foreignassets",
+                    "account",
+                    "balances",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/foreignAssets/activities": {
@@ -4152,7 +5041,12 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "foreignassets",
+                    "activities",
+                    "scan"
+                ]
             }
         },
         "/api/scan/foreignAssets/all": {
@@ -4195,7 +5089,11 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "foreignassets",
+                    "scan"
+                ]
             }
         },
         "/api/scan/foreignAssets/asset": {
@@ -4241,7 +5139,12 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "foreignassets",
+                    "scan",
+                    "asset"
+                ]
             }
         },
         "/api/scan/foreignAssets/asset/holders": {
@@ -4298,7 +5201,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "foreignassets",
+                    "holders",
+                    "scan",
+                    "asset",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/foreignAssets/assets": {
@@ -4355,11 +5266,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "foreignassets",
+                    "scan",
+                    "assets"
+                ]
             }
         },
         "/api/scan/getRawTx": {
             "post": {
+                "description": "Returns the raw transaction hex for an extrinsic index or extrinsic hash.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4369,7 +5286,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Extrinsic raw tx",
+                "summary": "Get raw extrinsic transaction",
                 "parameters": [
                     {
                         "description": "params",
@@ -4400,7 +5317,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "raw",
+                    "extrinsic",
+                    "transaction",
+                    "scan",
+                    "getrawtx",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/governance/desc": {
@@ -4446,7 +5372,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "more",
+                    "information",
+                    "about",
+                    "governance",
+                    "scan",
+                    "desc",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/header": {
@@ -4492,12 +5430,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "block",
+                    "header",
+                    "scan",
+                    "block height",
+                    "block number"
+                ]
             }
         },
         "/api/scan/liquidstaking/operations": {
             "post": {
-                "description": "This API only available for bifrost/bifrost-kusama network.",
+                "description": "This API is only available for bifrost/bifrost-kusama network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4548,11 +5493,20 @@ const docTemplate = `{
                             }
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "liquidstaking",
+                    "operation",
+                    "record",
+                    "bifrost",
+                    "scan",
+                    "operations"
+                ]
             }
         },
         "/api/scan/log": {
             "post": {
+                "description": "Returns a block log record by log index.",
                 "consumes": [
                     "application/json"
                 ],
@@ -4562,7 +5516,7 @@ const docTemplate = `{
                 "tags": [
                     "log"
                 ],
-                "summary": "Block log by index",
+                "summary": "Get block log by index",
                 "parameters": [
                     {
                         "description": "params",
@@ -4593,7 +5547,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "block",
+                    "log",
+                    "index",
+                    "scan",
+                    "block height",
+                    "block number"
+                ]
             }
         },
         "/api/scan/metadata": {
@@ -4628,12 +5590,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "current",
+                    "network",
+                    "metadata",
+                    "scan",
+                    "meta",
+                    "chain info"
+                ]
             }
         },
         "/api/scan/midnight/compact_version": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "produces": [
                     "application/json"
                 ],
@@ -4663,12 +5633,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "supported",
+                    "compact",
+                    "compiler",
+                    "versions",
+                    "scan",
+                    "version"
+                ]
             }
         },
         "/api/scan/midnight/contract": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -4709,12 +5688,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "contract",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/midnight/contract/cma": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -4758,12 +5745,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "contract",
+                    "cma",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/midnight/contract/state": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -4805,12 +5801,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "contract",
+                    "state",
+                    "scan",
+                    "smart contract",
+                    "wasm contract",
+                    "evm contract"
+                ]
             }
         },
         "/api/scan/midnight/contracts": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -4862,12 +5867,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "contracts",
+                    "scan"
+                ]
             }
         },
         "/api/scan/midnight/transaction": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -4908,12 +5918,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "transaction",
+                    "scan",
+                    "extrinsic",
+                    "tx"
+                ]
             }
         },
         "/api/scan/midnight/transactions": {
             "post": {
-                "description": "This API only available midnight network",
+                "description": "This API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -4965,7 +5982,12 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "transactions",
+                    "scan"
+                ]
             }
         },
         "/api/scan/multiChain/account/count": {
@@ -5011,7 +6033,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "multichain",
+                    "account",
+                    "count",
+                    "beta",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/multiChain/balance_value_history": {
@@ -5060,7 +6092,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "balance",
+                    "value",
+                    "history",
+                    "beta",
+                    "multichain",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/multiChain/balance_value_stat": {
@@ -5126,7 +6170,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "balance",
+                    "value",
+                    "stat",
+                    "beta",
+                    "multichain",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/multiChain/price": {
@@ -5173,12 +6229,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "multichain",
+                    "price",
+                    "beta",
+                    "scan",
+                    "rate",
+                    "valuation"
+                ]
             }
         },
         "/api/scan/multiTokens/account/balances": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5207,12 +6271,27 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "holder",
+                    "balance",
+                    "scan",
+                    "multitokens",
+                    "account",
+                    "balances",
+                    "owner",
+                    "balance holder",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/multiTokens/activities": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5241,12 +6320,19 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "activities",
+                    "scan",
+                    "multitokens"
+                ]
             }
         },
         "/api/scan/multiTokens/holders": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5275,12 +6361,21 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "holders",
+                    "scan",
+                    "multitokens",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/multiTokens/info": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5309,12 +6404,18 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "scan",
+                    "multitokens"
+                ]
             }
         },
         "/api/scan/multiTokens/info/item": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5343,12 +6444,19 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "item",
+                    "scan",
+                    "multitokens"
+                ]
             }
         },
         "/api/scan/multiTokens/items": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5377,12 +6485,20 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "item",
+                    "scan",
+                    "multitokens",
+                    "items"
+                ]
             }
         },
         "/api/scan/multiTokens/list": {
             "post": {
-                "description": "This API only available for enjin/matrix network.",
+                "description": "This API is only available for enjin/matrix network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5411,11 +6527,18 @@ const docTemplate = `{
                             "$ref": "#/definitions/subscan_internal_plugin_share.J"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "enjin",
+                    "multitoken",
+                    "scan",
+                    "multitokens"
+                ]
             }
         },
         "/api/scan/multisig": {
             "post": {
+                "description": "Returns details for a multisig extrinsic by multi_id and call_hash.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5425,7 +6548,7 @@ const docTemplate = `{
                 "tags": [
                     "multisig"
                 ],
-                "summary": "Multisig extrinsic",
+                "summary": "Get multisig extrinsic details",
                 "parameters": [
                     {
                         "description": "params",
@@ -5456,11 +6579,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "multisig",
+                    "extrinsic",
+                    "scan",
+                    "multi-signature",
+                    "multi sig",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/multisigs": {
             "post": {
+                "description": "Returns paginated multisig extrinsics filtered by account, call hash, and type.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5470,7 +6604,7 @@ const docTemplate = `{
                 "tags": [
                     "multisig"
                 ],
-                "summary": "Multisig extrinsic list",
+                "summary": "List multisig extrinsics",
                 "parameters": [
                     {
                         "description": "params",
@@ -5512,11 +6646,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "multisig",
+                    "extrinsics",
+                    "scan",
+                    "multisigs",
+                    "multi-signature",
+                    "multi sig"
+                ]
             }
         },
         "/api/scan/multisigs/details": {
             "post": {
+                "description": "Returns paginated multisig detail records for the specified account.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5526,7 +6669,7 @@ const docTemplate = `{
                 "tags": [
                     "multisig"
                 ],
-                "summary": "Multisig extrinsic details list",
+                "summary": "List multisig extrinsic details",
                 "parameters": [
                     {
                         "description": "params",
@@ -5568,7 +6711,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "multisig",
+                    "extrinsic",
+                    "scan",
+                    "multisigs",
+                    "multi-signature",
+                    "multi sig",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/nfts/account/balances": {
@@ -5625,7 +6779,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nft",
+                    "account",
+                    "balances",
+                    "nfts",
+                    "scan",
+                    "erc721",
+                    "collectible",
+                    "non-fungible token",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/nfts/activities": {
@@ -5682,7 +6849,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nft",
+                    "activities",
+                    "nfts",
+                    "scan",
+                    "erc721",
+                    "collectible",
+                    "non-fungible token"
+                ]
             }
         },
         "/api/scan/nfts/info": {
@@ -5728,7 +6904,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nft",
+                    "nfts",
+                    "scan",
+                    "erc721",
+                    "collectible",
+                    "non-fungible token"
+                ]
             }
         },
         "/api/scan/nfts/info/holders": {
@@ -5785,7 +6969,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nft",
+                    "holders",
+                    "nfts",
+                    "scan",
+                    "erc721",
+                    "collectible",
+                    "non-fungible token",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/nfts/info/item": {
@@ -5831,7 +7026,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nft",
+                    "item",
+                    "nfts",
+                    "scan",
+                    "erc721",
+                    "collectible",
+                    "non-fungible token"
+                ]
             }
         },
         "/api/scan/nfts/info/items": {
@@ -5888,7 +7092,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nft",
+                    "items",
+                    "nfts",
+                    "scan",
+                    "erc721",
+                    "collectible",
+                    "non-fungible token"
+                ]
             }
         },
         "/api/scan/nfts/list": {
@@ -5945,7 +7158,11 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nfts",
+                    "scan"
+                ]
             }
         },
         "/api/scan/nomination_pool/activities": {
@@ -5977,7 +7194,18 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nomination",
+                    "pools",
+                    "activities",
+                    "nominationpools",
+                    "scan",
+                    "pool",
+                    "staking pool",
+                    "delegation",
+                    "nomination pool"
+                ]
             }
         },
         "/api/scan/nomination_pool/pool": {
@@ -6009,7 +7237,17 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nomination",
+                    "pools",
+                    "nominationpools",
+                    "scan",
+                    "pool",
+                    "staking pool",
+                    "delegation",
+                    "nomination pool"
+                ]
             }
         },
         "/api/scan/nomination_pool/pool/member/vote": {
@@ -6041,7 +7279,19 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nomination",
+                    "pools",
+                    "member",
+                    "vote",
+                    "nominationpools",
+                    "scan",
+                    "pool",
+                    "staking pool",
+                    "delegation",
+                    "nomination pool"
+                ]
             }
         },
         "/api/scan/nomination_pool/pool/members": {
@@ -6073,7 +7323,18 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nomination",
+                    "pools",
+                    "members",
+                    "nominationpools",
+                    "scan",
+                    "pool",
+                    "staking pool",
+                    "delegation",
+                    "nomination pool"
+                ]
             }
         },
         "/api/scan/nomination_pool/pools": {
@@ -6105,7 +7366,17 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nomination",
+                    "pools",
+                    "nominationpools",
+                    "scan",
+                    "pool",
+                    "staking pool",
+                    "delegation",
+                    "nomination pool"
+                ]
             }
         },
         "/api/scan/nomination_pool/rewards": {
@@ -6137,12 +7408,25 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {}
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nomination",
+                    "pools",
+                    "rewards",
+                    "nominationpools",
+                    "scan",
+                    "pool",
+                    "staking pool",
+                    "delegation",
+                    "reward",
+                    "payout",
+                    "nomination pool"
+                ]
             }
         },
         "/api/scan/orbiters/rewards": {
             "post": {
-                "description": "This API only available for moonbeam(moonriver,moonbase) network.",
+                "description": "This API is only available for moonbeam(moonriver,moonbase) network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -6194,12 +7478,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "moonbeam",
+                    "orbiters",
+                    "rewards",
+                    "scan",
+                    "reward",
+                    "payout"
+                ]
             }
         },
         "/api/scan/parachain/info": {
             "post": {
-                "description": "Get detailed information about Parachain\nonly available on relay chain(Polkadot,Kusama,Westend,Paseo).",
+                "description": "Get detailed information about Parachain\nOnly available on relay chains(Polkadot,Kusama,Westend,Paseo).",
                 "consumes": [
                     "application/json"
                 ],
@@ -6251,12 +7543,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "scan",
+                    "para chain",
+                    "relaychain shard"
+                ]
             }
         },
         "/api/scan/parachain/list": {
             "post": {
-                "description": "List ParaChains/ParaThread with their status and other details.\nonly available on relay chain(Polkadot,Kusama,Westend,Paseo).",
+                "description": "List ParaChains/ParaThread with their status and other details.\nOnly available on relay chains(Polkadot,Kusama,Westend,Paseo).",
                 "consumes": [
                     "application/json"
                 ],
@@ -6308,12 +7606,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "scan",
+                    "para chain",
+                    "relaychain shard"
+                ]
             }
         },
         "/api/scan/parachain/meta": {
             "post": {
-                "description": "Get the metadata of all parachains.\nonly available on relay chain(Polkadot,Kusama,Westend,Paseo).",
+                "description": "Get the metadata of all parachains.\nOnly available on relay chains(Polkadot,Kusama,Westend,Paseo).",
                 "consumes": [
                     "application/json"
                 ],
@@ -6343,7 +7647,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "meta",
+                    "scan",
+                    "para chain",
+                    "relaychain shard"
+                ]
             }
         },
         "/api/scan/parachain/registerinfo": {
@@ -6389,11 +7700,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "register",
+                    "scan",
+                    "registerinfo",
+                    "para chain",
+                    "relaychain shard"
+                ]
             }
         },
         "/api/scan/pendingExtrinsics": {
             "post": {
+                "description": "Returns currently pending extrinsics in the mempool.",
                 "consumes": [
                     "application/json"
                 ],
@@ -6403,7 +7723,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Pending extrinsic",
+                "summary": "List pending extrinsics",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -6431,7 +7751,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "pending",
+                    "extrinsics",
+                    "extrinsic",
+                    "scan",
+                    "pendingextrinsics",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/scan/preimage/details": {
@@ -6477,7 +7807,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "preimage",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/preimage/list": {
@@ -6534,11 +7873,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "preimage",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/price/history": {
             "post": {
+                "description": "Returns token price history and EMA metrics for the selected date range and format.",
                 "consumes": [
                     "application/json"
                 ],
@@ -6548,7 +7897,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Price history",
+                "summary": "Get token price history",
                 "parameters": [
                     {
                         "description": "params",
@@ -6593,11 +7942,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "token",
+                    "price",
+                    "history",
+                    "stat",
+                    "scan",
+                    "asset",
+                    "coin",
+                    "rate",
+                    "valuation"
+                ]
             }
         },
         "/api/scan/proxy/extrinsics": {
             "post": {
+                "description": "Returns paginated proxy extrinsics for the specified account.",
                 "consumes": [
                     "application/json"
                 ],
@@ -6607,7 +7968,7 @@ const docTemplate = `{
                 "tags": [
                     "proxy"
                 ],
-                "summary": "Proxy extrinsics list",
+                "summary": "List proxy extrinsics",
                 "parameters": [
                     {
                         "description": "params",
@@ -6649,7 +8010,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "proxy",
+                    "extrinsics",
+                    "scan",
+                    "delegation",
+                    "delegated account"
+                ]
             }
         },
         "/api/scan/referenda/delegate": {
@@ -6695,7 +8063,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "delegator",
+                    "governance",
+                    "scan",
+                    "referenda",
+                    "delegate",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/delegate/votes": {
@@ -6752,7 +8131,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "delegator",
+                    "votes",
+                    "governance",
+                    "scan",
+                    "referenda",
+                    "delegate",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/delegates": {
@@ -6809,7 +8200,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "delegated",
+                    "delegator",
+                    "governance",
+                    "scan",
+                    "referenda",
+                    "delegates",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/referendum": {
@@ -6855,7 +8258,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referenda",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/referendums": {
@@ -6912,7 +8324,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referenda",
+                    "governance",
+                    "scan",
+                    "referendums",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/statistics": {
@@ -6947,7 +8369,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "statistics",
+                    "governance",
+                    "scan",
+                    "referenda",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/tracks": {
@@ -6985,7 +8417,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referendum",
+                    "tracks",
+                    "governance",
+                    "scan",
+                    "referenda",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/referenda/votes": {
@@ -7042,11 +8484,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "referenda",
+                    "votes",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/runtime/list": {
             "post": {
+                "description": "Returns runtime version history for the current network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7056,7 +8509,7 @@ const docTemplate = `{
                 "tags": [
                     "runtime"
                 ],
-                "summary": "Runtime list",
+                "summary": "List runtime versions",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -7084,11 +8537,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "runtime",
+                    "versions",
+                    "scan",
+                    "spec version",
+                    "runtime version"
+                ]
             }
         },
         "/api/scan/runtime/metadata": {
             "post": {
+                "description": "Returns runtime metadata modules for the specified runtime spec version.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7098,7 +8559,7 @@ const docTemplate = `{
                 "tags": [
                     "runtime"
                 ],
-                "summary": "Runtime metadata",
+                "summary": "Get runtime metadata",
                 "parameters": [
                     {
                         "description": "params",
@@ -7142,11 +8603,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "runtime",
+                    "metadata",
+                    "scan",
+                    "spec version",
+                    "runtime version",
+                    "meta",
+                    "chain info"
+                ]
             }
         },
         "/api/scan/runtime/modules": {
             "post": {
+                "description": "Returns runtime modules for the specified runtime spec version.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7156,7 +8627,7 @@ const docTemplate = `{
                 "tags": [
                     "runtime"
                 ],
-                "summary": "Runtime module list",
+                "summary": "List runtime modules",
                 "parameters": [
                     {
                         "description": "params",
@@ -7195,11 +8666,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "runtime",
+                    "modules",
+                    "scan",
+                    "spec version",
+                    "runtime version"
+                ]
             }
         },
         "/api/scan/scheduler": {
             "post": {
+                "description": "Returns a scheduled call detail by ID or by (when,index).",
                 "consumes": [
                     "application/json"
                 ],
@@ -7209,7 +8688,7 @@ const docTemplate = `{
                 "tags": [
                     "scheduler"
                 ],
-                "summary": "scheduler details",
+                "summary": "Get scheduled call details",
                 "parameters": [
                     {
                         "description": "params",
@@ -7240,11 +8719,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "scheduled",
+                    "call",
+                    "scheduler",
+                    "scan"
+                ]
             }
         },
         "/api/scan/schedulers": {
             "post": {
+                "description": "Returns paginated scheduled calls with module, status, and time-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7254,7 +8740,7 @@ const docTemplate = `{
                 "tags": [
                     "scheduler"
                 ],
-                "summary": "scheduler list",
+                "summary": "List scheduled calls",
                 "parameters": [
                     {
                         "description": "params",
@@ -7296,11 +8782,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "scheduled",
+                    "calls",
+                    "scheduler",
+                    "scan",
+                    "schedulers"
+                ]
             }
         },
         "/api/scan/schedulers/statistics": {
             "post": {
+                "description": "Returns aggregated scheduler statistics.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7310,7 +8804,7 @@ const docTemplate = `{
                 "tags": [
                     "scheduler"
                 ],
-                "summary": "scheduler statistics details",
+                "summary": "Get scheduler statistics",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -7330,7 +8824,13 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "scheduler",
+                    "statistics",
+                    "scan",
+                    "schedulers"
+                ]
             }
         },
         "/api/scan/search/identity": {
@@ -7384,7 +8884,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "search",
+                    "identity",
+                    "account",
+                    "scan",
+                    "lookup",
+                    "find",
+                    "query",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/search/tokens": {
@@ -7438,7 +8950,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "search",
+                    "token",
+                    "name/symbol",
+                    "id",
+                    "tokens",
+                    "scan",
+                    "lookup",
+                    "find",
+                    "query",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/scan/staking/era_stat": {
@@ -7495,7 +9020,13 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "era",
+                    "stat",
+                    "staking",
+                    "scan"
+                ]
             }
         },
         "/api/scan/staking/nominator": {
@@ -7541,7 +9072,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nominator",
+                    "staking",
+                    "scan",
+                    "delegator",
+                    "staking participant"
+                ]
             }
         },
         "/api/scan/staking/nominators": {
@@ -7598,7 +9136,12 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "nominators",
+                    "staking",
+                    "scan"
+                ]
             }
         },
         "/api/scan/staking/total_reward": {
@@ -7649,7 +9192,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "staking",
+                    "reward",
+                    "sum",
+                    "scan",
+                    "total"
+                ]
             }
         },
         "/api/scan/staking/unbonding": {
@@ -7701,7 +9251,12 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unbonding",
+                    "staking",
+                    "scan"
+                ]
             }
         },
         "/api/scan/staking/validator": {
@@ -7752,7 +9307,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "validator",
+                    "staking",
+                    "scan",
+                    "staker",
+                    "node operator"
+                ]
             }
         },
         "/api/scan/staking/validator/bond_stat": {
@@ -7806,7 +9368,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "validator",
+                    "bond",
+                    "stat",
+                    "staking",
+                    "scan",
+                    "staker",
+                    "node operator"
+                ]
             }
         },
         "/api/scan/staking/validator/commission_history": {
@@ -7863,7 +9434,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "validator",
+                    "commission",
+                    "history",
+                    "staking",
+                    "scan",
+                    "staker",
+                    "node operator"
+                ]
             }
         },
         "/api/scan/staking/validators": {
@@ -7920,11 +9500,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "validators",
+                    "staking",
+                    "scan"
+                ]
             }
         },
         "/api/scan/staking/voted": {
             "post": {
+                "description": "Returns validators voted by the specified account.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7934,7 +9520,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Voted validators list",
+                "summary": "List account-voted validators",
                 "parameters": [
                     {
                         "description": "params",
@@ -7973,7 +9559,14 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account-voted",
+                    "validators",
+                    "staking",
+                    "scan",
+                    "voted"
+                ]
             }
         },
         "/api/scan/staking/waiting": {
@@ -8030,12 +9623,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "waiting",
+                    "validators",
+                    "staking",
+                    "scan"
+                ]
             }
         },
         "/api/scan/swork/daily": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8065,12 +9664,21 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "daily",
+                    "stat",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/group": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8100,12 +9708,20 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "group",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/group/members": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8135,12 +9751,21 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "group",
+                    "members",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/groups": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8170,12 +9795,20 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "groups",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/member": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8205,12 +9838,21 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "group",
+                    "member",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/member/files": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8240,12 +9882,22 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "group",
+                    "member",
+                    "files",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/member/orders": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8275,12 +9927,22 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "group",
+                    "member",
+                    "orders",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/swork/orders": {
             "post": {
-                "description": "This API only available for avail network.",
+                "description": "This API is only available for avail network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8310,12 +9972,20 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "crust",
+                    "storage",
+                    "orders",
+                    "cruststorage",
+                    "scan",
+                    "swork"
+                ]
             }
         },
         "/api/scan/sxt/holders": {
             "post": {
-                "description": "This API only available for sxt network.",
+                "description": "This API is only available for sxt network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8367,12 +10037,26 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "sxt",
+                    "evm",
+                    "holder",
+                    "scan",
+                    "holders",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "owner",
+                    "balance holder",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/sxt/transfers": {
             "post": {
-                "description": "This API only available for sxt network.",
+                "description": "This API is only available for sxt network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8424,7 +10108,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "sxt",
+                    "evm",
+                    "transfer",
+                    "scan",
+                    "transfers",
+                    "ethereum",
+                    "smart contract",
+                    "frontier",
+                    "send",
+                    "asset movement"
+                ]
             }
         },
         "/api/scan/techcomm/proposal": {
@@ -8475,7 +10171,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "techcomm",
+                    "proposal",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/techcomm/proposals": {
@@ -8532,11 +10238,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "techcomm",
+                    "proposals",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
             }
         },
         "/api/scan/token": {
             "get": {
+                "description": "Returns network token symbols and token metadata keyed by symbol.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8546,7 +10263,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Token list(token symbol)",
+                "summary": "List tokens by symbol",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8580,7 +10297,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "tokens",
+                    "symbol",
+                    "scan",
+                    "token",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/scan/token/holders": {
@@ -8637,11 +10362,25 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "token",
+                    "holders",
+                    "account",
+                    "scan",
+                    "asset",
+                    "coin",
+                    "owners",
+                    "token holders",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/token/price": {
             "get": {
+                "description": "Returns the latest price list for available tokens.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8651,7 +10390,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Token price list",
+                "summary": "List token prices",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8674,11 +10413,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "token",
+                    "prices",
+                    "tokens",
+                    "scan",
+                    "price",
+                    "asset",
+                    "coin",
+                    "rate",
+                    "valuation"
+                ]
             }
         },
         "/api/scan/token/unique_id": {
             "get": {
+                "description": "Returns network token symbols, unique IDs, and token metadata keyed by unique_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -8688,7 +10439,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Token list(token unique_id)",
+                "summary": "List tokens by unique ID",
                 "parameters": [
                     {
                         "description": "params",
@@ -8739,7 +10490,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "tokens",
+                    "unique",
+                    "id",
+                    "scan",
+                    "token",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/scan/treasury/proposal": {
@@ -8790,7 +10550,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "proposal",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/treasury/proposals": {
@@ -8847,7 +10616,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "proposals",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/treasury/tip": {
@@ -8898,7 +10676,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "tip",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/treasury/tippers": {
@@ -8952,7 +10739,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "tippers",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/treasury/tips": {
@@ -9009,7 +10805,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "tips",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/treasury_council_collective/proposal": {
@@ -9060,7 +10865,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "council",
+                    "collective",
+                    "governance",
+                    "scan",
+                    "proposal",
+                    "referendum",
+                    "vote"
+                ]
             }
         },
         "/api/scan/treasury_council_collective/proposals": {
@@ -9117,7 +10932,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "council",
+                    "collective",
+                    "governance",
+                    "scan",
+                    "proposals",
+                    "referendum",
+                    "vote"
+                ]
             }
         },
         "/api/scan/treasury_council_collective/votes": {
@@ -9174,7 +10999,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "council",
+                    "collective",
+                    "vote",
+                    "governance",
+                    "scan",
+                    "votes",
+                    "referendum"
+                ]
             }
         },
         "/api/scan/treasury_spend/proposal": {
@@ -9225,7 +11060,17 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "spend",
+                    "proposal",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/treasury_spend/proposals": {
@@ -9282,11 +11127,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "treasury",
+                    "spend",
+                    "proposals",
+                    "governance",
+                    "scan",
+                    "referendum",
+                    "vote",
+                    "council"
+                ]
             }
         },
         "/api/scan/uniques/account/balances": {
             "post": {
+                "description": "Returns paginated unique item balances for an account.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9296,7 +11152,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques holders item balances",
+                "summary": "List unique balances by account",
                 "parameters": [
                     {
                         "description": "param",
@@ -9316,11 +11172,22 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "balances",
+                    "account",
+                    "uniques",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/scan/uniques/activities": {
             "post": {
+                "description": "Returns paginated activity records for a unique collection and optional item.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9330,7 +11197,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques activities",
+                "summary": "List unique collection activities",
                 "parameters": [
                     {
                         "description": "param",
@@ -9350,11 +11217,19 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "collection",
+                    "activities",
+                    "uniques",
+                    "scan"
+                ]
             }
         },
         "/api/scan/uniques/all": {
             "get": {
+                "description": "Returns all unique collections without pagination.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9364,7 +11239,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques list all",
+                "summary": "List all unique collections",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -9373,11 +11248,18 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "collections",
+                    "uniques",
+                    "scan"
+                ]
             }
         },
         "/api/scan/uniques/unique": {
             "post": {
+                "description": "Returns details for a unique collection by collection_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9387,7 +11269,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques info",
+                "summary": "Get unique collection details",
                 "parameters": [
                     {
                         "description": "param",
@@ -9407,11 +11289,18 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "collection",
+                    "uniques",
+                    "scan"
+                ]
             }
         },
         "/api/scan/uniques/unique/holders": {
             "post": {
+                "description": "Returns paginated holder distribution for a unique collection.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9421,7 +11310,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques holders",
+                "summary": "List unique collection holders",
                 "parameters": [
                     {
                         "description": "param",
@@ -9441,11 +11330,21 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "collection",
+                    "holders",
+                    "uniques",
+                    "scan",
+                    "owners",
+                    "token holders"
+                ]
             }
         },
         "/api/scan/uniques/unique/item": {
             "post": {
+                "description": "Returns details for a unique collection item by collection_id and item_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9455,7 +11354,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques item info",
+                "summary": "Get unique item details",
                 "parameters": [
                     {
                         "description": "param",
@@ -9475,11 +11374,18 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "item",
+                    "uniques",
+                    "scan"
+                ]
             }
         },
         "/api/scan/uniques/unique/items": {
             "post": {
+                "description": "Returns paginated items in a unique collection with optional owner filter.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9489,7 +11395,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques items",
+                "summary": "List unique collection items",
                 "parameters": [
                     {
                         "description": "param",
@@ -9531,11 +11437,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "collection",
+                    "items",
+                    "uniques",
+                    "scan"
+                ]
             }
         },
         "/api/scan/uniques/uniques": {
             "post": {
+                "description": "Returns a paginated list of unique collections.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9545,7 +11459,7 @@ const docTemplate = `{
                 "tags": [
                     "uniques"
                 ],
-                "summary": "Uniques list",
+                "summary": "List unique collections",
                 "parameters": [
                     {
                         "description": "param",
@@ -9565,7 +11479,13 @@ const docTemplate = `{
                             "additionalProperties": true
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "unique",
+                    "collections",
+                    "uniques",
+                    "scan"
+                ]
             }
         },
         "/api/scan/vector/daily": {
@@ -9760,11 +11680,19 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "vesting",
+                    "release",
+                    "scan",
+                    "lockup",
+                    "unlock schedule"
+                ]
             }
         },
         "/api/scan/xcm/bridge_stat": {
             "post": {
+                "description": "Returns bridge-type XCM statistics grouped by time format. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9774,7 +11702,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Bridge Stat (PRO)",
+                "summary": "Get XCM bridge statistics (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -9811,11 +11739,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "bridge",
+                    "statistics",
+                    "pro",
+                    "scan",
+                    "stat",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/scan/xcm/channel": {
             "post": {
+                "description": "Returns one XCM/HRMP channel by sender and recipient parachain IDs. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9825,7 +11765,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Channel (PRO)",
+                "summary": "Get XCM channel details (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -9856,11 +11796,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "channel",
+                    "pro",
+                    "scan",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/scan/xcm/channels": {
             "post": {
+                "description": "Returns XCM/HRMP channel list filtered by sender, recipient, status, or para_id. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9870,7 +11820,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Channels (PRO)",
+                "summary": "List XCM channels (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -9909,11 +11859,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "channels",
+                    "pro",
+                    "scan",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/scan/xcm/check_hash": {
             "post": {
+                "description": "Returns the XCM message unique ID from origin or destination event/hash inputs. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9923,7 +11883,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Find Xcm message id by hash (PRO)",
+                "summary": "Find XCM message ID by hash (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -9954,11 +11914,25 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "find",
+                    "xcm",
+                    "message",
+                    "id",
+                    "hash",
+                    "pro",
+                    "scan",
+                    "check",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/scan/xcm/info": {
             "post": {
+                "description": "Returns detailed information for one XCM message by unique_id or origin identifiers. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9968,7 +11942,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Message detail (PRO)",
+                "summary": "Get XCM message details (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -9999,11 +11973,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "message",
+                    "pro",
+                    "scan",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/scan/xcm/list": {
             "post": {
+                "description": "Returns paginated XCM messages with protocol, status, asset, and block-range filters. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10013,7 +11997,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Messages list (PRO)",
+                "summary": "List XCM messages (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -10055,11 +12039,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "messages",
+                    "pro",
+                    "scan",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/scan/xcm/meta": {
             "post": {
+                "description": "Returns XCM metadata and parachain statistics, optionally filtered by para_id. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10069,7 +12063,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Meta (PRO)",
+                "summary": "Get XCM metadata (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -10100,11 +12094,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "metadata",
+                    "pro",
+                    "scan",
+                    "meta",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message",
+                    "chain info"
+                ]
             }
         },
         "/api/scan/xcm/parachain/stat": {
             "post": {
+                "description": "Returns XCM parachain send/receive statistics with optional direction and date filters. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10114,7 +12120,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Sender Stat (PRO)",
+                "summary": "Get XCM parachain statistics (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -10148,11 +12154,25 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "parachain",
+                    "statistics",
+                    "pro",
+                    "scan",
+                    "stat",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message",
+                    "para chain",
+                    "relaychain shard"
+                ]
             }
         },
         "/api/scan/xcm/stat": {
             "post": {
+                "description": "Returns XCM traffic statistics for a date range and optional parachain filter. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10162,7 +12182,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Stat (PRO)",
+                "summary": "Get XCM statistics (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -10213,11 +12233,22 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "statistics",
+                    "pro",
+                    "scan",
+                    "stat",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/api/v2/scan/account/reward_slash": {
             "post": {
+                "description": "Returns paginated reward/slash records for an account with category, claim, and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10227,7 +12258,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Account reward and slash list",
+                "summary": "List account reward and slash records",
                 "parameters": [
                     {
                         "description": "params",
@@ -10269,7 +12300,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "reward",
+                    "slash",
+                    "records",
+                    "staking",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user",
+                    "penalty",
+                    "slashing"
+                ]
             }
         },
         "/api/v2/scan/account/tokens": {
@@ -10333,7 +12377,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "token",
+                    "scan",
+                    "tokens",
+                    "wallet",
+                    "address",
+                    "user",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/v2/scan/accounts": {
@@ -10390,11 +12445,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "accounts",
+                    "account",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/v2/scan/blocks": {
             "post": {
+                "description": "Returns a paginated block list with optional author and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10404,7 +12468,7 @@ const docTemplate = `{
                 "tags": [
                     "block"
                 ],
-                "summary": "Blocks list",
+                "summary": "List blocks",
                 "parameters": [
                     {
                         "description": "params",
@@ -10446,11 +12510,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "blocks",
+                    "block",
+                    "scan",
+                    "block list",
+                    "block heights",
+                    "block height",
+                    "block number"
+                ]
             }
         },
         "/api/v2/scan/daily": {
             "post": {
+                "description": "Returns daily aggregated chain statistics for the selected category and date range.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10460,7 +12534,7 @@ const docTemplate = `{
                 "tags": [
                     "stat"
                 ],
-                "summary": "Daily stat(v2)",
+                "summary": "Get daily statistics (v2)",
                 "parameters": [
                     {
                         "description": "param",
@@ -10499,11 +12573,18 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "daily",
+                    "statistics",
+                    "stat",
+                    "scan"
+                ]
             }
         },
         "/api/v2/scan/events": {
             "post": {
+                "description": "Returns paginated events with module/event filters, block constraints, and optional address matching.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10513,7 +12594,7 @@ const docTemplate = `{
                 "tags": [
                     "event"
                 ],
-                "summary": "Events list",
+                "summary": "List events",
                 "parameters": [
                     {
                         "description": "params",
@@ -10555,11 +12636,21 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "events",
+                    "event",
+                    "scan",
+                    "logs",
+                    "on-chain events",
+                    "log",
+                    "on-chain event"
+                ]
             }
         },
         "/api/v2/scan/extrinsics": {
             "post": {
+                "description": "Returns paginated extrinsics with module/call, signer, success, and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10569,7 +12660,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Extrinsics list",
+                "summary": "List extrinsics",
                 "parameters": [
                     {
                         "description": "params",
@@ -10611,11 +12702,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "extrinsics",
+                    "extrinsic",
+                    "scan",
+                    "transaction",
+                    "tx",
+                    "on-chain call"
+                ]
             }
         },
         "/api/v2/scan/logs": {
             "post": {
+                "description": "Returns paginated block logs filtered by block range, engine ID, and log type.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10625,7 +12725,7 @@ const docTemplate = `{
                 "tags": [
                     "log"
                 ],
-                "summary": "Logs list",
+                "summary": "List block logs",
                 "parameters": [
                     {
                         "description": "params",
@@ -10667,7 +12767,15 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "block",
+                    "logs",
+                    "log",
+                    "scan",
+                    "block height",
+                    "block number"
+                ]
             }
         },
         "/api/v2/scan/multiChain/account": {
@@ -10724,7 +12832,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "multichain",
+                    "account",
+                    "beta",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/v2/scan/search": {
@@ -10770,11 +12887,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "account",
+                    "address",
+                    "scan",
+                    "search",
+                    "wallet",
+                    "user",
+                    "lookup",
+                    "find",
+                    "query"
+                ]
             }
         },
         "/api/v2/scan/token/native": {
             "post": {
+                "description": "Returns the native token and provider information for the current network.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10784,7 +12913,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Native token list",
+                "summary": "Get native token",
                 "parameters": [
                     {
                         "description": "param",
@@ -10823,11 +12952,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "native",
+                    "token",
+                    "tokens",
+                    "scan",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/v2/scan/token/providers": {
             "get": {
+                "description": "Returns active token providers and their capabilities.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10837,7 +12975,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Tokens providers",
+                "summary": "List token providers",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -10865,11 +13003,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "token",
+                    "providers",
+                    "tokens",
+                    "scan",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/v2/scan/token/search": {
             "post": {
+                "description": "Returns tokens grouped by provider for the requested unique IDs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10879,7 +13026,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Tokens search",
+                "summary": "Search tokens (v2)",
                 "parameters": [
                     {
                         "description": "param",
@@ -10916,11 +13063,23 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "search",
+                    "tokens",
+                    "scan",
+                    "token",
+                    "lookup",
+                    "find",
+                    "query",
+                    "asset",
+                    "coin"
+                ]
             }
         },
         "/api/v2/scan/tokens": {
             "post": {
+                "description": "Returns paginated tokens from the selected provider with optional search, ordering, and extended fields.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10930,7 +13089,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Tokens(v2)",
+                "summary": "List tokens (v2)",
                 "parameters": [
                     {
                         "description": "param",
@@ -10975,11 +13134,16 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "tokens",
+                    "scan"
+                ]
             }
         },
         "/api/v2/scan/transfers": {
             "post": {
+                "description": "Returns paginated transfer records with account, token, amount, and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10989,7 +13153,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Transfers list",
+                "summary": "List transfers",
                 "parameters": [
                     {
                         "description": "params",
@@ -11034,11 +13198,20 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "transfers",
+                    "account",
+                    "scan",
+                    "wallet",
+                    "address",
+                    "user"
+                ]
             }
         },
         "/api/v2/scan/xcm/list": {
             "post": {
+                "description": "Returns paginated XCM messages with protocol, status, asset, and block-range filters. PRO plan required.",
                 "consumes": [
                     "application/json"
                 ],
@@ -11048,7 +13221,7 @@ const docTemplate = `{
                 "tags": [
                     "Xcm"
                 ],
-                "summary": "Xcm Messages list (PRO)",
+                "summary": "List XCM messages (PRO)",
                 "parameters": [
                     {
                         "description": "params",
@@ -11102,15 +13275,25 @@ const docTemplate = `{
                             ]
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "xcm",
+                    "messages",
+                    "pro",
+                    "scan",
+                    "cross-chain",
+                    "cross chain",
+                    "bridge message"
+                ]
             }
         },
         "/healthz": {
             "get": {
+                "description": "Returns OK when the service process is alive.",
                 "tags": [
                     "health"
                 ],
-                "summary": "Health check",
+                "summary": "Liveness health check",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -11118,15 +13301,22 @@ const docTemplate = `{
                             "type": "string"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "liveness",
+                    "health",
+                    "check",
+                    "healthz"
+                ]
             }
         },
         "/readiness": {
             "get": {
+                "description": "Returns OK when the service is ready to serve traffic.",
                 "tags": [
                     "health"
                 ],
-                "summary": "Readiness Probe",
+                "summary": "Readiness health check",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -11134,7 +13324,12 @@ const docTemplate = `{
                             "type": "string"
                         }
                     }
-                }
+                },
+                "x-synonyms": [
+                    "readiness",
+                    "health",
+                    "check"
+                ]
             }
         }
     },

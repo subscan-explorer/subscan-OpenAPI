@@ -8657,6 +8657,7 @@ paths:
     get:
       consumes:
       - application/json
+      description: Returns the current server timestamp in Unix seconds.
       produces:
       - application/json
       responses:
@@ -8669,9 +8670,12 @@ paths:
                 data:
                   type: integer
               type: object
-      summary: current timestamp
+      summary: Get current timestamp
       tags:
       - common
+      x-synonyms:
+      - now
+      - timestamp
   /api/open/currencies:
     post:
       consumes:
@@ -8697,6 +8701,11 @@ paths:
       summary: supported currencies
       tags:
       - currency
+      x-synonyms:
+      - supported
+      - currencies
+      - currency
+      - open
   /api/open/price:
     post:
       consumes:
@@ -8724,6 +8733,12 @@ paths:
       summary: currency price
       tags:
       - currency
+      x-synonyms:
+      - currency
+      - price
+      - open
+      - rate
+      - valuation
   /api/open/price_converter:
     post:
       consumes:
@@ -8752,6 +8767,13 @@ paths:
       summary: currency price converter
       tags:
       - currency
+      x-synonyms:
+      - currency
+      - price
+      - converter
+      - open
+      - rate
+      - valuation
   /api/scan/account/assets_changed:
     post:
       consumes:
@@ -8787,6 +8809,15 @@ paths:
       summary: Account assets changed history
       tags:
       - account
+      x-synonyms:
+      - account
+      - assets
+      - changed
+      - history
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/account/balance_history:
     post:
       consumes:
@@ -8824,6 +8855,14 @@ paths:
       summary: Account Balance History
       tags:
       - account
+      x-synonyms:
+      - account
+      - balance
+      - history
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/account/referendum:
     post:
       consumes:
@@ -8860,6 +8899,17 @@ paths:
       summary: Account referendum list
       tags:
       - governance
+      x-synonyms:
+      - account
+      - referendum
+      - governance
+      - scan
+      - wallet
+      - address
+      - user
+      - vote
+      - treasury
+      - council
   /api/scan/account/reward_slash:
     post:
       consumes:
@@ -8895,6 +8945,17 @@ paths:
       summary: Reward or slash list
       tags:
       - staking
+      x-synonyms:
+      - reward
+      - slash
+      - staking
+      - scan
+      - account
+      - penalty
+      - slashing
+      - wallet
+      - address
+      - user
   /api/scan/account/tokens:
     post:
       consumes:
@@ -8923,10 +8984,22 @@ paths:
       summary: Account token list
       tags:
       - account
+      x-synonyms:
+      - account
+      - token
+      - scan
+      - tokens
+      - wallet
+      - address
+      - user
+      - asset
+      - coin
   /api/scan/accounts/mau:
     post:
       consumes:
       - application/json
+      description: Returns monthly active account statistics for the requested date
+        range.
       parameters:
       - description: params
         in: body
@@ -8951,9 +9024,21 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Month daily stat
+      summary: Get monthly active account statistics
       tags:
       - stat
+      x-synonyms:
+      - monthly
+      - active
+      - account
+      - statistics
+      - stat
+      - scan
+      - accounts
+      - mau
+      - wallet
+      - address
+      - user
   /api/scan/accounts/merkle:
     post:
       consumes:
@@ -8984,6 +9069,14 @@ paths:
       summary: Account merkle list
       tags:
       - account
+      x-synonyms:
+      - account
+      - merkle
+      - scan
+      - accounts
+      - wallet
+      - address
+      - user
   /api/scan/accounts/statistics:
     post:
       consumes:
@@ -9013,6 +9106,14 @@ paths:
       summary: Account statistics
       tags:
       - account
+      x-synonyms:
+      - account
+      - statistics
+      - scan
+      - accounts
+      - wallet
+      - address
+      - user
   /api/scan/assets/account/balances:
     post:
       consumes:
@@ -9038,6 +9139,15 @@ paths:
       summary: Asset account balances
       tags:
       - assets
+      x-synonyms:
+      - asset
+      - account
+      - balances
+      - assets
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/assets/activities:
     post:
       consumes:
@@ -9063,6 +9173,11 @@ paths:
       summary: Asset activities
       tags:
       - assets
+      x-synonyms:
+      - asset
+      - activities
+      - assets
+      - scan
   /api/scan/assets/asset:
     post:
       consumes:
@@ -9088,6 +9203,10 @@ paths:
       summary: Asset info
       tags:
       - assets
+      x-synonyms:
+      - asset
+      - assets
+      - scan
   /api/scan/assets/asset/holders:
     post:
       consumes:
@@ -9113,6 +9232,13 @@ paths:
       summary: Asset holders
       tags:
       - assets
+      x-synonyms:
+      - asset
+      - holders
+      - assets
+      - scan
+      - owners
+      - token holders
   /api/scan/assets/assets:
     post:
       consumes:
@@ -9151,6 +9277,9 @@ paths:
       summary: Assets list
       tags:
       - assets
+      x-synonyms:
+      - assets
+      - scan
   /api/scan/block:
     post:
       consumes:
@@ -9178,6 +9307,11 @@ paths:
       summary: Block detail
       tags:
       - block
+      x-synonyms:
+      - block
+      - scan
+      - block height
+      - block number
   /api/scan/bounties/child:
     post:
       consumes:
@@ -9214,6 +9348,16 @@ paths:
       summary: Child Bounty list
       tags:
       - governance
+      x-synonyms:
+      - child
+      - bounty
+      - governance
+      - scan
+      - bounties
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/bounties/proposal:
     post:
       consumes:
@@ -9243,6 +9387,16 @@ paths:
       summary: Bounty info
       tags:
       - governance
+      x-synonyms:
+      - bounty
+      - governance
+      - scan
+      - bounties
+      - proposal
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/bounties/proposals:
     post:
       consumes:
@@ -9279,10 +9433,22 @@ paths:
       summary: Bounty list
       tags:
       - governance
+      x-synonyms:
+      - bounty
+      - governance
+      - scan
+      - bounties
+      - proposals
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/broker/assigns:
     post:
       consumes:
       - application/json
+      description: Returns paginated coretime assignment records filtered by paraId
+        and core.
       parameters:
       - description: params
         in: body
@@ -9311,13 +9477,23 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime assign list
+      summary: List coretime assignments
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - assignments
+      - scan
+      - broker
+      - assigns
+      - core lease
+      - compute time
   /api/scan/broker/operation:
     post:
       consumes:
       - application/json
+      description: Returns a paginated list of broker operation events filtered by
+        address, core, core index, event ID, and block range.
       parameters:
       - description: params
         in: body
@@ -9346,13 +9522,23 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime Event list
+      summary: List coretime broker operations
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - broker
+      - operations
+      - scan
+      - operation
+      - core lease
+      - compute time
   /api/scan/broker/purchased:
     post:
       consumes:
       - application/json
+      description: Returns paginated purchased coretime regions with optional cycle,
+        core, and purchase-type filters.
       parameters:
       - description: params
         in: body
@@ -9381,13 +9567,22 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime Region Purchased list
+      summary: List purchased coretime regions
       tags:
       - coretime
+      x-synonyms:
+      - purchased
+      - coretime
+      - regions
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/region:
     post:
       consumes:
       - application/json
+      description: Returns detailed information for a coretime region by core_index.
       parameters:
       - description: params
         in: body
@@ -9409,13 +9604,23 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime region info
+      summary: Get coretime region information
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - region
+      - information
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/regions:
     post:
       consumes:
       - application/json
+      description: Returns paginated coretime regions filtered by owner, lifecycle
+        status, and block boundaries.
       parameters:
       - description: params
         in: body
@@ -9444,13 +9649,22 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime Region list
+      summary: List coretime regions
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - regions
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/sale:
     post:
       consumes:
       - application/json
+      description: Returns coretime sale information filtered by region begin and
+        sales cycle.
       parameters:
       - description: params
         in: body
@@ -9472,13 +9686,22 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime sale info
+      summary: Get coretime sale information
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - sale
+      - information
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/sales:
     post:
       consumes:
       - application/json
+      description: Returns paginated historical coretime sale records.
       parameters:
       - description: params
         in: body
@@ -9507,13 +9730,24 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime sale history list
+      summary: List coretime sale history
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - sale
+      - history
+      - scan
+      - broker
+      - sales
+      - core lease
+      - compute time
   /api/scan/broker/workload/details:
     post:
       consumes:
       - application/json
+      description: Returns workload details for a region and requires either core
+        or para_id.
       parameters:
       - description: params
         in: body
@@ -9535,13 +9769,22 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime workload details
+      summary: Get coretime workload details
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - workload
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/workload/history:
     post:
       consumes:
       - application/json
+      description: Returns paginated workload history and requires either core or
+        para_id.
       parameters:
       - description: params
         in: body
@@ -9570,13 +9813,23 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime workload history
+      summary: List coretime workload history
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - workload
+      - history
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/workloads:
     post:
       consumes:
       - application/json
+      description: Returns paginated workload summaries for the latest or specified
+        region.
       parameters:
       - description: params
         in: body
@@ -9605,13 +9858,22 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime workload list
+      summary: List coretime workloads
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - workloads
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/broker/workplans:
     post:
       consumes:
       - application/json
+      description: Returns paginated coretime workplan records filtered by paraId
+        and core.
       parameters:
       - description: params
         in: body
@@ -9640,9 +9902,16 @@ paths:
               message:
                 type: string
             type: object
-      summary: Coretime workplan list
+      summary: List coretime workplans
       tags:
       - coretime
+      x-synonyms:
+      - coretime
+      - workplans
+      - scan
+      - broker
+      - core lease
+      - compute time
   /api/scan/check_hash:
     post:
       consumes:
@@ -9665,10 +9934,20 @@ paths:
       summary: Check hash type
       tags:
       - search
+      x-synonyms:
+      - check
+      - hash
+      - type
+      - search
+      - scan
+      - lookup
+      - find
+      - query
   /api/scan/collator/info:
     post:
       consumes:
       - application/json
+      description: Returns detailed information for a single collator account.
       parameters:
       - description: params
         in: body
@@ -9690,13 +9969,20 @@ paths:
               message:
                 type: string
             type: object
-      summary: Collator Info
+      summary: Get collator details
       tags:
       - collator
+      x-synonyms:
+      - collator
+      - scan
+      - block producer
+      - validator
   /api/scan/collator/list:
     post:
       consumes:
       - application/json
+      description: Returns a paginated list of collators with status, account, and
+        ordering filters.
       parameters:
       - description: params
         in: body
@@ -9725,13 +10011,20 @@ paths:
               message:
                 type: string
             type: object
-      summary: Collator List
+      summary: List collators
       tags:
       - collator
+      x-synonyms:
+      - collators
+      - collator
+      - scan
+      - block producer
+      - validator
   /api/scan/collator/meta:
     get:
       consumes:
       - application/json
+      description: Returns collator metadata used by the collator APIs.
       produces:
       - application/json
       responses:
@@ -9746,13 +10039,22 @@ paths:
               message:
                 type: string
             type: object
-      summary: Collator Meta
+      summary: Get collator metadata
       tags:
       - collator
+      x-synonyms:
+      - collator
+      - metadata
+      - scan
+      - meta
+      - block producer
+      - validator
+      - chain info
   /api/scan/collator/timeline:
     post:
       consumes:
       - application/json
+      description: Returns paginated timeline records for a collator.
       parameters:
       - description: params
         in: body
@@ -9781,9 +10083,16 @@ paths:
               message:
                 type: string
             type: object
-      summary: Collator Timelime
+      summary: List collator timeline records
       tags:
       - collator
+      x-synonyms:
+      - collator
+      - timeline
+      - records
+      - scan
+      - block producer
+      - validator
   /api/scan/contracts/events:
     post:
       consumes:
@@ -9819,6 +10128,16 @@ paths:
       summary: Contract Events
       tags:
       - contracts
+      x-synonyms:
+      - contract
+      - events
+      - contracts
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
+      - logs
+      - on-chain events
   /api/scan/contracts/info:
     post:
       consumes:
@@ -9847,6 +10166,13 @@ paths:
       summary: Contract info
       tags:
       - contracts
+      x-synonyms:
+      - contract
+      - contracts
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/contracts/list:
     post:
       consumes:
@@ -9881,6 +10207,14 @@ paths:
       summary: WASM Contract List
       tags:
       - contracts
+      x-synonyms:
+      - wasm
+      - contract
+      - contracts
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/contracts/meta:
     post:
       consumes:
@@ -9908,6 +10242,14 @@ paths:
       summary: Contract meta
       tags:
       - contracts
+      x-synonyms:
+      - contract
+      - meta
+      - contracts
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/contracts/timeline:
     post:
       consumes:
@@ -9941,6 +10283,14 @@ paths:
       summary: Contract Timeline
       tags:
       - contracts
+      x-synonyms:
+      - contract
+      - timeline
+      - contracts
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/contracts/transactions:
     post:
       consumes:
@@ -9976,6 +10326,15 @@ paths:
       summary: WASM Contract transactions
       tags:
       - contracts
+      x-synonyms:
+      - wasm
+      - contract
+      - transactions
+      - contracts
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/contracts/verify/compiler_images:
     get:
       consumes:
@@ -10000,6 +10359,13 @@ paths:
       summary: Compiler images tag
       tags:
       - contracts
+      x-synonyms:
+      - compiler
+      - images
+      - tag
+      - contracts
+      - scan
+      - verify
   /api/scan/contracts/verify/compiler_version:
     get:
       consumes:
@@ -10022,6 +10388,13 @@ paths:
       summary: Compiler versions
       tags:
       - contracts
+      x-synonyms:
+      - compiler
+      - versions
+      - contracts
+      - scan
+      - verify
+      - version
   /api/scan/council/proposal:
     post:
       consumes:
@@ -10054,6 +10427,14 @@ paths:
       summary: Council proposal
       tags:
       - governance
+      x-synonyms:
+      - council
+      - proposal
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
   /api/scan/council/proposals:
     post:
       consumes:
@@ -10090,6 +10471,14 @@ paths:
       summary: Council proposals
       tags:
       - governance
+      x-synonyms:
+      - council
+      - proposals
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
   /api/scan/daily/reward_slash:
     post:
       consumes:
@@ -10126,10 +10515,21 @@ paths:
       summary: daily reward or slash data
       tags:
       - staking
+      x-synonyms:
+      - daily
+      - reward
+      - slash
+      - data
+      - staking
+      - scan
+      - penalty
+      - slashing
   /api/scan/daily_token:
     post:
       consumes:
       - application/json
+      description: Returns daily token statistics for a date range and optional token
+        symbol.
       parameters:
       - description: params
         in: body
@@ -10154,14 +10554,22 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Daily token stat
+      summary: Get daily token statistics
       tags:
       - stat
+      x-synonyms:
+      - daily
+      - token
+      - statistics
+      - stat
+      - scan
+      - asset
+      - coin
   /api/scan/dataAvailability/info:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: param
         in: body
@@ -10180,11 +10588,17 @@ paths:
       summary: Submitted Data info
       tags:
       - Avail
+      x-synonyms:
+      - submitted
+      - data
+      - avail
+      - scan
+      - dataavailability
   /api/scan/dataAvailability/list:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: param
         in: body
@@ -10216,6 +10630,12 @@ paths:
       summary: Submitted Data list
       tags:
       - Avail
+      x-synonyms:
+      - submitted
+      - data
+      - avail
+      - scan
+      - dataavailability
   /api/scan/democracy/proposal:
     post:
       consumes:
@@ -10248,6 +10668,15 @@ paths:
       summary: Democracy details
       tags:
       - governance
+      x-synonyms:
+      - democracy
+      - governance
+      - scan
+      - proposal
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/democracy/proposals:
     post:
       consumes:
@@ -10284,6 +10713,16 @@ paths:
       summary: Democracies list
       tags:
       - governance
+      x-synonyms:
+      - democracies
+      - governance
+      - scan
+      - democracy
+      - proposals
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/democracy/referendum:
     post:
       consumes:
@@ -10316,6 +10755,15 @@ paths:
       summary: Referendum list(legacy)
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - legacy
+      - governance
+      - scan
+      - democracy
+      - vote
+      - treasury
+      - council
   /api/scan/democracy/referendums:
     post:
       consumes:
@@ -10352,6 +10800,15 @@ paths:
       summary: Referendums
       tags:
       - governance
+      x-synonyms:
+      - referendums
+      - governance
+      - scan
+      - democracy
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/democracy/seconded:
     post:
       consumes:
@@ -10388,6 +10845,15 @@ paths:
       summary: Democracy seconded list
       tags:
       - governance
+      x-synonyms:
+      - democracy
+      - seconded
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/democracy/votes:
     post:
       consumes:
@@ -10424,10 +10890,21 @@ paths:
       summary: Referendum votes list(legacy)
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - votes
+      - legacy
+      - governance
+      - scan
+      - democracy
+      - vote
+      - treasury
+      - council
   /api/scan/event:
     post:
       consumes:
       - application/json
+      description: Returns event details for a specific event index.
       parameters:
       - description: params
         in: body
@@ -10447,13 +10924,20 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ChainEvent'
               type: object
-      summary: Event by index
+      summary: Get event by index
       tags:
       - event
+      x-synonyms:
+      - event
+      - index
+      - scan
+      - log
+      - on-chain event
   /api/scan/event/params:
     post:
       consumes:
       - application/json
+      description: Returns parsed parameter payloads for up to 100 event indexes.
       parameters:
       - description: params
         in: body
@@ -10475,9 +10959,17 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.ChainEventParams'
                   type: array
               type: object
-      summary: Event params by index
+      summary: Get event parameters by index
       tags:
       - event
+      x-synonyms:
+      - event
+      - parameters
+      - index
+      - scan
+      - params
+      - log
+      - on-chain event
   /api/scan/evm/abi:
     post:
       consumes:
@@ -10499,6 +10991,19 @@ paths:
       summary: ABI by method id or event topic
       tags:
       - EVM
+      x-synonyms:
+      - abi
+      - method
+      - id
+      - event
+      - topic
+      - evm
+      - scan
+      - log
+      - on-chain event
+      - ethereum
+      - smart contract
+      - frontier
   /api/scan/evm/account/tokens:
     post:
       consumes:
@@ -10520,6 +11025,17 @@ paths:
       summary: EVM account tokens
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - account
+      - tokens
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - wallet
+      - address
+      - user
   /api/scan/evm/block:
     post:
       consumes:
@@ -10541,10 +11057,22 @@ paths:
       summary: Evm block by block number
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - block
+      - number
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - block height
+      - block number
   /api/scan/evm/blocks:
     post:
       consumes:
       - application/json
+      description: Returns paginated EVM blocks. This API only supports networks with
+        EVM pallet(frontier or revive).
       parameters:
       - description: params
         in: body
@@ -10558,9 +11086,18 @@ paths:
         "200":
           description: OK
           schema: {}
-      summary: EVM Blocks
+      summary: List EVM blocks
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - blocks
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - block list
+      - block heights
   /api/scan/evm/contract:
     post:
       consumes:
@@ -10582,6 +11119,15 @@ paths:
       summary: EVM contract detail
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - contract
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - wasm contract
+      - evm contract
   /api/scan/evm/contract/list:
     post:
       consumes:
@@ -10603,6 +11149,15 @@ paths:
       summary: EVM contract list
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - contract
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - wasm contract
+      - evm contract
   /api/scan/evm/contract/solcs:
     post:
       consumes:
@@ -10625,6 +11180,20 @@ paths:
       summary: Polkadot pvm resolc versions
       tags:
       - EVM
+      x-synonyms:
+      - polkadot
+      - pvm
+      - resolc
+      - versions
+      - evm
+      - scan
+      - contract
+      - solcs
+      - ethereum
+      - smart contract
+      - frontier
+      - wasm contract
+      - evm contract
   /api/scan/evm/erc721/collectible:
     post:
       consumes:
@@ -10646,6 +11215,16 @@ paths:
       summary: EVM erc721 collectible detail
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc721
+      - collectible
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - non-fungible token
   /api/scan/evm/erc721/collectibles:
     post:
       consumes:
@@ -10667,6 +11246,17 @@ paths:
       summary: EVM ERC721 collectibles
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc721
+      - collectibles
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - collectible
+      - non-fungible token
   /api/scan/evm/erc1155/collectible:
     post:
       consumes:
@@ -10688,6 +11278,18 @@ paths:
       summary: EVM erc1155 collectible detail
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc1155
+      - collectible
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - multi token
+      - multi-token
+      - erc721
   /api/scan/evm/erc1155/collectible/holders:
     post:
       consumes:
@@ -10709,6 +11311,21 @@ paths:
       summary: EVM erc1155 token holders
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc1155
+      - token
+      - holders
+      - scan
+      - collectible
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - multi token
+      - multi-token
+      - asset
+      - coin
   /api/scan/evm/erc1155/collectibles:
     post:
       consumes:
@@ -10730,6 +11347,19 @@ paths:
       summary: EVM ERC1155 collectibles
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc1155
+      - collectibles
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - multi token
+      - multi-token
+      - erc721
+      - collectible
   /api/scan/evm/etherscan:
     get:
       description: |-
@@ -10750,12 +11380,20 @@ paths:
       summary: Etherscan-like API
       tags:
       - EVM
+      x-synonyms:
+      - etherscan-like
+      - evm
+      - scan
+      - etherscan
+      - ethereum
+      - smart contract
+      - frontier
   /api/scan/evm/logs:
     post:
       consumes:
       - application/json
       description: |-
-        EVM event Logs，returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.
+        EVM event Logs,returns the event logs from an address. The current maximum limit for the number of results returned through pagination is 10,000. If you require more, please adjust the block_range parameter.
         This API only supports networks with EVM pallet(frontier or revive)
       parameters:
       - description: params
@@ -10773,6 +11411,16 @@ paths:
       summary: EVM event Logs
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - event
+      - logs
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - log
+      - on-chain event
   /api/scan/evm/meta:
     post:
       description: This API only supports networks with EVM pallet(frontier or revive)
@@ -10785,6 +11433,13 @@ paths:
       summary: Evm meta
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - meta
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
   /api/scan/evm/token:
     post:
       consumes:
@@ -10806,6 +11461,21 @@ paths:
       summary: EVM erc20/erc721/erc1155 token
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc20/erc721
+      - erc1155
+      - token
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - multi token
+      - multi-token
+      - asset
+      - coin
+      - erc721
   /api/scan/evm/token/holders:
     post:
       consumes:
@@ -10827,6 +11497,18 @@ paths:
       summary: EVM token holders
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - token
+      - holders
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - asset
+      - coin
+      - owners
+      - token holders
   /api/scan/evm/token/transfer:
     post:
       consumes:
@@ -10863,6 +11545,18 @@ paths:
       summary: EVM token transfer
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - token
+      - transfer
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - asset
+      - coin
+      - send
+      - asset movement
   /api/scan/evm/tokens:
     post:
       consumes:
@@ -10884,6 +11578,20 @@ paths:
       summary: EVM erc20/erc721/erc1155 tokens
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - erc20/erc721
+      - erc1155
+      - tokens
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - nft
+      - multi token
+      - multi-token
+      - erc721
+      - collectible
   /api/scan/evm/transaction:
     post:
       consumes:
@@ -10906,11 +11614,20 @@ paths:
       summary: EVM transaction info
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - transaction
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
+      - extrinsic
+      - tx
   /api/scan/evm/transaction/internalTx:
     post:
       consumes:
       - application/json
-      description: This API only available for the PEAQ network
+      description: This API is only available for the PEAQ network
       parameters:
       - description: param
         in: body
@@ -10940,6 +11657,17 @@ paths:
       summary: EVM internal Tx
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - internal
+      - tx
+      - scan
+      - transaction
+      - internaltx
+      - ethereum
+      - smart contract
+      - frontier
+      - extrinsic
   /api/scan/evm/v2/transactions:
     post:
       consumes:
@@ -10961,8 +11689,17 @@ paths:
       summary: Evm transactions
       tags:
       - EVM
+      x-synonyms:
+      - evm
+      - transactions
+      - scan
+      - ethereum
+      - smart contract
+      - frontier
   /api/scan/extrinsic:
     post:
+      description: Returns extrinsic details by extrinsic_index or hash, with optional
+        event and parameter controls.
       parameters:
       - description: params
         in: body
@@ -10982,13 +11719,20 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ExtrinsicDetail'
               type: object
-      summary: Extrinsic detail
+      summary: Get extrinsic details
       tags:
       - extrinsic
+      x-synonyms:
+      - extrinsic
+      - scan
+      - transaction
+      - tx
+      - on-chain call
   /api/scan/extrinsic/params:
     post:
       consumes:
       - application/json
+      description: Returns parsed parameter payloads for up to 100 extrinsic indexes.
       parameters:
       - description: params
         in: body
@@ -11010,9 +11754,17 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.ChainExtrinsicParams'
                   type: array
               type: object
-      summary: Extrinsic params
+      summary: Get extrinsic parameters
       tags:
       - extrinsic
+      x-synonyms:
+      - extrinsic
+      - parameters
+      - scan
+      - params
+      - transaction
+      - tx
+      - on-chain call
   /api/scan/extrinsic/reward:
     post:
       consumes:
@@ -11049,6 +11801,13 @@ paths:
       summary: Extrinsic reward
       tags:
       - extrinsic
+      x-synonyms:
+      - extrinsic
+      - reward
+      - scan
+      - transaction
+      - tx
+      - on-chain call
   /api/scan/fellowship/referendum:
     post:
       consumes:
@@ -11078,6 +11837,15 @@ paths:
       summary: Fellowship referenda details
       tags:
       - governance
+      x-synonyms:
+      - fellowship
+      - referenda
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/fellowship/referendums:
     post:
       consumes:
@@ -11114,6 +11882,16 @@ paths:
       summary: Fellowship referenda list
       tags:
       - governance
+      x-synonyms:
+      - fellowship
+      - referenda
+      - governance
+      - scan
+      - referendums
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/fellowship/statistics:
     post:
       consumes:
@@ -11136,6 +11914,15 @@ paths:
       summary: Fellowship referendum statistics
       tags:
       - governance
+      x-synonyms:
+      - fellowship
+      - referendum
+      - statistics
+      - governance
+      - scan
+      - vote
+      - treasury
+      - council
   /api/scan/fellowship/tracks:
     post:
       consumes:
@@ -11160,6 +11947,15 @@ paths:
       summary: Fellowship referendum tracks
       tags:
       - governance
+      x-synonyms:
+      - fellowship
+      - referendum
+      - tracks
+      - governance
+      - scan
+      - vote
+      - treasury
+      - council
   /api/scan/fellowship/votes:
     post:
       consumes:
@@ -11196,6 +11992,15 @@ paths:
       summary: Fellowship referendum votes
       tags:
       - governance
+      x-synonyms:
+      - fellowship
+      - referendum
+      - votes
+      - governance
+      - scan
+      - vote
+      - treasury
+      - council
   /api/scan/foreignAssets/account/balances:
     post:
       consumes:
@@ -11225,6 +12030,14 @@ paths:
       summary: ForeignAssets account balances
       tags:
       - foreignAssets
+      x-synonyms:
+      - foreignassets
+      - account
+      - balances
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/foreignAssets/activities:
     post:
       consumes:
@@ -11259,6 +12072,10 @@ paths:
       summary: ForeignAssets activities
       tags:
       - foreignAssets
+      x-synonyms:
+      - foreignassets
+      - activities
+      - scan
   /api/scan/foreignAssets/all:
     post:
       consumes:
@@ -11284,6 +12101,9 @@ paths:
       summary: ForeignAssets list all
       tags:
       - foreignAssets
+      x-synonyms:
+      - foreignassets
+      - scan
   /api/scan/foreignAssets/asset:
     post:
       consumes:
@@ -11311,6 +12131,10 @@ paths:
       summary: ForeignAssets info
       tags:
       - foreignAssets
+      x-synonyms:
+      - foreignassets
+      - scan
+      - asset
   /api/scan/foreignAssets/asset/holders:
     post:
       consumes:
@@ -11345,6 +12169,13 @@ paths:
       summary: ForeignAssets holders
       tags:
       - foreignAssets
+      x-synonyms:
+      - foreignassets
+      - holders
+      - scan
+      - asset
+      - owners
+      - token holders
   /api/scan/foreignAssets/assets:
     post:
       consumes:
@@ -11379,10 +12210,16 @@ paths:
       summary: ForeignAssets list
       tags:
       - foreignAssets
+      x-synonyms:
+      - foreignassets
+      - scan
+      - assets
   /api/scan/getRawTx:
     post:
       consumes:
       - application/json
+      description: Returns the raw transaction hex for an extrinsic index or extrinsic
+        hash.
       parameters:
       - description: params
         in: body
@@ -11402,9 +12239,17 @@ paths:
                 data:
                   type: string
               type: object
-      summary: Extrinsic raw tx
+      summary: Get raw extrinsic transaction
       tags:
       - extrinsic
+      x-synonyms:
+      - raw
+      - extrinsic
+      - transaction
+      - scan
+      - getrawtx
+      - tx
+      - on-chain call
   /api/scan/governance/desc:
     post:
       consumes:
@@ -11433,6 +12278,17 @@ paths:
       summary: more information about the governance
       tags:
       - governance
+      x-synonyms:
+      - more
+      - information
+      - about
+      - governance
+      - scan
+      - desc
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/header:
     post:
       consumes:
@@ -11460,11 +12316,17 @@ paths:
       summary: Block header
       tags:
       - block
+      x-synonyms:
+      - block
+      - header
+      - scan
+      - block height
+      - block number
   /api/scan/liquidstaking/operations:
     post:
       consumes:
       - application/json
-      description: This API only available for bifrost/bifrost-kusama network.
+      description: This API is only available for bifrost/bifrost-kusama network.
       parameters:
       - description: params
         in: body
@@ -11496,10 +12358,18 @@ paths:
       summary: LiquidStaking operation record list
       tags:
       - bifrost
+      x-synonyms:
+      - liquidstaking
+      - operation
+      - record
+      - bifrost
+      - scan
+      - operations
   /api/scan/log:
     post:
       consumes:
       - application/json
+      description: Returns a block log record by log index.
       parameters:
       - description: params
         in: body
@@ -11519,9 +12389,16 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ChainLogJson'
               type: object
-      summary: Block log by index
+      summary: Get block log by index
       tags:
       - log
+      x-synonyms:
+      - block
+      - log
+      - index
+      - scan
+      - block height
+      - block number
   /api/scan/metadata:
     post:
       description: Current network metadata, including current networkNode name, ss58
@@ -11543,9 +12420,16 @@ paths:
       summary: Current network metadata
       tags:
       - metadata
+      x-synonyms:
+      - current
+      - network
+      - metadata
+      - scan
+      - meta
+      - chain info
   /api/scan/midnight/compact_version:
     post:
-      description: This API only available midnight network
+      description: This API is only available midnight network
       produces:
       - application/json
       responses:
@@ -11563,11 +12447,19 @@ paths:
       summary: Midnight Supported Compact Compiler Versions
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - supported
+      - compact
+      - compiler
+      - versions
+      - scan
+      - version
   /api/scan/midnight/contract:
     post:
       consumes:
       - application/json
-      description: This API only available midnight network
+      description: This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -11590,11 +12482,18 @@ paths:
       summary: Midnight Contract Detail
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - contract
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/midnight/contract/cma:
     post:
       consumes:
       - application/json
-      description: This API only available midnight network
+      description: This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -11619,11 +12518,19 @@ paths:
       summary: Midnight Contract CMA info
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - contract
+      - cma
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/midnight/contract/state:
     post:
       consumes:
       - application/json
-      description: This API only available midnight network
+      description: This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -11647,11 +12554,19 @@ paths:
       summary: Midnight Contract State
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - contract
+      - state
+      - scan
+      - smart contract
+      - wasm contract
+      - evm contract
   /api/scan/midnight/contracts:
     post:
       consumes:
       - application/json
-      description: This API only available midnight network
+      description: This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -11681,11 +12596,15 @@ paths:
       summary: Midnight Contracts
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - contracts
+      - scan
   /api/scan/midnight/transaction:
     post:
       consumes:
       - application/json
-      description: This API only available midnight network
+      description: This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -11708,11 +12627,17 @@ paths:
       summary: Midnight Transaction Detail
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - transaction
+      - scan
+      - extrinsic
+      - tx
   /api/scan/midnight/transactions:
     post:
       consumes:
       - application/json
-      description: This API only available midnight network
+      description: This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -11742,6 +12667,10 @@ paths:
       summary: Midnight Transactions
       tags:
       - midnight
+      x-synonyms:
+      - midnight
+      - transactions
+      - scan
   /api/scan/multiChain/account/count:
     post:
       consumes:
@@ -11771,6 +12700,15 @@ paths:
       summary: MultiChain account count (BETA)
       tags:
       - multiChain
+      x-synonyms:
+      - multichain
+      - account
+      - count
+      - beta
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/multiChain/balance_value_history:
     post:
       consumes:
@@ -11802,6 +12740,17 @@ paths:
       summary: Account balance value history (BETA)
       tags:
       - multiChain
+      x-synonyms:
+      - account
+      - balance
+      - value
+      - history
+      - beta
+      - multichain
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/multiChain/balance_value_stat:
     post:
       consumes:
@@ -11844,6 +12793,17 @@ paths:
       summary: Account balance value stat (BETA)
       tags:
       - multiChain
+      x-synonyms:
+      - account
+      - balance
+      - value
+      - stat
+      - beta
+      - multichain
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/multiChain/price:
     post:
       consumes:
@@ -11872,11 +12832,18 @@ paths:
       summary: MultiChain price (BETA)
       tags:
       - multiChain
+      x-synonyms:
+      - multichain
+      - price
+      - beta
+      - scan
+      - rate
+      - valuation
   /api/scan/multiTokens/account/balances:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11894,11 +12861,25 @@ paths:
       summary: Enjin multiToken holder balance
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - holder
+      - balance
+      - scan
+      - multitokens
+      - account
+      - balances
+      - owner
+      - balance holder
+      - wallet
+      - address
+      - user
   /api/scan/multiTokens/activities:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11916,11 +12897,17 @@ paths:
       summary: Enjin multiToken activities
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - activities
+      - scan
+      - multitokens
   /api/scan/multiTokens/holders:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11938,11 +12925,19 @@ paths:
       summary: Enjin multiToken holders
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - holders
+      - scan
+      - multitokens
+      - owners
+      - token holders
   /api/scan/multiTokens/info:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11960,11 +12955,16 @@ paths:
       summary: Enjin multiToken info
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - scan
+      - multitokens
   /api/scan/multiTokens/info/item:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -11982,11 +12982,17 @@ paths:
       summary: Enjin multiToken item detail
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - item
+      - scan
+      - multitokens
   /api/scan/multiTokens/items:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -12004,11 +13010,18 @@ paths:
       summary: Enjin multiToken item all
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - item
+      - scan
+      - multitokens
+      - items
   /api/scan/multiTokens/list:
     post:
       consumes:
       - application/json
-      description: This API only available for enjin/matrix network.
+      description: This API is only available for enjin/matrix network.
       parameters:
       - description: params
         in: body
@@ -12026,10 +13039,16 @@ paths:
       summary: Enjin multiToken list
       tags:
       - enjin
+      x-synonyms:
+      - enjin
+      - multitoken
+      - scan
+      - multitokens
   /api/scan/multisig:
     post:
       consumes:
       - application/json
+      description: Returns details for a multisig extrinsic by multi_id and call_hash.
       parameters:
       - description: params
         in: body
@@ -12049,13 +13068,24 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.MultisigExtrinsicJson'
               type: object
-      summary: Multisig extrinsic
+      summary: Get multisig extrinsic details
       tags:
       - multisig
+      x-synonyms:
+      - multisig
+      - extrinsic
+      - scan
+      - multi-signature
+      - multi sig
+      - transaction
+      - tx
+      - on-chain call
   /api/scan/multisigs:
     post:
       consumes:
       - application/json
+      description: Returns paginated multisig extrinsics filtered by account, call
+        hash, and type.
       parameters:
       - description: params
         in: body
@@ -12082,13 +13112,21 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Multisig extrinsic list
+      summary: List multisig extrinsics
       tags:
       - multisig
+      x-synonyms:
+      - multisig
+      - extrinsics
+      - scan
+      - multisigs
+      - multi-signature
+      - multi sig
   /api/scan/multisigs/details:
     post:
       consumes:
       - application/json
+      description: Returns paginated multisig detail records for the specified account.
       parameters:
       - description: params
         in: body
@@ -12115,9 +13153,19 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Multisig extrinsic details list
+      summary: List multisig extrinsic details
       tags:
       - multisig
+      x-synonyms:
+      - multisig
+      - extrinsic
+      - scan
+      - multisigs
+      - multi-signature
+      - multi sig
+      - transaction
+      - tx
+      - on-chain call
   /api/scan/nfts/account/balances:
     post:
       consumes:
@@ -12154,6 +13202,18 @@ paths:
       summary: NFT account balances
       tags:
       - NFTs
+      x-synonyms:
+      - nft
+      - account
+      - balances
+      - nfts
+      - scan
+      - erc721
+      - collectible
+      - non-fungible token
+      - wallet
+      - address
+      - user
   /api/scan/nfts/activities:
     post:
       consumes:
@@ -12190,6 +13250,14 @@ paths:
       summary: NFT activities
       tags:
       - NFTs
+      x-synonyms:
+      - nft
+      - activities
+      - nfts
+      - scan
+      - erc721
+      - collectible
+      - non-fungible token
   /api/scan/nfts/info:
     post:
       consumes:
@@ -12219,6 +13287,13 @@ paths:
       summary: NFT info
       tags:
       - NFTs
+      x-synonyms:
+      - nft
+      - nfts
+      - scan
+      - erc721
+      - collectible
+      - non-fungible token
   /api/scan/nfts/info/holders:
     post:
       consumes:
@@ -12255,6 +13330,16 @@ paths:
       summary: NFT holders
       tags:
       - NFTs
+      x-synonyms:
+      - nft
+      - holders
+      - nfts
+      - scan
+      - erc721
+      - collectible
+      - non-fungible token
+      - owners
+      - token holders
   /api/scan/nfts/info/item:
     post:
       consumes:
@@ -12284,6 +13369,14 @@ paths:
       summary: NFT item
       tags:
       - NFTs
+      x-synonyms:
+      - nft
+      - item
+      - nfts
+      - scan
+      - erc721
+      - collectible
+      - non-fungible token
   /api/scan/nfts/info/items:
     post:
       consumes:
@@ -12320,6 +13413,14 @@ paths:
       summary: NFT items
       tags:
       - NFTs
+      x-synonyms:
+      - nft
+      - items
+      - nfts
+      - scan
+      - erc721
+      - collectible
+      - non-fungible token
   /api/scan/nfts/list:
     post:
       consumes:
@@ -12356,6 +13457,9 @@ paths:
       summary: NFTs list
       tags:
       - NFTs
+      x-synonyms:
+      - nfts
+      - scan
   /api/scan/nomination_pool/activities:
     post:
       consumes:
@@ -12377,6 +13481,16 @@ paths:
       summary: Nomination Pools Activities
       tags:
       - nominationPools
+      x-synonyms:
+      - nomination
+      - pools
+      - activities
+      - nominationpools
+      - scan
+      - pool
+      - staking pool
+      - delegation
+      - nomination pool
   /api/scan/nomination_pool/pool:
     post:
       consumes:
@@ -12398,6 +13512,15 @@ paths:
       summary: Nomination Pools Info
       tags:
       - nominationPools
+      x-synonyms:
+      - nomination
+      - pools
+      - nominationpools
+      - scan
+      - pool
+      - staking pool
+      - delegation
+      - nomination pool
   /api/scan/nomination_pool/pool/member/vote:
     post:
       consumes:
@@ -12419,6 +13542,17 @@ paths:
       summary: Nomination Pools Member Vote
       tags:
       - nominationPools
+      x-synonyms:
+      - nomination
+      - pools
+      - member
+      - vote
+      - nominationpools
+      - scan
+      - pool
+      - staking pool
+      - delegation
+      - nomination pool
   /api/scan/nomination_pool/pool/members:
     post:
       consumes:
@@ -12440,6 +13574,16 @@ paths:
       summary: Nomination Pools Members
       tags:
       - nominationPools
+      x-synonyms:
+      - nomination
+      - pools
+      - members
+      - nominationpools
+      - scan
+      - pool
+      - staking pool
+      - delegation
+      - nomination pool
   /api/scan/nomination_pool/pools:
     post:
       consumes:
@@ -12461,6 +13605,15 @@ paths:
       summary: Nomination Pools List
       tags:
       - nominationPools
+      x-synonyms:
+      - nomination
+      - pools
+      - nominationpools
+      - scan
+      - pool
+      - staking pool
+      - delegation
+      - nomination pool
   /api/scan/nomination_pool/rewards:
     post:
       consumes:
@@ -12482,11 +13635,23 @@ paths:
       summary: Nomination Pools Rewards
       tags:
       - nominationPools
+      x-synonyms:
+      - nomination
+      - pools
+      - rewards
+      - nominationpools
+      - scan
+      - pool
+      - staking pool
+      - delegation
+      - reward
+      - payout
+      - nomination pool
   /api/scan/orbiters/rewards:
     post:
       consumes:
       - application/json
-      description: This API only available for moonbeam(moonriver,moonbase) network.
+      description: This API is only available for moonbeam(moonriver,moonbase) network.
       parameters:
       - description: param
         in: body
@@ -12516,13 +13681,20 @@ paths:
       summary: Get Moonbeam Orbiters rewards
       tags:
       - moonbeam
+      x-synonyms:
+      - moonbeam
+      - orbiters
+      - rewards
+      - scan
+      - reward
+      - payout
   /api/scan/parachain/info:
     post:
       consumes:
       - application/json
       description: |-
         Get detailed information about Parachain
-        only available on relay chain(Polkadot,Kusama,Westend,Paseo).
+        Only available on relay chains(Polkadot,Kusama,Westend,Paseo).
       parameters:
       - description: params
         in: body
@@ -12552,13 +13724,18 @@ paths:
       summary: Parachain info
       tags:
       - parachain
+      x-synonyms:
+      - parachain
+      - scan
+      - para chain
+      - relaychain shard
   /api/scan/parachain/list:
     post:
       consumes:
       - application/json
       description: |-
         List ParaChains/ParaThread with their status and other details.
-        only available on relay chain(Polkadot,Kusama,Westend,Paseo).
+        Only available on relay chains(Polkadot,Kusama,Westend,Paseo).
       parameters:
       - description: params
         in: body
@@ -12588,13 +13765,18 @@ paths:
       summary: Parachain list
       tags:
       - parachain
+      x-synonyms:
+      - parachain
+      - scan
+      - para chain
+      - relaychain shard
   /api/scan/parachain/meta:
     post:
       consumes:
       - application/json
       description: |-
         Get the metadata of all parachains.
-        only available on relay chain(Polkadot,Kusama,Westend,Paseo).
+        Only available on relay chains(Polkadot,Kusama,Westend,Paseo).
       produces:
       - application/json
       responses:
@@ -12610,6 +13792,12 @@ paths:
       summary: Parachain meta
       tags:
       - parachain
+      x-synonyms:
+      - parachain
+      - meta
+      - scan
+      - para chain
+      - relaychain shard
   /api/scan/parachain/registerinfo:
     post:
       consumes:
@@ -12637,10 +13825,18 @@ paths:
       summary: Parachain register info
       tags:
       - parachain
+      x-synonyms:
+      - parachain
+      - register
+      - scan
+      - registerinfo
+      - para chain
+      - relaychain shard
   /api/scan/pendingExtrinsics:
     post:
       consumes:
       - application/json
+      description: Returns currently pending extrinsics in the mempool.
       produces:
       - application/json
       responses:
@@ -12658,9 +13854,18 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Pending extrinsic
+      summary: List pending extrinsics
       tags:
       - extrinsic
+      x-synonyms:
+      - pending
+      - extrinsics
+      - extrinsic
+      - scan
+      - pendingextrinsics
+      - transaction
+      - tx
+      - on-chain call
   /api/scan/preimage/details:
     post:
       consumes:
@@ -12690,6 +13895,14 @@ paths:
       summary: Preimage details
       tags:
       - governance
+      x-synonyms:
+      - preimage
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/preimage/list:
     post:
       consumes:
@@ -12726,10 +13939,20 @@ paths:
       summary: Preimage list
       tags:
       - governance
+      x-synonyms:
+      - preimage
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/price/history:
     post:
       consumes:
       - application/json
+      description: Returns token price history and EMA metrics for the selected date
+        range and format.
       parameters:
       - description: params
         in: body
@@ -12758,13 +13981,24 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Price history
+      summary: Get token price history
       tags:
       - stat
+      x-synonyms:
+      - token
+      - price
+      - history
+      - stat
+      - scan
+      - asset
+      - coin
+      - rate
+      - valuation
   /api/scan/proxy/extrinsics:
     post:
       consumes:
       - application/json
+      description: Returns paginated proxy extrinsics for the specified account.
       parameters:
       - description: params
         in: body
@@ -12791,9 +14025,15 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Proxy extrinsics list
+      summary: List proxy extrinsics
       tags:
       - proxy
+      x-synonyms:
+      - proxy
+      - extrinsics
+      - scan
+      - delegation
+      - delegated account
   /api/scan/referenda/delegate:
     post:
       consumes:
@@ -12823,6 +14063,16 @@ paths:
       summary: Referendum delegator details
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - delegator
+      - governance
+      - scan
+      - referenda
+      - delegate
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/delegate/votes:
     post:
       consumes:
@@ -12859,6 +14109,17 @@ paths:
       summary: Referendum delegator votes
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - delegator
+      - votes
+      - governance
+      - scan
+      - referenda
+      - delegate
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/delegates:
     post:
       consumes:
@@ -12895,6 +14156,17 @@ paths:
       summary: Referendum delegated of delegator list
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - delegated
+      - delegator
+      - governance
+      - scan
+      - referenda
+      - delegates
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/referendum:
     post:
       consumes:
@@ -12924,6 +14196,14 @@ paths:
       summary: Referenda details
       tags:
       - governance
+      x-synonyms:
+      - referenda
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/referendums:
     post:
       consumes:
@@ -12960,6 +14240,15 @@ paths:
       summary: Referenda list
       tags:
       - governance
+      x-synonyms:
+      - referenda
+      - governance
+      - scan
+      - referendums
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/statistics:
     post:
       consumes:
@@ -12982,6 +14271,15 @@ paths:
       summary: Referendum statistics
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - statistics
+      - governance
+      - scan
+      - referenda
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/tracks:
     post:
       consumes:
@@ -13006,6 +14304,15 @@ paths:
       summary: Referendum tracks
       tags:
       - governance
+      x-synonyms:
+      - referendum
+      - tracks
+      - governance
+      - scan
+      - referenda
+      - vote
+      - treasury
+      - council
   /api/scan/referenda/votes:
     post:
       consumes:
@@ -13042,10 +14349,20 @@ paths:
       summary: Referenda votes list(v2)
       tags:
       - governance
+      x-synonyms:
+      - referenda
+      - votes
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/runtime/list:
     post:
       consumes:
       - application/json
+      description: Returns runtime version history for the current network.
       produces:
       - application/json
       responses:
@@ -13063,13 +14380,21 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Runtime list
+      summary: List runtime versions
       tags:
       - runtime
+      x-synonyms:
+      - runtime
+      - versions
+      - scan
+      - spec version
+      - runtime version
   /api/scan/runtime/metadata:
     post:
       consumes:
       - application/json
+      description: Returns runtime metadata modules for the specified runtime spec
+        version.
       parameters:
       - description: params
         in: body
@@ -13097,13 +14422,22 @@ paths:
                       type: object
                   type: object
               type: object
-      summary: Runtime metadata
+      summary: Get runtime metadata
       tags:
       - runtime
+      x-synonyms:
+      - runtime
+      - metadata
+      - scan
+      - spec version
+      - runtime version
+      - meta
+      - chain info
   /api/scan/runtime/modules:
     post:
       consumes:
       - application/json
+      description: Returns runtime modules for the specified runtime spec version.
       parameters:
       - description: params
         in: body
@@ -13128,13 +14462,20 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Runtime module list
+      summary: List runtime modules
       tags:
       - runtime
+      x-synonyms:
+      - runtime
+      - modules
+      - scan
+      - spec version
+      - runtime version
   /api/scan/scheduler:
     post:
       consumes:
       - application/json
+      description: Returns a scheduled call detail by ID or by (when,index).
       parameters:
       - description: params
         in: body
@@ -13154,13 +14495,20 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.SchedulerDetailsJson'
               type: object
-      summary: scheduler details
+      summary: Get scheduled call details
       tags:
       - scheduler
+      x-synonyms:
+      - scheduled
+      - call
+      - scheduler
+      - scan
   /api/scan/schedulers:
     post:
       consumes:
       - application/json
+      description: Returns paginated scheduled calls with module, status, and time-range
+        filters.
       parameters:
       - description: params
         in: body
@@ -13187,13 +14535,20 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: scheduler list
+      summary: List scheduled calls
       tags:
       - scheduler
+      x-synonyms:
+      - scheduled
+      - calls
+      - scheduler
+      - scan
+      - schedulers
   /api/scan/schedulers/statistics:
     post:
       consumes:
       - application/json
+      description: Returns aggregated scheduler statistics.
       produces:
       - application/json
       responses:
@@ -13206,9 +14561,14 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.SchedulerStatisticsJson'
               type: object
-      summary: scheduler statistics details
+      summary: Get scheduler statistics
       tags:
       - scheduler
+      x-synonyms:
+      - scheduler
+      - statistics
+      - scan
+      - schedulers
   /api/scan/search/identity:
     post:
       consumes:
@@ -13241,6 +14601,17 @@ paths:
       summary: Search by identity
       tags:
       - account
+      x-synonyms:
+      - search
+      - identity
+      - account
+      - scan
+      - lookup
+      - find
+      - query
+      - wallet
+      - address
+      - user
   /api/scan/search/tokens:
     post:
       consumes:
@@ -13273,6 +14644,18 @@ paths:
       summary: Search token by name/symbol/id
       tags:
       - tokens
+      x-synonyms:
+      - search
+      - token
+      - name/symbol
+      - id
+      - tokens
+      - scan
+      - lookup
+      - find
+      - query
+      - asset
+      - coin
   /api/scan/staking/era_stat:
     post:
       consumes:
@@ -13308,6 +14691,11 @@ paths:
       summary: Era stat list
       tags:
       - staking
+      x-synonyms:
+      - era
+      - stat
+      - staking
+      - scan
   /api/scan/staking/nominator:
     post:
       consumes:
@@ -13336,6 +14724,12 @@ paths:
       summary: Nominator info
       tags:
       - staking
+      x-synonyms:
+      - nominator
+      - staking
+      - scan
+      - delegator
+      - staking participant
   /api/scan/staking/nominators:
     post:
       consumes:
@@ -13371,6 +14765,10 @@ paths:
       summary: Nominators list
       tags:
       - staking
+      x-synonyms:
+      - nominators
+      - staking
+      - scan
   /api/scan/staking/total_reward:
     post:
       consumes:
@@ -13402,6 +14800,12 @@ paths:
       summary: Staking reward sum
       tags:
       - staking
+      x-synonyms:
+      - staking
+      - reward
+      - sum
+      - scan
+      - total
   /api/scan/staking/unbonding:
     post:
       consumes:
@@ -13433,6 +14837,10 @@ paths:
       summary: Unbonding list
       tags:
       - staking
+      x-synonyms:
+      - unbonding
+      - staking
+      - scan
   /api/scan/staking/validator:
     post:
       consumes:
@@ -13464,6 +14872,12 @@ paths:
       summary: Validator info
       tags:
       - staking
+      x-synonyms:
+      - validator
+      - staking
+      - scan
+      - staker
+      - node operator
   /api/scan/staking/validator/bond_stat:
     post:
       consumes:
@@ -13497,6 +14911,14 @@ paths:
       summary: Validator bond stat
       tags:
       - staking
+      x-synonyms:
+      - validator
+      - bond
+      - stat
+      - staking
+      - scan
+      - staker
+      - node operator
   /api/scan/staking/validator/commission_history:
     post:
       consumes:
@@ -13531,6 +14953,14 @@ paths:
       summary: Validator commission history
       tags:
       - staking
+      x-synonyms:
+      - validator
+      - commission
+      - history
+      - staking
+      - scan
+      - staker
+      - node operator
   /api/scan/staking/validators:
     post:
       consumes:
@@ -13566,10 +14996,15 @@ paths:
       summary: Validators list
       tags:
       - staking
+      x-synonyms:
+      - validators
+      - staking
+      - scan
   /api/scan/staking/voted:
     post:
       consumes:
       - application/json
+      description: Returns validators voted by the specified account.
       parameters:
       - description: params
         in: body
@@ -13594,9 +15029,15 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Voted validators list
+      summary: List account-voted validators
       tags:
       - staking
+      x-synonyms:
+      - account-voted
+      - validators
+      - staking
+      - scan
+      - voted
   /api/scan/staking/waiting:
     post:
       consumes:
@@ -13632,11 +15073,16 @@ paths:
       summary: Waiting validators list
       tags:
       - staking
+      x-synonyms:
+      - waiting
+      - validators
+      - staking
+      - scan
   /api/scan/swork/daily:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13655,11 +15101,19 @@ paths:
       summary: Crust storage daily stat
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - daily
+      - stat
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/group:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13678,11 +15132,18 @@ paths:
       summary: Crust storage group detail
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - group
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/group/members:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13701,11 +15162,19 @@ paths:
       summary: Crust storage group members
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - group
+      - members
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/groups:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13724,11 +15193,18 @@ paths:
       summary: Crust storage groups
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - groups
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/member:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13747,11 +15223,19 @@ paths:
       summary: Crust storage group member detail
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - group
+      - member
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/member/files:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13770,11 +15254,20 @@ paths:
       summary: Crust storage group member files
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - group
+      - member
+      - files
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/member/orders:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13793,11 +15286,20 @@ paths:
       summary: Crust storage group member orders
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - group
+      - member
+      - orders
+      - cruststorage
+      - scan
+      - swork
   /api/scan/swork/orders:
     post:
       consumes:
       - application/json
-      description: This API only available for avail network.
+      description: This API is only available for avail network.
       parameters:
       - description: params
         in: body
@@ -13816,11 +15318,18 @@ paths:
       summary: Crust storage orders
       tags:
       - crustStorage
+      x-synonyms:
+      - crust
+      - storage
+      - orders
+      - cruststorage
+      - scan
+      - swork
   /api/scan/sxt/holders:
     post:
       consumes:
       - application/json
-      description: This API only available for sxt network.
+      description: This API is only available for sxt network.
       parameters:
       - description: body
         in: body
@@ -13850,11 +15359,24 @@ paths:
       summary: sxt evm holder list
       tags:
       - sxt
+      x-synonyms:
+      - sxt
+      - evm
+      - holder
+      - scan
+      - holders
+      - ethereum
+      - smart contract
+      - frontier
+      - owner
+      - balance holder
+      - owners
+      - token holders
   /api/scan/sxt/transfers:
     post:
       consumes:
       - application/json
-      description: This API only available for sxt network.
+      description: This API is only available for sxt network.
       parameters:
       - description: body
         in: body
@@ -13884,6 +15406,17 @@ paths:
       summary: sxt evm transfer list
       tags:
       - sxt
+      x-synonyms:
+      - sxt
+      - evm
+      - transfer
+      - scan
+      - transfers
+      - ethereum
+      - smart contract
+      - frontier
+      - send
+      - asset movement
   /api/scan/techcomm/proposal:
     post:
       consumes:
@@ -13916,6 +15449,15 @@ paths:
       summary: Techcomm proposal
       tags:
       - governance
+      x-synonyms:
+      - techcomm
+      - proposal
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/techcomm/proposals:
     post:
       consumes:
@@ -13952,10 +15494,20 @@ paths:
       summary: Techcomm proposals
       tags:
       - governance
+      x-synonyms:
+      - techcomm
+      - proposals
+      - governance
+      - scan
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/token:
     get:
       consumes:
       - application/json
+      description: Returns network token symbols and token metadata keyed by symbol.
       produces:
       - application/json
       responses:
@@ -13977,9 +15529,16 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Token list(token symbol)
+      summary: List tokens by symbol
       tags:
       - tokens
+      x-synonyms:
+      - tokens
+      - symbol
+      - scan
+      - token
+      - asset
+      - coin
   /api/scan/token/holders:
     post:
       consumes:
@@ -14015,10 +15574,23 @@ paths:
       summary: Token holders list
       tags:
       - account
+      x-synonyms:
+      - token
+      - holders
+      - account
+      - scan
+      - asset
+      - coin
+      - owners
+      - token holders
+      - wallet
+      - address
+      - user
   /api/scan/token/price:
     get:
       consumes:
       - application/json
+      description: Returns the latest price list for available tokens.
       produces:
       - application/json
       responses:
@@ -14033,13 +15605,25 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.AssetTokenPriceJson'
                   type: array
               type: object
-      summary: Token price list
+      summary: List token prices
       tags:
       - tokens
+      x-synonyms:
+      - token
+      - prices
+      - tokens
+      - scan
+      - price
+      - asset
+      - coin
+      - rate
+      - valuation
   /api/scan/token/unique_id:
     get:
       consumes:
       - application/json
+      description: Returns network token symbols, unique IDs, and token metadata keyed
+        by unique_id.
       parameters:
       - description: params
         in: body
@@ -14072,9 +15656,17 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Token list(token unique_id)
+      summary: List tokens by unique ID
       tags:
       - tokens
+      x-synonyms:
+      - tokens
+      - unique
+      - id
+      - scan
+      - token
+      - asset
+      - coin
   /api/scan/treasury/proposal:
     post:
       consumes:
@@ -14107,6 +15699,14 @@ paths:
       summary: Treasury proposal
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - proposal
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/treasury/proposals:
     post:
       consumes:
@@ -14143,6 +15743,14 @@ paths:
       summary: Treasury proposals
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - proposals
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/treasury/tip:
     post:
       consumes:
@@ -14175,6 +15783,14 @@ paths:
       summary: Treasury tip
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - tip
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/treasury/tippers:
     post:
       consumes:
@@ -14209,6 +15825,14 @@ paths:
       summary: Treasury tippers
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - tippers
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/treasury/tips:
     post:
       consumes:
@@ -14245,6 +15869,14 @@ paths:
       summary: Treasury tips
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - tips
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/treasury_council_collective/proposal:
     post:
       consumes:
@@ -14277,6 +15909,15 @@ paths:
       summary: treasury council collective details
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - council
+      - collective
+      - governance
+      - scan
+      - proposal
+      - referendum
+      - vote
   /api/scan/treasury_council_collective/proposals:
     post:
       consumes:
@@ -14313,6 +15954,15 @@ paths:
       summary: treasury council collective list
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - council
+      - collective
+      - governance
+      - scan
+      - proposals
+      - referendum
+      - vote
   /api/scan/treasury_council_collective/votes:
     post:
       consumes:
@@ -14349,6 +15999,15 @@ paths:
       summary: treasury council collective vote list
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - council
+      - collective
+      - vote
+      - governance
+      - scan
+      - votes
+      - referendum
   /api/scan/treasury_spend/proposal:
     post:
       consumes:
@@ -14381,6 +16040,15 @@ paths:
       summary: Treasury spend proposal
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - spend
+      - proposal
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/treasury_spend/proposals:
     post:
       consumes:
@@ -14417,10 +16085,20 @@ paths:
       summary: Treasury spend proposals
       tags:
       - governance
+      x-synonyms:
+      - treasury
+      - spend
+      - proposals
+      - governance
+      - scan
+      - referendum
+      - vote
+      - council
   /api/scan/uniques/account/balances:
     post:
       consumes:
       - application/json
+      description: Returns paginated unique item balances for an account.
       parameters:
       - description: param
         in: body
@@ -14436,13 +16114,24 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques holders item balances
+      summary: List unique balances by account
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - balances
+      - account
+      - uniques
+      - scan
+      - wallet
+      - address
+      - user
   /api/scan/uniques/activities:
     post:
       consumes:
       - application/json
+      description: Returns paginated activity records for a unique collection and
+        optional item.
       parameters:
       - description: param
         in: body
@@ -14458,13 +16147,20 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques activities
+      summary: List unique collection activities
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - collection
+      - activities
+      - uniques
+      - scan
   /api/scan/uniques/all:
     get:
       consumes:
       - application/json
+      description: Returns all unique collections without pagination.
       produces:
       - application/json
       responses:
@@ -14473,13 +16169,19 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques list all
+      summary: List all unique collections
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - collections
+      - uniques
+      - scan
   /api/scan/uniques/unique:
     post:
       consumes:
       - application/json
+      description: Returns details for a unique collection by collection_id.
       parameters:
       - description: param
         in: body
@@ -14495,13 +16197,19 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques info
+      summary: Get unique collection details
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - collection
+      - uniques
+      - scan
   /api/scan/uniques/unique/holders:
     post:
       consumes:
       - application/json
+      description: Returns paginated holder distribution for a unique collection.
       parameters:
       - description: param
         in: body
@@ -14517,13 +16225,23 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques holders
+      summary: List unique collection holders
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - collection
+      - holders
+      - uniques
+      - scan
+      - owners
+      - token holders
   /api/scan/uniques/unique/item:
     post:
       consumes:
       - application/json
+      description: Returns details for a unique collection item by collection_id and
+        item_id.
       parameters:
       - description: param
         in: body
@@ -14539,13 +16257,20 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques item info
+      summary: Get unique item details
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - item
+      - uniques
+      - scan
   /api/scan/uniques/unique/items:
     post:
       consumes:
       - application/json
+      description: Returns paginated items in a unique collection with optional owner
+        filter.
       parameters:
       - description: param
         in: body
@@ -14572,13 +16297,20 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Uniques items
+      summary: List unique collection items
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - collection
+      - items
+      - uniques
+      - scan
   /api/scan/uniques/uniques:
     post:
       consumes:
       - application/json
+      description: Returns a paginated list of unique collections.
       parameters:
       - description: param
         in: body
@@ -14594,9 +16326,14 @@ paths:
           schema:
             additionalProperties: true
             type: object
-      summary: Uniques list
+      summary: List unique collections
       tags:
       - uniques
+      x-synonyms:
+      - unique
+      - collections
+      - uniques
+      - scan
   /api/scan/vector/daily:
     post:
       consumes:
@@ -14713,10 +16450,18 @@ paths:
       summary: Vesting release list
       tags:
       - vesting
+      x-synonyms:
+      - vesting
+      - release
+      - scan
+      - lockup
+      - unlock schedule
   /api/scan/xcm/bridge_stat:
     post:
       consumes:
       - application/json
+      description: Returns bridge-type XCM statistics grouped by time format. PRO
+        plan required.
       parameters:
       - description: params
         in: body
@@ -14740,13 +16485,25 @@ paths:
                     type: array
                   type: object
               type: object
-      summary: Xcm Bridge Stat (PRO)
+      summary: Get XCM bridge statistics (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - bridge
+      - statistics
+      - pro
+      - scan
+      - stat
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/scan/xcm/channel:
     post:
       consumes:
       - application/json
+      description: Returns one XCM/HRMP channel by sender and recipient parachain
+        IDs. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14766,13 +16523,23 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.HrmpChannel'
               type: object
-      summary: Xcm Channel (PRO)
+      summary: Get XCM channel details (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - channel
+      - pro
+      - scan
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/scan/xcm/channels:
     post:
       consumes:
       - application/json
+      description: Returns XCM/HRMP channel list filtered by sender, recipient, status,
+        or para_id. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14797,13 +16564,23 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Xcm Channels (PRO)
+      summary: List XCM channels (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - channels
+      - pro
+      - scan
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/scan/xcm/check_hash:
     post:
       consumes:
       - application/json
+      description: Returns the XCM message unique ID from origin or destination event/hash
+        inputs. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14823,13 +16600,27 @@ paths:
                 data:
                   type: string
               type: object
-      summary: Find Xcm message id by hash (PRO)
+      summary: Find XCM message ID by hash (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - find
+      - xcm
+      - message
+      - id
+      - hash
+      - pro
+      - scan
+      - check
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/scan/xcm/info:
     post:
       consumes:
       - application/json
+      description: Returns detailed information for one XCM message by unique_id or
+        origin identifiers. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14849,13 +16640,23 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ParaXcmMessageJson'
               type: object
-      summary: Xcm Message detail (PRO)
+      summary: Get XCM message details (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - message
+      - pro
+      - scan
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/scan/xcm/list:
     post:
       consumes:
       - application/json
+      description: Returns paginated XCM messages with protocol, status, asset, and
+        block-range filters. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14882,13 +16683,23 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Xcm Messages list (PRO)
+      summary: List XCM messages (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - messages
+      - pro
+      - scan
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/scan/xcm/meta:
     post:
       consumes:
       - application/json
+      description: Returns XCM metadata and parachain statistics, optionally filtered
+        by para_id. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14908,13 +16719,25 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.XcmMeta'
               type: object
-      summary: Xcm Meta (PRO)
+      summary: Get XCM metadata (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - metadata
+      - pro
+      - scan
+      - meta
+      - cross-chain
+      - cross chain
+      - bridge message
+      - chain info
   /api/scan/xcm/parachain/stat:
     post:
       consumes:
       - application/json
+      description: Returns XCM parachain send/receive statistics with optional direction
+        and date filters. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14936,13 +16759,27 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.XcmMessageCountStatJson'
                   type: array
               type: object
-      summary: Xcm Sender Stat (PRO)
+      summary: Get XCM parachain statistics (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - parachain
+      - statistics
+      - pro
+      - scan
+      - stat
+      - cross-chain
+      - cross chain
+      - bridge message
+      - para chain
+      - relaychain shard
   /api/scan/xcm/stat:
     post:
       consumes:
       - application/json
+      description: Returns XCM traffic statistics for a date range and optional parachain
+        filter. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -14975,13 +16812,24 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Xcm Stat (PRO)
+      summary: Get XCM statistics (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - statistics
+      - pro
+      - scan
+      - stat
+      - cross-chain
+      - cross chain
+      - bridge message
   /api/v2/scan/account/reward_slash:
     post:
       consumes:
       - application/json
+      description: Returns paginated reward/slash records for an account with category,
+        claim, and block-range filters.
       parameters:
       - description: params
         in: body
@@ -15008,9 +16856,21 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Account reward and slash list
+      summary: List account reward and slash records
       tags:
       - staking
+      x-synonyms:
+      - account
+      - reward
+      - slash
+      - records
+      - staking
+      - scan
+      - wallet
+      - address
+      - user
+      - penalty
+      - slashing
   /api/v2/scan/account/tokens:
     post:
       consumes:
@@ -15051,6 +16911,16 @@ paths:
       tags:
       - account
       - token
+      x-synonyms:
+      - account
+      - token
+      - scan
+      - tokens
+      - wallet
+      - address
+      - user
+      - asset
+      - coin
   /api/v2/scan/accounts:
     post:
       consumes:
@@ -15085,10 +16955,19 @@ paths:
       summary: Accounts list
       tags:
       - account
+      x-synonyms:
+      - accounts
+      - account
+      - scan
+      - wallet
+      - address
+      - user
   /api/v2/scan/blocks:
     post:
       consumes:
       - application/json
+      description: Returns a paginated block list with optional author and block-range
+        filters.
       parameters:
       - description: params
         in: body
@@ -15115,13 +16994,23 @@ paths:
                       type: integer
                   type: object
               type: object
-      summary: Blocks list
+      summary: List blocks
       tags:
       - block
+      x-synonyms:
+      - blocks
+      - block
+      - scan
+      - block list
+      - block heights
+      - block height
+      - block number
   /api/v2/scan/daily:
     post:
       consumes:
       - application/json
+      description: Returns daily aggregated chain statistics for the selected category
+        and date range.
       parameters:
       - description: param
         in: body
@@ -15146,13 +17035,20 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Daily stat(v2)
+      summary: Get daily statistics (v2)
       tags:
       - stat
+      x-synonyms:
+      - daily
+      - statistics
+      - stat
+      - scan
   /api/v2/scan/events:
     post:
       consumes:
       - application/json
+      description: Returns paginated events with module/event filters, block constraints,
+        and optional address matching.
       parameters:
       - description: params
         in: body
@@ -15179,13 +17075,23 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Events list
+      summary: List events
       tags:
       - event
+      x-synonyms:
+      - events
+      - event
+      - scan
+      - logs
+      - on-chain events
+      - log
+      - on-chain event
   /api/v2/scan/extrinsics:
     post:
       consumes:
       - application/json
+      description: Returns paginated extrinsics with module/call, signer, success,
+        and block-range filters.
       parameters:
       - description: params
         in: body
@@ -15212,13 +17118,22 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Extrinsics list
+      summary: List extrinsics
       tags:
       - extrinsic
+      x-synonyms:
+      - extrinsics
+      - extrinsic
+      - scan
+      - transaction
+      - tx
+      - on-chain call
   /api/v2/scan/logs:
     post:
       consumes:
       - application/json
+      description: Returns paginated block logs filtered by block range, engine ID,
+        and log type.
       parameters:
       - description: params
         in: body
@@ -15245,9 +17160,16 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Logs list
+      summary: List block logs
       tags:
       - log
+      x-synonyms:
+      - block
+      - logs
+      - log
+      - scan
+      - block height
+      - block number
   /api/v2/scan/multiChain/account:
     post:
       consumes:
@@ -15284,6 +17206,14 @@ paths:
       summary: MultiChain account (BETA)
       tags:
       - multiChain
+      x-synonyms:
+      - multichain
+      - account
+      - beta
+      - scan
+      - wallet
+      - address
+      - user
   /api/v2/scan/search:
     post:
       consumes:
@@ -15311,10 +17241,22 @@ paths:
       summary: Account by address
       tags:
       - account
+      x-synonyms:
+      - account
+      - address
+      - scan
+      - search
+      - wallet
+      - user
+      - lookup
+      - find
+      - query
   /api/v2/scan/token/native:
     post:
       consumes:
       - application/json
+      description: Returns the native token and provider information for the current
+        network.
       parameters:
       - description: param
         in: body
@@ -15339,13 +17281,21 @@ paths:
                       $ref: '#/definitions/internal_server_http.tokenJson'
                   type: object
               type: object
-      summary: Native token list
+      summary: Get native token
       tags:
       - tokens
+      x-synonyms:
+      - native
+      - token
+      - tokens
+      - scan
+      - asset
+      - coin
   /api/v2/scan/token/providers:
     get:
       consumes:
       - application/json
+      description: Returns active token providers and their capabilities.
       produces:
       - application/json
       responses:
@@ -15363,13 +17313,21 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Tokens providers
+      summary: List token providers
       tags:
       - tokens
+      x-synonyms:
+      - token
+      - providers
+      - tokens
+      - scan
+      - asset
+      - coin
   /api/v2/scan/token/search:
     post:
       consumes:
       - application/json
+      description: Returns tokens grouped by provider for the requested unique IDs.
       parameters:
       - description: param
         in: body
@@ -15393,13 +17351,25 @@ paths:
                     type: array
                   type: object
               type: object
-      summary: Tokens search
+      summary: Search tokens (v2)
       tags:
       - tokens
+      x-synonyms:
+      - search
+      - tokens
+      - scan
+      - token
+      - lookup
+      - find
+      - query
+      - asset
+      - coin
   /api/v2/scan/tokens:
     post:
       consumes:
       - application/json
+      description: Returns paginated tokens from the selected provider with optional
+        search, ordering, and extended fields.
       parameters:
       - description: param
         in: body
@@ -15428,13 +17398,18 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Tokens(v2)
+      summary: List tokens (v2)
       tags:
       - tokens
+      x-synonyms:
+      - tokens
+      - scan
   /api/v2/scan/transfers:
     post:
       consumes:
       - application/json
+      description: Returns paginated transfer records with account, token, amount,
+        and block-range filters.
       parameters:
       - description: params
         in: body
@@ -15463,13 +17438,22 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Transfers list
+      summary: List transfers
       tags:
       - account
+      x-synonyms:
+      - transfers
+      - account
+      - scan
+      - wallet
+      - address
+      - user
   /api/v2/scan/xcm/list:
     post:
       consumes:
       - application/json
+      description: Returns paginated XCM messages with protocol, status, asset, and
+        block-range filters. PRO plan required.
       parameters:
       - description: params
         in: body
@@ -15504,27 +17488,46 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Xcm Messages list (PRO)
+      summary: List XCM messages (PRO)
       tags:
       - Xcm
+      x-synonyms:
+      - xcm
+      - messages
+      - pro
+      - scan
+      - cross-chain
+      - cross chain
+      - bridge message
   /healthz:
     get:
+      description: Returns OK when the service process is alive.
       responses:
         "200":
           description: OK
           schema:
             type: string
-      summary: Health check
+      summary: Liveness health check
       tags:
       - health
+      x-synonyms:
+      - liveness
+      - health
+      - check
+      - healthz
   /readiness:
     get:
+      description: Returns OK when the service is ready to serve traffic.
       responses:
         "200":
           description: OK
           schema:
             type: string
-      summary: Readiness Probe
+      summary: Readiness health check
       tags:
       - health
+      x-synonyms:
+      - readiness
+      - health
+      - check
 swagger: "2.0"
