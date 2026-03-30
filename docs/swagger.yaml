@@ -4215,6 +4215,12 @@ definitions:
       stash:
         type: string
     type: object
+  subscan_internal_model.AccountHold:
+    properties:
+      amount:
+        type: string
+      id: {}
+    type: object
   subscan_internal_model.AccountJsonExtra:
     properties:
       amount:
@@ -4278,6 +4284,10 @@ definitions:
         type: integer
       github:
         type: string
+      holds:
+        items:
+          $ref: '#/definitions/subscan_internal_model.AccountHold'
+        type: array
       is_collator:
         type: boolean
       is_contract:

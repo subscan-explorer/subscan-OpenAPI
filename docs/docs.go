@@ -19231,6 +19231,15 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.AccountHold": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "id": {}
+            }
+        },
         "subscan_internal_model.AccountJsonExtra": {
             "type": "object",
             "properties": {
@@ -19325,6 +19334,12 @@ const docTemplate = `{
                 },
                 "github": {
                     "type": "string"
+                },
+                "holds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.AccountHold"
+                    }
                 },
                 "is_collator": {
                     "type": "boolean"

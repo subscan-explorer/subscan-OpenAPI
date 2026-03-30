@@ -82,7 +82,6 @@ Please notice before you get started:
 | Crust-parachain      | `crust-parachain.api.subscan.io`               | live   |
 | Dancelight-test      | `dancelight.api.subscan.io`                    | test   |
 | Darwinia             | `darwinia.api.subscan.io`                      | live   |
-| Dbc                  | `dbc.api.subscan.io`                           | live   |
 | Energywebx           | `energywebx.api.subscan.io`                    | live   |
 | Energywebx-testnet   | `energywebx-testnet.api.subscan.io`            | test   |
 | Enjin-canary-matrix  | `canary-matrix.api.subscan.io`                 | test   |

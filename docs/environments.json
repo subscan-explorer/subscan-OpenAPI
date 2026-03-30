@@ -289,24 +289,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://dbc.api.subscan.io",
-      "baseUrls": {
-        "default": "https://dbc.api.subscan.io"
-      },
-      "name": "Dbc",
-      "ordering": 35,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://dock.api.subscan.io",
-      "baseUrls": {
-        "default": "https://dock.api.subscan.io"
-      },
-      "name": "Dock",
-      "ordering": 36,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://energywebx.api.subscan.io",
       "baseUrls": {
         "default": "https://energywebx.api.subscan.io"
@@ -358,15 +340,6 @@
       },
       "name": "Enjin",
       "ordering": 42,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://gasp.api.subscan.io",
-      "baseUrls": {
-        "default": "https://gasp.api.subscan.io"
-      },
-      "name": "Gasp",
-      "ordering": 43,
       "projectType": "HTTP"
     },
     {
@@ -664,15 +637,6 @@
       },
       "name": "Shiden",
       "ordering": 78,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://sora.api.subscan.io",
-      "baseUrls": {
-        "default": "https://sora.api.subscan.io"
-      },
-      "name": "Sora",
-      "ordering": 79,
       "projectType": "HTTP"
     },
     {
