@@ -1,12 +1,14 @@
 With Subscan API, we provide a simple way to access the chain data of more than 90 substrate-based networks.
 
-If you have any question or suggestion, please do not hesitate to contact our API support via [api@subscan.io](mailto:api@subscan.io).
+If you have any question or suggestion, please do not hesitate to contact our API support
+via [api@subscan.io](mailto:api@subscan.io).
 
 The documentation was created with [apidog](apidog.com).
 
 ## API Keys
 
-All Subscan API requests must be authenticated with an API Key. We provide flexible data access options to suit different needs:
+All Subscan API requests must be authenticated with an API Key. We provide flexible data access options to suit
+different needs:
 
 * Free Plan: Designed for developers, researchers, and ecosystem enthusiasts to build and explore at zero cost.
 * Pro Plans: High-performance API services with expanded quotas and dedicated support for production environments.
@@ -45,7 +47,7 @@ Please notice before you get started:
 
 5. All APIs documented here are specifically designed for Subscan UI. While they may undergo frequent updates,
    we strictly avoid introducing breaking changes. In the rare event of a mandatory breaking change, we will issue
-    advance email notifications to all subscribers.
+   advance email notifications to all subscribers.
 
 | Network              | API Host                                       | Status |
 |----------------------|------------------------------------------------|--------|
@@ -96,6 +98,7 @@ Please notice before you get started:
 | Krest                | `krest.api.subscan.io`                         | live   |
 | Kusama               | `kusama.api.subscan.io`                        | live   |
 | Manta                | `manta.api.subscan.io`                         | live   |
+| Midnight             | `midnight.api.subscan.io`                      | live   |
 | Midnight-preview     | `midnight-preview.api.subscan.io`              | test   |
 | Moonbase             | `moonbase.api.subscan.io`                      | test   |
 | Moonbeam             | `moonbeam.api.subscan.io`                      | live   |
@@ -104,7 +107,7 @@ Please notice before you get started:
 | Neuroweb             | `neuroweb.api.subscan.io`                      | live   |
 | neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | test   |
 | Paseo                | `paseo.api.subscan.io`                         | test   |
-| Peaq                 | `agung-testnet.api.subscan.io`                 | test   |
+| Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test   |
 | Peaq-main            | `peaq.api.subscan.io`                          | live   |
 | Pendulum             | `pendulum.api.subscan.io`                      | live   |
 | People-kusama        | `people-kusama.api.subscan.io`                 | live   |
