@@ -5331,7 +5331,7 @@ const docTemplate = `{
         },
         "/api/scan/governance/desc": {
             "post": {
-                "description": "This API provides post/comments about the proposal, this api powered by the subsquare/polkassembly",
+                "description": "This API provides post/comments about the proposal, this api powered by the subsquare",
                 "consumes": [
                     "application/json"
                 ],
