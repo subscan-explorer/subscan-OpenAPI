@@ -123,7 +123,6 @@ Please notice before you get started:
 | Shibuya              | `shibuya.api.subscan.io`                       | test   |
 | Shiden               | `shiden.api.subscan.io`                        | live   |
 | Space-time           | `sxt.api.subscan.io`                           | live   |
-| Stafi                | `stafi.api.subscan.io`                         | live   |
 | Tanssi               | `tanssi.api.subscan.io`                        | live   |
 | Vara                 | `vara.api.subscan.io`                          | live   |
 | Vflow                | `vflow.api.subscan.io`                         | live   |
