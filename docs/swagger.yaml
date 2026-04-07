@@ -1061,6 +1061,52 @@ definitions:
         minLength: 1
         type: string
     type: object
+  internal_pluginv2_customizeds_bifrost_tokengateway.TransfersParams:
+    properties:
+      address:
+        type: string
+      after_id:
+        type: integer
+      amount_scale_max:
+        type: string
+      amount_scale_min:
+        type: string
+      asset_unique_id:
+        type: string
+      either_chain:
+        type: string
+      from:
+        type: string
+      from_chain:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.BifrostTokenGatewayStatus'
+        enum:
+        - pending
+        - success
+        - failed
+        - timeout
+      time_end:
+        minimum: 1
+        type: integer
+      time_start:
+        minimum: 1
+        type: integer
+      to:
+        type: string
+      to_chain:
+        type: string
+    required:
+    - row
+    type: object
   internal_pluginv2_customizeds_midnight.MidCallJson:
     properties:
       contract:
@@ -4556,6 +4602,67 @@ definitions:
         type: string
       unbonding:
         type: string
+    type: object
+  subscan_internal_model.BifrostTokenGatewayAssetJSON:
+    properties:
+      amount:
+        type: string
+      decimals:
+        type: integer
+      symbol:
+        type: string
+      unique_id:
+        type: string
+    type: object
+  subscan_internal_model.BifrostTokenGatewayStatus:
+    enum:
+    - pending
+    - success
+    - failed
+    - timeout
+    type: string
+    x-enum-varnames:
+    - BifrostTokenGatewayStatusPending
+    - BifrostTokenGatewayStatusSuccess
+    - BifrostTokenGatewayStatusFailed
+    - BifrostTokenGatewayStatusTimeout
+  subscan_internal_model.BifrostTokenGatewayTransferJSON:
+    properties:
+      asset:
+        $ref: '#/definitions/subscan_internal_model.BifrostTokenGatewayAssetJSON'
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      cross_chain_status:
+        type: integer
+      dest_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      dest_chain:
+        type: string
+      event_index:
+        type: string
+      event_type:
+        type: string
+      extrinsic_index:
+        type: string
+      id:
+        type: integer
+      source_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      source_chain:
+        type: string
+      status:
+        $ref: '#/definitions/subscan_internal_model.BifrostTokenGatewayStatus'
+    type: object
+  subscan_internal_model.BifrostTokenGatewayTransferListJSON:
+    properties:
+      count:
+        type: integer
+      list:
+        items:
+          $ref: '#/definitions/subscan_internal_model.BifrostTokenGatewayTransferJSON'
+        type: array
     type: object
   subscan_internal_model.BlockHeader:
     properties:
@@ -15677,6 +15784,56 @@ paths:
       - token
       - asset
       - coin
+  /api/scan/tokengateway/transfers:
+    post:
+      consumes:
+      - application/json
+      description: Returns paginated Bifrost TokenGateway transfer records for one
+        address from the dedicated TokenGateway table. Supports filtering by transfer
+        status, source and destination accounts, source and destination chains, block
+        time range, scaled amount range, and asset unique ID. Results are ordered
+        by newest block timestamp first, then by descending row id. The address must
+        be a valid Substrate or EVM address that can be normalized into the indexed
+        account format.
+      parameters:
+      - description: address, pagination, and optional TokenGateway filters
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_bifrost_tokengateway.TransfersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/subscan_internal_model.BifrostTokenGatewayTransferListJSON'
+              message:
+                type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            properties:
+              code:
+                type: integer
+              message:
+                type: string
+            type: object
+      summary: List Bifrost TokenGateway transfers
+      tags:
+      - bifrost
+      x-synonyms:
+      - tokengateway
+      - hyperbridge
+      - cross-chain
+      - transfers
+      - bifrost
   /api/scan/treasury/proposal:
     post:
       consumes:
