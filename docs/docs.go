@@ -5990,6 +5990,243 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/scan/midnight/unshielded_tokens/balance": {
+            "post": {
+                "description": "This API is only available midnight network and supports optional address, direction, extrinsic, time, and value filters.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Unshielded Balance",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceResult"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "unshielded",
+                    "balance",
+                    "account",
+                    "scan"
+                ]
+            }
+        },
+        "/api/scan/midnight/unshielded_tokens/balances": {
+            "post": {
+                "description": "This API is only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Unshielded Token Balance List",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceListItem"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "unshielded",
+                    "token",
+                    "balances",
+                    "list",
+                    "scan"
+                ]
+            }
+        },
+        "/api/scan/midnight/unshielded_tokens/ledger": {
+            "post": {
+                "description": "This API is only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Unshielded Ledger",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerResult"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "unshielded",
+                    "ledger",
+                    "account",
+                    "history",
+                    "scan"
+                ]
+            }
+        },
+        "/api/scan/midnight/unshielded_tokens/types": {
+            "post": {
+                "description": "This API is only available midnight network",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "midnight"
+                ],
+                "summary": "Midnight Unshielded Token Type List",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedTokenTypeListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedTokenTypeListItem"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "midnight",
+                    "unshielded",
+                    "token",
+                    "types",
+                    "list",
+                    "scan"
+                ]
+            }
+        },
         "/api/scan/multiChain/account/count": {
             "post": {
                 "description": "Get the number of accounts in multi-chains\nSupport Network: polkadot",
@@ -14911,6 +15148,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "either_chain": {
+                    "description": "either_chain is an optional filter that applies to both source and destination chain fields when from_chain and to_chain are not provided, allowing for flexible querying of transfers involving a specific chain regardless of direction.",
                     "type": "string"
                 },
                 "from": {
@@ -14963,6 +15201,15 @@ const docTemplate = `{
                 "contract": {
                     "type": "string"
                 },
+                "contract_actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidContractActionJson"
+                    }
+                },
+                "cost_fee": {
+                    "type": "string"
+                },
                 "event_index": {
                     "type": "string"
                 },
@@ -14971,6 +15218,12 @@ const docTemplate = `{
                 },
                 "id": {
                     "type": "integer"
+                },
+                "public_identifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "timestamp": {
                     "type": "integer"
@@ -15036,6 +15289,91 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "viewer": {}
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidContractActionJson": {
+            "type": "object",
+            "properties": {
+                "contract": {
+                    "type": "string"
+                },
+                "entry_point": {
+                    "type": "string"
+                },
+                "operations_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceListItem": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "string"
+                },
+                "token_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceResult": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "balances": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidUnshieldedLedgerItem": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "direction": {
+                    "type": "string"
+                },
+                "event_at": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "intent_hash": {
+                    "type": "string"
+                },
+                "output_no": {
+                    "type": "integer"
+                },
+                "token_type": {
+                    "type": "string"
+                },
+                "txn_hash": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidUnshieldedTokenTypeListItem": {
+            "type": "object",
+            "properties": {
+                "token_type": {
+                    "type": "string"
+                }
             }
         },
         "internal_pluginv2_customizeds_midnight.MidnightContractParams": {
@@ -15134,6 +15472,113 @@ const docTemplate = `{
                         "zk",
                         "contract"
                     ]
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceListParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "token_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceParams": {
+            "type": "object",
+            "required": [
+                "address"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "cursor": {
+                    "type": "string"
+                },
+                "direction": {
+                    "type": "string"
+                },
+                "end_time": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "max_value": {
+                    "type": "string"
+                },
+                "min_value": {
+                    "type": "string"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "start_time": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "token_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerResult": {
+            "type": "object",
+            "properties": {
+                "has_more": {
+                    "type": "boolean"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedLedgerItem"
+                    }
+                },
+                "next_cursor": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidnightUnshieldedTokenTypeListParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
@@ -21842,6 +22287,9 @@ const docTemplate = `{
                 },
                 "error": {
                     "$ref": "#/definitions/subscan_internal_model.ExtrinsicError"
+                },
+                "extrinsic_index": {
+                    "type": "string"
                 },
                 "multi_id": {
                     "type": "string"

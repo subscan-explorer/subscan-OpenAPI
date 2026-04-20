@@ -1074,6 +1074,10 @@ definitions:
       asset_unique_id:
         type: string
       either_chain:
+        description: either_chain is an optional filter that applies to both source
+          and destination chain fields when from_chain and to_chain are not provided,
+          allowing for flexible querying of transfers involving a specific chain regardless
+          of direction.
         type: string
       from:
         type: string
@@ -1111,12 +1115,22 @@ definitions:
     properties:
       contract:
         type: string
+      contract_actions:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidContractActionJson'
+        type: array
+      cost_fee:
+        type: string
       event_index:
         type: string
       extrinsic_index:
         type: string
       id:
         type: integer
+      public_identifiers:
+        items:
+          type: string
+        type: array
       timestamp:
         type: integer
       tx_hash:
@@ -1161,6 +1175,61 @@ definitions:
       verifying:
         type: boolean
       viewer: {}
+    type: object
+  internal_pluginv2_customizeds_midnight.MidContractActionJson:
+    properties:
+      contract:
+        type: string
+      entry_point:
+        type: string
+      operations_type:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceListItem:
+    properties:
+      address:
+        type: string
+      balance:
+        type: string
+      token_type:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceResult:
+    properties:
+      address:
+        type: string
+      balances:
+        additionalProperties:
+          type: string
+        type: object
+    type: object
+  internal_pluginv2_customizeds_midnight.MidUnshieldedLedgerItem:
+    properties:
+      address:
+        type: string
+      direction:
+        type: string
+      event_at:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      intent_hash:
+        type: string
+      output_no:
+        type: integer
+      token_type:
+        type: string
+      txn_hash:
+        type: string
+      value:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.MidUnshieldedTokenTypeListItem:
+    properties:
+      token_type:
+        type: string
     type: object
   internal_pluginv2_customizeds_midnight.MidnightContractParams:
     properties:
@@ -1229,6 +1298,79 @@ definitions:
         - zk
         - contract
         type: string
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceListParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      token_type:
+        type: string
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceParams:
+    properties:
+      address:
+        type: string
+    required:
+    - address
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerParams:
+    properties:
+      address:
+        type: string
+      cursor:
+        type: string
+      direction:
+        type: string
+      end_time:
+        minimum: 0
+        type: integer
+      extrinsic_index:
+        type: string
+      max_value:
+        type: string
+      min_value:
+        type: string
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      start_time:
+        minimum: 0
+        type: integer
+      token_type:
+        type: string
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerResult:
+    properties:
+      has_more:
+        type: boolean
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedLedgerItem'
+        type: array
+      next_cursor:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.MidnightUnshieldedTokenTypeListParams:
+    properties:
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
     required:
     - row
     type: object
@@ -5903,6 +6045,8 @@ definitions:
         type: string
       error:
         $ref: '#/definitions/subscan_internal_model.ExtrinsicError'
+      extrinsic_index:
+        type: string
       multi_id:
         type: string
       multisig_account_display:
@@ -12787,6 +12931,156 @@ paths:
       x-synonyms:
       - midnight
       - transactions
+      - scan
+  /api/scan/midnight/unshielded_tokens/balance:
+    post:
+      consumes:
+      - application/json
+      description: This API is only available midnight network and supports optional
+        address, direction, extrinsic, time, and value filters.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceResult'
+              type: object
+      summary: Midnight Unshielded Balance
+      tags:
+      - midnight
+      x-synonyms:
+      - midnight
+      - unshielded
+      - balance
+      - account
+      - scan
+  /api/scan/midnight/unshielded_tokens/balances:
+    post:
+      consumes:
+      - application/json
+      description: This API is only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedBalanceListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceListItem'
+                      type: array
+                  type: object
+              type: object
+      summary: Midnight Unshielded Token Balance List
+      tags:
+      - midnight
+      x-synonyms:
+      - midnight
+      - unshielded
+      - token
+      - balances
+      - list
+      - scan
+  /api/scan/midnight/unshielded_tokens/ledger:
+    post:
+      consumes:
+      - application/json
+      description: This API is only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedLedgerResult'
+              type: object
+      summary: Midnight Unshielded Ledger
+      tags:
+      - midnight
+      x-synonyms:
+      - midnight
+      - unshielded
+      - ledger
+      - account
+      - history
+      - scan
+  /api/scan/midnight/unshielded_tokens/types:
+    post:
+      consumes:
+      - application/json
+      description: This API is only available midnight network
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidnightUnshieldedTokenTypeListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidUnshieldedTokenTypeListItem'
+                      type: array
+                  type: object
+              type: object
+      summary: Midnight Unshielded Token Type List
+      tags:
+      - midnight
+      x-synonyms:
+      - midnight
+      - unshielded
+      - token
+      - types
+      - list
       - scan
   /api/scan/multiChain/account/count:
     post:
