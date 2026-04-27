@@ -24729,14 +24729,8 @@ const docTemplate = `{
                 "era": {
                     "type": "integer"
                 },
-                "reward": {
-                    "type": "string"
-                },
                 "reward_point": {
                     "type": "integer"
-                },
-                "slash": {
-                    "type": "string"
                 },
                 "start_block_num": {
                     "type": "integer"
