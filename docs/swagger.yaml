@@ -1319,6 +1319,8 @@ definitions:
     properties:
       address:
         type: string
+      token_type:
+        type: string
     required:
     - address
     type: object
@@ -2411,6 +2413,7 @@ definitions:
   internal_server_http.accountInfoParams:
     properties:
       key:
+        example: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
         type: string
     required:
     - key
@@ -2448,11 +2451,13 @@ definitions:
   internal_server_http.accountTokenV2Params:
     properties:
       address:
+        example: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
         type: string
       order:
         enum:
         - asc
         - desc
+        example: desc
         type: string
       order_field:
         enum:
@@ -2460,15 +2465,19 @@ definitions:
         - balance
         - price
         - supply
+        example: balance
         type: string
       page:
+        example: 0
         minimum: 0
         type: integer
       row:
+        example: 20
         maximum: 100
         minimum: 0
         type: integer
       token_type:
+        example: erc20
         type: string
     required:
     - address
@@ -8937,7 +8946,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get all supported currency pairs for the native token.
+      description: Returns the supported currency codes that can be used for native-token
+        price lookup and conversion.
       produces:
       - application/json
       responses:
@@ -8955,7 +8965,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: supported currencies
+      summary: List supported native-token quote currencies
       tags:
       - currency
       x-synonyms:
@@ -8967,7 +8977,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Query the native token price at a specific time.
+      description: Returns the native-token price quote for the requested timestamp.
+        Use this endpoint for historical token price lookup in supported quote currencies.
       parameters:
       - description: params
         in: body
@@ -8987,7 +8998,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_service_scan.CurrencyPrice'
               type: object
-      summary: currency price
+      summary: Get the native token price at a specific time
       tags:
       - currency
       x-synonyms:
@@ -9000,8 +9011,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: Convert the value of a token from one currency to another at a
-        specific time.
+      description: Converts a token amount from one supported currency into another
+        using the price snapshot at the requested time. Returns both the converted
+        output value and the quote data used for the calculation.
       parameters:
       - description: params
         in: body
@@ -9021,7 +9033,7 @@ paths:
                 data:
                   $ref: '#/definitions/internal_server_http.CurrencyConverter'
               type: object
-      summary: currency price converter
+      summary: Convert one token value between currencies
       tags:
       - currency
       x-synonyms:
@@ -9035,8 +9047,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the account assets changed history (only support the assets
-        & foreign assets)
+      description: Returns paginated change history for account asset balances. This
+        endpoint currently supports assets and foreign-assets style tokens.
       parameters:
       - description: params
         in: body
@@ -9063,7 +9075,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Account assets changed history
+      summary: List account asset-change history
       tags:
       - account
       x-synonyms:
@@ -9079,10 +9091,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: |-
-        Native token balance history implementations vary by network.
-        Block-level granularity: Polkadot, Kusama, Westend.
-        Daily snapshot granularity: All other supported chains
+      description: Returns historical balance snapshots for an account and token.
+        Polkadot, Kusama, and Westend support block-level history, while other supported
+        networks return daily snapshots.
       parameters:
       - description: params
         in: body
@@ -9109,7 +9120,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.AccountBalanceHistoryStatus'
                   type: object
               type: object
-      summary: Account Balance History
+      summary: Get account balance history
       tags:
       - account
       x-synonyms:
@@ -9125,7 +9136,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Account referendum list
+        Returns paginated referendum or democracy items associated with the specified account.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -9153,7 +9164,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Account referendum list
+      summary: List governance items for an account
       tags:
       - governance
       x-synonyms:
@@ -9171,8 +9182,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns paginated staking reward and slash records for one account,
+        with optional category and block-range filters. This API only supports networks
+        with the staking frame or parachain-staking pallet.
       parameters:
       - description: params
         in: body
@@ -9199,7 +9211,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Reward or slash list
+      summary: List reward and slash records
       tags:
       - staking
       x-synonyms:
@@ -9217,8 +9229,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the account token list, including native token and builtin/assets
-        tokens and evm tokens(erc20/erc721).
+      description: Returns token holdings for one account, including the native token,
+        built-in assets, and supported EVM tokens such as ERC-20 and ERC-721.
       parameters:
       - description: params
         in: body
@@ -9238,7 +9250,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_service_scan.AccountTokenJson'
               type: object
-      summary: Account token list
+      summary: List token balances for an account
       tags:
       - account
       x-synonyms:
@@ -9300,8 +9312,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the account merkle list, only support polkadot and assethub
-        polkadot network
+      description: Returns the account merkle list with optional tag and balance filters.
+        This endpoint is available only on Polkadot and Asset Hub Polkadot.
       parameters:
       - description: params
         in: body
@@ -9323,7 +9335,7 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.AccountMerkleJson'
                   type: array
               type: object
-      summary: Account merkle list
+      summary: List account merkle records
       tags:
       - account
       x-synonyms:
@@ -9338,7 +9350,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the account statistics, including assets and role statistics.
+      description: Returns aggregated account statistics, including either asset-distribution
+        counts or account-role counts depending on the requested type.
       parameters:
       - description: params
         in: body
@@ -9360,7 +9373,7 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.AccountRoleCountJson'
                   type: array
               type: object
-      summary: Account statistics
+      summary: Get account statistics
       tags:
       - account
       x-synonyms:
@@ -9541,7 +9554,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get block detail by block number, block hash or block timestamp(Nearest).
+      description: Returns block details by block number, block hash, or the nearest
+        block to a supplied block timestamp.
       parameters:
       - description: params
         in: body
@@ -9561,7 +9575,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ChainBlockJson'
               type: object
-      summary: Block detail
+      summary: Get block details
       tags:
       - block
       x-synonyms:
@@ -9574,7 +9588,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Child Bounty list
+        Returns a paginated child-bounty list, optionally filtered by parent bounty ID.
         This API only supports networks with childbounties frame
       parameters:
       - description: params
@@ -9602,7 +9616,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Child Bounty list
+      summary: List child bounties
       tags:
       - governance
       x-synonyms:
@@ -9620,7 +9634,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Bounty detail
+        Returns details for one bounty proposal.
         This API only supports networks with bounties frame
       parameters:
       - description: params
@@ -9641,7 +9655,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.BountyJson'
               type: object
-      summary: Bounty info
+      summary: Get bounty details
       tags:
       - governance
       x-synonyms:
@@ -9659,7 +9673,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Bounty list
+        Returns a paginated bounty list with optional status filtering.
         This API only supports networks with bounties frame
       parameters:
       - description: params
@@ -9687,7 +9701,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Bounty list
+      summary: List bounties
       tags:
       - governance
       x-synonyms:
@@ -10173,8 +10187,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: Check hash type, return hash type and address/extrinsic/evm transaction/block/xcm
-        message/multisig call hash if found
+      description: Resolves the supplied hash and returns the detected object type,
+        such as account, extrinsic, EVM transaction, block, XCM message, or multisig
+        call hash, together with any matching identifiers.
       parameters:
       - description: param
         in: body
@@ -10188,7 +10203,7 @@ paths:
         "200":
           description: OK
           schema: {}
-      summary: Check hash type
+      summary: Identify the object type for a hash
       tags:
       - search
       x-synonyms:
@@ -10354,8 +10369,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: WASM contract emitted events by contract address(only support network
-        has contracts frame)
+      description: Returns paginated emitted events for one WASM contract, with optional
+        filtering by extrinsic index. Available only on networks with the contracts
+        frame.
       parameters:
       - description: param
         in: body
@@ -10382,7 +10398,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Contract Events
+      summary: List WASM contract events
       tags:
       - contracts
       x-synonyms:
@@ -10399,8 +10415,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: WASM contract info by contract address(only support network has
-        contracts frame)
+      description: Returns detailed information for one WASM contract by contract
+        address. Available only on networks with the contracts frame.
       parameters:
       - description: param
         in: body
@@ -10420,7 +10436,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ContractDetailJson'
               type: object
-      summary: Contract info
+      summary: Get WASM contract details
       tags:
       - contracts
       x-synonyms:
@@ -10434,7 +10450,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: WASM contract list(only support network has contracts frame)
+      description: Returns a paginated list of WASM contracts with optional verification
+        and ordering filters. Available only on networks with the contracts frame.
       parameters:
       - description: param
         in: body
@@ -10461,7 +10478,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: WASM Contract List
+      summary: List WASM contracts
       tags:
       - contracts
       x-synonyms:
@@ -10476,7 +10493,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: WASM contract metadata(only support network has contracts frame)
+      description: Returns aggregate WASM contract statistics such as contract count,
+        transaction count, and verified-contract count. Available only on networks
+        with the contracts frame.
       produces:
       - application/json
       responses:
@@ -10496,7 +10515,7 @@ paths:
                       type: integer
                   type: object
               type: object
-      summary: Contract meta
+      summary: Get WASM contract aggregate metadata
       tags:
       - contracts
       x-synonyms:
@@ -10511,8 +10530,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: WASM contract lifetime timeline by contract address(only support
-        network has contracts frame)
+      description: Returns the lifecycle timeline for one WASM contract address. Available
+        only on networks with the contracts frame.
       parameters:
       - description: param
         in: body
@@ -10537,7 +10556,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Contract Timeline
+      summary: Get a WASM contract timeline
       tags:
       - contracts
       x-synonyms:
@@ -10552,8 +10571,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: WASM contract transactions by address or contract address(only
-        support network has contracts frame)
+      description: Returns paginated WASM contract transactions filtered by account
+        address, contract address, block range, and success status. Available only
+        on networks with the contracts frame.
       parameters:
       - description: param
         in: body
@@ -10580,7 +10600,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: WASM Contract transactions
+      summary: List WASM contract transactions
       tags:
       - contracts
       x-synonyms:
@@ -10596,7 +10616,8 @@ paths:
     get:
       consumes:
       - application/json
-      description: WASM contract available compiler images for verifying contracts
+      description: Returns the supported third-party compiler images and tags that
+        can be used for WASM contract verification.
       produces:
       - application/json
       responses:
@@ -10613,7 +10634,7 @@ paths:
                     type: array
                   type: object
               type: object
-      summary: Compiler images tag
+      summary: List supported contract compiler images
       tags:
       - contracts
       x-synonyms:
@@ -10627,7 +10648,8 @@ paths:
     get:
       consumes:
       - application/json
-      description: WASM contract available compiler versions for verifying contracts
+      description: Returns the supported compiler versions that can be used to verify
+        WASM contracts.
       produces:
       - application/json
       responses:
@@ -10642,7 +10664,7 @@ paths:
                     type: string
                   type: array
               type: object
-      summary: Compiler versions
+      summary: List supported contract compiler versions
       tags:
       - contracts
       x-synonyms:
@@ -10657,7 +10679,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Council proposal detail
+        Returns details for one council proposal.
         This API only supports networks with council frame
       parameters:
       - description: params
@@ -10681,7 +10703,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.CouncilProposalJson'
                   type: object
               type: object
-      summary: Council proposal
+      summary: Get council proposal details
       tags:
       - governance
       x-synonyms:
@@ -10697,7 +10719,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Council proposal list
+        Returns a paginated council proposal list.
         This API only supports networks with council frame
       parameters:
       - description: params
@@ -10725,7 +10747,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Council proposals
+      summary: List council proposals
       tags:
       - governance
       x-synonyms:
@@ -10741,7 +10763,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Get daily reward or slash data.
+        Returns daily reward/slash aggregates with optional account, category, and date-range filters.
         Only supports agung-testnet,peaq,krest,tanssi network
       parameters:
       - description: params
@@ -10769,7 +10791,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: daily reward or slash data
+      summary: Get daily reward and slash aggregates
       tags:
       - staking
       x-synonyms:
@@ -10898,7 +10920,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Democracy details
+        Returns details for one democracy proposal.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -10922,7 +10944,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.DemocracyJson'
                   type: object
               type: object
-      summary: Democracy details
+      summary: Get democracy proposal details
       tags:
       - governance
       x-synonyms:
@@ -10939,7 +10961,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Democracies list
+        Returns a paginated democracy proposal list with optional status and ordering controls.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -10967,7 +10989,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Democracies list
+      summary: List democracy proposals
       tags:
       - governance
       x-synonyms:
@@ -10985,7 +11007,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum list
+        Returns details for one legacy democracy referendum.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -11009,7 +11031,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.ReferendumJson'
                   type: object
               type: object
-      summary: Referendum list(legacy)
+      summary: Get democracy referendum details (legacy)
       tags:
       - governance
       x-synonyms:
@@ -11026,7 +11048,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendums list
+        Returns a paginated democracy referendum list with optional active/completed status filtering.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -11054,7 +11076,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Referendums
+      summary: List democracy referendums
       tags:
       - governance
       x-synonyms:
@@ -11071,7 +11093,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Democracy seconded list
+        Returns the accounts that seconded a democracy proposal.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -11099,7 +11121,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Democracy seconded list
+      summary: List democracy seconders
       tags:
       - governance
       x-synonyms:
@@ -11116,7 +11138,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum votes list
+        Returns paginated vote records for a legacy democracy referendum or account.
         This API only supports networks with democracy frame
       parameters:
       - description: params
@@ -11144,7 +11166,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Referendum votes list(legacy)
+      summary: List democracy referendum votes (legacy)
       tags:
       - governance
       x-synonyms:
@@ -12027,7 +12049,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Get extrinsic reward list by extrinsic index.
+        Returns the reward records associated with one extrinsic index.
         This API only supports networks with staking frame or parachain-staking pallet
       parameters:
       - description: params
@@ -12055,7 +12077,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Extrinsic reward
+      summary: List extrinsic reward records
       tags:
       - extrinsic
       x-synonyms:
@@ -12070,7 +12092,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Fellowship referenda details
+        Returns details for one fellowship referendum.
         This API only supports networks with FellowshipReferenda frame
       parameters:
       - description: params
@@ -12091,7 +12113,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ReferendumV2Json'
               type: object
-      summary: Fellowship referenda details
+      summary: Get fellowship referendum details
       tags:
       - governance
       x-synonyms:
@@ -12108,7 +12130,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Fellowship referenda list
+        Returns a paginated fellowship referenda list with origin, account, and call filters.
         This API only supports networks with FellowshipReferenda frame
       parameters:
       - description: params
@@ -12136,7 +12158,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Fellowship referenda list
+      summary: List fellowship referenda
       tags:
       - governance
       x-synonyms:
@@ -12154,7 +12176,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Fellowship referendum statistics
+        Returns aggregated statistics for fellowship referenda.
         This API only supports networks with FellowshipReferenda frame
       produces:
       - application/json
@@ -12168,7 +12190,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.FellowshipReferendumStatisticsJson'
               type: object
-      summary: Fellowship referendum statistics
+      summary: Get fellowship referendum statistics
       tags:
       - governance
       x-synonyms:
@@ -12185,7 +12207,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Fellowship referendum tracks
+        Returns the available fellowship referendum tracks for the current network.
         This API only supports networks with FellowshipReferenda frame
       produces:
       - application/json
@@ -12201,7 +12223,7 @@ paths:
                     $ref: '#/definitions/subscan_libs_substrate_storage.ReferendumTracksInfo'
                   type: object
               type: object
-      summary: Fellowship referendum tracks
+      summary: List fellowship referendum tracks
       tags:
       - governance
       x-synonyms:
@@ -12218,7 +12240,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Fellowship referendum votes list
+        Returns paginated vote records for one fellowship referendum.
         This API only supports networks with FellowshipReferenda frame
       parameters:
       - description: params
@@ -12246,7 +12268,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Fellowship referendum votes
+      summary: List fellowship referendum votes
       tags:
       - governance
       x-synonyms:
@@ -12511,8 +12533,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API provides post/comments about the proposal, this api powered
-        by the subsquare
+      description: Returns external governance posts and comments for the specified
+        item. This endpoint is powered by Subsquare.
       parameters:
       - description: params
         in: body
@@ -12532,7 +12554,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_libs_opengovResource.PostData'
               type: object
-      summary: more information about the governance
+      summary: Get external discussion for a governance item
       tags:
       - governance
       x-synonyms:
@@ -12550,7 +12572,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get block header by block number.
+      description: Returns the block header for the requested block number.
       parameters:
       - description: params
         in: body
@@ -12570,7 +12592,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.BlockHeader'
               type: object
-      summary: Block header
+      summary: Get a block header
       tags:
       - block
       x-synonyms:
@@ -13083,7 +13105,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Get the number of accounts in multi-chains
+        Returns the number of multichain asset records associated with one account. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13104,7 +13126,7 @@ paths:
                 data:
                   type: integer
               type: object
-      summary: MultiChain account count (BETA)
+      summary: Count multichain account assets (BETA)
       tags:
       - multiChain
       x-synonyms:
@@ -13121,7 +13143,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Get the historical balance value of an account over a specified period. Date format: YYYY-MM-DD
+        Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13144,7 +13166,7 @@ paths:
                     $ref: '#/definitions/subscan_internal_dao.AccountBalanceValueHistory'
                   type: array
               type: object
-      summary: Account balance value history (BETA)
+      summary: Get multichain account balance-value history (BETA)
       tags:
       - multiChain
       x-synonyms:
@@ -13163,7 +13185,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Get the maximum, minimum, and 24-hour previous balance value of an account.
+        Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13197,7 +13219,7 @@ paths:
                       type: number
                   type: object
               type: object
-      summary: Account balance value stat (BETA)
+      summary: Get multichain account balance-value statistics (BETA)
       tags:
       - multiChain
       x-synonyms:
@@ -13215,7 +13237,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: 'Support Network: polkadot'
+      description: |-
+        Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.
+        Support Network: polkadot
       parameters:
       - description: params
         in: body
@@ -13236,7 +13260,7 @@ paths:
                   additionalProperties: true
                   type: object
               type: object
-      summary: MultiChain price (BETA)
+      summary: List multichain price snapshots (BETA)
       tags:
       - multiChain
       x-synonyms:
@@ -14099,9 +14123,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: |-
-        Get detailed information about Parachain
-        Only available on relay chains(Polkadot,Kusama,Westend,Paseo).
+      description: 'Returns detailed parachain information with optional parachain-status
+        filters. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.'
       parameters:
       - description: params
         in: body
@@ -14128,7 +14151,7 @@ paths:
                       type: integer
                   type: object
               type: object
-      summary: Parachain info
+      summary: Get parachain details
       tags:
       - parachain
       x-synonyms:
@@ -14140,9 +14163,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: |-
-        List ParaChains/ParaThread with their status and other details.
-        Only available on relay chains(Polkadot,Kusama,Westend,Paseo).
+      description: 'Returns a paginated list of parachains and parathreads with status
+        and basic metadata. Only available on relay chains: Polkadot, Kusama, Westend,
+        and Paseo.'
       parameters:
       - description: params
         in: body
@@ -14169,7 +14192,7 @@ paths:
                       type: integer
                   type: object
               type: object
-      summary: Parachain list
+      summary: List parachains and parathreads
       tags:
       - parachain
       x-synonyms:
@@ -14181,9 +14204,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: |-
-        Get the metadata of all parachains.
-        Only available on relay chains(Polkadot,Kusama,Westend,Paseo).
+      description: 'Returns aggregate metadata for all parachains on the current relay
+        chain. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.'
       produces:
       - application/json
       responses:
@@ -14196,7 +14218,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ParaChainMetaJson'
               type: object
-      summary: Parachain meta
+      summary: Get parachain metadata
       tags:
       - parachain
       x-synonyms:
@@ -14209,7 +14231,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the register info of parachain.
+      description: Returns the current relay-chain name and parachain registration
+        mapping when parachain registration data is available.
       produces:
       - application/json
       responses:
@@ -14229,7 +14252,7 @@ paths:
                       type: string
                   type: object
               type: object
-      summary: Parachain register info
+      summary: Get parachain registration info
       tags:
       - parachain
       x-synonyms:
@@ -14278,7 +14301,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Preimage details
+        Returns details for one governance preimage by hash.
         This API only supports networks with preimage frame
       parameters:
       - description: params
@@ -14299,7 +14322,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.PreimageJson'
               type: object
-      summary: Preimage details
+      summary: Get governance preimage details
       tags:
       - governance
       x-synonyms:
@@ -14315,7 +14338,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Preimage list
+        Returns a paginated preimage list with optional status and source filters.
         This API only supports networks with preimage frame
       parameters:
       - description: params
@@ -14343,7 +14366,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Preimage list
+      summary: List governance preimages
       tags:
       - governance
       x-synonyms:
@@ -14446,7 +14469,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum delegator
+        Returns delegation details for one account in the referenda system.
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -14467,7 +14490,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ReferendumDelegateDetailsJson'
               type: object
-      summary: Referendum delegator details
+      summary: Get referendum delegator details
       tags:
       - governance
       x-synonyms:
@@ -14485,7 +14508,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum delegator vote list
+        Returns paginated referendum vote records for one delegator or delegate account.
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -14513,7 +14536,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Referendum delegator votes
+      summary: List referendum delegator votes
       tags:
       - governance
       x-synonyms:
@@ -14532,7 +14555,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum delegated of delegator list
+        Returns paginated delegation relationships for one account, including active and delegator/delegate filters.
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -14560,7 +14583,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Referendum delegated of delegator list
+      summary: List referendum delegation relationships
       tags:
       - governance
       x-synonyms:
@@ -14579,7 +14602,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referenda details
+        Returns details for one OpenGov referendum.
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -14600,7 +14623,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ReferendumV2Json'
               type: object
-      summary: Referenda details
+      summary: Get OpenGov referendum details
       tags:
       - governance
       x-synonyms:
@@ -14616,7 +14639,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referenda list
+        Returns a paginated referenda list with origin, status, account, and call filters.
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -14644,7 +14667,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Referenda list
+      summary: List OpenGov referenda
       tags:
       - governance
       x-synonyms:
@@ -14661,7 +14684,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum statistics
+        Returns aggregated referendum statistics for supported democracy or referenda networks.
         This API only supports networks with referenda/democracy frame
       produces:
       - application/json
@@ -14675,7 +14698,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ReferendumStatisticsJson'
               type: object
-      summary: Referendum statistics
+      summary: Get referendum statistics
       tags:
       - governance
       x-synonyms:
@@ -14692,7 +14715,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referendum tracks
+        Returns the available referendum tracks for the current OpenGov network.
         This API only supports networks with referenda frame
       produces:
       - application/json
@@ -14708,7 +14731,7 @@ paths:
                     $ref: '#/definitions/subscan_libs_substrate_storage.ReferendumTracksInfo'
                   type: object
               type: object
-      summary: Referendum tracks
+      summary: List referendum tracks
       tags:
       - governance
       x-synonyms:
@@ -14725,7 +14748,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Referenda votes list
+        Returns paginated vote records for an OpenGov referendum or account.
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -14753,7 +14776,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Referenda votes list(v2)
+      summary: List OpenGov referendum votes
       tags:
       - governance
       x-synonyms:
@@ -14980,7 +15003,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Search by account identity display(fuzzy search)
+      description: Performs a fuzzy search on account identity display names and returns
+        matching identities with any related sub-accounts.
       parameters:
       - description: params
         in: body
@@ -15005,7 +15029,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Search by identity
+      summary: Search accounts by identity display name
       tags:
       - account
       x-synonyms:
@@ -15023,7 +15047,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Search by token key
+      description: Searches token metadata by a free-form token key such as token
+        name, ticker symbol, or unique ID.
       parameters:
       - description: params
         in: body
@@ -15048,7 +15073,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Search token by name/symbol/id
+      summary: Search tokens by name, symbol, or unique ID
       tags:
       - tokens
       x-synonyms:
@@ -15067,8 +15092,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns paginated validator era statistics for one account. This
+        API only supports networks with the staking frame or parachain-staking pallet.
       parameters:
       - description: params
         in: body
@@ -15095,7 +15120,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Era stat list
+      summary: List validator era statistics
       tags:
       - staking
       x-synonyms:
@@ -15107,8 +15132,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns staking details for one nominator account. This API only
+        supports networks with the staking frame or parachain-staking pallet.
       parameters:
       - description: params
         in: body
@@ -15128,7 +15153,7 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.NominatorDetail'
               type: object
-      summary: Nominator info
+      summary: Get nominator details
       tags:
       - staking
       x-synonyms:
@@ -15141,8 +15166,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns the nominators backing the specified validator account.
+        This API only supports networks with the staking frame or parachain-staking
+        pallet.
       parameters:
       - description: params
         in: body
@@ -15169,7 +15195,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Nominators list
+      summary: List nominators for a validator
       tags:
       - staking
       x-synonyms:
@@ -15180,8 +15206,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns the summed staking rewards for one account, with optional
+        block-range or date-range filters. This API only supports networks with the
+        staking frame or parachain-staking pallet.
       parameters:
       - description: params
         in: body
@@ -15204,7 +15231,7 @@ paths:
                       type: number
                   type: object
               type: object
-      summary: Staking reward sum
+      summary: Get staking reward totals
       tags:
       - staking
       x-synonyms:
@@ -15217,7 +15244,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame
+      description: Returns the current unbonding schedule for one staking account.
+        This API only supports networks with the staking frame.
       parameters:
       - description: params
         in: body
@@ -15241,7 +15269,7 @@ paths:
                     type: array
                   type: object
               type: object
-      summary: Unbonding list
+      summary: List unbonding records
       tags:
       - staking
       x-synonyms:
@@ -15252,8 +15280,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns staking details for one validator stash address. This API
+        only supports networks with the staking frame or parachain-staking pallet.
       parameters:
       - description: params
         in: body
@@ -15276,7 +15304,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.ValidatorJson'
                   type: object
               type: object
-      summary: Validator info
+      summary: Get validator details
       tags:
       - staking
       x-synonyms:
@@ -15289,8 +15317,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns era-level bond statistics for one validator stash address.
+        This API only supports networks with the staking frame or parachain-staking
+        pallet.
       parameters:
       - description: params
         in: body
@@ -15315,7 +15344,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Validator bond stat
+      summary: Get validator bond statistics
       tags:
       - staking
       x-synonyms:
@@ -15330,7 +15359,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame pallet
+      description: Returns paginated commission-history records for one validator
+        stash address. This API only supports networks with the staking frame pallet.
       parameters:
       - description: params
         in: body
@@ -15357,7 +15387,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Validator commission history
+      summary: Get validator commission history
       tags:
       - staking
       x-synonyms:
@@ -15372,8 +15402,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns a paginated validator list with optional blocked and commission-range
+        filters. This API only supports networks with the staking frame or parachain-staking
+        pallet.
       parameters:
       - description: params
         in: body
@@ -15400,7 +15431,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Validators list
+      summary: List validators
       tags:
       - staking
       x-synonyms:
@@ -15449,8 +15480,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with staking frame or parachain-staking
-        pallet
+      description: Returns validators waiting in the staking queue, with optional
+        commission-range sorting. This API only supports networks with the staking
+        frame or parachain-staking pallet.
       parameters:
       - description: params
         in: body
@@ -15477,7 +15509,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Waiting validators list
+      summary: List waiting validators
       tags:
       - staking
       x-synonyms:
@@ -15829,7 +15861,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        technical-committee proposal detail
+        Returns details for one technical-committee proposal.
         This API only supports networks with technicalCommittee frame
       parameters:
       - description: params
@@ -15853,7 +15885,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TechcommProposalJson'
                   type: object
               type: object
-      summary: Techcomm proposal
+      summary: Get technical-committee proposal details
       tags:
       - governance
       x-synonyms:
@@ -15870,7 +15902,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        technical-committee proposals list
+        Returns a paginated technical-committee proposal list.
         This API only supports networks with technicalCommittee frame
       parameters:
       - description: params
@@ -15898,7 +15930,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Techcomm proposals
+      summary: List technical-committee proposals
       tags:
       - governance
       x-synonyms:
@@ -15950,8 +15982,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the token holders list, including native token and builtin
-        tokens
+      description: Returns a paginated holder list for the selected token or unique
+        ID, with optional balance filters and ordering.
       parameters:
       - description: params
         in: body
@@ -15978,7 +16010,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Token holders list
+      summary: List token holders
       tags:
       - account
       x-synonyms:
@@ -16129,7 +16161,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury proposal detail
+        Returns details for one treasury proposal.
         This API only supports networks with treasury frame
       parameters:
       - description: params
@@ -16153,7 +16185,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TreasuryProposalDetailJson'
                   type: object
               type: object
-      summary: Treasury proposal
+      summary: Get treasury proposal details
       tags:
       - governance
       x-synonyms:
@@ -16169,7 +16201,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury proposals list
+        Returns a paginated treasury proposal list.
         This API only supports networks with treasury frame
       parameters:
       - description: params
@@ -16197,7 +16229,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Treasury proposals
+      summary: List treasury proposals
       tags:
       - governance
       x-synonyms:
@@ -16213,7 +16245,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury tip detail
+        Returns details for one treasury tip.
         This API only supports networks with tips frame
       parameters:
       - description: params
@@ -16237,7 +16269,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TreasuryTipJson'
                   type: object
               type: object
-      summary: Treasury tip
+      summary: Get treasury tip details
       tags:
       - governance
       x-synonyms:
@@ -16253,7 +16285,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury tippers list
+        Returns the tipper accounts and votes for one treasury tip.
         This API only supports networks with tips frame
       parameters:
       - description: params
@@ -16279,7 +16311,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Treasury tippers
+      summary: List treasury tippers
       tags:
       - governance
       x-synonyms:
@@ -16295,7 +16327,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury tips list
+        Returns a paginated treasury tip list.
         This API only supports networks with tips frame
       parameters:
       - description: params
@@ -16323,7 +16355,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Treasury tips
+      summary: List treasury tips
       tags:
       - governance
       x-synonyms:
@@ -16339,7 +16371,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        treasury council collective proposal detail
+        Returns details for one treasury council collective proposal.
         This API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame
       parameters:
       - description: params
@@ -16363,7 +16395,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TreasuryCouncilCollectiveProposalDetailsJson'
                   type: object
               type: object
-      summary: treasury council collective details
+      summary: Get treasury council collective proposal details
       tags:
       - governance
       x-synonyms:
@@ -16380,7 +16412,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        treasury council collective proposals list
+        Returns a paginated treasury council collective proposal list.
         This API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame
       parameters:
       - description: params
@@ -16408,7 +16440,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: treasury council collective list
+      summary: List treasury council collective proposals
       tags:
       - governance
       x-synonyms:
@@ -16425,7 +16457,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        treasury council collective votes list
+        Returns paginated vote records for one treasury council collective proposal.
         This API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame
       parameters:
       - description: params
@@ -16453,7 +16485,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: treasury council collective vote list
+      summary: List treasury council collective votes
       tags:
       - governance
       x-synonyms:
@@ -16470,7 +16502,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury spend proposal detail
+        Returns details for one treasury spend proposal.
         This API only supports networks with treasury frame
       parameters:
       - description: params
@@ -16494,7 +16526,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TreasurySpendProposalDetailJson'
                   type: object
               type: object
-      summary: Treasury spend proposal
+      summary: Get treasury spend proposal details
       tags:
       - governance
       x-synonyms:
@@ -16511,7 +16543,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Treasury spend proposals list
+        Returns a paginated treasury spend proposal list.
         This API only supports networks with treasury frame
       parameters:
       - description: params
@@ -16539,7 +16571,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Treasury spend proposals
+      summary: List treasury spend proposals
       tags:
       - governance
       x-synonyms:
@@ -16878,8 +16910,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the list of vesting releases within a specified date range.(only
-        for network has vesting frame)
+      description: Returns vesting release records for the requested date range. This
+        endpoint is available only on networks that support the vesting frame.
       parameters:
       - description: params
         in: body
@@ -16904,7 +16936,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Vesting release list
+      summary: List vesting release records
       tags:
       - vesting
       x-synonyms:
@@ -17332,10 +17364,15 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get the account token list, including native token and builtin/assets
-        tokens and evm tokens(erc20/erc721).
+      description: Returns paginated token holdings for one account address, including
+        the native token, built-in assets, and EVM tokens such as ERC-20 and ERC-721
+        when available on the current network. Use token_type to narrow the token
+        source or class, order_field and order to sort by token, balance, price, or
+        supply, and page/row for pagination (max row 100). This is the primary endpoint
+        for wallet token balances, account asset holdings, and token portfolio lookups.
       parameters:
-      - description: params
+      - description: Account address plus optional token type, sorting, and pagination
+          controls.
         in: body
         name: params
         required: true
@@ -17364,25 +17401,31 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Account token list v2
+      summary: List token balances for an account (v2)
       tags:
       - account
       - token
       x-synonyms:
       - account
       - token
-      - scan
       - tokens
       - wallet
       - address
-      - user
       - asset
       - coin
+      - balance
+      - balances
+      - token balance
+      - token balances
+      - holdings
+      - portfolio
+      - wallet assets
   /api/v2/scan/accounts:
     post:
       consumes:
       - application/json
-      description: Get the native token accounts list
+      description: Returns a paginated account list with optional balance filters,
+        role filters, explicit address selection, and ordering.
       parameters:
       - description: params
         in: body
@@ -17409,7 +17452,7 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Accounts list
+      summary: List accounts
       tags:
       - account
       x-synonyms:
@@ -17632,7 +17675,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        balance of a multi-chains account along with data related to the account's participation in DeFi data.
+        Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -17660,7 +17703,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_service_scan.DefiJson'
                   type: object
               type: object
-      summary: MultiChain account (BETA)
+      summary: Get multichain account assets (BETA)
       tags:
       - multiChain
       x-synonyms:
@@ -17675,9 +17718,15 @@ paths:
     post:
       consumes:
       - application/json
-      description: Get account information by address
+      description: Resolves one account from a Substrate address, EVM address, or
+        SS58 account index and returns normalized account details. If the account
+        is not cached, the service may query on-chain balance data to create or refresh
+        the account before responding. Use this endpoint for account lookup, wallet
+        profile lookup, or resolving an address before calling balance- or token-related
+        APIs.
       parameters:
-      - description: param
+      - description: Account lookup input. Accepts a Substrate address, EVM address,
+          or account index.
         in: body
         name: param
         required: true
@@ -17693,21 +17742,26 @@ paths:
             - $ref: '#/definitions/internal_server_http.J'
             - properties:
                 data:
-                  $ref: '#/definitions/subscan_internal_model.AccountJsonV1'
+                  properties:
+                    account:
+                      $ref: '#/definitions/subscan_internal_model.AccountJsonV1'
+                  type: object
               type: object
-      summary: Account by address
+      summary: Get account information by address or account index
       tags:
       - account
       x-synonyms:
       - account
       - address
-      - scan
-      - search
       - wallet
-      - user
       - lookup
       - find
       - query
+      - resolve address
+      - wallet profile
+      - account profile
+      - evm address
+      - account index
   /api/v2/scan/token/native:
     post:
       consumes:

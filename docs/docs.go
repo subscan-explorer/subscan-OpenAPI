@@ -56,7 +56,7 @@ const docTemplate = `{
         },
         "/api/open/currencies": {
             "post": {
-                "description": "Get all supported currency pairs for the native token.",
+                "description": "Returns the supported currency codes that can be used for native-token price lookup and conversion.",
                 "consumes": [
                     "application/json"
                 ],
@@ -66,7 +66,7 @@ const docTemplate = `{
                 "tags": [
                     "currency"
                 ],
-                "summary": "supported currencies",
+                "summary": "List supported native-token quote currencies",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -105,7 +105,7 @@ const docTemplate = `{
         },
         "/api/open/price": {
             "post": {
-                "description": "Query the native token price at a specific time.",
+                "description": "Returns the native-token price quote for the requested timestamp. Use this endpoint for historical token price lookup in supported quote currencies.",
                 "consumes": [
                     "application/json"
                 ],
@@ -115,7 +115,7 @@ const docTemplate = `{
                 "tags": [
                     "currency"
                 ],
-                "summary": "currency price",
+                "summary": "Get the native token price at a specific time",
                 "parameters": [
                     {
                         "description": "params",
@@ -158,7 +158,7 @@ const docTemplate = `{
         },
         "/api/open/price_converter": {
             "post": {
-                "description": "Convert the value of a token from one currency to another at a specific time.",
+                "description": "Converts a token amount from one supported currency into another using the price snapshot at the requested time. Returns both the converted output value and the quote data used for the calculation.",
                 "consumes": [
                     "application/json"
                 ],
@@ -168,7 +168,7 @@ const docTemplate = `{
                 "tags": [
                     "currency"
                 ],
-                "summary": "currency price converter",
+                "summary": "Convert one token value between currencies",
                 "parameters": [
                     {
                         "description": "params",
@@ -212,7 +212,7 @@ const docTemplate = `{
         },
         "/api/scan/account/assets_changed": {
             "post": {
-                "description": "Get the account assets changed history (only support the assets \u0026 foreign assets)",
+                "description": "Returns paginated change history for account asset balances. This endpoint currently supports assets and foreign-assets style tokens.",
                 "consumes": [
                     "application/json"
                 ],
@@ -222,7 +222,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Account assets changed history",
+                "summary": "List account asset-change history",
                 "parameters": [
                     {
                         "description": "params",
@@ -279,7 +279,7 @@ const docTemplate = `{
         },
         "/api/scan/account/balance_history": {
             "post": {
-                "description": "Native token balance history implementations vary by network.\nBlock-level granularity: Polkadot, Kusama, Westend.\nDaily snapshot granularity: All other supported chains",
+                "description": "Returns historical balance snapshots for an account and token. Polkadot, Kusama, and Westend support block-level history, while other supported networks return daily snapshots.",
                 "consumes": [
                     "application/json"
                 ],
@@ -289,7 +289,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Account Balance History",
+                "summary": "Get account balance history",
                 "parameters": [
                     {
                         "description": "params",
@@ -345,7 +345,7 @@ const docTemplate = `{
         },
         "/api/scan/account/referendum": {
             "post": {
-                "description": "Account referendum list\nThis API only supports networks with democracy frame",
+                "description": "Returns paginated referendum or democracy items associated with the specified account.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -355,7 +355,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Account referendum list",
+                "summary": "List governance items for an account",
                 "parameters": [
                     {
                         "description": "params",
@@ -414,7 +414,7 @@ const docTemplate = `{
         },
         "/api/scan/account/reward_slash": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns paginated staking reward and slash records for one account, with optional category and block-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -424,7 +424,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Reward or slash list",
+                "summary": "List reward and slash records",
                 "parameters": [
                     {
                         "description": "params",
@@ -483,7 +483,7 @@ const docTemplate = `{
         },
         "/api/scan/account/tokens": {
             "post": {
-                "description": "Get the account token list, including native token and builtin/assets tokens and evm tokens(erc20/erc721).",
+                "description": "Returns token holdings for one account, including the native token, built-in assets, and supported EVM tokens such as ERC-20 and ERC-721.",
                 "consumes": [
                     "application/json"
                 ],
@@ -493,7 +493,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Account token list",
+                "summary": "List token balances for an account",
                 "parameters": [
                     {
                         "description": "params",
@@ -607,7 +607,7 @@ const docTemplate = `{
         },
         "/api/scan/accounts/merkle": {
             "post": {
-                "description": "Get the account merkle list, only support polkadot and assethub polkadot network",
+                "description": "Returns the account merkle list with optional tag and balance filters. This endpoint is available only on Polkadot and Asset Hub Polkadot.",
                 "consumes": [
                     "application/json"
                 ],
@@ -617,7 +617,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Account merkle list",
+                "summary": "List account merkle records",
                 "parameters": [
                     {
                         "description": "params",
@@ -665,7 +665,7 @@ const docTemplate = `{
         },
         "/api/scan/accounts/statistics": {
             "post": {
-                "description": "Get the account statistics, including assets and role statistics.",
+                "description": "Returns aggregated account statistics, including either asset-distribution counts or account-role counts depending on the requested type.",
                 "consumes": [
                     "application/json"
                 ],
@@ -675,7 +675,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Account statistics",
+                "summary": "Get account statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -952,7 +952,7 @@ const docTemplate = `{
         },
         "/api/scan/block": {
             "post": {
-                "description": "Get block detail by block number, block hash or block timestamp(Nearest).",
+                "description": "Returns block details by block number, block hash, or the nearest block to a supplied block timestamp.",
                 "consumes": [
                     "application/json"
                 ],
@@ -962,7 +962,7 @@ const docTemplate = `{
                 "tags": [
                     "block"
                 ],
-                "summary": "Block detail",
+                "summary": "Get block details",
                 "parameters": [
                     {
                         "description": "params",
@@ -1004,7 +1004,7 @@ const docTemplate = `{
         },
         "/api/scan/bounties/child": {
             "post": {
-                "description": "Child Bounty list\nThis API only supports networks with childbounties frame",
+                "description": "Returns a paginated child-bounty list, optionally filtered by parent bounty ID.\nThis API only supports networks with childbounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -1014,7 +1014,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Child Bounty list",
+                "summary": "List child bounties",
                 "parameters": [
                     {
                         "description": "params",
@@ -1072,7 +1072,7 @@ const docTemplate = `{
         },
         "/api/scan/bounties/proposal": {
             "post": {
-                "description": "Bounty detail\nThis API only supports networks with bounties frame",
+                "description": "Returns details for one bounty proposal.\nThis API only supports networks with bounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -1082,7 +1082,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Bounty info",
+                "summary": "Get bounty details",
                 "parameters": [
                     {
                         "description": "params",
@@ -1129,7 +1129,7 @@ const docTemplate = `{
         },
         "/api/scan/bounties/proposals": {
             "post": {
-                "description": "Bounty list\nThis API only supports networks with bounties frame",
+                "description": "Returns a paginated bounty list with optional status filtering.\nThis API only supports networks with bounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -1139,7 +1139,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Bounty list",
+                "summary": "List bounties",
                 "parameters": [
                     {
                         "description": "params",
@@ -1876,7 +1876,7 @@ const docTemplate = `{
         },
         "/api/scan/check_hash": {
             "post": {
-                "description": "Check hash type, return hash type and address/extrinsic/evm transaction/block/xcm message/multisig call hash if found",
+                "description": "Resolves the supplied hash and returns the detected object type, such as account, extrinsic, EVM transaction, block, XCM message, or multisig call hash, together with any matching identifiers.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1886,7 +1886,7 @@ const docTemplate = `{
                 "tags": [
                     "search"
                 ],
-                "summary": "Check hash type",
+                "summary": "Identify the object type for a hash",
                 "parameters": [
                     {
                         "description": "param",
@@ -2139,7 +2139,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/events": {
             "post": {
-                "description": "WASM contract emitted events by contract address(only support network has contracts frame)",
+                "description": "Returns paginated emitted events for one WASM contract, with optional filtering by extrinsic index. Available only on networks with the contracts frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2149,7 +2149,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract Events",
+                "summary": "List WASM contract events",
                 "parameters": [
                     {
                         "description": "param",
@@ -2207,7 +2207,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/info": {
             "post": {
-                "description": "WASM contract info by contract address(only support network has contracts frame)",
+                "description": "Returns detailed information for one WASM contract by contract address. Available only on networks with the contracts frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2217,7 +2217,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract info",
+                "summary": "Get WASM contract details",
                 "parameters": [
                     {
                         "description": "param",
@@ -2261,7 +2261,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/list": {
             "post": {
-                "description": "WASM contract list(only support network has contracts frame)",
+                "description": "Returns a paginated list of WASM contracts with optional verification and ordering filters. Available only on networks with the contracts frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2271,7 +2271,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "WASM Contract List",
+                "summary": "List WASM contracts",
                 "parameters": [
                     {
                         "description": "param",
@@ -2327,7 +2327,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/meta": {
             "post": {
-                "description": "WASM contract metadata(only support network has contracts frame)",
+                "description": "Returns aggregate WASM contract statistics such as contract count, transaction count, and verified-contract count. Available only on networks with the contracts frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2337,7 +2337,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract meta",
+                "summary": "Get WASM contract aggregate metadata",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2382,7 +2382,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/timeline": {
             "post": {
-                "description": "WASM contract lifetime timeline by contract address(only support network has contracts frame)",
+                "description": "Returns the lifecycle timeline for one WASM contract address. Available only on networks with the contracts frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2392,7 +2392,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Contract Timeline",
+                "summary": "Get a WASM contract timeline",
                 "parameters": [
                     {
                         "description": "param",
@@ -2445,7 +2445,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/transactions": {
             "post": {
-                "description": "WASM contract transactions by address or contract address(only support network has contracts frame)",
+                "description": "Returns paginated WASM contract transactions filtered by account address, contract address, block range, and success status. Available only on networks with the contracts frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2455,7 +2455,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "WASM Contract transactions",
+                "summary": "List WASM contract transactions",
                 "parameters": [
                     {
                         "description": "param",
@@ -2512,7 +2512,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/verify/compiler_images": {
             "get": {
-                "description": "WASM contract available compiler images for verifying contracts",
+                "description": "Returns the supported third-party compiler images and tags that can be used for WASM contract verification.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2522,7 +2522,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Compiler images tag",
+                "summary": "List supported contract compiler images",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2561,7 +2561,7 @@ const docTemplate = `{
         },
         "/api/scan/contracts/verify/compiler_version": {
             "get": {
-                "description": "WASM contract available compiler versions for verifying contracts",
+                "description": "Returns the supported compiler versions that can be used to verify WASM contracts.",
                 "consumes": [
                     "application/json"
                 ],
@@ -2571,7 +2571,7 @@ const docTemplate = `{
                 "tags": [
                     "contracts"
                 ],
-                "summary": "Compiler versions",
+                "summary": "List supported contract compiler versions",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2607,7 +2607,7 @@ const docTemplate = `{
         },
         "/api/scan/council/proposal": {
             "post": {
-                "description": "Council proposal detail\nThis API only supports networks with council frame",
+                "description": "Returns details for one council proposal.\nThis API only supports networks with council frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2617,7 +2617,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Council proposal",
+                "summary": "Get council proposal details",
                 "parameters": [
                     {
                         "description": "params",
@@ -2667,7 +2667,7 @@ const docTemplate = `{
         },
         "/api/scan/council/proposals": {
             "post": {
-                "description": "Council proposal list\nThis API only supports networks with council frame",
+                "description": "Returns a paginated council proposal list.\nThis API only supports networks with council frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2677,7 +2677,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Council proposals",
+                "summary": "List council proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -2733,7 +2733,7 @@ const docTemplate = `{
         },
         "/api/scan/daily/reward_slash": {
             "post": {
-                "description": "Get daily reward or slash data.\nOnly supports agung-testnet,peaq,krest,tanssi network",
+                "description": "Returns daily reward/slash aggregates with optional account, category, and date-range filters.\nOnly supports agung-testnet,peaq,krest,tanssi network",
                 "consumes": [
                     "application/json"
                 ],
@@ -2743,7 +2743,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "daily reward or slash data",
+                "summary": "Get daily reward and slash aggregates",
                 "parameters": [
                     {
                         "description": "params",
@@ -2972,7 +2972,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/proposal": {
             "post": {
-                "description": "Democracy details\nThis API only supports networks with democracy frame",
+                "description": "Returns details for one democracy proposal.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -2982,7 +2982,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Democracy details",
+                "summary": "Get democracy proposal details",
                 "parameters": [
                     {
                         "description": "params",
@@ -3033,7 +3033,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/proposals": {
             "post": {
-                "description": "Democracies list\nThis API only supports networks with democracy frame",
+                "description": "Returns a paginated democracy proposal list with optional status and ordering controls.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3043,7 +3043,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Democracies list",
+                "summary": "List democracy proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -3101,7 +3101,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/referendum": {
             "post": {
-                "description": "Referendum list\nThis API only supports networks with democracy frame",
+                "description": "Returns details for one legacy democracy referendum.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3111,7 +3111,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum list(legacy)",
+                "summary": "Get democracy referendum details (legacy)",
                 "parameters": [
                     {
                         "description": "params",
@@ -3162,7 +3162,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/referendums": {
             "post": {
-                "description": "Referendums list\nThis API only supports networks with democracy frame",
+                "description": "Returns a paginated democracy referendum list with optional active/completed status filtering.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3172,7 +3172,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendums",
+                "summary": "List democracy referendums",
                 "parameters": [
                     {
                         "description": "params",
@@ -3229,7 +3229,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/seconded": {
             "post": {
-                "description": "Democracy seconded list\nThis API only supports networks with democracy frame",
+                "description": "Returns the accounts that seconded a democracy proposal.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3239,7 +3239,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Democracy seconded list",
+                "summary": "List democracy seconders",
                 "parameters": [
                     {
                         "description": "params",
@@ -3296,7 +3296,7 @@ const docTemplate = `{
         },
         "/api/scan/democracy/votes": {
             "post": {
-                "description": "Referendum votes list\nThis API only supports networks with democracy frame",
+                "description": "Returns paginated vote records for a legacy democracy referendum or account.\nThis API only supports networks with democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -3306,7 +3306,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum votes list(legacy)",
+                "summary": "List democracy referendum votes (legacy)",
                 "parameters": [
                     {
                         "description": "params",
@@ -4582,7 +4582,7 @@ const docTemplate = `{
         },
         "/api/scan/extrinsic/reward": {
             "post": {
-                "description": "Get extrinsic reward list by extrinsic index.\nThis API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns the reward records associated with one extrinsic index.\nThis API only supports networks with staking frame or parachain-staking pallet",
                 "consumes": [
                     "application/json"
                 ],
@@ -4592,7 +4592,7 @@ const docTemplate = `{
                 "tags": [
                     "extrinsic"
                 ],
-                "summary": "Extrinsic reward",
+                "summary": "List extrinsic reward records",
                 "parameters": [
                     {
                         "description": "params",
@@ -4647,7 +4647,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/referendum": {
             "post": {
-                "description": "Fellowship referenda details\nThis API only supports networks with FellowshipReferenda frame",
+                "description": "Returns details for one fellowship referendum.\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4657,7 +4657,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Fellowship referenda details",
+                "summary": "Get fellowship referendum details",
                 "parameters": [
                     {
                         "description": "params",
@@ -4703,7 +4703,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/referendums": {
             "post": {
-                "description": "Fellowship referenda list\nThis API only supports networks with FellowshipReferenda frame",
+                "description": "Returns a paginated fellowship referenda list with origin, account, and call filters.\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4713,7 +4713,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Fellowship referenda list",
+                "summary": "List fellowship referenda",
                 "parameters": [
                     {
                         "description": "params",
@@ -4771,7 +4771,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/statistics": {
             "post": {
-                "description": "Fellowship referendum statistics\nThis API only supports networks with FellowshipReferenda frame",
+                "description": "Returns aggregated statistics for fellowship referenda.\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4781,7 +4781,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Fellowship referendum statistics",
+                "summary": "Get fellowship referendum statistics",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -4816,7 +4816,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/tracks": {
             "post": {
-                "description": "Fellowship referendum tracks\nThis API only supports networks with FellowshipReferenda frame",
+                "description": "Returns the available fellowship referendum tracks for the current network.\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4826,7 +4826,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Fellowship referendum tracks",
+                "summary": "List fellowship referendum tracks",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -4864,7 +4864,7 @@ const docTemplate = `{
         },
         "/api/scan/fellowship/votes": {
             "post": {
-                "description": "Fellowship referendum votes list\nThis API only supports networks with FellowshipReferenda frame",
+                "description": "Returns paginated vote records for one fellowship referendum.\nThis API only supports networks with FellowshipReferenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -4874,7 +4874,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Fellowship referendum votes",
+                "summary": "List fellowship referendum votes",
                 "parameters": [
                     {
                         "description": "params",
@@ -5331,7 +5331,7 @@ const docTemplate = `{
         },
         "/api/scan/governance/desc": {
             "post": {
-                "description": "This API provides post/comments about the proposal, this api powered by the subsquare",
+                "description": "Returns external governance posts and comments for the specified item. This endpoint is powered by Subsquare.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5341,7 +5341,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "more information about the governance",
+                "summary": "Get external discussion for a governance item",
                 "parameters": [
                     {
                         "description": "params",
@@ -5389,7 +5389,7 @@ const docTemplate = `{
         },
         "/api/scan/header": {
             "post": {
-                "description": "Get block header by block number.",
+                "description": "Returns the block header for the requested block number.",
                 "consumes": [
                     "application/json"
                 ],
@@ -5399,7 +5399,7 @@ const docTemplate = `{
                 "tags": [
                     "block"
                 ],
-                "summary": "Block header",
+                "summary": "Get a block header",
                 "parameters": [
                     {
                         "description": "params",
@@ -6229,7 +6229,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/account/count": {
             "post": {
-                "description": "Get the number of accounts in multi-chains\nSupport Network: polkadot",
+                "description": "Returns the number of multichain asset records associated with one account. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6239,7 +6239,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain account count (BETA)",
+                "summary": "Count multichain account assets (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -6285,7 +6285,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_history": {
             "post": {
-                "description": "Get the historical balance value of an account over a specified period. Date format: YYYY-MM-DD\nSupport Network: polkadot",
+                "description": "Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6295,7 +6295,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "Account balance value history (BETA)",
+                "summary": "Get multichain account balance-value history (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -6346,7 +6346,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_stat": {
             "post": {
-                "description": "Get the maximum, minimum, and 24-hour previous balance value of an account.\nSupport Network: polkadot",
+                "description": "Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6356,7 +6356,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "Account balance value stat (BETA)",
+                "summary": "Get multichain account balance-value statistics (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -6424,7 +6424,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/price": {
             "post": {
-                "description": "Support Network: polkadot",
+                "description": "Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6434,7 +6434,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain price (BETA)",
+                "summary": "List multichain price snapshots (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -7728,7 +7728,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/info": {
             "post": {
-                "description": "Get detailed information about Parachain\nOnly available on relay chains(Polkadot,Kusama,Westend,Paseo).",
+                "description": "Returns detailed parachain information with optional parachain-status filters. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7738,7 +7738,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "Parachain info",
+                "summary": "Get parachain details",
                 "parameters": [
                     {
                         "description": "params",
@@ -7791,7 +7791,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/list": {
             "post": {
-                "description": "List ParaChains/ParaThread with their status and other details.\nOnly available on relay chains(Polkadot,Kusama,Westend,Paseo).",
+                "description": "Returns a paginated list of parachains and parathreads with status and basic metadata. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7801,7 +7801,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "Parachain list",
+                "summary": "List parachains and parathreads",
                 "parameters": [
                     {
                         "description": "params",
@@ -7854,7 +7854,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/meta": {
             "post": {
-                "description": "Get the metadata of all parachains.\nOnly available on relay chains(Polkadot,Kusama,Westend,Paseo).",
+                "description": "Returns aggregate metadata for all parachains on the current relay chain. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7864,7 +7864,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "Parachain meta",
+                "summary": "Get parachain metadata",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -7896,7 +7896,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/registerinfo": {
             "post": {
-                "description": "Get the register info of parachain.",
+                "description": "Returns the current relay-chain name and parachain registration mapping when parachain registration data is available.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7906,7 +7906,7 @@ const docTemplate = `{
                 "tags": [
                     "parachain"
                 ],
-                "summary": "Parachain register info",
+                "summary": "Get parachain registration info",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8003,7 +8003,7 @@ const docTemplate = `{
         },
         "/api/scan/preimage/details": {
             "post": {
-                "description": "Preimage details\nThis API only supports networks with preimage frame",
+                "description": "Returns details for one governance preimage by hash.\nThis API only supports networks with preimage frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8013,7 +8013,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Preimage details",
+                "summary": "Get governance preimage details",
                 "parameters": [
                     {
                         "description": "params",
@@ -8058,7 +8058,7 @@ const docTemplate = `{
         },
         "/api/scan/preimage/list": {
             "post": {
-                "description": "Preimage list\nThis API only supports networks with preimage frame",
+                "description": "Returns a paginated preimage list with optional status and source filters.\nThis API only supports networks with preimage frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8068,7 +8068,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Preimage list",
+                "summary": "List governance preimages",
                 "parameters": [
                     {
                         "description": "params",
@@ -8259,7 +8259,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/delegate": {
             "post": {
-                "description": "Referendum delegator\nThis API only supports networks with referenda frame",
+                "description": "Returns delegation details for one account in the referenda system.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8269,7 +8269,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum delegator details",
+                "summary": "Get referendum delegator details",
                 "parameters": [
                     {
                         "description": "params",
@@ -8316,7 +8316,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/delegate/votes": {
             "post": {
-                "description": "Referendum delegator vote list\nThis API only supports networks with referenda frame",
+                "description": "Returns paginated referendum vote records for one delegator or delegate account.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8326,7 +8326,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum delegator votes",
+                "summary": "List referendum delegator votes",
                 "parameters": [
                     {
                         "description": "params",
@@ -8385,7 +8385,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/delegates": {
             "post": {
-                "description": "Referendum delegated of delegator list\nThis API only supports networks with referenda frame",
+                "description": "Returns paginated delegation relationships for one account, including active and delegator/delegate filters.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8395,7 +8395,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum delegated of delegator list",
+                "summary": "List referendum delegation relationships",
                 "parameters": [
                     {
                         "description": "params",
@@ -8454,7 +8454,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/referendum": {
             "post": {
-                "description": "Referenda details\nThis API only supports networks with referenda frame",
+                "description": "Returns details for one OpenGov referendum.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8464,7 +8464,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referenda details",
+                "summary": "Get OpenGov referendum details",
                 "parameters": [
                     {
                         "description": "params",
@@ -8509,7 +8509,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/referendums": {
             "post": {
-                "description": "Referenda list\nThis API only supports networks with referenda frame",
+                "description": "Returns a paginated referenda list with origin, status, account, and call filters.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8519,7 +8519,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referenda list",
+                "summary": "List OpenGov referenda",
                 "parameters": [
                     {
                         "description": "params",
@@ -8576,7 +8576,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/statistics": {
             "post": {
-                "description": "Referendum statistics\nThis API only supports networks with referenda/democracy frame",
+                "description": "Returns aggregated referendum statistics for supported democracy or referenda networks.\nThis API only supports networks with referenda/democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8586,7 +8586,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum statistics",
+                "summary": "Get referendum statistics",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8621,7 +8621,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/tracks": {
             "post": {
-                "description": "Referendum tracks\nThis API only supports networks with referenda frame",
+                "description": "Returns the available referendum tracks for the current OpenGov network.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8631,7 +8631,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referendum tracks",
+                "summary": "List referendum tracks",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8669,7 +8669,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/votes": {
             "post": {
-                "description": "Referenda votes list\nThis API only supports networks with referenda frame",
+                "description": "Returns paginated vote records for an OpenGov referendum or account.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8679,7 +8679,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Referenda votes list(v2)",
+                "summary": "List OpenGov referendum votes",
                 "parameters": [
                     {
                         "description": "params",
@@ -9072,7 +9072,7 @@ const docTemplate = `{
         },
         "/api/scan/search/identity": {
             "post": {
-                "description": "Search by account identity display(fuzzy search)",
+                "description": "Performs a fuzzy search on account identity display names and returns matching identities with any related sub-accounts.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9082,7 +9082,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Search by identity",
+                "summary": "Search accounts by identity display name",
                 "parameters": [
                     {
                         "description": "params",
@@ -9138,7 +9138,7 @@ const docTemplate = `{
         },
         "/api/scan/search/tokens": {
             "post": {
-                "description": "Search by token key",
+                "description": "Searches token metadata by a free-form token key such as token name, ticker symbol, or unique ID.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9148,7 +9148,7 @@ const docTemplate = `{
                 "tags": [
                     "tokens"
                 ],
-                "summary": "Search token by name/symbol/id",
+                "summary": "Search tokens by name, symbol, or unique ID",
                 "parameters": [
                     {
                         "description": "params",
@@ -9205,7 +9205,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/era_stat": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns paginated validator era statistics for one account. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9215,7 +9215,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Era stat list",
+                "summary": "List validator era statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -9268,7 +9268,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/nominator": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns staking details for one nominator account. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9278,7 +9278,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Nominator info",
+                "summary": "Get nominator details",
                 "parameters": [
                     {
                         "description": "params",
@@ -9321,7 +9321,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/nominators": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns the nominators backing the specified validator account. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9331,7 +9331,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Nominators list",
+                "summary": "List nominators for a validator",
                 "parameters": [
                     {
                         "description": "params",
@@ -9383,7 +9383,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/total_reward": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns the summed staking rewards for one account, with optional block-range or date-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9393,7 +9393,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Staking reward sum",
+                "summary": "Get staking reward totals",
                 "parameters": [
                     {
                         "description": "params",
@@ -9441,7 +9441,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/unbonding": {
             "post": {
-                "description": "This API only supports networks with staking frame",
+                "description": "Returns the current unbonding schedule for one staking account. This API only supports networks with the staking frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9451,7 +9451,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Unbonding list",
+                "summary": "List unbonding records",
                 "parameters": [
                     {
                         "description": "params",
@@ -9498,7 +9498,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validator": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns staking details for one validator stash address. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9508,7 +9508,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Validator info",
+                "summary": "Get validator details",
                 "parameters": [
                     {
                         "description": "params",
@@ -9556,7 +9556,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validator/bond_stat": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns era-level bond statistics for one validator stash address. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9566,7 +9566,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Validator bond stat",
+                "summary": "Get validator bond statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -9619,7 +9619,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validator/commission_history": {
             "post": {
-                "description": "This API only supports networks with staking frame pallet",
+                "description": "Returns paginated commission-history records for one validator stash address. This API only supports networks with the staking frame pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9629,7 +9629,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Validator commission history",
+                "summary": "Get validator commission history",
                 "parameters": [
                     {
                         "description": "params",
@@ -9685,7 +9685,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/validators": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns a paginated validator list with optional blocked and commission-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9695,7 +9695,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Validators list",
+                "summary": "List validators",
                 "parameters": [
                     {
                         "description": "params",
@@ -9808,7 +9808,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/waiting": {
             "post": {
-                "description": "This API only supports networks with staking frame or parachain-staking pallet",
+                "description": "Returns validators waiting in the staking queue, with optional commission-range sorting. This API only supports networks with the staking frame or parachain-staking pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9818,7 +9818,7 @@ const docTemplate = `{
                 "tags": [
                     "staking"
                 ],
-                "summary": "Waiting validators list",
+                "summary": "List waiting validators",
                 "parameters": [
                     {
                         "description": "params",
@@ -10362,7 +10362,7 @@ const docTemplate = `{
         },
         "/api/scan/techcomm/proposal": {
             "post": {
-                "description": "technical-committee proposal detail\nThis API only supports networks with technicalCommittee frame",
+                "description": "Returns details for one technical-committee proposal.\nThis API only supports networks with technicalCommittee frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10372,7 +10372,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Techcomm proposal",
+                "summary": "Get technical-committee proposal details",
                 "parameters": [
                     {
                         "description": "params",
@@ -10423,7 +10423,7 @@ const docTemplate = `{
         },
         "/api/scan/techcomm/proposals": {
             "post": {
-                "description": "technical-committee proposals list\nThis API only supports networks with technicalCommittee frame",
+                "description": "Returns a paginated technical-committee proposal list.\nThis API only supports networks with technicalCommittee frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10433,7 +10433,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Techcomm proposals",
+                "summary": "List technical-committee proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -10547,7 +10547,7 @@ const docTemplate = `{
         },
         "/api/scan/token/holders": {
             "post": {
-                "description": "Get the token holders list, including native token and builtin tokens",
+                "description": "Returns a paginated holder list for the selected token or unique ID, with optional balance filters and ordering.",
                 "consumes": [
                     "application/json"
                 ],
@@ -10557,7 +10557,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Token holders list",
+                "summary": "List token holders",
                 "parameters": [
                     {
                         "description": "params",
@@ -10807,7 +10807,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/proposal": {
             "post": {
-                "description": "Treasury proposal detail\nThis API only supports networks with treasury frame",
+                "description": "Returns details for one treasury proposal.\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10817,7 +10817,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury proposal",
+                "summary": "Get treasury proposal details",
                 "parameters": [
                     {
                         "description": "params",
@@ -10867,7 +10867,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/proposals": {
             "post": {
-                "description": "Treasury proposals list\nThis API only supports networks with treasury frame",
+                "description": "Returns a paginated treasury proposal list.\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10877,7 +10877,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury proposals",
+                "summary": "List treasury proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -10933,7 +10933,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/tip": {
             "post": {
-                "description": "Treasury tip detail\nThis API only supports networks with tips frame",
+                "description": "Returns details for one treasury tip.\nThis API only supports networks with tips frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10943,7 +10943,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury tip",
+                "summary": "Get treasury tip details",
                 "parameters": [
                     {
                         "description": "params",
@@ -10993,7 +10993,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/tippers": {
             "post": {
-                "description": "Treasury tippers list\nThis API only supports networks with tips frame",
+                "description": "Returns the tipper accounts and votes for one treasury tip.\nThis API only supports networks with tips frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11003,7 +11003,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury tippers",
+                "summary": "List treasury tippers",
                 "parameters": [
                     {
                         "description": "params",
@@ -11056,7 +11056,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury/tips": {
             "post": {
-                "description": "Treasury tips list\nThis API only supports networks with tips frame",
+                "description": "Returns a paginated treasury tip list.\nThis API only supports networks with tips frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11066,7 +11066,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury tips",
+                "summary": "List treasury tips",
                 "parameters": [
                     {
                         "description": "params",
@@ -11122,7 +11122,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_council_collective/proposal": {
             "post": {
-                "description": "treasury council collective proposal detail\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
+                "description": "Returns details for one treasury council collective proposal.\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11132,7 +11132,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury council collective details",
+                "summary": "Get treasury council collective proposal details",
                 "parameters": [
                     {
                         "description": "params",
@@ -11183,7 +11183,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_council_collective/proposals": {
             "post": {
-                "description": "treasury council collective proposals list\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
+                "description": "Returns a paginated treasury council collective proposal list.\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11193,7 +11193,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury council collective list",
+                "summary": "List treasury council collective proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -11250,7 +11250,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_council_collective/votes": {
             "post": {
-                "description": "treasury council collective votes list\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
+                "description": "Returns paginated vote records for one treasury council collective proposal.\nThis API only supports networks with treasuryCouncilCollective(moonbeam/moonriver/moonbase) frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11260,7 +11260,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "treasury council collective vote list",
+                "summary": "List treasury council collective votes",
                 "parameters": [
                     {
                         "description": "params",
@@ -11317,7 +11317,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_spend/proposal": {
             "post": {
-                "description": "Treasury spend proposal detail\nThis API only supports networks with treasury frame",
+                "description": "Returns details for one treasury spend proposal.\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11327,7 +11327,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury spend proposal",
+                "summary": "Get treasury spend proposal details",
                 "parameters": [
                     {
                         "description": "params",
@@ -11378,7 +11378,7 @@ const docTemplate = `{
         },
         "/api/scan/treasury_spend/proposals": {
             "post": {
-                "description": "Treasury spend proposals list\nThis API only supports networks with treasury frame",
+                "description": "Returns a paginated treasury spend proposal list.\nThis API only supports networks with treasury frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -11388,7 +11388,7 @@ const docTemplate = `{
                 "tags": [
                     "governance"
                 ],
-                "summary": "Treasury spend proposals",
+                "summary": "List treasury spend proposals",
                 "parameters": [
                     {
                         "description": "params",
@@ -11934,7 +11934,7 @@ const docTemplate = `{
         },
         "/api/scan/vesting_release": {
             "post": {
-                "description": "Get the list of vesting releases within a specified date range.(only for network has vesting frame)",
+                "description": "Returns vesting release records for the requested date range. This endpoint is available only on networks that support the vesting frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -11944,7 +11944,7 @@ const docTemplate = `{
                 "tags": [
                     "vesting"
                 ],
-                "summary": "Vesting release list",
+                "summary": "List vesting release records",
                 "parameters": [
                     {
                         "description": "params",
@@ -12621,7 +12621,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/account/tokens": {
             "post": {
-                "description": "Get the account token list, including native token and builtin/assets tokens and evm tokens(erc20/erc721).",
+                "description": "Returns paginated token holdings for one account address, including the native token, built-in assets, and EVM tokens such as ERC-20 and ERC-721 when available on the current network. Use token_type to narrow the token source or class, order_field and order to sort by token, balance, price, or supply, and page/row for pagination (max row 100). This is the primary endpoint for wallet token balances, account asset holdings, and token portfolio lookups.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12632,10 +12632,10 @@ const docTemplate = `{
                     "account",
                     "token"
                 ],
-                "summary": "Account token list v2",
+                "summary": "List token balances for an account (v2)",
                 "parameters": [
                     {
-                        "description": "params",
+                        "description": "Account address plus optional token type, sorting, and pagination controls.",
                         "name": "params",
                         "in": "body",
                         "required": true,
@@ -12684,19 +12684,24 @@ const docTemplate = `{
                 "x-synonyms": [
                     "account",
                     "token",
-                    "scan",
                     "tokens",
                     "wallet",
                     "address",
-                    "user",
                     "asset",
-                    "coin"
+                    "coin",
+                    "balance",
+                    "balances",
+                    "token balance",
+                    "token balances",
+                    "holdings",
+                    "portfolio",
+                    "wallet assets"
                 ]
             }
         },
         "/api/v2/scan/accounts": {
             "post": {
-                "description": "Get the native token accounts list",
+                "description": "Returns a paginated account list with optional balance filters, role filters, explicit address selection, and ordering.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12706,7 +12711,7 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Accounts list",
+                "summary": "List accounts",
                 "parameters": [
                     {
                         "description": "params",
@@ -13083,7 +13088,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/multiChain/account": {
             "post": {
-                "description": "balance of a multi-chains account along with data related to the account's participation in DeFi data.\nSupport Network: polkadot",
+                "description": "Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -13093,7 +13098,7 @@ const docTemplate = `{
                 "tags": [
                     "multiChain"
                 ],
-                "summary": "MultiChain account (BETA)",
+                "summary": "Get multichain account assets (BETA)",
                 "parameters": [
                     {
                         "description": "params",
@@ -13149,7 +13154,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/search": {
             "post": {
-                "description": "Get account information by address",
+                "description": "Resolves one account from a Substrate address, EVM address, or SS58 account index and returns normalized account details. If the account is not cached, the service may query on-chain balance data to create or refresh the account before responding. Use this endpoint for account lookup, wallet profile lookup, or resolving an address before calling balance- or token-related APIs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -13159,10 +13164,10 @@ const docTemplate = `{
                 "tags": [
                     "account"
                 ],
-                "summary": "Account by address",
+                "summary": "Get account information by address or account index",
                 "parameters": [
                     {
-                        "description": "param",
+                        "description": "Account lookup input. Accepts a Substrate address, EVM address, or account index.",
                         "name": "param",
                         "in": "body",
                         "required": true,
@@ -13183,7 +13188,12 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/subscan_internal_model.AccountJsonV1"
+                                            "type": "object",
+                                            "properties": {
+                                                "account": {
+                                                    "$ref": "#/definitions/subscan_internal_model.AccountJsonV1"
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -13194,13 +13204,15 @@ const docTemplate = `{
                 "x-synonyms": [
                     "account",
                     "address",
-                    "scan",
-                    "search",
                     "wallet",
-                    "user",
                     "lookup",
                     "find",
-                    "query"
+                    "query",
+                    "resolve address",
+                    "wallet profile",
+                    "account profile",
+                    "evm address",
+                    "account index"
                 ]
             }
         },
@@ -15503,6 +15515,9 @@ const docTemplate = `{
             "properties": {
                 "address": {
                     "type": "string"
+                },
+                "token_type": {
+                    "type": "string"
                 }
             }
         },
@@ -17048,7 +17063,8 @@ const docTemplate = `{
             ],
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
                 }
             }
         },
@@ -17101,14 +17117,16 @@ const docTemplate = `{
             ],
             "properties": {
                 "address": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
                 },
                 "order": {
                     "type": "string",
                     "enum": [
                         "asc",
                         "desc"
-                    ]
+                    ],
+                    "example": "desc"
                 },
                 "order_field": {
                     "type": "string",
@@ -17117,19 +17135,23 @@ const docTemplate = `{
                         "balance",
                         "price",
                         "supply"
-                    ]
+                    ],
+                    "example": "balance"
                 },
                 "page": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "example": 0
                 },
                 "row": {
                     "type": "integer",
                     "maximum": 100,
-                    "minimum": 0
+                    "minimum": 0,
+                    "example": 20
                 },
                 "token_type": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "erc20"
                 }
             }
         },
