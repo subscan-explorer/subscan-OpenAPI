@@ -2418,6 +2418,25 @@ definitions:
     required:
     - key
     type: object
+  internal_server_http.accountNetAssetsParams:
+    properties:
+      order:
+        enum:
+        - desc
+        - asc
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 20
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
   internal_server_http.accountReferendumParams:
     properties:
       account:
@@ -4578,6 +4597,19 @@ definitions:
         type: string
       tag_type:
         type: string
+    type: object
+  subscan_internal_model.AccountNetAssetJson:
+    properties:
+      account_display:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      evm_account:
+        type: string
+      priced_token_count:
+        type: integer
+      total_value:
+        type: string
+      unpriced_token_count:
+        type: integer
     type: object
   subscan_internal_model.AccountNominateList:
     properties:
@@ -17462,6 +17494,48 @@ paths:
       - wallet
       - address
       - user
+  /api/v2/scan/accounts/net_assets:
+    post:
+      consumes:
+      - application/json
+      description: Returns a paginated account-level net-asset leaderboard from pre-aggregated
+        priced fungible-token snapshots.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.accountNetAssetsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.AccountNetAssetJson'
+                      type: array
+                  type: object
+              type: object
+      summary: List accounts by net assets
+      tags:
+      - account
+      x-synonyms:
+      - accounts
+      - net assets
+      - wealth
+      - leaderboard
+      - wallet
+      - token value
   /api/v2/scan/blocks:
     post:
       consumes:

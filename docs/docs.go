@@ -12764,6 +12764,71 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/v2/scan/accounts/net_assets": {
+            "post": {
+                "description": "Returns a paginated account-level net-asset leaderboard from pre-aggregated priced fungible-token snapshots.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "List accounts by net assets",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.accountNetAssetsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.AccountNetAssetJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "accounts",
+                    "net assets",
+                    "wealth",
+                    "leaderboard",
+                    "wallet",
+                    "token value"
+                ]
+            }
+        },
         "/api/v2/scan/blocks": {
             "post": {
                 "description": "Returns a paginated block list with optional author and block-range filters.",
@@ -17068,6 +17133,31 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.accountNetAssetsParams": {
+            "type": "object",
+            "properties": {
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "desc",
+                        "asc"
+                    ]
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 20
+                }
+            }
+        },
         "internal_server_http.accountReferendumParams": {
             "type": "object",
             "required": [
@@ -20080,6 +20170,26 @@ const docTemplate = `{
                 },
                 "tag_type": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.AccountNetAssetJson": {
+            "type": "object",
+            "properties": {
+                "account_display": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "evm_account": {
+                    "type": "string"
+                },
+                "priced_token_count": {
+                    "type": "integer"
+                },
+                "total_value": {
+                    "type": "string"
+                },
+                "unpriced_token_count": {
+                    "type": "integer"
                 }
             }
         },
