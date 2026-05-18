@@ -20133,6 +20133,9 @@ const docTemplate = `{
                 "twitter": {
                     "type": "string"
                 },
+                "transferable_balance": {
+                    "type": "string"
+                },
                 "unbonding": {
                     "type": "string"
                 },
