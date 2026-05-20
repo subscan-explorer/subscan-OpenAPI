@@ -90,7 +90,6 @@ Please notice before you get started:
 | Enjin-canary-relay   | `canary.api.subscan.io`                        | test    |
 | Enjin-matrix         | `matrix.api.subscan.io`                        | live    |
 | Enjin-relay          | `enjin.api.subscan.io`                         | live    |
-| Heima                | `heima.api.subscan.io`                         | live    |
 | Humanode             | `humanode.api.subscan.io`                      | live    |
 | Hydradx              | `hydration.api.subscan.io`                     | live    |
 | Karura               | `karura.api.subscan.io`                        | live    |

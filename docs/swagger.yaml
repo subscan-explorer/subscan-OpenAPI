@@ -2884,6 +2884,30 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_server_http.dailyRewardPayoutParams:
+    properties:
+      end:
+        example: "2024-07-02"
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      start:
+        example: "2024-07-01"
+        type: string
+    type: object
   internal_server_http.dailyRewardSlashParams:
     properties:
       address:
@@ -4570,9 +4594,9 @@ definitions:
         type: string
       substrate_account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
-      twitter:
-        type: string
       transferable_balance:
+        type: string
+      twitter:
         type: string
       unbonding:
         type: string
@@ -5454,6 +5478,13 @@ definitions:
     - HRMPProtocol
     - SnowBridge
     - SnowbridgeTanssi
+  subscan_internal_model.DailyRewardPayoutJson:
+    properties:
+      date:
+        type: string
+      reward:
+        type: string
+    type: object
   subscan_internal_model.DailyRewardSlashJson:
     properties:
       account:
@@ -10792,13 +10823,56 @@ paths:
       - referendum
       - vote
       - treasury
+  /api/scan/daily/reward_payout:
+    post:
+      consumes:
+      - application/json
+      description: Returns reward payouts aggregated by date for global dashboard
+        and chart-center views.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.dailyRewardPayoutParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.DailyRewardPayoutJson'
+                      type: array
+                  type: object
+              type: object
+      summary: Get daily reward payout totals
+      tags:
+      - staking
+      x-synonyms:
+      - daily
+      - reward
+      - payout
+      - chart
+      - aggregate
+      - staking
+      - scan
   /api/scan/daily/reward_slash:
     post:
       consumes:
       - application/json
       description: |-
         Returns daily reward/slash aggregates with optional account, category, and date-range filters.
-        Only supports agung-testnet,peaq,krest,tanssi network
+        This API only supports networks with the staking frame pallet.
       parameters:
       - description: params
         in: body

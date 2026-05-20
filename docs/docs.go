@@ -2731,9 +2731,75 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/scan/daily/reward_payout": {
+            "post": {
+                "description": "Returns reward payouts aggregated by date for global dashboard and chart-center views.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "staking"
+                ],
+                "summary": "Get daily reward payout totals",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.dailyRewardPayoutParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.DailyRewardPayoutJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "daily",
+                    "reward",
+                    "payout",
+                    "chart",
+                    "aggregate",
+                    "staking",
+                    "scan"
+                ]
+            }
+        },
         "/api/scan/daily/reward_slash": {
             "post": {
-                "description": "Returns daily reward/slash aggregates with optional account, category, and date-range filters.\nOnly supports agung-testnet,peaq,krest,tanssi network",
+                "description": "Returns daily reward/slash aggregates with optional account, category, and date-range filters.\nThis API only supports networks with the staking frame pallet.",
                 "consumes": [
                     "application/json"
                 ],
@@ -17762,6 +17828,38 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.dailyRewardPayoutParams": {
+            "type": "object",
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "example": "2024-07-02"
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2024-07-01"
+                }
+            }
+        },
         "internal_server_http.dailyRewardSlashParams": {
             "type": "object",
             "properties": {
@@ -20130,10 +20228,10 @@ const docTemplate = `{
                 "substrate_account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
-                "twitter": {
+                "transferable_balance": {
                     "type": "string"
                 },
-                "transferable_balance": {
+                "twitter": {
                     "type": "string"
                 },
                 "unbonding": {
@@ -21461,6 +21559,17 @@ const docTemplate = `{
                 "SnowBridge",
                 "SnowbridgeTanssi"
             ]
+        },
+        "subscan_internal_model.DailyRewardPayoutJson": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "reward": {
+                    "type": "string"
+                }
+            }
         },
         "subscan_internal_model.DailyRewardSlashJson": {
             "type": "object",
