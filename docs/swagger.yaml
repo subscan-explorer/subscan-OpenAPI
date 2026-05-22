@@ -3432,6 +3432,90 @@ definitions:
           type: string
         type: array
     type: object
+  internal_server_http.parachainMetricListParams:
+    properties:
+      end:
+        example: "2026-05-20"
+        type: string
+      format:
+        enum:
+        - hour
+        - day
+        example: day
+        type: string
+      metrics:
+        items:
+          type: string
+        type: array
+      networks:
+        items:
+          type: string
+        type: array
+      order:
+        enum:
+        - asc
+        - desc
+        example: desc
+        type: string
+      order_field:
+        example: extrinsic_count
+        type: string
+      page:
+        example: 0
+        minimum: 0
+        type: integer
+      para_ids:
+        items:
+          type: integer
+        type: array
+      relay_network:
+        example: polkadot
+        type: string
+      row:
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      start:
+        example: "2026-05-01"
+        type: string
+    required:
+    - end
+    - start
+    type: object
+  internal_server_http.parachainMetricParams:
+    properties:
+      end:
+        example: "2026-05-20"
+        type: string
+      format:
+        enum:
+        - hour
+        - day
+        example: day
+        type: string
+      metrics:
+        items:
+          type: string
+        type: array
+      networks:
+        items:
+          type: string
+        type: array
+      para_ids:
+        items:
+          type: integer
+        type: array
+      relay_network:
+        example: polkadot
+        type: string
+      start:
+        example: "2026-05-01"
+        type: string
+    required:
+    - end
+    - start
+    type: object
   internal_server_http.preimageDetailsParams:
     properties:
       hash:
@@ -6447,6 +6531,73 @@ definitions:
       xcm_send_message_count:
         type: integer
       xcm_send_transfer_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParachainMetricNetworkStat:
+    properties:
+      avg_tps:
+        type: string
+      extrinsic_count:
+        type: integer
+      network:
+        type: string
+      para_id:
+        type: integer
+      peak_tps:
+        type: string
+      relay_network:
+        type: string
+      transfer_count:
+        type: integer
+      updated_at:
+        type: string
+      xcm_receive_count:
+        type: integer
+      xcm_send_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParachainMetricSeriesPoint:
+    properties:
+      avg_tps:
+        type: string
+      bucket_format:
+        type: string
+      bucket_time:
+        type: string
+      extrinsic_count:
+        type: integer
+      network:
+        type: string
+      para_id:
+        type: integer
+      peak_tps:
+        type: string
+      relay_network:
+        type: string
+      transfer_count:
+        type: integer
+      updated_at:
+        type: string
+      xcm_receive_count:
+        type: integer
+      xcm_send_count:
+        type: integer
+    type: object
+  subscan_internal_model.ParachainMetricTotal:
+    properties:
+      avg_tps:
+        type: string
+      extrinsic_count:
+        type: integer
+      peak_tps:
+        type: string
+      transfer_count:
+        type: integer
+      updated_at:
+        type: string
+      xcm_receive_count:
+        type: integer
+      xcm_send_count:
         type: integer
     type: object
   subscan_internal_model.PreImageJson:
@@ -14370,6 +14521,130 @@ paths:
       - registerinfo
       - para chain
       - relaychain shard
+  /api/scan/parachain/statistics/list:
+    post:
+      consumes:
+      - application/json
+      description: Returns one cached aggregate row per parachain network for relay-level
+        dashboards.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainMetricListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainMetricNetworkStat'
+                      type: array
+                  type: object
+              type: object
+      summary: List relay parachain statistics
+      tags:
+      - parachain
+      x-synonyms:
+      - parachain
+      - statistics
+      - relaychain
+      - list
+      - network
+      - para id
+  /api/scan/parachain/statistics/overview:
+    post:
+      consumes:
+      - application/json
+      description: Returns cached aggregate extrinsic, transfer, TPS, and XCM counters
+        for parachains under the current relay chain. Reads pre-aggregated rollups
+        only and does not fan out to parachain APIs.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainMetricParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    total:
+                      $ref: '#/definitions/subscan_internal_model.ParachainMetricTotal'
+                    updated_at:
+                      type: string
+                  type: object
+              type: object
+      summary: Get relay parachain statistics overview
+      tags:
+      - parachain
+      x-synonyms:
+      - parachain
+      - statistics
+      - relaychain
+      - tps
+      - extrinsic
+      - transfer
+      - xcm
+  /api/scan/parachain/statistics/timeseries:
+    post:
+      consumes:
+      - application/json
+      description: Returns cached hourly or daily parachain metric rollups for chart
+        rendering.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.parachainMetricParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    series:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ParachainMetricSeriesPoint'
+                      type: array
+                  type: object
+              type: object
+      summary: Get relay parachain statistics timeseries
+      tags:
+      - parachain
+      x-synonyms:
+      - parachain
+      - statistics
+      - relaychain
+      - timeseries
+      - chart
+      - tps
   /api/scan/pendingExtrinsics:
     post:
       consumes:

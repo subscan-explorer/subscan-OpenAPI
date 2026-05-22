@@ -8003,6 +8003,196 @@
                 ]
             }
         },
+        "/api/scan/parachain/statistics/list": {
+            "post": {
+                "description": "Returns one cached aggregate row per parachain network for relay-level dashboards.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "List relay parachain statistics",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainMetricListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ParachainMetricNetworkStat"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "statistics",
+                    "relaychain",
+                    "list",
+                    "network",
+                    "para id"
+                ]
+            }
+        },
+        "/api/scan/parachain/statistics/overview": {
+            "post": {
+                "description": "Returns cached aggregate extrinsic, transfer, TPS, and XCM counters for parachains under the current relay chain. Reads pre-aggregated rollups only and does not fan out to parachain APIs.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "Get relay parachain statistics overview",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainMetricParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total": {
+                                                    "$ref": "#/definitions/subscan_internal_model.ParachainMetricTotal"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "statistics",
+                    "relaychain",
+                    "tps",
+                    "extrinsic",
+                    "transfer",
+                    "xcm"
+                ]
+            }
+        },
+        "/api/scan/parachain/statistics/timeseries": {
+            "post": {
+                "description": "Returns cached hourly or daily parachain metric rollups for chart rendering.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "parachain"
+                ],
+                "summary": "Get relay parachain statistics timeseries",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.parachainMetricParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "series": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ParachainMetricSeriesPoint"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "parachain",
+                    "statistics",
+                    "relaychain",
+                    "timeseries",
+                    "chart",
+                    "tps"
+                ]
+            }
+        },
         "/api/scan/pendingExtrinsics": {
             "post": {
                 "description": "Returns currently pending extrinsics in the mempool.",
@@ -18576,6 +18766,123 @@
                 }
             }
         },
+        "internal_server_http.parachainMetricListParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "example": "2026-05-20"
+                },
+                "format": {
+                    "type": "string",
+                    "enum": [
+                        "hour",
+                        "day"
+                    ],
+                    "example": "day"
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
+                    "example": "desc"
+                },
+                "order_field": {
+                    "type": "string",
+                    "example": "extrinsic_count"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "para_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "relay_network": {
+                    "type": "string",
+                    "example": "polkadot"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2026-05-01"
+                }
+            }
+        },
+        "internal_server_http.parachainMetricParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "example": "2026-05-20"
+                },
+                "format": {
+                    "type": "string",
+                    "enum": [
+                        "hour",
+                        "day"
+                    ],
+                    "example": "day"
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "para_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "relay_network": {
+                    "type": "string",
+                    "example": "polkadot"
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2026-05-01"
+                }
+            }
+        },
         "internal_server_http.preimageDetailsParams": {
             "type": "object",
             "required": [
@@ -23006,6 +23313,108 @@
                     "type": "integer"
                 },
                 "xcm_send_transfer_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ParachainMetricNetworkStat": {
+            "type": "object",
+            "properties": {
+                "avg_tps": {
+                    "type": "string"
+                },
+                "extrinsic_count": {
+                    "type": "integer"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "peak_tps": {
+                    "type": "string"
+                },
+                "relay_network": {
+                    "type": "string"
+                },
+                "transfer_count": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "xcm_receive_count": {
+                    "type": "integer"
+                },
+                "xcm_send_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ParachainMetricSeriesPoint": {
+            "type": "object",
+            "properties": {
+                "avg_tps": {
+                    "type": "string"
+                },
+                "bucket_format": {
+                    "type": "string"
+                },
+                "bucket_time": {
+                    "type": "string"
+                },
+                "extrinsic_count": {
+                    "type": "integer"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "peak_tps": {
+                    "type": "string"
+                },
+                "relay_network": {
+                    "type": "string"
+                },
+                "transfer_count": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "xcm_receive_count": {
+                    "type": "integer"
+                },
+                "xcm_send_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.ParachainMetricTotal": {
+            "type": "object",
+            "properties": {
+                "avg_tps": {
+                    "type": "string"
+                },
+                "extrinsic_count": {
+                    "type": "integer"
+                },
+                "peak_tps": {
+                    "type": "string"
+                },
+                "transfer_count": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "xcm_receive_count": {
+                    "type": "integer"
+                },
+                "xcm_send_count": {
                     "type": "integer"
                 }
             }
