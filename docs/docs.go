@@ -13022,7 +13022,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/accounts/net_assets": {
             "post": {
-                "description": "Returns a paginated account-level net-asset leaderboard from pre-aggregated priced fungible-token snapshots.",
+                "description": "Returns a paginated account-level net-asset leaderboard. Native-only networks read directly from chain_accounts; other networks use pre-aggregated priced fungible-token snapshots.",
                 "consumes": [
                     "application/json"
                 ],
