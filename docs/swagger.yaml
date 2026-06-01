@@ -1,3 +1,4 @@
+basePath: /
 definitions:
   internal_plugin_assets_http.assetActivitiesParams:
     properties:
@@ -9132,8 +9133,19 @@ definitions:
       plain_type:
         type: string
     type: object
+host: https://www.subscan.io
 info:
-  contact: {}
+  contact:
+    email: bruce.sun@itering.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a subscan API server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Subscan API
+  version: "1.0"
 paths:
   /api/now:
     get:
@@ -9154,7 +9166,7 @@ paths:
               type: object
       summary: Get current timestamp
       tags:
-      - common
+      - Common
       x-synonyms:
       - now
       - timestamp
@@ -9183,7 +9195,7 @@ paths:
               type: object
       summary: List supported native-token quote currencies
       tags:
-      - currency
+      - Currency
       x-synonyms:
       - supported
       - currencies
@@ -9216,7 +9228,7 @@ paths:
               type: object
       summary: Get the native token price at a specific time
       tags:
-      - currency
+      - Currency
       x-synonyms:
       - currency
       - price
@@ -9251,7 +9263,7 @@ paths:
               type: object
       summary: Convert one token value between currencies
       tags:
-      - currency
+      - Currency
       x-synonyms:
       - currency
       - price
@@ -9293,7 +9305,7 @@ paths:
               type: object
       summary: List account asset-change history
       tags:
-      - account
+      - Account
       x-synonyms:
       - account
       - assets
@@ -9338,7 +9350,7 @@ paths:
               type: object
       summary: Get account balance history
       tags:
-      - account
+      - Account
       x-synonyms:
       - account
       - balance
@@ -9382,7 +9394,7 @@ paths:
               type: object
       summary: List governance items for an account
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - account
       - referendum
@@ -9429,7 +9441,7 @@ paths:
               type: object
       summary: List reward and slash records
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - reward
       - slash
@@ -9468,7 +9480,7 @@ paths:
               type: object
       summary: List token balances for an account
       tags:
-      - account
+      - Account
       x-synonyms:
       - account
       - token
@@ -9511,7 +9523,7 @@ paths:
               type: object
       summary: Get monthly active account statistics
       tags:
-      - stat
+      - Stat
       x-synonyms:
       - monthly
       - active
@@ -9553,7 +9565,7 @@ paths:
               type: object
       summary: List account merkle records
       tags:
-      - account
+      - Account
       x-synonyms:
       - account
       - merkle
@@ -9591,7 +9603,7 @@ paths:
               type: object
       summary: Get account statistics
       tags:
-      - account
+      - Account
       x-synonyms:
       - account
       - statistics
@@ -9624,7 +9636,7 @@ paths:
             type: object
       summary: Asset account balances
       tags:
-      - assets
+      - Assets
       x-synonyms:
       - asset
       - account
@@ -9658,7 +9670,7 @@ paths:
             type: object
       summary: Asset activities
       tags:
-      - assets
+      - Assets
       x-synonyms:
       - asset
       - activities
@@ -9688,7 +9700,7 @@ paths:
             type: object
       summary: Asset info
       tags:
-      - assets
+      - Assets
       x-synonyms:
       - asset
       - assets
@@ -9717,7 +9729,7 @@ paths:
             type: object
       summary: Asset holders
       tags:
-      - assets
+      - Assets
       x-synonyms:
       - asset
       - holders
@@ -9762,7 +9774,7 @@ paths:
             type: object
       summary: Assets list
       tags:
-      - assets
+      - Assets
       x-synonyms:
       - assets
       - scan
@@ -9793,7 +9805,7 @@ paths:
               type: object
       summary: Get block details
       tags:
-      - block
+      - Block
       x-synonyms:
       - block
       - scan
@@ -9834,7 +9846,7 @@ paths:
               type: object
       summary: List child bounties
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - child
       - bounty
@@ -9873,7 +9885,7 @@ paths:
               type: object
       summary: Get bounty details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - bounty
       - governance
@@ -9919,7 +9931,7 @@ paths:
               type: object
       summary: List bounties
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - bounty
       - governance
@@ -9966,7 +9978,7 @@ paths:
             type: object
       summary: List coretime assignments
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - assignments
@@ -10011,7 +10023,7 @@ paths:
             type: object
       summary: List coretime broker operations
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - broker
@@ -10056,7 +10068,7 @@ paths:
             type: object
       summary: List purchased coretime regions
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - purchased
       - coretime
@@ -10093,7 +10105,7 @@ paths:
             type: object
       summary: Get coretime region information
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - region
@@ -10138,7 +10150,7 @@ paths:
             type: object
       summary: List coretime regions
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - regions
@@ -10175,7 +10187,7 @@ paths:
             type: object
       summary: Get coretime sale information
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - sale
@@ -10219,7 +10231,7 @@ paths:
             type: object
       summary: List coretime sale history
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - sale
@@ -10258,7 +10270,7 @@ paths:
             type: object
       summary: Get coretime workload details
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - workload
@@ -10302,7 +10314,7 @@ paths:
             type: object
       summary: List coretime workload history
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - workload
@@ -10347,7 +10359,7 @@ paths:
             type: object
       summary: List coretime workloads
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - workloads
@@ -10391,7 +10403,7 @@ paths:
             type: object
       summary: List coretime workplans
       tags:
-      - coretime
+      - Coretime
       x-synonyms:
       - coretime
       - workplans
@@ -10421,7 +10433,7 @@ paths:
           schema: {}
       summary: Identify the object type for a hash
       tags:
-      - search
+      - Search
       x-synonyms:
       - check
       - hash
@@ -10459,7 +10471,7 @@ paths:
             type: object
       summary: Get collator details
       tags:
-      - collator
+      - Collator
       x-synonyms:
       - collator
       - scan
@@ -10501,7 +10513,7 @@ paths:
             type: object
       summary: List collators
       tags:
-      - collator
+      - Collator
       x-synonyms:
       - collators
       - collator
@@ -10529,7 +10541,7 @@ paths:
             type: object
       summary: Get collator metadata
       tags:
-      - collator
+      - Collator
       x-synonyms:
       - collator
       - metadata
@@ -10573,7 +10585,7 @@ paths:
             type: object
       summary: List collator timeline records
       tags:
-      - collator
+      - Collator
       x-synonyms:
       - collator
       - timeline
@@ -10616,7 +10628,7 @@ paths:
               type: object
       summary: List WASM contract events
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - contract
       - events
@@ -10654,7 +10666,7 @@ paths:
               type: object
       summary: Get WASM contract details
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - contract
       - contracts
@@ -10696,7 +10708,7 @@ paths:
               type: object
       summary: List WASM contracts
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - wasm
       - contract
@@ -10733,7 +10745,7 @@ paths:
               type: object
       summary: Get WASM contract aggregate metadata
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - contract
       - meta
@@ -10774,7 +10786,7 @@ paths:
               type: object
       summary: Get a WASM contract timeline
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - contract
       - timeline
@@ -10818,7 +10830,7 @@ paths:
               type: object
       summary: List WASM contract transactions
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - wasm
       - contract
@@ -10852,7 +10864,7 @@ paths:
               type: object
       summary: List supported contract compiler images
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - compiler
       - images
@@ -10882,7 +10894,7 @@ paths:
               type: object
       summary: List supported contract compiler versions
       tags:
-      - contracts
+      - Contracts
       x-synonyms:
       - compiler
       - versions
@@ -10921,7 +10933,7 @@ paths:
               type: object
       summary: Get council proposal details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - council
       - proposal
@@ -10965,7 +10977,7 @@ paths:
               type: object
       summary: List council proposals
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - council
       - proposals
@@ -11008,7 +11020,7 @@ paths:
               type: object
       summary: Get daily reward payout totals
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - daily
       - reward
@@ -11052,7 +11064,7 @@ paths:
               type: object
       summary: Get daily reward and slash aggregates
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - daily
       - reward
@@ -11094,7 +11106,7 @@ paths:
               type: object
       summary: Get daily token statistics
       tags:
-      - stat
+      - Stat
       x-synonyms:
       - daily
       - token
@@ -11205,7 +11217,7 @@ paths:
               type: object
       summary: Get democracy proposal details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - democracy
       - governance
@@ -11250,7 +11262,7 @@ paths:
               type: object
       summary: List democracy proposals
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - democracies
       - governance
@@ -11292,7 +11304,7 @@ paths:
               type: object
       summary: Get democracy referendum details (legacy)
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - legacy
@@ -11337,7 +11349,7 @@ paths:
               type: object
       summary: List democracy referendums
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendums
       - governance
@@ -11382,7 +11394,7 @@ paths:
               type: object
       summary: List democracy seconders
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - democracy
       - seconded
@@ -11427,7 +11439,7 @@ paths:
               type: object
       summary: List democracy referendum votes (legacy)
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - votes
@@ -11464,7 +11476,7 @@ paths:
               type: object
       summary: Get event by index
       tags:
-      - event
+      - Event
       x-synonyms:
       - event
       - index
@@ -11499,7 +11511,7 @@ paths:
               type: object
       summary: Get event parameters by index
       tags:
-      - event
+      - Event
       x-synonyms:
       - event
       - parameters
@@ -12259,7 +12271,7 @@ paths:
               type: object
       summary: Get extrinsic details
       tags:
-      - extrinsic
+      - Extrinsic
       x-synonyms:
       - extrinsic
       - scan
@@ -12294,7 +12306,7 @@ paths:
               type: object
       summary: Get extrinsic parameters
       tags:
-      - extrinsic
+      - Extrinsic
       x-synonyms:
       - extrinsic
       - parameters
@@ -12338,7 +12350,7 @@ paths:
               type: object
       summary: List extrinsic reward records
       tags:
-      - extrinsic
+      - Extrinsic
       x-synonyms:
       - extrinsic
       - reward
@@ -12374,7 +12386,7 @@ paths:
               type: object
       summary: Get fellowship referendum details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - fellowship
       - referenda
@@ -12419,7 +12431,7 @@ paths:
               type: object
       summary: List fellowship referenda
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - fellowship
       - referenda
@@ -12451,7 +12463,7 @@ paths:
               type: object
       summary: Get fellowship referendum statistics
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - fellowship
       - referendum
@@ -12484,7 +12496,7 @@ paths:
               type: object
       summary: List fellowship referendum tracks
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - fellowship
       - referendum
@@ -12529,7 +12541,7 @@ paths:
               type: object
       summary: List fellowship referendum votes
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - fellowship
       - referendum
@@ -12567,7 +12579,7 @@ paths:
               type: object
       summary: ForeignAssets account balances
       tags:
-      - foreignAssets
+      - ForeignAssets
       x-synonyms:
       - foreignassets
       - account
@@ -12609,7 +12621,7 @@ paths:
               type: object
       summary: ForeignAssets activities
       tags:
-      - foreignAssets
+      - ForeignAssets
       x-synonyms:
       - foreignassets
       - activities
@@ -12638,7 +12650,7 @@ paths:
               type: object
       summary: ForeignAssets list all
       tags:
-      - foreignAssets
+      - ForeignAssets
       x-synonyms:
       - foreignassets
       - scan
@@ -12668,7 +12680,7 @@ paths:
               type: object
       summary: ForeignAssets info
       tags:
-      - foreignAssets
+      - ForeignAssets
       x-synonyms:
       - foreignassets
       - scan
@@ -12706,7 +12718,7 @@ paths:
               type: object
       summary: ForeignAssets holders
       tags:
-      - foreignAssets
+      - ForeignAssets
       x-synonyms:
       - foreignassets
       - holders
@@ -12747,7 +12759,7 @@ paths:
               type: object
       summary: ForeignAssets list
       tags:
-      - foreignAssets
+      - ForeignAssets
       x-synonyms:
       - foreignassets
       - scan
@@ -12779,7 +12791,7 @@ paths:
               type: object
       summary: Get raw extrinsic transaction
       tags:
-      - extrinsic
+      - Extrinsic
       x-synonyms:
       - raw
       - extrinsic
@@ -12815,7 +12827,7 @@ paths:
               type: object
       summary: Get external discussion for a governance item
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - more
       - information
@@ -12853,7 +12865,7 @@ paths:
               type: object
       summary: Get a block header
       tags:
-      - block
+      - Block
       x-synonyms:
       - block
       - header
@@ -12895,7 +12907,7 @@ paths:
             type: object
       summary: LiquidStaking operation record list
       tags:
-      - bifrost
+      - Bifrost
       x-synonyms:
       - liquidstaking
       - operation
@@ -12929,7 +12941,7 @@ paths:
               type: object
       summary: Get block log by index
       tags:
-      - log
+      - Log
       x-synonyms:
       - block
       - log
@@ -12957,7 +12969,7 @@ paths:
               type: object
       summary: Current network metadata
       tags:
-      - metadata
+      - Metadata
       x-synonyms:
       - current
       - network
@@ -12984,7 +12996,7 @@ paths:
               type: object
       summary: Midnight Supported Compact Compiler Versions
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - supported
@@ -13019,7 +13031,7 @@ paths:
               type: object
       summary: Midnight Contract Detail
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - contract
@@ -13055,7 +13067,7 @@ paths:
               type: object
       summary: Midnight Contract CMA info
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - contract
@@ -13091,7 +13103,7 @@ paths:
               type: object
       summary: Midnight Contract State
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - contract
@@ -13133,7 +13145,7 @@ paths:
               type: object
       summary: Midnight Contracts
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - contracts
@@ -13164,7 +13176,7 @@ paths:
               type: object
       summary: Midnight Transaction Detail
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - transaction
@@ -13204,7 +13216,7 @@ paths:
               type: object
       summary: Midnight Transactions
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - transactions
@@ -13236,7 +13248,7 @@ paths:
               type: object
       summary: Midnight Unshielded Balance
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - unshielded
@@ -13276,7 +13288,7 @@ paths:
               type: object
       summary: Midnight Unshielded Token Balance List
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - unshielded
@@ -13310,7 +13322,7 @@ paths:
               type: object
       summary: Midnight Unshielded Ledger
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - unshielded
@@ -13351,7 +13363,7 @@ paths:
               type: object
       summary: Midnight Unshielded Token Type List
       tags:
-      - midnight
+      - Midnight
       x-synonyms:
       - midnight
       - unshielded
@@ -13364,7 +13376,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns the number of multichain asset records associated with one account. Support network: Polkadot.
+        **PRO API**: Requires a Pro plan. Returns the number of multichain asset records associated with one account. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13385,14 +13397,14 @@ paths:
                 data:
                   type: integer
               type: object
-      summary: Count multichain account assets (BETA)
+      summary: '[PRO] Count multichain account assets'
       tags:
-      - multiChain
+      - MultiChain
+      - PRO
       x-synonyms:
       - multichain
       - account
       - count
-      - beta
       - scan
       - wallet
       - address
@@ -13402,7 +13414,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.
+        **PRO API**: Requires a Pro plan. Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13425,15 +13437,15 @@ paths:
                     $ref: '#/definitions/subscan_internal_dao.AccountBalanceValueHistory'
                   type: array
               type: object
-      summary: Get multichain account balance-value history (BETA)
+      summary: '[PRO] Get multichain account balance-value history'
       tags:
-      - multiChain
+      - MultiChain
+      - PRO
       x-synonyms:
       - account
       - balance
       - value
       - history
-      - beta
       - multichain
       - scan
       - wallet
@@ -13444,7 +13456,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.
+        **PRO API**: Requires a Pro plan. Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13478,15 +13490,15 @@ paths:
                       type: number
                   type: object
               type: object
-      summary: Get multichain account balance-value statistics (BETA)
+      summary: '[PRO] Get multichain account balance-value statistics'
       tags:
-      - multiChain
+      - MultiChain
+      - PRO
       x-synonyms:
       - account
       - balance
       - value
       - stat
-      - beta
       - multichain
       - scan
       - wallet
@@ -13497,7 +13509,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.
+        **PRO API**: Requires a Pro plan. Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13519,13 +13531,13 @@ paths:
                   additionalProperties: true
                   type: object
               type: object
-      summary: List multichain price snapshots (BETA)
+      summary: '[PRO] List multichain price snapshots'
       tags:
-      - multiChain
+      - MultiChain
+      - PRO
       x-synonyms:
       - multichain
       - price
-      - beta
       - scan
       - rate
       - valuation
@@ -13550,7 +13562,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken holder balance
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13586,7 +13598,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken activities
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13614,7 +13626,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken holders
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13644,7 +13656,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken info
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13671,7 +13683,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken item detail
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13699,7 +13711,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken item all
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13728,7 +13740,7 @@ paths:
             $ref: '#/definitions/subscan_internal_plugin_share.J'
       summary: Enjin multiToken list
       tags:
-      - enjin
+      - Enjin
       x-synonyms:
       - enjin
       - multitoken
@@ -13760,7 +13772,7 @@ paths:
               type: object
       summary: Get multisig extrinsic details
       tags:
-      - multisig
+      - Multisig
       x-synonyms:
       - multisig
       - extrinsic
@@ -13804,7 +13816,7 @@ paths:
               type: object
       summary: List multisig extrinsics
       tags:
-      - multisig
+      - Multisig
       x-synonyms:
       - multisig
       - extrinsics
@@ -13845,7 +13857,7 @@ paths:
               type: object
       summary: List multisig extrinsic details
       tags:
-      - multisig
+      - Multisig
       x-synonyms:
       - multisig
       - extrinsic
@@ -14170,7 +14182,7 @@ paths:
           schema: {}
       summary: Nomination Pools Activities
       tags:
-      - nominationPools
+      - NominationPools
       x-synonyms:
       - nomination
       - pools
@@ -14201,7 +14213,7 @@ paths:
           schema: {}
       summary: Nomination Pools Info
       tags:
-      - nominationPools
+      - NominationPools
       x-synonyms:
       - nomination
       - pools
@@ -14231,7 +14243,7 @@ paths:
           schema: {}
       summary: Nomination Pools Member Vote
       tags:
-      - nominationPools
+      - NominationPools
       x-synonyms:
       - nomination
       - pools
@@ -14263,7 +14275,7 @@ paths:
           schema: {}
       summary: Nomination Pools Members
       tags:
-      - nominationPools
+      - NominationPools
       x-synonyms:
       - nomination
       - pools
@@ -14294,7 +14306,7 @@ paths:
           schema: {}
       summary: Nomination Pools List
       tags:
-      - nominationPools
+      - NominationPools
       x-synonyms:
       - nomination
       - pools
@@ -14324,7 +14336,7 @@ paths:
           schema: {}
       summary: Nomination Pools Rewards
       tags:
-      - nominationPools
+      - NominationPools
       x-synonyms:
       - nomination
       - pools
@@ -14370,7 +14382,7 @@ paths:
               type: object
       summary: Get Moonbeam Orbiters rewards
       tags:
-      - moonbeam
+      - Moonbeam
       x-synonyms:
       - moonbeam
       - orbiters
@@ -14412,7 +14424,7 @@ paths:
               type: object
       summary: Get parachain details
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - scan
@@ -14453,7 +14465,7 @@ paths:
               type: object
       summary: List parachains and parathreads
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - scan
@@ -14479,7 +14491,7 @@ paths:
               type: object
       summary: Get parachain metadata
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - meta
@@ -14513,7 +14525,7 @@ paths:
               type: object
       summary: Get parachain registration info
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - register
@@ -14555,7 +14567,7 @@ paths:
               type: object
       summary: List relay parachain statistics
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - statistics
@@ -14596,7 +14608,7 @@ paths:
               type: object
       summary: Get relay parachain statistics overview
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - statistics
@@ -14637,7 +14649,7 @@ paths:
               type: object
       summary: Get relay parachain statistics timeseries
       tags:
-      - parachain
+      - Parachain
       x-synonyms:
       - parachain
       - statistics
@@ -14669,7 +14681,7 @@ paths:
               type: object
       summary: List pending extrinsics
       tags:
-      - extrinsic
+      - Extrinsic
       x-synonyms:
       - pending
       - extrinsics
@@ -14707,7 +14719,7 @@ paths:
               type: object
       summary: Get governance preimage details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - preimage
       - governance
@@ -14751,7 +14763,7 @@ paths:
               type: object
       summary: List governance preimages
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - preimage
       - governance
@@ -14796,7 +14808,7 @@ paths:
               type: object
       summary: Get token price history
       tags:
-      - stat
+      - Stat
       x-synonyms:
       - token
       - price
@@ -14840,7 +14852,7 @@ paths:
               type: object
       summary: List proxy extrinsics
       tags:
-      - proxy
+      - Proxy
       x-synonyms:
       - proxy
       - extrinsics
@@ -14875,7 +14887,7 @@ paths:
               type: object
       summary: Get referendum delegator details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - delegator
@@ -14921,7 +14933,7 @@ paths:
               type: object
       summary: List referendum delegator votes
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - delegator
@@ -14968,7 +14980,7 @@ paths:
               type: object
       summary: List referendum delegation relationships
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - delegated
@@ -15008,7 +15020,7 @@ paths:
               type: object
       summary: Get OpenGov referendum details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referenda
       - governance
@@ -15052,7 +15064,7 @@ paths:
               type: object
       summary: List OpenGov referenda
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referenda
       - governance
@@ -15083,7 +15095,7 @@ paths:
               type: object
       summary: Get referendum statistics
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - statistics
@@ -15116,7 +15128,7 @@ paths:
               type: object
       summary: List referendum tracks
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referendum
       - tracks
@@ -15161,7 +15173,7 @@ paths:
               type: object
       summary: List OpenGov referendum votes
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - referenda
       - votes
@@ -15195,7 +15207,7 @@ paths:
               type: object
       summary: List runtime versions
       tags:
-      - runtime
+      - Runtime
       x-synonyms:
       - runtime
       - versions
@@ -15237,7 +15249,7 @@ paths:
               type: object
       summary: Get runtime metadata
       tags:
-      - runtime
+      - Runtime
       x-synonyms:
       - runtime
       - metadata
@@ -15277,7 +15289,7 @@ paths:
               type: object
       summary: List runtime modules
       tags:
-      - runtime
+      - Runtime
       x-synonyms:
       - runtime
       - modules
@@ -15310,7 +15322,7 @@ paths:
               type: object
       summary: Get scheduled call details
       tags:
-      - scheduler
+      - Scheduler
       x-synonyms:
       - scheduled
       - call
@@ -15350,7 +15362,7 @@ paths:
               type: object
       summary: List scheduled calls
       tags:
-      - scheduler
+      - Scheduler
       x-synonyms:
       - scheduled
       - calls
@@ -15376,7 +15388,7 @@ paths:
               type: object
       summary: Get scheduler statistics
       tags:
-      - scheduler
+      - Scheduler
       x-synonyms:
       - scheduler
       - statistics
@@ -15414,7 +15426,7 @@ paths:
               type: object
       summary: Search accounts by identity display name
       tags:
-      - account
+      - Account
       x-synonyms:
       - search
       - identity
@@ -15458,7 +15470,7 @@ paths:
               type: object
       summary: Search tokens by name, symbol, or unique ID
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - search
       - token
@@ -15505,7 +15517,7 @@ paths:
               type: object
       summary: List validator era statistics
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - era
       - stat
@@ -15538,7 +15550,7 @@ paths:
               type: object
       summary: Get nominator details
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - nominator
       - staking
@@ -15580,7 +15592,7 @@ paths:
               type: object
       summary: List nominators for a validator
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - nominators
       - staking
@@ -15616,7 +15628,7 @@ paths:
               type: object
       summary: Get staking reward totals
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - staking
       - reward
@@ -15654,7 +15666,7 @@ paths:
               type: object
       summary: List unbonding records
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - unbonding
       - staking
@@ -15689,7 +15701,7 @@ paths:
               type: object
       summary: Get validator details
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - validator
       - staking
@@ -15729,7 +15741,7 @@ paths:
               type: object
       summary: Get validator bond statistics
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - validator
       - bond
@@ -15772,7 +15784,7 @@ paths:
               type: object
       summary: Get validator commission history
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - validator
       - commission
@@ -15816,7 +15828,7 @@ paths:
               type: object
       summary: List validators
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - validators
       - staking
@@ -15852,7 +15864,7 @@ paths:
               type: object
       summary: List account-voted validators
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - account-voted
       - validators
@@ -15894,7 +15906,7 @@ paths:
               type: object
       summary: List waiting validators
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - waiting
       - validators
@@ -15922,7 +15934,7 @@ paths:
             type: object
       summary: Crust storage daily stat
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -15953,7 +15965,7 @@ paths:
             type: object
       summary: Crust storage group detail
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -15983,7 +15995,7 @@ paths:
             type: object
       summary: Crust storage group members
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -16014,7 +16026,7 @@ paths:
             type: object
       summary: Crust storage groups
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -16044,7 +16056,7 @@ paths:
             type: object
       summary: Crust storage group member detail
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -16075,7 +16087,7 @@ paths:
             type: object
       summary: Crust storage group member files
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -16107,7 +16119,7 @@ paths:
             type: object
       summary: Crust storage group member orders
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -16139,7 +16151,7 @@ paths:
             type: object
       summary: Crust storage orders
       tags:
-      - crustStorage
+      - CrustStorage
       x-synonyms:
       - crust
       - storage
@@ -16180,7 +16192,7 @@ paths:
               type: object
       summary: sxt evm holder list
       tags:
-      - sxt
+      - Sxt
       x-synonyms:
       - sxt
       - evm
@@ -16227,7 +16239,7 @@ paths:
               type: object
       summary: sxt evm transfer list
       tags:
-      - sxt
+      - Sxt
       x-synonyms:
       - sxt
       - evm
@@ -16270,7 +16282,7 @@ paths:
               type: object
       summary: Get technical-committee proposal details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - techcomm
       - proposal
@@ -16315,7 +16327,7 @@ paths:
               type: object
       summary: List technical-committee proposals
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - techcomm
       - proposals
@@ -16353,7 +16365,7 @@ paths:
               type: object
       summary: List tokens by symbol
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - tokens
       - symbol
@@ -16395,7 +16407,7 @@ paths:
               type: object
       summary: List token holders
       tags:
-      - account
+      - Account
       x-synonyms:
       - token
       - holders
@@ -16429,7 +16441,7 @@ paths:
               type: object
       summary: List token prices
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - token
       - prices
@@ -16480,7 +16492,7 @@ paths:
               type: object
       summary: List tokens by unique ID
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - tokens
       - unique
@@ -16532,7 +16544,7 @@ paths:
             type: object
       summary: List Bifrost TokenGateway transfers
       tags:
-      - bifrost
+      - Bifrost
       x-synonyms:
       - tokengateway
       - hyperbridge
@@ -16570,7 +16582,7 @@ paths:
               type: object
       summary: Get treasury proposal details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - proposal
@@ -16614,7 +16626,7 @@ paths:
               type: object
       summary: List treasury proposals
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - proposals
@@ -16654,7 +16666,7 @@ paths:
               type: object
       summary: Get treasury tip details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - tip
@@ -16696,7 +16708,7 @@ paths:
               type: object
       summary: List treasury tippers
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - tippers
@@ -16740,7 +16752,7 @@ paths:
               type: object
       summary: List treasury tips
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - tips
@@ -16780,7 +16792,7 @@ paths:
               type: object
       summary: Get treasury council collective proposal details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - council
@@ -16825,7 +16837,7 @@ paths:
               type: object
       summary: List treasury council collective proposals
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - council
@@ -16870,7 +16882,7 @@ paths:
               type: object
       summary: List treasury council collective votes
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - council
@@ -16911,7 +16923,7 @@ paths:
               type: object
       summary: Get treasury spend proposal details
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - spend
@@ -16956,7 +16968,7 @@ paths:
               type: object
       summary: List treasury spend proposals
       tags:
-      - governance
+      - Governance
       x-synonyms:
       - treasury
       - spend
@@ -16988,7 +17000,7 @@ paths:
             type: object
       summary: List unique balances by account
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - balances
@@ -17021,7 +17033,7 @@ paths:
             type: object
       summary: List unique collection activities
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - collection
@@ -17043,7 +17055,7 @@ paths:
             type: object
       summary: List all unique collections
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - collections
@@ -17071,7 +17083,7 @@ paths:
             type: object
       summary: Get unique collection details
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - collection
@@ -17099,7 +17111,7 @@ paths:
             type: object
       summary: List unique collection holders
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - collection
@@ -17131,7 +17143,7 @@ paths:
             type: object
       summary: Get unique item details
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - item
@@ -17171,7 +17183,7 @@ paths:
               type: object
       summary: List unique collection items
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - collection
@@ -17200,7 +17212,7 @@ paths:
             type: object
       summary: List unique collections
       tags:
-      - uniques
+      - Uniques
       x-synonyms:
       - unique
       - collections
@@ -17321,7 +17333,7 @@ paths:
               type: object
       summary: List vesting release records
       tags:
-      - vesting
+      - Vesting
       x-synonyms:
       - vesting
       - release
@@ -17332,8 +17344,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns bridge-type XCM statistics grouped by time format. PRO
-        plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns bridge-type XCM statistics
+        grouped by time format.'
       parameters:
       - description: params
         in: body
@@ -17357,9 +17369,10 @@ paths:
                     type: array
                   type: object
               type: object
-      summary: Get XCM bridge statistics (PRO)
+      summary: '[PRO] Get XCM bridge statistics'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - bridge
@@ -17374,8 +17387,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns one XCM/HRMP channel by sender and recipient parachain
-        IDs. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns one XCM/HRMP channel
+        by sender and recipient parachain IDs.'
       parameters:
       - description: params
         in: body
@@ -17395,9 +17408,10 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.HrmpChannel'
               type: object
-      summary: Get XCM channel details (PRO)
+      summary: '[PRO] Get XCM channel details'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - channel
@@ -17410,8 +17424,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns XCM/HRMP channel list filtered by sender, recipient, status,
-        or para_id. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns XCM/HRMP channel list
+        filtered by sender, recipient, status, or para_id.'
       parameters:
       - description: params
         in: body
@@ -17436,9 +17450,10 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: List XCM channels (PRO)
+      summary: '[PRO] List XCM channels'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - channels
@@ -17451,8 +17466,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns the XCM message unique ID from origin or destination event/hash
-        inputs. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns the XCM message unique
+        ID from origin or destination event/hash inputs.'
       parameters:
       - description: params
         in: body
@@ -17472,9 +17487,10 @@ paths:
                 data:
                   type: string
               type: object
-      summary: Find XCM message ID by hash (PRO)
+      summary: '[PRO] Find XCM message ID by hash'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - find
       - xcm
@@ -17491,8 +17507,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns detailed information for one XCM message by unique_id or
-        origin identifiers. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns detailed information
+        for one XCM message by unique_id or origin identifiers.'
       parameters:
       - description: params
         in: body
@@ -17512,9 +17528,10 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.ParaXcmMessageJson'
               type: object
-      summary: Get XCM message details (PRO)
+      summary: '[PRO] Get XCM message details'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - message
@@ -17527,8 +17544,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns paginated XCM messages with protocol, status, asset, and
-        block-range filters. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns paginated XCM messages
+        with protocol, status, asset, and block-range filters.'
       parameters:
       - description: params
         in: body
@@ -17555,9 +17572,10 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: List XCM messages (PRO)
+      summary: '[PRO] List XCM messages'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - messages
@@ -17570,8 +17588,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns XCM metadata and parachain statistics, optionally filtered
-        by para_id. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns XCM metadata and parachain
+        statistics, optionally filtered by para_id.'
       parameters:
       - description: params
         in: body
@@ -17591,9 +17609,10 @@ paths:
                 data:
                   $ref: '#/definitions/subscan_internal_model.XcmMeta'
               type: object
-      summary: Get XCM metadata (PRO)
+      summary: '[PRO] Get XCM metadata'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - metadata
@@ -17608,8 +17627,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns XCM parachain send/receive statistics with optional direction
-        and date filters. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns XCM parachain send/receive
+        statistics with optional direction and date filters.'
       parameters:
       - description: params
         in: body
@@ -17631,9 +17650,10 @@ paths:
                     $ref: '#/definitions/subscan_internal_model.XcmMessageCountStatJson'
                   type: array
               type: object
-      summary: Get XCM parachain statistics (PRO)
+      summary: '[PRO] Get XCM parachain statistics'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - parachain
@@ -17650,8 +17670,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns XCM traffic statistics for a date range and optional parachain
-        filter. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns XCM traffic statistics
+        for a date range and optional parachain filter.'
       parameters:
       - description: params
         in: body
@@ -17684,9 +17704,10 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: Get XCM statistics (PRO)
+      summary: '[PRO] Get XCM statistics'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - statistics
@@ -17730,7 +17751,7 @@ paths:
               type: object
       summary: List account reward and slash records
       tags:
-      - staking
+      - Staking
       x-synonyms:
       - account
       - reward
@@ -17786,8 +17807,7 @@ paths:
               type: object
       summary: List token balances for an account (v2)
       tags:
-      - account
-      - token
+      - Account
       x-synonyms:
       - account
       - token
@@ -17837,7 +17857,7 @@ paths:
               type: object
       summary: List accounts
       tags:
-      - account
+      - Account
       x-synonyms:
       - accounts
       - account
@@ -17849,8 +17869,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns a paginated account-level net-asset leaderboard from pre-aggregated
-        priced fungible-token snapshots.
+      description: '**PRO API**: Requires a Pro plan. Returns a paginated account-level
+        net-asset leaderboard. Native-only networks read directly from chain_accounts;
+        other networks use pre-aggregated priced fungible-token snapshots.'
       parameters:
       - description: params
         in: body
@@ -17877,9 +17898,10 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: List accounts by net assets
+      summary: '[PRO] List accounts by net assets'
       tags:
-      - account
+      - Account
+      - PRO
       x-synonyms:
       - accounts
       - net assets
@@ -17921,7 +17943,7 @@ paths:
               type: object
       summary: List blocks
       tags:
-      - block
+      - Block
       x-synonyms:
       - blocks
       - block
@@ -17962,7 +17984,7 @@ paths:
               type: object
       summary: Get daily statistics (v2)
       tags:
-      - stat
+      - Stat
       x-synonyms:
       - daily
       - statistics
@@ -18002,7 +18024,7 @@ paths:
               type: object
       summary: List events
       tags:
-      - event
+      - Event
       x-synonyms:
       - events
       - event
@@ -18045,7 +18067,7 @@ paths:
               type: object
       summary: List extrinsics
       tags:
-      - extrinsic
+      - Extrinsic
       x-synonyms:
       - extrinsics
       - extrinsic
@@ -18087,7 +18109,7 @@ paths:
               type: object
       summary: List block logs
       tags:
-      - log
+      - Log
       x-synonyms:
       - block
       - logs
@@ -18100,7 +18122,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.
+        **PRO API**: Requires a Pro plan. Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.
         Support Network: polkadot
       parameters:
       - description: params
@@ -18128,13 +18150,13 @@ paths:
                       $ref: '#/definitions/subscan_internal_service_scan.DefiJson'
                   type: object
               type: object
-      summary: Get multichain account assets (BETA)
+      summary: '[PRO] Get multichain account assets'
       tags:
-      - multiChain
+      - MultiChain
+      - PRO
       x-synonyms:
       - multichain
       - account
-      - beta
       - scan
       - wallet
       - address
@@ -18174,7 +18196,7 @@ paths:
               type: object
       summary: Get account information by address or account index
       tags:
-      - account
+      - Account
       x-synonyms:
       - account
       - address
@@ -18219,7 +18241,7 @@ paths:
               type: object
       summary: Get native token
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - native
       - token
@@ -18251,7 +18273,7 @@ paths:
               type: object
       summary: List token providers
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - token
       - providers
@@ -18289,7 +18311,7 @@ paths:
               type: object
       summary: Search tokens (v2)
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - search
       - tokens
@@ -18336,7 +18358,7 @@ paths:
               type: object
       summary: List tokens (v2)
       tags:
-      - tokens
+      - Tokens
       x-synonyms:
       - tokens
       - scan
@@ -18376,7 +18398,7 @@ paths:
               type: object
       summary: List transfers
       tags:
-      - account
+      - Account
       x-synonyms:
       - transfers
       - account
@@ -18388,8 +18410,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: Returns paginated XCM messages with protocol, status, asset, and
-        block-range filters. PRO plan required.
+      description: '**PRO API**: Requires a Pro plan. Returns paginated XCM messages
+        with protocol, status, asset, and block-range filters.'
       parameters:
       - description: params
         in: body
@@ -18424,9 +18446,10 @@ paths:
                       type: array
                   type: object
               type: object
-      summary: List XCM messages (PRO)
+      summary: '[PRO] List XCM messages'
       tags:
       - Xcm
+      - PRO
       x-synonyms:
       - xcm
       - messages
@@ -18445,7 +18468,7 @@ paths:
             type: string
       summary: Liveness health check
       tags:
-      - health
+      - Health
       x-synonyms:
       - liveness
       - health
@@ -18461,9 +18484,12 @@ paths:
             type: string
       summary: Readiness health check
       tags:
-      - health
+      - Health
       x-synonyms:
       - readiness
       - health
       - check
 swagger: "2.0"
+tags:
+- description: Pro-only endpoints require a Subscan Pro plan.
+  name: PRO

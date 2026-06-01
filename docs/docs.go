@@ -9,7 +9,16 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "contact": {},
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "bruce.sun@itering.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -25,7 +34,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "common"
+                    "Common"
                 ],
                 "summary": "Get current timestamp",
                 "responses": {
@@ -64,7 +73,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "currency"
+                    "Currency"
                 ],
                 "summary": "List supported native-token quote currencies",
                 "responses": {
@@ -113,7 +122,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "currency"
+                    "Currency"
                 ],
                 "summary": "Get the native token price at a specific time",
                 "parameters": [
@@ -166,7 +175,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "currency"
+                    "Currency"
                 ],
                 "summary": "Convert one token value between currencies",
                 "parameters": [
@@ -220,7 +229,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "List account asset-change history",
                 "parameters": [
@@ -287,7 +296,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "Get account balance history",
                 "parameters": [
@@ -353,7 +362,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List governance items for an account",
                 "parameters": [
@@ -422,7 +431,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List reward and slash records",
                 "parameters": [
@@ -491,7 +500,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "List token balances for an account",
                 "parameters": [
@@ -548,7 +557,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "stat"
+                    "Stat"
                 ],
                 "summary": "Get monthly active account statistics",
                 "parameters": [
@@ -615,7 +624,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "List account merkle records",
                 "parameters": [
@@ -673,7 +682,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "Get account statistics",
                 "parameters": [
@@ -731,7 +740,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "assets"
+                    "Assets"
                 ],
                 "summary": "Asset account balances",
                 "parameters": [
@@ -776,7 +785,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "assets"
+                    "Assets"
                 ],
                 "summary": "Asset activities",
                 "parameters": [
@@ -817,7 +826,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "assets"
+                    "Assets"
                 ],
                 "summary": "Asset info",
                 "parameters": [
@@ -857,7 +866,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "assets"
+                    "Assets"
                 ],
                 "summary": "Asset holders",
                 "parameters": [
@@ -900,7 +909,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "assets"
+                    "Assets"
                 ],
                 "summary": "Assets list",
                 "parameters": [
@@ -960,7 +969,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "block"
+                    "Block"
                 ],
                 "summary": "Get block details",
                 "parameters": [
@@ -1012,7 +1021,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List child bounties",
                 "parameters": [
@@ -1080,7 +1089,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get bounty details",
                 "parameters": [
@@ -1137,7 +1146,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List bounties",
                 "parameters": [
@@ -1205,7 +1214,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime assignments",
                 "parameters": [
@@ -1270,7 +1279,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime broker operations",
                 "parameters": [
@@ -1335,7 +1344,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List purchased coretime regions",
                 "parameters": [
@@ -1400,7 +1409,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "Get coretime region information",
                 "parameters": [
@@ -1454,7 +1463,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime regions",
                 "parameters": [
@@ -1518,7 +1527,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "Get coretime sale information",
                 "parameters": [
@@ -1572,7 +1581,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime sale history",
                 "parameters": [
@@ -1638,7 +1647,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "Get coretime workload details",
                 "parameters": [
@@ -1691,7 +1700,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime workload history",
                 "parameters": [
@@ -1756,7 +1765,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime workloads",
                 "parameters": [
@@ -1820,7 +1829,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "coretime"
+                    "Coretime"
                 ],
                 "summary": "List coretime workplans",
                 "parameters": [
@@ -1884,7 +1893,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "search"
+                    "Search"
                 ],
                 "summary": "Identify the object type for a hash",
                 "parameters": [
@@ -1926,7 +1935,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "collator"
+                    "Collator"
                 ],
                 "summary": "Get collator details",
                 "parameters": [
@@ -1977,7 +1986,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "collator"
+                    "Collator"
                 ],
                 "summary": "List collators",
                 "parameters": [
@@ -2040,7 +2049,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "collator"
+                    "Collator"
                 ],
                 "summary": "Get collator metadata",
                 "responses": {
@@ -2083,7 +2092,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "collator"
+                    "Collator"
                 ],
                 "summary": "List collator timeline records",
                 "parameters": [
@@ -2147,7 +2156,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "List WASM contract events",
                 "parameters": [
@@ -2215,7 +2224,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "Get WASM contract details",
                 "parameters": [
@@ -2269,7 +2278,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "List WASM contracts",
                 "parameters": [
@@ -2335,7 +2344,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "Get WASM contract aggregate metadata",
                 "responses": {
@@ -2390,7 +2399,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "Get a WASM contract timeline",
                 "parameters": [
@@ -2453,7 +2462,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "List WASM contract transactions",
                 "parameters": [
@@ -2520,7 +2529,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "List supported contract compiler images",
                 "responses": {
@@ -2569,7 +2578,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "contracts"
+                    "Contracts"
                 ],
                 "summary": "List supported contract compiler versions",
                 "responses": {
@@ -2615,7 +2624,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get council proposal details",
                 "parameters": [
@@ -2675,7 +2684,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List council proposals",
                 "parameters": [
@@ -2741,7 +2750,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get daily reward payout totals",
                 "parameters": [
@@ -2807,7 +2816,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get daily reward and slash aggregates",
                 "parameters": [
@@ -2874,7 +2883,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "stat"
+                    "Stat"
                 ],
                 "summary": "Get daily token statistics",
                 "parameters": [
@@ -3046,7 +3055,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get democracy proposal details",
                 "parameters": [
@@ -3107,7 +3116,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List democracy proposals",
                 "parameters": [
@@ -3175,7 +3184,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get democracy referendum details (legacy)",
                 "parameters": [
@@ -3236,7 +3245,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List democracy referendums",
                 "parameters": [
@@ -3303,7 +3312,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List democracy seconders",
                 "parameters": [
@@ -3370,7 +3379,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List democracy referendum votes (legacy)",
                 "parameters": [
@@ -3438,7 +3447,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "event"
+                    "Event"
                 ],
                 "summary": "Get event by index",
                 "parameters": [
@@ -3491,7 +3500,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "event"
+                    "Event"
                 ],
                 "summary": "Get event parameters by index",
                 "parameters": [
@@ -4545,7 +4554,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "Extrinsic"
                 ],
                 "summary": "Get extrinsic details",
                 "parameters": [
@@ -4598,7 +4607,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "Extrinsic"
                 ],
                 "summary": "Get extrinsic parameters",
                 "parameters": [
@@ -4656,7 +4665,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "Extrinsic"
                 ],
                 "summary": "List extrinsic reward records",
                 "parameters": [
@@ -4721,7 +4730,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get fellowship referendum details",
                 "parameters": [
@@ -4777,7 +4786,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List fellowship referenda",
                 "parameters": [
@@ -4845,7 +4854,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get fellowship referendum statistics",
                 "responses": {
@@ -4890,7 +4899,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List fellowship referendum tracks",
                 "responses": {
@@ -4938,7 +4947,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List fellowship referendum votes",
                 "parameters": [
@@ -5005,7 +5014,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "foreignAssets"
+                    "ForeignAssets"
                 ],
                 "summary": "ForeignAssets account balances",
                 "parameters": [
@@ -5063,7 +5072,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "foreignAssets"
+                    "ForeignAssets"
                 ],
                 "summary": "ForeignAssets activities",
                 "parameters": [
@@ -5125,7 +5134,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "foreignAssets"
+                    "ForeignAssets"
                 ],
                 "summary": "ForeignAssets list all",
                 "responses": {
@@ -5172,7 +5181,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "foreignAssets"
+                    "ForeignAssets"
                 ],
                 "summary": "ForeignAssets info",
                 "parameters": [
@@ -5223,7 +5232,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "foreignAssets"
+                    "ForeignAssets"
                 ],
                 "summary": "ForeignAssets holders",
                 "parameters": [
@@ -5288,7 +5297,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "foreignAssets"
+                    "ForeignAssets"
                 ],
                 "summary": "ForeignAssets list",
                 "parameters": [
@@ -5350,7 +5359,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "Extrinsic"
                 ],
                 "summary": "Get raw extrinsic transaction",
                 "parameters": [
@@ -5405,7 +5414,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get external discussion for a governance item",
                 "parameters": [
@@ -5463,7 +5472,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "block"
+                    "Block"
                 ],
                 "summary": "Get a block header",
                 "parameters": [
@@ -5516,7 +5525,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "bifrost"
+                    "Bifrost"
                 ],
                 "summary": "LiquidStaking operation record list",
                 "parameters": [
@@ -5580,7 +5589,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "log"
+                    "Log"
                 ],
                 "summary": "Get block log by index",
                 "parameters": [
@@ -5631,7 +5640,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "metadata"
+                    "Metadata"
                 ],
                 "summary": "Current network metadata",
                 "responses": {
@@ -5674,7 +5683,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Supported Compact Compiler Versions",
                 "responses": {
@@ -5721,7 +5730,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Contract Detail",
                 "parameters": [
@@ -5775,7 +5784,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Contract CMA info",
                 "parameters": [
@@ -5833,7 +5842,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Contract State",
                 "parameters": [
@@ -5889,7 +5898,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Contracts",
                 "parameters": [
@@ -5951,7 +5960,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Transaction Detail",
                 "parameters": [
@@ -6004,7 +6013,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Transactions",
                 "parameters": [
@@ -6066,7 +6075,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Unshielded Balance",
                 "parameters": [
@@ -6119,7 +6128,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Unshielded Token Balance List",
                 "parameters": [
@@ -6184,7 +6193,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Unshielded Ledger",
                 "parameters": [
@@ -6238,7 +6247,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "midnight"
+                    "Midnight"
                 ],
                 "summary": "Midnight Unshielded Token Type List",
                 "parameters": [
@@ -6295,7 +6304,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/account/count": {
             "post": {
-                "description": "Returns the number of multichain asset records associated with one account. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a Pro plan. Returns the number of multichain asset records associated with one account. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6303,9 +6312,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multiChain"
+                    "MultiChain",
+                    "PRO"
                 ],
-                "summary": "Count multichain account assets (BETA)",
+                "summary": "[PRO] Count multichain account assets",
                 "parameters": [
                     {
                         "description": "params",
@@ -6341,7 +6351,6 @@ const docTemplate = `{
                     "multichain",
                     "account",
                     "count",
-                    "beta",
                     "scan",
                     "wallet",
                     "address",
@@ -6351,7 +6360,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_history": {
             "post": {
-                "description": "Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a Pro plan. Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6359,9 +6368,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multiChain"
+                    "MultiChain",
+                    "PRO"
                 ],
-                "summary": "Get multichain account balance-value history (BETA)",
+                "summary": "[PRO] Get multichain account balance-value history",
                 "parameters": [
                     {
                         "description": "params",
@@ -6401,7 +6411,6 @@ const docTemplate = `{
                     "balance",
                     "value",
                     "history",
-                    "beta",
                     "multichain",
                     "scan",
                     "wallet",
@@ -6412,7 +6421,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_stat": {
             "post": {
-                "description": "Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a Pro plan. Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6420,9 +6429,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multiChain"
+                    "MultiChain",
+                    "PRO"
                 ],
-                "summary": "Get multichain account balance-value statistics (BETA)",
+                "summary": "[PRO] Get multichain account balance-value statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -6479,7 +6489,6 @@ const docTemplate = `{
                     "balance",
                     "value",
                     "stat",
-                    "beta",
                     "multichain",
                     "scan",
                     "wallet",
@@ -6490,7 +6499,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/price": {
             "post": {
-                "description": "Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a Pro plan. Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6498,9 +6507,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multiChain"
+                    "MultiChain",
+                    "PRO"
                 ],
-                "summary": "List multichain price snapshots (BETA)",
+                "summary": "[PRO] List multichain price snapshots",
                 "parameters": [
                     {
                         "description": "params",
@@ -6536,7 +6546,6 @@ const docTemplate = `{
                 "x-synonyms": [
                     "multichain",
                     "price",
-                    "beta",
                     "scan",
                     "rate",
                     "valuation"
@@ -6553,7 +6562,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken holder balance",
                 "parameters": [
@@ -6602,7 +6611,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken activities",
                 "parameters": [
@@ -6643,7 +6652,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken holders",
                 "parameters": [
@@ -6686,7 +6695,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken info",
                 "parameters": [
@@ -6726,7 +6735,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken item detail",
                 "parameters": [
@@ -6767,7 +6776,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken item all",
                 "parameters": [
@@ -6809,7 +6818,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "enjin"
+                    "Enjin"
                 ],
                 "summary": "Enjin multiToken list",
                 "parameters": [
@@ -6849,7 +6858,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multisig"
+                    "Multisig"
                 ],
                 "summary": "Get multisig extrinsic details",
                 "parameters": [
@@ -6905,7 +6914,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multisig"
+                    "Multisig"
                 ],
                 "summary": "List multisig extrinsics",
                 "parameters": [
@@ -6970,7 +6979,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multisig"
+                    "Multisig"
                 ],
                 "summary": "List multisig extrinsic details",
                 "parameters": [
@@ -7478,7 +7487,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "nominationPools"
+                    "NominationPools"
                 ],
                 "summary": "Nomination Pools Activities",
                 "parameters": [
@@ -7521,7 +7530,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "nominationPools"
+                    "NominationPools"
                 ],
                 "summary": "Nomination Pools Info",
                 "parameters": [
@@ -7563,7 +7572,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "nominationPools"
+                    "NominationPools"
                 ],
                 "summary": "Nomination Pools Member Vote",
                 "parameters": [
@@ -7607,7 +7616,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "nominationPools"
+                    "NominationPools"
                 ],
                 "summary": "Nomination Pools Members",
                 "parameters": [
@@ -7650,7 +7659,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "nominationPools"
+                    "NominationPools"
                 ],
                 "summary": "Nomination Pools List",
                 "parameters": [
@@ -7692,7 +7701,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "nominationPools"
+                    "NominationPools"
                 ],
                 "summary": "Nomination Pools Rewards",
                 "parameters": [
@@ -7737,7 +7746,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "moonbeam"
+                    "Moonbeam"
                 ],
                 "summary": "Get Moonbeam Orbiters rewards",
                 "parameters": [
@@ -7802,7 +7811,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "Get parachain details",
                 "parameters": [
@@ -7865,7 +7874,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "List parachains and parathreads",
                 "parameters": [
@@ -7928,7 +7937,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "Get parachain metadata",
                 "responses": {
@@ -7970,7 +7979,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "Get parachain registration info",
                 "responses": {
@@ -8024,7 +8033,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "List relay parachain statistics",
                 "parameters": [
@@ -8089,7 +8098,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "Get relay parachain statistics overview",
                 "parameters": [
@@ -8152,7 +8161,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "parachain"
+                    "Parachain"
                 ],
                 "summary": "Get relay parachain statistics timeseries",
                 "parameters": [
@@ -8214,7 +8223,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "Extrinsic"
                 ],
                 "summary": "List pending extrinsics",
                 "responses": {
@@ -8267,7 +8276,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get governance preimage details",
                 "parameters": [
@@ -8322,7 +8331,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List governance preimages",
                 "parameters": [
@@ -8388,7 +8397,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "stat"
+                    "Stat"
                 ],
                 "summary": "Get token price history",
                 "parameters": [
@@ -8459,7 +8468,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "proxy"
+                    "Proxy"
                 ],
                 "summary": "List proxy extrinsics",
                 "parameters": [
@@ -8523,7 +8532,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get referendum delegator details",
                 "parameters": [
@@ -8580,7 +8589,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List referendum delegator votes",
                 "parameters": [
@@ -8649,7 +8658,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List referendum delegation relationships",
                 "parameters": [
@@ -8718,7 +8727,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get OpenGov referendum details",
                 "parameters": [
@@ -8773,7 +8782,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List OpenGov referenda",
                 "parameters": [
@@ -8840,7 +8849,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get referendum statistics",
                 "responses": {
@@ -8885,7 +8894,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List referendum tracks",
                 "responses": {
@@ -8933,7 +8942,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List OpenGov referendum votes",
                 "parameters": [
@@ -9000,7 +9009,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "runtime"
+                    "Runtime"
                 ],
                 "summary": "List runtime versions",
                 "responses": {
@@ -9050,7 +9059,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "runtime"
+                    "Runtime"
                 ],
                 "summary": "Get runtime metadata",
                 "parameters": [
@@ -9118,7 +9127,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "runtime"
+                    "Runtime"
                 ],
                 "summary": "List runtime modules",
                 "parameters": [
@@ -9179,7 +9188,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "scheduler"
+                    "Scheduler"
                 ],
                 "summary": "Get scheduled call details",
                 "parameters": [
@@ -9231,7 +9240,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "scheduler"
+                    "Scheduler"
                 ],
                 "summary": "List scheduled calls",
                 "parameters": [
@@ -9295,7 +9304,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "scheduler"
+                    "Scheduler"
                 ],
                 "summary": "Get scheduler statistics",
                 "responses": {
@@ -9336,7 +9345,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "Search accounts by identity display name",
                 "parameters": [
@@ -9402,7 +9411,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "Search tokens by name, symbol, or unique ID",
                 "parameters": [
@@ -9469,7 +9478,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List validator era statistics",
                 "parameters": [
@@ -9532,7 +9541,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get nominator details",
                 "parameters": [
@@ -9585,7 +9594,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List nominators for a validator",
                 "parameters": [
@@ -9647,7 +9656,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get staking reward totals",
                 "parameters": [
@@ -9705,7 +9714,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List unbonding records",
                 "parameters": [
@@ -9762,7 +9771,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get validator details",
                 "parameters": [
@@ -9820,7 +9829,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get validator bond statistics",
                 "parameters": [
@@ -9883,7 +9892,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "Get validator commission history",
                 "parameters": [
@@ -9949,7 +9958,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List validators",
                 "parameters": [
@@ -10011,7 +10020,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List account-voted validators",
                 "parameters": [
@@ -10072,7 +10081,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List waiting validators",
                 "parameters": [
@@ -10135,7 +10144,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage daily stat",
                 "parameters": [
@@ -10179,7 +10188,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage group detail",
                 "parameters": [
@@ -10222,7 +10231,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage group members",
                 "parameters": [
@@ -10266,7 +10275,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage groups",
                 "parameters": [
@@ -10309,7 +10318,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage group member detail",
                 "parameters": [
@@ -10353,7 +10362,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage group member files",
                 "parameters": [
@@ -10398,7 +10407,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage group member orders",
                 "parameters": [
@@ -10443,7 +10452,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "crustStorage"
+                    "CrustStorage"
                 ],
                 "summary": "Crust storage orders",
                 "parameters": [
@@ -10486,7 +10495,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "sxt"
+                    "Sxt"
                 ],
                 "summary": "sxt evm holder list",
                 "parameters": [
@@ -10557,7 +10566,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "sxt"
+                    "Sxt"
                 ],
                 "summary": "sxt evm transfer list",
                 "parameters": [
@@ -10626,7 +10635,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get technical-committee proposal details",
                 "parameters": [
@@ -10687,7 +10696,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List technical-committee proposals",
                 "parameters": [
@@ -10754,7 +10763,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "List tokens by symbol",
                 "responses": {
@@ -10811,7 +10820,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "List token holders",
                 "parameters": [
@@ -10881,7 +10890,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "List token prices",
                 "responses": {
@@ -10930,7 +10939,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "List tokens by unique ID",
                 "parameters": [
@@ -11005,7 +11014,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "bifrost"
+                    "Bifrost"
                 ],
                 "summary": "List Bifrost TokenGateway transfers",
                 "parameters": [
@@ -11071,7 +11080,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get treasury proposal details",
                 "parameters": [
@@ -11131,7 +11140,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List treasury proposals",
                 "parameters": [
@@ -11197,7 +11206,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get treasury tip details",
                 "parameters": [
@@ -11257,7 +11266,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List treasury tippers",
                 "parameters": [
@@ -11320,7 +11329,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List treasury tips",
                 "parameters": [
@@ -11386,7 +11395,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get treasury council collective proposal details",
                 "parameters": [
@@ -11447,7 +11456,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List treasury council collective proposals",
                 "parameters": [
@@ -11514,7 +11523,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List treasury council collective votes",
                 "parameters": [
@@ -11581,7 +11590,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "Get treasury spend proposal details",
                 "parameters": [
@@ -11642,7 +11651,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "governance"
+                    "Governance"
                 ],
                 "summary": "List treasury spend proposals",
                 "parameters": [
@@ -11709,7 +11718,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "List unique balances by account",
                 "parameters": [
@@ -11754,7 +11763,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "List unique collection activities",
                 "parameters": [
@@ -11796,7 +11805,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "List all unique collections",
                 "responses": {
@@ -11826,7 +11835,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "Get unique collection details",
                 "parameters": [
@@ -11867,7 +11876,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "List unique collection holders",
                 "parameters": [
@@ -11911,7 +11920,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "Get unique item details",
                 "parameters": [
@@ -11952,7 +11961,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "List unique collection items",
                 "parameters": [
@@ -12016,7 +12025,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "uniques"
+                    "Uniques"
                 ],
                 "summary": "List unique collections",
                 "parameters": [
@@ -12198,7 +12207,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "vesting"
+                    "Vesting"
                 ],
                 "summary": "List vesting release records",
                 "parameters": [
@@ -12251,7 +12260,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/bridge_stat": {
             "post": {
-                "description": "Returns bridge-type XCM statistics grouped by time format. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns bridge-type XCM statistics grouped by time format.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12259,9 +12268,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Get XCM bridge statistics (PRO)",
+                "summary": "[PRO] Get XCM bridge statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -12314,7 +12324,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/channel": {
             "post": {
-                "description": "Returns one XCM/HRMP channel by sender and recipient parachain IDs. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns one XCM/HRMP channel by sender and recipient parachain IDs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12322,9 +12332,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Get XCM channel details (PRO)",
+                "summary": "[PRO] Get XCM channel details",
                 "parameters": [
                     {
                         "description": "params",
@@ -12369,7 +12380,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/channels": {
             "post": {
-                "description": "Returns XCM/HRMP channel list filtered by sender, recipient, status, or para_id. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns XCM/HRMP channel list filtered by sender, recipient, status, or para_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12377,9 +12388,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "List XCM channels (PRO)",
+                "summary": "[PRO] List XCM channels",
                 "parameters": [
                     {
                         "description": "params",
@@ -12432,7 +12444,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/check_hash": {
             "post": {
-                "description": "Returns the XCM message unique ID from origin or destination event/hash inputs. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns the XCM message unique ID from origin or destination event/hash inputs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12440,9 +12452,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Find XCM message ID by hash (PRO)",
+                "summary": "[PRO] Find XCM message ID by hash",
                 "parameters": [
                     {
                         "description": "params",
@@ -12491,7 +12504,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/info": {
             "post": {
-                "description": "Returns detailed information for one XCM message by unique_id or origin identifiers. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns detailed information for one XCM message by unique_id or origin identifiers.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12499,9 +12512,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Get XCM message details (PRO)",
+                "summary": "[PRO] Get XCM message details",
                 "parameters": [
                     {
                         "description": "params",
@@ -12546,7 +12560,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/list": {
             "post": {
-                "description": "Returns paginated XCM messages with protocol, status, asset, and block-range filters. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns paginated XCM messages with protocol, status, asset, and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12554,9 +12568,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "List XCM messages (PRO)",
+                "summary": "[PRO] List XCM messages",
                 "parameters": [
                     {
                         "description": "params",
@@ -12612,7 +12627,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/meta": {
             "post": {
-                "description": "Returns XCM metadata and parachain statistics, optionally filtered by para_id. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns XCM metadata and parachain statistics, optionally filtered by para_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12620,9 +12635,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Get XCM metadata (PRO)",
+                "summary": "[PRO] Get XCM metadata",
                 "parameters": [
                     {
                         "description": "params",
@@ -12669,7 +12685,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/parachain/stat": {
             "post": {
-                "description": "Returns XCM parachain send/receive statistics with optional direction and date filters. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns XCM parachain send/receive statistics with optional direction and date filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12677,9 +12693,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Get XCM parachain statistics (PRO)",
+                "summary": "[PRO] Get XCM parachain statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -12731,7 +12748,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/stat": {
             "post": {
-                "description": "Returns XCM traffic statistics for a date range and optional parachain filter. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns XCM traffic statistics for a date range and optional parachain filter.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12739,9 +12756,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "Get XCM statistics (PRO)",
+                "summary": "[PRO] Get XCM statistics",
                 "parameters": [
                     {
                         "description": "params",
@@ -12815,7 +12833,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "staking"
+                    "Staking"
                 ],
                 "summary": "List account reward and slash records",
                 "parameters": [
@@ -12885,8 +12903,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account",
-                    "token"
+                    "Account"
                 ],
                 "summary": "List token balances for an account (v2)",
                 "parameters": [
@@ -12965,7 +12982,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "List accounts",
                 "parameters": [
@@ -13022,7 +13039,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/accounts/net_assets": {
             "post": {
-                "description": "Returns a paginated account-level net-asset leaderboard. Native-only networks read directly from chain_accounts; other networks use pre-aggregated priced fungible-token snapshots.",
+                "description": "**PRO API**: Requires a Pro plan. Returns a paginated account-level net-asset leaderboard. Native-only networks read directly from chain_accounts; other networks use pre-aggregated priced fungible-token snapshots.",
                 "consumes": [
                     "application/json"
                 ],
@@ -13030,9 +13047,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account",
+                    "PRO"
                 ],
-                "summary": "List accounts by net assets",
+                "summary": "[PRO] List accounts by net assets",
                 "parameters": [
                     {
                         "description": "params",
@@ -13095,7 +13113,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "block"
+                    "Block"
                 ],
                 "summary": "List blocks",
                 "parameters": [
@@ -13161,7 +13179,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "stat"
+                    "Stat"
                 ],
                 "summary": "Get daily statistics (v2)",
                 "parameters": [
@@ -13221,7 +13239,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "event"
+                    "Event"
                 ],
                 "summary": "List events",
                 "parameters": [
@@ -13287,7 +13305,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "extrinsic"
+                    "Extrinsic"
                 ],
                 "summary": "List extrinsics",
                 "parameters": [
@@ -13352,7 +13370,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "log"
+                    "Log"
                 ],
                 "summary": "List block logs",
                 "parameters": [
@@ -13409,7 +13427,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/multiChain/account": {
             "post": {
-                "description": "Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a Pro plan. Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -13417,9 +13435,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "multiChain"
+                    "MultiChain",
+                    "PRO"
                 ],
-                "summary": "Get multichain account assets (BETA)",
+                "summary": "[PRO] Get multichain account assets",
                 "parameters": [
                     {
                         "description": "params",
@@ -13465,7 +13484,6 @@ const docTemplate = `{
                 "x-synonyms": [
                     "multichain",
                     "account",
-                    "beta",
                     "scan",
                     "wallet",
                     "address",
@@ -13483,7 +13501,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "Get account information by address or account index",
                 "parameters": [
@@ -13547,7 +13565,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "Get native token",
                 "parameters": [
@@ -13609,7 +13627,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "List token providers",
                 "responses": {
@@ -13660,7 +13678,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "Search tokens (v2)",
                 "parameters": [
@@ -13723,7 +13741,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "tokens"
+                    "Tokens"
                 ],
                 "summary": "List tokens (v2)",
                 "parameters": [
@@ -13787,7 +13805,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "account"
+                    "Account"
                 ],
                 "summary": "List transfers",
                 "parameters": [
@@ -13847,7 +13865,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/xcm/list": {
             "post": {
-                "description": "Returns paginated XCM messages with protocol, status, asset, and block-range filters. PRO plan required.",
+                "description": "**PRO API**: Requires a Pro plan. Returns paginated XCM messages with protocol, status, asset, and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -13855,9 +13873,10 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Xcm"
+                    "Xcm",
+                    "PRO"
                 ],
-                "summary": "List XCM messages (PRO)",
+                "summary": "[PRO] List XCM messages",
                 "parameters": [
                     {
                         "description": "params",
@@ -13927,7 +13946,7 @@ const docTemplate = `{
             "get": {
                 "description": "Returns OK when the service process is alive.",
                 "tags": [
-                    "health"
+                    "Health"
                 ],
                 "summary": "Liveness health check",
                 "responses": {
@@ -13950,7 +13969,7 @@ const docTemplate = `{
             "get": {
                 "description": "Returns OK when the service is ready to serve traffic.",
                 "tags": [
-                    "health"
+                    "Health"
                 ],
                 "summary": "Readiness health check",
                 "responses": {
@@ -27245,17 +27264,23 @@ const docTemplate = `{
                 }
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "description": "Pro-only endpoints require a Subscan Pro plan.",
+            "name": "PRO"
+        }
+    ]
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "",
-	Host:             "",
-	BasePath:         "",
+	Version:          "1.0",
+	Host:             "https://www.subscan.io",
+	BasePath:         "/",
 	Schemes:          []string{},
-	Title:            "",
-	Description:      "",
+	Title:            "Subscan API",
+	Description:      "This is a subscan API server.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",
