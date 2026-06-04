@@ -2071,6 +2071,8 @@ definitions:
         maximum: 100
         minimum: 1
         type: integer
+    required:
+    - row
     type: object
   internal_pluginv2_pallets_nominationPool.nominationPoolsRewardsParams:
     properties:
@@ -13376,7 +13378,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        **PRO API**: Requires a Pro plan. Returns the number of multichain asset records associated with one account. Support network: Polkadot.
+        **PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the number of multichain asset records associated with one account.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13414,7 +13416,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        **PRO API**: Requires a Pro plan. Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.
+        **PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13456,7 +13458,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        **PRO API**: Requires a Pro plan. Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.
+        **PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the maximum, minimum, and previous-24-hour balance values for one account.
         Support Network: polkadot
       parameters:
       - description: params
@@ -13509,7 +13511,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        **PRO API**: Requires a Pro plan. Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.
+        **PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the available multichain price data, optionally including price-change information.
         Support Network: polkadot
       parameters:
       - description: params
@@ -17344,8 +17346,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns bridge-type XCM statistics
-        grouped by time format.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        bridge-type XCM statistics grouped by time format.'
       parameters:
       - description: params
         in: body
@@ -17387,8 +17389,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns one XCM/HRMP channel
-        by sender and recipient parachain IDs.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        one XCM/HRMP channel by sender and recipient parachain IDs.'
       parameters:
       - description: params
         in: body
@@ -17424,8 +17426,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns XCM/HRMP channel list
-        filtered by sender, recipient, status, or para_id.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        XCM/HRMP channel list filtered by sender, recipient, status, or para_id.'
       parameters:
       - description: params
         in: body
@@ -17466,8 +17468,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns the XCM message unique
-        ID from origin or destination event/hash inputs.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        the XCM message unique ID from origin or destination event/hash inputs.'
       parameters:
       - description: params
         in: body
@@ -17507,8 +17509,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns detailed information
-        for one XCM message by unique_id or origin identifiers.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        detailed information for one XCM message by unique_id or origin identifiers.'
       parameters:
       - description: params
         in: body
@@ -17544,8 +17546,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns paginated XCM messages
-        with protocol, status, asset, and block-range filters.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        paginated XCM messages with protocol, status, asset, and block-range filters.'
       parameters:
       - description: params
         in: body
@@ -17588,8 +17590,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns XCM metadata and parachain
-        statistics, optionally filtered by para_id.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        XCM metadata and parachain statistics, optionally filtered by para_id.'
       parameters:
       - description: params
         in: body
@@ -17627,8 +17629,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns XCM parachain send/receive
-        statistics with optional direction and date filters.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        XCM parachain send/receive statistics with optional direction and date filters.'
       parameters:
       - description: params
         in: body
@@ -17670,8 +17672,8 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns XCM traffic statistics
-        for a date range and optional parachain filter.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns
+        XCM traffic statistics for a date range and optional parachain filter.'
       parameters:
       - description: params
         in: body
@@ -17869,9 +17871,10 @@ paths:
     post:
       consumes:
       - application/json
-      description: '**PRO API**: Requires a Pro plan. Returns a paginated account-level
-        net-asset leaderboard. Native-only networks read directly from chain_accounts;
-        other networks use pre-aggregated priced fungible-token snapshots.'
+      description: '**PRO API**: Requires a [Pro plan](http://pro.subscan.io/) Returns
+        a paginated account-level net-asset leaderboard. Native-only networks read
+        directly from chain_accounts; other networks use pre-aggregated priced fungible-token
+        snapshots.'
       parameters:
       - description: params
         in: body
@@ -18122,7 +18125,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        **PRO API**: Requires a Pro plan. Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.
+        **PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns aggregated multichain asset balances for one account together with related DeFi participation data.
         Support Network: polkadot
       parameters:
       - description: params

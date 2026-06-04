@@ -3,7 +3,7 @@ With Subscan API, we provide a simple way to access the chain data of more than 
 If you have any question or suggestion, please do not hesitate to contact our API support
 via [api@subscan.io](mailto:api@subscan.io).
 
-The documentation was created with [apidog](apidog.com).
+The documentation was created with [apidog](https://apidog.com).
 
 ## API Keys
 

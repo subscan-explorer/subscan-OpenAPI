@@ -6304,7 +6304,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/account/count": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns the number of multichain asset records associated with one account. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the number of multichain asset records associated with one account.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6360,7 +6360,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_history": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the historical total balance value for one account over the requested date range. Dates use the format YYYY-MM-DD.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6421,7 +6421,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/balance_value_stat": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns the maximum, minimum, and previous-24-hour balance values for one account. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the maximum, minimum, and previous-24-hour balance values for one account.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -6499,7 +6499,7 @@ const docTemplate = `{
         },
         "/api/scan/multiChain/price": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns the available multichain price data, optionally including price-change information. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the available multichain price data, optionally including price-change information.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -12260,7 +12260,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/bridge_stat": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns bridge-type XCM statistics grouped by time format.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns bridge-type XCM statistics grouped by time format.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12324,7 +12324,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/channel": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns one XCM/HRMP channel by sender and recipient parachain IDs.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns one XCM/HRMP channel by sender and recipient parachain IDs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12380,7 +12380,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/channels": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns XCM/HRMP channel list filtered by sender, recipient, status, or para_id.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns XCM/HRMP channel list filtered by sender, recipient, status, or para_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12444,7 +12444,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/check_hash": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns the XCM message unique ID from origin or destination event/hash inputs.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns the XCM message unique ID from origin or destination event/hash inputs.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12504,7 +12504,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/info": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns detailed information for one XCM message by unique_id or origin identifiers.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns detailed information for one XCM message by unique_id or origin identifiers.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12560,7 +12560,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/list": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns paginated XCM messages with protocol, status, asset, and block-range filters.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns paginated XCM messages with protocol, status, asset, and block-range filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12627,7 +12627,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/meta": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns XCM metadata and parachain statistics, optionally filtered by para_id.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns XCM metadata and parachain statistics, optionally filtered by para_id.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12685,7 +12685,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/parachain/stat": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns XCM parachain send/receive statistics with optional direction and date filters.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns XCM parachain send/receive statistics with optional direction and date filters.",
                 "consumes": [
                     "application/json"
                 ],
@@ -12748,7 +12748,7 @@ const docTemplate = `{
         },
         "/api/scan/xcm/stat": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns XCM traffic statistics for a date range and optional parachain filter.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns XCM traffic statistics for a date range and optional parachain filter.",
                 "consumes": [
                     "application/json"
                 ],
@@ -13039,7 +13039,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/accounts/net_assets": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns a paginated account-level net-asset leaderboard. Native-only networks read directly from chain_accounts; other networks use pre-aggregated priced fungible-token snapshots.",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/) Returns a paginated account-level net-asset leaderboard. Native-only networks read directly from chain_accounts; other networks use pre-aggregated priced fungible-token snapshots.",
                 "consumes": [
                     "application/json"
                 ],
@@ -13427,7 +13427,7 @@ const docTemplate = `{
         },
         "/api/v2/scan/multiChain/account": {
             "post": {
-                "description": "**PRO API**: Requires a Pro plan. Returns aggregated multichain asset balances for one account together with related DeFi participation data. Support network: Polkadot.\nSupport Network: polkadot",
+                "description": "**PRO API**: Requires a [Pro plan](http://pro.subscan.io/). Returns aggregated multichain asset balances for one account together with related DeFi participation data.\nSupport Network: polkadot",
                 "consumes": [
                     "application/json"
                 ],
@@ -16919,6 +16919,9 @@ const docTemplate = `{
         },
         "internal_pluginv2_pallets_nominationPool.nominationPoolsMembersParams": {
             "type": "object",
+            "required": [
+                "row"
+            ],
             "properties": {
                 "page": {
                     "type": "integer",
