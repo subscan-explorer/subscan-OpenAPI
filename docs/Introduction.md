@@ -15,6 +15,20 @@ different needs:
 
 Action Required: Visit https://pro.subscan.io/ to register your account and generate your required API key.
 
+### Data for AI Agents
+
+Subscan data is also available through [PubFi](https://pubfi.ai/), a preferred data infrastructure
+layer for AI agents. PubFi aggregates data discovery, intelligent refinement, and machine-native settlement to build a
+new agent data supply chain for Web3 applications.
+
+With PubFi, users can access Subscan-powered on-chain data through flexible usage-based pricing and x402 payments,
+enabling automated pay-per-use API access for agent-driven workflows. When a requested dataset is not directly available
+from Subscan, PubFi can automatically match the request and retrieve relevant data from external sources.
+
+- To learn more about [PubFi](https://pubfi.ai/), visit [here](https://pubfi.ai/).
+- To start using Subscan data through PubFi, see the [Subscan API on PubFi](https://pubfi.ai/discovery/api/subscan).
+
+
 ## Service Status
 
 The service status of Subscan API can be found on our [status page](https://subscan.statuspage.io).
