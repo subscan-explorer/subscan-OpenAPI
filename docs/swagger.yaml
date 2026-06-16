@@ -3254,6 +3254,61 @@ definitions:
     - gov
     - id
     type: object
+  internal_server_http.graphQLErrorDoc:
+    properties:
+      extensions:
+        $ref: '#/definitions/internal_server_http.graphQLErrorExtensionsDoc'
+      message:
+        example: first value 500 must be between 1 and 100
+        type: string
+    type: object
+  internal_server_http.graphQLErrorExtensionsDoc:
+    properties:
+      code:
+        example: PAGINATION_LIMIT_EXCEEDED
+        type: string
+    type: object
+  internal_server_http.graphQLExtensionsDoc:
+    properties:
+      requestId:
+        example: 9a4d1c8e-8b8b-4db0-9b1e-7a4a6b37db50
+        type: string
+    type: object
+  internal_server_http.graphQLRequestDoc:
+    properties:
+      operationName:
+        example: Account
+        type: string
+      query:
+        example: 'query Account($address: String!) { account(address: $address) {
+          address display nativeBalance nativeSymbol } }'
+        type: string
+      variables:
+        $ref: '#/definitions/internal_server_http.graphQLVariablesDoc'
+    type: object
+  internal_server_http.graphQLResponseDoc:
+    properties:
+      data:
+        $ref: '#/definitions/internal_server_http.graphQLSuccessDataPingDoc'
+      errors:
+        items:
+          $ref: '#/definitions/internal_server_http.graphQLErrorDoc'
+        type: array
+      extensions:
+        $ref: '#/definitions/internal_server_http.graphQLExtensionsDoc'
+    type: object
+  internal_server_http.graphQLSuccessDataPingDoc:
+    properties:
+      ping:
+        example: pong
+        type: string
+    type: object
+  internal_server_http.graphQLVariablesDoc:
+    properties:
+      address:
+        example: 14Qqoo5Qm3m4NQj2aL9e8JmA6wTz2F9qk4jv8D4hQwFZk9yP
+        type: string
+    type: object
   internal_server_http.identitiesParams:
     properties:
       address:
@@ -18461,6 +18516,38 @@ paths:
       - cross-chain
       - cross chain
       - bridge message
+  /graphql:
+    post:
+      consumes:
+      - application/json
+      description: Executes a read-only GraphQL operation against the current network
+        at `/graphql`. Send a JSON body containing `query`, optional `variables`,
+        and optional `operationName`. Use the same `X-API-Key` header model as the
+        REST API. Apidog users can either run this imported POST endpoint directly
+        or create a GraphQL request against the same URL and use Fetch Schema, because
+        introspection is enabled for GraphQL-enabled keys by default.
+      parameters:
+      - description: GraphQL request payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.graphQLRequestDoc'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: GraphQL response envelope
+          schema:
+            $ref: '#/definitions/internal_server_http.graphQLResponseDoc'
+      summary: '[BETA] Execute a GraphQL query'
+      tags:
+      - GraphQL
+      x-synonyms:
+      - graphql
+      - query
+      - schema
+      - introspection
   /healthz:
     get:
       description: Returns OK when the service process is alive.

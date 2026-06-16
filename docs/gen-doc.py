@@ -4,6 +4,7 @@ import os
 
 files = {
     'Introduction.md': 'Introduction',
+    'GraphQL.md': 'GraphQL API',
     'Global Conventions.md': 'Global Conventions',
     'Tutorial.md': 'Tutorial',
     'Changelog.md': 'Changelog',

@@ -13936,6 +13936,46 @@
                 ]
             }
         },
+        "/graphql": {
+            "post": {
+                "description": "Executes a read-only GraphQL operation against the current network at `/graphql`. Send a JSON body containing `query`, optional `variables`, and optional `operationName`. Use the same `X-API-Key` header model as the REST API. Apidog users can either run this imported POST endpoint directly or create a GraphQL request against the same URL and use Fetch Schema, because introspection is enabled for GraphQL-enabled keys by default.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GraphQL"
+                ],
+                "summary": "[BETA] Execute a GraphQL query",
+                "parameters": [
+                    {
+                        "description": "GraphQL request payload",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.graphQLRequestDoc"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GraphQL response envelope",
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.graphQLResponseDoc"
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "graphql",
+                    "query",
+                    "schema",
+                    "introspection"
+                ]
+            }
+        },
         "/healthz": {
             "get": {
                 "description": "Returns OK when the service process is alive.",
@@ -18535,6 +18575,87 @@
                 "id": {
                     "type": "string",
                     "minLength": 0
+                }
+            }
+        },
+        "internal_server_http.graphQLErrorDoc": {
+            "type": "object",
+            "properties": {
+                "extensions": {
+                    "$ref": "#/definitions/internal_server_http.graphQLErrorExtensionsDoc"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "first value 500 must be between 1 and 100"
+                }
+            }
+        },
+        "internal_server_http.graphQLErrorExtensionsDoc": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "example": "PAGINATION_LIMIT_EXCEEDED"
+                }
+            }
+        },
+        "internal_server_http.graphQLExtensionsDoc": {
+            "type": "object",
+            "properties": {
+                "requestId": {
+                    "type": "string",
+                    "example": "9a4d1c8e-8b8b-4db0-9b1e-7a4a6b37db50"
+                }
+            }
+        },
+        "internal_server_http.graphQLRequestDoc": {
+            "type": "object",
+            "properties": {
+                "operationName": {
+                    "type": "string",
+                    "example": "Account"
+                },
+                "query": {
+                    "type": "string",
+                    "example": "query Account($address: String!) { account(address: $address) { address display nativeBalance nativeSymbol } }"
+                },
+                "variables": {
+                    "$ref": "#/definitions/internal_server_http.graphQLVariablesDoc"
+                }
+            }
+        },
+        "internal_server_http.graphQLResponseDoc": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/internal_server_http.graphQLSuccessDataPingDoc"
+                },
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_server_http.graphQLErrorDoc"
+                    }
+                },
+                "extensions": {
+                    "$ref": "#/definitions/internal_server_http.graphQLExtensionsDoc"
+                }
+            }
+        },
+        "internal_server_http.graphQLSuccessDataPingDoc": {
+            "type": "object",
+            "properties": {
+                "ping": {
+                    "type": "string",
+                    "example": "pong"
+                }
+            }
+        },
+        "internal_server_http.graphQLVariablesDoc": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "example": "14Qqoo5Qm3m4NQj2aL9e8JmA6wTz2F9qk4jv8D4hQwFZk9yP"
                 }
             }
         },
