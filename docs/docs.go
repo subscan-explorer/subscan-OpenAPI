@@ -8323,7 +8323,7 @@ const docTemplate = `{
         },
         "/api/scan/preimage/list": {
             "post": {
-                "description": "Returns a paginated preimage list with optional status and source filters.\nThis API only supports networks with preimage frame",
+                "description": "Returns a paginated preimage list with optional status, source, action, and sorting filters.\nThis API only supports networks with preimage frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8357,18 +8357,7 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.PreimageSampleJson"
-                                                    }
-                                                }
-                                            }
+                                            "$ref": "#/definitions/internal_server_http.preimageListResponse"
                                         }
                                     }
                                 }
@@ -19051,6 +19040,32 @@ const docTemplate = `{
         "internal_server_http.preimageListParams": {
             "type": "object",
             "properties": {
+                "call_module": {
+                    "description": "Filter preimages by call module",
+                    "type": "string"
+                },
+                "call_name": {
+                    "description": "Filter preimages by call name",
+                    "type": "string"
+                },
+                "order": {
+                    "description": "Sort direction for order_field",
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "description": "Sort preimages by block, action, time, or status",
+                    "type": "string",
+                    "enum": [
+                        "block",
+                        "action",
+                        "time",
+                        "status"
+                    ]
+                },
                 "page": {
                     "description": "Page number, starting from 0",
                     "type": "integer",
@@ -19065,6 +19080,7 @@ const docTemplate = `{
                     "example": 10
                 },
                 "source": {
+                    "description": "Filter preimages by source",
                     "type": "string",
                     "enum": [
                         "inline",
@@ -19072,12 +19088,27 @@ const docTemplate = `{
                     ]
                 },
                 "status": {
+                    "description": "Filter preimages by status",
                     "type": "string",
                     "enum": [
                         "cleared",
                         "unrequested",
                         "requested"
                     ]
+                }
+            }
+        },
+        "internal_server_http.preimageListResponse": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.PreimageSampleJson"
+                    }
                 }
             }
         },
