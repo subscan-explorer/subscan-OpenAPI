@@ -10736,63 +10736,6 @@
                 ]
             }
         },
-        "/api/scan/token": {
-            "get": {
-                "description": "Returns network token symbols and token metadata keyed by symbol.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Tokens"
-                ],
-                "summary": "List tokens by symbol",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/internal_server_http.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "detail": {
-                                                    "type": "object",
-                                                    "additionalProperties": {
-                                                        "$ref": "#/definitions/subscan_internal_service_scan_token.Token"
-                                                    }
-                                                },
-                                                "token": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "x-synonyms": [
-                    "tokens",
-                    "symbol",
-                    "scan",
-                    "token",
-                    "asset",
-                    "coin"
-                ]
-            }
-        },
         "/api/scan/token/holders": {
             "post": {
                 "description": "Returns a paginated holder list for the selected token or unique ID, with optional balance filters and ordering.",

@@ -71,7 +71,7 @@
                 },
                 {
                     "name": "Changelog",
-                    "content": "All significant API changes to the project will be recorded in this file.\n\n### 1.0.0\n#### Changed\n - `/api/scan/assets/transfers` has been removed. Use `/api/v2/scan/transfers` instead.\n",
+                    "content": "All significant API changes to the project will be recorded in this file.\n\n### 1.0.0\n#### Changed\n - `/api/scan/assets/transfers` has been removed. Use `/api/v2/scan/transfers` instead.\n\n### 1.0.1\n#### Changed\n - Token API will be deprecated soon. Use `/api/scan/token/unique_id` instead.\n",
                     "folderId": 0,
                     "type": ""
                 }
