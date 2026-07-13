@@ -66,7 +66,7 @@ Please notice before you get started:
 | Network              | API Host                                       | Status  |
 |----------------------|------------------------------------------------|---------|
 | Acala                | `acala.api.subscan.io`                         | live    |
-| Altair               | `altair.api.subscan.io`                        | live    |
+| Altair               | `altair.api.subscan.io`                        | archive |
 | Assethub-kusama      | `assethub-kusama.api.subscan.io`               | live    |
 | Assethub-paseo       | `assethub-paseo.api.subscan.io`                | test    |
 | Assethub-polkadot    | `assethub-polkadot.api.subscan.io`             | live    |
@@ -77,14 +77,13 @@ Please notice before you get started:
 | Avail                | `avail.api.subscan.io`                         | live    |
 | Avail-turing         | `avail-turing.api.subscan.io`                  | test    |
 | Basilisk             | `basilisk.api.subscan.io`                      | live    |
-| Bifrost-kusama       | `bifrost-kusama.api.subscan.io`                | live    |
 | Bifrost-polkadot     | `bifrost.api.subscan.io`                       | live    |
 | Bridgehub-kusama     | `bridgehub-kusama.api.subscan.io`              | live    |
 | Bridgehub-paseo      | `bridgehub-paseo.api.subscan.io`               | test    |
 | Bridgehub-polkadot   | `bridgehub-polkadot.api.subscan.io`            | live    |
 | Bridgehub-westend    | `bridgehub-westend.api.subscan.io`             | test    |
-| Centrifuge           | `centrifuge-standalone-history.api.subscan.io` | live    |
-| Centrifuge-parachain | `centrifuge.api.subscan.io`                    | live    |
+| Centrifuge           | `centrifuge-standalone-history.api.subscan.io` | archive |
+| Centrifuge-parachain | `centrifuge.api.subscan.io`                    | archive |
 | Collectives          | `collectives-polkadot.api.subscan.io`          | live    |
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live    |
 | Coretime-paseo       | `coretime-paseo.api.subscan.io`                | test    |
@@ -96,7 +95,6 @@ Please notice before you get started:
 | Creditcoin-dev       | `creditcoin3-dev.api.subscan.io`               | test    |
 | Crust-main           | `crust.api.subscan.io`                         | live    |
 | Crust-parachain      | `crust-parachain.api.subscan.io`               | live    |
-| Dancelight-test      | `dancelight.api.subscan.io`                    | test    |
 | Darwinia             | `darwinia.api.subscan.io`                      | live    |
 | Energywebx           | `energywebx.api.subscan.io`                    | live    |
 | Energywebx-testnet   | `energywebx-testnet.api.subscan.io`            | test    |
@@ -117,7 +115,7 @@ Please notice before you get started:
 | Moonriver            | `moonriver.api.subscan.io`                     | live    |
 | Mythos               | `mythos.api.subscan.io`                        | live    |
 | Neuroweb             | `neuroweb.api.subscan.io`                      | live    |
-| neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | test    |
+| Neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | test    |
 | Paseo                | `paseo.api.subscan.io`                         | test    |
 | Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test    |
 | Peaq-main            | `peaq.api.subscan.io`                          | live    |
@@ -135,7 +133,6 @@ Please notice before you get started:
 | Shibuya              | `shibuya.api.subscan.io`                       | test    |
 | Shiden               | `shiden.api.subscan.io`                        | live    |
 | Space-time           | `sxt.api.subscan.io`                           | live    |
-| Tanssi               | `tanssi.api.subscan.io`                        | live    |
 | Vara                 | `vara.api.subscan.io`                          | live    |
 | Vflow                | `vflow.api.subscan.io`                         | live    |
 | Westend              | `westend.api.subscan.io`                       | test    |

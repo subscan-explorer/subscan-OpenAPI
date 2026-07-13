@@ -3245,6 +3245,7 @@ definitions:
         - tech_committee_proposals
         - council_motions
         - bounties
+        - multi-asset-bounties
         - tips
         type: string
       id:
@@ -3361,6 +3362,50 @@ definitions:
         type: string
       module:
         type: string
+    type: object
+  internal_server_http.multiAssetBountiesParams:
+    properties:
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      status:
+        enum:
+        - historical
+        - active
+        type: string
+    type: object
+  internal_server_http.multiAssetBountyParams:
+    properties:
+      proposal_id:
+        minimum: 0
+        type: integer
+    type: object
+  internal_server_http.multiAssetChildBountiesParams:
+    properties:
+      bounties_id:
+        description: Parent bounty index
+        example: 0
+        minimum: 0
+        type: integer
+      page:
+        description: Page number, starting from 0
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        description: Data size per page
+        example: 10
+        maximum: 100
+        minimum: 1
+        type: integer
     type: object
   internal_server_http.multiChainAccountParams:
     properties:
@@ -5065,7 +5110,12 @@ definitions:
     properties:
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      beneficiary_human:
+        type: string
+      beneficiary_raw: {}
       bond:
+        type: string
+      bounty_source:
         type: string
       created_block:
         type: integer
@@ -5085,6 +5135,8 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       relay_chain:
         type: integer
+      source_module:
+        type: string
       status:
         type: string
       timeline:
@@ -5095,11 +5147,20 @@ definitions:
         type: string
       value:
         type: string
+      value_asset:
+        $ref: '#/definitions/subscan_internal_model.ValueAssetJson'
     type: object
   subscan_internal_model.BountySampleJson:
     properties:
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      beneficiary_human:
+        type: string
+      beneficiary_raw: {}
       block_timestamp:
         type: integer
+      bounty_source:
+        type: string
       child_bounty_count:
         type: integer
       description:
@@ -5110,12 +5171,16 @@ definitions:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       relay_chain:
         type: integer
+      source_module:
+        type: string
       status:
         type: string
       title:
         type: string
       value:
         type: string
+      value_asset:
+        $ref: '#/definitions/subscan_internal_model.ValueAssetJson'
     type: object
   subscan_internal_model.BoxProposal:
     properties:
@@ -5391,6 +5456,8 @@ definitions:
         type: array
       title:
         type: string
+      value_asset:
+        $ref: '#/definitions/subscan_internal_model.ValueAssetJson'
     type: object
   subscan_internal_model.ContractAccountListJson:
     properties:
@@ -6194,6 +6261,31 @@ definitions:
       version:
         type: string
     type: object
+  subscan_internal_model.MultiLocationHuman:
+    properties:
+      account_id:
+        type: string
+      account_index:
+        type: integer
+      general_index:
+        type: string
+      general_key:
+        type: string
+      general_key_decode:
+        type: string
+      location:
+        type: integer
+      network_id:
+        $ref: '#/definitions/subscan_internal_model.XcmNetworkId'
+      "null":
+        type: boolean
+      pallet:
+        type: string
+      pallet_index:
+        type: integer
+      para_id:
+        type: integer
+    type: object
   subscan_internal_model.MultisigExtrinsicDetailsJson:
     properties:
       account_display:
@@ -6968,6 +7060,14 @@ definitions:
       beneficiary:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       beneficiary_amount:
+        type: string
+      bounty_id:
+        type: integer
+      bounty_ids:
+        items:
+          type: integer
+        type: array
+      bounty_source:
         type: string
       created_block:
         type: integer
@@ -8003,6 +8103,22 @@ definitions:
       validator_prefs_value:
         type: integer
     type: object
+  subscan_internal_model.ValueAssetJson:
+    properties:
+      amount:
+        type: string
+      decimals:
+        type: integer
+      human:
+        $ref: '#/definitions/subscan_internal_model.MultiLocationHuman'
+      para_id:
+        type: integer
+      raw: {}
+      symbol:
+        type: string
+      token_unique_id:
+        type: string
+    type: object
   subscan_internal_model.VestingJson:
     properties:
       linear_schedules:
@@ -8189,6 +8305,24 @@ definitions:
         type: integer
       support_parachain:
         type: integer
+    type: object
+  subscan_internal_model.XcmNetworkId:
+    properties:
+      ByFork: {}
+      ByGenesis:
+        type: string
+      Ethereum:
+        type: integer
+      Kusama:
+        type: string
+      Polkadot:
+        type: string
+      Rococo:
+        type: string
+      Westend:
+        type: string
+      Wococo:
+        type: string
     type: object
   subscan_internal_plugin_assets_db.Metadata:
     properties:
@@ -13834,6 +13968,140 @@ paths:
       - multitoken
       - scan
       - multitokens
+  /api/scan/multiasset_bounties/child:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Returns a paginated local multiasset child-bounty list for one parent bounty index.
+        This API only supports networks with multiassetbounties frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiAssetChildBountiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.ChildBountySampleJson'
+                      type: array
+                  type: object
+              type: object
+      summary: List multiasset child bounties
+      tags:
+      - Governance
+      x-synonyms:
+      - multiasset
+      - child
+      - bounty
+      - governance
+      - scan
+      - bounties
+      - referendum
+      - vote
+      - treasury
+      - council
+  /api/scan/multiasset_bounties/proposal:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Returns details for one multiasset bounty proposal.
+        This API only supports networks with multiassetbounties frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiAssetBountyParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/subscan_internal_model.BountyJson'
+              type: object
+      summary: Get multiasset bounty details
+      tags:
+      - Governance
+      x-synonyms:
+      - multiasset
+      - bounty
+      - governance
+      - scan
+      - bounties
+      - proposal
+      - referendum
+      - vote
+      - treasury
+      - council
+  /api/scan/multiasset_bounties/proposals:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        Returns a paginated multiasset bounty list with optional status filtering.
+        This API only supports networks with multiassetbounties frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_server_http.multiAssetBountiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/internal_server_http.J'
+            - properties:
+                data:
+                  properties:
+                    count:
+                      type: integer
+                    list:
+                      items:
+                        $ref: '#/definitions/subscan_internal_model.BountySampleJson'
+                      type: array
+                  type: object
+              type: object
+      summary: List multiasset bounties
+      tags:
+      - Governance
+      x-synonyms:
+      - multiasset
+      - bounty
+      - governance
+      - scan
+      - bounties
+      - proposals
+      - referendum
+      - vote
+      - treasury
+      - council
   /api/scan/multisig:
     post:
       consumes:

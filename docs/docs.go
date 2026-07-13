@@ -6848,6 +6848,202 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/scan/multiasset_bounties/child": {
+            "post": {
+                "description": "Returns a paginated local multiasset child-bounty list for one parent bounty index.\nThis API only supports networks with multiassetbounties frame",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Governance"
+                ],
+                "summary": "List multiasset child bounties",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiAssetChildBountiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.ChildBountySampleJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "multiasset",
+                    "child",
+                    "bounty",
+                    "governance",
+                    "scan",
+                    "bounties",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
+            }
+        },
+        "/api/scan/multiasset_bounties/proposal": {
+            "post": {
+                "description": "Returns details for one multiasset bounty proposal.\nThis API only supports networks with multiassetbounties frame",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Governance"
+                ],
+                "summary": "Get multiasset bounty details",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiAssetBountyParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_model.BountyJson"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "multiasset",
+                    "bounty",
+                    "governance",
+                    "scan",
+                    "bounties",
+                    "proposal",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
+            }
+        },
+        "/api/scan/multiasset_bounties/proposals": {
+            "post": {
+                "description": "Returns a paginated multiasset bounty list with optional status filtering.\nThis API only supports networks with multiassetbounties frame",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Governance"
+                ],
+                "summary": "List multiasset bounties",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.multiAssetBountiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_model.BountySampleJson"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "multiasset",
+                    "bounty",
+                    "governance",
+                    "scan",
+                    "bounties",
+                    "proposals",
+                    "referendum",
+                    "vote",
+                    "treasury",
+                    "council"
+                ]
+            }
+        },
         "/api/scan/multisig": {
             "post": {
                 "description": "Returns details for a multisig extrinsic by multi_id and call_hash.",
@@ -18507,6 +18703,7 @@ const docTemplate = `{
                         "tech_committee_proposals",
                         "council_motions",
                         "bounties",
+                        "multi-asset-bounties",
                         "tips"
                     ]
                 },
@@ -18672,6 +18869,64 @@ const docTemplate = `{
                 },
                 "module": {
                     "type": "string"
+                }
+            }
+        },
+        "internal_server_http.multiAssetBountiesParams": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "historical",
+                        "active"
+                    ]
+                }
+            }
+        },
+        "internal_server_http.multiAssetBountyParams": {
+            "type": "object",
+            "properties": {
+                "proposal_id": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_server_http.multiAssetChildBountiesParams": {
+            "type": "object",
+            "properties": {
+                "bounties_id": {
+                    "description": "Parent bounty index",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "page": {
+                    "description": "Page number, starting from 0",
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "description": "Data size per page",
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 10
                 }
             }
         },
@@ -21103,7 +21358,14 @@ const docTemplate = `{
                 "beneficiary": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "beneficiary_human": {
+                    "type": "string"
+                },
+                "beneficiary_raw": {},
                 "bond": {
+                    "type": "string"
+                },
+                "bounty_source": {
                     "type": "string"
                 },
                 "created_block": {
@@ -21133,6 +21395,9 @@ const docTemplate = `{
                 "relay_chain": {
                     "type": "integer"
                 },
+                "source_module": {
+                    "type": "string"
+                },
                 "status": {
                     "type": "string"
                 },
@@ -21147,14 +21412,27 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "string"
+                },
+                "value_asset": {
+                    "$ref": "#/definitions/subscan_internal_model.ValueAssetJson"
                 }
             }
         },
         "subscan_internal_model.BountySampleJson": {
             "type": "object",
             "properties": {
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "beneficiary_human": {
+                    "type": "string"
+                },
+                "beneficiary_raw": {},
                 "block_timestamp": {
                     "type": "integer"
+                },
+                "bounty_source": {
+                    "type": "string"
                 },
                 "child_bounty_count": {
                     "type": "integer"
@@ -21171,6 +21449,9 @@ const docTemplate = `{
                 "relay_chain": {
                     "type": "integer"
                 },
+                "source_module": {
+                    "type": "string"
+                },
                 "status": {
                     "type": "string"
                 },
@@ -21179,6 +21460,9 @@ const docTemplate = `{
                 },
                 "value": {
                     "type": "string"
+                },
+                "value_asset": {
+                    "$ref": "#/definitions/subscan_internal_model.ValueAssetJson"
                 }
             }
         },
@@ -21596,6 +21880,9 @@ const docTemplate = `{
                 },
                 "title": {
                     "type": "string"
+                },
+                "value_asset": {
+                    "$ref": "#/definitions/subscan_internal_model.ValueAssetJson"
                 }
             }
         },
@@ -22809,6 +23096,44 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.MultiLocationHuman": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "type": "string"
+                },
+                "account_index": {
+                    "type": "integer"
+                },
+                "general_index": {
+                    "type": "string"
+                },
+                "general_key": {
+                    "type": "string"
+                },
+                "general_key_decode": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "integer"
+                },
+                "network_id": {
+                    "$ref": "#/definitions/subscan_internal_model.XcmNetworkId"
+                },
+                "null": {
+                    "type": "boolean"
+                },
+                "pallet": {
+                    "type": "string"
+                },
+                "pallet_index": {
+                    "type": "integer"
+                },
+                "para_id": {
+                    "type": "integer"
+                }
+            }
+        },
         "subscan_internal_model.MultisigExtrinsicDetailsJson": {
             "type": "object",
             "properties": {
@@ -23967,6 +24292,18 @@ const docTemplate = `{
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
                 "beneficiary_amount": {
+                    "type": "string"
+                },
+                "bounty_id": {
+                    "type": "integer"
+                },
+                "bounty_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "bounty_source": {
                     "type": "string"
                 },
                 "created_block": {
@@ -25533,6 +25870,30 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.ValueAssetJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "human": {
+                    "$ref": "#/definitions/subscan_internal_model.MultiLocationHuman"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "raw": {},
+                "symbol": {
+                    "type": "string"
+                },
+                "token_unique_id": {
+                    "type": "string"
+                }
+            }
+        },
         "subscan_internal_model.VestingJson": {
             "type": "object",
             "properties": {
@@ -25802,6 +26163,33 @@ const docTemplate = `{
                 },
                 "support_parachain": {
                     "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_model.XcmNetworkId": {
+            "type": "object",
+            "properties": {
+                "ByFork": {},
+                "ByGenesis": {
+                    "type": "string"
+                },
+                "Ethereum": {
+                    "type": "integer"
+                },
+                "Kusama": {
+                    "type": "string"
+                },
+                "Polkadot": {
+                    "type": "string"
+                },
+                "Rococo": {
+                    "type": "string"
+                },
+                "Westend": {
+                    "type": "string"
+                },
+                "Wococo": {
+                    "type": "string"
                 }
             }
         },

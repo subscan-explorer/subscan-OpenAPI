@@ -119,18 +119,6 @@
       "basilisk"
     ]
   },
-  "bifrost": {
-    "api_domains": [
-      "bifrost-kusama"
-    ],
-    "backend_service_name": "subscan-bifrost",
-    "db_name": "subscan_bifrost",
-    "network_node": "bifrost",
-    "type": "mainnet",
-    "ui_domains": [
-      "bifrost-kusama"
-    ]
-  },
   "bifrost-p": {
     "api_domains": [
       "bifrost"
@@ -374,18 +362,6 @@
       "crust-parachain"
     ]
   },
-  "dancelight-test": {
-    "api_domains": [
-      "dancelight"
-    ],
-    "backend_service_name": "subscan-dancelight-test",
-    "db_name": "subscan_dancelight-testnet",
-    "network_node": "dancelight-test",
-    "type": "testnet",
-    "ui_domains": [
-      "dancelight"
-    ]
-  },
   "darwinia2": {
     "api_domains": [
       "darwinia"
@@ -495,30 +471,6 @@
       "enjin"
     ]
   },
-  "gasp": {
-    "api_domains": [
-      "gasp"
-    ],
-    "backend_service_name": "subscan-gasp",
-    "db_name": "subscan_gasp",
-    "network_node": "gasp",
-    "type": "mainnet",
-    "ui_domains": [
-      "gasp"
-    ]
-  },
-  "heima": {
-    "api_domains": [
-      "heima"
-    ],
-    "backend_service_name": "subscan-heima",
-    "db_name": "subscan_heima",
-    "network_node": "heima",
-    "type": "mainnet",
-    "ui_domains": [
-      "heima"
-    ]
-  },
   "humanode": {
     "api_domains": [
       "humanode"
@@ -555,31 +507,6 @@
     "type": "mainnet",
     "ui_domains": [
       "karura"
-    ]
-  },
-  "khala": {
-    "api_domains": [
-      "khala"
-    ],
-    "backend_service_name": "subscan-khala",
-    "db_name": "subscan_khala",
-    "is_archive": true,
-    "network_node": "khala",
-    "type": "testnet",
-    "ui_domains": [
-      "khala"
-    ]
-  },
-  "krest": {
-    "api_domains": [
-      "krest"
-    ],
-    "backend_service_name": "subscan-krest",
-    "db_name": "subscan_krest",
-    "network_node": "krest",
-    "type": "mainnet",
-    "ui_domains": [
-      "krest"
     ]
   },
   "kusama": {
@@ -790,18 +717,6 @@
       "people-westend"
     ]
   },
-  "phala": {
-    "api_domains": [
-      "phala"
-    ],
-    "backend_service_name": "subscan-phala",
-    "db_name": "subscan_phala",
-    "network_node": "phala",
-    "type": "mainnet",
-    "ui_domains": [
-      "phala"
-    ]
-  },
   "polkadot": {
     "api_domains": [
       "polkadot"
@@ -910,30 +825,6 @@
       "sxt"
     ]
   },
-  "space-time-test": {
-    "api_domains": [
-      "sxt-testnet"
-    ],
-    "backend_service_name": "subscan-space-time-test",
-    "db_name": "subscan_space_time-testnet",
-    "network_node": "space-time-test",
-    "type": "testnet",
-    "ui_domains": [
-      "sxt-testnet"
-    ]
-  },
-  "stafi": {
-    "api_domains": [
-      "stafi"
-    ],
-    "backend_service_name": "subscan-stafi",
-    "db_name": "subscan_stafi",
-    "network_node": "stafi",
-    "type": "mainnet",
-    "ui_domains": [
-      "stafi"
-    ]
-  },
   "statemine": {
     "api_domains": [
       "assethub-kusama"
@@ -956,18 +847,6 @@
     "type": "mainnet",
     "ui_domains": [
       "assethub-polkadot"
-    ]
-  },
-  "tanssi": {
-    "api_domains": [
-      "tanssi"
-    ],
-    "backend_service_name": "subscan-tanssi",
-    "db_name": "subscan_tanssi",
-    "network_node": "tanssi",
-    "type": "mainnet",
-    "ui_domains": [
-      "tanssi"
     ]
   },
   "vara": {
