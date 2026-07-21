@@ -2936,6 +2936,357 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/scan/dap/allocations": {
+            "get": {
+                "description": "Downloads the DAP allocation snapshot history as CSV using the same filters, ordering, and projection source as the POST list endpoint.",
+                "produces": [
+                    "application/octet-stream"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "Download DAP allocation history CSV",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page number, starting from 0",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "data size per page",
+                        "name": "row",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive start block",
+                        "name": "start_block",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive end block",
+                        "name": "end_block",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive start timestamp",
+                        "name": "start_time",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive end timestamp",
+                        "name": "end_time",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "asc|desc",
+                        "name": "order",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "allocations",
+                    "csv",
+                    "download"
+                ]
+            },
+            "post": {
+                "description": "Returns paginated DAP allocation snapshot history filtered by block range and timestamp range. Results default to block_num desc with event_id desc as a deterministic tie-breaker.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "List DAP allocation history",
+                "parameters": [
+                    {
+                        "description": "pagination and optional DAP allocation filters",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapAllocationsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapAllocationListJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "allocations",
+                    "history",
+                    "budget"
+                ]
+            }
+        },
+        "/api/scan/dap/events": {
+            "get": {
+                "description": "Downloads the DAP event list as CSV using the same filters, ordering, and projection source as the POST list endpoint.",
+                "produces": [
+                    "application/octet-stream"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "Download DAP events CSV",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page number, starting from 0",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "data size per page",
+                        "name": "row",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "issuance_minted|staging_drained|budget_allocation_updated",
+                        "name": "event_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive start block",
+                        "name": "start_block",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive end block",
+                        "name": "end_block",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive start timestamp",
+                        "name": "start_time",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "inclusive end timestamp",
+                        "name": "end_time",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "block_num|block_timestamp",
+                        "name": "order_field",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "asc|desc",
+                        "name": "order",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "events",
+                    "csv",
+                    "download"
+                ]
+            },
+            "post": {
+                "description": "Returns paginated DAP event projections filtered by event type, block range, and timestamp range. Results default to block_num desc with event_id desc as a deterministic tie-breaker.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "List DAP events",
+                "parameters": [
+                    {
+                        "description": "pagination and optional DAP event filters",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapEventsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapEventListJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "events",
+                    "issuance",
+                    "staging",
+                    "allocation"
+                ]
+            }
+        },
+        "/api/scan/dap/overview": {
+            "post": {
+                "description": "Returns the current DAP overview, including staging and buffer accounts, live balances, the current allocation distribution, and the latest indexed allocation and event blocks. When no allocation history exists yet, the current allocation is composed from the live runtime state and the current recipient registry.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "Get DAP overview",
+                "parameters": [
+                    {
+                        "description": "optional empty body",
+                        "name": "params",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapOverviewParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapOverviewJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "overview",
+                    "allocation",
+                    "budget"
+                ]
+            }
+        },
+        "/api/scan/dap/staking-reward": {
+            "post": {
+                "description": "Returns the current active-era DAP staking reward snapshot only. The request body must be empty or ` + "`" + `{}` + "`" + `; unsupported JSON fields are rejected. The status field is always ` + "`" + `active` + "`" + `. Reward values are computed from the live staking async general pot balance, while validator_count is sourced from the current staking validator set size. current_avg is omitted when validator_count is 0.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "Get current DAP staking reward",
+                "parameters": [
+                    {
+                        "description": "optional empty object only; unknown fields are rejected",
+                        "name": "params",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapStakingRewardParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapStakingRewardJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "staking",
+                    "reward",
+                    "active era"
+                ]
+            }
+        },
         "/api/scan/dataAvailability/info": {
             "post": {
                 "description": "This API is only available for avail network.",
@@ -16966,6 +17317,293 @@ const docTemplate = `{
                     "example": 10
                 }
             }
+        },
+        "internal_pluginv2_pallets_dap.dapAllocationEntryJSON": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "share_perbill": {
+                    "type": "integer"
+                },
+                "share_percent": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapAllocationListJSON": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapAllocationVersionJSON"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapAllocationVersionJSON": {
+            "type": "object",
+            "properties": {
+                "allocation_hash": {
+                    "type": "string"
+                },
+                "allocations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapAllocationEntryJSON"
+                    }
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "event_id": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "spec_version": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapAllocationsParams": {
+            "type": "object",
+            "properties": {
+                "end_block": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "end_time": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 20
+                },
+                "start_block": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "start_time": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapBlockRefJSON": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapEventJSON": {
+            "type": "object",
+            "properties": {
+                "allocation_hash": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "elapsed_millis": {
+                    "type": "integer"
+                },
+                "event_id": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "event_type": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "total_minted": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapEventListJSON": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapEventJSON"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapEventsParams": {
+            "type": "object",
+            "properties": {
+                "end_block": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "end_time": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "event_type": {
+                    "type": "string",
+                    "enum": [
+                        "issuance_minted",
+                        "staging_drained",
+                        "budget_allocation_updated"
+                    ]
+                },
+                "order": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "order_field": {
+                    "type": "string",
+                    "enum": [
+                        "block_num",
+                        "block_timestamp"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "example": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "example": 20
+                },
+                "start_block": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "start_time": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapOverviewJSON": {
+            "type": "object",
+            "properties": {
+                "buffer_account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "buffer_balance": {
+                    "type": "string"
+                },
+                "current_allocation": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapAllocationEntryJSON"
+                    }
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "latest_allocation_block": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapBlockRefJSON"
+                },
+                "latest_event_block": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapBlockRefJSON"
+                },
+                "staging_account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "staging_balance": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapOverviewParams": {
+            "type": "object"
+        },
+        "internal_pluginv2_pallets_dap.dapStakingRewardJSON": {
+            "type": "object",
+            "properties": {
+                "basis": {
+                    "type": "string"
+                },
+                "current_avg": {
+                    "type": "string"
+                },
+                "current_total": {
+                    "type": "string"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "staker_rewards": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "validator_count": {
+                    "type": "integer"
+                },
+                "validator_count_basis": {
+                    "type": "string"
+                },
+                "validator_incentive": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapStakingRewardParams": {
+            "additionalProperties": false,
+            "type": "object"
         },
         "internal_pluginv2_pallets_liquidStaking.OperationRecordJson": {
             "type": "object",

@@ -1979,6 +1979,202 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_pluginv2_pallets_dap.dapAllocationEntryJSON:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      key:
+        type: string
+      label:
+        type: string
+      share_perbill:
+        type: integer
+      share_percent:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dap.dapAllocationListJSON:
+    properties:
+      count:
+        type: integer
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapAllocationVersionJSON'
+        type: array
+    type: object
+  internal_pluginv2_pallets_dap.dapAllocationVersionJSON:
+    properties:
+      allocation_hash:
+        type: string
+      allocations:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapAllocationEntryJSON'
+        type: array
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      event_id:
+        type: integer
+      event_index:
+        type: string
+      spec_version:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dap.dapAllocationsParams:
+    properties:
+      end_block:
+        minimum: 0
+        type: integer
+      end_time:
+        minimum: 0
+        type: integer
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      page:
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        example: 20
+        maximum: 100
+        minimum: 1
+        type: integer
+      start_block:
+        minimum: 0
+        type: integer
+      start_time:
+        minimum: 0
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dap.dapBlockRefJSON:
+    properties:
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dap.dapEventJSON:
+    properties:
+      allocation_hash:
+        type: string
+      amount:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      elapsed_millis:
+        type: integer
+      event_id:
+        type: integer
+      event_index:
+        type: string
+      event_type:
+        type: string
+      extrinsic_index:
+        type: string
+      total_minted:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dap.dapEventListJSON:
+    properties:
+      count:
+        type: integer
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapEventJSON'
+        type: array
+    type: object
+  internal_pluginv2_pallets_dap.dapEventsParams:
+    properties:
+      end_block:
+        minimum: 0
+        type: integer
+      end_time:
+        minimum: 0
+        type: integer
+      event_type:
+        enum:
+        - issuance_minted
+        - staging_drained
+        - budget_allocation_updated
+        type: string
+      order:
+        enum:
+        - asc
+        - desc
+        type: string
+      order_field:
+        enum:
+        - block_num
+        - block_timestamp
+        type: string
+      page:
+        example: 0
+        minimum: 0
+        type: integer
+      row:
+        example: 20
+        maximum: 100
+        minimum: 1
+        type: integer
+      start_block:
+        minimum: 0
+        type: integer
+      start_time:
+        minimum: 0
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dap.dapOverviewJSON:
+    properties:
+      buffer_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      buffer_balance:
+        type: string
+      current_allocation:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapAllocationEntryJSON'
+        type: array
+      enabled:
+        type: boolean
+      latest_allocation_block:
+        $ref: '#/definitions/internal_pluginv2_pallets_dap.dapBlockRefJSON'
+      latest_event_block:
+        $ref: '#/definitions/internal_pluginv2_pallets_dap.dapBlockRefJSON'
+      staging_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      staging_balance:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dap.dapOverviewParams:
+    type: object
+  internal_pluginv2_pallets_dap.dapStakingRewardJSON:
+    properties:
+      basis:
+        type: string
+      current_avg:
+        type: string
+      current_total:
+        type: string
+      era:
+        type: integer
+      staker_rewards:
+        type: string
+      status:
+        type: string
+      validator_count:
+        type: integer
+      validator_count_basis:
+        type: string
+      validator_incentive:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dap.dapStakingRewardParams:
+    additionalProperties: false
+    type: object
   internal_pluginv2_pallets_liquidStaking.OperationRecordJson:
     properties:
       account:
@@ -11337,6 +11533,256 @@ paths:
       - scan
       - asset
       - coin
+  /api/scan/dap/allocations:
+    get:
+      description: Downloads the DAP allocation snapshot history as CSV using the
+        same filters, ordering, and projection source as the POST list endpoint.
+      parameters:
+      - description: page number, starting from 0
+        in: query
+        name: page
+        type: integer
+      - description: data size per page
+        in: query
+        name: row
+        type: integer
+      - description: inclusive start block
+        in: query
+        name: start_block
+        type: integer
+      - description: inclusive end block
+        in: query
+        name: end_block
+        type: integer
+      - description: inclusive start timestamp
+        in: query
+        name: start_time
+        type: integer
+      - description: inclusive end timestamp
+        in: query
+        name: end_time
+        type: integer
+      - description: asc|desc
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+      summary: Download DAP allocation history CSV
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - allocations
+      - csv
+      - download
+    post:
+      consumes:
+      - application/json
+      description: Returns paginated DAP allocation snapshot history filtered by block
+        range and timestamp range. Results default to block_num desc with event_id
+        desc as a deterministic tie-breaker.
+      parameters:
+      - description: pagination and optional DAP allocation filters
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapAllocationsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dap.dapAllocationListJSON'
+              message:
+                type: string
+            type: object
+      summary: List DAP allocation history
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - allocations
+      - history
+      - budget
+  /api/scan/dap/events:
+    get:
+      description: Downloads the DAP event list as CSV using the same filters, ordering,
+        and projection source as the POST list endpoint.
+      parameters:
+      - description: page number, starting from 0
+        in: query
+        name: page
+        type: integer
+      - description: data size per page
+        in: query
+        name: row
+        type: integer
+      - description: issuance_minted|staging_drained|budget_allocation_updated
+        in: query
+        name: event_type
+        type: string
+      - description: inclusive start block
+        in: query
+        name: start_block
+        type: integer
+      - description: inclusive end block
+        in: query
+        name: end_block
+        type: integer
+      - description: inclusive start timestamp
+        in: query
+        name: start_time
+        type: integer
+      - description: inclusive end timestamp
+        in: query
+        name: end_time
+        type: integer
+      - description: block_num|block_timestamp
+        in: query
+        name: order_field
+        type: string
+      - description: asc|desc
+        in: query
+        name: order
+        type: string
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+      summary: Download DAP events CSV
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - events
+      - csv
+      - download
+    post:
+      consumes:
+      - application/json
+      description: Returns paginated DAP event projections filtered by event type,
+        block range, and timestamp range. Results default to block_num desc with event_id
+        desc as a deterministic tie-breaker.
+      parameters:
+      - description: pagination and optional DAP event filters
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapEventsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dap.dapEventListJSON'
+              message:
+                type: string
+            type: object
+      summary: List DAP events
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - events
+      - issuance
+      - staging
+      - allocation
+  /api/scan/dap/overview:
+    post:
+      consumes:
+      - application/json
+      description: Returns the current DAP overview, including staging and buffer
+        accounts, live balances, the current allocation distribution, and the latest
+        indexed allocation and event blocks. When no allocation history exists yet,
+        the current allocation is composed from the live runtime state and the current
+        recipient registry.
+      parameters:
+      - description: optional empty body
+        in: body
+        name: params
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapOverviewParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dap.dapOverviewJSON'
+              message:
+                type: string
+            type: object
+      summary: Get DAP overview
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - overview
+      - allocation
+      - budget
+  /api/scan/dap/staking-reward:
+    post:
+      consumes:
+      - application/json
+      description: Returns the current active-era DAP staking reward snapshot only.
+        The request body must be empty or `{}`; unsupported JSON fields are rejected.
+        The status field is always `active`. Reward values are computed from the live
+        staking async general pot balance, while validator_count is sourced from the
+        current staking validator set size. current_avg is omitted when validator_count
+        is 0.
+      parameters:
+      - description: optional empty object only; unknown fields are rejected
+        in: body
+        name: params
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapStakingRewardParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dap.dapStakingRewardJSON'
+              message:
+                type: string
+            type: object
+      summary: Get current DAP staking reward
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - staking
+      - reward
+      - active era
   /api/scan/dataAvailability/info:
     post:
       consumes:
