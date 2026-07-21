@@ -374,31 +374,6 @@
       "darwinia"
     ]
   },
-  "dbc": {
-    "api_domains": [
-      "dbc"
-    ],
-    "backend_service_name": "subscan-dbc",
-    "db_name": "subscan_dbc",
-    "network_node": "dbc",
-    "type": "mainnet",
-    "ui_domains": [
-      "dbc"
-    ]
-  },
-  "dock-pos": {
-    "api_domains": [
-      "dock"
-    ],
-    "backend_service_name": "subscan-dock-pos",
-    "db_name": "subscan_dock_pos",
-    "is_archive": true,
-    "network_node": "dock-pos",
-    "type": "mainnet",
-    "ui_domains": [
-      "dock"
-    ]
-  },
   "energywebx": {
     "api_domains": [
       "energywebx"
@@ -799,18 +774,6 @@
     "type": "mainnet",
     "ui_domains": [
       "shiden"
-    ]
-  },
-  "sora": {
-    "api_domains": [
-      "sora"
-    ],
-    "backend_service_name": "subscan-sora",
-    "db_name": "subscan_sora",
-    "network_node": "sora",
-    "type": "mainnet",
-    "ui_domains": [
-      "sora"
     ]
   },
   "space-time": {

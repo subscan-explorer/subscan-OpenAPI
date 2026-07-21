@@ -91,15 +91,6 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://bifrost-kusama.api.subscan.io",
-      "baseUrls": {
-        "default": "https://bifrost-kusama.api.subscan.io"
-      },
-      "name": "Bifrost-kusama",
-      "ordering": 12,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://bifrost.api.subscan.io",
       "baseUrls": {
         "default": "https://bifrost.api.subscan.io"
@@ -340,15 +331,6 @@
       },
       "name": "Enjin",
       "ordering": 42,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://heima.api.subscan.io",
-      "baseUrls": {
-        "default": "https://heima.api.subscan.io"
-      },
-      "name": "Heima",
-      "ordering": 44,
       "projectType": "HTTP"
     },
     {
@@ -682,15 +664,6 @@
       },
       "name": "Assethub-polkadot",
       "ordering": 85,
-      "projectType": "HTTP"
-    },
-    {
-      "baseUrl": "https://tanssi.api.subscan.io",
-      "baseUrls": {
-        "default": "https://tanssi.api.subscan.io"
-      },
-      "name": "Tanssi",
-      "ordering": 86,
       "projectType": "HTTP"
     },
     {
