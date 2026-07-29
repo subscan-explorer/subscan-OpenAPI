@@ -15481,6 +15481,9 @@ const docTemplate = `{
                 "contract": {
                     "type": "string"
                 },
+                "count_approx": {
+                    "type": "boolean"
+                },
                 "direction": {
                     "type": "string",
                     "default": "from",
@@ -19106,6 +19109,9 @@ const docTemplate = `{
                 "block_range": {
                     "type": "string"
                 },
+                "count_approx": {
+                    "type": "boolean"
+                },
                 "event_id": {
                     "type": "string"
                 },
@@ -19213,6 +19219,9 @@ const docTemplate = `{
                 },
                 "call": {
                     "type": "string"
+                },
+                "count_approx": {
+                    "type": "boolean"
                 },
                 "module": {
                     "type": "string"
@@ -23308,6 +23317,9 @@ const docTemplate = `{
                 "additional_meta": {
                     "type": "object",
                     "additionalProperties": true
+                },
+                "asset_conversion": {
+                    "description": "AssetConversion is an optional Etherscan-style DEX summary (swaps + liquidity) for\nassetConversion facts on this extrinsic. Typed as any to avoid model→plugin import cycles;\nruntime value is assetConversion.ExtrinsicAssetConversion."
                 },
                 "asset_fee": {
                     "$ref": "#/definitions/subscan_internal_model.ExtrinsicAssetFee"

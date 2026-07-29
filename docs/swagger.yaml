@@ -686,6 +686,8 @@ definitions:
         type: string
       contract:
         type: string
+      count_approx:
+        type: boolean
       direction:
         default: from
         enum:
@@ -3272,6 +3274,8 @@ definitions:
         type: integer
       block_range:
         type: string
+      count_approx:
+        type: boolean
       event_id:
         type: string
       extrinsic_index:
@@ -3349,6 +3353,8 @@ definitions:
         type: string
       call:
         type: string
+      count_approx:
+        type: boolean
       module:
         type: string
       module_call:
@@ -6176,6 +6182,11 @@ definitions:
       additional_meta:
         additionalProperties: true
         type: object
+      asset_conversion:
+        description: |-
+          AssetConversion is an optional Etherscan-style DEX summary (swaps + liquidity) for
+          assetConversion facts on this extrinsic. Typed as any to avoid model→plugin import cycles;
+          runtime value is assetConversion.ExtrinsicAssetConversion.
       asset_fee:
         $ref: '#/definitions/subscan_internal_model.ExtrinsicAssetFee'
       block_hash:
