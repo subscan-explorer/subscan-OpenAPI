@@ -28106,6 +28106,20 @@ const docTemplate = `{
                 }
             }
         },
+        "types.DeprecationInfo": {
+            "type": "object",
+            "properties": {
+                "note": {
+                    "type": "string"
+                },
+                "since": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
         "types.MapType": {
             "type": "object",
             "properties": {
@@ -28138,6 +28152,9 @@ const docTemplate = `{
                         "$ref": "#/definitions/types.MetadataModuleCallArgument"
                     }
                 },
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
+                },
                 "docs": {
                     "type": "array",
                     "items": {
@@ -28157,6 +28174,9 @@ const docTemplate = `{
             "properties": {
                 "constants_value": {
                     "type": "string"
+                },
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
                 },
                 "docs": {
                     "type": "array",
@@ -28196,6 +28216,9 @@ const docTemplate = `{
                         "type": "string"
                     }
                 },
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
+                },
                 "docs": {
                     "type": "array",
                     "items": {
@@ -28227,6 +28250,9 @@ const docTemplate = `{
         "types.MetadataModuleError": {
             "type": "object",
             "properties": {
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
+                },
                 "doc": {
                     "type": "array",
                     "items": {
@@ -28250,10 +28276,22 @@ const docTemplate = `{
         "types.MetadataModules": {
             "type": "object",
             "properties": {
+                "associated_types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.PalletAssociatedTypeMetadata"
+                    }
+                },
                 "calls": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/types.MetadataCalls"
+                    }
+                },
+                "calls_deprecation_info": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/types.DeprecationInfo"
                     }
                 },
                 "calls_value": {
@@ -28265,10 +28303,25 @@ const docTemplate = `{
                         "$ref": "#/definitions/types.MetadataConstants"
                     }
                 },
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
+                },
+                "docs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "errors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/types.MetadataModuleError"
+                    }
+                },
+                "errors_deprecation_info": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/types.DeprecationInfo"
                     }
                 },
                 "errors_value": {
@@ -28278,6 +28331,12 @@ const docTemplate = `{
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/types.MetadataEvents"
+                    }
+                },
+                "events_deprecation_info": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/types.DeprecationInfo"
                     }
                 },
                 "events_value": {
@@ -28297,12 +28356,21 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/types.MetadataStorage"
                     }
+                },
+                "view_functions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.PalletViewFunctionMetadata"
+                    }
                 }
             }
         },
         "types.MetadataStorage": {
             "type": "object",
             "properties": {
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
+                },
                 "docs": {
                     "type": "array",
                     "items": {
@@ -28369,10 +28437,76 @@ const docTemplate = `{
                 }
             }
         },
+        "types.PalletAssociatedTypeMetadata": {
+            "type": "object",
+            "properties": {
+                "docs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "type_id": {
+                    "type": "integer"
+                }
+            }
+        },
         "types.PalletLookUp": {
             "type": "object",
             "properties": {
                 "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "types.PalletViewFunctionMetadata": {
+            "type": "object",
+            "properties": {
+                "deprecation_info": {
+                    "$ref": "#/definitions/types.DeprecationInfo"
+                },
+                "docs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.RuntimeApiMethodParamMetadata"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "output": {
+                    "type": "string"
+                },
+                "output_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "types.RuntimeApiMethodParamMetadata": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "typeId": {
                     "type": "integer"
                 }
             }

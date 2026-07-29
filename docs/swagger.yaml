@@ -9370,6 +9370,15 @@ definitions:
       step:
         type: integer
     type: object
+  types.DeprecationInfo:
+    properties:
+      note:
+        type: string
+      since:
+        type: string
+      type:
+        type: string
+    type: object
   types.MapType:
     properties:
       hasher:
@@ -9391,6 +9400,8 @@ definitions:
         items:
           $ref: '#/definitions/types.MetadataModuleCallArgument'
         type: array
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
       docs:
         items:
           type: string
@@ -9404,6 +9415,8 @@ definitions:
     properties:
       constants_value:
         type: string
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
       docs:
         items:
           type: string
@@ -9429,6 +9442,8 @@ definitions:
         items:
           type: string
         type: array
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
       docs:
         items:
           type: string
@@ -9449,6 +9464,8 @@ definitions:
     type: object
   types.MetadataModuleError:
     properties:
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
       doc:
         items:
           type: string
@@ -9464,26 +9481,48 @@ definitions:
     type: object
   types.MetadataModules:
     properties:
+      associated_types:
+        items:
+          $ref: '#/definitions/types.PalletAssociatedTypeMetadata'
+        type: array
       calls:
         items:
           $ref: '#/definitions/types.MetadataCalls'
         type: array
+      calls_deprecation_info:
+        additionalProperties:
+          $ref: '#/definitions/types.DeprecationInfo'
+        type: object
       calls_value:
         $ref: '#/definitions/types.PalletLookUp'
       constants:
         items:
           $ref: '#/definitions/types.MetadataConstants'
         type: array
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
+      docs:
+        items:
+          type: string
+        type: array
       errors:
         items:
           $ref: '#/definitions/types.MetadataModuleError'
         type: array
+      errors_deprecation_info:
+        additionalProperties:
+          $ref: '#/definitions/types.DeprecationInfo'
+        type: object
       errors_value:
         $ref: '#/definitions/types.PalletLookUp'
       events:
         items:
           $ref: '#/definitions/types.MetadataEvents'
         type: array
+      events_deprecation_info:
+        additionalProperties:
+          $ref: '#/definitions/types.DeprecationInfo'
+        type: object
       events_value:
         $ref: '#/definitions/types.PalletLookUp'
       index:
@@ -9496,9 +9535,15 @@ definitions:
         items:
           $ref: '#/definitions/types.MetadataStorage'
         type: array
+      view_functions:
+        items:
+          $ref: '#/definitions/types.PalletViewFunctionMetadata'
+        type: array
     type: object
   types.MetadataStorage:
     properties:
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
       docs:
         items:
           type: string
@@ -9542,9 +9587,52 @@ definitions:
       value_id:
         type: integer
     type: object
+  types.PalletAssociatedTypeMetadata:
+    properties:
+      docs:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      type:
+        type: string
+      type_id:
+        type: integer
+    type: object
   types.PalletLookUp:
     properties:
       type:
+        type: integer
+    type: object
+  types.PalletViewFunctionMetadata:
+    properties:
+      deprecation_info:
+        $ref: '#/definitions/types.DeprecationInfo'
+      docs:
+        items:
+          type: string
+        type: array
+      id:
+        type: string
+      inputs:
+        items:
+          $ref: '#/definitions/types.RuntimeApiMethodParamMetadata'
+        type: array
+      name:
+        type: string
+      output:
+        type: string
+      output_id:
+        type: integer
+    type: object
+  types.RuntimeApiMethodParamMetadata:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      typeId:
         type: integer
     type: object
   types.StorageType:

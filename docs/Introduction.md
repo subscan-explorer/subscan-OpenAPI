@@ -65,7 +65,6 @@ Please notice before you get started:
 
 | Network              | API Host                                       | Status  |
 |----------------------|------------------------------------------------|---------|
-| Acala                | `acala.api.subscan.io`                         | live    |
 | Altair               | `altair.api.subscan.io`                        | archive |
 | Assethub-kusama      | `assethub-kusama.api.subscan.io`               | live    |
 | Assethub-paseo       | `assethub-paseo.api.subscan.io`                | test    |
@@ -79,14 +78,12 @@ Please notice before you get started:
 | Basilisk             | `basilisk.api.subscan.io`                      | live    |
 | Bifrost-polkadot     | `bifrost.api.subscan.io`                       | live    |
 | Bridgehub-kusama     | `bridgehub-kusama.api.subscan.io`              | live    |
-| Bridgehub-paseo      | `bridgehub-paseo.api.subscan.io`               | test    |
 | Bridgehub-polkadot   | `bridgehub-polkadot.api.subscan.io`            | live    |
 | Bridgehub-westend    | `bridgehub-westend.api.subscan.io`             | test    |
 | Centrifuge           | `centrifuge-standalone-history.api.subscan.io` | archive |
 | Centrifuge-parachain | `centrifuge.api.subscan.io`                    | archive |
 | Collectives          | `collectives-polkadot.api.subscan.io`          | live    |
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live    |
-| Coretime-paseo       | `coretime-paseo.api.subscan.io`                | test    |
 | Coretime-polkadot    | `coretime-polkadot.api.subscan.io`             | live    |
 | Coretime-westend     | `coretime-westend.api.subscan.io`              | test    |
 | Creditcoin           | `cc-enterprise.api.subscan.io`                 | live    |
@@ -104,12 +101,11 @@ Please notice before you get started:
 | Enjin-relay          | `enjin.api.subscan.io`                         | live    |
 | Humanode             | `humanode.api.subscan.io`                      | live    |
 | Hydradx              | `hydration.api.subscan.io`                     | live    |
-| Karura               | `karura.api.subscan.io`                        | live    |
-| Khala                | `khala.api.subscan.io`                         | archive |
 | Kusama               | `kusama.api.subscan.io`                        | live    |
 | Manta                | `manta.api.subscan.io`                         | live    |
 | Midnight             | `midnight.api.subscan.io`                      | live    |
 | Midnight-preview     | `midnight-preview.api.subscan.io`              | test    |
+| Midnight-preprod     | `midnight-preprod.api.subscan.io`              | test    |
 | Moonbase             | `moonbase.api.subscan.io`                      | test    |
 | Moonbeam             | `moonbeam.api.subscan.io`                      | live    |
 | Moonriver            | `moonriver.api.subscan.io`                     | live    |
@@ -121,10 +117,8 @@ Please notice before you get started:
 | Peaq-main            | `peaq.api.subscan.io`                          | live    |
 | Pendulum             | `pendulum.api.subscan.io`                      | live    |
 | People-kusama        | `people-kusama.api.subscan.io`                 | live    |
-| People-paseo         | `people-paseo.api.subscan.io`                  | test    |
 | People-polkadot      | `people-polkadot.api.subscan.io`               | live    |
 | People-westend       | `people-westend.api.subscan.io`                | test    |
-| Phala                | `phala.api.subscan.io`                         | archive |
 | Polkadot             | `polkadot.api.subscan.io`                      | live    |
 | Polymesh             | `polymesh.api.subscan.io`                      | live    |
 | Polymesh-test        | `polymesh-testnet.api.subscan.io`              | test    |
