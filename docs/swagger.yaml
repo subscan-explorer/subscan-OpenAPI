@@ -220,42 +220,6 @@ definitions:
     required:
     - group_owner
     type: object
-  internal_plugin_crust_swork_http.CrustOrdersParams:
-    properties:
-      address:
-        items:
-          type: string
-        type: array
-      expired_status:
-        enum:
-        - 1
-        - 2
-        - 3
-        type: integer
-      page:
-        minimum: 0
-        type: integer
-      row:
-        maximum: 100
-        minimum: 1
-        type: integer
-    type: object
-  internal_plugin_crust_swork_http.CrustStorageDailyStatParams:
-    properties:
-      category:
-        enum:
-        - nodes
-        - storage
-        - files
-        type: string
-      end:
-        type: string
-      start:
-        type: string
-    required:
-    - end
-    - start
-    type: object
   internal_plugin_enjin_multiTokens_http.EnjinMultiTokeInfoParams:
     properties:
       collection_id:
@@ -380,6 +344,119 @@ definitions:
         minLength: 1
         type: string
     type: object
+  internal_plugin_evm_http.DotnsBrowsePublicationsParam:
+    properties:
+      active:
+        description: optional event active flag
+        type: boolean
+      event:
+        enum:
+        - published
+        - unpublished
+        type: string
+      label:
+        description: optional .dot label
+        type: string
+      node:
+        description: optional namehash
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.DotnsProductListParam:
+    properties:
+      address:
+        description: backwards-friendly owner alias
+        type: string
+      label:
+        description: optional .dot label, e.g. survey.dot
+        type: string
+      listed:
+        description: optional Browse listed state
+        type: boolean
+      node:
+        description: optional namehash
+        type: string
+      owner:
+        description: optional current owner
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.DotnsProductParam:
+    properties:
+      label:
+        description: optional .dot label, e.g. survey.dot
+        type: string
+      node:
+        description: optional namehash
+        type: string
+    type: object
+  internal_plugin_evm_http.DotnsProductVersionsParam:
+    properties:
+      label:
+        description: optional .dot label, e.g. survey.dot
+        type: string
+      node:
+        description: optional namehash
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.DotnsWebIdListParam:
+    properties:
+      account_id:
+        description: optional Substrate/SS58 account alias
+        type: string
+      address:
+        description: optional account (H160)
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.DotnsWebIdNameListParam:
+    properties:
+      account_id:
+        description: optional Substrate/SS58 account alias
+        type: string
+      address:
+        description: optional account (H160)
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_plugin_evm_http.DotnsWebIdParam:
+    properties:
+      account_id:
+        type: string
+      address:
+        type: string
+    type: object
   internal_plugin_evm_http.EVMAccountTokensParam:
     properties:
       address:
@@ -445,6 +522,7 @@ definitions:
       contracts:
         items:
           type: string
+        maxItems: 100
         type: array
       order:
         enum:
@@ -649,6 +727,7 @@ definitions:
       contracts:
         items:
           type: string
+        maxItems: 100
         type: array
       order:
         enum:
@@ -2130,6 +2209,39 @@ definitions:
         minimum: 0
         type: integer
     type: object
+  internal_pluginv2_pallets_dap.dapIssuanceDailyListJSON:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapIssuanceDailyPointJSON'
+        type: array
+    type: object
+  internal_pluginv2_pallets_dap.dapIssuanceDailyParams:
+    properties:
+      end:
+        example: "2026-07-29"
+        type: string
+      format:
+        enum:
+        - day
+        example: day
+        type: string
+      start:
+        example: "2026-07-01"
+        type: string
+    required:
+    - end
+    - start
+    type: object
+  internal_pluginv2_pallets_dap.dapIssuanceDailyPointJSON:
+    properties:
+      mint_count:
+        type: integer
+      time_utc:
+        type: string
+      total_minted:
+        type: string
+    type: object
   internal_pluginv2_pallets_dap.dapOverviewJSON:
     properties:
       buffer_account:
@@ -2207,6 +2319,7 @@ definitions:
       module:
         items:
           type: string
+        maxItems: 100
         type: array
       page:
         description: Page number, starting from 0
@@ -11807,6 +11920,45 @@ paths:
       - issuance
       - staging
       - allocation
+  /api/scan/dap/issuance-daily:
+    post:
+      consumes:
+      - application/json
+      description: Returns day-level DAP issuance_minted aggregates for inflation
+        charts. start/end are required YYYY-MM-DD dates (UTC). Results are ordered
+        by time_utc ascending. Does not return cumulative totals or per-recipient
+        splits.
+      parameters:
+      - description: date range
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dap.dapIssuanceDailyParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dap.dapIssuanceDailyListJSON'
+              message:
+                type: string
+            type: object
+      summary: Get DAP issuance daily series
+      tags:
+      - DAP
+      x-synonyms:
+      - dap
+      - issuance
+      - daily
+      - inflation
+      - mint
+      - chart
   /api/scan/dap/overview:
     post:
       consumes:
@@ -12511,6 +12663,234 @@ paths:
       - frontier
       - wasm contract
       - evm contract
+  /api/scan/evm/dotns/browse/publications:
+    post:
+      consumes:
+      - application/json
+      description: Returns Browse Publisher publish/unpublish events, optionally filtered
+        to one Product.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsBrowsePublicationsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: DotNS Browse publication events
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - browse
+      - publication
+      - published
+      - unpublished
+      - listing
+      - product
+  /api/scan/evm/dotns/product:
+    post:
+      consumes:
+      - application/json
+      description: Resolves one DotNS Product Explorer snapshot by .dot label or namehash.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsProductParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: DotNS product by label or node
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - product
+      - product detail
+      - browse
+      - contenthash
+      - cid
+      - web app
+  /api/scan/evm/dotns/product/versions:
+    post:
+      consumes:
+      - application/json
+      description: Returns contenthash/CID version history for one DotNS Product.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsProductVersionsParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: DotNS product versions
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - product
+      - versions
+      - contenthash
+      - cid
+      - deployment
+      - publish history
+  /api/scan/evm/dotns/products:
+    post:
+      consumes:
+      - application/json
+      description: Returns DotNS Product Explorer current snapshots, optionally filtered
+        by label/node/owner/listed state. This API only supports Asset Hub Product
+        Devnet style DotNS networks.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsProductListParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: DotNS product list
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - product
+      - products
+      - browse
+      - contenthash
+      - cid
+      - web app
+      - assethub
+      - pvm
+      - revive
+  /api/scan/evm/dotns/webid:
+    post:
+      consumes:
+      - application/json
+      description: Resolves one account's DotNS web id store binding and returns dot_ids
+        with the current .dot names owned by that account. Provide either address
+        (H160) or account_id (Substrate account id/SS58 resolved through chain_accounts.evm_address).
+        This API only supports networks with EVM pallet(revive) on Asset Hub.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsWebIdParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: Get DotNS web id by account
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - web id
+      - webid
+      - polkadot name service
+      - dot name
+      - evm
+      - pvm
+      - revive
+      - assethub
+      - scan
+  /api/scan/evm/dotns/webid/names:
+    post:
+      consumes:
+      - application/json
+      description: Returns current .dot names as one row per name, optionally filtered
+        by address (H160) or account_id (Substrate account id/SS58, resolved through
+        chain_accounts.evm_address when available). Results are ordered by latest
+        ownership/name event block descending, paginated with row default 100 and
+        max 100.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsWebIdNameListParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: List DotNS names
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - web id
+      - dot id
+      - dot ids
+      - polkadot name service
+      - account names
+      - assethub
+      - pvm
+      - revive
+  /api/scan/evm/dotns/webids:
+    post:
+      consumes:
+      - application/json
+      description: Returns deployed DotNS web id store bindings (LabelStore/UserStore),
+        optionally filtered by address (H160) or account_id (Substrate account id/SS58
+        resolved through chain_accounts.evm_address). Results are ordered by latest
+        binding block descending, paginated with row default 100 and max 100. This
+        API only supports networks with EVM pallet(revive) on Asset Hub.
+      parameters:
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/internal_plugin_evm_http.DotnsWebIdListParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+      summary: List DotNS web ids
+      tags:
+      - EVM
+      x-synonyms:
+      - dotns
+      - web id
+      - webid
+      - polkadot name service
+      - dot name
+      - evm
+      - pvm
+      - revive
+      - assethub
+      - scan
   /api/scan/evm/erc721/collectible:
     post:
       consumes:
@@ -16806,37 +17186,6 @@ paths:
       - validators
       - staking
       - scan
-  /api/scan/swork/daily:
-    post:
-      consumes:
-      - application/json
-      description: This API is only available for avail network.
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustStorageDailyStatParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            additionalProperties: true
-            type: object
-      summary: Crust storage daily stat
-      tags:
-      - CrustStorage
-      x-synonyms:
-      - crust
-      - storage
-      - daily
-      - stat
-      - cruststorage
-      - scan
-      - swork
   /api/scan/swork/group:
     post:
       consumes:
@@ -17019,36 +17368,6 @@ paths:
       - storage
       - group
       - member
-      - orders
-      - cruststorage
-      - scan
-      - swork
-  /api/scan/swork/orders:
-    post:
-      consumes:
-      - application/json
-      description: This API is only available for avail network.
-      parameters:
-      - description: params
-        in: body
-        name: params
-        required: true
-        schema:
-          $ref: '#/definitions/internal_plugin_crust_swork_http.CrustOrdersParams'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            additionalProperties: true
-            type: object
-      summary: Crust storage orders
-      tags:
-      - CrustStorage
-      x-synonyms:
-      - crust
-      - storage
       - orders
       - cruststorage
       - scan

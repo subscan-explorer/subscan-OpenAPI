@@ -82,7 +82,7 @@ Please notice before you get started:
 | Bridgehub-westend    | `bridgehub-westend.api.subscan.io`             | test    |
 | Centrifuge           | `centrifuge-standalone-history.api.subscan.io` | archive |
 | Centrifuge-parachain | `centrifuge.api.subscan.io`                    | archive |
-| Collectives          | `collectives-polkadot.api.subscan.io`          | live    |
+| Collectives-polkadot | `collectives-polkadot.api.subscan.io`          | live    |
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live    |
 | Coretime-polkadot    | `coretime-polkadot.api.subscan.io`             | live    |
 | Coretime-westend     | `coretime-westend.api.subscan.io`              | test    |
@@ -90,8 +90,8 @@ Please notice before you get started:
 | Creditcoin-cc3       | `creditcoin.api.subscan.io`                    | live    |
 | Creditcoin-cc3-test  | `creditcoin3-testnet.api.subscan.io`           | test    |
 | Creditcoin-dev       | `creditcoin3-dev.api.subscan.io`               | test    |
-| Crust-main           | `crust.api.subscan.io`                         | live    |
-| Crust-parachain      | `crust-parachain.api.subscan.io`               | live    |
+| Crust                | `crust.api.subscan.io`                         | live    |
+| Crust-parachain      | `crust-parachain.api.subscan.io`               | archive |
 | Darwinia             | `darwinia.api.subscan.io`                      | live    |
 | Energywebx           | `energywebx.api.subscan.io`                    | live    |
 | Energywebx-testnet   | `energywebx-testnet.api.subscan.io`            | test    |
@@ -106,9 +106,9 @@ Please notice before you get started:
 | Midnight             | `midnight.api.subscan.io`                      | live    |
 | Midnight-preview     | `midnight-preview.api.subscan.io`              | test    |
 | Midnight-preprod     | `midnight-preprod.api.subscan.io`              | test    |
-| Moonbase             | `moonbase.api.subscan.io`                      | test    |
-| Moonbeam             | `moonbeam.api.subscan.io`                      | live    |
-| Moonriver            | `moonriver.api.subscan.io`                     | live    |
+| Moonbase             | `moonbase.api.subscan.io`                      | archive |
+| Moonbeam             | `moonbeam.api.subscan.io`                      | archive |
+| Moonriver            | `moonriver.api.subscan.io`                     | archive |
 | Mythos               | `mythos.api.subscan.io`                        | live    |
 | Neuroweb             | `neuroweb.api.subscan.io`                      | live    |
 | Neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | test    |
@@ -122,7 +122,6 @@ Please notice before you get started:
 | Polkadot             | `polkadot.api.subscan.io`                      | live    |
 | Polymesh             | `polymesh.api.subscan.io`                      | live    |
 | Polymesh-test        | `polymesh-testnet.api.subscan.io`              | test    |
-| Reef                 | `reef.api.subscan.io`                          | live    |
 | Robonomics-polkadot  | `robonomics.api.subscan.io`                    | live    |
 | Shibuya              | `shibuya.api.subscan.io`                       | test    |
 | Shiden               | `shiden.api.subscan.io`                        | live    |

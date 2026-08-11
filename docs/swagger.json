@@ -3181,6 +3181,59 @@
                 ]
             }
         },
+        "/api/scan/dap/issuance-daily": {
+            "post": {
+                "description": "Returns day-level DAP issuance_minted aggregates for inflation charts. start/end are required YYYY-MM-DD dates (UTC). Results are ordered by time_utc ascending. Does not return cumulative totals or per-recipient splits.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "DAP"
+                ],
+                "summary": "Get DAP issuance daily series",
+                "parameters": [
+                    {
+                        "description": "date range",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapIssuanceDailyParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapIssuanceDailyListJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-synonyms": [
+                    "dap",
+                    "issuance",
+                    "daily",
+                    "inflation",
+                    "mint",
+                    "chart"
+                ]
+            }
+        },
         "/api/scan/dap/overview": {
             "post": {
                 "description": "Returns the current DAP overview, including staging and buffer accounts, live balances, the current allocation distribution, and the latest indexed allocation and event blocks. When no allocation history exists yet, the current allocation is composed from the live runtime state and the current recipient registry.",
@@ -4202,6 +4255,304 @@
                     "frontier",
                     "wasm contract",
                     "evm contract"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/browse/publications": {
+            "post": {
+                "description": "Returns Browse Publisher publish/unpublish events, optionally filtered to one Product.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "DotNS Browse publication events",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsBrowsePublicationsParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "browse",
+                    "publication",
+                    "published",
+                    "unpublished",
+                    "listing",
+                    "product"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/product": {
+            "post": {
+                "description": "Resolves one DotNS Product Explorer snapshot by .dot label or namehash.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "DotNS product by label or node",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsProductParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "product",
+                    "product detail",
+                    "browse",
+                    "contenthash",
+                    "cid",
+                    "web app"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/product/versions": {
+            "post": {
+                "description": "Returns contenthash/CID version history for one DotNS Product.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "DotNS product versions",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsProductVersionsParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "product",
+                    "versions",
+                    "contenthash",
+                    "cid",
+                    "deployment",
+                    "publish history"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/products": {
+            "post": {
+                "description": "Returns DotNS Product Explorer current snapshots, optionally filtered by label/node/owner/listed state. This API only supports Asset Hub Product Devnet style DotNS networks.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "DotNS product list",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsProductListParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "product",
+                    "products",
+                    "browse",
+                    "contenthash",
+                    "cid",
+                    "web app",
+                    "assethub",
+                    "pvm",
+                    "revive"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/webid": {
+            "post": {
+                "description": "Resolves one account's DotNS web id store binding and returns dot_ids with the current .dot names owned by that account. Provide either address (H160) or account_id (Substrate account id/SS58 resolved through chain_accounts.evm_address). This API only supports networks with EVM pallet(revive) on Asset Hub.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "Get DotNS web id by account",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsWebIdParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "web id",
+                    "webid",
+                    "polkadot name service",
+                    "dot name",
+                    "evm",
+                    "pvm",
+                    "revive",
+                    "assethub",
+                    "scan"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/webid/names": {
+            "post": {
+                "description": "Returns current .dot names as one row per name, optionally filtered by address (H160) or account_id (Substrate account id/SS58, resolved through chain_accounts.evm_address when available). Results are ordered by latest ownership/name event block descending, paginated with row default 100 and max 100.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "List DotNS names",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsWebIdNameListParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "web id",
+                    "dot id",
+                    "dot ids",
+                    "polkadot name service",
+                    "account names",
+                    "assethub",
+                    "pvm",
+                    "revive"
+                ]
+            }
+        },
+        "/api/scan/evm/dotns/webids": {
+            "post": {
+                "description": "Returns deployed DotNS web id store bindings (LabelStore/UserStore), optionally filtered by address (H160) or account_id (Substrate account id/SS58 resolved through chain_accounts.evm_address). Results are ordered by latest binding block descending, paginated with row default 100 and max 100. This API only supports networks with EVM pallet(revive) on Asset Hub.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "EVM"
+                ],
+                "summary": "List DotNS web ids",
+                "parameters": [
+                    {
+                        "description": "param",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_plugin_evm_http.DotnsWebIdListParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                },
+                "x-synonyms": [
+                    "dotns",
+                    "web id",
+                    "webid",
+                    "polkadot name service",
+                    "dot name",
+                    "evm",
+                    "pvm",
+                    "revive",
+                    "assethub",
+                    "scan"
                 ]
             }
         },
@@ -10664,50 +11015,6 @@
                 ]
             }
         },
-        "/api/scan/swork/daily": {
-            "post": {
-                "description": "This API is only available for avail network.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "CrustStorage"
-                ],
-                "summary": "Crust storage daily stat",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_crust_swork_http.CrustStorageDailyStatParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "additionalProperties": true
-                        }
-                    }
-                },
-                "x-synonyms": [
-                    "crust",
-                    "storage",
-                    "daily",
-                    "stat",
-                    "cruststorage",
-                    "scan",
-                    "swork"
-                ]
-            }
-        },
         "/api/scan/swork/group": {
             "post": {
                 "description": "This API is only available for avail network.",
@@ -10965,49 +11272,6 @@
                     "storage",
                     "group",
                     "member",
-                    "orders",
-                    "cruststorage",
-                    "scan",
-                    "swork"
-                ]
-            }
-        },
-        "/api/scan/swork/orders": {
-            "post": {
-                "description": "This API is only available for avail network.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "CrustStorage"
-                ],
-                "summary": "Crust storage orders",
-                "parameters": [
-                    {
-                        "description": "params",
-                        "name": "params",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_plugin_crust_swork_http.CrustOrdersParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "additionalProperties": true
-                        }
-                    }
-                },
-                "x-synonyms": [
-                    "crust",
-                    "storage",
                     "orders",
                     "cruststorage",
                     "scan",
@@ -14816,57 +15080,6 @@
                 }
             }
         },
-        "internal_plugin_crust_swork_http.CrustOrdersParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "expired_status": {
-                    "type": "integer",
-                    "enum": [
-                        1,
-                        2,
-                        3
-                    ]
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
-                }
-            }
-        },
-        "internal_plugin_crust_swork_http.CrustStorageDailyStatParams": {
-            "type": "object",
-            "required": [
-                "end",
-                "start"
-            ],
-            "properties": {
-                "category": {
-                    "type": "string",
-                    "enum": [
-                        "nodes",
-                        "storage",
-                        "files"
-                    ]
-                },
-                "end": {
-                    "type": "string"
-                },
-                "start": {
-                    "type": "string"
-                }
-            }
-        },
         "internal_plugin_enjin_multiTokens_http.EnjinMultiTokeInfoParams": {
             "type": "object",
             "properties": {
@@ -15036,6 +15249,163 @@
                 }
             }
         },
+        "internal_plugin_evm_http.DotnsBrowsePublicationsParam": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "description": "optional event active flag",
+                    "type": "boolean"
+                },
+                "event": {
+                    "type": "string",
+                    "enum": [
+                        "published",
+                        "unpublished"
+                    ]
+                },
+                "label": {
+                    "description": "optional .dot label",
+                    "type": "string"
+                },
+                "node": {
+                    "description": "optional namehash",
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.DotnsProductListParam": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "backwards-friendly owner alias",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "optional .dot label, e.g. survey.dot",
+                    "type": "string"
+                },
+                "listed": {
+                    "description": "optional Browse listed state",
+                    "type": "boolean"
+                },
+                "node": {
+                    "description": "optional namehash",
+                    "type": "string"
+                },
+                "owner": {
+                    "description": "optional current owner",
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.DotnsProductParam": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "description": "optional .dot label, e.g. survey.dot",
+                    "type": "string"
+                },
+                "node": {
+                    "description": "optional namehash",
+                    "type": "string"
+                }
+            }
+        },
+        "internal_plugin_evm_http.DotnsProductVersionsParam": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "description": "optional .dot label, e.g. survey.dot",
+                    "type": "string"
+                },
+                "node": {
+                    "description": "optional namehash",
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.DotnsWebIdListParam": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "description": "optional Substrate/SS58 account alias",
+                    "type": "string"
+                },
+                "address": {
+                    "description": "optional account (H160)",
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.DotnsWebIdNameListParam": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "description": "optional Substrate/SS58 account alias",
+                    "type": "string"
+                },
+                "address": {
+                    "description": "optional account (H160)",
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_plugin_evm_http.DotnsWebIdParam": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_plugin_evm_http.EVMAccountTokensParam": {
             "type": "object",
             "required": [
@@ -15128,6 +15498,7 @@
                 },
                 "contracts": {
                     "type": "array",
+                    "maxItems": 100,
                     "items": {
                         "type": "string"
                     }
@@ -15421,6 +15792,7 @@
                 },
                 "contracts": {
                     "type": "array",
+                    "maxItems": 100,
                     "items": {
                         "type": "string"
                     }
@@ -17531,6 +17903,55 @@
                 }
             }
         },
+        "internal_pluginv2_pallets_dap.dapIssuanceDailyListJSON": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dap.dapIssuanceDailyPointJSON"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapIssuanceDailyParams": {
+            "type": "object",
+            "required": [
+                "end",
+                "start"
+            ],
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "example": "2026-07-29"
+                },
+                "format": {
+                    "type": "string",
+                    "enum": [
+                        "day"
+                    ],
+                    "example": "day"
+                },
+                "start": {
+                    "type": "string",
+                    "example": "2026-07-01"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dap.dapIssuanceDailyPointJSON": {
+            "type": "object",
+            "properties": {
+                "mint_count": {
+                    "type": "integer"
+                },
+                "time_utc": {
+                    "type": "string"
+                },
+                "total_minted": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_pluginv2_pallets_dap.dapOverviewJSON": {
             "type": "object",
             "properties": {
@@ -17645,6 +18066,7 @@
                 },
                 "module": {
                     "type": "array",
+                    "maxItems": 100,
                     "items": {
                         "type": "string"
                     }

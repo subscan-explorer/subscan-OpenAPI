@@ -1,22 +1,11 @@
 {
-  "acala": {
-    "api_domains": [
-      "acala"
-    ],
-    "backend_service_name": "subscan-acala",
-    "db_name": "subscan_acala",
-    "network_node": "acala",
-    "type": "mainnet",
-    "ui_domains": [
-      "acala"
-    ]
-  },
   "altair": {
     "api_domains": [
       "altair"
     ],
     "backend_service_name": "subscan-altair",
     "db_name": "subscan_altair",
+    "is_archive": true,
     "network_node": "altair",
     "type": "mainnet",
     "ui_domains": [
@@ -143,18 +132,6 @@
       "bridgehub-kusama"
     ]
   },
-  "bridgehub-paseo": {
-    "api_domains": [
-      "bridgehub-paseo"
-    ],
-    "backend_service_name": "subscan-bridgehub-paseo",
-    "db_name": "subscan_bridgehub_paseo",
-    "network_node": "bridgehub-paseo",
-    "type": "testnet",
-    "ui_domains": [
-      "bridgehub-paseo"
-    ]
-  },
   "bridgehub-polkadot": {
     "api_domains": [
       "bridgehub-polkadot"
@@ -179,19 +156,6 @@
       "bridgehub-westend"
     ]
   },
-  "calamari": {
-    "api_domains": [
-      "calamari"
-    ],
-    "backend_service_name": "subscan-calamari",
-    "db_name": "subscan_calamari",
-    "is_archive": true,
-    "network_node": "calamari",
-    "type": "mainnet",
-    "ui_domains": [
-      "calamari"
-    ]
-  },
   "centrifuge": {
     "api_domains": [
       "centrifuge-standalone-history"
@@ -210,6 +174,7 @@
     ],
     "backend_service_name": "subscan-centrifuge-parachain",
     "db_name": "subscan_centrifuge_parachain",
+    "is_archive": true,
     "network_node": "centrifuge-parachain",
     "type": "mainnet",
     "ui_domains": [
@@ -238,18 +203,6 @@
     "type": "mainnet",
     "ui_domains": [
       "coretime-kusama"
-    ]
-  },
-  "coretime-paseo": {
-    "api_domains": [
-      "coretime-paseo"
-    ],
-    "backend_service_name": "subscan-coretime-paseo",
-    "db_name": "subscan_coretime_paseo",
-    "network_node": "coretime-paseo",
-    "type": "testnet",
-    "ui_domains": [
-      "coretime-paseo"
     ]
   },
   "coretime-polkadot": {
@@ -472,18 +425,6 @@
       "hydration"
     ]
   },
-  "karura": {
-    "api_domains": [
-      "karura"
-    ],
-    "backend_service_name": "subscan-karura",
-    "db_name": "subscan_karura",
-    "network_node": "karura",
-    "type": "mainnet",
-    "ui_domains": [
-      "karura"
-    ]
-  },
   "kusama": {
     "api_domains": [
       "kusama"
@@ -508,16 +449,40 @@
       "manta"
     ]
   },
-  "midnight-testnet": {
+  "midnight": {
     "api_domains": [
-      "midnight-testnet"
+      "midnight"
     ],
-    "backend_service_name": "subscan-midnight-testnet",
-    "db_name": "subscan_midnight_testnet",
-    "network_node": "midnight-testnet",
+    "backend_service_name": "subscan-midnight",
+    "db_name": "subscan_midnight",
+    "network_node": "midnight",
+    "type": "mainnet",
+    "ui_domains": [
+      "midnight"
+    ]
+  },
+  "midnight-preprod": {
+    "api_domains": [
+      "midnight-preprod"
+    ],
+    "backend_service_name": "subscan-midnight-preprod",
+    "db_name": "subscan_midnight_preprod",
+    "network_node": "midnight-preprod",
     "type": "testnet",
     "ui_domains": [
-      "midnight-testnet"
+      "midnight-preprod"
+    ]
+  },
+  "midnight-preview": {
+    "api_domains": [
+      "midnight-preview"
+    ],
+    "backend_service_name": "subscan-midnight-preview",
+    "db_name": "subscan_midnight_preview",
+    "network_node": "midnight-preview",
+    "type": "testnet",
+    "ui_domains": [
+      "midnight-preview"
     ]
   },
   "moonbase": {
@@ -601,7 +566,7 @@
       "paseo"
     ],
     "backend_service_name": "subscan-paseo",
-    "db_name": "subscan_paseo",
+    "db_name": "subscan_paseo_v2",
     "network_node": "paseo",
     "type": "testnet",
     "ui_domains": [
@@ -654,18 +619,6 @@
     "type": "mainnet",
     "ui_domains": [
       "people-kusama"
-    ]
-  },
-  "people-paseo": {
-    "api_domains": [
-      "people-paseo"
-    ],
-    "backend_service_name": "subscan-people-paseo",
-    "db_name": "subscan_people_paseo",
-    "network_node": "people-paseo",
-    "type": "testnet",
-    "ui_domains": [
-      "people-paseo"
     ]
   },
   "people-polkadot": {
@@ -726,18 +679,6 @@
     "type": "testnet",
     "ui_domains": [
       "polymesh-testnet"
-    ]
-  },
-  "reef": {
-    "api_domains": [
-      "reef"
-    ],
-    "backend_service_name": "subscan-reef",
-    "db_name": "subscan_reef",
-    "network_node": "reef",
-    "type": "mainnet",
-    "ui_domains": [
-      "reef"
     ]
   },
   "robonomics-polkadot": {
