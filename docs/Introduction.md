@@ -75,7 +75,6 @@ Please notice before you get started:
 | Autonomys-chronos    | `autonomys-chronos.api.subscan.io`             | test    |
 | Avail                | `avail.api.subscan.io`                         | live    |
 | Avail-turing         | `avail-turing.api.subscan.io`                  | test    |
-| Basilisk             | `basilisk.api.subscan.io`                      | live    |
 | Bifrost-polkadot     | `bifrost.api.subscan.io`                       | live    |
 | Bridgehub-kusama     | `bridgehub-kusama.api.subscan.io`              | live    |
 | Bridgehub-polkadot   | `bridgehub-polkadot.api.subscan.io`            | live    |
@@ -100,9 +99,8 @@ Please notice before you get started:
 | Enjin-matrix         | `matrix.api.subscan.io`                        | live    |
 | Enjin-relay          | `enjin.api.subscan.io`                         | live    |
 | Humanode             | `humanode.api.subscan.io`                      | live    |
-| Hydradx              | `hydration.api.subscan.io`                     | live    |
 | Kusama               | `kusama.api.subscan.io`                        | live    |
-| Manta                | `manta.api.subscan.io`                         | live    |
+| Manta                | `manta.api.subscan.io`                         | archive |
 | Midnight             | `midnight.api.subscan.io`                      | live    |
 | Midnight-preview     | `midnight-preview.api.subscan.io`              | test    |
 | Midnight-preprod     | `midnight-preprod.api.subscan.io`              | test    |
@@ -111,7 +109,7 @@ Please notice before you get started:
 | Moonriver            | `moonriver.api.subscan.io`                     | archive |
 | Mythos               | `mythos.api.subscan.io`                        | live    |
 | Neuroweb             | `neuroweb.api.subscan.io`                      | live    |
-| Neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | test    |
+| Neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | archive |
 | Paseo                | `paseo.api.subscan.io`                         | test    |
 | Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test    |
 | Peaq-main            | `peaq.api.subscan.io`                          | live    |

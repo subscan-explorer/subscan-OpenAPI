@@ -96,18 +96,6 @@
       "avail-turing"
     ]
   },
-  "basilisk": {
-    "api_domains": [
-      "basilisk"
-    ],
-    "backend_service_name": "subscan-basilisk",
-    "db_name": "subscan_basilisk",
-    "network_node": "basilisk",
-    "type": "mainnet",
-    "ui_domains": [
-      "basilisk"
-    ]
-  },
   "bifrost-p": {
     "api_domains": [
       "bifrost"
@@ -154,18 +142,6 @@
     "type": "testnet",
     "ui_domains": [
       "bridgehub-westend"
-    ]
-  },
-  "centrifuge": {
-    "api_domains": [
-      "centrifuge-standalone-history"
-    ],
-    "backend_service_name": "subscan-centrifuge",
-    "db_name": "subscan_centrifuge",
-    "network_node": "centrifuge",
-    "type": "mainnet",
-    "ui_domains": [
-      "centrifuge-standalone-history"
     ]
   },
   "centrifuge-parachain": {
@@ -409,20 +385,6 @@
     "type": "mainnet",
     "ui_domains": [
       "humanode"
-    ]
-  },
-  "hydradx": {
-    "api_domains": [
-      "hydradx",
-      "hydration"
-    ],
-    "backend_service_name": "subscan-hydradx",
-    "db_name": "subscan_hydradx",
-    "network_node": "hydradx",
-    "type": "mainnet",
-    "ui_domains": [
-      "hydradx",
-      "hydration"
     ]
   },
   "kusama": {
