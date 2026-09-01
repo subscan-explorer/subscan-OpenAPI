@@ -1,24 +1,30 @@
-## `X-API-Key` Header
+## Authentication
 
-The `X-API-Key` or `x-api-key` (case-insensitive) request header is the authentication method that Subscan API uses to determine the identity and rate limits.
+There are two separate access paths:
 
-## Rate Limiting
+- **Direct Subscan API:** Existing direct plans use the `X-API-Key` or `x-api-key` request header. Subscan no longer
+  issues new free keys through the direct API platform.
+- **PubFi Gateway:** New free access uses a PubFi API key with the `Authorization: Bearer <PubFi API key>` header.
+  The gateway base URL is `https://api.pubfi.ai` in Production or `https://api-stg.pubfi.ai` in Staging.
 
-Each Subscan API key has a request quota, for example, 30 requests per second at most.
+Do not send a direct Subscan `X-API-Key` as a replacement for a PubFi Bearer key. See the
+[Tutorial](https://support.subscan.io/doc-360177) for the PubFi onboarding and gateway path mapping.
 
-<aside class="info">
+## Direct Subscan Rate Limiting
 
-If the API key is incorrect or doesn't exist in the request, it then fallbacks to your public IP address. The quotas of no-key access are relatively lower and designed for testing purposes only.
+Direct Subscan quotas depend on the current direct plan. Do not copy a historical quota into a new integration, and do
+not rely on anonymous fallback access as a free onboarding path.
 
-</aside>
-
-Currently, the quotas are global - shared across all APIs, all networks, and all client IP addresses as well. For instance, if an API key has a quota of *10* requests per second:
+For a direct key with a quota of *10* requests per second, the quota is shared across the APIs and networks covered by
+that key. For example:
 
 - Client *A* requests `https://polkadot.api.subscan.io/api/now` with an API key;
 - Simultaneously, client *B* requests `https://kusama.api.subscan.io/api/scan/metadata` with the same API key.
 - After these *2* requests, only *8* requests with the same API key are allowed in that second.
 
-Subscan API respects the Internet-Draft [RateLimit Header Fields for HTTP](https://tools.ietf.org/html/draft-polli-ratelimit-headers-01). Through the headers of any response, it is simple to retrieve the limit (`ratelimit-limit`), remaining quota (`ratelimit-remaining`), and the seconds until the limit resets (`ratelimit-reset`) of your key. For example, send any request:
+Subscan API may return the Internet-Draft [RateLimit Header Fields for HTTP](https://tools.ietf.org/html/draft-polli-ratelimit-headers-01).
+Through the response headers, clients can read the limit (`ratelimit-limit`), remaining quota
+(`ratelimit-remaining`), and seconds until reset (`ratelimit-reset`) for a direct key. For example:
 
 <div class="center-column"></div>
 
@@ -36,7 +42,8 @@ ratelimit-limit: 10
 ratelimit-reset: 22
 ```
 
-If the client reached the rate limit, all other requests in the time slot will be throttled with an HTTP `429 Too Many Requests` response that contains a [`retry-after` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After).
+If a direct client reaches its rate limit, requests in the time slot may be throttled with an HTTP `429 Too Many
+Requests` response that contains a [`retry-after` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After).
 
 An example of partial response headers:
 
@@ -63,18 +70,27 @@ An example of response body:
 It is highly recommended to build your client with a backoff strategy to wait for <code>"retry-after"</code> seconds when hitting rate limits.
 </aside>
 
+## PubFi Free-Route Rate Limiting
+
+PubFi free routes are separate from direct Subscan quotas. The live Registry advertises an eligible free route through
+`free_rate_limit`; Runtime OpenAPI represents the same contract with `x-pubfi-free-variant`. Only append `:free` to
+the exact gateway path when that contract is present. A free route still requires a PubFi Bearer key, is not anonymous,
+and does not consume Credits. Limits and quota are runtime data, so clients should honor `Retry-After` on `429` and
+avoid hard-coding the old Subscan free-plan values.
+
 ## HTTP Status Codes
 
-The table down below lists several HTTP status codes that Subscan might respond.
+The table below lists common status codes returned by the direct Subscan API or the PubFi Gateway. The exact response
+body and error code depend on the selected access path.
 
 | Code                      | Meaning                                                                                                                                         |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | 200 OK                    | The request was handled without any error.                                                                                                      |
 | 401 Unauthorized          | The credentials is either not found or invalid. Please refer to the `message` field in the JSON response for more detail.                       |
-| 402 Payment Required      | API key invalid or api key is not a valid paid plan                                                                                             |
+| 402 Payment Required      | The selected route requires a billing or admission action.                                                                                     |
 | 404 Not Found             | The HTTP method or request URI was most likely wrong.                                                                                           |
-| 429 Too Many Requests     | The request hits the rate limit. Please request an API key with higher quotas.                                                                  |
+| 429 Too Many Requests     | The direct or PubFi route limit was reached. Honor `retry-after` when present and recheck the applicable runtime policy.                         |
 | 500 Internal Server Error | The servers could not respond your request due to an internal error. Find more information on our [status page](https://subscan.statuspage.io). |
 | 502 Bad Gateway           | The servers could not respond your request due to an internal error. Find more information on our [status page](https://subscan.statuspage.io). |
-| 503 Service Unavailable   | The services were under maintenance. Please try again later.                                                                                    |
+| 503 Service Unavailable   | The Registry, credentials, health authority, or upstream service is unavailable.                                                                |
 | 504 Gateway Timeout       | The servers could not respond your request due to an internal error. Find more information on our [status page](https://subscan.statuspage.io). |

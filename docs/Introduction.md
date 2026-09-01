@@ -5,15 +5,16 @@ via [api@subscan.io](mailto:api@subscan.io).
 
 The documentation was created with [apidog](https://apidog.com).
 
-## API Keys
+## Access and API Keys
 
-All Subscan API requests must be authenticated with an API Key. We provide flexible data access options to suit
-different needs:
+Subscan no longer issues new free API keys from the Subscan API Platform. New integrations that need free access should
+create a [PubFi](https://pubfi.ai/) account, create a PubFi API key in the [PubFi Dashboard](https://pubfi.ai/dashboard),
+and call Subscan through the PubFi Gateway. See the [Tutorial](https://support.subscan.io/doc-360177) for the complete
+onboarding and request flow.
 
-* Free Plan: Designed for developers, researchers, and ecosystem enthusiasts to build and explore at zero cost.
-* Pro Plans: High-performance API services with expanded quotas and dedicated support for production environments.
-
-Action Required: Visit https://pro.subscan.io/ to register your account and generate your required API key.
+PubFi API-key requests use `Authorization: Bearer <PubFi API key>` and the PubFi gateway base URL. The old direct
+Subscan `X-API-Key` flow is not the free onboarding path described here. Existing direct Subscan customers should use
+the authentication and plan instructions that apply to their current direct plan.
 
 ### Data for AI Agents
 
@@ -21,9 +22,9 @@ Subscan data is also available through [PubFi](https://pubfi.ai/), a preferred d
 layer for AI agents. PubFi aggregates data discovery, intelligent refinement, and machine-native settlement to build a
 new agent data supply chain for Web3 applications.
 
-With PubFi, users can access Subscan-powered on-chain data through flexible usage-based pricing and x402 payments,
-enabling automated pay-per-use API access for agent-driven workflows. When a requested dataset is not directly available
-from Subscan, PubFi can automatically match the request and retrieve relevant data from external sources.
+With PubFi, users can access Subscan-powered on-chain data through an account-bound API key, eligible free route
+variants, usage-based pricing, and x402 payments. The live PubFi Registry and Runtime OpenAPI determine which Subscan
+routes, methods, networks, and free variants are available at request time.
 
 - To learn more about [PubFi](https://pubfi.ai/), visit [here](https://pubfi.ai/).
 - To start using Subscan data through PubFi, see the [Subscan API on PubFi](https://pubfi.ai/discovery/api/subscan).
@@ -130,4 +131,3 @@ Please notice before you get started:
 | Zkverify             | `zkverify.api.subscan.io`                      | live    |
 | Zkverify-testnet     | `zkverify-testnet.api.subscan.io`              | test    |
 | Zkverify-vflow       | `vflow-testnet.api.subscan.io`                 | test    |
-

@@ -6,7 +6,9 @@ single request. REST remains the recommended default for standard fixed-shape in
 
 ## Authentication
 
-All GraphQL requests must be authenticated with the same API key model as the REST API.
+GraphQL uses the direct Subscan API authentication model. New free keys are no longer issued through the direct API
+platform, and the PubFi free-route flow described in the
+[Tutorial](https://support.subscan.io/doc-360177) does not change the GraphQL endpoint.
 
 - Send your key in the `X-API-Key` header.
 - During beta, GraphQL access is available only to GraphQL-enabled API keys.
@@ -27,7 +29,7 @@ Example:
 ```shell
 curl -X POST "https://polkadot.api.subscan.io/graphql" \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: YOUR_API_KEY" \
+  -H "X-API-Key: ${SUBSCAN_API_KEY}" \
   -d '{
     "query": "query Ping { ping }"
   }'
@@ -148,7 +150,7 @@ Example error response:
 ```shell
 curl -X POST "https://polkadot.api.subscan.io/graphql" \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: YOUR_API_KEY" \
+  -H "X-API-Key: ${SUBSCAN_API_KEY}" \
   -d '{
     "query": "query Account($address: String!) { account(address: $address) { address display nativeBalance nativeSymbol } }",
     "variables": {
