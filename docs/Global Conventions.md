@@ -2,13 +2,15 @@
 
 There are two separate access paths:
 
-- **Direct Subscan API:** Existing direct plans use the `X-API-Key` or `x-api-key` request header. Subscan no longer
-  issues new free keys through the direct API platform.
+- **Direct Subscan API:** Paid plans can be purchased, upgraded, renewed, and managed through the
+  [Subscan API Platform](https://pro.subscan.io/), and customers can create new direct API keys under those paid plans.
+  Direct requests use the `X-API-Key` or `x-api-key` request header. Only new free-key creation has been discontinued on
+  the direct platform.
 - **PubFi Gateway:** New free access uses a PubFi API key with the `Authorization: Bearer <PubFi API key>` header.
-  The gateway base URL is `https://api.pubfi.ai` in Production or `https://api-stg.pubfi.ai` in Staging.
+  The gateway base URL documented here is `https://api.pubfi.ai`.
 
 Do not send a direct Subscan `X-API-Key` as a replacement for a PubFi Bearer key. See the
-[Tutorial](https://support.subscan.io/doc-360177) for the PubFi onboarding and gateway path mapping.
+[Tutorial](https://support.subscan.io/doc-360177) for the PubFi free flow and direct Subscan paid flow.
 
 ## Direct Subscan Rate Limiting
 

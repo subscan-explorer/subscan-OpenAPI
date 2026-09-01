@@ -7,14 +7,17 @@ The documentation was created with [apidog](https://apidog.com).
 
 ## Access and API Keys
 
-Subscan no longer issues new free API keys from the Subscan API Platform. New integrations that need free access should
-create a [PubFi](https://pubfi.ai/) account, create a PubFi API key in the [PubFi Dashboard](https://pubfi.ai/dashboard),
-and call Subscan through the PubFi Gateway. See the [Tutorial](https://support.subscan.io/doc-360177) for the complete
-onboarding and request flow.
+Subscan supports separate free and direct paid access paths:
 
-PubFi API-key requests use `Authorization: Bearer <PubFi API key>` and the PubFi gateway base URL. The old direct
-Subscan `X-API-Key` flow is not the free onboarding path described here. Existing direct Subscan customers should use
-the authentication and plan instructions that apply to their current direct plan.
+- New integrations that need free access should create a [PubFi](https://pubfi.ai/) account, create a PubFi API key in
+  the [PubFi Dashboard](https://pubfi.ai/dashboard), and call Subscan through the PubFi Gateway.
+- Customers who need a direct Subscan paid plan can purchase or upgrade one on the
+  [Subscan Pricing page](https://pro.subscan.io/pricing), then create new direct API keys under that plan and manage
+  them on the [API Service page](https://pro.subscan.io/api_service).
+
+PubFi API-key requests use `Authorization: Bearer <PubFi API key>` and the PubFi gateway base URL. Direct paid Subscan
+requests use `X-API-Key` or `x-api-key` and a network-specific `*.api.subscan.io` host. The two credential types are not
+interchangeable. See the [Tutorial](https://support.subscan.io/doc-360177) for both onboarding flows.
 
 ### Data for AI Agents
 

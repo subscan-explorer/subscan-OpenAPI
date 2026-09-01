@@ -2,7 +2,7 @@ All significant API changes to the project will be recorded in this file.
 
 ### 1.0.2
 #### Changed
- - New free API access is documented through PubFi. The Tutorial no longer directs users to create a free key on the Subscan API Platform.
+ - New free API access is documented through PubFi, while direct Subscan paid-plan purchase, new API-key creation, upgrade, management, and renewal remain documented through the Subscan API Platform.
 
 ### 1.0.0
 #### Changed
