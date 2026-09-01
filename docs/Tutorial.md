@@ -106,17 +106,19 @@ instead of relying on a screenshot that can become outdated.
 
 ### 6. Call Subscan through the PubFi Gateway
 
-PubFi preserves the Subscan API path after adding the gateway prefix. For a network-specific route, the pattern is:
+Use the exact gateway path published by the current Runtime OpenAPI. Do not construct a path by inserting the direct
+Subscan network name unless that complete path is present in the runtime contract. The currently published metadata
+route is:
 
 ```text
-https://api.pubfi.ai/v1/gateway/subscan/<network>/api/<subscan-path>
+https://api.pubfi.ai/v1/gateway/subscan/api/scan/metadata
 ```
 
 For example, the current Runtime OpenAPI exposes a ready metadata route with a free variant. Verify that it is still
 present before using it:
 
 ```shell
-export PUBFI_GATEWAY_PATH='/v1/gateway/subscan/polkadot/api/scan/metadata:free'
+export PUBFI_GATEWAY_PATH='/v1/gateway/subscan/api/scan/metadata:free'
 
 curl --fail-with-body --silent --show-error \
   --request POST \
@@ -124,28 +126,29 @@ curl --fail-with-body --silent --show-error \
   "${PUBFI_API_BASE}${PUBFI_GATEWAY_PATH}"
 ```
 
-The `:free` suffix is not a general switch. Append it only when the matching capability advertises `free_rate_limit`
-or the matching OpenAPI operation contains `x-pubfi-free-variant`. A free route still requires the normal PubFi Bearer
-key; it is not anonymous and it is not an x402 request.
+The literal `:free` suffix selects the advertised free variant. Square brackets are documentation notation only: never
+send `[:free]` as part of a URL. Append `:free` only when the matching capability advertises `free_rate_limit` or the
+matching OpenAPI operation contains `x-pubfi-free-variant`. A free route still requires the normal PubFi Bearer key; it
+is not anonymous and it is not an x402 request.
 
 For a route that does not advertise a free variant, use the exact path and method from the current contract and follow
 its billing policy. Remove `:free` only when the normal route is ready and the account has the required allocation or
 Credits.
 
-#### Mapping a direct Subscan URL
+#### Free and billed URLs
 
-The gateway mapping keeps the original Subscan network and API path, but changes the host and authentication header:
+For the currently published metadata operation, use one of these complete URLs:
 
 ```text
-Direct Subscan:
-https://polkadot.api.subscan.io/api/scan/metadata
+Free variant:
+https://api.pubfi.ai/v1/gateway/subscan/api/scan/metadata:free
 
-PubFi Gateway:
-https://api.pubfi.ai/v1/gateway/subscan/polkadot/api/scan/metadata[:free]
+Billed variant:
+https://api.pubfi.ai/v1/gateway/subscan/api/scan/metadata
 ```
 
-The example illustrates the mapping only. The live Registry remains authoritative for whether this route, method,
-network, body, and free variant are currently available.
+Do not copy `[:free]` into a request URL. The live Registry remains authoritative for whether either exact route,
+method, request policy, and billing mode is currently available.
 
 #### Free-route limits
 
