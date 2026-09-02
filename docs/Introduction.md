@@ -89,7 +89,7 @@ Please notice before you get started:
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live    |
 | Coretime-polkadot    | `coretime-polkadot.api.subscan.io`             | live    |
 | Coretime-westend     | `coretime-westend.api.subscan.io`              | test    |
-| Creditcoin           | `cc-enterprise.api.subscan.io`                 | live    |
+| Creditcoin           | `cc-enterprise.api.subscan.io`                 | archive |
 | Creditcoin-cc3       | `creditcoin.api.subscan.io`                    | live    |
 | Creditcoin-cc3-test  | `creditcoin3-testnet.api.subscan.io`           | test    |
 | Creditcoin-dev       | `creditcoin3-dev.api.subscan.io`               | test    |
@@ -104,7 +104,6 @@ Please notice before you get started:
 | Enjin-relay          | `enjin.api.subscan.io`                         | live    |
 | Humanode             | `humanode.api.subscan.io`                      | live    |
 | Kusama               | `kusama.api.subscan.io`                        | live    |
-| Manta                | `manta.api.subscan.io`                         | archive |
 | Midnight             | `midnight.api.subscan.io`                      | live    |
 | Midnight-preview     | `midnight-preview.api.subscan.io`              | test    |
 | Midnight-preprod     | `midnight-preprod.api.subscan.io`              | test    |
@@ -113,7 +112,6 @@ Please notice before you get started:
 | Moonriver            | `moonriver.api.subscan.io`                     | archive |
 | Mythos               | `mythos.api.subscan.io`                        | live    |
 | Neuroweb             | `neuroweb.api.subscan.io`                      | live    |
-| Neuroweb-testnet     | `neuroweb-testnet.api.subscan.io`              | archive |
 | Paseo                | `paseo.api.subscan.io`                         | test    |
 | Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test    |
 | Peaq-main            | `peaq.api.subscan.io`                          | live    |

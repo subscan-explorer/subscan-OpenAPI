@@ -399,18 +399,6 @@
       "kusama"
     ]
   },
-  "manta": {
-    "api_domains": [
-      "manta"
-    ],
-    "backend_service_name": "subscan-manta",
-    "db_name": "subscan_manta",
-    "network_node": "manta",
-    "type": "mainnet",
-    "ui_domains": [
-      "manta"
-    ]
-  },
   "midnight": {
     "api_domains": [
       "midnight"
@@ -507,20 +495,6 @@
     "ui_domains": [
       "origintrail",
       "neuroweb"
-    ]
-  },
-  "origintrail-rococo": {
-    "api_domains": [
-      "origintrail-testnet",
-      "neuroweb-testnet"
-    ],
-    "backend_service_name": "subscan-origintrail-rococo",
-    "db_name": "subscan_origintrail_test",
-    "network_node": "origintrail-rococo",
-    "type": "testnet",
-    "ui_domains": [
-      "origintrail-testnet",
-      "neuroweb-testnet"
     ]
   },
   "paseo": {
