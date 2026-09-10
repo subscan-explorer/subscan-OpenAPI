@@ -777,7 +777,7 @@ const docTemplate = `{
         },
         "/api/scan/assets/activities": {
             "post": {
-                "description": "Get asset activities(include asset Created/Issued/Burned...) by asset id\nThis API only supports networks with assets frame",
+                "description": "Get asset activities(include asset Created/Issued/Deposited/Withdrawn/Burned...) by asset id\nThis API only supports networks with assets frame",
                 "consumes": [
                     "application/json"
                 ],

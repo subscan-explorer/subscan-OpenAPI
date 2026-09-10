@@ -10281,7 +10281,7 @@ paths:
       consumes:
       - application/json
       description: |-
-        Get asset activities(include asset Created/Issued/Burned...) by asset id
+        Get asset activities(include asset Created/Issued/Deposited/Withdrawn/Burned...) by asset id
         This API only supports networks with assets frame
       parameters:
       - description: param
