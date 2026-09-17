@@ -12,6 +12,7 @@ files = {
     'Subscan API Pro.md': 'Subscan API Pro',
     'xcm.md': 'Xcm',
     'evm.md': 'EVM',
+    'midnight.md': 'Midnight',
 }
 json_file = 'subscan.apidog.json'
 # swag omits additionalProperties=false for this empty request object, so patch

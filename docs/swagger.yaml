@@ -1193,6 +1193,180 @@ definitions:
     required:
     - row
     type: object
+  internal_pluginv2_customizeds_midnight.CNightDailyPoint:
+    properties:
+      date:
+        type: string
+      mapping_added:
+        type: integer
+      mapping_removed:
+        type: integer
+      registration_added:
+        type: integer
+      registration_removed:
+        type: integer
+      system_tx:
+        type: integer
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightGeneratesDustEvent:
+    properties:
+      action:
+        type: string
+      nonce:
+        type: string
+      owner:
+        type: string
+      time:
+        type: integer
+      value:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightMappingItem:
+    properties:
+      has_more:
+        type: boolean
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightMappingItem'
+        type: array
+      next_cursor:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightRegistrationItem:
+    properties:
+      has_more:
+        type: boolean
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightRegistrationItem'
+        type: array
+      next_cursor:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_SystemTransactionListItem:
+    properties:
+      has_more:
+        type: boolean
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionListItem'
+        type: array
+      next_cursor:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightMappingItem:
+    properties:
+      active:
+        type: boolean
+      added_at:
+        type: integer
+      added_event_index:
+        type: string
+      added_extrinsic_index:
+        type: string
+      cardano_reward_address:
+        type: string
+      cardano_tx_url:
+        type: string
+      dust_public_key:
+        type: string
+      removed_at:
+        type: integer
+      removed_event_index:
+        type: string
+      removed_extrinsic_index:
+        type: string
+      utxo_index:
+        type: integer
+      utxo_tx_hash:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightMappingListParams:
+    properties:
+      cardano_reward_address:
+        type: string
+      cursor:
+        type: string
+      dust_public_key:
+        type: string
+      include_inactive:
+        type: boolean
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      utxo_tx_hash:
+        type: string
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightOverview:
+    properties:
+      active_mapping_count:
+        type: integer
+      active_registration_count:
+        type: integer
+      daily:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightDailyPoint'
+        type: array
+      system_tx_count:
+        type: integer
+      system_tx_count_by_variant:
+        additionalProperties:
+          format: int64
+          type: integer
+        type: object
+      unique_cardano_address_count:
+        type: integer
+      unique_dust_key_count:
+        type: integer
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightOverviewParams:
+    properties:
+      days:
+        maximum: 90
+        minimum: 0
+        type: integer
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightRegistrationItem:
+    properties:
+      active:
+        type: boolean
+      cardano_reward_address:
+        type: string
+      deregistered_at:
+        type: integer
+      deregistered_event_index:
+        type: string
+      deregistered_extrinsic_index:
+        type: string
+      dust_public_key:
+        type: string
+      registered_at:
+        type: integer
+      registered_event_index:
+        type: string
+      registered_extrinsic_index:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.CNightRegistrationListParams:
+    properties:
+      cardano_reward_address:
+        type: string
+      cursor:
+        type: string
+      dust_public_key:
+        type: string
+      include_inactive:
+        type: boolean
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - row
+    type: object
   internal_pluginv2_customizeds_midnight.MidCallJson:
     properties:
       contract:
@@ -1457,6 +1631,73 @@ definitions:
         type: integer
     required:
     - row
+    type: object
+  internal_pluginv2_customizeds_midnight.SystemTransactionDetail:
+    properties:
+      block_timestamp:
+        type: integer
+      cardano_block_hash:
+        type: string
+      cardano_tx_index:
+        type: integer
+      decoded:
+        $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTxDecoded'
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      serialized_system_transaction:
+        type: string
+      tx_hash:
+        type: string
+      variant:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.SystemTransactionListItem:
+    properties:
+      block_timestamp:
+        type: integer
+      cardano_block_hash:
+        type: string
+      cardano_tx_index:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      tx_hash:
+        type: string
+      variant:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.SystemTransactionListParams:
+    properties:
+      cursor:
+        type: string
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      variant:
+        type: string
+    required:
+    - row
+    type: object
+  internal_pluginv2_customizeds_midnight.SystemTransactionParams:
+    properties:
+      hash:
+        type: string
+    required:
+    - hash
+    type: object
+  internal_pluginv2_customizeds_midnight.SystemTxDecoded:
+    properties:
+      events:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightGeneratesDustEvent'
+        type: array
+      variant:
+        type: string
     type: object
   internal_pluginv2_customizeds_midnight.VerificationKey:
     additionalProperties:
@@ -14124,6 +14365,88 @@ paths:
       - scan
       - meta
       - chain info
+  /api/scan/midnight/cnight/mappings:
+    post:
+      consumes:
+      - application/json
+      description: Cursor-paged cNIGHT mappings. Use cursor+row, not page. cardano_tx_url
+        is the Cardano lock tx.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightMappingListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightMappingItem'
+              type: object
+      summary: Midnight cNIGHT Mappings
+      tags:
+      - Midnight
+  /api/scan/midnight/cnight/overview:
+    post:
+      consumes:
+      - application/json
+      description: Count-only cNIGHT dashboard. No lock or DUST amounts.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightOverviewParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightOverview'
+              type: object
+      summary: Midnight cNIGHT Overview
+      tags:
+      - Midnight
+  /api/scan/midnight/cnight/registrations:
+    post:
+      consumes:
+      - application/json
+      description: Cursor-paged cNIGHT registrations. Use cursor+row, not page. Default
+        active-only.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightRegistrationListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightRegistrationItem'
+              type: object
+      summary: Midnight cNIGHT Registrations
+      tags:
+      - Midnight
   /api/scan/midnight/compact_version:
     post:
       description: This API is only available midnight network
@@ -14297,6 +14620,63 @@ paths:
       - midnight
       - contracts
       - scan
+  /api/scan/midnight/system_transaction:
+    post:
+      consumes:
+      - application/json
+      description: System transaction detail by hash. Includes serialized blob and
+        decoded CNightGeneratesDustUpdate events. Cardano header is an observation
+        cursor.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionDetail'
+              type: object
+      summary: Midnight System Transaction
+      tags:
+      - Midnight
+  /api/scan/midnight/system_transactions:
+    post:
+      consumes:
+      - application/json
+      description: Cursor-paged system transactions. Use cursor+row, not page. List
+        omits the blob.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_SystemTransactionListItem'
+              type: object
+      summary: Midnight System Transactions
+      tags:
+      - Midnight
   /api/scan/midnight/transaction:
     post:
       consumes:

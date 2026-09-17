@@ -6378,6 +6378,143 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/scan/midnight/cnight/mappings": {
+            "post": {
+                "description": "Cursor-paged cNIGHT mappings. Use cursor+row, not page. cardano_tx_url is the Cardano lock tx.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Midnight"
+                ],
+                "summary": "Midnight cNIGHT Mappings",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightMappingListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightMappingItem"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/cnight/overview": {
+            "post": {
+                "description": "Count-only cNIGHT dashboard. No lock or DUST amounts.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Midnight"
+                ],
+                "summary": "Midnight cNIGHT Overview",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightOverviewParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightOverview"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/cnight/registrations": {
+            "post": {
+                "description": "Cursor-paged cNIGHT registrations. Use cursor+row, not page. Default active-only.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Midnight"
+                ],
+                "summary": "Midnight cNIGHT Registrations",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightRegistrationListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightRegistrationItem"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/midnight/compact_version": {
             "post": {
                 "description": "This API is only available midnight network",
@@ -6650,6 +6787,98 @@ const docTemplate = `{
                     "contracts",
                     "scan"
                 ]
+            }
+        },
+        "/api/scan/midnight/system_transaction": {
+            "post": {
+                "description": "System transaction detail by hash. Includes serialized blob and decoded CNightGeneratesDustUpdate events. Cardano header is an observation cursor.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Midnight"
+                ],
+                "summary": "Midnight System Transaction",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionDetail"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/midnight/system_transactions": {
+            "post": {
+                "description": "Cursor-paged system transactions. Use cursor+row, not page. List omits the blob.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Midnight"
+                ],
+                "summary": "Midnight System Transactions",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_SystemTransactionListItem"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
             }
         },
         "/api/scan/midnight/transaction": {
@@ -16441,6 +16670,269 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_pluginv2_customizeds_midnight.CNightDailyPoint": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "mapping_added": {
+                    "type": "integer"
+                },
+                "mapping_removed": {
+                    "type": "integer"
+                },
+                "registration_added": {
+                    "type": "integer"
+                },
+                "registration_removed": {
+                    "type": "integer"
+                },
+                "system_tx": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightGeneratesDustEvent": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "type": "string"
+                },
+                "nonce": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "integer"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightMappingItem": {
+            "type": "object",
+            "properties": {
+                "has_more": {
+                    "type": "boolean"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightMappingItem"
+                    }
+                },
+                "next_cursor": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_CNightRegistrationItem": {
+            "type": "object",
+            "properties": {
+                "has_more": {
+                    "type": "boolean"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightRegistrationItem"
+                    }
+                },
+                "next_cursor": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightListResult-internal_pluginv2_customizeds_midnight_SystemTransactionListItem": {
+            "type": "object",
+            "properties": {
+                "has_more": {
+                    "type": "boolean"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTransactionListItem"
+                    }
+                },
+                "next_cursor": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightMappingItem": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "added_at": {
+                    "type": "integer"
+                },
+                "added_event_index": {
+                    "type": "string"
+                },
+                "added_extrinsic_index": {
+                    "type": "string"
+                },
+                "cardano_reward_address": {
+                    "type": "string"
+                },
+                "cardano_tx_url": {
+                    "type": "string"
+                },
+                "dust_public_key": {
+                    "type": "string"
+                },
+                "removed_at": {
+                    "type": "integer"
+                },
+                "removed_event_index": {
+                    "type": "string"
+                },
+                "removed_extrinsic_index": {
+                    "type": "string"
+                },
+                "utxo_index": {
+                    "type": "integer"
+                },
+                "utxo_tx_hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightMappingListParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "cardano_reward_address": {
+                    "type": "string"
+                },
+                "cursor": {
+                    "type": "string"
+                },
+                "dust_public_key": {
+                    "type": "string"
+                },
+                "include_inactive": {
+                    "type": "boolean"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "utxo_tx_hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightOverview": {
+            "type": "object",
+            "properties": {
+                "active_mapping_count": {
+                    "type": "integer"
+                },
+                "active_registration_count": {
+                    "type": "integer"
+                },
+                "daily": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightDailyPoint"
+                    }
+                },
+                "system_tx_count": {
+                    "type": "integer"
+                },
+                "system_tx_count_by_variant": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "unique_cardano_address_count": {
+                    "type": "integer"
+                },
+                "unique_dust_key_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightOverviewParams": {
+            "type": "object",
+            "properties": {
+                "days": {
+                    "type": "integer",
+                    "maximum": 90,
+                    "minimum": 0
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightRegistrationItem": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "cardano_reward_address": {
+                    "type": "string"
+                },
+                "deregistered_at": {
+                    "type": "integer"
+                },
+                "deregistered_event_index": {
+                    "type": "string"
+                },
+                "deregistered_extrinsic_index": {
+                    "type": "string"
+                },
+                "dust_public_key": {
+                    "type": "string"
+                },
+                "registered_at": {
+                    "type": "integer"
+                },
+                "registered_event_index": {
+                    "type": "string"
+                },
+                "registered_extrinsic_index": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.CNightRegistrationListParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "cardano_reward_address": {
+                    "type": "string"
+                },
+                "cursor": {
+                    "type": "string"
+                },
+                "dust_public_key": {
+                    "type": "string"
+                },
+                "include_inactive": {
+                    "type": "boolean"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
         "internal_pluginv2_customizeds_midnight.MidCallJson": {
             "type": "object",
             "properties": {
@@ -16828,6 +17320,108 @@ const docTemplate = `{
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 1
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.SystemTransactionDetail": {
+            "type": "object",
+            "properties": {
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "cardano_block_hash": {
+                    "type": "string"
+                },
+                "cardano_tx_index": {
+                    "type": "integer"
+                },
+                "decoded": {
+                    "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTxDecoded"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "serialized_system_transaction": {
+                    "type": "string"
+                },
+                "tx_hash": {
+                    "type": "string"
+                },
+                "variant": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.SystemTransactionListItem": {
+            "type": "object",
+            "properties": {
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "cardano_block_hash": {
+                    "type": "string"
+                },
+                "cardano_tx_index": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "tx_hash": {
+                    "type": "string"
+                },
+                "variant": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.SystemTransactionListParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "cursor": {
+                    "type": "string"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "variant": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.SystemTransactionParams": {
+            "type": "object",
+            "required": [
+                "hash"
+            ],
+            "properties": {
+                "hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.SystemTxDecoded": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightGeneratesDustEvent"
+                    }
+                },
+                "variant": {
+                    "type": "string"
                 }
             }
         },
