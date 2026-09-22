@@ -14835,6 +14835,396 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/v2/scan/xcm/journey/asset/valuation": {
+            "post": {
+                "description": "Quotes a network + asset_module + asset_unique_id using the existing configured price feeds. amount is an integer string in smallest units and decimals is required, including an explicit zero for indivisible assets. Currency must be USD, CNY or EUR. Omit timestamp for the latest stored quote; supply UTC Unix seconds for that historical hour, with no fallback to today's price. The returned price_timestamp identifies the actual snapshot. Unmapped and test-network assets return null with outside_coverage; missing quote data returns null with not_collected. No symbol-only price matching or archive RPC occurs.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Value a V2 XCM asset",
+                "parameters": [
+                    {
+                        "description": "Exact asset identity, smallest-unit amount, precision, currency and optional time",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_service_xcmv2.ValuationRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_service_xcmv2.ValuationResult"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/assets/statistics": {
+            "post": {
+                "description": "Returns total and UTC daily smallest-unit amounts from V2 journey business assets, once per journey and asset identity rather than per hop. Uses the same filters as journey/list without row or after_id. Asset identity is network + asset_module + asset_unique_id; symbol alone is not identity. Decimals are part of each aggregate and no fiat valuation is implied. Unresolved identity, precision or amount is excluded from monetary totals and reported through unavailable_count. Pending and failed transfers remain included unless status is filtered. A 10 second timeout and 10000 group bound fail explicitly; no partial totals are returned.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Aggregate V2 XCM assets",
+                "parameters": [
+                    {
+                        "description": "V2 filters without pagination",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2StatisticsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetStatistics"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/check_hash": {
+            "post": {
+                "description": "Maps an exact message hash and/or topic ID from the root message or any hop to independent V2 journey identities without reading legacy XCM tables or performing remote enrichment. hash is an alias for message_hash. At least one hash or topic_id is required; when both are supplied, up to 100 distinct journeys matching either identity are returned in ascending internal ID order.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Check a V2 XCM hash",
+                "parameters": [
+                    {
+                        "description": "An exact hash/message_hash and/or topic_id lookup.",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2CheckHashParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/subscan_internal_service_xcmv2.HashCheckResult"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/export": {
+            "post": {
+                "description": "Queues an asynchronous complete export using journey/list filters without pagination. Requires XCM_V2_API_ENABLED and the current network in XCM_V2_API_NETWORKS (initially Westend). The delayDownload worker reads a PostgreSQL repeatable-read snapshot in bounded batches with no one-million-row cap. Poll export/status by id for total, processed, state and download. There is a one-hour execution deadline; timeouts and storage failures report failed, never a partial successful file. Exports include all matching statuses unless explicitly filtered. Null CSV fields are empty cells; the API retains their availability reasons.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Create a full V2 XCM CSV export",
+                "parameters": [
+                    {
+                        "description": "V2 list filters without pagination or bucket",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2StatisticsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_server_http.XcmV2ExportResult"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/export/status": {
+            "post": {
+                "description": "Returns queued, running, done or failed with exact processed and snapshot total counts. download remains null unless the entire export succeeded. A task with no worker progress for fifteen minutes is failed explicitly; create a new export to retry. The random id is the polling capability and must be retained by the client.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Get V2 XCM export progress",
+                "parameters": [
+                    {
+                        "description": "Export id",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2ExportParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_server_http.XcmV2ExportResult"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/info": {
+            "post": {
+                "description": "Returns one independent journey with hops ordered by sequence from the xcm_v2_* PostgreSQL read model; it performs no archive RPC. Provide journey_id as a stable key or numeric V2 ID, or provide legacy_unique_id (unique_id is a migration alias). The detail includes cross_chain_status, verified bridge_metadata, and each hop's optional parent_sequence. Missing target-chain facts remain null and are reported through completeness; source-only S2S journeys can be locally successful with confirmation_scope=source_relay and cross_chain_status=2, which never claims remote receipt. confirmation_scope=destination denotes an observed terminal destination execution, including failed execution, not necessarily successful transfer. message_type is message/transfer while type remains the bridge type. fees separate persisted estimates from actual charges; uncollected fees and runtime-specific call decoding remain null with availability reasons. hops[].calls provides decoded Transact module, method and params, collected asynchronously using the destination execution runtime; raw Transact.call bytes remain in payload.instructions. A decoded call describes the requested action, not proof that the call itself succeeded. Historical uncollected calls remain null until replay. Hop weight is not a fee. Assets retain smallest-unit string amounts and nullable precision; no dynamic price lookup occurs. For S2E, nullable ethereum_execution contains finalized Ethereum dispatch evidence. When present, a final kind=bridge, protocol=Ethereum hop exposes destination.transaction_hash and a block-log_index event locator; the preceding BridgeHub hop retains its local event. Ethereum receipt status alone is not sufficient: a failed dispatch gives status=failed and confirmation_scope=destination. Ethereum hops are presentation of bridge evidence, excluded from transport leg hop_count. Recursive legacy child_message is not returned.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Get a V2 XCM journey",
+                "parameters": [
+                    {
+                        "description": "A V2 journey ID, numeric V2 ID, or legacy deep-link identity.",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2InfoParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_service_xcmv2.JourneyDTO"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/list": {
+            "post": {
+                "description": "Returns message-level summaries from the isolated xcm_v2_* PostgreSQL read model, including nullable origin_block_timestamp (UTC seconds), xcm_version, message_type (message/transfer), origin_event_index, cross_chain_status, confirmation_scope, assets and from/to account facts; it performs no archive RPC and never embeds hops. row is the batch size, required from 1 to 100. Omit after_id or set it to 0 for the first batch; page is not accepted. Pass the numeric id from the last list item as after_id for stable keyset pagination ordered by origin timestamp, origin para ID, and internal ID descending. Keep the same filters between batches. next_after_id is the next anchor when has_more is true, otherwise null. Optional filters are combined with AND, except filter_para_id matches either endpoint and address accepts SS58, AccountId32 hex, or Ethereum addresses and matches the normalized from_account or to_account. By default count is exact and reflects filtered rows after the selected cursor. Set include_total=false to omit count and skip the count query; has_more indicates whether another page exists. Use after_id with include_total=false for efficient pagination. type remains the bridge type, independent of message_type. bridge_type accepts an array (or a single string alias) of xcm/s2s/s2e/e2s, combined with OR; VMP expands to UMP+DMP. extrinsic_index requires origin_relay_chain and origin_para_id. time_range uses origin UTC seconds [start,end); block_range is inclusive and requires scope, relay_chain and para_id. asset symbol is exact display text; identity requires network + asset_module + asset_unique_id and matches a single asset object. All filters combine with AND and apply identically to counts and cursor batches. Missing facts are null; availability records not_collected, not_exposed or outside_coverage. Only confirmed remote execution yields confirmation_scope=destination; source_relay is local coverage and does not mean remote arrival. S2E ethereum_execution is nullable and contains the finalized Ethereum chain, transaction, block, log, timestamp and dispatch result when verified. Without this evidence, local S2E success remains partial with remote_destination=not_collected. cross_chain_status=3 denotes remote execution observed, which may have success=false.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "List V2 XCM journeys",
+                "parameters": [
+                    {
+                        "description": "Bounded pagination, cursor, owner, route, account, status, protocol, hash, topic, and bridge filters.",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2ListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer",
+                                                    "format": "int64"
+                                                },
+                                                "has_more": {
+                                                    "type": "boolean"
+                                                },
+                                                "list": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/definitions/subscan_internal_service_xcmv2.JourneySummaryDTO"
+                                                    }
+                                                },
+                                                "next_after_id": {
+                                                    "type": "integer",
+                                                    "format": "int64"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/xcm/journey/statistics": {
+            "post": {
+                "description": "Reads only xcm_v2 messages and legs in a consistent PostgreSQL snapshot. All list filters apply; omit row, after_id and include_total. message_count counts journeys including transfers, transfer_count is its transfer subset, and hop_count counts transport legs separately. bucket=0 returns totals; 3600,21600,86400 return UTC origin-time route buckets. Directed route buckets support bridge directions, sending/receiving and parachain flow views. Received means addressed to that endpoint, not proof of successful delivery; inspect status and confirmation_scope on the journey. Unknown times are excluded from trends and counted separately. Queries time out after 10 seconds and more than 10000 groups require narrower filters; results are never silently truncated.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "XcmV2"
+                ],
+                "summary": "Aggregate V2 XCM journeys",
+                "parameters": [
+                    {
+                        "description": "V2 filters and optional UTC bucket size",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.XcmV2StatisticsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/internal_server_http.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/subscan_internal_service_xcmv2.JourneyStatistics"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/api/v2/scan/xcm/list": {
             "post": {
                 "description": "**PRO API**: Requires a Pro plan. Returns paginated XCM messages with protocol, status, asset, and block-range filters.",
@@ -14902,16 +15292,7 @@ const docTemplate = `{
                             ]
                         }
                     }
-                },
-                "x-synonyms": [
-                    "xcm",
-                    "messages",
-                    "pro",
-                    "scan",
-                    "cross-chain",
-                    "cross chain",
-                    "bridge message"
-                ]
+                }
             }
         },
         "/graphql": {
@@ -19044,51 +19425,41 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "address": {
-                    "description": "filter by address",
                     "type": "string"
                 },
                 "after_id": {
-                    "description": "Pagination, the last message id of the previous page",
                     "type": "string"
                 },
                 "block_range": {
-                    "description": "filter by block range,eg: 1000-2000",
                     "type": "string",
                     "example": "20000-30000"
                 },
                 "bridge_type": {
-                    "description": "filter by bridge type",
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
                 },
                 "dest_para_id": {
-                    "description": "filter by receiver parachain id",
                     "type": "integer"
                 },
                 "extrinsic_index": {
-                    "description": "filter by send extrinsic index",
                     "type": "string"
                 },
                 "filter_para_id": {
-                    "description": "filter by parachain id(sender or receiver)",
                     "type": "integer",
                     "minimum": 1
                 },
                 "filter_symbol": {
-                    "description": "filter by asset symbol",
                     "type": "string"
                 },
                 "include_total": {
                     "type": "boolean"
                 },
                 "message_hash": {
-                    "description": "filter by message hash",
                     "type": "string"
                 },
                 "message_type": {
-                    "description": "filter by message type",
                     "type": "string",
                     "enum": [
                         "transfer",
@@ -19096,16 +19467,13 @@ const docTemplate = `{
                     ]
                 },
                 "origin_para_id": {
-                    "description": "filter by sender origin parachain id",
                     "type": "integer"
                 },
                 "page": {
-                    "description": "page number, start from 0",
                     "type": "integer",
                     "minimum": 0
                 },
                 "protocol": {
-                    "description": "filter by XCM protocol",
                     "type": "string",
                     "enum": [
                         "HRMP",
@@ -19115,13 +19483,11 @@ const docTemplate = `{
                     ]
                 },
                 "row": {
-                    "description": "page size",
                     "type": "integer",
                     "maximum": 100,
                     "minimum": 0
                 },
                 "status": {
-                    "description": "filter by status",
                     "type": "string",
                     "enum": [
                         "pending",
@@ -19159,6 +19525,243 @@ const docTemplate = `{
                 },
                 "start": {
                     "description": "start date, format: 2006-01-02",
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmV2CheckHashParams": {
+            "type": "object",
+            "properties": {
+                "hash": {
+                    "type": "string"
+                },
+                "message_hash": {
+                    "type": "string"
+                },
+                "topic_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmV2ExportParams": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmV2ExportResult": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "download": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "error": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "id": {
+                    "type": "string"
+                },
+                "processed": {
+                    "type": "integer"
+                },
+                "snapshot_at": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "state": {
+                    "type": "string",
+                    "enum": [
+                        "queued",
+                        "running",
+                        "done",
+                        "failed"
+                    ]
+                },
+                "total": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmV2InfoParams": {
+            "type": "object",
+            "properties": {
+                "journey_id": {
+                    "type": "string"
+                },
+                "legacy_unique_id": {
+                    "type": "string"
+                },
+                "unique_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmV2ListParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "type": "integer"
+                },
+                "asset": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetFilter"
+                },
+                "block_range": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.BlockRange"
+                },
+                "bridge_type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dest_para_id": {
+                    "type": "integer"
+                },
+                "dest_relay_chain": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "filter_para_id": {
+                    "type": "integer"
+                },
+                "include_total": {
+                    "description": "IncludeTotal defaults to true; false omits count and returns has_more.",
+                    "type": "boolean"
+                },
+                "message_hash": {
+                    "type": "string"
+                },
+                "message_type": {
+                    "type": "string",
+                    "enum": [
+                        "message",
+                        "transfer"
+                    ]
+                },
+                "origin_para_id": {
+                    "type": "integer"
+                },
+                "origin_relay_chain": {
+                    "type": "string"
+                },
+                "owner_relay_chain": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string"
+                },
+                "time_range": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.TimeRange"
+                },
+                "topic_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_server_http.XcmV2StatisticsParams": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "after_id": {
+                    "type": "integer"
+                },
+                "asset": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetFilter"
+                },
+                "block_range": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.BlockRange"
+                },
+                "bridge_type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "bucket": {
+                    "type": "integer",
+                    "enum": [
+                        0,
+                        3600,
+                        21600,
+                        86400
+                    ]
+                },
+                "dest_para_id": {
+                    "type": "integer"
+                },
+                "dest_relay_chain": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "filter_para_id": {
+                    "type": "integer"
+                },
+                "include_total": {
+                    "description": "IncludeTotal defaults to true; false omits count and returns has_more.",
+                    "type": "boolean"
+                },
+                "message_hash": {
+                    "type": "string"
+                },
+                "message_type": {
+                    "type": "string",
+                    "enum": [
+                        "message",
+                        "transfer"
+                    ]
+                },
+                "origin_para_id": {
+                    "type": "integer"
+                },
+                "origin_relay_chain": {
+                    "type": "string"
+                },
+                "owner_relay_chain": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "status": {
+                    "type": "string"
+                },
+                "time_range": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.TimeRange"
+                },
+                "topic_id": {
                     "type": "string"
                 }
             }
@@ -28921,6 +29524,789 @@ const docTemplate = `{
                 },
                 "vesting_balance": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.AssetDTO": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "asset_module": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "asset_unique_id": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "availability": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "decimals": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "enum_key": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "network": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "raw": {
+                    "type": "object",
+                    "x-nullable": true
+                },
+                "symbol": {
+                    "type": "string",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.AssetFilter": {
+            "type": "object",
+            "properties": {
+                "asset_module": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.AssetStat": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "asset_module": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "time": {
+                    "type": "integer",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.AssetStatistics": {
+            "type": "object",
+            "properties": {
+                "as_of": {
+                    "type": "string"
+                },
+                "daily": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetStat"
+                    }
+                },
+                "missing_assets_count": {
+                    "type": "integer"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "total": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetStat"
+                    }
+                },
+                "unavailable_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.BlockFactDTO": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "block_hash": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "block_num": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "event_index": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "location": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.LocationDTO"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "transaction_hash": {
+                    "type": "string",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.BlockRange": {
+            "type": "object",
+            "properties": {
+                "end": {
+                    "type": "integer"
+                },
+                "para_id": {
+                    "type": "integer"
+                },
+                "relay_chain": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string",
+                    "enum": [
+                        "origin",
+                        "destination",
+                        "relay"
+                    ]
+                },
+                "start": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.DecodedCallDTO": {
+            "type": "object",
+            "properties": {
+                "method": {
+                    "type": "string"
+                },
+                "module": {
+                    "type": "string"
+                },
+                "params": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.ErrorDetailsDTO": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "name": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "raw": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.EthereumExecution": {
+            "type": "object",
+            "properties": {
+                "block_hash": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "event_signature": {
+                    "type": "string"
+                },
+                "log_index": {
+                    "type": "integer"
+                },
+                "message_id": {
+                    "type": "string"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "nonce": {
+                    "type": "integer"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "transaction_hash": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.FeeDetailsDTO": {
+            "type": "object",
+            "properties": {
+                "actual": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_service_xcmv2.FeeValueDTO"
+                        }
+                    ],
+                    "x-nullable": true
+                },
+                "estimated": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_service_xcmv2.FeeValueDTO"
+                        }
+                    ],
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.FeeValueDTO": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "asset_module": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "asset_unique_id": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "decimals": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "network": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "symbol": {
+                    "type": "string",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.HashCheckResult": {
+            "type": "object",
+            "properties": {
+                "journey_id": {
+                    "type": "string"
+                },
+                "legacy_unique_id": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "message_hash": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "topic_id": {
+                    "type": "string",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.HopDTO": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetDTO"
+                    },
+                    "x-nullable": true
+                },
+                "availability": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "calls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.DecodedCallDTO"
+                    },
+                    "x-nullable": true
+                },
+                "destination": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.BlockFactDTO"
+                },
+                "error": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "error_details": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_service_xcmv2.ErrorDetailsDTO"
+                        }
+                    ],
+                    "x-nullable": true
+                },
+                "fees": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.FeeDetailsDTO"
+                },
+                "handler_family": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "match_method": {
+                    "type": "string"
+                },
+                "parent_sequence": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "payload": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.PayloadDTO"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "relay": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.RelayFactDTO"
+                },
+                "sequence": {
+                    "type": "integer"
+                },
+                "source": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.BlockFactDTO"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Weight is the observed execution weight for this hop, not a fee or a journey total.",
+                    "type": "object"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.JourneyDTO": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetDTO"
+                    },
+                    "x-nullable": true
+                },
+                "availability": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "bridge_metadata": {
+                    "type": "object",
+                    "x-nullable": true
+                },
+                "completeness": {
+                    "type": "string"
+                },
+                "confirmation_scope": {
+                    "type": "string",
+                    "enum": [
+                        "source_relay",
+                        "destination"
+                    ],
+                    "x-nullable": true
+                },
+                "cross_chain_status": {
+                    "type": "integer"
+                },
+                "destination": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.LocationDTO"
+                },
+                "ethereum_execution": {
+                    "description": "EthereumExecution is null until a finalized matching Ethereum dispatch is verified.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_service_xcmv2.EthereumExecution"
+                        }
+                    ],
+                    "x-nullable": true
+                },
+                "fees": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.FeeDetailsDTO"
+                },
+                "hops": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.HopDTO"
+                    }
+                },
+                "journey_id": {
+                    "type": "string"
+                },
+                "legacy_unique_id": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "message_type": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "origin": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.LocationDTO"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.JourneyStat": {
+            "type": "object",
+            "properties": {
+                "bridge_type": {
+                    "type": "string"
+                },
+                "dest_para_id": {
+                    "type": "integer"
+                },
+                "dest_relay_chain": {
+                    "type": "string"
+                },
+                "message_count": {
+                    "type": "integer"
+                },
+                "origin_para_id": {
+                    "type": "integer"
+                },
+                "origin_relay_chain": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "integer"
+                },
+                "transfer_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.JourneyStatistics": {
+            "type": "object",
+            "properties": {
+                "as_of": {
+                    "type": "string"
+                },
+                "daily": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.JourneyStat"
+                    }
+                },
+                "hop_count": {
+                    "type": "integer"
+                },
+                "message_count": {
+                    "type": "integer"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "transfer_count": {
+                    "type": "integer"
+                },
+                "unknown_timestamp_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.JourneySummaryDTO": {
+            "type": "object",
+            "properties": {
+                "assets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_service_xcmv2.AssetDTO"
+                    },
+                    "x-nullable": true
+                },
+                "availability": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "completeness": {
+                    "type": "string"
+                },
+                "confirmation_scope": {
+                    "type": "string",
+                    "enum": [
+                        "source_relay",
+                        "destination"
+                    ],
+                    "x-nullable": true
+                },
+                "cross_chain_status": {
+                    "type": "integer"
+                },
+                "destination": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.LocationDTO"
+                },
+                "ethereum_execution": {
+                    "description": "EthereumExecution uses the same persisted evidence as journey detail; no request-time RPC.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_service_xcmv2.EthereumExecution"
+                        }
+                    ],
+                    "x-nullable": true
+                },
+                "from": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "journey_id": {
+                    "type": "string"
+                },
+                "legacy_unique_id": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "message_hash": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "message_index": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "message_type": {
+                    "type": "string",
+                    "enum": [
+                        "message",
+                        "transfer"
+                    ],
+                    "x-nullable": true
+                },
+                "origin": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.LocationDTO"
+                },
+                "origin_block_num": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "origin_block_timestamp": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "origin_event_index": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "origin_extrinsic_index": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "type": {
+                    "type": "string"
+                },
+                "xcm_version": {
+                    "type": "integer",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.LocationDTO": {
+            "type": "object",
+            "properties": {
+                "para_id": {
+                    "type": "integer"
+                },
+                "relay_chain": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.PayloadDTO": {
+            "type": "object",
+            "properties": {
+                "instructions": {
+                    "type": "object",
+                    "x-nullable": true
+                },
+                "message_hash": {
+                    "type": "string"
+                },
+                "message_index": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "topic_id": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "xcm_version": {
+                    "type": "integer",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.RelayFactDTO": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "event_index": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "extrinsic_index": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.TimeRange": {
+            "type": "object",
+            "properties": {
+                "end": {
+                    "type": "integer"
+                },
+                "start": {
+                    "type": "integer"
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.ValuationRequest": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "asset_module": {
+                    "type": "string"
+                },
+                "asset_unique_id": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string",
+                    "enum": [
+                        "USD",
+                        "CNY",
+                        "EUR"
+                    ]
+                },
+                "decimals": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "network": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "x-nullable": true
+                }
+            }
+        },
+        "subscan_internal_service_xcmv2.ValuationResult": {
+            "type": "object",
+            "properties": {
+                "price": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "price_timestamp": {
+                    "type": "integer",
+                    "x-nullable": true
+                },
+                "request": {
+                    "$ref": "#/definitions/subscan_internal_service_xcmv2.ValuationRequest"
+                },
+                "unavailable": {
+                    "type": "string",
+                    "enum": [
+                        "not_collected",
+                        "outside_coverage"
+                    ],
+                    "x-nullable": true
+                },
+                "value": {
+                    "type": "string",
+                    "x-nullable": true
                 }
             }
         },
