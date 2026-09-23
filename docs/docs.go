@@ -3340,6 +3340,315 @@ const docTemplate = `{
                 ]
             }
         },
+        "/api/scan/dapp_staking/activities": {
+            "post": {
+                "description": "Returns protocol-wide v3 stake, lock, and reward activities with optional event, dApp, account, era, and inclusive Unix-second time filters. Registry changes and protocol clock transitions are exposed by the dApps and eras responses.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dapp Staking"
+                ],
+                "summary": "List dApp staking activities",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingActivitiesParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.activityJSON"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/dapp_staking/dapp": {
+            "post": {
+                "description": "Returns one v3 dApp registry entry, including owner, beneficiary, current stake, and protocol clock.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dapp Staking"
+                ],
+                "summary": "Get a dApp staking dApp",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingDappParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/dapp_staking/dapps": {
+            "post": {
+                "description": "Returns the registered, eligible, or unregistered v3 dApp registry entries.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dapp Staking"
+                ],
+                "summary": "List dApp staking dApps",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "era": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappListJSON"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/dapp_staking/eras": {
+            "post": {
+                "description": "Returns durable era rewards, tier/rank assignments, and protocol-clock transitions.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dapp Staking"
+                ],
+                "summary": "List dApp staking eras",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingListParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.eraJSON"
+                                            }
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/dapp_staking/overview": {
+            "post": {
+                "description": "Returns the current era, period, subperiod, stake totals, eligible dApp count, and inflation pool overview.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dapp Staking"
+                ],
+                "summary": "dApp staking protocol overview",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.overviewJSON"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/dapp_staking/stakers": {
+            "post": {
+                "description": "Returns a dApp's current stake total, paginated stakers, and an optional account-specific stake.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dapp Staking"
+                ],
+                "summary": "List dApp stakers",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingStakersParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer"
+                                        },
+                                        "list": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.stakerJSON"
+                                            }
+                                        },
+                                        "total_stake": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/dataAvailability/info": {
             "post": {
                 "description": "This API is only available for avail network.",
@@ -19004,6 +19313,489 @@ const docTemplate = `{
             "additionalProperties": false,
             "type": "object"
         },
+        "internal_pluginv2_pallets_dappStaking.SmartContractJSON": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.activityJSON": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "event": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "period": {
+                    "type": "integer"
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                },
+                "source_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappJSON": {
+            "type": "object",
+            "properties": {
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "period": {
+                    "type": "integer"
+                },
+                "rank": {
+                    "type": "integer"
+                },
+                "registered_at": {
+                    "type": "integer"
+                },
+                "registered_block": {
+                    "type": "integer"
+                },
+                "registered_era": {
+                    "type": "integer"
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                },
+                "stake": {
+                    "type": "string"
+                },
+                "stakers": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "subperiod": {
+                    "type": "string"
+                },
+                "tier_id": {
+                    "type": "integer"
+                },
+                "unregistered_at": {
+                    "type": "integer"
+                },
+                "unregistered_block": {
+                    "type": "integer"
+                },
+                "unregistered_era": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappListJSON": {
+            "type": "object",
+            "properties": {
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "owner": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "rank": {
+                    "type": "integer"
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                },
+                "stake": {
+                    "type": "string"
+                },
+                "stakers": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tier_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappStakingActivitiesParams": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "contract_address": {
+                    "type": "string"
+                },
+                "contract_type": {
+                    "type": "string"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "end_time": {
+                    "type": "integer"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "event": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                },
+                "start_time": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappStakingDappParams": {
+            "type": "object",
+            "properties": {
+                "contract_address": {
+                    "type": "string"
+                },
+                "contract_type": {
+                    "type": "string"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappStakingListParams": {
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "registered",
+                        "eligible",
+                        "unregistered"
+                    ]
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappStakingStakersParams": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "contract_address": {
+                    "type": "string"
+                },
+                "contract_type": {
+                    "type": "string"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.dappTierJSON": {
+            "type": "object",
+            "properties": {
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "rank": {
+                    "type": "integer"
+                },
+                "reward": {
+                    "type": "string"
+                },
+                "tier_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.eraJSON": {
+            "type": "object",
+            "properties": {
+                "eligible_dapps": {
+                    "type": "integer"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "locked": {
+                    "type": "string"
+                },
+                "period": {
+                    "type": "integer"
+                },
+                "reward": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.eraRewardJSON"
+                },
+                "start_at": {
+                    "type": "integer"
+                },
+                "start_block": {
+                    "type": "integer"
+                },
+                "subperiod": {
+                    "type": "string"
+                },
+                "tiers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.dappTierJSON"
+                    }
+                },
+                "transitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.transitionJSON"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.eraRewardJSON": {
+            "type": "object",
+            "properties": {
+                "dapp_reward_pool": {
+                    "type": "string"
+                },
+                "staked": {
+                    "type": "string"
+                },
+                "staker_reward_pool": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.inflationJSON": {
+            "type": "object",
+            "properties": {
+                "adjustable_staker_reward_pool_per_era": {
+                    "type": "string"
+                },
+                "adjustable_stakers_part": {
+                    "type": "string"
+                },
+                "adjustable_stakers_percent": {
+                    "type": "string"
+                },
+                "base_staker_reward_pool_per_era": {
+                    "type": "string"
+                },
+                "base_stakers_part": {
+                    "type": "string"
+                },
+                "base_stakers_percent": {
+                    "type": "string"
+                },
+                "bonus_part": {
+                    "type": "string"
+                },
+                "bonus_percent": {
+                    "type": "string"
+                },
+                "bonus_reward_pool_per_period": {
+                    "type": "string"
+                },
+                "collators_part": {
+                    "type": "string"
+                },
+                "collators_percent": {
+                    "type": "string"
+                },
+                "dapp_reward_pool_per_era": {
+                    "type": "string"
+                },
+                "dapps_part": {
+                    "type": "string"
+                },
+                "dapps_percent": {
+                    "type": "string"
+                },
+                "treasury_part": {
+                    "type": "string"
+                },
+                "treasury_percent": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.overviewJSON": {
+            "type": "object",
+            "properties": {
+                "current_stake": {
+                    "type": "string"
+                },
+                "eligible_dapps": {
+                    "type": "integer"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "inflation": {
+                    "$ref": "#/definitions/internal_pluginv2_pallets_dappStaking.inflationJSON"
+                },
+                "locked": {
+                    "type": "string"
+                },
+                "lockers": {
+                    "type": "integer"
+                },
+                "maintenance": {
+                    "type": "boolean"
+                },
+                "next_era_start": {
+                    "type": "integer"
+                },
+                "next_subperiod_start_era": {
+                    "type": "integer"
+                },
+                "period": {
+                    "type": "integer"
+                },
+                "registered_dapps": {
+                    "type": "integer"
+                },
+                "stakers": {
+                    "type": "integer"
+                },
+                "subperiod": {
+                    "type": "string"
+                },
+                "unlocking": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.stakerJSON": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "bonus_eligible": {
+                    "type": "boolean"
+                },
+                "build_and_earn": {
+                    "type": "string"
+                },
+                "share": {
+                    "type": "string"
+                },
+                "voting": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_pallets_dappStaking.transitionJSON": {
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "era": {
+                    "type": "integer"
+                },
+                "event": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "maintenance": {
+                    "type": "boolean"
+                },
+                "next_era_start": {
+                    "type": "integer"
+                },
+                "next_subperiod_start_era": {
+                    "type": "integer"
+                },
+                "period": {
+                    "type": "integer"
+                },
+                "subperiod": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_pluginv2_pallets_liquidStaking.OperationRecordJson": {
             "type": "object",
             "properties": {
@@ -23027,6 +23819,9 @@ const docTemplate = `{
                         "type": "boolean"
                     }
                 },
+                "dapp_staking": {
+                    "$ref": "#/definitions/subscan_internal_model.DappStakingAccountJson"
+                },
                 "delegate": {
                     "$ref": "#/definitions/subscan_internal_model.DelegateAccountJson"
                 },
@@ -24607,6 +25402,72 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "treasury_amount": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.DappStakingAccountJson": {
+            "type": "object",
+            "properties": {
+                "contract_stake_count": {
+                    "type": "integer"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/subscan_internal_model.DappStakingAccountStakeJson"
+                    }
+                },
+                "locked": {
+                    "type": "string"
+                },
+                "staked": {
+                    "type": "string"
+                },
+                "unlock_block": {
+                    "type": "integer"
+                },
+                "unlocking": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.DappStakingAccountStakeJson": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "bonus_eligible": {
+                    "type": "boolean"
+                },
+                "build_and_earn": {
+                    "type": "string"
+                },
+                "dapp_id": {
+                    "type": "integer"
+                },
+                "period": {
+                    "type": "string"
+                },
+                "smart_contract": {
+                    "$ref": "#/definitions/subscan_internal_model.DappStakingSmartContractJson"
+                },
+                "voting": {
+                    "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.DappStakingSmartContractJson": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "type": {
                     "type": "string"
                 }
             }

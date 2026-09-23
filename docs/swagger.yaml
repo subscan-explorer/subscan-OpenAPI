@@ -2530,6 +2530,327 @@ definitions:
   internal_pluginv2_pallets_dap.dapStakingRewardParams:
     additionalProperties: false
     type: object
+  internal_pluginv2_pallets_dappStaking.SmartContractJSON:
+    properties:
+      address:
+        type: string
+      type:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dappStaking.activityJSON:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      dapp_id:
+        type: integer
+      era:
+        type: integer
+      event:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      period:
+        type: integer
+      smart_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+      source_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappJSON:
+    properties:
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      dapp_id:
+        type: integer
+      era:
+        type: integer
+      owner:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      period:
+        type: integer
+      rank:
+        type: integer
+      registered_at:
+        type: integer
+      registered_block:
+        type: integer
+      registered_era:
+        type: integer
+      smart_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+      stake:
+        type: string
+      stakers:
+        type: integer
+      status:
+        type: string
+      subperiod:
+        type: string
+      tier_id:
+        type: integer
+      unregistered_at:
+        type: integer
+      unregistered_block:
+        type: integer
+      unregistered_era:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappListJSON:
+    properties:
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      dapp_id:
+        type: integer
+      owner:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      rank:
+        type: integer
+      smart_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+      stake:
+        type: string
+      stakers:
+        type: integer
+      status:
+        type: string
+      tier_id:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappStakingActivitiesParams:
+    properties:
+      account:
+        type: string
+      contract_address:
+        type: string
+      contract_type:
+        type: string
+      dapp_id:
+        type: integer
+      end_time:
+        type: integer
+      era:
+        type: integer
+      event:
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      smart_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+      start_time:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappStakingDappParams:
+    properties:
+      contract_address:
+        type: string
+      contract_type:
+        type: string
+      dapp_id:
+        type: integer
+      smart_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappStakingListParams:
+    properties:
+      filter:
+        enum:
+        - all
+        - registered
+        - eligible
+        - unregistered
+        type: string
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappStakingStakersParams:
+    properties:
+      account:
+        type: string
+      contract_address:
+        type: string
+      contract_type:
+        type: string
+      dapp_id:
+        type: integer
+      page:
+        minimum: 0
+        type: integer
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+      smart_contract:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.SmartContractJSON'
+    type: object
+  internal_pluginv2_pallets_dappStaking.dappTierJSON:
+    properties:
+      dapp_id:
+        type: integer
+      rank:
+        type: integer
+      reward:
+        type: string
+      tier_id:
+        type: integer
+    type: object
+  internal_pluginv2_pallets_dappStaking.eraJSON:
+    properties:
+      eligible_dapps:
+        type: integer
+      era:
+        type: integer
+      locked:
+        type: string
+      period:
+        type: integer
+      reward:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.eraRewardJSON'
+      start_at:
+        type: integer
+      start_block:
+        type: integer
+      subperiod:
+        type: string
+      tiers:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappTierJSON'
+        type: array
+      transitions:
+        items:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.transitionJSON'
+        type: array
+    type: object
+  internal_pluginv2_pallets_dappStaking.eraRewardJSON:
+    properties:
+      dapp_reward_pool:
+        type: string
+      staked:
+        type: string
+      staker_reward_pool:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dappStaking.inflationJSON:
+    properties:
+      adjustable_staker_reward_pool_per_era:
+        type: string
+      adjustable_stakers_part:
+        type: string
+      adjustable_stakers_percent:
+        type: string
+      base_staker_reward_pool_per_era:
+        type: string
+      base_stakers_part:
+        type: string
+      base_stakers_percent:
+        type: string
+      bonus_part:
+        type: string
+      bonus_percent:
+        type: string
+      bonus_reward_pool_per_period:
+        type: string
+      collators_part:
+        type: string
+      collators_percent:
+        type: string
+      dapp_reward_pool_per_era:
+        type: string
+      dapps_part:
+        type: string
+      dapps_percent:
+        type: string
+      treasury_part:
+        type: string
+      treasury_percent:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dappStaking.overviewJSON:
+    properties:
+      current_stake:
+        type: string
+      eligible_dapps:
+        type: integer
+      era:
+        type: integer
+      inflation:
+        $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.inflationJSON'
+      locked:
+        type: string
+      lockers:
+        type: integer
+      maintenance:
+        type: boolean
+      next_era_start:
+        type: integer
+      next_subperiod_start_era:
+        type: integer
+      period:
+        type: integer
+      registered_dapps:
+        type: integer
+      stakers:
+        type: integer
+      subperiod:
+        type: string
+      unlocking:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dappStaking.stakerJSON:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: string
+      bonus_eligible:
+        type: boolean
+      build_and_earn:
+        type: string
+      share:
+        type: string
+      voting:
+        type: string
+    type: object
+  internal_pluginv2_pallets_dappStaking.transitionJSON:
+    properties:
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      era:
+        type: integer
+      event:
+        type: string
+      event_index:
+        type: string
+      maintenance:
+        type: boolean
+      next_era_start:
+        type: integer
+      next_subperiod_start_era:
+        type: integer
+      period:
+        type: integer
+      subperiod:
+        type: string
+    type: object
   internal_pluginv2_pallets_liquidStaking.OperationRecordJson:
     properties:
       account:
@@ -5419,6 +5740,8 @@ definitions:
         additionalProperties:
           type: boolean
         type: object
+      dapp_staking:
+        $ref: '#/definitions/subscan_internal_model.DappStakingAccountJson'
       delegate:
         $ref: '#/definitions/subscan_internal_model.DelegateAccountJson'
       democracy_lock:
@@ -6469,6 +6792,49 @@ definitions:
       total_issuance:
         type: string
       treasury_amount:
+        type: string
+    type: object
+  subscan_internal_model.DappStakingAccountJson:
+    properties:
+      contract_stake_count:
+        type: integer
+      count:
+        type: integer
+      list:
+        items:
+          $ref: '#/definitions/subscan_internal_model.DappStakingAccountStakeJson'
+        type: array
+      locked:
+        type: string
+      staked:
+        type: string
+      unlock_block:
+        type: integer
+      unlocking:
+        type: string
+    type: object
+  subscan_internal_model.DappStakingAccountStakeJson:
+    properties:
+      amount:
+        type: string
+      bonus_eligible:
+        type: boolean
+      build_and_earn:
+        type: string
+      dapp_id:
+        type: integer
+      period:
+        type: string
+      smart_contract:
+        $ref: '#/definitions/subscan_internal_model.DappStakingSmartContractJson'
+      voting:
+        type: string
+    type: object
+  subscan_internal_model.DappStakingSmartContractJson:
+    properties:
+      address:
+        type: string
+      type:
         type: string
     type: object
   subscan_internal_model.DelegateAccountJson:
@@ -12960,6 +13326,213 @@ paths:
       - staking
       - reward
       - active era
+  /api/scan/dapp_staking/activities:
+    post:
+      consumes:
+      - application/json
+      description: Returns protocol-wide v3 stake, lock, and reward activities with
+        optional event, dApp, account, era, and inclusive Unix-second time filters.
+        Registry changes and protocol clock transitions are exposed by the dApps and
+        eras responses.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingActivitiesParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.activityJSON'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: List dApp staking activities
+      tags:
+      - Dapp Staking
+  /api/scan/dapp_staking/dapp:
+    post:
+      consumes:
+      - application/json
+      description: Returns one v3 dApp registry entry, including owner, beneficiary,
+        current stake, and protocol clock.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingDappParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappJSON'
+              message:
+                type: string
+            type: object
+      summary: Get a dApp staking dApp
+      tags:
+      - Dapp Staking
+  /api/scan/dapp_staking/dapps:
+    post:
+      consumes:
+      - application/json
+      description: Returns the registered, eligible, or unregistered v3 dApp registry
+        entries.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  era:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappListJSON'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: List dApp staking dApps
+      tags:
+      - Dapp Staking
+  /api/scan/dapp_staking/eras:
+    post:
+      consumes:
+      - application/json
+      description: Returns durable era rewards, tier/rank assignments, and protocol-clock
+        transitions.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingListParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.eraJSON'
+                    type: array
+                type: object
+              message:
+                type: string
+            type: object
+      summary: List dApp staking eras
+      tags:
+      - Dapp Staking
+  /api/scan/dapp_staking/overview:
+    post:
+      consumes:
+      - application/json
+      description: Returns the current era, period, subperiod, stake totals, eligible
+        dApp count, and inflation pool overview.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.overviewJSON'
+              message:
+                type: string
+            type: object
+      summary: dApp staking protocol overview
+      tags:
+      - Dapp Staking
+  /api/scan/dapp_staking/stakers:
+    post:
+      consumes:
+      - application/json
+      description: Returns a dApp's current stake total, paginated stakers, and an
+        optional account-specific stake.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.dappStakingStakersParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            properties:
+              code:
+                type: integer
+              data:
+                properties:
+                  count:
+                    type: integer
+                  list:
+                    items:
+                      $ref: '#/definitions/internal_pluginv2_pallets_dappStaking.stakerJSON'
+                    type: array
+                  total_stake:
+                    type: string
+                type: object
+              message:
+                type: string
+            type: object
+      summary: List dApp stakers
+      tags:
+      - Dapp Staking
   /api/scan/dataAvailability/info:
     post:
       consumes:
