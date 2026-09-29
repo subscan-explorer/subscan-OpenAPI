@@ -483,20 +483,6 @@
       "mythos"
     ]
   },
-  "origintrail": {
-    "api_domains": [
-      "origintrail",
-      "neuroweb"
-    ],
-    "backend_service_name": "subscan-origintrail",
-    "db_name": "subscan_origintrail",
-    "network_node": "origintrail",
-    "type": "mainnet",
-    "ui_domains": [
-      "origintrail",
-      "neuroweb"
-    ]
-  },
   "paseo": {
     "api_domains": [
       "paseo"
@@ -531,18 +517,6 @@
     "type": "mainnet",
     "ui_domains": [
       "peaq"
-    ]
-  },
-  "pendulum": {
-    "api_domains": [
-      "pendulum"
-    ],
-    "backend_service_name": "subscan-pendulum",
-    "db_name": "subscan_pendulum",
-    "network_node": "pendulum",
-    "type": "mainnet",
-    "ui_domains": [
-      "pendulum"
     ]
   },
   "people-kusama": {

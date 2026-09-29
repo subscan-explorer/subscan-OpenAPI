@@ -111,11 +111,9 @@ Please notice before you get started:
 | Moonbeam             | `moonbeam.api.subscan.io`                      | archive |
 | Moonriver            | `moonriver.api.subscan.io`                     | archive |
 | Mythos               | `mythos.api.subscan.io`                        | live    |
-| Neuroweb             | `neuroweb.api.subscan.io`                      | live    |
 | Paseo                | `paseo.api.subscan.io`                         | test    |
 | Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test    |
 | Peaq-main            | `peaq.api.subscan.io`                          | live    |
-| Pendulum             | `pendulum.api.subscan.io`                      | live    |
 | People-kusama        | `people-kusama.api.subscan.io`                 | live    |
 | People-polkadot      | `people-polkadot.api.subscan.io`               | live    |
 | People-westend       | `people-westend.api.subscan.io`                | test    |
