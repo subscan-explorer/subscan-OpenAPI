@@ -1143,6 +1143,42 @@ definitions:
         minLength: 1
         type: string
     type: object
+  internal_pluginv2_customizeds_attestcoin.attestorsParams:
+    properties:
+      chain_key:
+        type: integer
+      include_inactive:
+        type: boolean
+    required:
+    - chain_key
+    type: object
+  internal_pluginv2_customizeds_attestcoin.chainsParams:
+    properties:
+      include_removed:
+        type: boolean
+    type: object
+  internal_pluginv2_customizeds_attestcoin.commitParams:
+    properties:
+      extrinsic_index:
+        type: string
+    required:
+    - extrinsic_index
+    type: object
+  internal_pluginv2_customizeds_attestcoin.eventsParams:
+    properties:
+      chain_key:
+        type: integer
+      cursor:
+        type: string
+      event_id:
+        type: string
+      row:
+        maximum: 100
+        minimum: 1
+        type: integer
+    required:
+    - row
+    type: object
   internal_pluginv2_customizeds_bifrost_tokengateway.TransfersParams:
     properties:
       address:
@@ -11700,6 +11736,98 @@ paths:
       x-synonyms:
       - assets
       - scan
+  /api/scan/attestcoin/attestors:
+    post:
+      consumes:
+      - application/json
+      description: Attestors in the latest election set, plus waiting attestors unless
+        include_inactive is set.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_attestcoin.attestorsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Attestcoin attestors
+      tags:
+      - Attestcoin
+  /api/scan/attestcoin/chains:
+    post:
+      consumes:
+      - application/json
+      description: Current source chains, last attestation, checkpoint, and attestor
+        count for creditcoin-cc3.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_attestcoin.chainsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Attestcoin source chains
+      tags:
+      - Attestcoin
+  /api/scan/attestcoin/commit_attestation:
+    post:
+      consumes:
+      - application/json
+      description: Header hash, merkle root, previous digest, signing accounts, and
+        continuity root count.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_attestcoin.commitParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Attestcoin commit attestation
+      tags:
+      - Attestcoin
+  /api/scan/attestcoin/events:
+    post:
+      consumes:
+      - application/json
+      description: Cursor feed of attestation and supported-chain events. Bond rows
+        are omitted when chain_key is set.
+      parameters:
+      - description: params
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_attestcoin.eventsParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/subscan_internal_plugin_share.J'
+      summary: Attestcoin protocol events
+      tags:
+      - Attestcoin
   /api/scan/block:
     post:
       consumes:

@@ -953,6 +953,142 @@
                 ]
             }
         },
+        "/api/scan/attestcoin/attestors": {
+            "post": {
+                "description": "Attestors in the latest election set, plus waiting attestors unless include_inactive is set.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Attestcoin"
+                ],
+                "summary": "Attestcoin attestors",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_attestcoin.attestorsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/attestcoin/chains": {
+            "post": {
+                "description": "Current source chains, last attestation, checkpoint, and attestor count for creditcoin-cc3.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Attestcoin"
+                ],
+                "summary": "Attestcoin source chains",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_attestcoin.chainsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/attestcoin/commit_attestation": {
+            "post": {
+                "description": "Header hash, merkle root, previous digest, signing accounts, and continuity root count.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Attestcoin"
+                ],
+                "summary": "Attestcoin commit attestation",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_attestcoin.commitParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/scan/attestcoin/events": {
+            "post": {
+                "description": "Cursor feed of attestation and supported-chain events. Bond rows are omitted when chain_key is set.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Attestcoin"
+                ],
+                "summary": "Attestcoin protocol events",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_attestcoin.eventsParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                        }
+                    }
+                }
+            }
+        },
         "/api/scan/block": {
             "post": {
                 "description": "Returns block details by block number, block hash, or the nearest block to a supplied block timestamp.",
@@ -17282,6 +17418,61 @@
                     "type": "string",
                     "maxLength": 256,
                     "minLength": 1
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_attestcoin.attestorsParams": {
+            "type": "object",
+            "required": [
+                "chain_key"
+            ],
+            "properties": {
+                "chain_key": {
+                    "type": "integer"
+                },
+                "include_inactive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_attestcoin.chainsParams": {
+            "type": "object",
+            "properties": {
+                "include_removed": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_attestcoin.commitParams": {
+            "type": "object",
+            "required": [
+                "extrinsic_index"
+            ],
+            "properties": {
+                "extrinsic_index": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_attestcoin.eventsParams": {
+            "type": "object",
+            "required": [
+                "row"
+            ],
+            "properties": {
+                "chain_key": {
+                    "type": "integer"
+                },
+                "cursor": {
+                    "type": "string"
+                },
+                "event_id": {
+                    "type": "string"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 1
                 }
             }
         },
