@@ -1773,6 +1773,102 @@ definitions:
         minimum: 1
         type: integer
     type: object
+  internal_pluginv2_customizeds_zkverify.ZkVerifyDashboard:
+    properties:
+      snapshot:
+        $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyOverview'
+      status:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_zkverify.ZkVerifyDomain:
+    properties:
+      block_timestamp:
+        type: integer
+      candidates:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomainConfiguration'
+        type: array
+      configuration:
+        $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomainConfiguration'
+      configuration_status:
+        type: string
+      domain_id: {}
+      event_id:
+        type: string
+      event_index:
+        type: string
+      extrinsic_hash:
+        type: string
+      extrinsic_index:
+        type: string
+      finalized:
+        type: boolean
+      id:
+        type: integer
+      module_id:
+        type: string
+      phase:
+        type: integer
+    type: object
+  internal_pluginv2_customizeds_zkverify.ZkVerifyDomainConfiguration:
+    properties:
+      aggregate_rules: {}
+      aggregation_size: {}
+      delivery: {}
+      delivery_owner: {}
+      proof_rules: {}
+      queue_size: {}
+    type: object
+  internal_pluginv2_customizeds_zkverify.ZkVerifyDomainPage:
+    properties:
+      has_more:
+        type: boolean
+      list:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomain'
+        type: array
+      next_cursor:
+        type: integer
+    type: object
+  internal_pluginv2_customizeds_zkverify.ZkVerifyOverview:
+    properties:
+      aggregated:
+        type: integer
+      domain_registrations:
+        type: integer
+      finalized_block:
+        type: integer
+      network:
+        type: string
+      receipts:
+        type: integer
+      source:
+        type: string
+      updated_at:
+        type: integer
+      verified:
+        type: integer
+      verifiers:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyVerifierCount'
+        type: array
+    type: object
+  internal_pluginv2_customizeds_zkverify.ZkVerifyVerifierCount:
+    properties:
+      count:
+        type: integer
+      module:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_zkverify.zkVerifyDomainParams:
+    properties:
+      after_id:
+        type: integer
+      row:
+        maximum: 20
+        minimum: 1
+        type: integer
+    type: object
   internal_pluginv2_pallets_collator.CollatorJson:
     properties:
       account_display:
@@ -21721,6 +21817,62 @@ paths:
       tags:
       - Xcm
       - PRO
+  /api/v2/scan/zkverify/domains:
+    post:
+      consumes:
+      - application/json
+      description: Returns finalized indexed NewDomain events with decoded registration-time
+        configuration, using an event ID cursor. Single direct or wrapped register_domain
+        calls are associated; multiple candidate calls are marked ambiguous and returned
+        as candidates. Missing or oversized transaction parameters are unavailable,
+        not zero/default configuration. This is not a list of current active domains.
+      parameters:
+      - description: Cursor and page size (1-20)
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.zkVerifyDomainParams'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomainPage'
+              type: object
+      summary: zkVerify domain registration history
+      tags:
+      - zkVerify
+  /api/v2/scan/zkverify/overview:
+    post:
+      consumes:
+      - application/json
+      description: Returns counts of finalized indexed ProofVerified, NewProof, NewDomain
+        and NewAggregationReceipt events with per-module verifier counts. The snapshot
+        includes its network, timestamp and finalized-height query bound; it does
+        not certify complete chain coverage. Initializing snapshots are null; stale
+        snapshots retain their original timestamp. Available only on zkverify and
+        zkverify-testnet.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/subscan_internal_plugin_share.J'
+            - properties:
+                data:
+                  $ref: '#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDashboard'
+              type: object
+      summary: zkVerify dashboard overview
+      tags:
+      - zkVerify
   /graphql:
     post:
       consumes:

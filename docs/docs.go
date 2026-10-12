@@ -15740,6 +15740,87 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v2/scan/zkverify/domains": {
+            "post": {
+                "description": "Returns finalized indexed NewDomain events with decoded registration-time configuration, using an event ID cursor. Single direct or wrapped register_domain calls are associated; multiple candidate calls are marked ambiguous and returned as candidates. Missing or oversized transaction parameters are unavailable, not zero/default configuration. This is not a list of current active domains.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "zkVerify"
+                ],
+                "summary": "zkVerify domain registration history",
+                "parameters": [
+                    {
+                        "description": "Cursor and page size (1-20)",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.zkVerifyDomainParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomainPage"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v2/scan/zkverify/overview": {
+            "post": {
+                "description": "Returns counts of finalized indexed ProofVerified, NewProof, NewDomain and NewAggregationReceipt events with per-module verifier counts. The snapshot includes its network, timestamp and finalized-height query bound; it does not certify complete chain coverage. Initializing snapshots are null; stale snapshots retain their original timestamp. Available only on zkverify and zkverify-testnet.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "zkVerify"
+                ],
+                "summary": "zkVerify dashboard overview",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDashboard"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/graphql": {
             "post": {
                 "description": "Executes a read-only GraphQL operation against the current network at ` + "`" + `/graphql` + "`" + `. Send a JSON body containing ` + "`" + `query` + "`" + `, optional ` + "`" + `variables` + "`" + `, and optional ` + "`" + `operationName` + "`" + `. Use the same ` + "`" + `X-API-Key` + "`" + ` header model as the REST API. Apidog users can either run this imported POST endpoint directly or create a GraphQL request against the same URL and use Fetch Schema, because introspection is enabled for GraphQL-enabled keys by default.",
@@ -18359,6 +18440,149 @@ const docTemplate = `{
                 "row": {
                     "type": "integer",
                     "maximum": 100,
+                    "minimum": 1
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.ZkVerifyDashboard": {
+            "type": "object",
+            "properties": {
+                "snapshot": {
+                    "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyOverview"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.ZkVerifyDomain": {
+            "type": "object",
+            "properties": {
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "candidates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomainConfiguration"
+                    }
+                },
+                "configuration": {
+                    "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomainConfiguration"
+                },
+                "configuration_status": {
+                    "type": "string"
+                },
+                "domain_id": {},
+                "event_id": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_hash": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "finalized": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "module_id": {
+                    "type": "string"
+                },
+                "phase": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.ZkVerifyDomainConfiguration": {
+            "type": "object",
+            "properties": {
+                "aggregate_rules": {},
+                "aggregation_size": {},
+                "delivery": {},
+                "delivery_owner": {},
+                "proof_rules": {},
+                "queue_size": {}
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.ZkVerifyDomainPage": {
+            "type": "object",
+            "properties": {
+                "has_more": {
+                    "type": "boolean"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyDomain"
+                    }
+                },
+                "next_cursor": {
+                    "type": "integer"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.ZkVerifyOverview": {
+            "type": "object",
+            "properties": {
+                "aggregated": {
+                    "type": "integer"
+                },
+                "domain_registrations": {
+                    "type": "integer"
+                },
+                "finalized_block": {
+                    "type": "integer"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "receipts": {
+                    "type": "integer"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "verified": {
+                    "type": "integer"
+                },
+                "verifiers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_zkverify.ZkVerifyVerifierCount"
+                    }
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.ZkVerifyVerifierCount": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "module": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_zkverify.zkVerifyDomainParams": {
+            "type": "object",
+            "properties": {
+                "after_id": {
+                    "type": "integer"
+                },
+                "row": {
+                    "type": "integer",
+                    "maximum": 20,
                     "minimum": 1
                 }
             }
