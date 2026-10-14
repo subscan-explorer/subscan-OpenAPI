@@ -17982,6 +17982,9 @@ const docTemplate = `{
                         }
                     ]
                 },
+                "verify_status": {
+                    "type": "string"
+                },
                 "verify_time": {
                     "type": "integer"
                 },

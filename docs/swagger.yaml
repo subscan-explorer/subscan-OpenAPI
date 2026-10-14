@@ -1462,6 +1462,8 @@ definitions:
         allOf:
         - $ref: '#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey'
         description: '{"circuit_name"=>"key"}'
+      verify_status:
+        type: string
       verify_time:
         type: integer
       verifying:
