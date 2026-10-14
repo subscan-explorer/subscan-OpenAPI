@@ -5838,6 +5838,14 @@ definitions:
       amount:
         type: string
       id: {}
+      related_account:
+        description: RelatedAccount identifies the staking ledger owner only for a
+          reviewed hold reason.
+        type: string
+      release_rule:
+        description: ReleaseRule is an explanatory rule, never a claim that this hold
+          is releasable now.
+        type: string
     type: object
   subscan_internal_model.AccountJsonExtra:
     properties:
@@ -7283,9 +7291,21 @@ definitions:
     properties:
       account:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      branch:
+        enum:
+        - main
+        - fallback
+        type: string
+      dispatch_error:
+        description: Raw runtime error when conditional execution supplies one.
       exec_result:
         $ref: '#/definitions/subscan_libs_substrate.MetadataModuleError'
       exec_status:
+        enum:
+        - Success
+        - Failed
+        - NoExec
+        - Unknown
         type: string
       module:
         type: string
@@ -10844,6 +10864,13 @@ definitions:
     properties:
       amount:
         type: string
+      status:
+        enum:
+        - waiting
+        - era_reached
+        type: string
+      target_era:
+        type: integer
       until:
         type: integer
     type: object
@@ -18778,7 +18805,11 @@ paths:
       consumes:
       - application/json
       description: Returns the current unbonding schedule for one staking account.
-        This API only supports networks with the staking frame.
+        amount and until retain their existing meanings; until is an estimated block
+        number. Optional target_era and status (waiting or era_reached) describe the
+        era condition, not proof of withdrawal. Older cached records may omit these
+        fields. Status uses indexed current-era metadata; the response is not a pinned
+        finalized snapshot. This API only supports networks with the staking frame.
       parameters:
       - description: params
         in: body

@@ -11267,7 +11267,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/unbonding": {
             "post": {
-                "description": "Returns the current unbonding schedule for one staking account. This API only supports networks with the staking frame.",
+                "description": "Returns the current unbonding schedule for one staking account. amount and until retain their existing meanings; until is an estimated block number. Optional target_era and status (waiting or era_reached) describe the era condition, not proof of withdrawal. Older cached records may omit these fields. Status uses indexed current-era metadata; the response is not a pinned finalized snapshot. This API only supports networks with the staking frame.",
                 "consumes": [
                     "application/json"
                 ],
@@ -24181,7 +24181,15 @@ const docTemplate = `{
                 "amount": {
                     "type": "string"
                 },
-                "id": {}
+                "id": {},
+                "related_account": {
+                    "description": "RelatedAccount identifies the staking ledger owner only for a reviewed hold reason.",
+                    "type": "string"
+                },
+                "release_rule": {
+                    "description": "ReleaseRule is an explanatory rule, never a claim that this hold is releasable now.",
+                    "type": "string"
+                }
             }
         },
         "subscan_internal_model.AccountJsonExtra": {
@@ -26360,11 +26368,27 @@ const docTemplate = `{
                 "account": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "branch": {
+                    "type": "string",
+                    "enum": [
+                        "main",
+                        "fallback"
+                    ]
+                },
+                "dispatch_error": {
+                    "description": "Raw runtime error when conditional execution supplies one."
+                },
                 "exec_result": {
                     "$ref": "#/definitions/subscan_libs_substrate.MetadataModuleError"
                 },
                 "exec_status": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "Success",
+                        "Failed",
+                        "NoExec",
+                        "Unknown"
+                    ]
                 },
                 "module": {
                     "type": "string"
@@ -31686,6 +31710,16 @@ const docTemplate = `{
             "properties": {
                 "amount": {
                     "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "waiting",
+                        "era_reached"
+                    ]
+                },
+                "target_era": {
+                    "type": "integer"
                 },
                 "until": {
                     "type": "integer"
