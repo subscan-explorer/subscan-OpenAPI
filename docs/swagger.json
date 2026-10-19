@@ -14904,7 +14904,7 @@
         },
         "/api/v2/scan/search": {
             "post": {
-                "description": "Resolves one account from a Substrate address, EVM address, or SS58 account index and returns normalized account details. If the account is not cached, the service may query on-chain balance data to create or refresh the account before responding. Use this endpoint for account lookup, wallet profile lookup, or resolving an address before calling balance- or token-related APIs.",
+                "description": "Resolves one account from a Substrate address, EVM address, or SS58 account index and returns normalized account details. If the account is not cached, the service may query on-chain balance data to create or refresh the account before responding. Use this endpoint for account lookup, wallet profile lookup, or resolving an address before calling balance- or token-related APIs.\nIndexed Pure accounts include creation provenance and nullable proxy delays. pure_proxy_status distinguishes missing evidence from lookup failure; balance_status=unavailable returns null balance, lock, balance_lock and transferable_balance for provenance-only accounts.",
                 "consumes": [
                     "application/json"
                 ],
@@ -24195,6 +24195,9 @@
                 "conviction": {
                     "type": "string"
                 },
+                "delay": {
+                    "type": "integer"
+                },
                 "origins": {
                     "type": "integer"
                 },
@@ -24222,6 +24225,9 @@
                     "type": "string"
                 },
                 "balance_lock": {
+                    "type": "string"
+                },
+                "balance_status": {
                     "type": "string"
                 },
                 "bonded": {
@@ -24360,6 +24366,15 @@
                 },
                 "proxy": {
                     "$ref": "#/definitions/subscan_internal_model.ProxyAccountJson"
+                },
+                "proxy_status": {
+                    "type": "string"
+                },
+                "pure_proxy": {
+                    "$ref": "#/definitions/subscan_internal_model.PureProxyJson"
+                },
+                "pure_proxy_status": {
+                    "type": "string"
                 },
                 "registrar_fee": {
                     "type": "string"
@@ -27578,6 +27593,9 @@
                 "account_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
+                "delay": {
+                    "type": "integer"
+                },
                 "proxy_type": {
                     "type": "string"
                 }
@@ -27677,6 +27695,61 @@
                 "success": {
                     "type": "boolean",
                     "example": true
+                }
+            }
+        },
+        "subscan_internal_model.PureProxyJson": {
+            "type": "object",
+            "properties": {
+                "creation": {
+                    "$ref": "#/definitions/subscan_internal_model.PureProxyReference"
+                },
+                "creator": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "derivation_extrinsic_index": {
+                    "type": "integer"
+                },
+                "derivation_height": {
+                    "type": "integer"
+                },
+                "disambiguation_index": {
+                    "type": "integer"
+                },
+                "evidence_kind": {
+                    "type": "string"
+                },
+                "initial_proxy_type": {
+                    "type": "string"
+                },
+                "killed": {
+                    "$ref": "#/definitions/subscan_internal_model.PureProxyReference"
+                }
+            }
+        },
+        "subscan_internal_model.PureProxyReference": {
+            "type": "object",
+            "properties": {
+                "block_hash": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer"
+                },
+                "block_timestamp": {
+                    "type": "integer"
+                },
+                "call_path": {
+                    "type": "string"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "spec_version": {
+                    "type": "integer"
                 }
             }
         },

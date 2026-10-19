@@ -5853,6 +5853,8 @@ definitions:
         type: string
       conviction:
         type: string
+      delay:
+        type: integer
       origins:
         type: integer
       proxy_type:
@@ -5871,6 +5873,8 @@ definitions:
       balance:
         type: string
       balance_lock:
+        type: string
+      balance_status:
         type: string
       bonded:
         type: string
@@ -5964,6 +5968,12 @@ definitions:
         type: integer
       proxy:
         $ref: '#/definitions/subscan_internal_model.ProxyAccountJson'
+      proxy_status:
+        type: string
+      pure_proxy:
+        $ref: '#/definitions/subscan_internal_model.PureProxyJson'
+      pure_proxy_status:
+        type: string
       registrar_fee:
         type: string
       registrar_index:
@@ -8103,6 +8113,8 @@ definitions:
     properties:
       account_display:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      delay:
+        type: integer
       proxy_type:
         type: string
     type: object
@@ -8171,6 +8183,42 @@ definitions:
       success:
         example: true
         type: boolean
+    type: object
+  subscan_internal_model.PureProxyJson:
+    properties:
+      creation:
+        $ref: '#/definitions/subscan_internal_model.PureProxyReference'
+      creator:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      derivation_extrinsic_index:
+        type: integer
+      derivation_height:
+        type: integer
+      disambiguation_index:
+        type: integer
+      evidence_kind:
+        type: string
+      initial_proxy_type:
+        type: string
+      killed:
+        $ref: '#/definitions/subscan_internal_model.PureProxyReference'
+    type: object
+  subscan_internal_model.PureProxyReference:
+    properties:
+      block_hash:
+        type: string
+      block_num:
+        type: integer
+      block_timestamp:
+        type: integer
+      call_path:
+        type: string
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      spec_version:
+        type: integer
     type: object
   subscan_internal_model.ReferendumDelegateDetailsJson:
     properties:
@@ -21238,12 +21286,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: Resolves one account from a Substrate address, EVM address, or
-        SS58 account index and returns normalized account details. If the account
-        is not cached, the service may query on-chain balance data to create or refresh
-        the account before responding. Use this endpoint for account lookup, wallet
-        profile lookup, or resolving an address before calling balance- or token-related
-        APIs.
+      description: |-
+        Resolves one account from a Substrate address, EVM address, or SS58 account index and returns normalized account details. If the account is not cached, the service may query on-chain balance data to create or refresh the account before responding. Use this endpoint for account lookup, wallet profile lookup, or resolving an address before calling balance- or token-related APIs.
+        Indexed Pure accounts include creation provenance and nullable proxy delays. pure_proxy_status distinguishes missing evidence from lookup failure; balance_status=unavailable returns null balance, lock, balance_lock and transferable_balance for provenance-only accounts.
       parameters:
       - description: Account lookup input. Accepts a Substrate address, EVM address,
           or account index.
