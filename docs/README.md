@@ -77,6 +77,10 @@ In the existing Apidog project:
    unrelated resources during import.
 2. Publish only supported environments, with Polkadot first. The derived import
    includes all hosts; `environments.json` is also available for a native import.
+   Native environment import appends entries, including duplicate names. For an
+   existing project, import only missing environments and keep one published
+   entry per supported host; do not repeatedly import the entire inventory.
+   Unpublishing retired entries does not require deleting internal environments.
 3. Keep Copy Page and llms.txt enabled, and enable the public documentation MCP.
 4. Use `landing.html` as the custom homepage. Paste `site-search.css` and
    `site-search.js` into the site's Custom CSS and JavaScript settings, preserving
@@ -92,6 +96,12 @@ are intentionally left disabled.
 Scheduled import in Local Client mode runs while the Apidog project is open;
 it is not an unattended server job. Verify the existing execution mode rather
 than claiming 24/7 synchronization from a configured schedule alone.
+During the 2026-10-20 rollout, URL import reported an access error even though
+the public artifacts were accessible. Manual local-file imports completed
+successfully. The API source now points at `apidog.openapi.json`, uses smart
+merge, maps global security to root auth, and keeps absent resources. Successful
+unattended imports remain unverified; use the same generated local files as the
+fallback and check the import result before claiming a published update.
 
 Repository updates, source import, and publication are separate checks. Verify
 the public MCP button, credential input, named examples, default network,
