@@ -1,47 +1,47 @@
-import json
+"""Print or refresh the API endpoint table from network.json."""
 
-def parse_network_json(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    ignoreDomains = ['origintrail','origintrail-testnet','hydradx','creditcoin-classic','creditcoin-testnet','cc-enterprise-testnet']
-    replaceNetwork = {
-        "statemine": "assethub-kusama",
-        "statemint": "assethub-polkadot",
-        "darwinia2": "darwinia",
-        "bifrost":"bifrost-kusama",
-        "bifrost-p":"bifrost-polkadot",
-        "Crust-main":"crust",
-        "Origintrail-rococo":"neuroweb-paseo",
-        "Origintrail":"neuroweb",
-    }
-    table = []
+import argparse
 
-    # clean up data, replace network name
-    for network in list(data.keys()):
-        if network in replaceNetwork:
-            data[replaceNetwork[network]] = data.pop(network)
+from network_docs import DOC_DIR, load_endpoints
 
-    # sort by network name
-    data = dict(sorted(data.items()))
 
-    for network, details in data.items():
-        status = 'live' if details['type'] == 'mainnet' else 'test'
-        for domain in details['ui_domains']:
-            if domain in ignoreDomains:
-                continue
-            table.append(f"| {network.capitalize():<18} | `{domain}.api.subscan.io` | {status:<6} |")
+BEGIN_MARKER = "<!-- BEGIN SUPPORTED NETWORKS -->"
+END_MARKER = "<!-- END SUPPORTED NETWORKS -->"
 
-    return table
 
-def print_table(table):
-    header = "| Network             | API Host                                       | Status |"
-    separator = "|---------------------|------------------------------------------------|--------|"
-    print(header)
-    print(separator)
-    for row in table:
-        print(row)
+def generate_table(endpoints):
+    """Render the supported hosts and service modes from the API inventory."""
+    rows = [("Network", "API Host", "Status")]
+    rows.extend(
+        (endpoint["name"], f'`{endpoint["domain"]}.api.subscan.io`', endpoint["status"])
+        for endpoint in endpoints
+    )
+    widths = [max(len(row[column]) for row in rows) for column in range(3)]
+    lines = [
+        "| " + " | ".join(value.ljust(width) for value, width in zip(row, widths)) + " |"
+        for row in rows
+    ]
+    lines.insert(1, "|" + "|".join("-" * (width + 2) for width in widths) + "|")
+    return "\n".join(lines) + "\n"
+
+
+def update_table(file_path, table):
+    """Replace only the marked table, failing if its boundaries are ambiguous."""
+    content = file_path.read_text(encoding="utf-8")
+    if content.count(BEGIN_MARKER) != 1 or content.count(END_MARKER) != 1:
+        raise ValueError("Introduction must contain exactly one supported-network marker pair")
+    before, rest = content.split(BEGIN_MARKER)
+    _, after = rest.split(END_MARKER)
+    file_path.write_text(before + BEGIN_MARKER + "\n\n" + table + "\n" + END_MARKER + after,
+                         encoding="utf-8")
+
 
 if __name__ == "__main__":
-    json_file_path = 'network.json'
-    table = parse_network_json(json_file_path)
-    print_table(table)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--write", action="store_true", help="update Introduction.md in place")
+    args = parser.parse_args()
+    table = generate_table(load_endpoints())
+    if args.write:
+        update_table(DOC_DIR / "Introduction.md", table)
+    else:
+        print(table, end="")

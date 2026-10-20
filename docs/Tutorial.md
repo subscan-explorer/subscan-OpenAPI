@@ -241,6 +241,45 @@ depend on its current plan and payment method; use the live platform and checkou
 
 ![Renew a direct Subscan plan](https://api.apidog.com/api/v1/projects/384478/resources/338527/image-preview)
 
+## Try the API in this documentation
+
+For direct Subscan requests, open an endpoint and click **Try it**:
+
+1. Select **Polkadot** for the supplied examples, or choose the network required by your application.
+2. Enter your own direct Subscan API key in **Credentials** / **Auth**. Endpoints using the same authentication
+   scheme can reuse it, so you do not need to rebuild the header for each request.
+3. Select a named request example. Start with the minimal example rather than filling every optional field.
+4. Click **Send** and inspect both the HTTP status and the JSON `code` / `message` fields.
+
+The [account lookup](https://support.subscan.io/api-36910915),
+[token balances](https://support.subscan.io/api-36910912),
+[balance history](https://support.subscan.io/api-36910906), and
+[transfers](https://support.subscan.io/api-36910916) pages include examples captured from Polkadot.
+The transfer examples cover a minimal request, account filtering, a fixed block range, and an invalid page size.
+Responses are snapshots; balances, history, and available assets can change.
+
+Choose a network that supports the endpoint and the example's address format and block range. Archived APIs serve
+historical data. Balance history can require a date range on networks that do not support block-level history.
+PubFi keys belong in the PubFi gateway flow above and cannot authenticate this direct request panel.
+
+## Search documentation
+
+Use **Search docs** to search endpoint descriptions, request and response fields, and the text of the guides.
+The keyboard shortcut is **Ctrl/Cmd + Shift + K**. The sidebar's search remains available for names and paths.
+
+## AI assistants
+
+The public documentation can provide context to an AI coding assistant:
+
+- Click **MCP** in the documentation to obtain the configuration for this public documentation site. Use the
+  site's generated configuration rather than inventing a site ID. The documentation MCP supplies API definitions
+  and examples; authenticate actual Subscan requests separately with your own API key.
+- Provide [llms.txt](https://support.subscan.io/llms.txt) so an assistant can discover the published pages.
+- Add `.md` to a page URL to read its Markdown version, or use **Copy Page** to supply the current page as text.
+
+The public documentation MCP does not require your Subscan API key. Keep real API keys out of AI prompts and copied
+configuration. If your assistant cannot fetch a page, paste its **Copy Page** Markdown instead.
+
 ## Further reading
 
 - [Subscan API Pricing](https://pro.subscan.io/pricing)

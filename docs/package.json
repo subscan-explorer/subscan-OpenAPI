@@ -1,0 +1,12 @@
+{
+  "name": "subscan-api-docs",
+  "private": true,
+  "scripts": {
+    "generate": "node generate-openapi.cjs",
+    "test": "node --test test-openapi.cjs"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-parser": "10.1.0",
+    "swagger2openapi": "7.0.8"
+  }
+}

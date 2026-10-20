@@ -11264,13 +11264,15 @@ definitions:
       plain_type:
         type: string
     type: object
-host: https://www.subscan.io
+host: polkadot.api.subscan.io
 info:
   contact:
-    email: bruce.sun@itering.io
+    email: api@subscan.io
     name: API Support
-    url: http://www.swagger.io/support
-  description: This is a subscan API server.
+    url: https://support.subscan.io
+  description: Query indexed chain data through the selected network's Subscan API
+    host. Direct requests require your own X-API-Key; PubFi credentials use the separate
+    PubFi gateway.
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -22014,6 +22016,17 @@ paths:
       - readiness
       - health
       - check
+schemes:
+- https
+security:
+- ApiKeyAuth: []
+securityDefinitions:
+  ApiKeyAuth:
+    description: Direct Subscan API key. Enter your own key in the documentation's
+      Credentials panel; never publish a key as a default value.
+    in: header
+    name: X-API-Key
+    type: apiKey
 swagger: "2.0"
 tags:
 - description: Pro-only endpoints require a Subscan Pro plan.

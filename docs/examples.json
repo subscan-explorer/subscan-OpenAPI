@@ -1,0 +1,811 @@
+{
+  "network": "polkadot",
+  "captured_on": "2026-10-20",
+  "examples": [
+    {
+      "path": "/api/v2/scan/search",
+      "method": "post",
+      "name": "account",
+      "summary": "Account details",
+      "description": "Resolve a public Polkadot address.",
+      "request": {
+        "key": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494067,
+        "data": {
+          "account": {
+            "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+            "balance": "12.1474220372",
+            "lock": "0",
+            "balance_lock": "0",
+            "is_evm_contract": false,
+            "account_display": {
+              "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+            },
+            "substrate_account": null,
+            "evm_account": "",
+            "registrar_info": null,
+            "count_extrinsic": 837,
+            "nft_amount": "0",
+            "extra": null,
+            "reserved": "0",
+            "bonded": "0",
+            "unbonding": "0",
+            "democracy_lock": "0",
+            "conviction_lock": "0",
+            "election_lock": "0",
+            "holds": [],
+            "transferable_balance": "121474220372",
+            "staking_info": null,
+            "nonce": 577,
+            "role": "",
+            "stash": "",
+            "is_council_member": false,
+            "is_techcomm_member": false,
+            "is_registrar": false,
+            "is_fellowship_member": false,
+            "is_module_account": false,
+            "is_collator": false,
+            "assets_tag": null,
+            "is_erc20": false,
+            "is_erc721": false,
+            "is_erc1155": false,
+            "vesting": null,
+            "proxy": {},
+            "multisig": {},
+            "delegate": null
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v2/scan/transfers",
+      "method": "post",
+      "name": "latest",
+      "summary": "Latest transfers",
+      "description": "A minimal request without optional filters.",
+      "request": {
+        "row": 2,
+        "page": 0
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494067,
+        "data": {
+          "count": 39664603,
+          "transfers": [
+            {
+              "transfer_id": 3350649500077,
+              "from": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+              "from_account_display": {
+                "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+              },
+              "to": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+              "to_account_display": {
+                "address": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+                "display": "para:2034"
+              },
+              "extrinsic_index": "33506495-2",
+              "success": true,
+              "hash": "0xd3c975c9cb15f8feb1f9a3f69b36b558b678957b177060ba43dd5eb396b83e80",
+              "block_num": 33506495,
+              "block_timestamp": 1792455534,
+              "module": "balances",
+              "amount": "0.2",
+              "amount_v2": "2000000000",
+              "current_currency_amount": "0.226",
+              "currency_amount": "0.23038906166978666",
+              "fee": "188108945",
+              "nonce": 576,
+              "asset_symbol": "DOT",
+              "asset_unique_id": "DOT",
+              "asset_type": "",
+              "item_id": null,
+              "event_idx": 77,
+              "is_lock": false
+            },
+            {
+              "transfer_id": 3350580200082,
+              "from": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+              "from_account_display": {
+                "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+              },
+              "to": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+              "to_account_display": {
+                "address": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+                "display": "para:2034"
+              },
+              "extrinsic_index": "33505802-2",
+              "success": true,
+              "hash": "0x2cffb65d52f82d9a711c76c323f3948cf35fac448d33cabafd6c34b5e47955f5",
+              "block_num": 33505802,
+              "block_timestamp": 1792451364,
+              "module": "balances",
+              "amount": "0.2",
+              "amount_v2": "2000000000",
+              "current_currency_amount": "0.226",
+              "currency_amount": "0.23025824667303802",
+              "fee": "188108945",
+              "nonce": 573,
+              "asset_symbol": "DOT",
+              "asset_unique_id": "DOT",
+              "asset_type": "",
+              "item_id": null,
+              "event_idx": 82,
+              "is_lock": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/api/v2/scan/transfers",
+      "method": "post",
+      "name": "account",
+      "summary": "Transfers for an account",
+      "description": "Filter transfers by one public Polkadot address.",
+      "request": {
+        "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+        "row": 2,
+        "page": 0
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494069,
+        "data": {
+          "count": 202,
+          "transfers": [
+            {
+              "transfer_id": 3350649500077,
+              "from": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+              "from_account_display": {
+                "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+              },
+              "to": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+              "to_account_display": {
+                "address": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+                "display": "para:2034"
+              },
+              "extrinsic_index": "33506495-2",
+              "success": true,
+              "hash": "0xd3c975c9cb15f8feb1f9a3f69b36b558b678957b177060ba43dd5eb396b83e80",
+              "block_num": 33506495,
+              "block_timestamp": 1792455534,
+              "module": "balances",
+              "amount": "0.2",
+              "amount_v2": "2000000000",
+              "current_currency_amount": "0.226",
+              "currency_amount": "0.23038906166978666",
+              "fee": "188108945",
+              "nonce": 576,
+              "asset_symbol": "DOT",
+              "asset_unique_id": "DOT",
+              "asset_type": "",
+              "item_id": null,
+              "event_idx": 77,
+              "is_lock": false
+            },
+            {
+              "transfer_id": 3350580200082,
+              "from": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+              "from_account_display": {
+                "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+              },
+              "to": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+              "to_account_display": {
+                "address": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+                "display": "para:2034"
+              },
+              "extrinsic_index": "33505802-2",
+              "success": true,
+              "hash": "0x2cffb65d52f82d9a711c76c323f3948cf35fac448d33cabafd6c34b5e47955f5",
+              "block_num": 33505802,
+              "block_timestamp": 1792451364,
+              "module": "balances",
+              "amount": "0.2",
+              "amount_v2": "2000000000",
+              "current_currency_amount": "0.226",
+              "currency_amount": "0.23025824667303802",
+              "fee": "188108945",
+              "nonce": 573,
+              "asset_symbol": "DOT",
+              "asset_unique_id": "DOT",
+              "asset_type": "",
+              "item_id": null,
+              "event_idx": 82,
+              "is_lock": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/api/v2/scan/transfers",
+      "method": "post",
+      "name": "block_range",
+      "summary": "Transfers in a block range",
+      "description": "Use a fixed inclusive block range; choose a network containing these blocks.",
+      "request": {
+        "block_range": "33506395-33506495",
+        "row": 2,
+        "page": 0
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494069,
+        "data": {
+          "count": 1,
+          "transfers": [
+            {
+              "transfer_id": 3350649500077,
+              "from": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+              "from_account_display": {
+                "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T"
+              },
+              "to": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+              "to_account_display": {
+                "address": "13YMK2efcJncYrXsaJCvHbaaDt3vfubdn75r4hdVxcggU4n2",
+                "display": "para:2034"
+              },
+              "extrinsic_index": "33506495-2",
+              "success": true,
+              "hash": "0xd3c975c9cb15f8feb1f9a3f69b36b558b678957b177060ba43dd5eb396b83e80",
+              "block_num": 33506495,
+              "block_timestamp": 1792455534,
+              "module": "balances",
+              "amount": "0.2",
+              "amount_v2": "2000000000",
+              "current_currency_amount": "0.226",
+              "currency_amount": "0.23038906166978666",
+              "fee": "188108945",
+              "nonce": 576,
+              "asset_symbol": "DOT",
+              "asset_unique_id": "DOT",
+              "asset_type": "",
+              "item_id": null,
+              "event_idx": 77,
+              "is_lock": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/api/v2/scan/transfers",
+      "method": "post",
+      "name": "invalid_page_size",
+      "summary": "Invalid page size",
+      "description": "Demonstrates the actual validation response when row exceeds 100.",
+      "request": {
+        "row": 101,
+        "page": 0
+      },
+      "http_status": 400,
+      "response": {
+        "code": 400,
+        "message": "row must be 100 or less",
+        "generated_at": 1792494070
+      }
+    },
+    {
+      "path": "/api/v2/scan/account/tokens",
+      "method": "post",
+      "name": "balances",
+      "summary": "Account token balances",
+      "description": "Return a small page of indexed token balances.",
+      "request": {
+        "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+        "row": 2,
+        "page": 0
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494070,
+        "data": {
+          "count": 1,
+          "list": [
+            {
+              "symbol": "DOT",
+              "unique_id": "DOT",
+              "decimals": 10,
+              "balance": "121474220372",
+              "lock": "0",
+              "reserved": "0",
+              "bonded": "0",
+              "unbonding": "0",
+              "democracy_lock": "0",
+              "conviction_lock": "0",
+              "election_lock": "0",
+              "label": null,
+              "price": "1.13",
+              "supply": "13.726586902036",
+              "category": "Native"
+            }
+          ],
+          "module": [
+            "Native"
+          ]
+        }
+      }
+    },
+    {
+      "path": "/api/v2/scan/account/tokens",
+      "method": "post",
+      "name": "sorted_balances",
+      "summary": "Sort token balances",
+      "description": "Order token holdings by balance, descending.",
+      "request": {
+        "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+        "order_field": "balance",
+        "order": "desc",
+        "row": 2,
+        "page": 0
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494071,
+        "data": {
+          "count": 1,
+          "list": [
+            {
+              "symbol": "DOT",
+              "unique_id": "DOT",
+              "decimals": 10,
+              "balance": "121474220372",
+              "lock": "0",
+              "reserved": "0",
+              "bonded": "0",
+              "unbonding": "0",
+              "democracy_lock": "0",
+              "conviction_lock": "0",
+              "election_lock": "0",
+              "label": null,
+              "price": "1.13",
+              "supply": "13.726586902036",
+              "category": "Native"
+            }
+          ],
+          "module": [
+            "Native"
+          ]
+        }
+      }
+    },
+    {
+      "path": "/api/scan/account/balance_history",
+      "method": "post",
+      "name": "recent_blocks",
+      "summary": "Recent balance history",
+      "description": "Block-level history on Polkadot; other networks may require a date range.",
+      "request": {
+        "address": "1jENPtb7x5uaRyKjZ1AtsfZr6MwDhbTNRxFyu8EBf4dQ63T",
+        "recent_block": 100
+      },
+      "http_status": 200,
+      "response": {
+        "code": 0,
+        "message": "Success",
+        "generated_at": 1792494072,
+        "data": {
+          "history": [
+            {
+              "block": 32797462,
+              "balance": "331190081661"
+            },
+            {
+              "block": 32797477,
+              "balance": "328606616185"
+            },
+            {
+              "block": 32797531,
+              "balance": "330585664144"
+            },
+            {
+              "block": 32797542,
+              "balance": "327864198668"
+            },
+            {
+              "block": 32797580,
+              "balance": "329853035988"
+            },
+            {
+              "block": 32797588,
+              "balance": "327269570512"
+            },
+            {
+              "block": 32798096,
+              "balance": "328940051640"
+            },
+            {
+              "block": 32798106,
+              "balance": "326356586164"
+            },
+            {
+              "block": 32798157,
+              "balance": "328335634123"
+            },
+            {
+              "block": 32798167,
+              "balance": "325614168647"
+            },
+            {
+              "block": 32798203,
+              "balance": "327603005967"
+            },
+            {
+              "block": 32798214,
+              "balance": "325019540491"
+            },
+            {
+              "block": 32798606,
+              "balance": "326690021619"
+            },
+            {
+              "block": 32798618,
+              "balance": "324106556143"
+            },
+            {
+              "block": 32798676,
+              "balance": "326085604102"
+            },
+            {
+              "block": 32798688,
+              "balance": "323364138626"
+            },
+            {
+              "block": 32798736,
+              "balance": "325352975946"
+            },
+            {
+              "block": 32798745,
+              "balance": "322769510470"
+            },
+            {
+              "block": 32799197,
+              "balance": "324439991598"
+            },
+            {
+              "block": 32799211,
+              "balance": "321856526122"
+            },
+            {
+              "block": 32799278,
+              "balance": "323835574081"
+            },
+            {
+              "block": 32799291,
+              "balance": "321114108605"
+            },
+            {
+              "block": 32799325,
+              "balance": "323102945925"
+            },
+            {
+              "block": 32799337,
+              "balance": "320519480449"
+            },
+            {
+              "block": 32799845,
+              "balance": "322189961577"
+            },
+            {
+              "block": 32799854,
+              "balance": "319606496101"
+            },
+            {
+              "block": 32799955,
+              "balance": "316885030625"
+            },
+            {
+              "block": 32799987,
+              "balance": "318873867945"
+            },
+            {
+              "block": 32799998,
+              "balance": "316290402469"
+            },
+            {
+              "block": 32800416,
+              "balance": "317960883597"
+            },
+            {
+              "block": 32800425,
+              "balance": "315377418121"
+            },
+            {
+              "block": 32800488,
+              "balance": "317356466080"
+            },
+            {
+              "block": 32800500,
+              "balance": "314635000604"
+            },
+            {
+              "block": 32800547,
+              "balance": "316623837924"
+            },
+            {
+              "block": 32800557,
+              "balance": "314040372448"
+            },
+            {
+              "block": 32801088,
+              "balance": "315710853576"
+            },
+            {
+              "block": 32801098,
+              "balance": "313127388100"
+            },
+            {
+              "block": 32801160,
+              "balance": "315106436059"
+            },
+            {
+              "block": 32801170,
+              "balance": "312384970583"
+            },
+            {
+              "block": 32801205,
+              "balance": "314373807903"
+            },
+            {
+              "block": 32801218,
+              "balance": "311790342427"
+            },
+            {
+              "block": 32801613,
+              "balance": "313460823555"
+            },
+            {
+              "block": 32801621,
+              "balance": "310877358079"
+            },
+            {
+              "block": 32801670,
+              "balance": "312856406038"
+            },
+            {
+              "block": 32801681,
+              "balance": "310134940562"
+            },
+            {
+              "block": 32801738,
+              "balance": "312123777882"
+            },
+            {
+              "block": 32801747,
+              "balance": "309540312406"
+            },
+            {
+              "block": 32802333,
+              "balance": "311210793534"
+            },
+            {
+              "block": 32802344,
+              "balance": "308627328058"
+            },
+            {
+              "block": 32802397,
+              "balance": "310606376017"
+            },
+            {
+              "block": 32802410,
+              "balance": "307884910541"
+            },
+            {
+              "block": 32802446,
+              "balance": "309873747861"
+            },
+            {
+              "block": 32802460,
+              "balance": "307290282385"
+            },
+            {
+              "block": 32802824,
+              "balance": "308960763513"
+            },
+            {
+              "block": 32802832,
+              "balance": "306377298037"
+            },
+            {
+              "block": 32802880,
+              "balance": "308356345996"
+            },
+            {
+              "block": 32802890,
+              "balance": "305634880520"
+            },
+            {
+              "block": 32802925,
+              "balance": "307623717840"
+            },
+            {
+              "block": 32802934,
+              "balance": "305040252364"
+            },
+            {
+              "block": 32803412,
+              "balance": "306710733492"
+            },
+            {
+              "block": 32803421,
+              "balance": "304127268016"
+            },
+            {
+              "block": 32803492,
+              "balance": "301405802540"
+            },
+            {
+              "block": 32803547,
+              "balance": "303394639860"
+            },
+            {
+              "block": 32803555,
+              "balance": "300811174384"
+            },
+            {
+              "block": 32804021,
+              "balance": "302481655512"
+            },
+            {
+              "block": 32804133,
+              "balance": "304460703471"
+            },
+            {
+              "block": 32804146,
+              "balance": "301739237995"
+            },
+            {
+              "block": 32804192,
+              "balance": "303728075315"
+            },
+            {
+              "block": 32804203,
+              "balance": "301144609839"
+            },
+            {
+              "block": 32804617,
+              "balance": "302815090967"
+            },
+            {
+              "block": 32804624,
+              "balance": "300231625491"
+            },
+            {
+              "block": 32804679,
+              "balance": "302210673450"
+            },
+            {
+              "block": 32804690,
+              "balance": "299489207974"
+            },
+            {
+              "block": 32804728,
+              "balance": "301478045294"
+            },
+            {
+              "block": 32804737,
+              "balance": "298894579818"
+            },
+            {
+              "block": 32805243,
+              "balance": "300565060946"
+            },
+            {
+              "block": 32805250,
+              "balance": "297981595470"
+            },
+            {
+              "block": 32805307,
+              "balance": "299960643429"
+            },
+            {
+              "block": 32805317,
+              "balance": "297239177953"
+            },
+            {
+              "block": 32805354,
+              "balance": "299228015273"
+            },
+            {
+              "block": 32805360,
+              "balance": "296644549797"
+            },
+            {
+              "block": 32805783,
+              "balance": "298315030925"
+            },
+            {
+              "block": 32805792,
+              "balance": "295731565449"
+            },
+            {
+              "block": 32805858,
+              "balance": "297710613408"
+            },
+            {
+              "block": 32805867,
+              "balance": "294989147932"
+            },
+            {
+              "block": 32805899,
+              "balance": "296977985252"
+            },
+            {
+              "block": 32805907,
+              "balance": "294394519776"
+            },
+            {
+              "block": 32806472,
+              "balance": "296065000904"
+            },
+            {
+              "block": 32806481,
+              "balance": "293481535428"
+            },
+            {
+              "block": 32806591,
+              "balance": "290898069952"
+            },
+            {
+              "block": 32806643,
+              "balance": "292877117911"
+            },
+            {
+              "block": 32806653,
+              "balance": "290155652435"
+            },
+            {
+              "block": 32806687,
+              "balance": "292144489755"
+            },
+            {
+              "block": 32806696,
+              "balance": "289561024279"
+            },
+            {
+              "block": 32806990,
+              "balance": "291231505407"
+            },
+            {
+              "block": 32807000,
+              "balance": "288648039931"
+            },
+            {
+              "block": 32807059,
+              "balance": "290627087890"
+            },
+            {
+              "block": 32807081,
+              "balance": "287905622414"
+            },
+            {
+              "block": 32807115,
+              "balance": "289894459734"
+            },
+            {
+              "block": 32807124,
+              "balance": "287310994258"
+            }
+          ],
+          "status": "incomplete"
+        }
+      }
+    }
+  ]
+}

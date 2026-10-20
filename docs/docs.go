@@ -12,8 +12,8 @@ const docTemplate = `{
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "bruce.sun@itering.io"
+            "url": "https://support.subscan.io",
+            "email": "api@subscan.io"
         },
         "license": {
             "name": "Apache 2.0",
@@ -32323,6 +32323,19 @@ const docTemplate = `{
             }
         }
     },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "description": "Direct Subscan API key. Enter your own key in the documentation's Credentials panel; never publish a key as a default value.",
+            "type": "apiKey",
+            "name": "X-API-Key",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+            "ApiKeyAuth": []
+        }
+    ],
     "tags": [
         {
             "description": "Pro-only endpoints require a Subscan Pro plan.",
@@ -32334,11 +32347,11 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "https://www.subscan.io",
+	Host:             "polkadot.api.subscan.io",
 	BasePath:         "/",
-	Schemes:          []string{},
+	Schemes:          []string{"https"},
 	Title:            "Subscan API",
-	Description:      "This is a subscan API server.",
+	Description:      "Query indexed chain data through the selected network's Subscan API host. Direct requests require your own X-API-Key; PubFi credentials use the separate PubFi gateway.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

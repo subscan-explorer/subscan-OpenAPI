@@ -144,6 +144,19 @@
       "bridgehub-westend"
     ]
   },
+  "centrifuge": {
+    "api_domains": [
+      "centrifuge-standalone-history"
+    ],
+    "backend_service_name": "subscan-centrifuge",
+    "db_name": "subscan_centrifuge",
+    "is_archive": true,
+    "network_node": "centrifuge",
+    "type": "mainnet",
+    "ui_domains": [
+      "centrifuge-standalone-history"
+    ]
+  },
   "centrifuge-parachain": {
     "api_domains": [
       "centrifuge"
@@ -205,19 +218,6 @@
       "coretime-westend"
     ]
   },
-  "creditcoin": {
-    "api_domains": [
-      "creditcoin"
-    ],
-    "backend_service_name": "subscan-creditcoin",
-    "db_name": "subscan_creditcoin",
-    "network_node": "creditcoin",
-    "type": "mainnet",
-    "ui_domains": [
-      "creditcoin-classic",
-      "cc-enterprise"
-    ]
-  },
   "creditcoin-cc3": {
     "api_domains": [
       "creditcoin3"
@@ -254,19 +254,6 @@
       "creditcoin3-dev"
     ]
   },
-  "creditcoin-test": {
-    "api_domains": [
-      "creditcoin-testnet"
-    ],
-    "backend_service_name": "subscan-creditcoin-test",
-    "db_name": "subscan_creditcoin_testnet",
-    "network_node": "creditcoin-test",
-    "type": "testnet",
-    "ui_domains": [
-      "creditcoin-testnet",
-      "cc-enterprise-testnet"
-    ]
-  },
   "crust-main": {
     "api_domains": [
       "crust"
@@ -285,6 +272,7 @@
     ],
     "backend_service_name": "subscan-crust-parachain",
     "db_name": "subscan_crust_parachain",
+    "is_archive": true,
     "network_node": "crust-parachain",
     "type": "mainnet",
     "ui_domains": [
@@ -441,6 +429,7 @@
     ],
     "backend_service_name": "subscan-moonbase",
     "db_name": "subscan_moonbase",
+    "is_archive": true,
     "network_node": "moonbase",
     "type": "testnet",
     "ui_domains": [
@@ -453,6 +442,7 @@
     ],
     "backend_service_name": "subscan-moonbeam",
     "db_name": "subscan_moonbeam",
+    "is_archive": true,
     "network_node": "moonbeam",
     "type": "mainnet",
     "ui_domains": [
@@ -465,6 +455,7 @@
     ],
     "backend_service_name": "subscan-moonriver",
     "db_name": "subscan_moonriver",
+    "is_archive": true,
     "network_node": "moonriver",
     "type": "mainnet",
     "ui_domains": [

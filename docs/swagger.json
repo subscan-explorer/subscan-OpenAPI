@@ -1,13 +1,16 @@
 {
+    "schemes": [
+        "https"
+    ],
     "swagger": "2.0",
     "info": {
-        "description": "This is a subscan API server.",
+        "description": "Query indexed chain data through the selected network's Subscan API host. Direct requests require your own X-API-Key; PubFi credentials use the separate PubFi gateway.",
         "title": "Subscan API",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "bruce.sun@itering.io"
+            "url": "https://support.subscan.io",
+            "email": "api@subscan.io"
         },
         "license": {
             "name": "Apache 2.0",
@@ -15,7 +18,7 @@
         },
         "version": "1.0"
     },
-    "host": "https://www.subscan.io",
+    "host": "polkadot.api.subscan.io",
     "basePath": "/",
     "paths": {
         "/api/now": {
@@ -32317,6 +32320,19 @@
             }
         }
     },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "description": "Direct Subscan API key. Enter your own key in the documentation's Credentials panel; never publish a key as a default value.",
+            "type": "apiKey",
+            "name": "X-API-Key",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+            "ApiKeyAuth": []
+        }
+    ],
     "tags": [
         {
             "description": "Pro-only endpoints require a Subscan Pro plan.",

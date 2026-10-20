@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<style>
+  .ss-home{max-width:1080px;margin:0 auto;padding:64px 28px 56px;font:16px/1.6 system-ui,sans-serif;color:#252437}
+  .ss-home *{box-sizing:border-box}.ss-home a{text-decoration:none;color:inherit}
+  .ss-home .ss-label{color:#6754e8;font-size:13px;letter-spacing:.09em;font-weight:700;text-transform:uppercase}
+  .ss-home h1{font-size:clamp(34px,5vw,52px);line-height:1.14;letter-spacing:-.035em;margin:15px 0 20px;max-width:750px}
+  .ss-home .ss-intro{max-width:670px;color:#686577;font-size:18px;margin-bottom:28px}
+  .ss-home .ss-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 48px}
+  .ss-home .ss-button{display:inline-block;padding:10px 19px;border:1px solid #dcd9e8;border-radius:8px;font-size:15px;font-weight:600}
+  .ss-home .ss-primary{background:#6754e8;border-color:#6754e8;color:white}
+  .ss-home h2{font-size:23px;letter-spacing:-.02em;margin:36px 0 18px}
+  .ss-home .ss-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .ss-home .ss-card{display:block;padding:24px;border:1px solid #e4e1ee;border-radius:12px;background:#fff}
+  .ss-home .ss-card:hover{border-color:#a99be9;background:#fcfbff}.ss-home h3{font-size:18px;margin:0 0 10px}
+  .ss-home .ss-card p{margin:0 0 14px;color:#6b677a;font-size:15px}.ss-home .ss-link{color:#6754e8;font-size:14px;font-weight:600}
+  .ss-home .ss-topics{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .ss-home .ss-topics a{padding:8px 13px;background:#f5f3fb;border-radius:6px;font-size:14px;color:#554a79}
+  .ss-home .ss-note{margin-top:34px;padding:16px 20px;border-left:3px solid #9887e8;background:#f7f5fc;color:#625b76;font-size:14px}
+  .ss-home a:focus-visible{outline:3px solid #a89af9;outline-offset:3px}
+  @media(max-width:640px){.ss-home{padding:36px 20px}.ss-home .ss-grid{grid-template-columns:1fr}.ss-home .ss-actions{margin-bottom:32px}}
+</style>
+<main class="ss-home">
+  <div class="ss-label">Subscan Developer Documentation</div>
+  <h1>Build with indexed chain data.</h1>
+  <p class="ss-intro">Find accounts, token balances, transfers, and cross-chain activity. Choose an access path, select your network, and make your first request.</p>
+  <nav class="ss-actions" aria-label="Getting started">
+    <a class="ss-button ss-primary" href="https://support.subscan.io/doc-360177">Get started →</a>
+    <a class="ss-button" href="https://support.subscan.io/api-36910915">Explore the API reference</a>
+  </nav>
+  <h2>Start here</h2>
+  <div class="ss-grid">
+    <a class="ss-card" href="https://support.subscan.io/doc-360177">
+      <h3>Free access through PubFi</h3><p>Create a PubFi key and use an eligible free Subscan route through the PubFi Gateway.</p><span class="ss-link">Follow the free access guide →</span>
+    </a>
+    <a class="ss-card" href="https://support.subscan.io/doc-360177#direct-paid-access-through-subscan">
+      <h3>Direct Subscan API access</h3><p>Use your direct Subscan API key with a network-specific API host and the interactive API reference.</p><span class="ss-link">Connect your direct API key →</span>
+    </a>
+    <a class="ss-card" href="https://support.subscan.io/doc-361776#api-endpoints">
+      <h3>Choose a supported network</h3><p>Find the correct API host and check whether the service is a mainnet, testnet, or historical archive.</p><span class="ss-link">Browse supported networks →</span>
+    </a>
+    <a class="ss-card" href="https://support.subscan.io/doc-360177#ai-assistants">
+      <h3>Use the docs with AI</h3><p>Connect a documentation MCP client, read the Markdown pages, or provide the documentation index to your coding assistant.</p><span class="ss-link">Set up AI documentation access →</span>
+    </a>
+  </div>
+  <h2>Common queries</h2>
+  <nav class="ss-topics" aria-label="Common queries">
+    <a href="https://support.subscan.io/api-36910915">Account details</a>
+    <a href="https://support.subscan.io/api-36910912">Token balances</a>
+    <a href="https://support.subscan.io/api-36910916">Transfers</a>
+    <a href="https://support.subscan.io/doc-2211412">GraphQL</a>
+    <a href="https://support.subscan.io/folder-8814422">XCM</a>
+  </nav>
+  <p class="ss-note">PubFi Bearer credentials and direct Subscan X-API-Key credentials use different hosts. Follow the guide for your chosen access path. For service availability, visit the <a href="https://subscan.statuspage.io/">status page</a>.</p>
+</main>

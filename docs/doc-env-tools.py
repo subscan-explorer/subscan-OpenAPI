@@ -1,29 +1,14 @@
 import json
 
+from network_docs import DOC_DIR, load_endpoints
 
-def parse_network_json(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    ignoreDomains = ['origintrail','origintrail-testnet','hydradx','creditcoin-classic','creditcoin-testnet','cc-enterprise-testnet']
-    replaceNetwork = {
-        "statemine": "assethub-kusama",
-        "statemint": "assethub-polkadot",
-    }
-    networks = []
-    data = dict(sorted(data.items()))
-
-    for network, details in data.items():
-        for domain in details['ui_domains']:
-            if domain in ignoreDomains:
-                continue
-            networks.append(domain)
-
-    return networks
 
 def generate_json(subdomains):
+    """Build supported environments with an actively indexed default network."""
     domain = "api.subscan.io"
     environments = []
-    for i, subdomain in enumerate(subdomains):
+    ordered = sorted(subdomains, key=lambda name: (name != "polkadot", name))
+    for i, subdomain in enumerate(ordered):
         baseUrl = "https://{}.{}".format(subdomain, domain)
         environment = {
             "baseUrl": baseUrl,
@@ -51,6 +36,8 @@ def generate_json(subdomains):
     return data
 
 
-data = generate_json(parse_network_json('network.json'))
-with open('environments.json', 'w') as f:
-    json.dump(data, f, indent=2)
+if __name__ == "__main__":
+    data = generate_json([endpoint["domain"] for endpoint in load_endpoints()])
+    with (DOC_DIR / "environments.json").open("w", encoding="utf-8") as file:
+        json.dump(data, file, indent=2)
+        file.write("\n")

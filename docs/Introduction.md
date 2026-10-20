@@ -1,4 +1,5 @@
-With Subscan API, we provide a simple way to access the chain data of more than 90 substrate-based networks.
+Subscan API provides access to indexed chain data for the networks listed below, including mainnets, testnets,
+and archived networks.
 
 If you have any question or suggestion, please do not hesitate to contact our API support
 via [api@subscan.io](mailto:api@subscan.io).
@@ -46,10 +47,8 @@ commitment for multiple networks. Please contact us ([api@subscan.io](mailto:api
 
 Please notice before you get started:
 
-1. The following endpoints list is maintained manually and it might be outdated. In fact, every individual network
-   supported on Subscan.io will have available API endpoint as well. The endpoint naming convention
-   is `https://$NETWORK_NAME.api.subscan.io` where the `$NETWORK_NAME` is the same as the subdomain of the corresponding
-   network on Subscan.io.
+1. Use the API hosts listed below for direct Subscan requests. The table excludes retired networks and legacy
+   aliases. PubFi gateway availability is determined separately by its live Registry and Runtime OpenAPI.
 
 2. All the endpoints are forced to HTTPS only. Please make sure you use `https://` with the API hosts.
 
@@ -59,13 +58,18 @@ Please notice before you get started:
    developers). We may update the covered list in the future. Please let us know if you want to have other networks
    included in the SLA.
 
-4. The **Status** marked as **live** is production network, and it will be maintained continuously. The **Status**
-   marked as **test** is test network, which may be unstable. Some new features of Subscan will be updated on testnet
-   first.
+4. **Status** describes the service mode:
+
+   - **live**: a mainnet with ongoing indexing.
+   - **test**: a testnet that may be unstable or reset. New features may appear on testnets first.
+   - **archive**: historical indexed data remains available, but indexing has stopped.
+     An archived network is still listed while its API remains supported.
 
 5. All APIs documented here are specifically designed for Subscan UI. While they may undergo frequent updates,
    we strictly avoid introducing breaking changes. In the rare event of a mandatory breaking change, we will issue
    advance email notifications to all subscribers.
+
+<!-- BEGIN SUPPORTED NETWORKS -->
 
 | Network              | API Host                                       | Status  |
 |----------------------|------------------------------------------------|---------|
@@ -89,8 +93,7 @@ Please notice before you get started:
 | Coretime-kusama      | `coretime-kusama.api.subscan.io`               | live    |
 | Coretime-polkadot    | `coretime-polkadot.api.subscan.io`             | live    |
 | Coretime-westend     | `coretime-westend.api.subscan.io`              | test    |
-| Creditcoin           | `cc-enterprise.api.subscan.io`                 | archive |
-| Creditcoin-cc3       | `creditcoin.api.subscan.io`                    | live    |
+| Creditcoin-cc3       | `creditcoin3.api.subscan.io`                   | live    |
 | Creditcoin-cc3-test  | `creditcoin3-testnet.api.subscan.io`           | test    |
 | Creditcoin-dev       | `creditcoin3-dev.api.subscan.io`               | test    |
 | Crust                | `crust.api.subscan.io`                         | live    |
@@ -105,15 +108,15 @@ Please notice before you get started:
 | Humanode             | `humanode.api.subscan.io`                      | live    |
 | Kusama               | `kusama.api.subscan.io`                        | live    |
 | Midnight             | `midnight.api.subscan.io`                      | live    |
-| Midnight-preview     | `midnight-preview.api.subscan.io`              | test    |
 | Midnight-preprod     | `midnight-preprod.api.subscan.io`              | test    |
+| Midnight-preview     | `midnight-preview.api.subscan.io`              | test    |
 | Moonbase             | `moonbase.api.subscan.io`                      | archive |
 | Moonbeam             | `moonbeam.api.subscan.io`                      | archive |
 | Moonriver            | `moonriver.api.subscan.io`                     | archive |
 | Mythos               | `mythos.api.subscan.io`                        | live    |
 | Paseo                | `paseo.api.subscan.io`                         | test    |
-| Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test    |
 | Peaq-main            | `peaq.api.subscan.io`                          | live    |
+| Peaq-testnet         | `agung-testnet.api.subscan.io`                 | test    |
 | People-kusama        | `people-kusama.api.subscan.io`                 | live    |
 | People-polkadot      | `people-polkadot.api.subscan.io`               | live    |
 | People-westend       | `people-westend.api.subscan.io`                | test    |
@@ -130,3 +133,5 @@ Please notice before you get started:
 | Zkverify             | `zkverify.api.subscan.io`                      | live    |
 | Zkverify-testnet     | `zkverify-testnet.api.subscan.io`              | test    |
 | Zkverify-vflow       | `vflow-testnet.api.subscan.io`                 | test    |
+
+<!-- END SUPPORTED NETWORKS -->
