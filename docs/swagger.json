@@ -12345,7 +12345,7 @@
         },
         "/api/scan/token/unique_id": {
             "get": {
-                "description": "Returns network token symbols, unique IDs, and token metadata keyed by unique_id.",
+                "description": "Returns network token symbols, unique IDs, and token metadata keyed by unique_id.\nAutonomys supply and staking amounts use the last successful background refresh and may be stale during upstream outages. Before the first successful refresh, indexed token statistics are returned; requests never fetch external Autonomys supply data.",
                 "consumes": [
                     "application/json"
                 ],
