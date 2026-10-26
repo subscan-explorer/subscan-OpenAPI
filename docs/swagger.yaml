@@ -15197,8 +15197,9 @@ paths:
       - frontier
   /api/scan/extrinsic:
     post:
-      description: Returns extrinsic details by extrinsic_index or hash, with optional
-        event and parameter controls.
+      description: |-
+        Returns extrinsic details by extrinsic_index or hash, with optional event and parameter controls.
+        For hash lookups, a missing database record returns code 10004; lookup failures return code 10010 and cancellation or dependency deadlines return code 10011. Responses retain HTTP 200; an expired request context retains the existing code 500 timeout response.
       parameters:
       - description: params
         in: body
