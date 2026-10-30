@@ -10895,7 +10895,7 @@
         },
         "/api/scan/search/identity": {
             "post": {
-                "description": "Performs a fuzzy search on account identity display names and returns matching identities with any related sub-accounts.",
+                "description": "On AssetHub, full .dot names (including subdomains) return their exact indexed current owner. Other inputs perform a fuzzy search on account identity display names and return matching identities with any related sub-accounts.",
                 "consumes": [
                     "application/json"
                 ],

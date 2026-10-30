@@ -1299,7 +1299,7 @@
       "title": "Search accounts by identity display name",
       "url": "/api-36910910",
       "category": "Account",
-      "description": "Performs a fuzzy search on account identity display names and returns matching identities with any related sub-accounts.",
+      "description": "On AssetHub, full .dot names (including subdomains) return their exact indexed current owner. Other inputs perform a fuzzy search on account identity display names and return matching identities with any related sub-accounts.",
       "text": "POST /api/scan/search/identity [\"search\",\"identity\",\"account\",\"scan\",\"lookup\",\"find\",\"query\",\"wallet\",\"address\",\"user\"] identity  code  data  generated_at  message  data identity identifier account_index  address Current network account display  evm_address  evm_contract contract_name  verify_source  identity  judgements index  judgement  merkle address_type  tag_name  tag_subtype  tag_type  parent Parent account address  display  identity  sub_symbol  people display  identity  judgements  parent  sub_account "
     },
     {
