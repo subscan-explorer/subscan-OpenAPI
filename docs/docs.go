@@ -7040,7 +7040,7 @@ const docTemplate = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidContract"
+                                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.MidContractJson"
                                         }
                                     }
                                 }
@@ -7060,7 +7060,7 @@ const docTemplate = `{
         },
         "/api/scan/midnight/contract/cma": {
             "post": {
-                "description": "This API is only available midnight network",
+                "description": "Returns legacy key strings for both protocol eras; contract detail also exposes cma_typed. Invalid stored CMA returns an error.\nThis API is only available midnight network",
                 "consumes": [
                     "application/json"
                 ],
@@ -7236,7 +7236,7 @@ const docTemplate = `{
         },
         "/api/scan/midnight/system_transaction": {
             "post": {
-                "description": "System transaction detail by hash. Includes serialized blob and decoded CNightGeneratesDustUpdate events. Cardano header is an observation cursor.",
+                "description": "System transaction detail by hash. Includes serialized blob, serialization_version and decode_status (decoded, classified, unsupported_version, unsupported_variant, malformed). Confirmed v6/v9 public fields are expanded; v9 OverwriteParameters is classification only. Cardano header is an observation cursor.",
                 "consumes": [
                     "application/json"
                 ],
@@ -17632,6 +17632,17 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_pluginv2_customizeds_midnight.CMAKey": {
+            "type": "object",
+            "properties": {
+                "tag": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "internal_pluginv2_customizeds_midnight.CNightDailyPoint": {
             "type": "object",
             "properties": {
@@ -17908,6 +17919,7 @@ const docTemplate = `{
                     }
                 },
                 "cost_fee": {
+                    "description": "CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid.",
                     "type": "string"
                 },
                 "event_index": {
@@ -17946,6 +17958,7 @@ const docTemplate = `{
                 "cma": {
                     "description": "VerifiedCircuits int            ` + "`" + `json:\"verified_circuits\" gorm:\"size:32\"` + "`" + `\nmaintain info"
                 },
+                "compiler_options": {},
                 "compiler_version": {
                     "type": "string"
                 },
@@ -18006,6 +18019,74 @@ const docTemplate = `{
                 "operations_type": {
                     "type": "string"
                 }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.MidContractJson": {
+            "type": "object",
+            "properties": {
+                "abi": {
+                    "description": "verified info"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "circuits_count": {
+                    "type": "integer"
+                },
+                "cma": {},
+                "cma_typed": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CMAKey"
+                    }
+                },
+                "compiler_options": {},
+                "compiler_version": {
+                    "type": "string"
+                },
+                "create_at": {
+                    "type": "integer"
+                },
+                "event_index": {
+                    "type": "string"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "last_verify_error": {
+                    "type": "string"
+                },
+                "source_code": {
+                    "type": "string"
+                },
+                "source_type": {
+                    "description": "single_file, multi_file",
+                    "type": "string"
+                },
+                "transaction_count": {
+                    "type": "integer"
+                },
+                "tx_hash": {
+                    "type": "string"
+                },
+                "verification_key": {
+                    "description": "{\"circuit_name\"=\u003e\"key\"}",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey"
+                        }
+                    ]
+                },
+                "verify_status": {
+                    "type": "string"
+                },
+                "verify_time": {
+                    "type": "integer"
+                },
+                "verifying": {
+                    "type": "boolean"
+                },
+                "viewer": {}
             }
         },
         "internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceListItem": {
@@ -18300,6 +18381,9 @@ const docTemplate = `{
                 "cardano_tx_index": {
                     "type": "integer"
                 },
+                "decode_status": {
+                    "type": "string"
+                },
                 "decoded": {
                     "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTxDecoded"
                 },
@@ -18307,6 +18391,9 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "extrinsic_index": {
+                    "type": "string"
+                },
+                "serialization_version": {
                     "type": "string"
                 },
                 "serialized_system_transaction": {
@@ -18379,13 +18466,45 @@ const docTemplate = `{
         "internal_pluginv2_customizeds_midnight.SystemTxDecoded": {
             "type": "object",
             "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "claim_kind": {
+                    "type": "string"
+                },
                 "events": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.CNightGeneratesDustEvent"
                     }
                 },
+                "nonce": {
+                    "type": "string"
+                },
+                "outputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.SystemTxOutput"
+                    }
+                },
+                "token_type": {
+                    "type": "string"
+                },
                 "variant": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_pluginv2_customizeds_midnight.SystemTxOutput": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "nonce": {
+                    "type": "string"
+                },
+                "target": {
                     "type": "string"
                 }
             }

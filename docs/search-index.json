@@ -845,13 +845,13 @@
       "url": "/api-36911056",
       "category": "Midnight",
       "description": "This API is only available midnight network",
-      "text": "POST /api/scan/midnight/contract [\"midnight\",\"contract\",\"scan\",\"smart contract\",\"wasm contract\",\"evm contract\"]  code  data  generated_at  message  data abi  address  circuits_count  cma VerifiedCircuits int            `json:\"verified_circuits\" gorm:\"size:32\"`\nmaintain info compiler_version  create_at  event_index  extrinsic_index  last_verify_error  source_code  source_type single_file, multi_file transaction_count  tx_hash  verification_key {\"circuit_name\"=>\"key\"}  verify_status  verify_time  verifying  viewer "
+      "text": "POST /api/scan/midnight/contract [\"midnight\",\"contract\",\"scan\",\"smart contract\",\"wasm contract\",\"evm contract\"]  code  data  generated_at  message  data abi verified info address  circuits_count  cma  cma_typed tag  value  compiler_options  compiler_version  create_at  event_index  extrinsic_index  last_verify_error  source_code  source_type single_file, multi_file transaction_count  tx_hash  verification_key {\"circuit_name\"=>\"key\"}  verify_status  verify_time  verifying  viewer "
     },
     {
       "title": "Midnight Contract CMA info",
       "url": "/api-36911057",
       "category": "Midnight",
-      "description": "This API is only available midnight network",
+      "description": "Returns legacy key strings for both protocol eras; contract detail also exposes cma_typed. Invalid stored CMA returns an error.\nThis API is only available midnight network",
       "text": "POST /api/scan/midnight/contract/cma [\"midnight\",\"contract\",\"cma\",\"scan\",\"smart contract\",\"wasm contract\",\"evm contract\"]  code  data  generated_at  message  data "
     },
     {
@@ -866,14 +866,14 @@
       "url": "/api-36911059",
       "category": "Midnight",
       "description": "This API is only available midnight network",
-      "text": "POST /api/scan/midnight/contracts [\"midnight\",\"contracts\",\"scan\"] order asc or desc page  row  sort sort by transaction_count or verify_time verified  code  data  generated_at  message  data count  list abi  address  circuits_count  cma VerifiedCircuits int            `json:\"verified_circuits\" gorm:\"size:32\"`\nmaintain info compiler_version  create_at  event_index  extrinsic_index  last_verify_error  source_code  source_type single_file, multi_file transaction_count  tx_hash  verification_key {\"circuit_name\"=>\"key\"}  verify_status  verify_time  verifying  viewer "
+      "text": "POST /api/scan/midnight/contracts [\"midnight\",\"contracts\",\"scan\"] order asc or desc page  row  sort sort by transaction_count or verify_time verified  code  data  generated_at  message  data count  list abi  address  circuits_count  cma VerifiedCircuits int            `json:\"verified_circuits\" gorm:\"size:32\"`\nmaintain info compiler_options  compiler_version  create_at  event_index  extrinsic_index  last_verify_error  source_code  source_type single_file, multi_file transaction_count  tx_hash  verification_key {\"circuit_name\"=>\"key\"}  verify_status  verify_time  verifying  viewer "
     },
     {
       "title": "Midnight System Transaction",
       "url": "/api-43751339",
       "category": "Midnight",
-      "description": "System transaction detail by hash. Includes serialized blob and decoded CNightGeneratesDustUpdate events. Cardano header is an observation cursor.",
-      "text": "POST /api/scan/midnight/system_transaction [] hash  code  data  generated_at  message  data block_timestamp  cardano_block_hash  cardano_tx_index  decoded events action  nonce  owner  time  value  variant  event_index  extrinsic_index  serialized_system_transaction  tx_hash  variant "
+      "description": "System transaction detail by hash. Includes serialized blob, serialization_version and decode_status (decoded, classified, unsupported_version, unsupported_variant, malformed). Confirmed v6/v9 public fields are expanded; v9 OverwriteParameters is classification only. Cardano header is an observation cursor.",
+      "text": "POST /api/scan/midnight/system_transaction [] hash  code  data  generated_at  message  data block_timestamp  cardano_block_hash  cardano_tx_index  decode_status  decoded amount  claim_kind  events action  nonce  owner  time  value  nonce  outputs amount  nonce  target  token_type  variant  event_index  extrinsic_index  serialization_version  serialized_system_transaction  tx_hash  variant "
     },
     {
       "title": "Midnight System Transactions",
@@ -887,14 +887,14 @@
       "url": "/api-36911060",
       "category": "Midnight",
       "description": "This API is only available midnight network",
-      "text": "POST /api/scan/midnight/transaction [\"midnight\",\"transaction\",\"scan\",\"extrinsic\",\"tx\"] extrinsic_index  tx_hash  code  data  generated_at  message  data contract  contract_actions contract  entry_point  operations_type  cost_fee  event_index  extrinsic_index  id  public_identifiers  timestamp  tx_hash "
+      "text": "POST /api/scan/midnight/transaction [\"midnight\",\"transaction\",\"scan\",\"extrinsic\",\"tx\"] extrinsic_index  tx_hash  code  data  generated_at  message  data contract  contract_actions contract  entry_point  operations_type  cost_fee CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid. event_index  extrinsic_index  id  public_identifiers  timestamp  tx_hash "
     },
     {
       "title": "Midnight Transactions",
       "url": "/api-36911061",
       "category": "Midnight",
       "description": "This API is only available midnight network",
-      "text": "POST /api/scan/midnight/transactions [\"midnight\",\"transactions\",\"scan\"] after_id optional, for pagination, get records after this ID block_range optional, e.g. \"1000-2000\" contract  page  row  txn_type optional, filter by transaction type code  data  generated_at  message  data count  list contract  contract_actions contract  entry_point  operations_type  cost_fee  event_index  extrinsic_index  id  public_identifiers  timestamp  tx_hash "
+      "text": "POST /api/scan/midnight/transactions [\"midnight\",\"transactions\",\"scan\"] after_id optional, for pagination, get records after this ID block_range optional, e.g. \"1000-2000\" contract  page  row  txn_type optional, filter by transaction type code  data  generated_at  message  data count  list contract  contract_actions contract  entry_point  operations_type  cost_fee CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid. event_index  extrinsic_index  id  public_identifiers  timestamp  tx_hash "
     },
     {
       "title": "Midnight Unshielded Balance",

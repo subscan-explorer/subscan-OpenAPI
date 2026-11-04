@@ -1229,6 +1229,13 @@ definitions:
     required:
     - row
     type: object
+  internal_pluginv2_customizeds_midnight.CMAKey:
+    properties:
+      tag:
+        type: string
+      value:
+        type: string
+    type: object
   internal_pluginv2_customizeds_midnight.CNightDailyPoint:
     properties:
       date:
@@ -1412,6 +1419,8 @@ definitions:
           $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidContractActionJson'
         type: array
       cost_fee:
+        description: CostFee is the runtime gas-cost estimate in raw integer units,
+          not DUST paid.
         type: string
       event_index:
         type: string
@@ -1439,6 +1448,7 @@ definitions:
         description: |-
           VerifiedCircuits int            `json:"verified_circuits" gorm:"size:32"`
           maintain info
+      compiler_options: {}
       compiler_version:
         type: string
       create_at:
@@ -1478,6 +1488,51 @@ definitions:
         type: string
       operations_type:
         type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.MidContractJson:
+    properties:
+      abi:
+        description: verified info
+      address:
+        type: string
+      circuits_count:
+        type: integer
+      cma: {}
+      cma_typed:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CMAKey'
+        type: array
+      compiler_options: {}
+      compiler_version:
+        type: string
+      create_at:
+        type: integer
+      event_index:
+        type: string
+      extrinsic_index:
+        type: string
+      last_verify_error:
+        type: string
+      source_code:
+        type: string
+      source_type:
+        description: single_file, multi_file
+        type: string
+      transaction_count:
+        type: integer
+      tx_hash:
+        type: string
+      verification_key:
+        allOf:
+        - $ref: '#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey'
+        description: '{"circuit_name"=>"key"}'
+      verify_status:
+        type: string
+      verify_time:
+        type: integer
+      verifying:
+        type: boolean
+      viewer: {}
     type: object
   internal_pluginv2_customizeds_midnight.MidUnshieldedBalanceListItem:
     properties:
@@ -1678,11 +1733,15 @@ definitions:
         type: string
       cardano_tx_index:
         type: integer
+      decode_status:
+        type: string
       decoded:
         $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTxDecoded'
       event_index:
         type: string
       extrinsic_index:
+        type: string
+      serialization_version:
         type: string
       serialized_system_transaction:
         type: string
@@ -1730,11 +1789,32 @@ definitions:
     type: object
   internal_pluginv2_customizeds_midnight.SystemTxDecoded:
     properties:
+      amount:
+        type: string
+      claim_kind:
+        type: string
       events:
         items:
           $ref: '#/definitions/internal_pluginv2_customizeds_midnight.CNightGeneratesDustEvent'
         type: array
+      nonce:
+        type: string
+      outputs:
+        items:
+          $ref: '#/definitions/internal_pluginv2_customizeds_midnight.SystemTxOutput'
+        type: array
+      token_type:
+        type: string
       variant:
+        type: string
+    type: object
+  internal_pluginv2_customizeds_midnight.SystemTxOutput:
+    properties:
+      amount:
+        type: string
+      nonce:
+        type: string
+      target:
         type: string
     type: object
   internal_pluginv2_customizeds_midnight.VerificationKey:
@@ -16059,7 +16139,7 @@ paths:
             - $ref: '#/definitions/subscan_internal_plugin_share.J'
             - properties:
                 data:
-                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidContract'
+                  $ref: '#/definitions/internal_pluginv2_customizeds_midnight.MidContractJson'
               type: object
       summary: Midnight Contract Detail
       tags:
@@ -16075,7 +16155,9 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API is only available midnight network
+      description: |-
+        Returns legacy key strings for both protocol eras; contract detail also exposes cma_typed. Invalid stored CMA returns an error.
+        This API is only available midnight network
       parameters:
       - description: params
         in: body
@@ -16186,9 +16268,10 @@ paths:
     post:
       consumes:
       - application/json
-      description: System transaction detail by hash. Includes serialized blob and
-        decoded CNightGeneratesDustUpdate events. Cardano header is an observation
-        cursor.
+      description: System transaction detail by hash. Includes serialized blob, serialization_version
+        and decode_status (decoded, classified, unsupported_version, unsupported_variant,
+        malformed). Confirmed v6/v9 public fields are expanded; v9 OverwriteParameters
+        is classification only. Cardano header is an observation cursor.
       parameters:
       - description: params
         in: body
