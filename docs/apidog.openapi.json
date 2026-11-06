@@ -15457,10 +15457,6 @@
       "description": "Polymesh-testnet"
     },
     {
-      "url": "https://robonomics.api.subscan.io",
-      "description": "Robonomics"
-    },
-    {
       "url": "https://shibuya.api.subscan.io",
       "description": "Shibuya"
     },

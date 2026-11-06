@@ -582,18 +582,6 @@
       "polymesh-testnet"
     ]
   },
-  "robonomics-polkadot": {
-    "api_domains": [
-      "robonomics"
-    ],
-    "backend_service_name": "subscan-robonomics-polkadot",
-    "db_name": "subscan_robonomics_polkadot",
-    "network_node": "robonomics-polkadot",
-    "type": "mainnet",
-    "ui_domains": [
-      "robonomics"
-    ]
-  },
   "shibuya": {
     "api_domains": [
       "shibuya"

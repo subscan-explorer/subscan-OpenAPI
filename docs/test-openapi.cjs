@@ -23,7 +23,8 @@ test('generated OpenAPI is reproducible, validates and retains reader-supplied a
   assert.equal(spec.components.securitySchemes.ApiKeyAuth.in, 'header');
   assert.equal(spec.components.securitySchemes.ApiKeyAuth.default, undefined);
   assert.equal(spec.servers[0].url, 'https://polkadot.api.subscan.io');
-  assert.equal(spec.servers.length, 60);
+  assert.deepEqual(spec.servers.map(server => server.url),
+    read('environments.json').environments.map(environment => environment.baseUrl));
   const actual = Object.entries(spec.paths).flatMap(([route, methods]) =>
     Object.keys(methods).map(method => `${method.toUpperCase()} ${route}`)).sort();
   assert.deepEqual(actual, Object.keys(read('public-routes.json').endpoints).sort());

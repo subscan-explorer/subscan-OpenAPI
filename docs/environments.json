@@ -451,21 +451,12 @@
       "projectType": "HTTP"
     },
     {
-      "baseUrl": "https://robonomics.api.subscan.io",
-      "baseUrls": {
-        "default": "https://robonomics.api.subscan.io"
-      },
-      "name": "Robonomics",
-      "ordering": 50,
-      "projectType": "HTTP"
-    },
-    {
       "baseUrl": "https://shibuya.api.subscan.io",
       "baseUrls": {
         "default": "https://shibuya.api.subscan.io"
       },
       "name": "Shibuya",
-      "ordering": 51,
+      "ordering": 50,
       "projectType": "HTTP"
     },
     {
@@ -474,7 +465,7 @@
         "default": "https://shiden.api.subscan.io"
       },
       "name": "Shiden",
-      "ordering": 52,
+      "ordering": 51,
       "projectType": "HTTP"
     },
     {
@@ -483,7 +474,7 @@
         "default": "https://sxt.api.subscan.io"
       },
       "name": "Sxt",
-      "ordering": 53,
+      "ordering": 52,
       "projectType": "HTTP"
     },
     {
@@ -492,7 +483,7 @@
         "default": "https://vara.api.subscan.io"
       },
       "name": "Vara",
-      "ordering": 54,
+      "ordering": 53,
       "projectType": "HTTP"
     },
     {
@@ -501,7 +492,7 @@
         "default": "https://vflow.api.subscan.io"
       },
       "name": "Vflow",
-      "ordering": 55,
+      "ordering": 54,
       "projectType": "HTTP"
     },
     {
@@ -510,7 +501,7 @@
         "default": "https://vflow-testnet.api.subscan.io"
       },
       "name": "Vflow-testnet",
-      "ordering": 56,
+      "ordering": 55,
       "projectType": "HTTP"
     },
     {
@@ -519,7 +510,7 @@
         "default": "https://westend.api.subscan.io"
       },
       "name": "Westend",
-      "ordering": 57,
+      "ordering": 56,
       "projectType": "HTTP"
     },
     {
@@ -528,7 +519,7 @@
         "default": "https://zkverify.api.subscan.io"
       },
       "name": "Zkverify",
-      "ordering": 58,
+      "ordering": 57,
       "projectType": "HTTP"
     },
     {
@@ -537,7 +528,7 @@
         "default": "https://zkverify-testnet.api.subscan.io"
       },
       "name": "Zkverify-testnet",
-      "ordering": 59,
+      "ordering": 58,
       "projectType": "HTTP"
     }
   ],

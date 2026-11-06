@@ -123,7 +123,6 @@ Please notice before you get started:
 | Polkadot             | `polkadot.api.subscan.io`                      | live    |
 | Polymesh             | `polymesh.api.subscan.io`                      | live    |
 | Polymesh-test        | `polymesh-testnet.api.subscan.io`              | test    |
-| Robonomics-polkadot  | `robonomics.api.subscan.io`                    | live    |
 | Shibuya              | `shibuya.api.subscan.io`                       | test    |
 | Shiden               | `shiden.api.subscan.io`                        | live    |
 | Space-time           | `sxt.api.subscan.io`                           | live    |
