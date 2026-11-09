@@ -886,15 +886,15 @@
       "title": "Midnight Transaction Detail",
       "url": "/api-36911060",
       "category": "Midnight",
-      "description": "This API is only available midnight network",
-      "text": "POST /api/scan/midnight/transaction [\"midnight\",\"transaction\",\"scan\",\"extrinsic\",\"tx\"] extrinsic_index  tx_hash  code  data  generated_at  message  data contract  contract_actions contract  entry_point  operations_type  cost_fee CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid. event_index  extrinsic_index  id  public_identifiers  timestamp  tx_hash "
+      "description": "Transaction detail includes result=success, partial_success or unknown, derived from the matching indexed Midnight event. cost_fee is a raw runtime gas-cost estimate, not DUST paid.",
+      "text": "POST /api/scan/midnight/transaction [\"midnight\",\"transaction\",\"scan\",\"extrinsic\",\"tx\"] extrinsic_index  tx_hash  code  data  generated_at  message  data contract  contract_actions contract  entry_point  operations_type  cost_fee CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid. event_index  extrinsic_index  id  public_identifiers  result  timestamp  tx_hash "
     },
     {
       "title": "Midnight Transactions",
       "url": "/api-36911061",
       "category": "Midnight",
       "description": "This API is only available midnight network",
-      "text": "POST /api/scan/midnight/transactions [\"midnight\",\"transactions\",\"scan\"] after_id optional, for pagination, get records after this ID block_range optional, e.g. \"1000-2000\" contract  page  row  txn_type optional, filter by transaction type code  data  generated_at  message  data count  list contract  contract_actions contract  entry_point  operations_type  cost_fee CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid. event_index  extrinsic_index  id  public_identifiers  timestamp  tx_hash "
+      "text": "POST /api/scan/midnight/transactions [\"midnight\",\"transactions\",\"scan\"] after_id optional, for pagination, get records after this ID block_range optional, e.g. \"1000-2000\" contract  page  row  txn_type optional, filter by transaction type code  data  generated_at  message  data count  list contract  contract_actions contract  entry_point  operations_type  cost_fee CostFee is the runtime gas-cost estimate in raw integer units, not DUST paid. event_index  extrinsic_index  id  public_identifiers  result  timestamp  tx_hash "
     },
     {
       "title": "Midnight Unshielded Balance",

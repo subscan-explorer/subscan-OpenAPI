@@ -7328,7 +7328,7 @@ const docTemplate = `{
         },
         "/api/scan/midnight/transaction": {
             "post": {
-                "description": "This API is only available midnight network",
+                "description": "Transaction detail includes result=success, partial_success or unknown, derived from the matching indexed Midnight event. cost_fee is a raw runtime gas-cost estimate, not DUST paid.",
                 "consumes": [
                     "application/json"
                 ],
@@ -17936,6 +17936,9 @@ const docTemplate = `{
                     "items": {
                         "type": "string"
                     }
+                },
+                "result": {
+                    "type": "string"
                 },
                 "timestamp": {
                     "type": "integer"
