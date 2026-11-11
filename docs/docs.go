@@ -28085,6 +28085,10 @@ const docTemplate = `{
                 "decision_deposit_balance": {
                     "type": "string"
                 },
+                "decision_deposit_status": {
+                    "description": "Empty until the decision deposit is placed, then locked, refunded, or slashed. The balance stays populated after refund or slash.",
+                    "type": "string"
+                },
                 "deposit_balance": {
                     "type": "string"
                 },
@@ -28116,6 +28120,10 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "submission_deposit_status": {
+                    "description": "locked, refunded, retained, or slashed. Empty means the row has not been classified yet.",
                     "type": "string"
                 },
                 "support_amount": {
