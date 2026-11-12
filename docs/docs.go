@@ -10270,7 +10270,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/referendums": {
             "post": {
-                "description": "Returns a paginated referenda list with origin, status, account, and call filters.\nThis API only supports networks with referenda frame",
+                "description": "Returns a paginated referenda list with origin, status, account, call, time, and asset filters.\nOptional origins is an array of track names in addition to the existing origin string. Optional start and end are inclusive unix-second bounds on created_block_timestamp. Optional asset restricts results to referenda with a matching normalised treasury spend symbol.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -23173,11 +23173,20 @@ const docTemplate = `{
                 "account": {
                     "type": "string"
                 },
+                "asset": {
+                    "description": "Asset restricts the list to referenda with a matching treasury spend asset symbol.",
+                    "type": "string"
+                },
                 "call_module": {
                     "type": "string"
                 },
                 "call_name": {
                     "type": "string"
+                },
+                "end": {
+                    "description": "End is an inclusive unix-second upper bound on created_block_timestamp.",
+                    "type": "integer",
+                    "minimum": 0
                 },
                 "multi_status": {
                     "type": "array",
@@ -23187,6 +23196,13 @@ const docTemplate = `{
                 },
                 "origin": {
                     "type": "string"
+                },
+                "origins": {
+                    "description": "OriginsList is an optional list of track names, in addition to origin.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "page": {
                     "description": "Page number, starting from 0",
@@ -23200,6 +23216,11 @@ const docTemplate = `{
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "start": {
+                    "description": "Start is an inclusive unix-second lower bound on created_block_timestamp.",
+                    "type": "integer",
+                    "minimum": 0
                 },
                 "status": {
                     "type": "string",

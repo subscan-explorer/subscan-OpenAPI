@@ -10267,7 +10267,7 @@
         },
         "/api/scan/referenda/referendums": {
             "post": {
-                "description": "Returns a paginated referenda list with origin, status, account, and call filters.\nThis API only supports networks with referenda frame",
+                "description": "Returns a paginated referenda list with origin, status, account, call, time, and asset filters.\nOptional origins is an array of track names in addition to the existing origin string. Optional start and end are inclusive unix-second bounds on created_block_timestamp. Optional asset restricts results to referenda with a matching normalised treasury spend symbol.\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -17923,7 +17923,7 @@
                     "type": "string"
                 },
                 "verification_key": {
-                    "description": "{\"circuit_name\"=\u003e\"key\"}",
+                    "description": "{\"circuit_name\"=>\"key\"}",
                     "allOf": [
                         {
                             "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey"
@@ -18005,7 +18005,7 @@
                     "type": "string"
                 },
                 "verification_key": {
-                    "description": "{\"circuit_name\"=\u003e\"key\"}",
+                    "description": "{\"circuit_name\"=>\"key\"}",
                     "allOf": [
                         {
                             "$ref": "#/definitions/internal_pluginv2_customizeds_midnight.VerificationKey"
@@ -19059,7 +19059,7 @@
                     "type": "integer"
                 },
                 "sales_cycle": {
-                    "description": "-1 为 无效 0为内部计算错误 \u003e 1 为正常",
+                    "description": "-1 为 无效 0为内部计算错误 > 1 为正常",
                     "type": "integer"
                 }
             }
@@ -23170,11 +23170,20 @@
                 "account": {
                     "type": "string"
                 },
+                "asset": {
+                    "description": "Asset restricts the list to referenda with a matching treasury spend asset symbol.",
+                    "type": "string"
+                },
                 "call_module": {
                     "type": "string"
                 },
                 "call_name": {
                     "type": "string"
+                },
+                "end": {
+                    "description": "End is an inclusive unix-second upper bound on created_block_timestamp.",
+                    "type": "integer",
+                    "minimum": 0
                 },
                 "multi_status": {
                     "type": "array",
@@ -23184,6 +23193,13 @@
                 },
                 "origin": {
                     "type": "string"
+                },
+                "origins": {
+                    "description": "OriginsList is an optional list of track names, in addition to origin.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "page": {
                     "description": "Page number, starting from 0",
@@ -23197,6 +23213,11 @@
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "start": {
+                    "description": "Start is an inclusive unix-second lower bound on created_block_timestamp.",
+                    "type": "integer",
+                    "minimum": 0
                 },
                 "status": {
                     "type": "string",
