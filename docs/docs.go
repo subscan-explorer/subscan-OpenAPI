@@ -9375,7 +9375,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/info": {
             "post": {
-                "description": "Returns detailed parachain information with optional parachain-status filters. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
+                "description": "Returns registration and XCM information with optional parachain-status filters, excluding retired auction and crowdloan fund-account fields. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
                 "consumes": [
                     "application/json"
                 ],
@@ -9501,7 +9501,7 @@ const docTemplate = `{
         },
         "/api/scan/parachain/meta": {
             "post": {
-                "description": "Returns aggregate metadata for all parachains on the current relay chain. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
+                "description": "Returns registration counts for parachains on the current relay chain, excluding retired auction and lease statistics. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
                 "consumes": [
                     "application/json"
                 ],
@@ -27133,28 +27133,7 @@ const docTemplate = `{
         "subscan_internal_model.ParaChainMetaJson": {
             "type": "object",
             "properties": {
-                "auction_active": {
-                    "type": "boolean"
-                },
-                "auction_count": {
-                    "type": "integer"
-                },
-                "ending_period": {
-                    "type": "integer"
-                },
-                "lease_offset": {
-                    "type": "integer"
-                },
-                "lease_period": {
-                    "type": "integer"
-                },
-                "lease_periods_per_slot": {
-                    "type": "integer"
-                },
                 "online_count": {
-                    "type": "integer"
-                },
-                "retirement_period": {
                     "type": "integer"
                 },
                 "total_slot_num": {
@@ -27168,21 +27147,6 @@ const docTemplate = `{
         "subscan_internal_model.ParaChainSample": {
             "type": "object",
             "properties": {
-                "begin_period": {
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_id": {
-                    "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
-                },
                 "manager_display": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -27398,36 +27362,11 @@ const docTemplate = `{
         "subscan_internal_model.ParachainInfoJson": {
             "type": "object",
             "properties": {
-                "auction_index": {
-                    "type": "integer"
-                },
-                "begin_period": {
-                    "description": "周期开始时间(begin-first-end)",
-                    "type": "integer"
-                },
-                "bid_id": {
-                    "type": "string"
-                },
                 "deposit": {
-                    "type": "string"
-                },
-                "first_period": {
-                    "type": "integer"
-                },
-                "fund_account": {
-                    "type": "string"
-                },
-                "fund_account_display": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
-                },
-                "fund_id": {
                     "type": "string"
                 },
                 "genesis_head": {
                     "type": "string"
-                },
-                "last_period": {
-                    "type": "integer"
                 },
                 "manager": {
                     "type": "string"
@@ -27443,9 +27382,6 @@ const docTemplate = `{
                 },
                 "reserved_extrinsic_index": {
                     "type": "string"
-                },
-                "source": {
-                    "type": "integer"
                 },
                 "status": {
                     "type": "string"

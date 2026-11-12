@@ -1117,22 +1117,22 @@
       "title": "Get parachain details",
       "url": "/api-36911095",
       "category": "Parachain",
-      "description": "Returns detailed parachain information with optional parachain-status filters. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
-      "text": "POST /api/scan/parachain/info [\"parachain\",\"scan\",\"para chain\",\"relaychain shard\"] filter_anonymous  order  page Page number, starting from 0 para_id  row Data size per page status  code  data  generated_at  message  data chains auction_index  begin_period 周期开始时间(begin-first-end) bid_id  deposit  first_period  fund_account  fund_account_display account_index  address Current network account display  evm_address  evm_contract contract_name  verify_source  identity  judgements index  judgement  merkle address_type  tag_name  tag_subtype  tag_type  parent Parent account address  display  identity  sub_symbol  people display  identity  judgements  parent  fund_id  genesis_head  last_period  manager  manager_display  open_channel_count  para_id  reserved_extrinsic_index  source  status  validation_code_url  validators  validators_display  xcm_receive_message_count  xcm_receive_transfer_count  xcm_send_message_count  xcm_send_transfer_count  count "
+      "description": "Returns registration and XCM information with optional parachain-status filters, excluding retired auction and crowdloan fund-account fields. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
+      "text": "POST /api/scan/parachain/info [\"parachain\",\"scan\",\"para chain\",\"relaychain shard\"] filter_anonymous  order  page Page number, starting from 0 para_id  row Data size per page status  code  data  generated_at  message  data chains deposit  genesis_head  manager  manager_display account_index  address Current network account display  evm_address  evm_contract contract_name  verify_source  identity  judgements index  judgement  merkle address_type  tag_name  tag_subtype  tag_type  parent Parent account address  display  identity  sub_symbol  people display  identity  judgements  parent  open_channel_count  para_id  reserved_extrinsic_index  status  validation_code_url  validators  validators_display  xcm_receive_message_count  xcm_receive_transfer_count  xcm_send_message_count  xcm_send_transfer_count  count "
     },
     {
       "title": "List parachains and parathreads",
       "url": "/api-36911096",
       "category": "Parachain",
       "description": "Returns a paginated list of parachains and parathreads with status and basic metadata. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
-      "text": "POST /api/scan/parachain/list [\"parachain\",\"scan\",\"para chain\",\"relaychain shard\"] filter_anonymous  order  page Page number, starting from 0 para_id  row Data size per page status  code  data  generated_at  message  data chains begin_period  bid_id  first_period  fund_id  last_period  manager_display account_index  address Current network account display  evm_address  evm_contract contract_name  verify_source  identity  judgements index  judgement  merkle address_type  tag_name  tag_subtype  tag_type  parent Parent account address  display  identity  sub_symbol  people display  identity  judgements  parent  open_channel_count  para_id  reserved_extrinsic_index  status  xcm_receive_message_count  xcm_receive_transfer_count  xcm_send_message_count  xcm_send_transfer_count  count "
+      "text": "POST /api/scan/parachain/list [\"parachain\",\"scan\",\"para chain\",\"relaychain shard\"] filter_anonymous  order  page Page number, starting from 0 para_id  row Data size per page status  code  data  generated_at  message  data chains manager_display account_index  address Current network account display  evm_address  evm_contract contract_name  verify_source  identity  judgements index  judgement  merkle address_type  tag_name  tag_subtype  tag_type  parent Parent account address  display  identity  sub_symbol  people display  identity  judgements  parent  open_channel_count  para_id  reserved_extrinsic_index  status  xcm_receive_message_count  xcm_receive_transfer_count  xcm_send_message_count  xcm_send_transfer_count  count "
     },
     {
       "title": "Get parachain metadata",
       "url": "/api-36911097",
       "category": "Parachain",
-      "description": "Returns aggregate metadata for all parachains on the current relay chain. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
-      "text": "POST /api/scan/parachain/meta [\"parachain\",\"meta\",\"scan\",\"para chain\",\"relaychain shard\"]  code  data  generated_at  message  data auction_active  auction_count  ending_period  lease_offset  lease_period  lease_periods_per_slot  online_count  retirement_period  total_slot_num  upcoming_count "
+      "description": "Returns registration counts for parachains on the current relay chain, excluding retired auction and lease statistics. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
+      "text": "POST /api/scan/parachain/meta [\"parachain\",\"meta\",\"scan\",\"para chain\",\"relaychain shard\"]  code  data  generated_at  message  data online_count  total_slot_num  upcoming_count "
     },
     {
       "title": "Get parachain registration info",
