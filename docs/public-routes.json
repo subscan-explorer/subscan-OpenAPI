@@ -158,7 +158,6 @@
     "POST /api/scan/nomination_pool/pool/members": "/api-36911091",
     "POST /api/scan/nomination_pool/pools": "/api-36911092",
     "POST /api/scan/nomination_pool/rewards": "/api-36911093",
-    "POST /api/scan/orbiters/rewards": "/api-36911094",
     "POST /api/scan/parachain/info": "/api-36911095",
     "POST /api/scan/parachain/list": "/api-36911096",
     "POST /api/scan/parachain/meta": "/api-36911097",

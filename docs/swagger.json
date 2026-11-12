@@ -9305,71 +9305,6 @@
                 ]
             }
         },
-        "/api/scan/orbiters/rewards": {
-            "post": {
-                "description": "This API is only available for moonbeam(moonriver,moonbase) network.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Moonbeam"
-                ],
-                "summary": "Get Moonbeam Orbiters rewards",
-                "parameters": [
-                    {
-                        "description": "param",
-                        "name": "param",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/internal_pluginv2_customizeds_moonbeam_orbiters.OrbitersRewardParams"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/subscan_internal_plugin_share.J"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "count": {
-                                                    "type": "integer"
-                                                },
-                                                "list": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/definitions/internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "x-synonyms": [
-                    "moonbeam",
-                    "orbiters",
-                    "rewards",
-                    "scan",
-                    "reward",
-                    "payout"
-                ]
-            }
-        },
         "/api/scan/parachain/info": {
             "post": {
                 "description": "Returns registration and XCM information with optional parachain-status filters, excluding retired auction and crowdloan fund-account fields. Only available on relay chains: Polkadot, Kusama, Westend, and Paseo.",
@@ -18523,46 +18458,6 @@
                 },
                 "tx_hash": {
                     "type": "string"
-                }
-            }
-        },
-        "internal_pluginv2_customizeds_moonbeam_orbiters.OrbiterReward": {
-            "type": "object",
-            "properties": {
-                "amount": {
-                    "type": "string"
-                },
-                "block_timestamp": {
-                    "type": "integer"
-                },
-                "event_id": {
-                    "type": "string"
-                },
-                "event_index": {
-                    "type": "string"
-                },
-                "extrinsic_index": {
-                    "type": "string"
-                },
-                "module_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "internal_pluginv2_customizeds_moonbeam_orbiters.OrbitersRewardParams": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "string"
-                },
-                "page": {
-                    "type": "integer",
-                    "minimum": 0
-                },
-                "row": {
-                    "type": "integer",
-                    "maximum": 100,
-                    "minimum": 1
                 }
             }
         },

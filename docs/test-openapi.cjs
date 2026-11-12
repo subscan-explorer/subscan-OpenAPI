@@ -62,3 +62,11 @@ test('full-text index covers public links, field names and guide body content', 
   const urls = index.entries.map(entry => entry.url);
   assert.equal(new Set(urls).size, urls.length);
 });
+
+test('retired Orbiters operation is absent from public documentation', () => {
+  const route = '/api/scan/orbiters/rewards';
+  assert.equal(read('swagger.json').paths[route], undefined);
+  assert.equal(read('apidog.openapi.json').paths[route], undefined);
+  assert.equal(read('public-routes.json').endpoints[`POST ${route}`], undefined);
+  assert.ok(!read('search-index.json').entries.some(entry => entry.url === '/api-36911094'));
+});
