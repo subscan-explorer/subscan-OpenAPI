@@ -70,11 +70,17 @@ do not create a second independent copy of documentation sources.
 
 In the existing Apidog project:
 
-1. Bind the API data source to the mirrored `docs/apidog.openapi.json` and the
-   Markdown source to `docs/subscan.apidog.json`. Import servers as environments,
-   map global security to root authentication, and match updates by method/path.
-   Keep absent resources and preserve curated fields rather than deleting
-   unrelated resources during import.
+1. API definitions are imported by `.github/workflows/docs-pro.yaml` after a
+   `master` documentation update, following the existing public repository mirror.
+   The workflow sends the checked-out `apidog.openapi.json` directly to Apidog
+   project `384478`, using the repository Actions secret `APIDOG_ACCESS_TOKEN`.
+   The token's account must have import/edit access; renew the secret before its
+   configured expiry. The request uses API version `2024-03-28`, the default module
+   and main branch, automatic merge for endpoints/schemas, preserves endpoint
+   folders, and keeps resources absent from the artifact. Confirm curated fields
+   survive the first import; automatic merge is not a guarantee for every field.
+   Keep the Markdown source bound to `docs/subscan.apidog.json`: this OpenAPI API
+   integration does not replace Markdown import or site settings.
 2. Publish only supported environments, with Polkadot first. The derived import
    includes all hosts; `environments.json` is also available for a native import.
    Native environment import appends entries, including duplicate names. For an
@@ -93,15 +99,32 @@ available if full-text search cannot load. The static index needs no Algolia
 account, AI provider, or subscription. Ask AI and other usage-billed services
 are intentionally left disabled.
 
-Scheduled import in Local Client mode runs while the Apidog project is open;
-it is not an unattended server job. Verify the existing execution mode rather
-than claiming 24/7 synchronization from a configured schedule alone.
-During the 2026-10-20 rollout, URL import reported an access error even though
-the public artifacts were accessible. Manual local-file imports completed
-successfully. The API source now points at `apidog.openapi.json`, uses smart
-merge, maps global security to root auth, and keeps absent resources. Successful
-unattended imports remain unverified; use the same generated local files as the
-fallback and check the import result before claiming a published update.
+After merging the workflow, check the first Actions run and Apidog import history,
+then verify the public site before disabling only the old **API** scheduled source.
+Keep the Markdown source enabled until its replacement is implemented. Local Client
+scheduled imports require the Apidog project to remain open; unattended Markdown
+sync is still unverified. No old Apidog schedule is disabled by this workflow.
+
+The import fails on HTTP errors, invalid responses, or nonzero failure counters,
+including partial failures returned with HTTP 200. A 120-second request timeout
+bounds the call. It does not automatically retry writes after ambiguous failures;
+inspect Apidog history first, then manually run the `docs` workflow on `master`.
+Manual runs on other branches validate only by default. To explicitly test a
+branch against the live project, dispatch with `test_import=true`; this writes
+real Apidog data but does not mirror the branch into the public repository.
+Production and test imports share a project-level concurrency lock. PRs run
+validation without the token. Workflow runs are serialized per branch without cancelling an
+in-flight import. The existing Slack failure notification remains in place.
+
+Validate the integration without credentials or external writes:
+
+```bash
+node --test .github/scripts/apidog/import.test.cjs
+npm --prefix docs/api ci --ignore-scripts
+npm --prefix docs/api test
+```
+
+API reference: https://openapi.apidog.io/api-7312738
 
 Repository updates, source import, and publication are separate checks. Verify
 the public MCP button, credential input, named examples, default network,
