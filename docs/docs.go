@@ -7328,7 +7328,7 @@ const docTemplate = `{
         },
         "/api/scan/midnight/transaction": {
             "post": {
-                "description": "Transaction detail includes result=success, partial_success or unknown, derived from the matching indexed Midnight event. cost_fee is a raw runtime gas-cost estimate, not DUST paid.",
+                "description": "Transaction detail includes result=success, partial_success or unknown, derived from the matching indexed Midnight event. cost_fee is a raw runtime gas-cost estimate, not DUST paid.\nhas_zk_proof=true is indexed contract-call proof evidence; null means unknown, including DUST or shielded proofs that are not indexed.",
                 "consumes": [
                     "application/json"
                 ],
@@ -7381,7 +7381,7 @@ const docTemplate = `{
         },
         "/api/scan/midnight/transactions": {
             "post": {
-                "description": "This API is only available midnight network",
+                "description": "On Midnight, a contract filter includes deployment, maintenance and calls associated with that contract, once per transaction. after_id is an opaque cursor from the last item. has_zk_proof=true is indexed proof evidence; null means unknown.",
                 "consumes": [
                     "application/json"
                 ],
@@ -17472,6 +17472,10 @@ const docTemplate = `{
                 },
                 "extrinsic_index": {
                     "type": "string"
+                },
+                "has_zk_proof": {
+                    "description": "HasZKProof is positive evidence from an indexed proof-bearing contract call.\nNil means unknown, including transactions whose DUST proofs are not indexed.",
+                    "type": "boolean"
                 },
                 "id": {
                     "type": "integer"
