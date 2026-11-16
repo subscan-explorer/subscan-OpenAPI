@@ -106,7 +106,8 @@ scheduled imports require the Apidog project to remain open; unattended Markdown
 sync is still unverified. No old Apidog schedule is disabled by this workflow.
 
 The import fails on HTTP errors, invalid responses, or nonzero failure counters,
-including partial failures returned with HTTP 200. A 120-second request timeout
+including partial failures returned with HTTP 200. A successful response with
+zero changed endpoints is valid for a repeat import; it is not a failure. A 120-second request timeout
 bounds the call. It does not automatically retry writes after ambiguous failures;
 inspect Apidog history first, then manually run the `docs` workflow on `master`.
 Manual runs on other branches validate only by default. To explicitly test a
