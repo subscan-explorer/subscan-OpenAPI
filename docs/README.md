@@ -79,8 +79,21 @@ In the existing Apidog project:
    and main branch, automatic merge for endpoints/schemas, preserves endpoint
    folders, and keeps resources absent from the artifact. Confirm curated fields
    survive the first import; automatic merge is not a guarantee for every field.
-   Keep the Markdown source bound to `docs/subscan.apidog.json`: this OpenAPI API
-   integration does not replace Markdown import or site settings.
+   Markdown tutorials are synchronized in the same workflow through the official
+   `apidog-cli@2.2.12` `doc` commands. It reuses the same Secret via
+   `APIDOG_CLI_ACCESS_TOKEN`. Direct writes require the project's **Main branch
+   direct edit permission** under **Project Settings → Feature Settings → AI
+   Feature Settings → External AI Edit Permissions**. This is broader than
+   Markdown: it permits authorized external/CLI writes to the main branch.
+   Without it, the service rejects writes with `Automation caller branch required`.
+   The alternative is an AI branch followed by human review/merge, which is not
+   unattended synchronization. Do not merge/enable this migration until an
+   explicit live write/read-back check succeeds with the chosen permissions.
+   The sync reads `subscan.apidog.json` and resolves existing public identities
+   from `public-routes.json`, including the XCM folder overview. It preflights all
+   targets, updates only changed `content`, and reads each update back. It does
+   not create/delete documents or change titles, visibility, folders or site
+   settings. Missing, renamed or ambiguous targets fail before any writes.
 2. Publish only supported environments, with Polkadot first. The derived import
    includes all hosts; `environments.json` is also available for a native import.
    Native environment import appends entries, including duplicate names. For an
@@ -100,10 +113,10 @@ account, AI provider, or subscription. Ask AI and other usage-billed services
 are intentionally left disabled.
 
 After merging the workflow, check the first Actions run and Apidog import history,
-then verify the public site before disabling only the old **API** scheduled source.
-Keep the Markdown source enabled until its replacement is implemented. Local Client
-scheduled imports require the Apidog project to remain open; unattended Markdown
-sync is still unverified. No old Apidog schedule is disabled by this workflow.
+then verify the public site before disabling the old API and Markdown scheduled
+sources. The workflow does not change Apidog auto-import settings itself. During
+cutover, keep both sources pointing at the same repository artifacts to avoid
+competing versions; stop the old scheduled sources after verifying the new path.
 
 The import fails on HTTP errors, invalid responses, or nonzero failure counters,
 including partial failures returned with HTTP 200. A successful response with
@@ -113,6 +126,10 @@ inspect Apidog history first, then manually run the `docs` workflow on `master`.
 Manual runs on other branches validate only by default. To explicitly test a
 branch against the live project, dispatch with `test_import=true`; this writes
 real Apidog data but does not mirror the branch into the public repository.
+If every tutorial already matches, this explicit test rewrites one document with
+identical content and reads it back to exercise Markdown write permission.
+For a read-only comparison, dispatch with `check_markdown=true` on the desired
+branch (including `master`): both the API write and Git mirror are skipped.
 Production and test imports share a project-level concurrency lock. PRs run
 validation without the token. Workflow runs are serialized per branch without cancelling an
 in-flight import. The existing Slack failure notification remains in place.
@@ -120,12 +137,41 @@ in-flight import. The existing Slack failure notification remains in place.
 Validate the integration without credentials or external writes:
 
 ```bash
-node --test .github/scripts/apidog/import.test.cjs
+node --test .github/scripts/apidog/*.test.cjs
 npm --prefix docs/api ci --ignore-scripts
 npm --prefix docs/api test
 ```
 
-API reference: https://openapi.apidog.io/api-7312738
+To update an existing tutorial, edit its Markdown file, then regenerate the
+embedded tutorial bundle and public search index before committing:
+
+```bash
+python3 docs/api/gen-doc.py
+npm --prefix docs/api run generate
+npm --prefix docs/api test
+```
+
+Review the generated diff because `gen-doc.py` also maintains existing Swagger
+contract patches. For a new public tutorial, first create/publish its target in
+Apidog, add the existing title/URL mapping to `public-routes.json`, and include its
+content in the bundle generator. Sync never creates new public pages implicitly.
+
+With `APIDOG_ACCESS_TOKEN` and `APIDOG_PROJECT_ID=384478` in the environment and
+`apidog-cli@2.2.12` installed, the direct local commands are:
+
+```bash
+node .github/scripts/apidog/sync-markdown.cjs --check
+node .github/scripts/apidog/sync-markdown.cjs --apply
+```
+
+Each CLI call times out after 60 seconds. Failed writes are not retried
+automatically; rerunning compares the remote content and skips completed updates.
+Partial updates are possible if a later document fails; the workflow reports a
+failure and the read-back check identifies the failed target.
+
+References: [OpenAPI import](https://openapi.apidog.io/api-7312738),
+[official Markdown CLI commands](https://docs.apidog.com/apidog-cli-commands-options-609656m0),
+[external edit permission requirements](https://docs.apidog.com/ai-branch).
 
 Repository updates, source import, and publication are separate checks. Verify
 the public MCP button, credential input, named examples, default network,
