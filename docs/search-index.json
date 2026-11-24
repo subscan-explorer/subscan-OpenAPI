@@ -1229,8 +1229,8 @@
       "title": "Get referendum statistics",
       "url": "/api-36910942",
       "category": "Governance",
-      "description": "Returns aggregated referendum statistics for supported democracy or referenda networks.\nThis API only supports networks with referenda/democracy frame",
-      "text": "POST /api/scan/referenda/statistics [\"referendum\",\"statistics\",\"governance\",\"scan\",\"referenda\",\"vote\",\"treasury\",\"council\"]  code  data  generated_at  message  data confirm_total  origins count  id  origins  originsCount  referendum_locked  referendum_participate  voting_total "
+      "description": "Returns aggregated referendum statistics for supported democracy or referenda networks.\nOptional origin adds a track object with total, approved, rejected, other, preparing, deciding and confirming counts for that track; without origin the response is unchanged. Track names ignore case, spaces, underscores and hyphens.\nThis API only supports networks with referenda/democracy frame",
+      "text": "POST /api/scan/referenda/statistics [\"referendum\",\"statistics\",\"governance\",\"scan\",\"referenda\",\"vote\",\"treasury\",\"council\"] origin Origin optionally adds per-track outcome counts (track name, case-insensitive) as data.track code  data  generated_at  message  data confirm_total  origins count  id  origins  originsCount  referendum_locked  referendum_participate  track Track is only present when the request names a track via origin. approved  confirming  deciding  origin  origin_id  other  preparing  rejected  total  voting_total "
     },
     {
       "title": "List referendum tracks",

@@ -10337,7 +10337,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/statistics": {
             "post": {
-                "description": "Returns aggregated referendum statistics for supported democracy or referenda networks.\nThis API only supports networks with referenda/democracy frame",
+                "description": "Returns aggregated referendum statistics for supported democracy or referenda networks.\nOptional origin adds a track object with total, approved, rejected, other, preparing, deciding and confirming counts for that track; without origin the response is unchanged. Track names ignore case, spaces, underscores and hyphens.\nThis API only supports networks with referenda/democracy frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10348,6 +10348,16 @@ const docTemplate = `{
                     "Governance"
                 ],
                 "summary": "Get referendum statistics",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "params",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/internal_server_http.referendumStatisticsParams"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -22462,6 +22472,17 @@ const docTemplate = `{
                 }
             }
         },
+        "internal_server_http.referendumStatisticsParams": {
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "description": "Origin optionally adds per-track outcome counts (track name, case-insensitive) as data.track",
+                    "type": "string",
+                    "maxLength": 64,
+                    "example": "SmallSpender"
+                }
+            }
+        },
         "internal_server_http.referendumV2Params": {
             "type": "object",
             "properties": {
@@ -27302,6 +27323,14 @@ const docTemplate = `{
                 "referendum_participate": {
                     "type": "string"
                 },
+                "track": {
+                    "description": "Track is only present when the request names a track via origin.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.ReferendumTrackStatisticsJson"
+                        }
+                    ]
+                },
                 "voting_total": {
                     "type": "integer"
                 }
@@ -27319,6 +27348,38 @@ const docTemplate = `{
                 },
                 "origins": {
                     "type": "string"
+                }
+            }
+        },
+        "subscan_internal_model.ReferendumTrackStatisticsJson": {
+            "type": "object",
+            "properties": {
+                "approved": {
+                    "type": "integer"
+                },
+                "confirming": {
+                    "type": "integer"
+                },
+                "deciding": {
+                    "type": "integer"
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "origin_id": {
+                    "type": "integer"
+                },
+                "other": {
+                    "type": "integer"
+                },
+                "preparing": {
+                    "type": "integer"
+                },
+                "rejected": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
                 }
             }
         },

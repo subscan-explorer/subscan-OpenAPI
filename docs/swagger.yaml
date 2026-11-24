@@ -4944,6 +4944,15 @@ definitions:
         minimum: 0
         type: integer
     type: object
+  internal_server_http.referendumStatisticsParams:
+    properties:
+      origin:
+        description: Origin optionally adds per-track outcome counts (track name,
+          case-insensitive) as data.track
+        example: SmallSpender
+        maxLength: 64
+        type: string
+    type: object
   internal_server_http.referendumV2Params:
     properties:
       referendum_index:
@@ -8225,6 +8234,10 @@ definitions:
         type: string
       referendum_participate:
         type: string
+      track:
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.ReferendumTrackStatisticsJson'
+        description: Track is only present when the request names a track via origin.
       voting_total:
         type: integer
     type: object
@@ -8237,6 +8250,27 @@ definitions:
         type: integer
       origins:
         type: string
+    type: object
+  subscan_internal_model.ReferendumTrackStatisticsJson:
+    properties:
+      approved:
+        type: integer
+      confirming:
+        type: integer
+      deciding:
+        type: integer
+      origin:
+        type: string
+      origin_id:
+        type: integer
+      other:
+        type: integer
+      preparing:
+        type: integer
+      rejected:
+        type: integer
+      total:
+        type: integer
     type: object
   subscan_internal_model.ReferendumV2Json:
     properties:
@@ -17657,7 +17691,14 @@ paths:
       - application/json
       description: |-
         Returns aggregated referendum statistics for supported democracy or referenda networks.
+        Optional origin adds a track object with total, approved, rejected, other, preparing, deciding and confirming counts for that track; without origin the response is unchanged. Track names ignore case, spaces, underscores and hyphens.
         This API only supports networks with referenda/democracy frame
+      parameters:
+      - description: params
+        in: body
+        name: params
+        schema:
+          $ref: '#/definitions/internal_server_http.referendumStatisticsParams'
       produces:
       - application/json
       responses:
