@@ -10430,7 +10430,7 @@ const docTemplate = `{
         },
         "/api/scan/referenda/votes": {
             "post": {
-                "description": "Returns paginated vote records for an OpenGov referendum or account.\nThis API only supports networks with referenda frame",
+                "description": "Returns paginated vote records for an OpenGov referendum or account.\nWhen neither referendum_index nor account is provided, returns the network-wide vote feed ordered by block (newest first). Optional origin restricts votes to one track; case, spaces, underscores and hyphens are ignored in track names.\nEach row includes origin, block_timestamp, and vote_type (standard, split, split_abstain, or unknown for legacy rows).\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -10472,7 +10472,7 @@ const docTemplate = `{
                                                 "list": {
                                                     "type": "array",
                                                     "items": {
-                                                        "$ref": "#/definitions/subscan_internal_model.ConvictionVoteJson"
+                                                        "$ref": "#/definitions/subscan_internal_model.OpenGovVoteJson"
                                                     }
                                                 }
                                             }
@@ -22289,6 +22289,12 @@ const docTemplate = `{
                         "desc"
                     ]
                 },
+                "origin": {
+                    "description": "Origin optionally restricts votes to referenda on one track (case-insensitive track name)",
+                    "type": "string",
+                    "maxLength": 64,
+                    "example": "SmallSpender"
+                },
                 "page": {
                     "description": "Page number, starting from 0",
                     "type": "integer",
@@ -26363,6 +26369,59 @@ const docTemplate = `{
                 }
             }
         },
+        "subscan_internal_model.OpenGovVoteJson": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "block_timestamp": {
+                    "description": "BlockTimestamp mirrors VotingTime under the name used by the network-wide vote feed.",
+                    "type": "integer"
+                },
+                "conviction": {
+                    "type": "string"
+                },
+                "delegate_account": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "extrinsic_index": {
+                    "type": "string"
+                },
+                "origin": {
+                    "description": "Origin is the track name of the voted referendum, empty when the track is unknown.",
+                    "type": "string"
+                },
+                "referendum_index": {
+                    "type": "integer"
+                },
+                "relay_chain": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "unlock_block": {
+                    "type": "integer"
+                },
+                "valid": {
+                    "type": "boolean"
+                },
+                "vote_type": {
+                    "description": "VoteType is the AccountVote variant: standard, split, split_abstain, or unknown for\nlegacy rows that cannot be classified without re-decoding the original vote.",
+                    "type": "string"
+                },
+                "votes": {
+                    "type": "string"
+                },
+                "voting_time": {
+                    "type": "integer"
+                }
+            }
+        },
         "subscan_internal_model.OrmlVestingSchedule": {
             "type": "object",
             "properties": {
@@ -27315,7 +27374,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "decision_deposit_status": {
-                    "description": "Empty until the decision deposit is placed, then locked, refunded, or slashed. The balance stays populated after refund or slash.",
+                    "description": "DecisionDepositStatus is empty until the deposit is placed, then locked, refunded, or slashed.\nThe balance stays populated after refund or slash.",
                     "type": "string"
                 },
                 "deposit_balance": {
@@ -27352,7 +27411,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "submission_deposit_status": {
-                    "description": "locked, refunded, retained, or slashed. Empty means the row has not been classified yet.",
+                    "description": "SubmissionDepositStatus is locked, refunded, retained, or slashed.\nEmpty means the row has not been classified yet.",
                     "type": "string"
                 },
                 "support_amount": {

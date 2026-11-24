@@ -4816,6 +4816,12 @@ definitions:
         - asc
         - desc
         type: string
+      origin:
+        description: Origin optionally restricts votes to referenda on one track (case-insensitive
+          track name)
+        example: SmallSpender
+        maxLength: 64
+        type: string
       page:
         description: Page number, starting from 0
         example: 0
@@ -7590,6 +7596,46 @@ definitions:
       validator_stash:
         type: string
     type: object
+  subscan_internal_model.OpenGovVoteJson:
+    properties:
+      account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      amount:
+        type: string
+      block_timestamp:
+        description: BlockTimestamp mirrors VotingTime under the name used by the
+          network-wide vote feed.
+        type: integer
+      conviction:
+        type: string
+      delegate_account:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      extrinsic_index:
+        type: string
+      origin:
+        description: Origin is the track name of the voted referendum, empty when
+          the track is unknown.
+        type: string
+      referendum_index:
+        type: integer
+      relay_chain:
+        type: integer
+      status:
+        type: string
+      unlock_block:
+        type: integer
+      valid:
+        type: boolean
+      vote_type:
+        description: |-
+          VoteType is the AccountVote variant: standard, split, split_abstain, or unknown for
+          legacy rows that cannot be classified without re-decoding the original vote.
+        type: string
+      votes:
+        type: string
+      voting_time:
+        type: integer
+    type: object
   subscan_internal_model.OrmlVestingSchedule:
     properties:
       per_period:
@@ -8227,7 +8273,9 @@ definitions:
       decision_deposit_balance:
         type: string
       decision_deposit_status:
-        description: Empty until the decision deposit is placed, then locked, refunded, or slashed. The balance stays populated after refund or slash.
+        description: |-
+          DecisionDepositStatus is empty until the deposit is placed, then locked, refunded, or slashed.
+          The balance stays populated after refund or slash.
         type: string
       deposit_balance:
         type: string
@@ -8252,7 +8300,9 @@ definitions:
       status:
         type: string
       submission_deposit_status:
-        description: locked, refunded, retained, or slashed. Empty means the row has not been classified yet.
+        description: |-
+          SubmissionDepositStatus is locked, refunded, retained, or slashed.
+          Empty means the row has not been classified yet.
         type: string
       support_amount:
         type: string
@@ -17671,6 +17721,8 @@ paths:
       - application/json
       description: |-
         Returns paginated vote records for an OpenGov referendum or account.
+        When neither referendum_index nor account is provided, returns the network-wide vote feed ordered by block (newest first). Optional origin restricts votes to one track; case, spaces, underscores and hyphens are ignored in track names.
+        Each row includes origin, block_timestamp, and vote_type (standard, split, split_abstain, or unknown for legacy rows).
         This API only supports networks with referenda frame
       parameters:
       - description: params
@@ -17694,7 +17746,7 @@ paths:
                       type: integer
                     list:
                       items:
-                        $ref: '#/definitions/subscan_internal_model.ConvictionVoteJson'
+                        $ref: '#/definitions/subscan_internal_model.OpenGovVoteJson'
                       type: array
                   type: object
               type: object
