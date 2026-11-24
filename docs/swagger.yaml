@@ -3796,6 +3796,13 @@ definitions:
         maximum: 100
         minimum: 1
         type: integer
+      status:
+        description: Status filters active (Add, Awarded) or historical (Cancel, Claimed)
+          child bounties
+        enum:
+        - active
+        - historical
+        type: string
     type: object
   internal_server_http.commissionHistoryParams:
     properties:
@@ -4446,8 +4453,13 @@ definitions:
     type: object
   internal_server_http.multiAssetChildBountiesParams:
     properties:
+      all_parents:
+        description: AllParents explicitly opts into a global list and cannot be combined
+          with bounties_id.
+        type: boolean
       bounties_id:
-        description: Parent bounty index
+        description: Parent bounty index; omitted or null preserves the historical
+          parent-zero query.
         example: 0
         minimum: 0
         type: integer
@@ -4684,6 +4696,9 @@ definitions:
     type: object
   internal_server_http.preimageListParams:
     properties:
+      account:
+        description: Filter preimages noted by this account (SS58 address)
+        type: string
       call_module:
         description: Filter preimages by call module
         type: string
@@ -6551,10 +6566,24 @@ definitions:
     properties:
       amount:
         type: string
+      beneficiary:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+      child_index:
+        description: ChildIndex is the child bounty index within its parent.
+        type: integer
+      curator:
+        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       index:
         type: string
+      parent_bounty_id:
+        description: ParentBountyID is the parent bounty index (also encoded in Index
+          as "<parent>-<child>").
+        type: integer
       proposer:
-        $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        allOf:
+        - $ref: '#/definitions/subscan_internal_model.AccountDisplay'
+        description: Proposer retains the historical beneficiary alias for existing
+          clients.
       relay_chain:
         type: integer
       status:
@@ -8014,6 +8043,10 @@ definitions:
     type: object
   subscan_internal_model.PreimageSampleJson:
     properties:
+      amount:
+        description: Amount is the preimage deposit in the native token's smallest
+          unit.
+        type: string
       author:
         $ref: '#/definitions/subscan_internal_model.AccountDisplay'
       call_module:
@@ -8024,8 +8057,14 @@ definitions:
         type: integer
       created_timestamp:
         type: integer
+      decimals:
+        description: Decimals and Symbol describe the native token used for Amount.
+        type: integer
       hash:
         type: string
+      len:
+        description: Len is the preimage byte length.
+        type: integer
       link:
         items:
           $ref: '#/definitions/subscan_internal_model.PreimageLinkJson'
@@ -8033,6 +8072,8 @@ definitions:
       source:
         type: string
       status:
+        type: string
+      symbol:
         type: string
     type: object
   subscan_internal_model.ProxyAccountInfoJson:
@@ -11466,7 +11507,9 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns a paginated child-bounty list, optionally filtered by parent bounty ID.
+        Each row includes beneficiary and curator account displays; proposer remains an alias of beneficiary for compatibility.
+        Returns a paginated child-bounty list, optionally filtered by parent bounty ID and status.
+        Omitting bounties_id (or passing 0) returns child bounties of every parent.
         This API only supports networks with childbounties frame
       parameters:
       - description: params
@@ -16273,7 +16316,8 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns a paginated local multiasset child-bounty list for one parent bounty index.
+        Returns a paginated local multiasset child-bounty list for one parent bounty index. Omitting bounties_id or passing null queries parent 0, preserving existing clients.
+        Set all_parents=true and omit bounties_id to list every parent. Combining all_parents=true with a non-null bounties_id returns a parameter error.
         This API only supports networks with multiassetbounties frame
       parameters:
       - description: params
@@ -17350,7 +17394,8 @@ paths:
       consumes:
       - application/json
       description: |-
-        Returns a paginated preimage list with optional status, source, action, and sorting filters.
+        Returns a paginated preimage list with optional status, source, action, author account, and sorting filters.
+        Each item includes len and the deposit amount with native token decimals and symbol.
         This API only supports networks with preimage frame
       parameters:
       - description: params

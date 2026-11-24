@@ -1149,7 +1149,7 @@ const docTemplate = `{
         },
         "/api/scan/bounties/child": {
             "post": {
-                "description": "Returns a paginated child-bounty list, optionally filtered by parent bounty ID.\nThis API only supports networks with childbounties frame",
+                "description": "Each row includes beneficiary and curator account displays; proposer remains an alias of beneficiary for compatibility.\nReturns a paginated child-bounty list, optionally filtered by parent bounty ID and status.\nOmitting bounties_id (or passing 0) returns child bounties of every parent.\nThis API only supports networks with childbounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -8226,7 +8226,7 @@ const docTemplate = `{
         },
         "/api/scan/multiasset_bounties/child": {
             "post": {
-                "description": "Returns a paginated local multiasset child-bounty list for one parent bounty index.\nThis API only supports networks with multiassetbounties frame",
+                "description": "Returns a paginated local multiasset child-bounty list for one parent bounty index. Omitting bounties_id or passing null queries parent 0, preserving existing clients.\nSet all_parents=true and omit bounties_id to list every parent. Combining all_parents=true with a non-null bounties_id returns a parameter error.\nThis API only supports networks with multiassetbounties frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -9830,7 +9830,7 @@ const docTemplate = `{
         },
         "/api/scan/preimage/list": {
             "post": {
-                "description": "Returns a paginated preimage list with optional status, source, action, and sorting filters.\nThis API only supports networks with preimage frame",
+                "description": "Returns a paginated preimage list with optional status, source, action, author account, and sorting filters.\nEach item includes len and the deposit amount with native token decimals and symbol.\nThis API only supports networks with preimage frame",
                 "consumes": [
                     "application/json"
                 ],
@@ -20882,6 +20882,14 @@ const docTemplate = `{
                     "maximum": 100,
                     "minimum": 1,
                     "example": 10
+                },
+                "status": {
+                    "description": "Status filters active (Add, Awarded) or historical (Cancel, Claimed) child bounties",
+                    "type": "string",
+                    "enum": [
+                        "active",
+                        "historical"
+                    ]
                 }
             }
         },
@@ -21789,8 +21797,12 @@ const docTemplate = `{
         "internal_server_http.multiAssetChildBountiesParams": {
             "type": "object",
             "properties": {
+                "all_parents": {
+                    "description": "AllParents explicitly opts into a global list and cannot be combined with bounties_id.",
+                    "type": "boolean"
+                },
                 "bounties_id": {
-                    "description": "Parent bounty index",
+                    "description": "Parent bounty index; omitted or null preserves the historical parent-zero query.",
                     "type": "integer",
                     "minimum": 0,
                     "example": 0
@@ -22118,6 +22130,10 @@ const docTemplate = `{
         "internal_server_http.preimageListParams": {
             "type": "object",
             "properties": {
+                "account": {
+                    "description": "Filter preimages noted by this account (SS58 address)",
+                    "type": "string"
+                },
                 "call_module": {
                     "description": "Filter preimages by call module",
                     "type": "string"
@@ -24804,11 +24820,30 @@ const docTemplate = `{
                 "amount": {
                     "type": "string"
                 },
+                "beneficiary": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
+                "child_index": {
+                    "description": "ChildIndex is the child bounty index within its parent.",
+                    "type": "integer"
+                },
+                "curator": {
+                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                },
                 "index": {
                     "type": "string"
                 },
+                "parent_bounty_id": {
+                    "description": "ParentBountyID is the parent bounty index (also encoded in Index as \"\u003cparent\u003e-\u003cchild\u003e\").",
+                    "type": "integer"
+                },
                 "proposer": {
-                    "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                    "description": "Proposer retains the historical beneficiary alias for existing clients.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
+                        }
+                    ]
                 },
                 "relay_chain": {
                     "type": "integer"
@@ -26992,6 +27027,10 @@ const docTemplate = `{
         "subscan_internal_model.PreimageSampleJson": {
             "type": "object",
             "properties": {
+                "amount": {
+                    "description": "Amount is the preimage deposit in the native token's smallest unit.",
+                    "type": "string"
+                },
                 "author": {
                     "$ref": "#/definitions/subscan_internal_model.AccountDisplay"
                 },
@@ -27007,8 +27046,16 @@ const docTemplate = `{
                 "created_timestamp": {
                     "type": "integer"
                 },
+                "decimals": {
+                    "description": "Decimals and Symbol describe the native token used for Amount.",
+                    "type": "integer"
+                },
                 "hash": {
                     "type": "string"
+                },
+                "len": {
+                    "description": "Len is the preimage byte length.",
+                    "type": "integer"
                 },
                 "link": {
                     "type": "array",
@@ -27020,6 +27067,9 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "symbol": {
                     "type": "string"
                 }
             }
