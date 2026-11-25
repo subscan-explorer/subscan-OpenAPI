@@ -1516,7 +1516,7 @@
     },
     "/api/scan/bounties/proposals": {
       "post": {
-        "description": "Returns a paginated bounty list with optional status filtering.\nThis API only supports networks with bounties frame",
+        "description": "Returns a paginated bounty list with optional status filtering.\nThe active filter includes proposed, awarded, approved, extended, active, and the legacy becameActive status. The historical filter includes rejected, cancelled, claimed, and closed. Returned status values retain their stored spelling.\nThis API only supports networks with bounties frame",
         "tags": [
           "Governance"
         ],

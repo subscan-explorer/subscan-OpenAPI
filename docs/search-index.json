@@ -144,7 +144,7 @@
       "title": "List bounties",
       "url": "/api-36910920",
       "category": "Governance",
-      "description": "Returns a paginated bounty list with optional status filtering.\nThis API only supports networks with bounties frame",
+      "description": "Returns a paginated bounty list with optional status filtering.\nThe active filter includes proposed, awarded, approved, extended, active, and the legacy becameActive status. The historical filter includes rejected, cancelled, claimed, and closed. Returned status values retain their stored spelling.\nThis API only supports networks with bounties frame",
       "text": "POST /api/scan/bounties/proposals [\"bounty\",\"governance\",\"scan\",\"bounties\",\"proposals\",\"referendum\",\"vote\",\"treasury\",\"council\"] page Page number, starting from 0 row Data size per page status  code  data  generated_at  message  data count  list beneficiary account_index  address Current network account display  evm_address  evm_contract contract_name  verify_source  identity  judgements index  judgement  merkle address_type  tag_name  tag_subtype  tag_type  parent Parent account address  display  identity  sub_symbol  people display  identity  judgements  parent  beneficiary_human  beneficiary_raw  block_timestamp  bounty_source  child_bounty_count  description  proposal_id  proposer  relay_chain  source_module  status  title  value  value_asset amount  decimals  human account_id  account_index  general_index  general_key  general_key_decode  location  network_id ByFork  ByGenesis  Ethereum  Kusama  Polkadot  Rococo  Westend  Wococo  null  pallet  pallet_index  para_id  para_id  raw  symbol  token_unique_id "
     },
     {

@@ -11595,6 +11595,7 @@ paths:
       - application/json
       description: |-
         Returns a paginated bounty list with optional status filtering.
+        The active filter includes proposed, awarded, approved, extended, active, and the legacy becameActive status. The historical filter includes rejected, cancelled, claimed, and closed. Returned status values retain their stored spelling.
         This API only supports networks with bounties frame
       parameters:
       - description: params
