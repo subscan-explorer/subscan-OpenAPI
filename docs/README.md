@@ -42,7 +42,8 @@ documentation-only Node dependencies with `npm ci --ignore-scripts`.
 
 ```bash
 source ~/.gvm/scripts/gvm
-gvm use go1.25.3
+gvm use go1.26.10
+export GOTOOLCHAIN=local
 make doc
 npm --prefix docs/api test
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s docs/api -p 'test_network_docs.py' -v

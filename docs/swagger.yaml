@@ -17808,7 +17808,7 @@ paths:
       - application/json
       description: |-
         Returns paginated vote records for an OpenGov referendum or account.
-        When neither referendum_index nor account is provided, returns the network-wide vote feed ordered by block (newest first). Optional origin restricts votes to one track; case, spaces, underscores and hyphens are ignored in track names.
+        When neither referendum_index nor account is provided, returns the network-wide vote feed ordered by block timestamp (newest first). Optional origin restricts votes to one track; case, spaces, underscores and hyphens are ignored in track names.
         Each row includes origin, block_timestamp, and vote_type (standard, split, split_abstain, or unknown for legacy rows).
         This API only supports networks with referenda frame
       parameters:

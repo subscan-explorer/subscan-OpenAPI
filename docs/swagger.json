@@ -10437,7 +10437,7 @@
         },
         "/api/scan/referenda/votes": {
             "post": {
-                "description": "Returns paginated vote records for an OpenGov referendum or account.\nWhen neither referendum_index nor account is provided, returns the network-wide vote feed ordered by block (newest first). Optional origin restricts votes to one track; case, spaces, underscores and hyphens are ignored in track names.\nEach row includes origin, block_timestamp, and vote_type (standard, split, split_abstain, or unknown for legacy rows).\nThis API only supports networks with referenda frame",
+                "description": "Returns paginated vote records for an OpenGov referendum or account.\nWhen neither referendum_index nor account is provided, returns the network-wide vote feed ordered by block timestamp (newest first). Optional origin restricts votes to one track; case, spaces, underscores and hyphens are ignored in track names.\nEach row includes origin, block_timestamp, and vote_type (standard, split, split_abstain, or unknown for legacy rows).\nThis API only supports networks with referenda frame",
                 "consumes": [
                     "application/json"
                 ],
