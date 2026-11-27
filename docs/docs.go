@@ -5433,7 +5433,7 @@ const docTemplate = `{
                 "tags": [
                     "EVM"
                 ],
-                "summary": "EVM token transfer",
+                "summary": "List EVM token transfers",
                 "parameters": [
                     {
                         "description": "param",
@@ -16434,6 +16434,11 @@ const docTemplate = `{
                 "after_id": {
                     "description": "example:\"[response.id]\"",
                     "type": "integer"
+                },
+                "block_range": {
+                    "description": "BlockRange is an inclusive start-end interval; zero denotes the genesis block.",
+                    "type": "string",
+                    "example": "400000-400001"
                 },
                 "category": {
                     "type": "string",

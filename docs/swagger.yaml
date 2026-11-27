@@ -687,6 +687,11 @@ definitions:
       after_id:
         description: example:"[response.id]"
         type: integer
+      block_range:
+        description: BlockRange is an inclusive start-end interval; zero denotes the
+          genesis block.
+        example: 400000-400001
+        type: string
       category:
         enum:
         - erc20
@@ -14518,7 +14523,7 @@ paths:
                       $ref: '#/definitions/subscan_internal_model.TransferHistoryTotal'
                   type: object
               type: object
-      summary: EVM token transfer
+      summary: List EVM token transfers
       tags:
       - EVM
       x-synonyms:
