@@ -13763,7 +13763,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with EVM pallet(frontier or revive)
+      description: This API only supports networks with EVM pallet(frontier or revive).
       parameters:
       - description: param
         in: body
@@ -14427,7 +14427,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with EVM pallet(frontier or revive)
+      description: This API only supports networks with EVM pallet(frontier or revive).
       parameters:
       - description: param
         in: body
@@ -14463,7 +14463,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with EVM pallet(frontier or revive)
+      description: This API only supports networks with EVM pallet(frontier or revive).
       parameters:
       - description: param
         in: body
@@ -14544,7 +14544,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: This API only supports networks with EVM pallet(frontier or revive)
+      description: This API only supports networks with EVM pallet(frontier or revive).
       parameters:
       - description: param
         in: body

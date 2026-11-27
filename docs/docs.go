@@ -4445,7 +4445,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/account/tokens": {
             "post": {
-                "description": "This API only supports networks with EVM pallet(frontier or revive)",
+                "description": "This API only supports networks with EVM pallet(frontier or revive).",
                 "consumes": [
                     "application/json"
                 ],
@@ -5330,7 +5330,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/token": {
             "post": {
-                "description": "This API only supports networks with EVM pallet(frontier or revive)",
+                "description": "This API only supports networks with EVM pallet(frontier or revive).",
                 "consumes": [
                     "application/json"
                 ],
@@ -5378,7 +5378,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/token/holders": {
             "post": {
-                "description": "This API only supports networks with EVM pallet(frontier or revive)",
+                "description": "This API only supports networks with EVM pallet(frontier or revive).",
                 "consumes": [
                     "application/json"
                 ],
@@ -5496,7 +5496,7 @@ const docTemplate = `{
         },
         "/api/scan/evm/tokens": {
             "post": {
-                "description": "This API only supports networks with EVM pallet(frontier or revive)",
+                "description": "This API only supports networks with EVM pallet(frontier or revive).",
                 "consumes": [
                     "application/json"
                 ],
