@@ -423,7 +423,7 @@ const docTemplate = `{
         },
         "/api/scan/account/reward_slash": {
             "post": {
-                "description": "Returns paginated staking reward and slash records for one account, with optional category and block-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
+                "description": "Returns paginated staking reward and slash records for one account, with optional category and block-range filters. Supported reward sources include staking, parachain-staking, and Mythos CollatorStaking recipient payments. Mythos payments identify the recipient without an inferred source collator or era.",
                 "consumes": [
                     "application/json"
                 ],
@@ -11154,7 +11154,7 @@ const docTemplate = `{
         },
         "/api/scan/staking/total_reward": {
             "post": {
-                "description": "Returns the summed staking rewards for one account, with optional block-range or date-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
+                "description": "Returns the summed staking rewards for one account, with optional block-range or date-range filters. Supported reward sources include staking, parachain-staking, and Mythos CollatorStaking recipient payments.",
                 "consumes": [
                     "application/json"
                 ],

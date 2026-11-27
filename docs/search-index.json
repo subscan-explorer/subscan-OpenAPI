@@ -53,7 +53,7 @@
       "title": "List reward and slash records",
       "url": "/api-36910957",
       "category": "Staking",
-      "description": "Returns paginated staking reward and slash records for one account, with optional category and block-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
+      "description": "Returns paginated staking reward and slash records for one account, with optional category and block-range filters. Supported reward sources include staking, parachain-staking, and Mythos CollatorStaking recipient payments. Mythos payments identify the recipient without an inferred source collator or era.",
       "text": "POST /api/scan/account/reward_slash [\"reward\",\"slash\",\"staking\",\"scan\",\"account\",\"penalty\",\"slashing\",\"wallet\",\"address\",\"user\"] address  after_id  block_range  category  is_stash  page Page number, starting from 0 row Data size per page timeout  code  data  generated_at  message  data count  list account  amount  block_num  block_timestamp  event_id  event_idx  event_index  event_method  extrinsic_hash  extrinsic_idx  extrinsic_index  id  module_id  params  stash "
     },
     {
@@ -1327,7 +1327,7 @@
       "title": "Get staking reward totals",
       "url": "/api-36910963",
       "category": "Staking",
-      "description": "Returns the summed staking rewards for one account, with optional block-range or date-range filters. This API only supports networks with the staking frame or parachain-staking pallet.",
+      "description": "Returns the summed staking rewards for one account, with optional block-range or date-range filters. Supported reward sources include staking, parachain-staking, and Mythos CollatorStaking recipient payments.",
       "text": "POST /api/scan/staking/total_reward [\"staking\",\"reward\",\"sum\",\"scan\",\"total\"] address  block_range  end  start  code  data  generated_at  message  data sum "
     },
     {
