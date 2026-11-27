@@ -1655,7 +1655,7 @@ const docTemplate = `{
         },
         "/api/scan/broker/sale": {
             "post": {
-                "description": "Returns coretime sale information filtered by region begin and sales cycle.",
+                "description": "Returns coretime sale information filtered by region begin and sales cycle.\nsale_index is the nullable on-chain sale identifier. sales_cycle uses it when available and otherwise retains the legacy local cycle.",
                 "consumes": [
                     "application/json"
                 ],
@@ -1709,7 +1709,7 @@ const docTemplate = `{
         },
         "/api/scan/broker/sales": {
             "post": {
-                "description": "Returns paginated historical coretime sale records.",
+                "description": "Returns paginated historical coretime sale records.\nsale_index is the nullable on-chain sale identifier. sales_cycle uses it when available and otherwise retains the legacy local cycle.",
                 "consumes": [
                     "application/json"
                 ],
@@ -18659,6 +18659,9 @@ const docTemplate = `{
                 "sale_end": {
                     "type": "integer"
                 },
+                "sale_index": {
+                    "type": "integer"
+                },
                 "sale_start": {
                     "type": "integer"
                 },
@@ -18685,8 +18688,11 @@ const docTemplate = `{
                 "region_end": {
                     "type": "integer"
                 },
+                "sale_index": {
+                    "type": "integer"
+                },
                 "sales_cycle": {
-                    "description": "-1 为 无效 0为内部计算错误 \u003e 1 为正常",
+                    "description": "Native sale index when known (zero is valid), otherwise the legacy local cycle.",
                     "type": "integer"
                 }
             }

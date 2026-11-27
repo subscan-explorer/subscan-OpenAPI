@@ -186,15 +186,15 @@
       "title": "Get coretime sale information",
       "url": "/api-36910989",
       "category": "Coretime",
-      "description": "Returns coretime sale information filtered by region begin and sales cycle.",
-      "text": "POST /api/scan/broker/sale [\"coretime\",\"sale\",\"information\",\"scan\",\"broker\",\"core lease\",\"compute time\"] begin  sales_cycle  code  data available_core  begin_start  bulk_sold  cores_offered  cores_sold  first_core  ideal_cores_sold  leadin_length  lease_core  price  price_chart_point block  price  realtime_price  region_begin  region_end  renewed_sold  reservation_core  sale_end  sale_start  sales_cycle  sellout_price  start_price  total_core  message "
+      "description": "Returns coretime sale information filtered by region begin and sales cycle.\nsale_index is the nullable on-chain sale identifier. sales_cycle uses it when available and otherwise retains the legacy local cycle.",
+      "text": "POST /api/scan/broker/sale [\"coretime\",\"sale\",\"information\",\"scan\",\"broker\",\"core lease\",\"compute time\"] begin  sales_cycle  code  data available_core  begin_start  bulk_sold  cores_offered  cores_sold  first_core  ideal_cores_sold  leadin_length  lease_core  price  price_chart_point block  price  realtime_price  region_begin  region_end  renewed_sold  reservation_core  sale_end  sale_index  sale_start  sales_cycle  sellout_price  start_price  total_core  message "
     },
     {
       "title": "List coretime sale history",
       "url": "/api-36910990",
       "category": "Coretime",
-      "description": "Returns paginated historical coretime sale records.",
-      "text": "POST /api/scan/broker/sales [\"coretime\",\"sale\",\"history\",\"scan\",\"broker\",\"sales\",\"core lease\",\"compute time\"] page Page number, starting from 0 row Data size per page code  data count  list region_begin  region_end  sales_cycle -1 为 无效 0为内部计算错误 > 1 为正常 message "
+      "description": "Returns paginated historical coretime sale records.\nsale_index is the nullable on-chain sale identifier. sales_cycle uses it when available and otherwise retains the legacy local cycle.",
+      "text": "POST /api/scan/broker/sales [\"coretime\",\"sale\",\"history\",\"scan\",\"broker\",\"sales\",\"core lease\",\"compute time\"] page Page number, starting from 0 row Data size per page code  data count  list region_begin  region_end  sale_index  sales_cycle Native sale index when known (zero is valid), otherwise the legacy local cycle. message "
     },
     {
       "title": "Get coretime workload details",
